@@ -1,0 +1,6 @@
+#rest_extract
+pdfminer.six
+flask
+pyyaml
+genson
+requests

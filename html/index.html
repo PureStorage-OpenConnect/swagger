@@ -1,0 +1,109 @@
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Swagger UI</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro:300,600|Titillium+Web:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./swagger-ui.css" >
+    <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
+    <style>
+      html
+      {
+        box-sizing: border-box;
+        overflow: -moz-scrollbars-vertical;
+        overflow-y: scroll;
+      }
+      *,
+      *:before,
+      *:after
+      {
+        box-sizing: inherit;
+      }
+      body
+      {
+        margin:0;
+        background: #fafafa;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+        <p>1. Download a <a href="https://support.purestorage.com/FlashArray/PurityFA/Purity_FA_REST_API/Reference/REST_API_PDF_Reference_Guides" target="_blank">REST pdf from Pure Support</a>, choose the file i.e. REST_API_1.13.pdf, then wait a bit for it to convert.
+        <form id="uploadform" action=/swagify method=post enctype=multipart/form-data>
+        <p><input type=file name=file id="fileid">
+      </form>
+    </div>
+    <div><p>2. To use "Try it Now" Input your array IP or Hostname i.e. 10.2.4.1 etc.</p>
+      <input id=flasharray type=text size=25 value="change-me" oninput=""/>
+    </div>
+    <div id="swagger-ui"></div>
+
+    <script src="./swagger-ui-bundle.js"> </script>
+    <script src="./swagger-ui-standalone-preset.js"> </script>
+    <script>
+
+    function readCookie(name){
+      var c, C, i;
+        c = document.cookie.split('; ');
+        cookies = {};
+
+        for(i=c.length-1; i>=0; i--){
+           C = c[i].split('=');
+           cookies[C[0]] = C[1];
+        }
+        return cookies[name];
+    }
+
+    function SetCookie(cookieName,cookieValue,nDays) {
+      var today = new Date();
+      var expire = new Date();
+      if (nDays==null || nDays==0) nDays=1;
+      expire.setTime(today.getTime() + 3600000*24*nDays);
+      document.cookie = cookieName+"="+escape(cookieValue)
+                      + ";expires="+expire.toGMTString();
+    }
+    
+    document.getElementById("fileid").onchange = function() {
+        document.getElementById("uploadform").submit();
+    };
+
+    window.onload = function() {
+
+      fa = document.getElementById("flasharray");
+      var cookie_fa = readCookie("flasharray");
+      if (cookie_fa == null) {
+        fa.value = "change-me";
+      }
+      else
+      {
+        fa.value = cookie_fa;
+      }
+      fa.oninput = function() {
+          SetCookie('flasharray',fa.value, 90);
+      };
+
+
+      // Build a system
+      const ui = SwaggerUIBundle({
+        url: "/swagger.yaml",
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        plugins: [
+          SwaggerUIBundle.plugins.DownloadUrl
+        ],
+        layout: "StandaloneLayout"
+      })
+
+      ui.fn.fetch.withCredentials = true
+      window.ui = ui
+    }
+  </script>
+  </body>
+</html>
