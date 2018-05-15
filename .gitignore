@@ -1,6 +1,7 @@
 output.json
 debug.json
 REST_API_1.13.pdf
+REST_API*
 .vscode*
 .DS_Store
 rest_extract/.DS_Store
