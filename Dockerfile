@@ -26,7 +26,6 @@ RUN git clone https://github.com/swagger-api/swagger-ui.git /swagger-ui && \
      rm -rf /swagger-ui
 
 
-
 RUN apk add --no-cache --update build-base && \
     pip install --no-cache-dir pdfminer.six && \
     apk del build-base
@@ -38,7 +37,7 @@ ADD rest_extract /usr/share/pureswagger/
 
 #this should overwrite the index.html provided in the cloned swagger-ui from master.
 
-COPY html/index.html /usr/share/pureswagger/html/
+COPY html/* /usr/share/pureswagger/html/
 COPY docker-run.sh /usr/share/pureswagger/
 
 EXPOSE 5000

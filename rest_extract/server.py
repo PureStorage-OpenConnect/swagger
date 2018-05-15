@@ -19,6 +19,10 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+
+app.url_map.strict_slashes = False
+
+
 @app.route('/')
 def root():
   return send_from_directory(ROOT_DIR,"index.html")
@@ -66,7 +70,7 @@ def proxy_to_fa(*args, **kwargs):
 
     return Response(resp.content, resp.status_code, headers)
 
-@app.route('/<path:file>/')
+@app.route('/<path:file>')
 def get_file(file):
     return send_from_directory(ROOT_DIR,file)
 

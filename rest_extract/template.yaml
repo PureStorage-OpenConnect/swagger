@@ -3,9 +3,8 @@ openapi: 3.0.1
 info:
   title: Pure FlashArray API
   description: |-
-    # Confidential and Proprietary. Subject to NDA and End User Agreement. 
+    ## Confidential and Proprietary. Subject to NDA and End User Agreement. 
     
-
     # Authentication
     Use an API-Token to start a session, that returns an session cookie which expires in 30 minutes by default.
 
@@ -17,7 +16,6 @@ info:
     
     ## Pagenation
     Pagenation/filtering information is not shown here.  However, it is available for some endpoints. Please see the PDF docs.
-
 
     ## Authenticate (uses API Key and returns a cookie)
     Use POST ../auth/session , and put in your API Key.  (to get API Key, you can do POST ../auth/apitoken with your user/pass) \
