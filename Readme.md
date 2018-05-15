@@ -17,28 +17,29 @@ That's it!
 just ctrl^c on the console docker container 
 
 
+
 ## Screenshots
 
 ### Documentation in collapsable easy to read format
-![docs](https://raw.githubusercontent.com/sile16/pureswagger/master/images/docs.png)
+![docs](https://raw.githubusercontent.com/PureStorage-OpenConnect/swagger/master/images/docs.png)
 
 ### See detailed paramater information
-![array_details](https://raw.githubusercontent.com/sile16/pureswagger/master/images/array_details.png)
+![array_details](https://raw.githubusercontent.com/PureStorage-OpenConnect/swagger/master/images/array_details.png)
 
 ### See body param documentation
-![array_details](https://raw.githubusercontent.com/sile16/pureswagger/master/images/body_params.png)
+![array_details](https://raw.githubusercontent.com/PureStorage-OpenConnect/swagger/master/images/body_params.png)
 
 ### Every Endpoint is documented !
-![array_details](https://raw.githubusercontent.com/sile16/pureswagger/master/images/list_of_endpoints.png)
+![array_details](https://raw.githubusercontent.com/PureStorage-OpenConnect/swagger/master/images/list_of_endpoints.png)
 
 ### Actually send API commands to an Array:
-![array_details](https://raw.githubusercontent.com/sile16/pureswagger/master/images/list_api.png)
+![array_details](https://raw.githubusercontent.com/PureStorage-OpenConnect/swagger/master/images/list_api.png)
 
 ### Start a session:
-![array_details](https://raw.githubusercontent.com/sile16/pureswagger/master/images/start_session.png)
+![array_details](https://raw.githubusercontent.com/PureStorage-OpenConnect/swagger/master/images/start_session.png)
 
 ### Get Controller Info:
-![array_details](https://raw.githubusercontent.com/sile16/pureswagger/master/images/get_controllers.png)
+![array_details](https://raw.githubusercontent.com/PureStorage-OpenConnect/swagger/master/images/get_controllers.png)
 
 ## Notes:
 

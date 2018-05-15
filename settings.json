@@ -1,7 +1,7 @@
 {
     "id": "Swagger",
     "filter": "pure flasharray api swagger openapi oas3",
-    "image": "http://code.purestorage.com/images/swagger-header.png",
+    "image": "https://raw.githubusercontent.com/PureStorage-OpenConnect/swagger/master/images/swagger-header.png",
     "featured": 1,
     "priority": 1 
 }
