@@ -4,3 +4,5 @@ REST_API_1.13.pdf
 .vscode*
 .DS_Store
 rest_extract/.DS_Store
+rest_extract/swagger.yaml
+rest_extract/swagger.json
