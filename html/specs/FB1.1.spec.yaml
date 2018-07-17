@@ -19,6 +19,11 @@ info: {description: '## Confidential and Proprietary. Subject to NDA and End Use
     and added by the built in proxy server.
 
 
+    Use "pureadmin create" on the CLI to create an API Token.  Or use "pureadmin list
+    --api-token --expose" to show a token already created.  Note, it will only shows
+    tokens for the logged in user.
+
+
     ## Proxy
 
     This Swagger tool includes a proxy server that forwards API calls to the array.  In

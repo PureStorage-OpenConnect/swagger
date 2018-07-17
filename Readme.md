@@ -1,6 +1,6 @@
-# Pure FA Swagger Generator
+# Pure Swagger
 
-This is a tool that converts the Pure FlashArray API pdf documentation into an interactive Swagger UI.  This lets you browse the API documentation in a convienent format and even execute API calls interactively directly to a FlashArray!
+This is a tool that provides the Pure FlashArray and Flashblade API documentation into the popular interactive Swagger UI.  This lets you browse the API documentation in a convienent format and even execute API calls interactively directly to a FlashArray or FlashBlade!
 
 
 ## Try It: 
@@ -9,13 +9,11 @@ Requires [docker](https://docs.docker.com/install/) to be installed
 > docker run -it --rm -p 80:5000 sile16/pureswagger 
 
 Then open your browser to http://127.0.0.1
-Then load a [FlashArray REST pdf from Pure Support](https://support.purestorage.com/FlashArray/PurityFA/Purity_FA_REST_API/Reference/REST_API_PDF_Reference_Guides)
-
+Then select an API spec and enter your FlashArray or FlashBlade IP
 That's it!
 
 ## To stop run:
 just ctrl^c on the console docker container 
-
 
 
 ## Screenshots
@@ -44,9 +42,5 @@ just ctrl^c on the console docker container
 ## Notes:
 
 In order to send API calls to an array you must 
-1.  Have a FlashArray
-
-
-
-
+1.  Have a FlashArray or FlashBlade
 

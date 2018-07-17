@@ -8,6 +8,8 @@ info:
     ## Authentication
     Use an api-token (header param) to start a session at /api/login, that returns an x-auth-token header which expires in 30 minutes by default. This is
     different than FlashArray, which uses a cookie instead.  The x-auth-token is saved and added by the built in proxy server.
+    
+    Use "pureadmin create" on the CLI to create an API Token.  Or use "pureadmin list --api-token --expose" to show a token already created.  Note, it will only shows tokens for the logged in user.
 
     ## Proxy
     This Swagger tool includes a proxy server that forwards API calls to the array.  In the Swagger UI, you will \

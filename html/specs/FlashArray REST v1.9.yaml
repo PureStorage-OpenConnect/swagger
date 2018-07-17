@@ -1452,17 +1452,16 @@ components:
         ex1: {type: object}
 info: {description: "## Confidential and Proprietary. Subject to NDA and End User\
     \ Agreement.\n\nA light weight API for FlashArray, developed by Pure Storage,\
-    \ Inc. (http://www.purestorage.com/).\n\n## Authentication\nUse an API-Token to\
-    \ start a session, that returns an session cookie which expires in 30 minutes\
-    \ by default.\n\n## Error Codes\nUse HTTP Response codes to determine command\
-    \ results.  Error message json formats are different depending on the endpoint.\n\
-    \n## Best practices\nBest practices for building applications [Best Practices](https://support.purestorage.com/FlashArray/PurityFA/Purity_FA_REST_API/Reference/Pure_Storage_REST_API_Best_Practices).\
+    \ Inc. (http://www.purestorage.com/).\n\n## Authenticate (uses API Key and returns\
+    \ a cookie)\nTo get an API Key, you can do POST /auth/apitoken with your user/pass,\
+    \ then use your API key with POST /auth/session.  The array returns \na session\
+    \ cookie which is handled by the browser automatically.  Session cookies expire\
+    \ by default after 30 minutes.\n\n## Error Codes\nUse HTTP Response codes to determine\
+    \ command results.  Error message json formats are different depending on the\
+    \ endpoint.\n\n## Best practices\nBest practices for building applications [Best\
+    \ Practices](https://support.purestorage.com/FlashArray/PurityFA/Purity_FA_REST_API/Reference/Pure_Storage_REST_API_Best_Practices).\
     \ \n\n## Pagenation\nPagenation/filtering information is not shown here.  However,\
-    \ it is available for some endpoints. Please see [the PDF docs](https://support.purestorage.com/FlashArray/PurityFA/Purity_FA_REST_API/Reference/REST_API_PDF_Reference_Guides).\n\
-    \n## Authenticate (uses API Key and returns a cookie)\nTo get an API Key, you\
-    \ can do POST /auth/apitoken with your user/pass, then use your API key with POST\
-    \ /auth/session  The array returns \na session cookie which is handled by the\
-    \ browser automatically.  Session cookies expire by default after 30 minutes.",
+    \ it is available for some endpoints. Please see [the PDF docs](https://support.purestorage.com/FlashArray/PurityFA/Purity_FA_REST_API/Reference/REST_API_PDF_Reference_Guides).",
   title: Pure FlashArray API, version: '1.9'}
 openapi: 3.0.1
 paths:

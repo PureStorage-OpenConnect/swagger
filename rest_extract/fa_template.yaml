@@ -7,9 +7,10 @@ info:
 
     A light weight API for FlashArray, developed by Pure Storage, Inc. (http://www.purestorage.com/).
     
-    ## Authentication
-    Use an API-Token to start a session, that returns an session cookie which expires in 30 minutes by default.
-    
+    ## Authenticate (uses API Key and returns a cookie)
+    To get an API Key, you can do POST /auth/apitoken with your user/pass, then use your API key with POST /auth/session.  The array returns 
+    a session cookie which is handled by the browser automatically.  Session cookies expire by default after 30 minutes.
+
     ## Error Codes
     Use HTTP Response codes to determine command results.  Error message json formats are different depending on the endpoint.
     
@@ -19,10 +20,7 @@ info:
     ## Pagenation
     Pagenation/filtering information is not shown here.  However, it is available for some endpoints. Please see [the PDF docs](https://support.purestorage.com/FlashArray/PurityFA/Purity_FA_REST_API/Reference/REST_API_PDF_Reference_Guides).
 
-    ## Authenticate (uses API Key and returns a cookie)
-    To get an API Key, you can do POST /auth/apitoken with your user/pass, then use your API key with POST /auth/session  The array returns 
-    a session cookie which is handled by the browser automatically.  Session cookies expire by default after 30 minutes.
-
+    
     
 servers:
 - url: /api
