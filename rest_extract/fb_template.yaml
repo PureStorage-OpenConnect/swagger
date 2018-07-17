@@ -1,13 +1,15 @@
 ---
 info:
   description: |- 
+    ## Confidential and Proprietary. Subject to NDA and End User Agreement.
+    
     A light weight API for FlashBlade, developed by Pure Storage, Inc. (http://www.purestorage.com/).
     
-    # Authentication
+    ## Authentication
     Use an api-token (header param) to start a session at /api/login, that returns an x-auth-token header which expires in 30 minutes by default. This is
     different than FlashArray, which uses a cookie instead.  The x-auth-token is saved and added by the built in proxy server.
 
-    # Proxy
+    ## Proxy
     This Swagger tool includes a proxy server that forwards API calls to the array.  In the Swagger UI, you will \
     see curl API calls to IP 127.0.0.1, that is the proxy server. To see the API call details view the console output.
 

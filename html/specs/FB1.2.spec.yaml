@@ -13,11 +13,14 @@ definitions:
   FileSystem: {$ref: ../models/FB1.2/file-system.yaml}
   FileSystemSnapshot: {$ref: ../models/FB1.1/file-system-snapshot.yaml}
   Hardware: {$ref: ../models/FB1.2/hardware.yaml}
-info: {description: 'A light weight API for FlashBlade, developed by Pure Storage,
-    Inc. (http://www.purestorage.com/).
+info: {description: '## Confidential and Proprietary. Subject to NDA and End User
+    Agreement.
 
 
-    # Authentication
+    A light weight API for FlashBlade, developed by Pure Storage, Inc. (http://www.purestorage.com/).
+
+
+    ## Authentication
 
     Use an api-token (header param) to start a session at /api/login, that returns
     an x-auth-token header which expires in 30 minutes by default. This is
@@ -26,7 +29,7 @@ info: {description: 'A light weight API for FlashBlade, developed by Pure Storag
     and added by the built in proxy server.
 
 
-    # Proxy
+    ## Proxy
 
     This Swagger tool includes a proxy server that forwards API calls to the array.  In
     the Swagger UI, you will \

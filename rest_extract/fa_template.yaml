@@ -3,9 +3,11 @@ openapi: 3.0.1
 info:
   title: Pure FlashArray API
   description: |- 
+    ## Confidential and Proprietary. Subject to NDA and End User Agreement.
+
     A light weight API for FlashArray, developed by Pure Storage, Inc. (http://www.purestorage.com/).
     
-    # Authentication
+    ## Authentication
     Use an API-Token to start a session, that returns an session cookie which expires in 30 minutes by default.
     
     ## Error Codes

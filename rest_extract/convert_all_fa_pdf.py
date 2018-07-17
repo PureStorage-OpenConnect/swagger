@@ -10,6 +10,8 @@ for item in sorted(os.listdir('pdfs/')):
     
     if os.path.exists("../html/rest.pdf"):
         os.remove("../html/rest.pdf")
+    if item == ".DS_Store":
+        continue
     shutil.copy("pdfs/"+item,"../html/rest.pdf")
     rest_extract.main(True)
     os.remove("../html/rest.pdf")

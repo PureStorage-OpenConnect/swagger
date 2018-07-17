@@ -26,6 +26,17 @@
         margin:0;
         background: #fafafa;
       }
+      .button {
+        font: bold 11px Arial;
+        text-decoration: none;
+        background-color: #EEEEEE;
+        color: #333333;
+        padding: 2px 6px 2px 6px;
+        border-top: 1px solid #CCCCCC;
+        border-right: 1px solid #333333;
+        border-bottom: 1px solid #333333;
+        border-left: 1px solid #CCCCCC;
+      } 
     </style>
   </head>
 
@@ -37,10 +48,10 @@
           <div>
             <p>1. Pick a specification file from the right.  Or you can use the auto identify below.</p>
             <p>2. To use "Try it Now" & Auto Identify, Input your array IP or Hostname i.e. 10.2.4.1 etc.</p>
-              FA/FB IP: <input id=flasharray type=text size=30 value="change-me" oninput=""/><br/>
+              FA/FB IP: <input id=flasharray type=text size=30 value="change-me" oninput=""/><a class="button" href="/identify" >Identify Array & load Spec file</a><br/>
               Note: There is an included proxy, so API calls will show an IP of 127.0.0.1, however, the <br/>
-              API call is sent to the IP/host entered. <br/>
-              <a href="/identify" >Auto Identify & load latest specification file (must input IP/Host first)</a>
+              API call is sent to the IP/host entered.\<br/>
+              
          </div>
         </td>
       </tr>

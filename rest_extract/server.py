@@ -197,9 +197,12 @@ def identify(*args, **kwargs):
     
     host = "https://{}/api/".format(request.cookies["flasharray"])
 
-    api_version_response = requests.get(
-        host+"api_version",
-        verify=False)
+    try:
+        api_version_response = requests.get(
+            host+"api_version",
+            verify=False)
+    except:
+        return "Failed to communicate with IP"
 
     if api_version_response.status_code != 200:
         #Error this is probably not FA or FB

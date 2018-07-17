@@ -285,7 +285,8 @@ def main(run_local=False):
                             paths[path][method]['description'] += line
 
                         elif state.startswith("parameters"):
-                            if "Bold" in item['font']:
+                            header_names = ['Parameter','Type','Description']
+                            if "Bold" in item['font'] or line in header_names:
                                 #This is a header, we will ignore these.
                                 continue
 

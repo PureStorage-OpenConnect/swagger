@@ -1298,18 +1298,19 @@ components:
           response: {name: v3.snap2}
       properties:
         ex1: {type: object}
-info: {description: "A light weight API for FlashArray, developed by Pure Storage,\
-    \ Inc. (http://www.purestorage.com/).\n\n# Authentication\nUse an API-Token to\
+info: {description: "## Confidential and Proprietary. Subject to NDA and End User\
+    \ Agreement.\n\nA light weight API for FlashArray, developed by Pure Storage,\
+    \ Inc. (http://www.purestorage.com/).\n\n## Authentication\nUse an API-Token to\
     \ start a session, that returns an session cookie which expires in 30 minutes\
-    \ by default.\n## Error Codes\nUse HTTP Response codes to determine command results.\
-    \  Error message json formats are different depending on the endpoint.\n\n## Best\
-    \ practices\nBest practices for building applications [Best Practices](https://support.purestorage.com/FlashArray/PurityFA/Purity_FA_REST_API/Reference/Pure_Storage_REST_API_Best_Practices).\
+    \ by default.\n\n## Error Codes\nUse HTTP Response codes to determine command\
+    \ results.  Error message json formats are different depending on the endpoint.\n\
+    \n## Best practices\nBest practices for building applications [Best Practices](https://support.purestorage.com/FlashArray/PurityFA/Purity_FA_REST_API/Reference/Pure_Storage_REST_API_Best_Practices).\
     \ \n\n## Pagenation\nPagenation/filtering information is not shown here.  However,\
     \ it is available for some endpoints. Please see [the PDF docs](https://support.purestorage.com/FlashArray/PurityFA/Purity_FA_REST_API/Reference/REST_API_PDF_Reference_Guides).\n\
     \n## Authenticate (uses API Key and returns a cookie)\nTo get an API Key, you\
-    \ can do POST ../auth/apitoken with your user/pass, then use your API key with\
-    \ POST ../auth/session  The array returns \na session cookie which is handled\
-    \ by the browser automatically.  Session cookies expire by default after 30 minutes.",
+    \ can do POST /auth/apitoken with your user/pass, then use your API key with POST\
+    \ /auth/session  The array returns \na session cookie which is handled by the\
+    \ browser automatically.  Session cookies expire by default after 30 minutes.",
   title: Pure FlashArray API, version: '1.14'}
 openapi: 3.0.1
 paths:
@@ -1319,10 +1320,6 @@ paths:
         least one parameter to true.
       operationId: get/1.14/admin
       parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: If set to true, displays a list of users that have REST API access
           and the dates in which the API tokens werecreated.Optional.
         in: query
@@ -1354,7 +1351,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 action: {description: 'When set to refresh, refreshes all user permission
                     cache entries.', type: string}
                 clear: {description: 'When set to true, clears the entire user permission
@@ -1377,10 +1373,6 @@ paths:
         name: user
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: If set to true, displays the public key information for the specified
           user.
         in: query
@@ -1409,7 +1401,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 action: {description: 'When set to refresh, refreshes the user permission
                     cache entries for the specified user.Cache entries are also automatically
                     updated when the user starts a new session.Optional.', type: string}
@@ -1448,10 +1439,6 @@ paths:
         name: user
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -1467,10 +1454,6 @@ paths:
         name: user
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -1490,8 +1473,7 @@ paths:
         content:
           application/json:
             schema:
-              properties:
-                Type: {description: '', type: Description}
+              properties: {}
               type: object
       responses:
         '200':
@@ -1505,11 +1487,7 @@ paths:
       description: Lists email recipients that are designated to receive Purity alert
         messages.
       operationId: get/1.14/alert
-      parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
+      parameters: []
       responses:
         '200':
           content:
@@ -1526,7 +1504,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 action: {description: Set the parameter to "test" to test the ability
                     of the array to send alert messages to all of the designated emailaddresses.
                     Verification of successful test message transmission is done at
@@ -1551,10 +1528,6 @@ paths:
         name: address
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -1570,10 +1543,6 @@ paths:
         name: address
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -1595,8 +1564,7 @@ paths:
         content:
           application/json:
             schema:
-              properties:
-                Type: {description: '', type: Description}
+              properties: {}
               type: object
       responses:
         '200':
@@ -1619,7 +1587,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 action: {description: 'Set the parameter to "test" to test the ability
                     of the array to send alert messages to the specified emailaddress,
                     designated or not. Verification of successful test message transmission
@@ -1639,11 +1606,7 @@ paths:
       description: Lists the apps that are installed on the array, along with the
         attributes of each app.
       operationId: get/1.14/app
-      parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
+      parameters: []
       responses:
         '200':
           content:
@@ -1658,10 +1621,6 @@ paths:
         or capacitydata.
       operationId: get/1.14/array
       parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: If set to monitor, displays the following real-time or historical
           performance data:Latencysan_usec_per_read_op - average time, measured in
           microseconds, required to transfer data from thearray to the initiator.san_usec_per_write_op
@@ -1772,7 +1731,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 banner: {description: Sets a common "message of the day" (MOTD) that
                     is sent to all Purity users. The banner message is displayedin
                     the login pane of the Purity GUI and via SSH after users log in.Optional.,
@@ -1856,10 +1814,6 @@ paths:
       description: Lists connected arrays.
       operationId: get/1.14/array/connection
       parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: Displays (true) outgoing bandwidth throttling information.Optional.
         in: query
         name: throttle
@@ -1880,7 +1834,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 connection_key: {description: The connection_key of the array to be
                     connected., type: string}
                 management_address: {description: The management address of the array
@@ -1910,10 +1863,6 @@ paths:
         name: connection
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -1935,7 +1884,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 default_limit: {description: 'number or string Default maximum bandwidth
                     threshold for outbound traffic. Once exceeded, bandwidth throttling
                     occurs.Enter the size as a number (bytes) or as a string with
@@ -1968,11 +1916,7 @@ paths:
     get:
       description: Displays the status of the console lock.
       operationId: get/1.14/array/console_lock
-      parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
+      parameters: []
       responses:
         '200':
           content:
@@ -1989,7 +1933,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 enabled: {description: Enables (true) or disables (false) the console
                     lock which prevents the root user from logging in through thesystem
                     console.Optional., type: boolean}
@@ -2006,11 +1949,7 @@ paths:
       description: Lists information about the status of the transmission logs for
         the phonehome facility.
       operationId: get/1.14/array/phonehome
-      parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
+      parameters: []
       responses:
         '200':
           content:
@@ -2026,7 +1965,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 action: {description: 'Transmits event logs stored in the array to
                     the Pure Storage Support team via the phonehome channel. Specifythe
                     phonehome log time period as any of the following: send_all, send_today,
@@ -2047,11 +1985,7 @@ paths:
       description: Lists information about the status (enabled or disabled) of a remote
         assist session.
       operationId: get/1.14/array/remoteassist
-      parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
+      parameters: []
       responses:
         '200':
           content:
@@ -2067,7 +2001,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 action: {description: Enables ("connect") or disables ("disconnect")
                     a remote assist session., type: string}
               required: [action]
@@ -2091,7 +2024,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 password: {description: Purity user login password used to generate
                     the REST API token., type: string}
                 username: {description: Purity user login name used to generate the
@@ -2109,11 +2041,7 @@ paths:
     delete:
       description: Deletes (invalidates) the REST session.
       operationId: delete/1.14/auth/session
-      parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
+      parameters: []
       responses:
         '200':
           content:
@@ -2129,7 +2057,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 api_token: {description: REST API token used to create a REST session.,
                   type: string}
               required: [api_token]
@@ -2146,11 +2073,7 @@ paths:
       description: Lists all available certificates.The REST API call returns the
         attributes of all certificates.
       operationId: get/1.14/cert
-      parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
+      parameters: []
       responses:
         '200':
           content:
@@ -2168,10 +2091,6 @@ paths:
         name: certificate
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: Sets the common name of the CSR. The common name must be the
           fully qualified domain name of the currentarray. For example, for https://purearray.example.com,
           the common name must be purearray.example.com or*.example.com for a wildcard
@@ -2227,10 +2146,6 @@ paths:
         name: certificate
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -2250,10 +2165,6 @@ paths:
         name: certificate
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: If set to true, exports the current CA certificate.Optional.
         in: query
         name: ca_certificate
@@ -2289,7 +2200,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 ca_certificate: {description: Used with the certificate parameter
                     to specify the CA certificate to import.Optional., type: string}
                 certificate: {description: Imports a certificate signed by a certificate
@@ -2343,7 +2253,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 ca_certificate: {description: Used with the certificate parameter
                     to specify the CA certificate to import.Optional., type: string}
                 certificate: {description: Imports a certificate signed by a certificate
@@ -2387,10 +2296,6 @@ paths:
         service.
       operationId: get/1.14/directoryservice
       parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: If set to true, returns information about the currently configured
           CA certificate data.Optional.
         in: query
@@ -2416,7 +2321,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 action: {description: 'When set to test, tests the current directory
                     service configuration; verifies that the URIs can be resolved
                     andthat Purity can bind and query the tree using the bind user
@@ -2511,11 +2415,7 @@ paths:
     get:
       description: Lists DNS attributes for the array administrative network.
       operationId: get/1.14/dns
-      parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
+      parameters: []
       responses:
         '200':
           content:
@@ -2532,7 +2432,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 domain: {description: Domain suffix to be appended by the array when
                     performing DNS lookups.Optional., type: string}
                 nameservers:
@@ -2558,11 +2457,7 @@ paths:
     get:
       description: Lists flash modules, NVRAM modules, and their attributes.
       operationId: get/1.14/drive
-      parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
+      parameters: []
       responses:
         '200':
           content:
@@ -2579,10 +2474,6 @@ paths:
         name: drive
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -2596,11 +2487,7 @@ paths:
         about array hardware components that are capable of reporting their status.
         The display is primarily useful for diagnosing hardware-related problems.
       operationId: get/1.14/hardware
-      parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
+      parameters: []
       responses:
         '200':
           content:
@@ -2617,10 +2504,6 @@ paths:
         name: component
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -2643,7 +2526,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 identify: {description: 'Turns the LED light on or off to identify
                     the specified component. Valid for chassis, controllers, flash
                     modulebays, NVRAM module bays, and storage shelves. Set identify
@@ -2664,10 +2546,6 @@ paths:
       description: Lists or monitors all host groups.
       operationId: get/1.14/hgroup
       parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: If set to monitor, displays the following real-time or historical
           performance data:Latencysan_usec_per_read_op - average time, measured in
           microseconds, required to transfer data from thearray to the initiator.san_usec_per_write_op
@@ -2735,10 +2613,6 @@ paths:
         name: hgroup
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -2754,10 +2628,6 @@ paths:
         name: hgroup
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: If set to monitor, displays the following real-time or historical
           performance data:Latencysan_usec_per_read_op - average time, measured in
           microseconds, required to transfer data from thearray to the initiator.san_usec_per_write_op
@@ -2816,7 +2686,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 hostlist:
                   description: List of member hosts.Optional.
                   items: {type: object}
@@ -2843,7 +2712,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 addhostlist:
                   description: Adds a list of hosts to the existing list.Optional.
                   items: {type: object}
@@ -2879,10 +2747,6 @@ paths:
         name: pgroup
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -2908,8 +2772,7 @@ paths:
         content:
           application/json:
             schema:
-              properties:
-                Type: {description: '', type: Description}
+              properties: {}
               type: object
       responses:
         '200':
@@ -2928,10 +2791,6 @@ paths:
         name: hgroup
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -2953,10 +2812,6 @@ paths:
         name: volume
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -2984,7 +2839,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 lun: {description: Assigns the specified LUN to each connection.Optional.,
                   type: integer}
                 use_protocol_endpoint boolean: {description: 'Connects a virtual volume
@@ -3005,10 +2859,6 @@ paths:
       description: Lists all hosts on the array.
       operationId: get/1.14/host
       parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: If set to monitor, displays the following real-time or historical
           performance data:Latencysan_usec_per_read_op - average time, measured in
           microseconds, required to transfer data from thearray to the initiator.san_usec_per_write_op
@@ -3103,10 +2953,6 @@ paths:
         name: host
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -3122,10 +2968,6 @@ paths:
         name: host
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: If set to monitor, displays the following real-time or historical
           performance data:Latencysan_usec_per_read_op - average time, measured in
           microseconds, required to transfer data from thearray to the initiator.san_usec_per_write_op
@@ -3200,7 +3042,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 iqnlist:
                   description: Sets the list of iSCSI qualified names (IQNs) for the
                     new host.Optional.
@@ -3233,7 +3074,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 addiqnlist:
                   description: Adds the list of iSCSI qualified names (IQNs) to the
                     specified host.Optional.
@@ -3299,10 +3139,6 @@ paths:
         name: pgroup
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -3328,8 +3164,7 @@ paths:
         content:
           application/json:
             schema:
-              properties:
-                Type: {description: '', type: Description}
+              properties: {}
               type: object
       responses:
         '200':
@@ -3348,10 +3183,6 @@ paths:
         name: host
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: Restricts (true) the display list to volumes with private connections.Optional.
         in: query
         name: private
@@ -3380,10 +3211,6 @@ paths:
         name: volume
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -3409,7 +3236,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 lun: {description: Assigns the same LUN to each connection. The connection
                     fails for any host for which the specified LUN isalready in use.Optional.,
                   type: integer}
@@ -3431,10 +3257,6 @@ paths:
       description: Lists alert events, audit records, and user login sessions.
       operationId: get/1.14/message
       parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: Lists audit records instead of alerts (default). May not be used
           with login or open.Optional.
         in: query
@@ -3490,7 +3312,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 flagged: {description: 'Flags (true) or unflags (false) a message.
                     If set to true, flags the message with the specified ID. If set
                     tofalse, unflags the message.', type: boolean}
@@ -3508,11 +3329,7 @@ paths:
       description: Lists array administrative network interfaces and their statuses
         (enabled or disabled) and attributes.
       operationId: get/1.14/network
-      parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
+      parameters: []
       responses:
         '200':
           content:
@@ -3534,7 +3351,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 address: {description: 'Sets the IP address to be associated with
                     the specified interface. The IP address must match the subnet
                     prefix.For IPv4, enter the address in CIDR notation ddd.ddd.ddd.ddd/dd.
@@ -3567,10 +3383,6 @@ paths:
         name: network_component
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -3592,7 +3404,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 address: {description: 'Sets the IP address to be associated with
                     the specified Ethernet interface.For IPv4, enter the address in
                     CIDR notation ddd.ddd.ddd.ddd/dd. For example, 10.20.20.210/24.Alternatively,
@@ -3659,10 +3470,6 @@ paths:
         name: vlan_interface
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -3674,11 +3481,7 @@ paths:
     get:
       description: Lists NFS offload targets connected to the array.
       operationId: get/1.14/nfs_offload
-      parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
+      parameters: []
       responses:
         '200':
           content:
@@ -3695,10 +3498,6 @@ paths:
         name: offload_target
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -3720,7 +3519,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 address: {description: 'Sets the Hostname or IP address of the NFS
                     server.For IPv4, enter the address in CIDR notation ddd.ddd.ddd.ddd/dd.
                     For example, 10.20.20.210/24.For IPv6, enter the address and prefix
@@ -3749,11 +3547,7 @@ paths:
     get:
       description: Lists offload targets connected to the array.
       operationId: get/1.14/offload
-      parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
+      parameters: []
       responses:
         '200':
           content:
@@ -3767,10 +3561,6 @@ paths:
         attributes.
       operationId: get/1.14/pgroup
       parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: Displays specified protection groups. Enter multiple protection
           group names in comma-separated format.Protection group names can include
           asterisk (*) wildcard characters to represent zero or more characters.Optional.
@@ -3854,7 +3644,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 apply_retention: {description: Applies the retention schedule settings
                     of the protection group to the snapshot.Optional., type: boolean}
                 replicate: {description: 'Queues this snapshot for replication to
@@ -3893,10 +3682,6 @@ paths:
         name: pgroup
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: If set to true, eradicates the destroyed protection group or
           protection group snapshot. If destroying oreradicating a protection group,
           its protection group snapshots are also destroyed or eradicated. The protectiongroup
@@ -3933,10 +3718,6 @@ paths:
         name: pgroup
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: Displays the details for the specified protection group with
           the specified NFS offload target. Specify the fullprotection group name,
           including the array name. Set on to the name of the NFS offload target.Optional.
@@ -4012,7 +3793,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 hgrouplist:
                   description: List of one or more host groups to be included in the
                     new protection group.Optional.
@@ -4066,7 +3846,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 action: {description: 'If set to recover, recovers a destroyed protection
                     group or snapshot.If recovering a destroyed protection group snapshot
                     that was on an offload target, also include the onparameter.Optional.',
@@ -4180,10 +3959,6 @@ paths:
         for pods.
       operationId: get/1.14/pod
       parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: If set to monitor, displays the following real-time or historical
           performance data:Latencysan_usec_per_read_op - average time, measured in
           microseconds, required to transfer data from thearray to the initiator.san_usec_per_write_op
@@ -4260,10 +4035,6 @@ paths:
         name: pod
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: If set to true, eradicates the destroyed pod. The pod must be
           destroyed before it can be eradicated. Onceeradication has begun, the pod
           can no longer be recovered.The destroyed pod undergoes a 24-hour eradication
@@ -4288,10 +4059,6 @@ paths:
         name: pod
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: If set to monitor, displays the following real-time or historical
           performance data:Latencysan_usec_per_read_op - average time, measured in
           microseconds, required to transfer data from thearray to the initiator.san_usec_per_write_op
@@ -4366,7 +4133,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 source: {description: Source pod used to create the new pod.Optional.,
                   type: string}
               type: object
@@ -4390,7 +4156,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 action: {description: 'If set to recover, recovers a destroyed pod.Optional.',
                   type: string}
                 name: {description: Renames a pod.Optional., type: string}
@@ -4415,10 +4180,6 @@ paths:
         name: array
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -4442,8 +4203,7 @@ paths:
         content:
           application/json:
             schema:
-              properties:
-                Type: {description: '', type: Description}
+              properties: {}
               type: object
       responses:
         '200':
@@ -4457,10 +4217,6 @@ paths:
       description: Lists array ports and the worldwide names assigned to each port.
       operationId: get/1.14/port
       parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: Displays host worldwide names (both those discovered by Purity
           and those assigned by administrators) and thearray ports (targets) on which
           they are eligible to communicate.Optional.
@@ -4480,10 +4236,6 @@ paths:
         attributes.
       operationId: get/1.14/snmp
       parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: SNMP v3 only. If set to true, displays the SNMP v3 engine ID
           generated by Purity for the array.Optional.
         in: query
@@ -4506,10 +4258,6 @@ paths:
         name: manager
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -4526,10 +4274,6 @@ paths:
         name: manager
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -4553,7 +4297,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 auth_passphrase: {description: 'SNMP v3 only. Passphrase used by Purity
                     to authenticate the array with the specified managers. The valuemust
                     be between 1 and 32 characters in length and from the set {[A-Z],
@@ -4620,7 +4363,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 action: {description: Set the parameter to "test" to send a test trap
                     to the specified SNMP manager.Optional., type: string}
                 auth_passphrase: {description: 'SNMP v3 only. Passphrase used by Purity
@@ -4683,11 +4425,7 @@ paths:
     get:
       description: Lists subnets and their statuses (enabled or disabled) and attributes.
       operationId: get/1.14/subnet
-      parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
+      parameters: []
       responses:
         '200':
           content:
@@ -4704,10 +4442,6 @@ paths:
         name: subnet
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -4723,10 +4457,6 @@ paths:
         name: subnet
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -4748,7 +4478,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 gateway: {description: 'Sets the IP address of the gateway through
                     which the specified subnet is to communicate with the network.
                     ForIPv4, specify the gateway IP address in the form ddd.ddd.ddd.ddd.
@@ -4789,7 +4518,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 enabled: {description: Enables or disables a subnet.Optional. Cannot
                     be used with any other parameters., type: boolean}
                 gateway: {description: 'Sets the IP address of the gateway through
@@ -4825,10 +4553,6 @@ paths:
       description: Lists volume groups and their volumes.
       operationId: get/1.14/vgroup
       parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: If set to monitor, displays the following real-time or historical
           performance data:Latencysan_usec_per_read_op - average time, measured in
           microseconds, required to transfer data from thearray to the initiator.san_usec_per_write_op
@@ -4903,10 +4627,6 @@ paths:
         name: vgroup
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: If set to true, eradicates the destroyed volume group. The volume
           group must be destroyed before it can beeradicated. Once eradication has
           begun, the volume group can no longer be recovered.If set to false (or if
@@ -4932,10 +4652,6 @@ paths:
         name: vgroup
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: If set to monitor, displays the following real-time or historical
           performance data:Latencysan_usec_per_read_op - average time, measured in
           microseconds, required to transfer data from thearray to the initiator.san_usec_per_write_op
@@ -5008,8 +4724,7 @@ paths:
         content:
           application/json:
             schema:
-              properties:
-                Type: {description: '', type: Description}
+              properties: {}
               type: object
       responses:
         '200':
@@ -5033,7 +4748,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 action: {description: 'If set to recover, recovers the destroyed volume
                     group.Optional.', type: string}
                 name: {description: Renames the volume group.Optional., type: string}
@@ -5051,10 +4765,6 @@ paths:
         displayed in Greenwich Mean Time (GMT) and size is displayed in bytes.
       operationId: get/1.14/volume
       parameters:
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: If set to monitor, displays the following real-time or historical
           performance data:Latencysan_usec_per_read_op - average time, measured in
           microseconds, required to transfer data from thearray to the initiator.san_usec_per_write_op
@@ -5183,7 +4893,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 'on': {description: Restores a volume snapshot from an offload target.
                     Set on to the name of the NFS offload target from wherethe snapshot
                     is begin restored. Must be used with the snap and source parameters.Optional.,
@@ -5219,10 +4928,6 @@ paths:
         name: volume
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: If set to true, eradicates the destroyed volume or snapshot.
           The volume or snapshot must be destroyed beforeit can be eradicated. Once
           eradication has begun, the volume or snapshot can no longer be recovered.If
@@ -5252,10 +4957,6 @@ paths:
         name: volume
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: If set to monitor, displays the following real-time or historical
           performance data:Latencysan_usec_per_read_op - average time, measured in
           microseconds, required to transfer data from thearray to the initiator.san_usec_per_write_op
@@ -5368,7 +5069,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 bandwidth_limit: {description: 'number or string When used with size,
                     creates a volume with the specified QoS bandwidth limit. Whenever
                     throughput exceedsthe bandwidth limit, throttling occurs. If the
@@ -5425,7 +5125,6 @@ paths:
           application/json:
             schema:
               properties:
-                Type: {description: '', type: Description}
                 action: {description: 'If set to recover, recovers the contents of
                     the specified volume or volume snapshot.Optional.', type: string}
                 bandwidth_limit: {description: 'number or string Changes the QoS bandwidth
@@ -5481,10 +5180,6 @@ paths:
         name: volume
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       - description: Snapshot name to be used as the base for the diff. If a base
           snapshot is not specified, all mapped blocks forthe volume are returned.Optional.
         in: query
@@ -5521,10 +5216,6 @@ paths:
         name: volume
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -5541,10 +5232,6 @@ paths:
         name: volume
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -5565,10 +5252,6 @@ paths:
         name: pgroup
         required: true
         schema: {type: string}
-      - description: ''
-        in: query
-        name: Type
-        schema: {type: Description}
       responses:
         '200':
           content:
@@ -5594,8 +5277,7 @@ paths:
         content:
           application/json:
             schema:
-              properties:
-                Type: {description: '', type: Description}
+              properties: {}
               type: object
       responses:
         '200':
