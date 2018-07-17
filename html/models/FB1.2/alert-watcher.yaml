@@ -1,0 +1,8 @@
+allOf:
+- $ref: ../../models/FB1.0/_built-in.yaml
+- type: object
+  properties:
+    enabled:
+      type: boolean
+      description: is email notification enabled?
+      default: true

@@ -1,0 +1,41 @@
+---
+openapi: 3.0.1
+info:
+  title: Pure FlashArray API
+  description: |- 
+    A light weight API for FlashArray, developed by Pure Storage, Inc. (http://www.purestorage.com/).
+    
+    # Authentication
+    Use an API-Token to start a session, that returns an session cookie which expires in 30 minutes by default.
+    
+    ## Error Codes
+    Use HTTP Response codes to determine command results.  Error message json formats are different depending on the endpoint.
+    
+    ## Best practices
+    Best practices for building applications [Best Practices](https://support.purestorage.com/FlashArray/PurityFA/Purity_FA_REST_API/Reference/Pure_Storage_REST_API_Best_Practices). 
+    
+    ## Pagenation
+    Pagenation/filtering information is not shown here.  However, it is available for some endpoints. Please see [the PDF docs](https://support.purestorage.com/FlashArray/PurityFA/Purity_FA_REST_API/Reference/REST_API_PDF_Reference_Guides).
+
+    ## Authenticate (uses API Key and returns a cookie)
+    To get an API Key, you can do POST /auth/apitoken with your user/pass, then use your API key with POST /auth/session  The array returns 
+    a session cookie which is handled by the browser automatically.  Session cookies expire by default after 30 minutes.
+
+    
+servers:
+- url: /api
+  description: Local host, PureSwagger Proxy, set array IP at top of page.  API calls are proxied to array.
+paths:
+  /api_version:
+    get:
+      description: Lists supported API versions on this array.
+      responses:
+        200:
+          description: "List supported API versions"
+      tags: [API]
+tags:
+- {description: List APIs, name: API}
+components: 
+  schemas: {}
+  
+  

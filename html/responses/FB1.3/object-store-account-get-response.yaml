@@ -1,0 +1,11 @@
+allOf:
+- $ref: ../../responses/FB1.0/page-info.yaml
+- $ref: ../../responses/FB1.3/object-store-account-response.yaml
+- properties:
+    total:
+      description: >-
+        If total_only query param is true, then it will be a total of
+        all records after filtering and no items will be returned.
+        If total_only is false, then it will be a total of all records
+        on this page.
+      $ref: ../../models/FB1.3/object-store-account.yaml

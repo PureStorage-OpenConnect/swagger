@@ -1,9 +1,11 @@
 output.json
 debug.json
-REST_API_1.13.pdf
 REST_API*
+*.pdf
+pdf*
+pdf/
 .vscode*
 .DS_Store
-rest_extract/.DS_Store
-rest_extract/swagger.yaml
-rest_extract/swagger.json
+rest_extract/pdfs*
+*.pyc
+__pycache__

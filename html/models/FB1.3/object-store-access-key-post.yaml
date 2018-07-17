@@ -1,0 +1,5 @@
+type: object
+properties:
+  user:
+    $ref: ../../models/FB1.0/_resource.yaml
+    description: reference of the associated user

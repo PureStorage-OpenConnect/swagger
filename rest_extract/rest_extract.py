@@ -16,9 +16,6 @@ from genson import SchemaBuilder
 baseDir = "/usr/share/pureswagger/"
 webRoot = baseDir + "html/"
 
-##uncomment below to run in CWD instead of hardcoded docker container directories.
-#webRoot = ""
-#baseDir = ""
 
 class PdfMinerWrapper(object):
     """
@@ -80,7 +77,14 @@ def format_examples(examples):
 
 
             
-def main():
+def main(run_local=False):
+    global webRoot,baseDir
+
+
+    if run_local:
+        webRoot = "../html/"
+        baseDir = ""
+
     with PdfMinerWrapper(webRoot+"rest.pdf") as doc:
         
         resource_found = False
@@ -110,14 +114,13 @@ def main():
         path_id=""
         version=""
         example=None
-        start_page=1
         total_pages=120
 
         print("Parsing Rest API...")
         for page in doc:     
             #print 'Page no.', page.pageid, 'Size',  (page.height, page.width)
-            if resource_found:
-                print("{:.0f} Percent Complete".format((page.pageid-start_page)/total_pages*100),end='\r')
+            
+            
        
                 
 
@@ -147,19 +150,31 @@ def main():
                         )
 
             sorted_items = pdf_sort(items)
+            
+            print("{:.0f} Percent Complete".format((page.pageid)/total_pages*100),end='\r')
+            #a=0
+            #if page.pageid == 13:
+            #    a=1
+
 
             for row in sorted_items:
                 for item in row['items']:
+                    ###debugin the pdf contents umcomment to print each line
+                    #print("{} {}".format(item['text'],item['font']))
+                    #continue
+                    ##end debug
 
 
                     #### First Pass at changing state + initialization @ state change
+
 
                     line = item['text']
                     if page.pageid == 1 and version == "":
                         version = "/" + line.split(" ")[2] + "/"
                     
-                    if line.startswith("Resources") and item['font'] == "Arial,Bold" :
-                        start_page = page.pageid
+
+                    
+                    if line.startswith("1. Authentication"):
                         resource_found = True
                     
                     
@@ -424,14 +439,12 @@ def main():
         #apply_fixes(paths)
         print("Finished parsing API...")
         
-
-        open_oas["info"]["version"] = version
+        stripped_version = version.split("/")[1]
+        open_oas["info"]["version"] = stripped_version
         open_oas['paths'] = paths
         open_oas['tags'] = tags 
         #print(json.dumps(open_oas,indent=3))
-        with open(webRoot+'swagger.json','w') as outfile:
-            json.dump(open_oas,outfile)
-        with open(webRoot+"swagger.yaml","w") as outfile:
+        with open(webRoot+"specs/FlashArray REST v"+stripped_version+".yaml","w+") as outfile:
             yaml.dump(open_oas,outfile)
         return open_oas
 
@@ -440,7 +453,7 @@ def add_security(paths):
     paths['/auth/session']['post']['responses']['200']['headers']={"Set-Cookie":{"schema":{"type":"string","example":"session=jlkdflaslfa8oijo;iifn4oainion"}}}
 
 def get_open_api_header():
-    with open(baseDir+"template.yaml") as f:
+    with open(baseDir+"fa_template.yaml") as f:
         return yaml.safe_load(f)
 
 def getType(t):

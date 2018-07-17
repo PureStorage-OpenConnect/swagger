@@ -1,0 +1,9 @@
+type: object
+properties:
+  acl_mode:
+    type: string
+    description: shared or native. Defaults to shared
+  enabled:
+    type: boolean
+    description: is the protocol enabled?
+    default: false

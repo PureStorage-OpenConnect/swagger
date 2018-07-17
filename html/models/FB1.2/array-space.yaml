@@ -1,0 +1,16 @@
+type: object
+properties:
+  capacity:
+    type: integer
+    format: int64
+    example: 10995116277760
+    description: usable capacity in bytes
+  parity:
+    type: number
+    format: float
+    example: 0.99
+  space:
+    $ref: ../FB1.0/_space.yaml
+  time:
+    type: integer
+    format: int64

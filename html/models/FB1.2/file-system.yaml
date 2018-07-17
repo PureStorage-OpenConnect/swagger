@@ -1,0 +1,6 @@
+allOf:
+- $ref: ../../models/FB1.1/file-system.yaml
+- properties:
+    smb:
+      $ref: ../../models/FB1.2/_smb.yaml
+      description: SMB configuration. Modifiable.

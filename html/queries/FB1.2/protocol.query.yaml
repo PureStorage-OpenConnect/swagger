@@ -1,0 +1,10 @@
+name: protocol
+in: query
+description: >-
+  Display the performance of a specified protocol: HTTP, SMB, NFS, or S3.
+type: string
+enum:
+- 'HTTP'
+- 'NFS'
+- 'SMB'
+- 'S3'

@@ -1,0 +1,6 @@
+name: expose
+in: query
+description: >-
+  Whether to expose sensitive personal account information in the response
+type: boolean
+default: false

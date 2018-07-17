@@ -1,0 +1,13 @@
+allOf:
+- $ref: ../../models/FB1.0/file-system.yaml
+- properties:
+    destroyed:
+      type: boolean
+      description: is the file system destroyed? False by default. Modifiable.
+    time_remaining:
+      type: integer
+      format: int64
+      description: >-
+        time in milliseconds before the file system is eradicated.
+        Null if not destroyed.
+      readOnly: true

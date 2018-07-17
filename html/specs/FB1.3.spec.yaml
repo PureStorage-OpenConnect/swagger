@@ -1,0 +1,129 @@
+basePath: /api
+consumes: [application/json]
+definitions:
+  Admin: {$ref: ../models/FB1.2/admin.yaml}
+  Alert: {$ref: ../models/FB1.2/alert.yaml}
+  AlertWatcher: {$ref: ../models/FB1.2/alert-watcher.yaml}
+  AlertWatcherTest: {$ref: ../models/FB1.2/alert-watcher-test.yaml}
+  Array: {$ref: ../models/FB1.3/array.yaml}
+  ArrayPerformance: {$ref: ../models/FB1.3/array-performance.yaml}
+  ArraySpace: {$ref: ../models/FB1.2/array-space.yaml}
+  Blade: {$ref: ../models/FB1.2/blade.yaml}
+  Bucket: {$ref: ../models/FB1.3/bucket.yaml}
+  Certificate: {$ref: ../models/FB1.2/certificate.yaml}
+  DNS: {$ref: ../models/FB1.2/dns.yaml}
+  DirectoryService: {$ref: ../models/FB1.3/directory-service.yaml}
+  FileSystem: {$ref: ../models/FB1.2/file-system.yaml}
+  FileSystemSnapshot: {$ref: ../models/FB1.1/file-system-snapshot.yaml}
+  Hardware: {$ref: ../models/FB1.3/hardware.yaml}
+  HardwareConnector: {$ref: ../models/FB1.3/hardware-connector.yaml}
+  LinkAggregationGroup: {$ref: ../models/FB1.3/link-aggregation-group.yaml}
+  NetworkInterface: {$ref: ../models/FB1.3/network-interface.yaml}
+  ObjectStoreAccessKey: {$ref: ../models/FB1.3/object-store-access-key.yaml}
+  ObjectStoreAccount: {$ref: ../models/FB1.3/object-store-account.yaml}
+  ObjectStoreUser: {$ref: ../models/FB1.3/object-store-user.yaml}
+  SMTP: {$ref: ../models/FB1.3/smtp.yaml}
+  Subnet: {$ref: ../models/FB1.3/subnet.yaml}
+  TestResult: {$ref: ../models/FB1.3/test-result.yaml}
+info: {description: 'A light weight API for FlashBlade, developed by Pure Storage,
+    Inc. (http://www.purestorage.com/).
+
+
+    # Authentication
+
+    Use an api-token (header param) to start a session at /api/login, that returns
+    an x-auth-token header which expires in 30 minutes by default. This is
+
+    different than FlashArray, which uses a cookie instead.  The x-auth-token is saved
+    and added by the built in proxy server.
+
+
+    # Proxy
+
+    This Swagger tool includes a proxy server that forwards API calls to the array.  In
+    the Swagger UI, you will \
+
+    see curl API calls to IP 127.0.0.1, that is the proxy server. To see the API call
+    details view the console output.
+
+
+    ## Error Codes
+
+    Use HTTP Response codes to determine command results.  Error message json formats
+    are different depending on the endpoint.', title: FlashBlade REST API Client,
+  version: 1.3}
+paths:
+  /1.3/admins: {$ref: ../paths/FB1.2/admins.path.yaml}
+  /1.3/alert-watchers: {$ref: ../paths/FB1.2/alert-watchers.path.yaml}
+  /1.3/alert-watchers/test: {$ref: ../paths/FB1.2/alert-watchers-test.path.yaml}
+  /1.3/alerts: {$ref: ../paths/FB1.2/alerts.path.yaml}
+  /1.3/arrays: {$ref: ../paths/FB1.3/arrays.path.yaml}
+  /1.3/arrays/http-specific-performance: {$ref: ../paths/FB1.2/arrays-http-specific-performance.path.yaml}
+  /1.3/arrays/performance: {$ref: ../paths/FB1.3/arrays-performance.path.yaml}
+  /1.3/arrays/s3-specific-performance: {$ref: ../paths/FB1.2/arrays-s3-specific-performance.path.yaml}
+  /1.3/arrays/space: {$ref: ../paths/FB1.2/arrays-space.path.yaml}
+  /1.3/blades: {$ref: ../paths/FB1.2/blades.path.yaml}
+  /1.3/buckets: {$ref: ../paths/FB1.3/buckets.path.yaml}
+  /1.3/certificates: {$ref: ../paths/FB1.2/certificates.path.yaml}
+  /1.3/directory-services: {$ref: ../paths/FB1.3/directory-services.path.yaml}
+  /1.3/directory-services/test: {$ref: ../paths/FB1.3/directory-service-test.path.yaml}
+  /1.3/dns: {$ref: ../paths/FB1.2/dns.path.yaml}
+  /1.3/file-system-snapshots: {$ref: ../paths/FB1.1/file-system-snapshots.path.yaml}
+  /1.3/file-systems: {$ref: ../paths/FB1.2/file-systems.path.yaml}
+  /1.3/hardware: {$ref: ../paths/FB1.3/hardware.path.yaml}
+  /1.3/hardware-connectors: {$ref: ../paths/FB1.3/hardware-connectors.path.yaml}
+  /1.3/link-aggregation-groups: {$ref: ../paths/FB1.3/link-aggregation-groups.path.yaml}
+  /1.3/network-interfaces: {$ref: ../paths/FB1.3/network-interfaces.path.yaml}
+  /1.3/object-store-access-keys: {$ref: ../paths/FB1.3/object-store-access-keys.path.yaml}
+  /1.3/object-store-accounts: {$ref: ../paths/FB1.3/object-store-accounts.path.yaml}
+  /1.3/object-store-users: {$ref: ../paths/FB1.3/object-store-users.path.yaml}
+  /1.3/smtp: {$ref: ../paths/FB1.3/smtp.path.yaml}
+  /1.3/subnets: {$ref: ../paths/FB1.3/subnets.path.yaml}
+  /api_version:
+    get:
+      description: Lists supported API versions on this array.
+      responses:
+        200: {description: List supported API versions}
+      tags: [api]
+  /login:
+    post:
+      description: Create a new session with API_KEY
+      parameters:
+      - {in: header, name: api-token, required: true, type: string}
+      responses:
+        200:
+          description: User logged in
+          headers:
+            x-auth-token: {description: 'authentication token, pass this back for
+                future API Calls.', type: string}
+          schema:
+            example: {username: pureuser}
+            properties:
+              username: {description: The user name logged in., type: string}
+            type: object
+      tags: [auth]
+produces: [application/json]
+swagger: '2.0'
+tags:
+- {name: api}
+- {name: auth}
+- {name: admins}
+- {name: alerts}
+- {name: alert-watchers}
+- {name: arrays}
+- {name: blades}
+- {name: buckets}
+- {name: certificates}
+- {name: directory-services}
+- {name: dns}
+- {name: file-systems}
+- {name: file-system-snapshots}
+- {name: hardware}
+- {name: hardware-connectors}
+- {name: link-aggregation-groups}
+- {name: network-interfaces}
+- {name: object-store-access-keys}
+- {name: object-store-accounts}
+- {name: object-store-users}
+- {name: smtp}
+- {name: subnets}

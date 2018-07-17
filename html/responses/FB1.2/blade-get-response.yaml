@@ -1,0 +1,8 @@
+allOf:
+- $ref: ../../responses/FB1.0/page-info.yaml
+- properties:
+    items:
+      type: array
+      items:
+        $ref: ../../models/FB1.2/blade.yaml
+      description: a list of blade objects

@@ -1,0 +1,7 @@
+type: object
+properties:
+  items:
+    type: array
+    items:
+      $ref: ../../models/FB1.3/object-store-access-key.yaml
+    description: a list of object store access key objects

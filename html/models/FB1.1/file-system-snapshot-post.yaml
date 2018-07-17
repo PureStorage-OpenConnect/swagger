@@ -1,0 +1,5 @@
+type: object
+properties:
+  suffix:
+    type: string
+    description: the suffix of the snapshot, e.g., snap1

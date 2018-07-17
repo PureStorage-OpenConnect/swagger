@@ -1,0 +1,19 @@
+allOf:
+- $ref: ../../models/FB1.0/file-system-snapshot.yaml
+- properties:
+    destroyed:
+      type: boolean
+      description: >-
+        is the file system snapshot destroyed?
+        False by default.
+    source_destroyed:
+      type: boolean
+      description: is the source file system destroyed?
+      readOnly: true
+    time_remaining:
+      type: integer
+      format: int64
+      description: >-
+        time in milliseconds before the file system snapshot is eradicated.
+        Null if not destroyed.
+      readOnly: true

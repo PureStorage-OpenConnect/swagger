@@ -36,9 +36,9 @@ ADD rest_extract /usr/share/pureswagger/
 
 
 #this should overwrite the index.html provided in the cloned swagger-ui from master.
-
-COPY html/* /usr/share/pureswagger/html/
+COPY html/ /usr/share/pureswagger/html/  
 COPY docker-run.sh /usr/share/pureswagger/
+RUN rm -f /usr/share/pureswagger/html/.DS_Store
 
 EXPOSE 5000
 

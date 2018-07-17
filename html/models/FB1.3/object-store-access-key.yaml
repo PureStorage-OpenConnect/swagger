@@ -1,0 +1,21 @@
+allOf:
+- $ref: ../../models/FB1.0/_built-in.yaml
+- type: object
+  properties:
+    created:
+      type: integer
+      readOnly: true
+      format: int64
+      description: creation timestamp of the object
+    enabled:
+      type: boolean
+      description: is the access key enabled?
+      default: true
+    secret_access_key:
+      type: string
+      description: the secret access key, only populated on creation
+      readOnly: true
+    user:
+      $ref: ../../models/FB1.3/_fixed-reference.yaml
+      description: reference of the associated user
+      readOnly: true

@@ -1,0 +1,12 @@
+allOf:
+- $ref: ../../models/FB1.0/_built-in.yaml
+- type: object
+  properties:
+    created:
+      type: integer
+      readOnly: true
+      format: int64
+      description: creation timestamp of the object
+    space:
+      $ref: ../FB1.0/_space.yaml
+      readOnly: true

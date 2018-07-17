@@ -1,0 +1,35 @@
+get:
+  parameters:
+  - $ref: ../../queries/FB1.0/filter.query.yaml
+  - $ref: ../../queries/FB1.0/limit.query.yaml
+  - $ref: ../../queries/FB1.0/names_or_sources.query.yaml
+  - $ref: ../../queries/FB1.0/sort.query.yaml
+  - $ref: ../../queries/FB1.0/start.query.yaml
+  - $ref: ../../queries/FB1.0/token.query.yaml
+  - $ref: ../../queries/FB1.0/total_only.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.0/file-system-snapshot-get-response.yaml
+
+  tags:
+  - file-system-snapshots
+
+post:
+  parameters:
+  - name: file-system-snapshot
+    in: body
+    schema:
+      $ref: ../../models/FB1.0/file-system-snapshot.yaml
+  - $ref: ../../queries/FB1.0/sources.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.0/file-system-snapshot-response.yaml
+
+  tags:
+  - file-system-snapshots

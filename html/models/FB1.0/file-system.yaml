@@ -1,0 +1,33 @@
+allOf:
+- $ref: ../../models/FB1.0/_built-in.yaml
+- properties:
+    created:
+      type: integer
+      readOnly: true
+      format: int64
+      description: creation timestamp of the object
+    fast_remove_directory_enabled:
+      type: boolean
+      description: >-
+        Is fast remove directory enabled? Modifiable. Default is false.
+    http:
+      $ref: ../../models/FB1.0/_http.yaml
+      description: HTTP configuration. Modifiable.
+    nfs:
+      $ref: ../../models/FB1.0/_nfs.yaml
+      description: NFS configuration. Modifiable.
+    provisioned:
+      type: integer
+      format: int64
+      description: >-
+        The provisioned size of the file system in bytes. Modifiable.
+        Default is 0, meaning unlimited.
+    smb:
+      $ref: ../../models/FB1.0/_smb.yaml
+      description: SMB configuration. Modifiable.
+    snapshot_directory_enabled:
+      type: boolean
+      description: is snapshot directory enabled? Modifiable. Default is false
+    space:
+      $ref: ../../models/FB1.0/_space.yaml
+      description: the space specification of the file system

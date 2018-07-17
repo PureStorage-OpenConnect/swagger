@@ -1,0 +1,15 @@
+get:
+  parameters:
+  - $ref: ../../queries/FB1.2/end_time.query.yaml
+  - $ref: ../../queries/FB1.2/protocol.query.yaml
+  - $ref: ../../queries/FB1.2/resolution.query.yaml
+  - $ref: ../../queries/FB1.2/start_time.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.2/array-performance-get-response.yaml
+
+  tags:
+  - arrays

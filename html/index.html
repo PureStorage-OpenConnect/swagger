@@ -32,21 +32,16 @@
   <body>
   <table>
       <tr>
-        <td rowspan=2><img src="purelogo.png"/></td>
+        <td ><img src="purelogo.png"/></td>
         <td>
           <div>
-            <p>1. Download a <a href="https://support.purestorage.com/FlashArray/PurityFA/Purity_FA_REST_API/Reference/REST_API_PDF_Reference_Guides" target="_blank">REST pdf from Pure Support</a>, choose the file i.e. REST_API_1.13.pdf, then wait a bit for it to convert.
-            <form id="uploadform" action=/swagify method=post enctype=multipart/form-data>
-            <p><input type=file name=file id="fileid"/></p>
-            </form>
+            <p>1. Pick a specification file from the right.  Or you can use the auto identify below.</p>
+            <p>2. To use "Try it Now" & Auto Identify, Input your array IP or Hostname i.e. 10.2.4.1 etc.</p>
+              FA/FB IP: <input id=flasharray type=text size=30 value="change-me" oninput=""/><br/>
+              Note: There is an included proxy, so API calls will show an IP of 127.0.0.1, however, the <br/>
+              API call is sent to the IP/host entered. <br/>
+              <a href="/identify" >Auto Identify & load latest specification file (must input IP/Host first)</a>
          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-            <div><p>2. To use "Try it Now" Input your array IP or Hostname i.e. 10.2.4.1 etc.</p>
-              FlashArray IP: <input id=flasharray type=text size=30 value="change-me" oninput=""/>
-            </div>
         </td>
       </tr>
     </table>
@@ -76,10 +71,18 @@
       document.cookie = cookieName+"="+escape(cookieValue)
                       + ";expires="+expire.toGMTString();
     }
+
     
-    document.getElementById("fileid").onchange = function() {
-        document.getElementById("uploadform").submit();
-    };
+
+    function GetJSON(yourUrl){
+        var Httpreq = new XMLHttpRequest(); // a new request
+        Httpreq.open("GET",yourUrl,false);
+        Httpreq.send(null);
+        return JSON.parse(Httpreq.responseText);          
+    }
+
+
+
 
     window.onload = function() {
 
@@ -96,10 +99,11 @@
           SetCookie('flasharray',fa.value, 90);
       };
 
+      var urls = GetJSON("/specs");
 
       // Build a system
       const ui = SwaggerUIBundle({
-        url: "/swagger.yaml",
+        urls: urls,
         dom_id: '#swagger-ui',
         deepLinking: true,
         presets: [

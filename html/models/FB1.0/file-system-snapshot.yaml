@@ -1,0 +1,16 @@
+allOf:
+- $ref: ../../models/FB1.0/_built-in.yaml
+- properties:
+    created:
+      type: integer
+      readOnly: true
+      format: int64
+      description: creation timestamp of the object
+    source:
+      type: string
+      readOnly: true
+      description: the name of the source file system
+    suffix:
+      type: string
+      readOnly: true
+      description: the suffix of the snapshot, e.g., snap1

@@ -1,0 +1,44 @@
+type: object
+properties:
+  component_address:
+    description: Address of the component runinng the test
+    type: string
+    example: "10.230.94.21"
+  component_name:
+    description: Name of the component runing the test
+    type: string
+    example: "CT0"
+  description:
+    description: What the test is doing
+    type: string
+    example: "Testing phonehome connectivity"
+  destination:
+    description: The URI of the target server being tested
+    type: string
+    example: "ra.cloud-support.purestorage.com"
+  enabled:
+    description: Is the service enabled or not
+    type: boolean
+    example: true
+  resource:
+    description: A reference to the object being tested
+    $ref: ../../models/FB1.X/_fixed-reference.yaml
+  result_details:
+    description: Reason of test failure, if any
+    type: string
+    example: "Timeout connecting to phonehome endpoint"
+  success:
+    description: Did the test succeed?
+    type: boolean
+    default: false
+  test_type:
+    description: >-
+      Possible values are phonehome, phonehome-ping, remote-assist, connecting,
+      binding, rootdse-searching and [group]-searching.
+      The directory-service test includes connecting, binding,
+      rootdse-searching and [group]-searching tests.
+      The [group] dynamically changes to the role name depending on which role
+      the test is searching for. Possible values for group are
+      array-admin-group, read-only-group, and storage-admin-group.
+    type: string
+    example: "phonehome"

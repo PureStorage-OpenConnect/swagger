@@ -1,0 +1,43 @@
+allOf:
+- $ref: ../../models/FB1.0/_built-in.yaml
+- type: object
+  properties:
+    address:
+      type: string
+    enabled:
+      type: boolean
+      default: true
+      readOnly: true
+    gateway:
+      description: Derived from subnet.gateway
+      type: string
+      readOnly: true
+    mtu:
+      description: Derived from subnet.mtu
+      type: integer
+      format: int32
+      readOnly: true
+    netmask:
+      description: Derived from subnet.prefix
+      type: string
+      readOnly: true
+    services:
+      type: array
+      description: services and protocols that are enabled on the interface
+      items:
+        description: >-
+          Possible values are data, management, and support.
+        type: string
+    subnet:
+      allOf:
+      - $ref: ../../models/FB1.3/_fixed-reference.yaml
+      - readOnly: true
+    type:
+      description: >-
+        Possible values are vip.
+      type: string
+    vlan:
+      description: Derived from subnet.vlan
+      type: integer
+      format: int32
+      readOnly: true

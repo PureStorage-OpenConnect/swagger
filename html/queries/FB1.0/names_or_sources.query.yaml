@@ -1,0 +1,9 @@
+name: names or sources
+in: query
+description: >-
+  A comma-separated list of resource names.
+  Either the name of the snapshot or the source.
+type: array
+collectionFormat: csv
+items:
+  type: string

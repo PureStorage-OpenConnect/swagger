@@ -1,0 +1,10 @@
+allOf:
+- $ref: ../../models/FB1.2/hardware.yaml
+- properties:
+    type:
+      description: >-
+        Type of hardware component.
+        Possible values are ch, eth, fan, fb, fm, pwr, and xfm.
+      type: string
+      example: ch
+      readOnly: true

@@ -1,0 +1,14 @@
+get:
+  parameters:
+  - $ref: ../../queries/FB1.0/filter.query.yaml
+  - $ref: ../../queries/FB1.2/names_required.query.yaml
+  - $ref: ../../queries/FB1.0/sort.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.2/alert-watcher-test-response.yaml
+
+  tags:
+  - alert-watchers

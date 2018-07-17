@@ -1,0 +1,23 @@
+allOf:
+- $ref: ../../models/FB1.0/_built-in.yaml
+- type: object
+  properties:
+    domain:
+      description: >-
+          Domain suffix to be appended by the Array when performing DNS lookups
+      type: string
+      example: "example.com"
+    nameservers:
+      description: List of DNS server IP addresses
+      type: array
+      maxLength: 3
+      items:
+        type: string
+        example: "192.168.0.125"
+    search:
+      description: List of DNS search domains. Deprecated
+      type: array
+      maxLength: 3
+      items:
+        type: string
+        example: "pure_example.org"

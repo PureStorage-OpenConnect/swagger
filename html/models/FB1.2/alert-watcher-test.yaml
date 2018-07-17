@@ -1,0 +1,12 @@
+allOf:
+- $ref: ../../models/FB1.0/_built-in.yaml
+- type: object
+  properties:
+    accepted:
+      type: boolean
+      description: is the email accepted?
+      readOnly: true
+    error:
+      type: string
+      description: error message (if failed)
+      readOnly: true
