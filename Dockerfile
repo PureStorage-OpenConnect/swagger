@@ -18,22 +18,24 @@ RUN apk update --no-cache && apk upgrade --no-cache && apk add --update --no-cac
     git
 
 
-#Get latest swagger-ui
-RUN mkdir -p /usr/share/pureswagger/html
-RUN git clone https://github.com/swagger-api/swagger-ui.git /swagger-ui && \
-     mv /swagger-ui/dist/* /usr/share/pureswagger/html/    && \
-     mv /swagger-ui/docker-run.sh /usr/share/pureswagger && \
-     rm -rf /swagger-ui
-
-
 RUN apk add --no-cache --update build-base && \
     pip install --no-cache-dir pdfminer.six && \
     apk del build-base
 
+RUN mkdir -p /usr/share/pureswagger
 ADD rest_extract/requirements.txt /usr/share/pureswagger/
 RUN pip install --no-cache-dir -r /usr/share/pureswagger/requirements.txt
 ADD rest_extract /usr/share/pureswagger/
 
+#Get swagger-ui
+RUN mkdir -p /usr/share/pureswagger/html
+RUN git clone https://github.com/swagger-api/swagger-ui.git /swagger-ui && \
+     cd /swagger-ui && \
+     git checkout v3.10.0 && \
+     cd && \
+     mv /swagger-ui/dist/* /usr/share/pureswagger/html/    && \
+     mv /swagger-ui/docker-run.sh /usr/share/pureswagger && \
+     rm -rf /swagger-ui
 
 #this should overwrite the index.html provided in the cloned swagger-ui from master.
 COPY html/ /usr/share/pureswagger/html/  

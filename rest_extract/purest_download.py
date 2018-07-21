@@ -191,19 +191,7 @@ def main():
     q.join()
     #index the spec files and create on initial load
     create_spec_index()
-    apply_fixes()
 
-def apply_fixes():
-    #Fix #1
-    #The name param is missing on FileSystem post,path, Lag post, patch , because it's marked as readOnly
-    new_file = ""
-    with open(os.path.join("../html/models/FB1.0/_built-in.yaml")) as f:
-        for line in f:
-            if 'readOnly' not in line:
-                new_file += line
-
-    with open(os.path.join("../html/models/FB1.0/_built-in.yaml"),"w+") as f:
-         f.write(new_file)
 
 def create_spec_index():
     print ("creating spec index")
