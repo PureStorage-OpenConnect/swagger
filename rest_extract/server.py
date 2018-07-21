@@ -93,8 +93,8 @@ def print_response(res):
 
     
 #Proxy API calls to the array to bypass CORS
-@app.route('/api', defaults={'path': ''}, methods=['GET', 'PUT','POST','DELETE','OPTIONS','HEAD'])
-@app.route("/api/<path:path>", methods=['GET', 'PUT','POST','DELETE','OPTIONS','HEAD'])
+@app.route('/api', defaults={'path': ''}, methods=['GET', 'PUT','POST','DELETE','OPTIONS','HEAD','PATCH'])
+@app.route("/api/<path:path>", methods=['GET', 'PUT','POST','DELETE','OPTIONS','HEAD','PATCH'])
 def proxy_to_fa(*args, **kwargs):
     #this is how we are passing the IP on the webpage to here, useing an additional cookie
     #just to make swagger proxy work using the flasharray ip cookie.

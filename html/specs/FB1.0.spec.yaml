@@ -19,9 +19,9 @@ info: {description: '## Confidential and Proprietary. Subject to NDA and End Use
     and added by the built in proxy server.
 
 
-    Use "pureadmin create" on the CLI to create an API Token.  Or use "pureadmin list
-    --api-token --expose" to show a token already created.  Note, it will only shows
-    tokens for the logged in user.
+    Use "pureadmin create --api-token" on the CLI to create an API Token.  Or use
+    "pureadmin list --api-token --expose" to show a token already created.  Note,
+    it only shows tokens for user that is logged in.
 
 
     ## Proxy
@@ -36,8 +36,13 @@ info: {description: '## Confidential and Proprietary. Subject to NDA and End Use
     ## Error Codes
 
     Use HTTP Response codes to determine command results.  Error message json formats
-    are different depending on the endpoint.', title: FlashBlade REST API Client,
-  version: 1.0}
+    are different depending on the endpoint.
+
+
+    ## Official Documention
+
+    Go to the Pure support portal for the [full documentation](https://support.purestorage.com/FlashBlade/Purity_FB/Purity%2F%2F%2F%2FFB_REST_API/Management_REST_API/Management_REST_API_Reference_Guides).',
+  title: FlashBlade REST API Client, version: 1.0}
 paths:
   /1.0/file-system-snapshots: {$ref: ../paths/FB1.0/file-system-snapshots.path.yaml}
   /1.0/file-systems: {$ref: ../paths/FB1.0/file-systems.path.yaml}

@@ -10,10 +10,6 @@ oecho () {
 
 python /usr/share/pureswagger/server.py &
 
-while [ ! -f usr/share/pureswagger/html/spec_index.yaml ] ;
-do
-  sleep 1
-done
 sleep 1
 oecho "Open your browser to http://127.0.0.1, use Ctrl+C to end close PureSwagger" 
 

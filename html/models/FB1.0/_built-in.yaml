@@ -3,4 +3,3 @@ properties:
   name:
     type: string
     description: name of the object (e.g., a file system or snapshot)
-    readOnly: true
