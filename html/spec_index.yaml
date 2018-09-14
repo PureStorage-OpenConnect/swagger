@@ -12,6 +12,8 @@
   url: specs/FlashArray REST v1.13.yaml, version: '1.13', version_sort: 1013}
 - {filename: FlashArray REST v1.14.yaml, model: FlashArray, name: FlashArray v1.14,
   url: specs/FlashArray REST v1.14.yaml, version: '1.14', version_sort: 1014}
+- {filename: FlashArray REST v1.15.yaml, model: FlashArray, name: FlashArray v1.15,
+  url: specs/FlashArray REST v1.15.yaml, version: '1.15', version_sort: 1015}
 - {filename: FB1.0.spec.yaml, model: FlashBlade, name: FlashBlade v1.0, url: specs/FB1.0.spec.yaml,
   version: '1.0', version_sort: 1000}
 - {filename: FB1.1.spec.yaml, model: FlashBlade, name: FlashBlade v1.1, url: specs/FB1.1.spec.yaml,
