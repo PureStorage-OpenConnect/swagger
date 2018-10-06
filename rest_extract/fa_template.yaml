@@ -4,7 +4,7 @@ info:
   title: Pure FlashArray API
   description: |- 
     ## Pure Confidential and Proprietary. May be subject to NDA and/or End User Agreement.
-    A light weight tool to explore the API for FlashBlade, community supported. 
+    A light weight tool to explore the API for FlashArray, community supported. 
     For  help with this tool, use [Pure1 Community](https://community.purestorage.com/) or the [code-purestorage Slack](https://community.purestorage.com/discussion/9561/join-the-new-pure-code-slack-team-for-api-and-extensibility-discussions)
     
     ## Authenticate (uses API Key and returns a cookie)
@@ -19,7 +19,7 @@ info:
     
     ## Pagenation
     Pagenation/filtering information is not shown here.  However, it is available for some endpoints. Please see [the PDF docs](https://support.purestorage.com/FlashArray/PurityFA/Purity_FA_REST_API/Reference/REST_API_PDF_Reference_Guides).
-    
+
 servers:
 - url: /api
   description: Local host, PureSwagger Proxy, set array IP at top of page.  API calls are proxied to array.
