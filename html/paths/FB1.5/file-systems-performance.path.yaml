@@ -1,0 +1,22 @@
+get:
+  parameters:
+  - $ref: ../../queries/FB1.2/end_time.query.yaml
+  - $ref: ../../queries/FB1.0/filter.query.yaml
+  - $ref: ../../queries/FB1.0/limit.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - $ref: ../../queries/FB1.2/protocol.query.yaml
+  - $ref: ../../queries/FB1.2/resolution.query.yaml
+  - $ref: ../../queries/FB1.0/sort.query.yaml
+  - $ref: ../../queries/FB1.0/start.query.yaml
+  - $ref: ../../queries/FB1.2/start_time.query.yaml
+  - $ref: ../../queries/FB1.0/token.query.yaml
+  - $ref: ../../queries/FB1.0/total_only.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.5/file-system-performance-list.yaml
+
+  tags:
+  - file-systems

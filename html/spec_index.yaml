@@ -22,3 +22,7 @@
   version: '1.2', version_sort: 1002}
 - {filename: FB1.3.spec.yaml, model: FlashBlade, name: FlashBlade v1.3, url: specs/FB1.3.spec.yaml,
   version: '1.3', version_sort: 1003}
+- {filename: FB1.4.spec.yaml, model: FlashBlade, name: FlashBlade v1.4, url: specs/FB1.4.spec.yaml,
+  version: '1.4', version_sort: 1004}
+- {filename: FB1.5.spec.yaml, model: FlashBlade, name: FlashBlade v1.5, url: specs/FB1.5.spec.yaml,
+  version: '1.5', version_sort: 1005}

@@ -1,0 +1,5 @@
+allOf:
+- $ref: ../../models/FB1.3/_fixed-reference.yaml
+- properties:
+    resource_type:
+      $ref: ../../models/FB1.5/_resource-type.yaml

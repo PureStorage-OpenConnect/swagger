@@ -1,0 +1,7 @@
+type: object
+properties:
+  items:
+    type: array
+    items:
+      $ref: ../../models/FB1.5/file-system-snapshot.yaml
+    description: A list of file system snapshot objects.

@@ -1,0 +1,8 @@
+allOf:
+- $ref: ../../models/FB1.3/object-store-account.yaml
+- properties:
+    object_count:
+      type: integer
+      readOnly: true
+      format: int64
+      description: The count of objects within the account.

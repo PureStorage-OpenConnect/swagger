@@ -1,0 +1,12 @@
+allOf:
+- $ref: ../../models/FB1.0/_built-in.yaml
+- properties:
+    enabled:
+      type: boolean
+      description: >-
+        Indicates if policy is enabled (true) or disabled (false).
+        Enabled by default.
+    rules:
+      type: array
+      items:
+        $ref: ../../models/FB1.5/_policy_rule.yaml

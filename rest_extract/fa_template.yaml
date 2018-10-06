@@ -3,9 +3,9 @@ openapi: 3.0.1
 info:
   title: Pure FlashArray API
   description: |- 
-    ## Confidential and Proprietary. Subject to NDA and End User Agreement.
-
-    A light weight API for FlashArray, developed by Pure Storage, Inc. (http://www.purestorage.com/).
+    ## Pure Confidential and Proprietary. May be subject to NDA and/or End User Agreement.
+    A light weight tool to explore the API for FlashBlade, community supported. 
+    For  help with this tool, use [Pure1 Community](https://community.purestorage.com/) or the [code-purestorage Slack](https://community.purestorage.com/discussion/9561/join-the-new-pure-code-slack-team-for-api-and-extensibility-discussions)
     
     ## Authenticate (uses API Key and returns a cookie)
     To get an API Key, you can do POST /auth/apitoken with your user/pass, then use your API key with POST /auth/session.  The array returns 

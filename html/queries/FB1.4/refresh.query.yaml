@@ -1,0 +1,6 @@
+name: refresh
+in: query
+description: >-
+  Whether to refresh the user info from directory service
+type: boolean
+default: false

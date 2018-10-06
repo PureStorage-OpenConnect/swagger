@@ -1,0 +1,5 @@
+allOf:
+- $ref: ../../queries/FB1.X/_names_query_base.query.yaml
+- name: member_names
+description: >-
+  A comma-separated list of member names

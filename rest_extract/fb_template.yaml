@@ -1,9 +1,9 @@
 ---
 info:
   description: |- 
-    ## Confidential and Proprietary. Subject to NDA and End User Agreement.
-    
-    A light weight API for FlashBlade, developed by Pure Storage, Inc. (http://www.purestorage.com/).
+    ## Pure Confidential and Proprietary. May be subject to NDA and/or End User Agreement.
+    A light weight tool to explore the API for FlashBlade, community supported.  
+    For help with this tool, use [Pure1 Community](https://community.purestorage.com/) or the [code-purestorage Slack](https://community.purestorage.com/discussion/9561/join-the-new-pure-code-slack-team-for-api-and-extensibility-discussions)
     
     ## Authentication
     Use an api-token (header param) to start a session at /api/login, that returns an x-auth-token header which expires in 30 minutes by default. This is

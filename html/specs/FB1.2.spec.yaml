@@ -13,11 +13,13 @@ definitions:
   FileSystem: {$ref: ../models/FB1.2/file-system.yaml}
   FileSystemSnapshot: {$ref: ../models/FB1.1/file-system-snapshot.yaml}
   Hardware: {$ref: ../models/FB1.2/hardware.yaml}
-info: {description: '## Confidential and Proprietary. Subject to NDA and End User
-    Agreement.
+info: {description: '## Pure Confidential and Proprietary. May be subject to NDA and/or
+    End User Agreement.
 
+    A light weight tool to explore the API for FlashBlade, community supported. (http://www.purestorage.com/).  For
 
-    A light weight API for FlashBlade, developed by Pure Storage, Inc. (http://www.purestorage.com/).
+    help with this tool, use [Pure1 Community] (https://community.purestorage.com/)
+    or the [code-purestorage Slack] (https://community.purestorage.com/discussion/9561/join-the-new-pure-code-slack-team-for-api-and-extensibility-discussions)
 
 
     ## Authentication

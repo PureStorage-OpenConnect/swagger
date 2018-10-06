@@ -1,0 +1,12 @@
+allOf:
+- $ref: ../../models/FB1.0/_built-in.yaml
+- readOnly: true
+  properties:
+    role:
+      description: the role of the user
+      type: string
+    time:
+      description: >-
+        Time the role was cached in milliseconds since UNIX epoch
+      type: integer
+      format: int64

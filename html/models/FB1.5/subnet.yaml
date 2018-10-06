@@ -1,0 +1,12 @@
+allOf:
+- $ref: ../../models/FB1.3/subnet.yaml
+- properties:
+    interfaces:
+      description: List of network interfaces associated with this subnet.
+      type: array
+      readOnly: true
+      items:
+        $ref: ../../models/FB1.5/_fixed-reference.yaml
+    link_aggregation_group:
+      $ref: ../../models/FB1.5/_reference.yaml
+      description: Reference to the associated LAG.

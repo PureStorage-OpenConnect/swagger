@@ -1,0 +1,64 @@
+get:
+  parameters:
+  - $ref: ../../queries/FB1.0/filter.query.yaml
+  - $ref: ../../queries/FB1.0/limit.query.yaml
+  - $ref: ../../queries/FB1.0/sort.query.yaml
+  - $ref: ../../queries/FB1.0/start.query.yaml
+  - $ref: ../../queries/FB1.0/token.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.5/network-interface-get-response.yaml
+
+  tags:
+  - network-interfaces
+
+post:
+  parameters:
+  - name: network-interface
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB1.5/network-interface.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.5/network-interface-response.yaml
+
+  tags:
+  - network-interfaces
+
+patch:
+  parameters:
+  - name: network-interface
+    in: body
+    required: true
+    schema:
+      type: object
+      properties:
+        address:
+          type: string
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.5/network-interface-response.yaml
+
+  tags:
+  - network-interfaces
+
+delete:
+  responses:
+    200:
+      description: OK
+
+  tags:
+  - network-interfaces
+
+parameters:
+- $ref: ../../queries/FB1.0/names.query.yaml

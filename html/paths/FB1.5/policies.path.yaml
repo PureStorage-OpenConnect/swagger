@@ -1,0 +1,63 @@
+get:
+  parameters:
+  - $ref: ../../queries/FB1.0/filter.query.yaml
+  - $ref: ../../queries/FB1.0/limit.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - $ref: ../../queries/FB1.0/sort.query.yaml
+  - $ref: ../../queries/FB1.0/start.query.yaml
+  - $ref: ../../queries/FB1.0/token.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.5/policy-get-response.yaml
+
+  tags:
+  - policies
+
+post:
+  parameters:
+  - $ref: ../../queries/FB1.2/names_required.query.yaml
+  - name: policy
+    in: body
+    schema:
+      $ref: ../../models/FB1.5/policy.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.5/policy-response.yaml
+
+  tags:
+  - policies
+
+delete:
+  parameters:
+  - $ref: ../../queries/FB1.2/names_required.query.yaml
+
+  responses:
+    200:
+      description: OK
+
+  tags:
+  - policies
+
+patch:
+  parameters:
+  - $ref: ../../queries/FB1.2/names_required.query.yaml
+  - name: policy
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB1.5/policy-update-params.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.5/policy-response.yaml
+
+  tags:
+  - policies

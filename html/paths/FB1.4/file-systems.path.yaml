@@ -1,0 +1,65 @@
+get:
+  parameters:
+  - $ref: ../../queries/FB1.0/filter.query.yaml
+  - $ref: ../../queries/FB1.0/limit.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - $ref: ../../queries/FB1.0/sort.query.yaml
+  - $ref: ../../queries/FB1.0/start.query.yaml
+  - $ref: ../../queries/FB1.0/token.query.yaml
+  - $ref: ../../queries/FB1.0/total_only.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.4/file-system-get-response.yaml
+
+  tags:
+  - file-systems
+
+post:
+  parameters:
+  - name: file-system
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB1.4/file-system-post.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.4/file-system-response.yaml
+
+  tags:
+  - file-systems
+
+delete:
+  parameters:
+  - $ref: ../../queries/FB1.0/name.query.yaml
+
+  responses:
+    200:
+      description: OK
+
+  tags:
+  - file-systems
+
+patch:
+  parameters:
+  - $ref: ../../queries/FB1.4/ignore_usage.query.yaml
+  - name: file-system
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB1.4/file-system.yaml
+  - $ref: ../../queries/FB1.0/name.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.4/file-system-response.yaml
+
+  tags:
+  - file-systems

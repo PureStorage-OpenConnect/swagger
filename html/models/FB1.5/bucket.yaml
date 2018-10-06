@@ -1,0 +1,15 @@
+allOf:
+- $ref: ../../models/FB1.4/bucket.yaml
+- properties:
+    account:
+      $ref: ../../models/FB1.5/_fixed-reference.yaml
+    destroyed:
+      type: boolean
+      description: Is the bucket destroyed? False by default. Modifiable.
+    time_remaining:
+      type: integer
+      format: int64
+      description: >-
+        Time in milliseconds before the bucket is eradicated.
+        Null if not destroyed.
+      readOnly: true

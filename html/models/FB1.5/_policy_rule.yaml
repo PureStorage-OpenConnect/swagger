@@ -1,0 +1,17 @@
+description: Rule
+type: object
+properties:
+  every:
+    type: integer
+    format: int64
+    description: How often to take snapshots.
+  keep_for:
+    type: integer
+    format: int64
+    description: How long we keep the snapshots.
+  at:
+    type: integer
+    format: int64
+    description: >-
+      Time during the day to take the snapshot (using array timezone),
+      only valid if 'every' is in days.

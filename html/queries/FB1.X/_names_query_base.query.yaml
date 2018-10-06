@@ -1,0 +1,5 @@
+in: query
+type: array
+collectionFormat: csv
+items:
+  type: string
