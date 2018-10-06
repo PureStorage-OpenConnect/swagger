@@ -19,8 +19,6 @@ info:
     
     ## Pagenation
     Pagenation/filtering information is not shown here.  However, it is available for some endpoints. Please see [the PDF docs](https://support.purestorage.com/FlashArray/PurityFA/Purity_FA_REST_API/Reference/REST_API_PDF_Reference_Guides).
-
-    
     
 servers:
 - url: /api
