@@ -1,0 +1,68 @@
+allOf:
+- $ref: ../../models/FB1.0/_built-in.yaml
+- type: object
+  properties:
+    others_per_sec:
+      description: Other operations processed per second
+      type: integer
+      format: int64
+      minimum: 0
+    read_buckets_per_sec:
+      description: Read buckets requests processed per second
+      type: integer
+      format: int64
+      minimum: 0
+    read_objects_per_sec:
+      description: Read object requests processed per second
+      type: integer
+      format: int64
+      minimum: 0
+    write_buckets_per_sec:
+      description: Write buckets requests processed per second
+      type: integer
+      format: int64
+      minimum: 0
+    write_objects_per_sec:
+      description: Write object requests processed per second
+      type: integer
+      format: int64
+      minimum: 0
+    time:
+      description: Sample time in milliseconds since UNIX epoch
+      type: integer
+      format: int64
+    usec_per_other_op:
+      description: >-
+        Average time, measured in microseconds, it takes the array to process
+        other operations
+      type: integer
+      format: int64
+      minimum: 0
+    usec_per_read_buckets_op:
+      description: >-
+        Average time, measured in microseconds, it takes the array to process
+        a read buckets request
+      type: integer
+      format: int64
+      minimum: 0
+    usec_per_read_object_op:
+      description: >-
+        Average time, measured in microseconds, it takes the array to process
+        a read object request
+      type: integer
+      format: int64
+      minimum: 0
+    usec_per_write_buckets_op:
+      description: >-
+        Average time, measured in microseconds, it takes the array to process
+        a write buckets request
+      type: integer
+      format: int64
+      minimum: 0
+    usec_per_write_object_op:
+      description: >-
+        Average time, measured in microseconds, it takes the array to process
+        a write object request
+      type: integer
+      format: int64
+      minimum: 0
