@@ -15,6 +15,10 @@ That's it!
 ## To stop run:
 just ctrl^c on the console docker container 
 
+## Update to the latest version
+
+> docker pull sile16/pureswagger
+
 
 ## Screenshots
 
