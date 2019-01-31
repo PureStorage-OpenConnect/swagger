@@ -1,0 +1,37 @@
+allOf:
+- $ref: ../../models/FB1.0/_built-in.yaml
+- properties:
+    file_system:
+      $ref: ../../models/FB1.5/_fixed-reference.yaml
+    file_system_default_quota:
+      type: integer
+      format: int64
+      description: >-
+        File system's default user quota (in bytes). If it is 0, it means there
+        is no default quota. This will be the effective user quota if the user
+        doesn't have an individual quota. This default quota is set through the
+        file-system endpoint.
+      readOnly: true
+    quota:
+      type: integer
+      format: int64
+      description: >-
+        The limit of the quota (in bytes) for the specified user, cannot be 0.
+        Modifiable. If specified, this value will override the file system's
+        default user quota.
+      required: true
+    usage:
+      type: integer
+      format: int64
+      description: >-
+        The usage of the file system (in bytes) by the specified user.
+      readOnly: true
+    user:
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: The user id on which the quota is enforced.
+        name:
+          type: string
+          description: The user name on which the quota is enforced.

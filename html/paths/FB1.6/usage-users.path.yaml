@@ -1,0 +1,20 @@
+get:
+  description: Usage and quota for all existing users on a file system.
+  tags:
+  - usage
+
+  parameters:
+  - $ref: ../../queries/FB1.6/file_system_names.query.yaml
+  - $ref: ../../queries/FB1.0/filter.query.yaml
+  - $ref: ../../queries/FB1.0/limit.query.yaml
+  - $ref: ../../queries/FB1.0/sort.query.yaml
+  - $ref: ../../queries/FB1.0/start.query.yaml
+  - $ref: ../../queries/FB1.0/token.query.yaml
+  - $ref: ../../queries/FB1.6/uids.query.yaml
+  - $ref: ../../queries/FB1.6/user_names.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.6/user-quota-get-response.yaml

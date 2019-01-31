@@ -1,0 +1,13 @@
+allOf:
+- $ref: ../../models/FB1.4/directory-service.yaml
+- properties:
+    smb:
+      description: Properties specific to the SMB service.
+      type: object
+      properties:
+        join_ou:
+          description: >
+            Optional organizational unit where the machine account for the
+            directory service will be created.
+          type: string
+          example: "OU=my_organizational_unit"

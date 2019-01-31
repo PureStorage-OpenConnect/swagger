@@ -1,0 +1,7 @@
+allOf:
+- $ref: ../../queries/FB1.5/_names_query_base.query.yaml
+- name: file_system_names
+description: >-
+  A comma-separated list of file system names.
+  If there is not at least one resource that matches
+  each of the elements of names, then an error is returned.

@@ -12,6 +12,7 @@ for item in sorted(os.listdir('pdfs/')):
         os.remove("../html/rest.pdf")
     if item == ".DS_Store":
         continue
+    print("Processing item: {}".format(item))
     shutil.copy("pdfs/"+item,"../html/rest.pdf")
     rest_extract.main(True)
     os.remove("../html/rest.pdf")

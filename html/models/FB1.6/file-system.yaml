@@ -1,0 +1,14 @@
+allOf:
+- $ref: ../../models/FB1.4/file-system.yaml
+- properties:
+    default_group_quota:
+      type: integer
+      format: int64
+      description: Default quota for a group under this file system.
+    default_user_quota:
+      type: integer
+      format: int64
+      description: Default quota for a user under this file system.
+    nfs:
+      $ref: ../../models/FB1.6/_nfs.yaml
+      description: NFS configuration. Modifiable.

@@ -1,0 +1,5 @@
+name: test_type
+in: query
+description: >-
+      Specify the type of test: phonehome/remote-assist.
+type: string
