@@ -1,0 +1,9 @@
+allOf:
+- $ref: ../../models/FB1.5/link-aggregation-group.yaml
+- $ref: ../../models/FB1.8/_built-in.yaml
+- properties:
+    ports:
+      description: Ports associated with the LAG.
+      type: array
+      items:
+        $ref: ../../models/FB1.8/_fixed-reference.yaml

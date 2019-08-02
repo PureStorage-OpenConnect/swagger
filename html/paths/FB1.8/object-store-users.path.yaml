@@ -1,0 +1,43 @@
+get:
+  parameters:
+  - $ref: ../../queries/FB1.0/filter.query.yaml
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/limit.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - $ref: ../../queries/FB1.0/sort.query.yaml
+  - $ref: ../../queries/FB1.0/start.query.yaml
+  - $ref: ../../queries/FB1.0/token.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.8/object-store-user-get-response.yaml
+
+  tags:
+  - object-store-users
+
+post:
+  parameters:
+  - $ref: ../../queries/FB1.2/names_required.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.8/object-store-user-response.yaml
+
+  tags:
+  - object-store-users
+
+delete:
+  parameters:
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+
+  responses:
+    200:
+      description: OK
+
+  tags:
+  - object-store-users

@@ -1,0 +1,7 @@
+allOf:
+- $ref: ../../models/FB1.8/_built-in.yaml
+- properties:
+    use:
+      description: A reference to an object using this certificate group.
+      allOf:
+      - $ref: ../../models/FB1.8/_fixed-reference.yaml

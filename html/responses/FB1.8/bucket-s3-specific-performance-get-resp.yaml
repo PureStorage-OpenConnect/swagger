@@ -1,0 +1,15 @@
+allOf:
+- $ref: ../../responses/FB1.0/page-info.yaml
+- properties:
+    items:
+      type: array
+      items:
+        $ref: ../../models/FB1.8/bucket-s3-specific-performance.yaml
+      description: A list of S3 specific bucket performance metrics objects.
+    total:
+      type: array
+      items:
+        $ref: ../../models/FB1.8/bucket-s3-specific-performance.yaml
+      description: >-
+        Total of all records after filtering.
+        If `total_only` query param is `true`, then no items will be returned.

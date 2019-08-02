@@ -1,0 +1,6 @@
+allOf:
+- $ref: ../../models/FB1.6/user-quota.yaml
+- $ref: ../../models/FB1.8/_built-in.yaml
+- properties:
+    file_system:
+      $ref: ../../models/FB1.8/_fixed-reference.yaml

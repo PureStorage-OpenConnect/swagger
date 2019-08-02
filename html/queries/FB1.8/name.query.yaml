@@ -1,0 +1,5 @@
+name: name
+in: query
+description: >-
+  A resource name.
+type: string

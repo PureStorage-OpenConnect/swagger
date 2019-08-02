@@ -1,0 +1,51 @@
+get:
+  parameters:
+  - $ref: ../../queries/FB1.8/certificate_ids.query.yaml
+  - $ref: ../../queries/FB1.8/certificate_group_ids.query.yaml
+  - $ref: ../../queries/FB1.8/certificate_group_names.query.yaml
+  - $ref: ../../queries/FB1.8/certificate_names.query.yaml
+  - $ref: ../../queries/FB1.0/filter.query.yaml
+  - $ref: ../../queries/FB1.0/limit.query.yaml
+  - $ref: ../../queries/FB1.0/sort.query.yaml
+  - $ref: ../../queries/FB1.0/start.query.yaml
+  - $ref: ../../queries/FB1.0/token.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        # shortened name because of yamllint line lengths
+        $ref: ../../responses/FB1.8/certificate-certificate-group-get-resp.yaml
+
+  tags:
+  - certificates
+
+post:
+  parameters:
+  - $ref: ../../queries/FB1.8/certificate_ids.query.yaml
+  - $ref: ../../queries/FB1.8/certificate_group_ids.query.yaml
+  - $ref: ../../queries/FB1.8/certificate_group_names.query.yaml
+  - $ref: ../../queries/FB1.8/certificate_names.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.8/certificate-certificate-group-response.yaml
+
+  tags:
+  - certificates
+
+delete:
+  parameters:
+  - $ref: ../../queries/FB1.8/certificate_ids.query.yaml
+  - $ref: ../../queries/FB1.8/certificate_group_ids.query.yaml
+  - $ref: ../../queries/FB1.8/certificate_group_names.query.yaml
+  - $ref: ../../queries/FB1.8/certificate_names.query.yaml
+
+  responses:
+    200:
+      description: OK
+
+  tags:
+  - certificates

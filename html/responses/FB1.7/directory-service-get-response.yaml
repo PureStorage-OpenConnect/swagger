@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../responses/FB1.0/page-info.yaml
+- $ref: ../../responses/FB1.7/directory-service-response.yaml

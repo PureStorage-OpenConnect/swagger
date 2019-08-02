@@ -1,0 +1,7 @@
+type: object
+properties:
+  items:
+    type: array
+    items:
+      $ref: ../../models/FB1.8/network-interface.yaml
+    description: A list of network interface objects.

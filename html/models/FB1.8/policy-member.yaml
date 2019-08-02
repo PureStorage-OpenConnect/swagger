@@ -1,0 +1,6 @@
+type: object
+properties:
+  policy:
+    $ref: ../../models/FB1.8/_fixed-reference.yaml
+  member:
+    $ref: ../../models/FB1.8/_fixed-reference.yaml

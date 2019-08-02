@@ -1,0 +1,8 @@
+allOf:
+- $ref: ../../models/FB1.0/_built-in.yaml
+- properties:
+    id:
+      type: string
+      readOnly: true
+      description: >-
+        A non-modifiable, globally unique ID chosen by the system.

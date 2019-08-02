@@ -1,0 +1,50 @@
+get:
+  parameters:
+  - $ref: ../../queries/FB1.0/filter.query.yaml
+  - $ref: ../../queries/FB1.0/limit.query.yaml
+  - $ref: ../../queries/FB1.8/member_ids.query.yaml
+  - $ref: ../../queries/FB1.5/member_names.query.yaml
+  - $ref: ../../queries/FB1.8/policy_ids.query.yaml
+  - $ref: ../../queries/FB1.5/policy_names.query.yaml
+  - $ref: ../../queries/FB1.0/sort.query.yaml
+  - $ref: ../../queries/FB1.0/start.query.yaml
+  - $ref: ../../queries/FB1.0/token.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.8/policy-member-get-response.yaml
+
+  tags:
+  - policies
+
+post:
+  parameters:
+  - $ref: ../../queries/FB1.8/member_ids.query.yaml
+  - $ref: ../../queries/FB1.5/member_names.query.yaml
+  - $ref: ../../queries/FB1.8/policy_ids.query.yaml
+  - $ref: ../../queries/FB1.5/policy_names.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.8/policy-member-response.yaml
+
+  tags:
+  - policies
+
+delete:
+  parameters:
+  - $ref: ../../queries/FB1.8/member_ids.query.yaml
+  - $ref: ../../queries/FB1.5/member_names.query.yaml
+  - $ref: ../../queries/FB1.8/policy_ids.query.yaml
+  - $ref: ../../queries/FB1.5/policy_names.query.yaml
+
+  responses:
+    200:
+      description: OK
+
+  tags:
+  - policies

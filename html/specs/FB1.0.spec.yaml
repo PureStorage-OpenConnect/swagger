@@ -1,9 +1,14 @@
 basePath: /api
-consumes: [application/json]
+consumes:
+- application/json
 definitions:
-  FileSystem: {$ref: ../models/FB1.0/file-system.yaml}
-  FileSystemSnapshot: {$ref: ../models/FB1.0/file-system-snapshot.yaml}
-info: {description: "## Pure Confidential and Proprietary. May be subject to NDA and/or\
+  FileSystem:
+    $ref: ../models/FB1.0/file-system.yaml
+  FileSystemSnapshot:
+    $ref: ../models/FB1.0/file-system-snapshot.yaml
+host: irvm-tsteele.dev.purestorage.com:8091
+info:
+  description: "## Pure Confidential and Proprietary. May be subject to NDA and/or\
     \ End User Agreement.\nA light weight tool to explore the API for FlashBlade,\
     \ community supported.  \nFor help with this tool, use [Pure1 Community](https://community.purestorage.com/)\
     \ or the [code-purestorage Slack](https://community.purestorage.com/discussion/9561/join-the-new-pure-code-slack-team-for-api-and-extensibility-discussions)\n\
@@ -19,37 +24,72 @@ info: {description: "## Pure Confidential and Proprietary. May be subject to NDA
     \ the console output.\n\n## Error Codes\nUse HTTP Response codes to determine\
     \ command results.  Error message json formats are different depending on the\
     \ endpoint.\n\n## Official Documention\nGo to the Pure support portal for the\
-    \ [full documentation](https://support.purestorage.com/FlashBlade/Purity_FB/Purity%2F%2F%2F%2FFB_REST_API/Management_REST_API/Management_REST_API_Reference_Guides).",
-  title: FlashBlade REST API Client, version: 1.0}
+    \ [full documentation](https://support.purestorage.com/FlashBlade/Purity_FB/Purity%2F%2F%2F%2FFB_REST_API/Management_REST_API/Management_REST_API_Reference_Guides)."
+  title: FlashBlade REST API Client
+  version: 1.0
 paths:
-  /1.0/file-system-snapshots: {$ref: ../paths/FB1.0/file-system-snapshots.path.yaml}
-  /1.0/file-systems: {$ref: ../paths/FB1.0/file-systems.path.yaml}
+  /1.0/api/1.0/file-system-snapshots:
+    $ref: ../paths/FB1.0/file-system-snapshots.path.yaml
+  /1.0/api/1.0/file-systems:
+    $ref: ../paths/FB1.0/file-systems.path.yaml
+  /1.0/api/api_version:
+    $ref: ../paths/FB1.0/api_version.path.yaml
+  /1.0/api/login:
+    $ref: ../paths/FB1.0/login.path.yaml
+  /1.0/api/logout:
+    $ref: ../paths/FB1.0/logout.path.yaml
   /api_version:
     get:
       description: Lists supported API versions on this array.
       responses:
-        200: {description: List supported API versions}
-      tags: [api]
+        200:
+          description: List supported API versions
+      tags:
+      - api
   /login:
     post:
       description: Create a new session with API_KEY
       parameters:
-      - {in: header, name: api-token, required: true, type: string}
+      - in: header
+        name: api-token
+        required: true
+        type: string
       responses:
         200:
           description: User logged in
           headers:
-            x-auth-token: {description: 'authentication token, pass this back for
-                future API Calls.', type: string}
+            x-auth-token:
+              description: authentication token, pass this back for future API Calls.
+              type: string
           schema:
-            example: {username: pureuser}
+            example:
+              username: pureuser
             properties:
-              username: {description: The user name logged in., type: string}
+              username:
+                description: The user name logged in.
+                type: string
             type: object
-      tags: [auth]
-produces: [application/json]
+      tags:
+      - auth
+produces:
+- application/json
+schemes:
+- http
+- https
+security:
+- AuthorizationHeader: []
+securityDefinitions:
+  ApiToken:
+    in: header
+    name: api-token
+    type: apiKey
+  AuthorizationHeader:
+    in: header
+    name: x-auth-token
+    type: apiKey
 swagger: '2.0'
 tags:
-- {name: api}
-- {name: auth}
-- {name: file-systems}
+- name: api
+- name: auth
+- name: authentication
+- name: file-systems

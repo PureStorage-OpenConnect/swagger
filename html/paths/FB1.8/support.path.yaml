@@ -1,0 +1,26 @@
+get:
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.8/support-get-response.yaml
+
+  tags:
+  - support
+
+patch:
+  parameters:
+  - name: support
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB1.8/support.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.8/support-response.yaml
+
+  tags:
+  - support

@@ -1,0 +1,6 @@
+allOf:
+- $ref: ../../models/FB1.6/bucket.yaml
+- $ref: ../../models/FB1.8/_built-in.yaml
+- properties:
+    account:
+      $ref: ../../models/FB1.8/_fixed-reference.yaml

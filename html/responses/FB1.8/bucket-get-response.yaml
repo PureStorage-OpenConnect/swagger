@@ -1,0 +1,6 @@
+allOf:
+- $ref: ../../responses/FB1.0/page-info.yaml
+- $ref: ../../responses/FB1.8/bucket-response.yaml
+- properties:
+    total:
+      $ref: ../../models/FB1.8/bucket.yaml

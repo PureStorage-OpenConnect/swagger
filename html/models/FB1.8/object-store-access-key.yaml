@@ -1,0 +1,8 @@
+allOf:
+- $ref: ../../models/FB1.5/object-store-access-key.yaml
+- properties:
+    user:
+      description: Reference of the associated user.
+      readOnly: true
+      allOf:
+      - $ref: ../../models/FB1.8/_fixed-reference.yaml

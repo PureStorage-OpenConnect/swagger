@@ -1,0 +1,38 @@
+get:
+  parameters:
+  - $ref: ../../queries/FB1.2/expose.query.yaml
+  - $ref: ../../queries/FB1.0/filter.query.yaml
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/limit.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - $ref: ../../queries/FB1.0/sort.query.yaml
+  - $ref: ../../queries/FB1.0/start.query.yaml
+  - $ref: ../../queries/FB1.0/token.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.8/admin-get-response.yaml
+
+  tags:
+  - admins
+
+patch:
+  parameters:
+  - name: admin
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB1.8/admin-patch.yaml
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.8/admin-response.yaml
+
+  tags:
+  - admins

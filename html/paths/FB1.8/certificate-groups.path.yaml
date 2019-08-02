@@ -1,0 +1,43 @@
+get:
+  parameters:
+  - $ref: ../../queries/FB1.0/filter.query.yaml
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/limit.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - $ref: ../../queries/FB1.0/sort.query.yaml
+  - $ref: ../../queries/FB1.0/start.query.yaml
+  - $ref: ../../queries/FB1.0/token.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.8/certificate-group-get-response.yaml
+
+  tags:
+  - certificate-groups
+
+post:
+  parameters:
+  - $ref: ../../queries/FB1.0/names.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.8/certificate-group-response.yaml
+
+  tags:
+  - certificate-groups
+
+delete:
+  parameters:
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+
+  responses:
+    200:
+      description: OK
+
+  tags:
+  - certificate-groups

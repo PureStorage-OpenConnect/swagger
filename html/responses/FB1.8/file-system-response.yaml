@@ -1,0 +1,7 @@
+zztype: object
+properties:
+  items:
+    type: array
+    items:
+      $ref: ../../models/FB1.8/file-system.yaml
+    description: A list of file system objects.

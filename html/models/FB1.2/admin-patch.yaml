@@ -1,0 +1,22 @@
+allOf:
+- $ref: ../../models/FB1.0/_built-in.yaml
+- description: Administrative account.
+  properties:
+    api_token_timeout:
+      description: Expire api-token after this period (in milliseconds).
+      type: integer
+      format: int64
+    create_api_token:
+      description: >-
+        Create a new API token for this user. Users can only create API tokens
+        for themselves.
+      type: boolean
+    delete_api_token:
+      description: Delete this user's API token.
+      type: boolean
+    old_password:
+      description: Old user password.
+      type: string
+    password:
+      description: User password.
+      type: string

@@ -1,0 +1,67 @@
+get:
+  parameters:
+  - $ref: ../../queries/FB1.0/filter.query.yaml
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/limit.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - $ref: ../../queries/FB1.0/sort.query.yaml
+  - $ref: ../../queries/FB1.0/start.query.yaml
+  - $ref: ../../queries/FB1.0/token.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.8/subnet-get-response.yaml
+
+  tags:
+  - subnets
+
+post:
+  parameters:
+  - name: subnet
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB1.8/subnet.yaml
+  - $ref: ../../queries/FB1.2/names_required.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.8/subnet-response.yaml
+
+  tags:
+  - subnets
+
+patch:
+  parameters:
+  - name: subnet
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB1.8/subnet.yaml
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.8/subnet-response.yaml
+
+  tags:
+  - subnets
+
+delete:
+  parameters:
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+
+  responses:
+    200:
+      description: OK
+
+  tags:
+  - subnets
