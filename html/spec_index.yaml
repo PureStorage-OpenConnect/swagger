@@ -52,6 +52,12 @@
   url: specs/FlashArray REST v1.16.yaml
   version: '1.16'
   version_sort: 1016
+- filename: FlashArray REST v1.17.yaml
+  model: FlashArray
+  name: FlashArray v1.17
+  url: specs/FlashArray REST v1.17.yaml
+  version: '1.17'
+  version_sort: 1017
 - filename: FB1.0.spec.yaml
   model: FlashBlade
   name: FlashBlade v1.0
