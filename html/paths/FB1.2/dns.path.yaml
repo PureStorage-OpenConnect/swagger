@@ -1,4 +1,6 @@
 get:
+  summary: GET dns (placeholder)
+  description: GET dns (placeholder)
   parameters:
   # there is only 1 dns so sort, start and token don't make much sense,
   # but since we eventually want them and they are implemented, docing them here
@@ -15,9 +17,11 @@ get:
         $ref: ../../responses/FB1.2/dns-get-response.yaml
 
   tags:
-  - dns
+  - DNS
 
 patch:
+  summary: PATCH dns (placeholder)
+  description: PATCH dns (placeholder)
   parameters:
   - name: dns
     in: body
@@ -32,4 +36,4 @@ patch:
         $ref: ../../responses/FB1.2/dns-response.yaml
 
   tags:
-  - dns
+  - DNS

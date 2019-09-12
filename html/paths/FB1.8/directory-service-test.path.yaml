@@ -11,7 +11,7 @@ get:
         $ref: ../../responses/FB1.3/test-result-response.yaml
 
   tags:
-  - directory-services
+  - Directory Services
 
 patch:
   parameters:
@@ -34,4 +34,4 @@ patch:
         $ref: ../../responses/FB1.3/test-result-response.yaml
 
   tags:
-  - directory-services
+  - Directory Services

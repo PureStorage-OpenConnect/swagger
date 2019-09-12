@@ -1,44 +1,40 @@
 type: object
 properties:
   component_address:
-    description: Address of the component runinng the test
+    description: Address of the component running the test.
     type: string
     example: "10.230.94.21"
   component_name:
-    description: Name of the component runing the test
+    description: Name of the component running the test.
     type: string
-    example: "CT0"
+    example: "fm1"
   description:
-    description: What the test is doing
+    description: What the test is doing.
     type: string
     example: "Testing phonehome connectivity"
   destination:
-    description: The URI of the target server being tested
+    description: The URI of the target server being tested.
     type: string
     example: "ra.cloud-support.purestorage.com"
   enabled:
-    description: Is the service enabled or not
+    description: Is the service enabled or not?
     type: boolean
     example: true
   resource:
-    description: A reference to the object being tested
-    $ref: ../../models/FB1.X/_fixed-reference.yaml
+    description: The name of the object being tested.
+    type: string
   result_details:
-    description: Reason of test failure, if any
+    description: Reason for test failure or `null` if none.
     type: string
     example: "Timeout connecting to phonehome endpoint"
   success:
-    description: Did the test succeed?
+    description: >-
+      Returns a value of `true` if the specified test succeeded.
+      Returns a value of `false` if the specified test failed.
     type: boolean
-    default: false
   test_type:
     description: >-
-      Possible values are phonehome, phonehome-ping, remote-assist, connecting,
-      binding, rootdse-searching and [group]-searching.
-      The directory-service test includes connecting, binding,
-      rootdse-searching and [group]-searching tests.
-      The [group] dynamically changes to the role name depending on which role
-      the test is searching for. Possible values for group are
-      array-admin-group, read-only-group, and storage-admin-group.
+      Displays the type of test being performed. The returned values are determined
+      by the `resource` being tested and its configuration.
     type: string
     example: "phonehome"

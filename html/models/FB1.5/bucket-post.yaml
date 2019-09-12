@@ -1,5 +1,6 @@
 type: object
 properties:
   account:
-    $ref: ../../models/FB1.5/_reference.yaml
     description: The account for bucket creation.
+    allOf:
+    - $ref: ../../models/FB1.5/_reference.yaml

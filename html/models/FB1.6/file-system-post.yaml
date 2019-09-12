@@ -10,5 +10,6 @@ allOf:
       format: int64
       description: Default quota for a user under this file system.
     nfs:
-      $ref: ../../models/FB1.6/_nfs.yaml
-      description: NFS configuration. Modifiable.
+      description: NFS configuration.
+      allOf:
+      - $ref: ../../models/FB1.6/_nfs.yaml

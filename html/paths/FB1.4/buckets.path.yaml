@@ -15,4 +15,4 @@ get:
         $ref: ../../responses/FB1.4/bucket-get-response.yaml
 
   tags:
-  - buckets
+  - Buckets

@@ -4,4 +4,4 @@ properties:
     type: array
     items:
       $ref: ../../models/FB1.3/hardware.yaml
-    description: a list of hardware component objects
+    description: A list of hardware component objects.

@@ -1,4 +1,6 @@
 get:
+  summary: GET arrays-performance (placeholder)
+  description: GET arrays-performance (placeholder)
   parameters:
   - $ref: ../../queries/FB1.2/end_time.query.yaml
   - $ref: ../../queries/FB1.2/protocol.query.yaml
@@ -12,4 +14,4 @@ get:
         $ref: ../../responses/FB1.3/array-performance-get-response.yaml
 
   tags:
-  - arrays
+  - Arrays

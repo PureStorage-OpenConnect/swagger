@@ -80,10 +80,11 @@ def format_examples(examples):
 def main(run_local=False):
     global webRoot,baseDir
 
-
+    run_local = True
     if run_local:
         webRoot = "../html/"
         baseDir = ""
+
 
     with PdfMinerWrapper(webRoot+"rest.pdf") as doc:
         
@@ -114,7 +115,7 @@ def main(run_local=False):
         path_id=""
         version=""
         example=None
-        total_pages=120
+        total_pages=140
 
         print("Parsing Rest API...")
         for page in doc:     
@@ -184,7 +185,8 @@ def main(run_local=False):
                         #print line.encode('UTF-8')
                         #print '({}|{}|{}|{})'.format( c.fontname, c.size,type(c.size),tbox.bbox[0])
 
-                        if 'PUT array' in line:
+                        if 'PUT cert/{certificate}' in line:
+                            x54 = 23
                             pass
 
                         if re.match(r"^[0-9]+\. ",line):

@@ -1,4 +1,6 @@
 get:
+  summary: GET admins (placeholder)
+  description: GET admins (placeholder)
   parameters:
   - $ref: ../../queries/FB1.2/expose.query.yaml
   - $ref: ../../queries/FB1.0/filter.query.yaml
@@ -16,9 +18,11 @@ get:
         $ref: ../../responses/FB1.8/admin-get-response.yaml
 
   tags:
-  - admins
+  - Administrators
 
 patch:
+  summary: PATCH admins (placeholder)
+  description: PATCH admins (placeholder)
   parameters:
   - name: admin
     in: body
@@ -35,4 +39,4 @@ patch:
         $ref: ../../responses/FB1.8/admin-response.yaml
 
   tags:
-  - admins
+  - Administrators

@@ -2,8 +2,8 @@ name: sort
 in: query
 description: >-
   Sort the response by the specified fields (in descending order if '-'
-  is appended to the field name)
-  NOTE: If you provide a sort you will not get a continuation token in
+  is appended to the field name).
+  NOTE: If you provide a sort you will not get a `continuation_token` in
   the response.
 type: array
 collectionFormat: csv

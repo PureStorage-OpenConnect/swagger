@@ -1,4 +1,6 @@
 get:
+  summary: GET smtp (placeholder)
+  description: GET smtp (placeholder)
   parameters:
   # there is only 1 smtp so sort, start and token don't make much sense,
   # but since we eventually want them and they are implemented, docing them here
@@ -15,9 +17,11 @@ get:
         $ref: ../../responses/FB1.3/smtp-get-response.yaml
 
   tags:
-  - smtp
+  - SMTP
 
 patch:
+  summary: PATCH smtp (placeholder)
+  description: PATCH smtp (placeholder)
   parameters:
   - name: smtp
     in: body
@@ -32,4 +36,4 @@ patch:
         $ref: ../../responses/FB1.3/smtp-response.yaml
 
   tags:
-  - smtp
+  - SMTP

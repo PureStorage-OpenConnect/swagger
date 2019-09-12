@@ -1,4 +1,6 @@
 get:
+  summary: GET policies-file-systems (placeholder)
+  description: GET policies-file-systems (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
   - $ref: ../../queries/FB1.0/limit.query.yaml
@@ -17,9 +19,11 @@ get:
         $ref: ../../responses/FB1.8/policy-member-get-response.yaml
 
   tags:
-  - policies
+  - Policies
 
 post:
+  summary: POST policies-file-systems (placeholder)
+  description: POST policies-file-systems (placeholder)
   parameters:
   - $ref: ../../queries/FB1.8/member_ids.query.yaml
   - $ref: ../../queries/FB1.5/member_names.query.yaml
@@ -33,9 +37,11 @@ post:
         $ref: ../../responses/FB1.8/policy-member-response.yaml
 
   tags:
-  - policies
+  - Policies
 
 delete:
+  summary: DELETE policies-file-systems (placeholder)
+  description: DELETE policies-file-systems (placeholder)
   parameters:
   - $ref: ../../queries/FB1.8/member_ids.query.yaml
   - $ref: ../../queries/FB1.5/member_names.query.yaml
@@ -47,4 +53,4 @@ delete:
       description: OK
 
   tags:
-  - policies
+  - Policies

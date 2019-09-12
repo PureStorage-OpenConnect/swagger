@@ -5,29 +5,34 @@ allOf:
       type: integer
       readOnly: true
       format: int64
-      description: creation timestamp of the object
+      description: Creation timestamp of the object.
     fast_remove_directory_enabled:
       type: boolean
       description: >-
-        Is fast remove directory enabled? Modifiable. Default is false.
+        Is fast remove directory enabled?
     http:
-      $ref: ../../models/FB1.0/_http.yaml
-      description: HTTP configuration. Modifiable.
+      description: HTTP configuration.
+      allOf:
+      - $ref: ../../models/FB1.0/_http.yaml
     nfs:
-      $ref: ../../models/FB1.0/_nfs.yaml
-      description: NFS configuration. Modifiable.
+      description: NFS configuration.
+      allOf:
+      - $ref: ../../models/FB1.0/_nfs.yaml
     provisioned:
       type: integer
       format: int64
       description: >-
-        The provisioned size of the file system in bytes. Modifiable.
-        Default is 0, meaning unlimited.
+        The provisioned size of the file system in bytes. A value of `0` means
+        unlimited.
     smb:
-      $ref: ../../models/FB1.0/_smb.yaml
-      description: SMB configuration. Modifiable.
+      description: SMB configuration.
+      allOf:
+      - $ref: ../../models/FB1.0/_smb.yaml
     snapshot_directory_enabled:
       type: boolean
-      description: is snapshot directory enabled? Modifiable. Default is false
+      description: >-
+        Is snapshot directory enabled?
     space:
-      $ref: ../../models/FB1.0/_space.yaml
-      description: the space specification of the file system
+      description: The space specification of the file system.
+      allOf:
+      - $ref: ../../models/FB1.0/_space.yaml

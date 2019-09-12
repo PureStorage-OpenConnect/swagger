@@ -1,4 +1,6 @@
 get:
+  summary: GET quotas-settings (placeholder)
+  description: GET quotas-settings (placeholder)
   responses:
     200:
       description: OK
@@ -6,9 +8,11 @@ get:
         $ref: ../../responses/FB1.8/quota-setting-get-response.yaml
 
   tags:
-  - quotas
+  - Quotas
 
 patch:
+  summary: PATCH quotas-settings (placeholder)
+  description: PATCH quotas-settings (placeholder)
   parameters:
   - name: quota-setting
     in: body
@@ -23,4 +27,4 @@ patch:
         $ref: ../../responses/FB1.8/quota-setting-response.yaml
 
   tags:
-  - quotas
+  - Quotas

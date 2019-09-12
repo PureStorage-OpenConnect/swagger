@@ -14,7 +14,7 @@ get:
         $ref: ../../responses/FB1.5/policy-get-response.yaml
 
   tags:
-  - policies
+  - Policies
 
 post:
   parameters:
@@ -31,7 +31,7 @@ post:
         $ref: ../../responses/FB1.5/policy-response.yaml
 
   tags:
-  - policies
+  - Policies
 
 delete:
   parameters:
@@ -42,7 +42,7 @@ delete:
       description: OK
 
   tags:
-  - policies
+  - Policies
 
 patch:
   parameters:
@@ -51,7 +51,7 @@ patch:
     in: body
     required: true
     schema:
-      $ref: ../../models/FB1.5/policy-update-params.yaml
+      $ref: ../../models/FB1.5/policy-patch.yaml
 
   responses:
     200:
@@ -60,4 +60,4 @@ patch:
         $ref: ../../responses/FB1.5/policy-response.yaml
 
   tags:
-  - policies
+  - Policies

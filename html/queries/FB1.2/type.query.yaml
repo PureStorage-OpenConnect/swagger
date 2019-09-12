@@ -1,9 +1,7 @@
 name: type
 in: query
 description: >-
-  Display the metric of a specified object type:
-  file-system or object-store. Defaults to display array space.
+  Display the metric of a specified object type.
+  Valid values are `array`, `file-system`, and `object-store`.
+  If not specified, defaults to `array`.
 type: string
-enum:
-- 'file-system'
-- 'object-store'

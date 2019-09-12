@@ -1,4 +1,5 @@
 get:
+  summary: GET api_version (placeholder)
   description: >
     Get available API versions. No authentication is required to access this
     endpoint.
@@ -11,4 +12,4 @@ get:
         $ref: ../../responses/FB1.0/api_version.response.yaml
 
   tags:
-  - authentication
+  - Authorization

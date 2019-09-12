@@ -12,4 +12,4 @@ get:
         $ref: ../../responses/FB1.2/array-space-get-response.yaml
 
   tags:
-  - arrays
+  - Arrays

@@ -1,4 +1,6 @@
 get:
+  summary: GET logs (placeholder)
+  description: GET logs (placeholder)
   parameters:
   - $ref: ../../queries/FB1.2/end_time.query.yaml
   - $ref: ../../queries/FB1.2/start_time.query.yaml
@@ -13,4 +15,4 @@ get:
         type: file
 
   tags:
-  - logs
+  - Logs

@@ -4,4 +4,4 @@ properties:
     type: array
     items:
       $ref: ../../models/FB1.2/alert.yaml
-    description: a list of alert objects
+    description: A list of alert objects.

@@ -2,12 +2,13 @@ allOf:
 - $ref: ../../models/FB1.3/directory-service.yaml
 - properties:
     services:
-      description: Services that the directory service configuration is used for
+      description: >-
+        Services that the directory service configuration is used for.
       type: array
       readOnly: true
       items:
         description: >-
-          Possible values are nfs, smb, and management.
+          Valid values are `nfs`, `smb`, and `management`.
         type: string
         example: "management"
       example:

@@ -1,4 +1,6 @@
 get:
+  summary: GET admins-cache (placeholder)
+  description: GET admins-cache (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
   - $ref: ../../queries/FB1.8/ids.query.yaml
@@ -16,15 +18,17 @@ get:
         $ref: ../../responses/FB1.8/admin-cache-get-response.yaml
 
   tags:
-  - admins
+  - Administrators
 
 delete:
+  summary: DELETE admins-cache (placeholder)
+  description: DELETE admins-cache (placeholder)
   responses:
     200:
       description: OK
 
   tags:
-  - admins
+  - Administrators
 
 parameters:
 - $ref: ../../queries/FB1.8/ids.query.yaml

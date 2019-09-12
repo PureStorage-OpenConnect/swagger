@@ -1,7 +1,8 @@
 allOf:
-- $ref: ../../models/FB1.1/file-system-post.yaml
+- $ref: ../../models/FB1.2/file-system-post.yaml
 - properties:
     hard_limit_enabled:
       type: boolean
-      description: is the file system's size a hard quota.
-      default: false
+      description: >-
+        Is the file system's size a hard limit quota?
+        If not specified, defaults to `false`.

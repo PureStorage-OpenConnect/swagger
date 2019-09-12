@@ -11,4 +11,4 @@ get:
         $ref: ../../responses/FB1.2/alert-watcher-test-response.yaml
 
   tags:
-  - alert-watchers
+  - Alert Watchers

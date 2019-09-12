@@ -2,5 +2,5 @@ type: object
 properties:
   name:
     type: string
-    description: name of the object (e.g., a file system or snapshot)
+    description: Name of the object (e.g., a file system or snapshot).
     readOnly: true

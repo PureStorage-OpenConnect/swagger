@@ -4,26 +4,26 @@ properties:
     type: number
     readOnly: true
     format: float
-    description: reduction of data
+    description: Reduction of data.
   snapshots:
     type: integer
     readOnly: true
     format: int64
-    description: physical usage by snapshots, other than unique in bytes
+    description: Physical usage by snapshots, other than unique in bytes.
   total_physical:
     type: integer
     readOnly: true
     format: int64
-    description: total physical usage (including snapshots) in bytes
+    description: Total physical usage (including snapshots) in bytes.
   unique:
     type: integer
     readOnly: true
     format: int64
     description: >-
       Unique physical space occupied by customer data, in bytes.
-      Excludes shared space, snapshots, and metadata
+      Excludes shared space, snapshots, and metadata.
   virtual:
     type: integer
     readOnly: true
     format: int64
-    description: Virtual space, in bytes
+    description: Virtual space, in bytes.

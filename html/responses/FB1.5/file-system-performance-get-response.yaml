@@ -13,4 +13,4 @@ allOf:
         $ref: ../../models/FB1.5/file-system-performance.yaml
       description: >-
         Total of all records after filtering.
-        If total_only query param is true, then no items will be returned.
+        If `total_only` query param is `true`, then no items will be returned.

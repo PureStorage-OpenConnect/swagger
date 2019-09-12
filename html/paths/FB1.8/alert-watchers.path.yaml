@@ -15,7 +15,7 @@ get:
         $ref: ../../responses/FB1.8/alert-watcher-get-response.yaml
 
   tags:
-  - alert-watchers
+  - Alert Watchers
 
 post:
   parameters:
@@ -28,7 +28,7 @@ post:
         $ref: ../../responses/FB1.8/alert-watcher-response.yaml
 
   tags:
-  - alert-watchers
+  - Alert Watchers
 
 patch:
   parameters:
@@ -47,7 +47,7 @@ patch:
         $ref: ../../responses/FB1.8/alert-watcher-response.yaml
 
   tags:
-  - alert-watchers
+  - Alert Watchers
 
 delete:
   parameters:
@@ -59,4 +59,4 @@ delete:
       description: OK
 
   tags:
-  - alert-watchers
+  - Alert Watchers

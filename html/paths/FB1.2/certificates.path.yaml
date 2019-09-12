@@ -15,7 +15,7 @@ get:
         $ref: ../../responses/FB1.2/certificate-get-response.yaml
 
   tags:
-  - certificates
+  - Certificates
 
 patch:
   parameters:
@@ -23,7 +23,7 @@ patch:
     in: body
     required: true
     schema:
-      $ref: ../../models/FB1.2/certificate.yaml
+      $ref: ../../models/FB1.2/certificate-patch.yaml
   - $ref: ../../queries/FB1.0/names.query.yaml
 
   responses:
@@ -33,4 +33,4 @@ patch:
         $ref: ../../responses/FB1.2/certificate-response.yaml
 
   tags:
-  - certificates
+  - Certificates

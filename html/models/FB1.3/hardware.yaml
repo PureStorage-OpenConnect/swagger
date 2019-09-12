@@ -4,7 +4,7 @@ allOf:
     type:
       description: >-
         Type of hardware component.
-        Possible values are ch, eth, fan, fb, fm, pwr, and xfm.
+        Valid values are `ch`, `eth`, `fan`, `fb`, `fm`, `pwr`, and `xfm`.
       type: string
       example: ch
       readOnly: true

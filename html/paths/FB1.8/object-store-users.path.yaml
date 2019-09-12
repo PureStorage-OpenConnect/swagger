@@ -1,4 +1,6 @@
 get:
+  summary: GET object-store-users (placeholder)
+  description: GET object-store-users (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
   - $ref: ../../queries/FB1.8/ids.query.yaml
@@ -15,9 +17,11 @@ get:
         $ref: ../../responses/FB1.8/object-store-user-get-response.yaml
 
   tags:
-  - object-store-users
+  - Object Store Users
 
 post:
+  summary: POST object-store-users (placeholder)
+  description: POST object-store-users (placeholder)
   parameters:
   - $ref: ../../queries/FB1.2/names_required.query.yaml
 
@@ -28,9 +32,11 @@ post:
         $ref: ../../responses/FB1.8/object-store-user-response.yaml
 
   tags:
-  - object-store-users
+  - Object Store Users
 
 delete:
+  summary: DELETE object-store-users (placeholder)
+  description: DELETE object-store-users (placeholder)
   parameters:
   - $ref: ../../queries/FB1.8/ids.query.yaml
   - $ref: ../../queries/FB1.0/names.query.yaml
@@ -40,4 +46,4 @@ delete:
       description: OK
 
   tags:
-  - object-store-users
+  - Object Store Users

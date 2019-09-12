@@ -15,7 +15,7 @@ get:
         $ref: ../../responses/FB1.5/file-system-snapshot-get-response.yaml
 
   tags:
-  - file-system-snapshots
+  - File System Snapshots
 
 post:
   parameters:
@@ -32,18 +32,18 @@ post:
         $ref: ../../responses/FB1.5/file-system-snapshot-response.yaml
 
   tags:
-  - file-system-snapshots
+  - File System Snapshots
 
 delete:
   parameters:
-  - $ref: ../../queries/FB1.0/name.query.yaml
+  - $ref: ../../queries/FB1.0/name_required.query.yaml
 
   responses:
     200:
       description: OK
 
   tags:
-  - file-system-snapshots
+  - File System Snapshots
 
 patch:
   parameters:
@@ -52,7 +52,7 @@ patch:
     required: true
     schema:
       $ref: ../../models/FB1.5/file-system-snapshot.yaml
-  - $ref: ../../queries/FB1.0/name.query.yaml
+  - $ref: ../../queries/FB1.0/name_required.query.yaml
 
   responses:
     200:
@@ -61,4 +61,4 @@ patch:
         $ref: ../../responses/FB1.1/file-system-snapshot-response.yaml
 
   tags:
-  - file-system-snapshots
+  - File System Snapshots

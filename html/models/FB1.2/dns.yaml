@@ -4,18 +4,18 @@ allOf:
   properties:
     domain:
       description: >-
-          Domain suffix to be appended by the Array when performing DNS lookups
+          Domain suffix to be appended by the Array when performing DNS lookups.
       type: string
       example: "example.com"
     nameservers:
-      description: List of DNS server IP addresses
+      description: List of DNS server IP addresses.
       type: array
       maxLength: 3
       items:
         type: string
         example: "192.168.0.125"
     search:
-      description: List of DNS search domains. Deprecated
+      description: List of DNS search domains. Deprecated.
       type: array
       maxLength: 3
       items:

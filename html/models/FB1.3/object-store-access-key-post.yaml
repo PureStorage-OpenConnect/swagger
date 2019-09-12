@@ -1,5 +1,6 @@
 type: object
 properties:
   user:
-    $ref: ../../models/FB1.0/_resource.yaml
-    description: reference of the associated user
+    description: Reference of the associated user.
+    allOf:
+    - $ref: ../../models/FB1.0/_resource.yaml

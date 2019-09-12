@@ -1,7 +1,8 @@
 get:
+  summary: GET usage-users (placeholder)
   description: Usage and quota for all existing users on a file system.
   tags:
-  - usage
+  - Usage
 
   parameters:
   - $ref: ../../queries/FB1.8/file_system_ids.query.yaml

@@ -1,6 +1,6 @@
 name: expose
 in: query
 description: >-
-  Whether to expose sensitive personal account information in the response
+  Whether to expose sensitive personal account information in the response.
+  If not specified, defaults to `false`.
 type: boolean
-default: false

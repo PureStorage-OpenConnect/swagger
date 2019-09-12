@@ -1,4 +1,6 @@
 get:
+  summary: GET alerts (placeholder)
+  description: GET alerts (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
   - $ref: ../../queries/FB1.8/ids.query.yaml
@@ -15,9 +17,11 @@ get:
         $ref: ../../responses/FB1.8/alert-get-response.yaml
 
   tags:
-  - alerts
+  - Alerts
 
 patch:
+  summary: PATCH alerts (placeholder)
+  description: PATCH alerts (placeholder)
   parameters:
   - $ref: ../../queries/FB1.8/ids.query.yaml
   - $ref: ../../queries/FB1.0/names.query.yaml
@@ -34,4 +38,4 @@ patch:
         $ref: ../../responses/FB1.8/alert-response.yaml
 
   tags:
-  - alerts
+  - Alerts

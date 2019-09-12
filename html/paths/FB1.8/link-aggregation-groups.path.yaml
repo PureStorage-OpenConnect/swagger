@@ -1,4 +1,6 @@
 get:
+  summary: GET link-aggregation-groups (placeholder)
+  description: GET link-aggregation-groups (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
   - $ref: ../../queries/FB1.8/ids.query.yaml
@@ -15,9 +17,11 @@ get:
         $ref: ../../responses/FB1.8/link-aggregation-group-get-response.yaml
 
   tags:
-  - link-aggregation-groups
+  - Link Aggregation Groups
 
 post:
+  summary: POST link-aggregation-groups (placeholder)
+  description: POST link-aggregation-groups (placeholder)
   parameters:
   - name: link-aggregation-group
     in: body
@@ -33,9 +37,11 @@ post:
         $ref: ../../responses/FB1.8/link-aggregation-group-response.yaml
 
   tags:
-  - link-aggregation-groups
+  - Link Aggregation Groups
 
 patch:
+  summary: PATCH link-aggregation-groups (placeholder)
+  description: PATCH link-aggregation-groups (placeholder)
   parameters:
   - name: link-aggregation-group
     in: body
@@ -65,9 +71,11 @@ patch:
         $ref: ../../responses/FB1.8/link-aggregation-group-response.yaml
 
   tags:
-  - link-aggregation-groups
+  - Link Aggregation Groups
 
 delete:
+  summary: DELETE link-aggregation-groups (placeholder)
+  description: DELETE link-aggregation-groups (placeholder)
   parameters:
   - $ref: ../../queries/FB1.8/ids.query.yaml
   - $ref: ../../queries/FB1.0/names.query.yaml
@@ -77,4 +85,4 @@ delete:
       description: OK
 
   tags:
-  - link-aggregation-groups
+  - Link Aggregation Groups

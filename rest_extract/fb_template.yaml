@@ -1,7 +1,7 @@
 ---
 info:
   description: |- 
-    ## Pure Confidential and Proprietary. May be subject to NDA and/or End User Agreement.
+    ## Pure Swagger UI for FlashBlade
     A light weight tool to explore the API for FlashBlade, community supported.  
     For help with this tool, use [Pure1 Community](https://community.purestorage.com/) or the [code-purestorage Slack](https://community.purestorage.com/discussion/9561/join-the-new-pure-code-slack-team-for-api-and-extensibility-discussions)
     

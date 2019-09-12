@@ -3,5 +3,6 @@ allOf:
 - $ref: ../../models/FB1.0/_built-in.yaml
 - properties:
     policy:
-      $ref: ../../models/FB1.5/_fixed-reference.yaml
       description: A reference to the associated policy.
+      allOf:
+      - $ref: ../../models/FB1.5/_fixed-reference.yaml

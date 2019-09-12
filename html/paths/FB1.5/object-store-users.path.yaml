@@ -14,7 +14,7 @@ get:
         $ref: ../../responses/FB1.5/object-store-user-get-response.yaml
 
   tags:
-  - object-store-users
+  - Object Store Users
 
 post:
   parameters:
@@ -27,7 +27,7 @@ post:
         $ref: ../../responses/FB1.5/object-store-user-response.yaml
 
   tags:
-  - object-store-users
+  - Object Store Users
 
 delete:
   parameters:
@@ -38,4 +38,4 @@ delete:
       description: OK
 
   tags:
-  - object-store-users
+  - Object Store Users

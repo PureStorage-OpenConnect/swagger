@@ -4,4 +4,4 @@ properties:
     type: array
     items:
       $ref: ../../models/FB1.3/object-store-account.yaml
-    description: a list of object store account objects
+    description: A list of object store account objects.

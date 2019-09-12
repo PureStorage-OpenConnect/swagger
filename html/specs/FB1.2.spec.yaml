@@ -30,12 +30,11 @@ definitions:
     $ref: ../models/FB1.1/file-system-snapshot.yaml
   Hardware:
     $ref: ../models/FB1.2/hardware.yaml
-host: irvm-tsteele.dev.purestorage.com:8091
 info:
-  description: "## Pure Confidential and Proprietary. May be subject to NDA and/or\
-    \ End User Agreement.\nA light weight tool to explore the API for FlashBlade,\
-    \ community supported.  \nFor help with this tool, use [Pure1 Community](https://community.purestorage.com/)\
-    \ or the [code-purestorage Slack](https://community.purestorage.com/discussion/9561/join-the-new-pure-code-slack-team-for-api-and-extensibility-discussions)\n\
+  description: "## Pure Swagger UI for FlashBlade\nA light weight tool to explore\
+    \ the API for FlashBlade, community supported.  \nFor help with this tool, use\
+    \ [Pure1 Community](https://community.purestorage.com/) or the [code-purestorage\
+    \ Slack](https://community.purestorage.com/discussion/9561/join-the-new-pure-code-slack-team-for-api-and-extensibility-discussions)\n\
     \n## Authentication\nUse an api-token (header param) to start a session at /api/login,\
     \ that returns an x-auth-token header which expires in 30 minutes by default.\
     \ This is\ndifferent than FlashArray, which uses a cookie instead.  The x-auth-token\
@@ -139,14 +138,14 @@ swagger: '2.0'
 tags:
 - name: api
 - name: auth
-- name: authentication
-- name: admins
-- name: alerts
-- name: alert-watchers
-- name: arrays
-- name: blades
-- name: certificates
-- name: dns
-- name: file-systems
-- name: file-system-snapshots
-- name: hardware
+- name: Authorization
+- name: Administrators
+- name: Alerts
+- name: Alert Watchers
+- name: Arrays
+- name: Blades
+- name: Certificates
+- name: DNS
+- name: File Systems
+- name: File System Snapshots
+- name: Hardware

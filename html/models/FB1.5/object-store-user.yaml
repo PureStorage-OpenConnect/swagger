@@ -2,9 +2,10 @@ allOf:
 - $ref: ../../models/FB1.3/object-store-user.yaml
 - properties:
     account:
-      $ref: ../../models/FB1.5/_fixed-reference.yaml
       description: A reference to the associated account.
       readOnly: true
+      allOf:
+      - $ref: ../../models/FB1.5/_fixed-reference.yaml
     access_keys:
       type: array
       description: References to the user's access keys.

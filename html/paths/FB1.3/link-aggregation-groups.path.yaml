@@ -13,7 +13,7 @@ get:
         $ref: ../../responses/FB1.3/link-aggregation-group-get-response.yaml
 
   tags:
-  - link-aggregation-groups
+  - Link Aggregation Groups
 
 post:
   parameters:
@@ -30,7 +30,7 @@ post:
         $ref: ../../responses/FB1.3/link-aggregation-group-response.yaml
 
   tags:
-  - link-aggregation-groups
+  - Link Aggregation Groups
 
 patch:
   parameters:
@@ -60,7 +60,7 @@ patch:
         $ref: ../../responses/FB1.3/link-aggregation-group-response.yaml
 
   tags:
-  - link-aggregation-groups
+  - Link Aggregation Groups
 
 delete:
   responses:
@@ -68,7 +68,7 @@ delete:
       description: OK
 
   tags:
-  - link-aggregation-groups
+  - Link Aggregation Groups
 
 parameters:
 - $ref: ../../queries/FB1.0/names.query.yaml

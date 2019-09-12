@@ -2433,9 +2433,8 @@ components:
         ex1:
           type: object
 info:
-  description: "## Pure Confidential and Proprietary. May be subject to NDA and/or\
-    \ End User Agreement.\nA light weight tool to explore the API for FlashArray,\
-    \ community supported. \nFor  help with this tool, use [Pure1 Community](https://community.purestorage.com/)\
+  description: "## Pure Swagger UI\nA light weight tool to explore the API for FlashArray,\
+    \ FlashBlade, community supported. \nFor  help with this tool, use [Pure1 Community](https://community.purestorage.com/)\
     \ or the [code-purestorage Slack](https://community.purestorage.com/discussion/9561/join-the-new-pure-code-slack-team-for-api-and-extensibility-discussions)\n\
     \n## Authenticate (uses API Key and returns a cookie)\nTo get an API Key, you\
     \ can do POST /auth/apitoken with your user/pass, then use your API key with POST\

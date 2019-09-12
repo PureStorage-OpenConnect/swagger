@@ -4,4 +4,4 @@ properties:
     type: array
     items:
       $ref: ../../models/FB1.3/hardware-connector.yaml
-    description: a list of connector objects
+    description: A list of connector objects.

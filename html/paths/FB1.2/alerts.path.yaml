@@ -14,7 +14,7 @@ get:
         $ref: ../../responses/FB1.2/alert-get-response.yaml
 
   tags:
-  - alerts
+  - Alerts
 
 patch:
   parameters:
@@ -32,4 +32,4 @@ patch:
         $ref: ../../responses/FB1.2/alert-response.yaml
 
   tags:
-  - alerts
+  - Alerts

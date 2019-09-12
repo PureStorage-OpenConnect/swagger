@@ -4,13 +4,13 @@ allOf:
     enabled:
       type: boolean
       description: >-
-        Is the NFSv3 protocol enabled? If not specified, defaults to false.
+        Is the NFSv3 protocol enabled? If not specified, defaults to `false`.
         Deprecated.
     v3_enabled:
       type: boolean
       description: >-
-        Is the NFSv3 protocol enabled? If not specified, defaults to false.
+        Is the NFSv3 protocol enabled? If not specified, defaults to `false`.
     v4_1_enabled:
       type: boolean
       description: >-
-        Is the NFSv4.1 protocol enabled? If not specified, defaults to false.
+        Is the NFSv4.1 protocol enabled? If not specified, defaults to `false`.

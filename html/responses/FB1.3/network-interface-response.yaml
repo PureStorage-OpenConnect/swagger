@@ -4,4 +4,4 @@ properties:
     type: array
     items:
       $ref: ../../models/FB1.3/network-interface.yaml
-    description: a list of network interface objects
+    description: A list of network interface objects.

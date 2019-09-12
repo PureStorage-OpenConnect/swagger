@@ -18,4 +18,4 @@ get:
         $ref: ../../responses/FB1.8/policy-member-get-response.yaml
 
   tags:
-  - policies
+  - Policies

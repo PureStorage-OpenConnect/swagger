@@ -1,7 +1,7 @@
 name: names
 in: query
 description: >-
-  A comma-separated list of resource names
+  A comma-separated list of resource names.
 type: array
 required: true
 collectionFormat: csv

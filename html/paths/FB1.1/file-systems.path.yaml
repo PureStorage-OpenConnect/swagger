@@ -15,7 +15,7 @@ get:
         $ref: ../../responses/FB1.1/file-system-get-response.yaml
 
   tags:
-  - file-systems
+  - File Systems
 
 post:
   parameters:
@@ -32,18 +32,18 @@ post:
         $ref: ../../responses/FB1.1/file-system-response.yaml
 
   tags:
-  - file-systems
+  - File Systems
 
 delete:
   parameters:
-  - $ref: ../../queries/FB1.0/name.query.yaml
+  - $ref: ../../queries/FB1.0/name_required.query.yaml
 
   responses:
     200:
       description: OK
 
   tags:
-  - file-systems
+  - File Systems
 
 patch:
   parameters:
@@ -52,7 +52,7 @@ patch:
     required: true
     schema:
       $ref: ../../models/FB1.1/file-system.yaml
-  - $ref: ../../queries/FB1.0/name.query.yaml
+  - $ref: ../../queries/FB1.0/name_required.query.yaml
 
   responses:
     200:
@@ -61,4 +61,4 @@ patch:
         $ref: ../../responses/FB1.1/file-system-response.yaml
 
   tags:
-  - file-systems
+  - File Systems

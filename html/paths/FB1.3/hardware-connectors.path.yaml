@@ -13,7 +13,7 @@ get:
         $ref: ../../responses/FB1.3/hardware-connector-get-response.yaml
 
   tags:
-  - hardware-connectors
+  - Hardware Connectors
 
 patch:
   parameters:
@@ -30,7 +30,7 @@ patch:
         $ref: ../../responses/FB1.3/hardware-connector-response.yaml
 
   tags:
-  - hardware-connectors
+  - Hardware Connectors
 
 parameters:
 - $ref: ../../queries/FB1.0/names.query.yaml

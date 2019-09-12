@@ -6,7 +6,8 @@ allOf:
       type: integer
       readOnly: true
       format: int64
-      description: creation timestamp of the object
+      description: Creation timestamp of the object.
     space:
-      $ref: ../FB1.0/_space.yaml
       readOnly: true
+      allOf:
+      - $ref: ../FB1.0/_space.yaml

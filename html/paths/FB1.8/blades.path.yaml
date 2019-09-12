@@ -15,4 +15,4 @@ get:
         $ref: ../../responses/FB1.8/blade-get-response.yaml
 
   tags:
-  - blades
+  - Blades

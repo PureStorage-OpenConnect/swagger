@@ -4,67 +4,68 @@ allOf:
   properties:
     action:
       type: string
-      description: the action of the alert
+      description: The action of the alert.
       readOnly: true
     code:
       type: integer
       format: int64
-      description: alert code
+      description: Alert code.
       readOnly: true
     component:
       type: string
-      description: the component of the alert
+      description: The component of the alert.
       readOnly: true
     created:
       type: integer
       format: int64
-      description: creation timestamp of the object
+      description: Creation timestamp of the object.
       readOnly: true
     description:
       type: string
-      description: the description of the alert
+      description: The description of the alert.
       readOnly: true
     flagged:
       type: boolean
-      description: flagged state of the alert
+      description: Flagged state of the alert.
     index:
       type: integer
       format: int64
-      description: the unique index of the alert
+      description: The unique index of the alert.
       readOnly: true
     knowledge_base_url:
       type: string
-      description: the kb url of the alert
+      description: The kb url of the alert.
       readOnly: true
     notified:
       type: integer
       format: int64
-      description: the last notification timestamp of the alert
+      description: The last notification timestamp of the alert.
       readOnly: true
     severity:
       type: string
       description: >-
         Severity of the alert.
-        Possible values are info, warning, and critical.
+        Valid values are `info`, `warning`, and `critical`.
       readOnly: true
     state:
       type: string
       description: >-
         The current state of the alert.
-        Possible values are open, closing, closed, and waiting to downgrade.
+        Valid values are `open`, `closing`, `closed`, and
+        `waiting to downgrade`.
       readOnly: true
     subject:
       type: string
-      description: the subject of the alert
+      description: The subject of the alert.
       readOnly: true
     updated:
       type: integer
       format: int64
-      description: the last updated timestamp of the alert
+      description: The last updated timestamp of the alert.
       readOnly: true
     variables:
       type: object
-      description: key-value pairs of additional information of the alert
+      description: Key-value pairs of additional information of the alert.
       readOnly: true
       additionalProperties:
         type: string

@@ -4,4 +4,4 @@ properties:
     type: array
     items:
       $ref: ../../models/FB1.0/file-system.yaml
-    description: a list of file system objects
+    description: A list of file system objects.

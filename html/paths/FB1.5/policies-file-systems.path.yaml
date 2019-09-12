@@ -15,7 +15,7 @@ get:
         $ref: ../../responses/FB1.5/policy-member-get-response.yaml
 
   tags:
-  - policies
+  - Policies
 
 post:
   parameters:
@@ -29,7 +29,7 @@ post:
         $ref: ../../responses/FB1.5/policy-member-response.yaml
 
   tags:
-  - policies
+  - Policies
 
 delete:
   parameters:
@@ -41,4 +41,4 @@ delete:
       description: OK
 
   tags:
-  - policies
+  - Policies

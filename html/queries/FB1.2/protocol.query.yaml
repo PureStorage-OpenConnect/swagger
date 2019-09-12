@@ -1,10 +1,8 @@
 name: protocol
 in: query
 description: >-
-  Display the performance of a specified protocol: HTTP, SMB, NFS, or S3.
+  Display the performance of a specified protocol.
+  Valid values are `all`, `HTTP`, `SMB`, `NFS`, and `S3`.
+  If not specified, defaults to `all`, which will provide
+  the combined performance of all available protocols.
 type: string
-enum:
-- 'HTTP'
-- 'NFS'
-- 'SMB'
-- 'S3'

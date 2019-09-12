@@ -16,7 +16,7 @@ get:
     200:
       description: OK
       schema:
-        $ref: ../../responses/FB1.5/file-system-performance-list.yaml
+        $ref: ../../responses/FB1.5/file-system-performance-get-response.yaml
 
   tags:
-  - file-systems
+  - File Systems

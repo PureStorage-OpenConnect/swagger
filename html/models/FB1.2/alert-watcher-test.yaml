@@ -4,9 +4,9 @@ allOf:
   properties:
     accepted:
       type: boolean
-      description: is the email accepted?
+      description: Is the email accepted?
       readOnly: true
     error:
       type: string
-      description: error message (if failed)
+      description: Error message (if failed).
       readOnly: true

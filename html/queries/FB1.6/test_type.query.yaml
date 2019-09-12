@@ -1,5 +1,6 @@
 name: test_type
 in: query
 description: >-
-      Specify the type of test: phonehome/remote-assist.
+      Specify the type of test. Valid values are `all`, `phonehome` and `remote-assist`.
+      If not specified, defaults to `all`.
 type: string

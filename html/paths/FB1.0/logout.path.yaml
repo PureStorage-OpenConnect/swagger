@@ -1,11 +1,11 @@
 post:
+  summary: POST logout (placeholder)
   description: >
     Invalidate an access token.
-  parameters:
 
   responses:
     200:
       description: OK
 
   tags:
-  - authentication
+  - Authorization

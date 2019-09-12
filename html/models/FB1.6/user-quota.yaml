@@ -7,18 +7,18 @@ allOf:
       type: integer
       format: int64
       description: >-
-        File system's default user quota (in bytes). If it is 0, it means there
+        File system's default user quota (in bytes). If it is `0`, it means there
         is no default quota. This will be the effective user quota if the user
         doesn't have an individual quota. This default quota is set through the
-        file-system endpoint.
+        `file-systems` endpoint.
       readOnly: true
     quota:
       type: integer
       format: int64
       description: >-
-        The limit of the quota (in bytes) for the specified user, cannot be 0.
-        Modifiable. If specified, this value will override the file system's
-        default user quota.
+        The limit of the quota (in bytes) for the specified user, cannot be `0`.
+        If specified, this value will override the file system's default user
+        quota.
       required: true
     usage:
       type: integer

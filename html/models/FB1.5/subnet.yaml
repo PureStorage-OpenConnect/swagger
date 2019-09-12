@@ -8,5 +8,6 @@ allOf:
       items:
         $ref: ../../models/FB1.5/_fixed-reference.yaml
     link_aggregation_group:
-      $ref: ../../models/FB1.5/_reference.yaml
       description: Reference to the associated LAG.
+      allOf:
+      - $ref: ../../models/FB1.5/_reference.yaml

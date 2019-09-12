@@ -13,11 +13,11 @@ get:
         $ref: ../../responses/FB1.2/hardware-get-response.yaml
 
   tags:
-  - hardware
+  - Hardware
 
 patch:
   description: >-
-    Controls the visual identification of the specified hardware component
+    Controls the visual identification of the specified hardware component.
 
   parameters:
   - name: hardware
@@ -33,7 +33,7 @@ patch:
         $ref: ../../responses/FB1.2/hardware-response.yaml
 
   tags:
-  - hardware
+  - Hardware
 
 parameters:
 - $ref: ../../queries/FB1.0/names.query.yaml

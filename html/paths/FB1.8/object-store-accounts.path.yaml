@@ -1,4 +1,6 @@
 get:
+  summary: GET object-store-accounts (placeholder)
+  description: GET object-store-accounts (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
   - $ref: ../../queries/FB1.8/ids.query.yaml
@@ -16,9 +18,11 @@ get:
         $ref: ../../responses/FB1.8/object-store-account-get-response.yaml
 
   tags:
-  - object-store-accounts
+  - Object Store Accounts
 
 post:
+  summary: POST object-store-accounts (placeholder)
+  description: POST object-store-accounts (placeholder)
   parameters:
   - $ref: ../../queries/FB1.2/names_required.query.yaml
 
@@ -29,9 +33,11 @@ post:
         $ref: ../../responses/FB1.8/object-store-account-response.yaml
 
   tags:
-  - object-store-accounts
+  - Object Store Accounts
 
 delete:
+  summary: DELETE object-store-accounts (placeholder)
+  description: DELETE object-store-accounts (placeholder)
   parameters:
   - $ref: ../../queries/FB1.8/ids.query.yaml
   - $ref: ../../queries/FB1.0/names.query.yaml
@@ -41,4 +47,4 @@ delete:
       description: OK
 
   tags:
-  - object-store-accounts
+  - Object Store Accounts

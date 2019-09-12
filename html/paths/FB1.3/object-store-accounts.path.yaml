@@ -15,7 +15,7 @@ get:
         $ref: ../../responses/FB1.3/object-store-account-get-response.yaml
 
   tags:
-  - object-store-accounts
+  - Object Store Accounts
 
 post:
   parameters:
@@ -28,7 +28,7 @@ post:
         $ref: ../../responses/FB1.3/object-store-account-response.yaml
 
   tags:
-  - object-store-accounts
+  - Object Store Accounts
 
 delete:
   parameters:
@@ -39,4 +39,4 @@ delete:
       description: OK
 
   tags:
-  - object-store-accounts
+  - Object Store Accounts

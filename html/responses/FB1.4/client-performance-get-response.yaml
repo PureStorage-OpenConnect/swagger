@@ -6,4 +6,4 @@ allOf:
       type: array
       items:
         $ref: ../../models/FB1.4/client-performance.yaml
-      description: a list of client performance metrics objects
+      description: A list of client performance metrics objects.

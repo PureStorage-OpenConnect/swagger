@@ -1,4 +1,5 @@
 post:
+  summary: POST login (placeholder)
   description: >
     Exchange an API token for an access token.
   security:
@@ -17,4 +18,4 @@ post:
         $ref: ../../responses/FB1.0/login.response.yaml
 
   tags:
-  - authentication
+  - Authorization

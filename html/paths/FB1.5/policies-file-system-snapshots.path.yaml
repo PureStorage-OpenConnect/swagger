@@ -15,4 +15,4 @@ get:
         $ref: ../../responses/FB1.5/policy-member-get-response.yaml
 
   tags:
-  - policies
+  - Policies

@@ -6,4 +6,4 @@ allOf:
       type: array
       items:
         $ref: ../../models/FB1.4/admin-cache.yaml
-      description: a list of admin cache entries
+      description: A list of admin cache entries.

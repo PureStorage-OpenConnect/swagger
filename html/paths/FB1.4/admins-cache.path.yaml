@@ -2,6 +2,7 @@ get:
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
   - $ref: ../../queries/FB1.0/limit.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
   - $ref: ../../queries/FB1.4/refresh.query.yaml
   - $ref: ../../queries/FB1.0/sort.query.yaml
   - $ref: ../../queries/FB1.0/start.query.yaml
@@ -14,7 +15,7 @@ get:
         $ref: ../../responses/FB1.4/admin-cache-get-response.yaml
 
   tags:
-  - admins
+  - Administrators
 
 delete:
   responses:
@@ -22,7 +23,7 @@ delete:
       description: OK
 
   tags:
-  - admins
+  - Administrators
 
 parameters:
 - $ref: ../../queries/FB1.0/names.query.yaml

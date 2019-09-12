@@ -15,7 +15,7 @@ get:
         $ref: ../../responses/FB1.8/subnet-get-response.yaml
 
   tags:
-  - subnets
+  - Subnets
 
 post:
   parameters:
@@ -33,7 +33,7 @@ post:
         $ref: ../../responses/FB1.8/subnet-response.yaml
 
   tags:
-  - subnets
+  - Subnets
 
 patch:
   parameters:
@@ -52,7 +52,7 @@ patch:
         $ref: ../../responses/FB1.8/subnet-response.yaml
 
   tags:
-  - subnets
+  - Subnets
 
 delete:
   parameters:
@@ -64,4 +64,4 @@ delete:
       description: OK
 
   tags:
-  - subnets
+  - Subnets

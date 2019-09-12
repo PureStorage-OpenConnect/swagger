@@ -13,7 +13,7 @@ get:
         $ref: ../../responses/FB1.3/subnet-get-response.yaml
 
   tags:
-  - subnets
+  - Subnets
 
 post:
   parameters:
@@ -30,7 +30,7 @@ post:
         $ref: ../../responses/FB1.3/subnet-response.yaml
 
   tags:
-  - subnets
+  - Subnets
 
 patch:
   parameters:
@@ -47,7 +47,7 @@ patch:
         $ref: ../../responses/FB1.3/subnet-response.yaml
 
   tags:
-  - subnets
+  - Subnets
 
 delete:
   responses:
@@ -55,7 +55,7 @@ delete:
       description: OK
 
   tags:
-  - subnets
+  - Subnets
 
 parameters:
 - $ref: ../../queries/FB1.0/names.query.yaml

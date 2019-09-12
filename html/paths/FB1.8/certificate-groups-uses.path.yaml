@@ -1,4 +1,6 @@
 get:
+  summary: GET certificate-groups-uses (placeholder)
+  description: GET certificate-groups-uses (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
   - $ref: ../../queries/FB1.8/ids.query.yaml
@@ -15,4 +17,4 @@ get:
         $ref: ../../responses/FB1.8/certificate-group-use-get-response.yaml
 
   tags:
-  - certificate-groups
+  - Certificate Groups

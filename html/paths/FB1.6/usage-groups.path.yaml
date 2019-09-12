@@ -1,7 +1,7 @@
 get:
   description: Usage and quota for all existing groups on a file system.
   tags:
-  - usage
+  - Usage
 
   parameters:
   - $ref: ../../queries/FB1.6/file_system_names.query.yaml

@@ -3,12 +3,13 @@ allOf:
 - type: object
   properties:
     account:
-      $ref: ../../models/FB1.3/_fixed-reference.yaml
-      description: reference of the associated account
+      description: Reference of the associated account.
       readOnly: true
+      allOf:
+      - $ref: ../../models/FB1.3/_fixed-reference.yaml
     access_keys:
       type: array
-      description: references of the user's access keys
+      description: References of the user's access keys.
       items:
         $ref: ../../models/FB1.3/_fixed-reference.yaml
       readOnly: true
@@ -16,4 +17,4 @@ allOf:
       type: integer
       readOnly: true
       format: int64
-      description: creation timestamp of the object
+      description: Creation timestamp of the object.

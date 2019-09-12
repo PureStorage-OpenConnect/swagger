@@ -6,7 +6,7 @@ get:
         $ref: ../../responses/FB1.8/support-get-response.yaml
 
   tags:
-  - support
+  - Support
 
 patch:
   parameters:
@@ -23,4 +23,4 @@ patch:
         $ref: ../../responses/FB1.8/support-response.yaml
 
   tags:
-  - support
+  - Support

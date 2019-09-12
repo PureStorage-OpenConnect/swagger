@@ -1,4 +1,6 @@
 get:
+  summary: GET hardware (placeholder)
+  description: GET hardware (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
   - $ref: ../../queries/FB1.0/limit.query.yaml
@@ -13,12 +15,12 @@ get:
         $ref: ../../responses/FB1.8/hardware-get-response.yaml
 
   tags:
-  - hardware
+  - Hardware
 
 patch:
+  summary: PATCH hardware (placeholder)
   description: >-
     Controls the visual identification of the specified hardware component.
-
   parameters:
   - name: hardware
     in: body
@@ -33,7 +35,7 @@ patch:
         $ref: ../../responses/FB1.8/hardware-response.yaml
 
   tags:
-  - hardware
+  - Hardware
 
 parameters:
 - $ref: ../../queries/FB1.8/ids.query.yaml

@@ -2,4 +2,4 @@ type: object
 properties:
   enabled:
     type: boolean
-    description: is the protocol enabled? Default is false
+    description: Is the protocol enabled? If not specified, defaults to `false`.

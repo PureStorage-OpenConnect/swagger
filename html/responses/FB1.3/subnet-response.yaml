@@ -4,4 +4,4 @@ properties:
     type: array
     items:
       $ref: ../../models/FB1.3/subnet.yaml
-    description: a list of subnet objects
+    description: A list of subnet objects.

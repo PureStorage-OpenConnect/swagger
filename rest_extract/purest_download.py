@@ -11,7 +11,7 @@ import sys
 
 fb_max_version = { 0:0, 1:8 }      #this is a list of major:minor_max version pairs
 pure1_max_version = { 0:-1, 1:-1}
-thread_count = 8
+thread_count = 4
 baseURL = 'http://purest.dev.purestorage.com'
 spec_url = baseURL+'/pure-urls.js'
 with open("fb_template.yaml") as f:
@@ -19,13 +19,14 @@ with open("fb_template.yaml") as f:
 
 
 class SpecWorker(threading.Thread):
-    def __init__(self,s,q,file_download_root):
+    def __init__(self,s,q,file_download_root,io_lock):
         threading.Thread.__init__(self)
         self.s = s
         self.q = q
         self.file_download_root = file_download_root
+        self.io_lock = io_lock
 
-    def find(self,key, dictionary):
+    def find(self, key, dictionary):
         for k, v in dictionary.items():
             if k == key:
                 yield v
@@ -39,18 +40,22 @@ class SpecWorker(threading.Thread):
                             yield result 
         
 
-    def parse_spec(self,spec_file):
-        spec_dict = yaml.safe_load(spec_file)
-        for x in self.find("$ref",spec_dict):
+    def parse_spec(self, spec_dict):
+        
+        for x in self.find("$ref", spec_dict):
             yield x
 
     def apply_template(self,spec_file):
         global template_yaml
+        
 
         spec_yaml = yaml.safe_load(spec_file)
         spec_yaml['info']['description'] = template_yaml['info']['description']
-        
 
+        #remove host references because of security concern.
+        if 'host' in spec_yaml:
+            del spec_yaml['host']
+        
         version = spec_yaml['info']['version']
 
         spec_yaml['basePath'] = "/api"
@@ -87,15 +92,19 @@ class SpecWorker(threading.Thread):
         #print(url_path)
         save_to_path = self.file_download_root+url_path
 
-        print("Spec URL:{}   Local File:{}".format(spec_url,save_to_path))
+        #print("Spec URL:{}   Local File:{}".format(spec_url,save_to_path))
         
         #don't used cached file for head file.
         if not head:
             try:
-                with open(save_to_path,"r") as f:
-                    spec_file = f.read()
+                with self.io_lock:
+                    with open(save_to_path,"r") as f:
+                        spec_file = f.read()
+                spec_dict = yaml.safe_load(spec_file)
+                if not isinstance(spec_dict, dict):
+                    abc=2
 
-                print("Returning Local file")
+                #print("Returning Local file")
 
                 return spec_file
 
@@ -105,16 +114,46 @@ class SpecWorker(threading.Thread):
         #file not found, lets download it
 
         
-        print("downloading spec ")
-        spec_file = self.s.get(spec_url).text
+        #print("downloading spec ")
+        self.response = self.s.get(spec_url)
+        spec_file = self.response.text
+
+        spec_dict = yaml.safe_load(spec_file)
+        if not isinstance(spec_dict, dict):
+            abc=2
+        if '404 Not Found' in spec_file:
+            abn = 99
+        if self.response.status_code != 200 or '404' in spec_file:
+            print(response)
+        if spec_file == '':
+            abj = ""
+
         path,_ = os.path.split(save_to_path)
-        os.makedirs(path,exist_ok=True)
+        os.makedirs(path, exist_ok=True)
 
         if head:
             spec_file = self.apply_template(spec_file)
+            
+        with self.io_lock:
+            with open(save_to_path,"w") as f:
+                f.write(spec_file)
+                f.close()
+        
+        with self.io_lock:
+            with open(save_to_path,"r") as f:
+                temp_check = f.read()
 
-        with open(save_to_path,"w+") as f:
-            f.write(spec_file)
+        spec_dict = yaml.safe_load(temp_check)
+        if not isinstance(spec_dict, dict):
+            abc=2
+        if '404 Not Found' in temp_check:
+            abn = 99
+        if self.response.status_code != 200 or '404' in temp_check:
+            print(response)
+        if temp_check == '':
+            abj = ""
+
+        
 
         return spec_file
 
@@ -127,14 +166,24 @@ class SpecWorker(threading.Thread):
             head = item['head']
 
             try:
-                spec_file = self.get_spec_file(spec_url,head)
+                if spec_url == 'http://purest.dev.purestorage.com/purest/models/FB1.X/_fixed-reference.yaml':
+                    abj = 2
+
+                spec_file = self.get_spec_file(spec_url, head)
             except:
                 print("Unexpected error:", sys.exc_info()[0])
                 self.q.task_done()
                 raise
             
-            for rel_path in self.parse_spec(spec_file):
+            spec_dict = yaml.safe_load(spec_file)
+            if not isinstance(spec_dict, dict):
+                abc=2
+
+            for rel_path in self.parse_spec(spec_dict):
                 new_abs_path = urllib.parse.urljoin(spec_url,rel_path)
+                if '1.X' in new_abs_path:
+                    print("1.x in spec_url: {}".format(spec_url))
+
                 #print("source: {}  rel: {}  abs: {}".format(spec_url,rel_path,new_abs_path))
                 self.q.put({'url':new_abs_path,'head':False})
             self.q.task_done()
@@ -182,8 +231,9 @@ def main():
             pass
     
     #Start threads to do the work.
+    io_lock = threading.Lock()
     for _ in range(thread_count):
-        t = SpecWorker(s,q,file_download_root)
+        t = SpecWorker(s,q,file_download_root,io_lock)
         t.setDaemon(True)
         t.start()
     

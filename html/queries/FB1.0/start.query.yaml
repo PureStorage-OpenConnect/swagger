@@ -1,7 +1,7 @@
 name: start
 in: query
 description: >-
-  The offset of the first resource to return from a collection
+  The offset of the first resource to return from a collection.
 type: integer
 format: int32
 minimum: 0

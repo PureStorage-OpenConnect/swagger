@@ -1,6 +1,6 @@
 name: refresh
 in: query
 description: >-
-  Whether to refresh the user info from directory service
+  Whether to refresh the user info from directory service.
+  If not specified, defaults to `false`.
 type: boolean
-default: false

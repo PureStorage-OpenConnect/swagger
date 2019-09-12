@@ -18,4 +18,4 @@ get:
         $ref: ../../responses/FB1.8/bucket-performance-get-response.yaml
 
   tags:
-  - buckets
+  - Buckets

@@ -1,4 +1,6 @@
 get:
+  summary: GET certificate-groups-certificates (placeholder)
+  description: GET certificate-groups-certificates (placeholder)
   parameters:
   - $ref: ../../queries/FB1.8/certificate_ids.query.yaml
   - $ref: ../../queries/FB1.8/certificate_group_ids.query.yaml
@@ -18,9 +20,11 @@ get:
         $ref: ../../responses/FB1.8/certificate-group-certificate-get-resp.yaml
 
   tags:
-  - certificate-groups
+  - Certificate Groups
 
 post:
+  summary: POST certificate-groups-certificates (placeholder)
+  description: POST certificate-groups-certificates (placeholder)
   parameters:
   - $ref: ../../queries/FB1.8/certificate_ids.query.yaml
   - $ref: ../../queries/FB1.8/certificate_group_ids.query.yaml
@@ -34,9 +38,11 @@ post:
         $ref: ../../responses/FB1.8/certificate-group-certificate-response.yaml
 
   tags:
-  - certificate-groups
+  - Certificate Groups
 
 delete:
+  summary: DELETE certificate-groups-certificates (placeholder)
+  description: DELETE certificate-groups-certificates (placeholder)
   parameters:
   - $ref: ../../queries/FB1.8/certificate_ids.query.yaml
   - $ref: ../../queries/FB1.8/certificate_group_ids.query.yaml
@@ -48,4 +54,4 @@ delete:
       description: OK
 
   tags:
-  - certificate-groups
+  - Certificate Groups

@@ -16,7 +16,7 @@ get:
         $ref: ../../responses/FB1.8/file-system-get-response.yaml
 
   tags:
-  - file-systems
+  - File Systems
 
 post:
   parameters:
@@ -33,7 +33,7 @@ post:
         $ref: ../../responses/FB1.8/file-system-response.yaml
 
   tags:
-  - file-systems
+  - File Systems
 
 delete:
   parameters:
@@ -45,7 +45,7 @@ delete:
       description: OK
 
   tags:
-  - file-systems
+  - File Systems
 
 patch:
   parameters:
@@ -65,4 +65,4 @@ patch:
         $ref: ../../responses/FB1.8/file-system-response.yaml
 
   tags:
-  - file-systems
+  - File Systems

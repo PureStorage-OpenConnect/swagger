@@ -4,4 +4,4 @@ properties:
     type: array
     items:
       $ref: ../../models/FB1.2/alert-watcher.yaml
-    description: a list of alert watcher objects
+    description: A list of alert watcher objects.

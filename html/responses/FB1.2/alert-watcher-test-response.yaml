@@ -4,4 +4,4 @@ properties:
     type: array
     items:
       $ref: ../../models/FB1.2/alert-watcher-test.yaml
-    description: a list of alert watcher test results
+    description: A list of alert watcher test results.

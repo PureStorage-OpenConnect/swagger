@@ -4,7 +4,7 @@ properties:
     type: integer
     format: int64
     example: 10995116277760
-    description: usable capacity in bytes
+    description: Usable capacity in bytes.
   parity:
     type: number
     format: float

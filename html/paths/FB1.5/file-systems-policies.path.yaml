@@ -15,7 +15,7 @@ get:
         $ref: ../../responses/FB1.5/policy-member-get-response.yaml
 
   tags:
-  - file-systems
+  - File Systems
 
 post:
   parameters:
@@ -29,7 +29,7 @@ post:
         $ref: ../../responses/FB1.5/policy-member-response.yaml
 
   tags:
-  - file-systems
+  - File Systems
 
 delete:
   parameters:
@@ -41,4 +41,4 @@ delete:
       description: OK
 
   tags:
-  - file-systems
+  - File Systems

@@ -1,6 +1,6 @@
 get:
   tags:
-  - quotas
+  - Quotas
 
   parameters:
   - $ref: ../../queries/FB1.6/file_system_names.query.yaml
@@ -21,7 +21,7 @@ get:
 
 post:
   tags:
-  - quotas
+  - Quotas
 
   parameters:
   - $ref: ../../queries/FB1.6/file_system_names.query.yaml
@@ -40,7 +40,7 @@ post:
 
 delete:
   tags:
-  - quotas
+  - Quotas
 
   parameters:
   - $ref: ../../queries/FB1.6/file_system_names.query.yaml
@@ -54,7 +54,7 @@ delete:
 
 patch:
   tags:
-  - quotas
+  - Quotas
 
   parameters:
   - $ref: ../../queries/FB1.6/file_system_names.query.yaml

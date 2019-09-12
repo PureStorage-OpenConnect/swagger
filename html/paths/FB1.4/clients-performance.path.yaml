@@ -1,4 +1,6 @@
 get:
+  summary: GET clients-performance (placeholder)
+  description: GET clients-performance (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
   - $ref: ../../queries/FB1.0/limit.query.yaml
@@ -9,7 +11,7 @@ get:
     200:
       description: OK
       schema:
-        $ref: ../../responses/FB1.4/client-performance-list.yaml
+        $ref: ../../responses/FB1.4/client-performance-get-response.yaml
 
   tags:
-  - clients
+  - Clients

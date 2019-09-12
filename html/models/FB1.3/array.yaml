@@ -1,7 +1,6 @@
 allOf:
 - $ref: ../../models/FB1.0/_resource.yaml
-- type: object
-  properties:
+- properties:
     id:
       description: >-
         A globally unique ID chosen by the system. Cannot change. Cannot ever
@@ -15,7 +14,7 @@ allOf:
         example: time.acme.com
     os:
       description: >-
-        Possible values are Purity//FA and Purity//FB.
+        Valid values are `Purity//FA` and `Purity//FB`.
       type: string
       readOnly: true
       example: Purity//FB

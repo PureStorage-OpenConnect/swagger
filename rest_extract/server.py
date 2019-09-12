@@ -185,7 +185,7 @@ def get_specs(req_path):
 
 def get_spec_index():
     with open(os.path.join(ROOT_DIR,"spec_index.yaml")) as f:
-        spec_index = yaml.load(f)
+        spec_index = yaml.load(f, Loader=yaml.FullLoader)
     return spec_index
 
 

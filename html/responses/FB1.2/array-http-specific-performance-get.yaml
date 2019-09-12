@@ -1,7 +1,9 @@
-type: object
-properties:
-  items:
-    type: array
+allOf:
+- $ref: ../../responses/FB1.0/page-info.yaml
+- type: object
+  properties:
     items:
-      $ref: ../../models/FB1.2/array-http-specific-performance.yaml
-    description: a list of http specific array performance metrics objects
+      type: array
+      items:
+        $ref: ../../models/FB1.2/array-http-specific-performance.yaml
+      description: A list of http specific array performance metrics objects.

@@ -13,5 +13,5 @@ properties:
     type: integer
     format: int64
     description: >-
-      Time during the day to take the snapshot (using array timezone),
+      Time during the day to take the snapshot (using array time zone),
       only valid if 'every' is in days.

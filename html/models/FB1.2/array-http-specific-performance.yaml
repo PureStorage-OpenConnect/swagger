@@ -3,66 +3,66 @@ allOf:
 - type: object
   properties:
     others_per_sec:
-      description: Other operations processed per second
+      description: Other operations processed per second.
       type: integer
       format: int64
       minimum: 0
     read_dirs_per_sec:
-      description: Read directory requests processed per second
+      description: Read directory requests processed per second.
       type: integer
       format: int64
       minimum: 0
     read_files_per_sec:
-      description: Read file requests processed per second
+      description: Read file requests processed per second.
       type: integer
       format: int64
       minimum: 0
     write_dirs_per_sec:
-      description: Write directory requests processed per second
+      description: Write directory requests processed per second.
       type: integer
       format: int64
       minimum: 0
     write_files_per_sec:
-      description: Write file requests processed per second
+      description: Write file requests processed per second.
       type: integer
       format: int64
       minimum: 0
     time:
-      description: Sample time in milliseconds since UNIX epoch
+      description: Sample time in milliseconds since UNIX epoch.
       type: integer
       format: int64
     usec_per_other_op:
       description: >-
         Average time, measured in microseconds, it takes the array to process
-        other operations
+        other operations.
       type: integer
       format: int64
       minimum: 0
     usec_per_read_dir_op:
       description: >-
         Average time, measured in microseconds, it takes the array to process
-        a read directory request
+        a read directory request.
       type: integer
       format: int64
       minimum: 0
     usec_per_read_file_op:
       description: >-
         Average time, measured in microseconds, it takes the array to process
-        a read file request
+        a read file request.
       type: integer
       format: int64
       minimum: 0
     usec_per_write_dir_op:
       description: >-
         Average time, measured in microseconds, it takes the array to process
-        a write directory request
+        a write directory request.
       type: integer
       format: int64
       minimum: 0
     usec_per_write_file_op:
       description: >-
         Average time, measured in microseconds, it takes the array to process
-        a write file request
+        a write file request.
       type: integer
       format: int64
       minimum: 0

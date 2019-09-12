@@ -17,7 +17,7 @@ get:
         $ref: ../../responses/FB1.8/file-system-snapshot-get-response.yaml
 
   tags:
-  - file-system-snapshots
+  - File System Snapshots
 
 post:
   parameters:
@@ -35,7 +35,7 @@ post:
         $ref: ../../responses/FB1.8/file-system-snapshot-response.yaml
 
   tags:
-  - file-system-snapshots
+  - File System Snapshots
 
 delete:
   parameters:
@@ -48,7 +48,7 @@ delete:
       description: OK
 
   tags:
-  - file-system-snapshots
+  - File System Snapshots
 
 patch:
   parameters:
@@ -68,4 +68,4 @@ patch:
         $ref: ../../responses/FB1.8/file-system-snapshot-response.yaml
 
   tags:
-  - file-system-snapshots
+  - File System Snapshots

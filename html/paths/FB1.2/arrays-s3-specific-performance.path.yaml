@@ -1,4 +1,6 @@
 get:
+  summary: GET arrays-s3-specific-performance (placeholder)
+  description: GET arrays-s3-specific-performance (placeholder)
   parameters:
   - $ref: ../../queries/FB1.2/end_time.query.yaml
   - $ref: ../../queries/FB1.2/resolution.query.yaml
@@ -11,4 +13,4 @@ get:
         $ref: ../../responses/FB1.2/array-s3-specific-performance-get-resp.yaml
 
   tags:
-  - arrays
+  - Arrays

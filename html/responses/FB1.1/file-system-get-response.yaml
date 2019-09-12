@@ -4,8 +4,9 @@ allOf:
 - properties:
     total:
       description: >-
-        If total_only query param is true, then it will be a total of
+        If `total_only` query param is `true`, then it will be a total of
         all records after filtering and no items will be returned.
-        If total_only is false, then it will be a total of all records
+        If `total_only` is `false`, then it will be a total of all records
         on this page.
-      $ref: ../../models/FB1.1/file-system.yaml
+      allOf:
+      - $ref: ../../models/FB1.1/file-system.yaml

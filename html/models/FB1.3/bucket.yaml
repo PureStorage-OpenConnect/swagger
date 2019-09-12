@@ -1,14 +1,14 @@
 allOf:
 - $ref: ../../models/FB1.0/_built-in.yaml
-- type: object
-  properties:
+- properties:
     account:
       $ref: ../../models/FB1.3/_fixed-reference.yaml
     created:
       type: integer
       readOnly: true
       format: int64
-      description: creation timestamp of the object
+      description: Creation timestamp of the object.
     space:
-      $ref: ../../models/FB1.0/_space.yaml
-      description: the space specification of the file system
+      description: The space specification of the file system.
+      allOf:
+      - $ref: ../../models/FB1.0/_space.yaml

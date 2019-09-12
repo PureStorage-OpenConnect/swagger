@@ -15,7 +15,7 @@ get:
         $ref: ../../responses/FB1.8/network-interface-get-response.yaml
 
   tags:
-  - network-interfaces
+  - Network Interfaces
 
 post:
   parameters:
@@ -33,7 +33,7 @@ post:
         $ref: ../../responses/FB1.8/network-interface-response.yaml
 
   tags:
-  - network-interfaces
+  - Network Interfaces
 
 patch:
   parameters:
@@ -52,7 +52,7 @@ patch:
         $ref: ../../responses/FB1.8/network-interface-response.yaml
 
   tags:
-  - network-interfaces
+  - Network Interfaces
 
 delete:
   parameters:
@@ -64,4 +64,4 @@ delete:
       description: OK
 
   tags:
-  - network-interfaces
+  - Network Interfaces

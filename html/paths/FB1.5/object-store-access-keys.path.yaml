@@ -14,7 +14,7 @@ get:
         $ref: ../../responses/FB1.5/object-store-access-key-get-response.yaml
 
   tags:
-  - object-store-access-keys
+  - Object Store Access Keys
 
 post:
   parameters:
@@ -31,7 +31,7 @@ post:
         $ref: ../../responses/FB1.5/object-store-access-key-response.yaml
 
   tags:
-  - object-store-access-keys
+  - Object Store Access Keys
 
 patch:
   parameters:
@@ -49,7 +49,7 @@ patch:
         $ref: ../../responses/FB1.5/object-store-access-key-response.yaml
 
   tags:
-  - object-store-access-keys
+  - Object Store Access Keys
 
 delete:
   parameters:
@@ -60,4 +60,4 @@ delete:
       description: OK
 
   tags:
-  - object-store-access-keys
+  - Object Store Access Keys

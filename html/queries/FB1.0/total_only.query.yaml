@@ -3,5 +3,5 @@ in: query
 description: >-
   Only return the total record for the specified items.
   The total record will be the total of all items after filtering.
-  The items list will be empty.
+  The `items` list will be empty.
 type: boolean

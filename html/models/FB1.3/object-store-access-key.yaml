@@ -6,16 +6,17 @@ allOf:
       type: integer
       readOnly: true
       format: int64
-      description: creation timestamp of the object
+      description: Creation timestamp of the object.
     enabled:
       type: boolean
-      description: is the access key enabled?
-      default: true
+      description: >-
+        Is the access key enabled? If not specified, defaults to `false`.
     secret_access_key:
       type: string
-      description: the secret access key, only populated on creation
+      description: The secret access key, only populated on creation.
       readOnly: true
     user:
-      $ref: ../../models/FB1.3/_fixed-reference.yaml
-      description: reference of the associated user
+      description: Reference of the associated user.
       readOnly: true
+      allOf:
+      - $ref: ../../models/FB1.3/_fixed-reference.yaml

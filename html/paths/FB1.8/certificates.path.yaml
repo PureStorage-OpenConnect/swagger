@@ -15,7 +15,7 @@ get:
         $ref: ../../responses/FB1.8/certificate-get-response.yaml
 
   tags:
-  - certificates
+  - Certificates
 
 post:
   parameters:
@@ -33,7 +33,7 @@ post:
         $ref: ../../responses/FB1.8/certificate-response.yaml
 
   tags:
-  - certificates
+  - Certificates
 
 patch:
   parameters:
@@ -52,7 +52,7 @@ patch:
         $ref: ../../responses/FB1.8/certificate-response.yaml
 
   tags:
-  - certificates
+  - Certificates
 
 delete:
   parameters:
@@ -64,4 +64,4 @@ delete:
       description: OK
 
   tags:
-  - certificates
+  - Certificates

@@ -15,7 +15,7 @@ get:
         $ref: ../../responses/FB1.3/array-get-response.yaml
 
   tags:
-  - arrays
+  - Arrays
 
 patch:
   parameters:
@@ -32,4 +32,4 @@ patch:
         $ref: ../../responses/FB1.3/array-response.yaml
 
   tags:
-  - arrays
+  - Arrays

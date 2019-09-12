@@ -15,7 +15,7 @@ get:
         $ref: ../../responses/FB1.0/file-system-snapshot-get-response.yaml
 
   tags:
-  - file-system-snapshots
+  - File System Snapshots
 
 post:
   parameters:
@@ -32,4 +32,4 @@ post:
         $ref: ../../responses/FB1.0/file-system-snapshot-response.yaml
 
   tags:
-  - file-system-snapshots
+  - File System Snapshots

@@ -13,11 +13,11 @@ get:
         $ref: ../../responses/FB1.4/directory-service-get-response.yaml
 
   tags:
-  - directory-services
+  - Directory Services
 
 patch:
   description: >-
-    Modifies and tests the directory service configuration
+    Modifies and tests the directory service configuration.
 
   parameters:
   - name: directory-service
@@ -33,7 +33,7 @@ patch:
         $ref: ../../responses/FB1.4/directory-service-response.yaml
 
   tags:
-  - directory-services
+  - Directory Services
 
 parameters:
 - $ref: ../../queries/FB1.0/names.query.yaml

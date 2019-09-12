@@ -16,7 +16,7 @@ get:
         $ref: ../../responses/FB1.8/bucket-get-response.yaml
 
   tags:
-  - buckets
+  - Buckets
 
 post:
   parameters:
@@ -34,7 +34,7 @@ post:
         $ref: ../../responses/FB1.8/bucket-response.yaml
 
   tags:
-  - buckets
+  - Buckets
 
 patch:
   parameters:
@@ -53,7 +53,7 @@ patch:
         $ref: ../../responses/FB1.8/bucket-response.yaml
 
   tags:
-  - buckets
+  - Buckets
 
 delete:
   parameters:
@@ -65,4 +65,4 @@ delete:
       description: OK
 
   tags:
-  - buckets
+  - Buckets

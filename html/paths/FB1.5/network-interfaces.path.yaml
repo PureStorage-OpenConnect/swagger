@@ -13,7 +13,7 @@ get:
         $ref: ../../responses/FB1.5/network-interface-get-response.yaml
 
   tags:
-  - network-interfaces
+  - Network Interfaces
 
 post:
   parameters:
@@ -30,7 +30,7 @@ post:
         $ref: ../../responses/FB1.5/network-interface-response.yaml
 
   tags:
-  - network-interfaces
+  - Network Interfaces
 
 patch:
   parameters:
@@ -38,10 +38,7 @@ patch:
     in: body
     required: true
     schema:
-      type: object
-      properties:
-        address:
-          type: string
+      $ref: ../../models/FB1.3/network-interface-patch.yaml
 
   responses:
     200:
@@ -50,7 +47,7 @@ patch:
         $ref: ../../responses/FB1.5/network-interface-response.yaml
 
   tags:
-  - network-interfaces
+  - Network Interfaces
 
 delete:
   responses:
@@ -58,7 +55,7 @@ delete:
       description: OK
 
   tags:
-  - network-interfaces
+  - Network Interfaces
 
 parameters:
 - $ref: ../../queries/FB1.0/names.query.yaml

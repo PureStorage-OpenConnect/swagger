@@ -1,4 +1,5 @@
 get:
+  summary: GET directory-service-roles (placeholder)
   description: >-
     Return array's RBAC group configuration settings for manageability.
   parameters:
@@ -17,12 +18,12 @@ get:
         $ref: ../../responses/FB1.8/directory-service-roles-get-response.yaml
 
   tags:
-  - directory-services
+  - Directory Services
 
 patch:
+  summary: PATCH directory-service-roles (placeholder)
   description: >-
     Update an RBAC group configuration setting for manageability.
-
   parameters:
   - $ref: ../../queries/FB1.2/names_required.query.yaml
   - name: directory-service-roles
@@ -40,4 +41,4 @@ patch:
         $ref: ../../responses/FB1.8/directory-service-roles-response.yaml
 
   tags:
-  - directory-services
+  - Directory Services

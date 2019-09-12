@@ -15,8 +15,8 @@ allOf:
       readOnly: true
     status:
       description: >-
-        Possible values are critical, evacuated, evacuating, healthy,
-        identifying, unhealthy, unknown, and unused.
+        Valid values are `critical`, `evacuated`, `evacuating`, `healthy`,
+        `identifying`, `unhealthy`, `unknown`, and `unused`.
       type: string
       readOnly: true
     target:

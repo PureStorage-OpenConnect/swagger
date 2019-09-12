@@ -4,13 +4,13 @@ allOf:
   properties:
     details:
       description: >-
-        Details about the status of the component if not healthy
+        Details about the status of the component if not healthy.
       type: string
       example: Temperature too high
       readOnly: true
     identify_enabled:
       description: >-
-        State of an LED used to visually identify the component
+        State of an LED used to visually identify the component.
       type: boolean
       example: true
     index:
@@ -22,12 +22,12 @@ allOf:
       example: 1
       readOnly: true
     model:
-      description: Model number of the hardware component
+      description: Model number of the hardware component.
       type: string
       example: FB-8TB
       readOnly: true
     serial:
-      description: Serial number of the hardware component
+      description: Serial number of the hardware component.
       type: string
       example: S16445515B09553
       readOnly: true
@@ -47,8 +47,8 @@ allOf:
     status:
       description: >-
         Component status.
-        Possible values are critical, healthy, identifying, unhealthy,
-        unknown, and unused.
+        Valid values are `critical`, `healthy`, `identifying`, `unhealthy`,
+        `unknown`, and `unused`.
       type: string
       example: critical
       readOnly: true
@@ -61,7 +61,7 @@ allOf:
     type:
       description: >-
         Type of hardware component.
-        Possible values are ch, eth, fb, fm, and pwr.
+        Valid values are `ch`, `eth`, `fb`, `fm`, and `pwr`.
       type: string
       example: ch
       readOnly: true

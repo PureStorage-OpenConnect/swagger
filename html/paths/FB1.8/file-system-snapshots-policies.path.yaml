@@ -1,4 +1,6 @@
 get:
+  summary: GET file-system-snapshots-policies (placeholder)
+  description: GET file-system-snapshots-policies (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
   - $ref: ../../queries/FB1.0/limit.query.yaml
@@ -17,9 +19,11 @@ get:
         $ref: ../../responses/FB1.8/policy-member-get-response.yaml
 
   tags:
-  - file-system-snapshots
+  - File System Snapshots
 
 post:
+  summary: POST file-system-snapshots-policies (placeholder)
+  description: POST file-system-snapshots-policies (placeholder)
   parameters:
   - $ref: ../../queries/FB1.8/member_ids.query.yaml
   - $ref: ../../queries/FB1.5/member_names.query.yaml
@@ -33,9 +37,11 @@ post:
         $ref: ../../responses/FB1.8/policy-member-response.yaml
 
   tags:
-  - file-system-snapshots
+  - File System Snapshots
 
 delete:
+  summary: DELETE file-system-snapshots-policies (placeholder)
+  description: DELETE file-system-snapshots-policies (placeholder)
   parameters:
   - $ref: ../../queries/FB1.8/member_ids.query.yaml
   - $ref: ../../queries/FB1.5/member_names.query.yaml
@@ -47,4 +53,4 @@ delete:
       description: OK
 
   tags:
-  - file-system-snapshots
+  - File System Snapshots

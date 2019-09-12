@@ -4,67 +4,67 @@ allOf:
   properties:
     bytes_per_op:
       description: >-
-        Average operation size (read bytes+write bytes/read ops+write ops)
+        Average operation size (read bytes+write bytes/read ops+write ops).
       type: integer
       format: int64
       minimum: 0
     bytes_per_read:
-      description: Average read size in bytes per read operation
+      description: Average read size in bytes per read operation.
       type: integer
       format: int64
       minimum: 0
     bytes_per_write:
-      description: Average write size in bytes per write operation
+      description: Average write size in bytes per write operation.
       type: integer
       format: int64
       minimum: 0
     input_per_sec:
-      description: Bytes read per second
+      description: Bytes read per second.
       type: integer
       format: int64
       minimum: 0
     others_per_sec:
-      description: Other operations processed per second
+      description: Other operations processed per second.
       type: integer
       format: int64
       minimum: 0
     output_per_sec:
-      description: Bytes written per second
+      description: Bytes written per second.
       type: integer
       format: int64
       minimum: 0
     reads_per_sec:
-      description: Read requests processed per second
+      description: Read requests processed per second.
       type: integer
       format: int64
       minimum: 0
     time:
-      description: Sample time in milliseconds since UNIX epoch
+      description: Sample time in milliseconds since UNIX epoch.
       type: integer
       format: int64
     usec_per_other_op:
       description: >-
         Average time, measured in microseconds, it takes the array to process
-        other operations
+        other operations.
       type: integer
       format: int64
       minimum: 0
     usec_per_read_op:
       description: >-
         Average time, measured in microseconds, it takes the array to process
-        a read request
+        a read request.
       type: integer
       format: int64
       minimum: 0
     usec_per_write_op:
       description: >-
         Average time, measured in microseconds, it takes the array to process
-        a write request
+        a write request.
       type: integer
       format: int64
       minimum: 0
     writes_per_sec:
-      description: Write requests processed per second
+      description: Write requests processed per second.
       type: integer
       format: int64
       minimum: 0

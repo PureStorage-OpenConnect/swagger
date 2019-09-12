@@ -1,7 +1,7 @@
 name: sources
 in: query
 description: >-
-  A comma-separated list of file system names
+  A comma-separated list of file system names.
 type: array
 required: true
 collectionFormat: csv
