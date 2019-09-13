@@ -1,6 +1,6 @@
 # Pure Swagger
 
-This is a tool that provides the Pure FlashArray and Flashblade API documentation into the popular interactive Swagger UI.  This lets you browse the API documentation in a convienent format and even execute API calls interactively directly to a FlashArray or FlashBlade!
+This is a tool that provides the Pure Storage FlashArray and FlashBlade API documentation into the popular interactive Swagger UI.  This lets you browse the API documentation in a convenient format and even execute API calls interactively directly to a FlashArray or FlashBlade!
 
 
 ## Try It: 
