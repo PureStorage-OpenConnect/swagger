@@ -1,0 +1,8 @@
+name: aggregation
+in: query
+description: >-
+  Aggregation needed on the metric data.
+  Valid values are `avg` and `max`.
+  Single quotes are required around all strings.
+type: string
+required: true

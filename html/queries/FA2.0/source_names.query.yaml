@@ -1,0 +1,9 @@
+name: source_names
+in: query
+description: >-
+  Performs the operation on the source name specified.
+  Enter multiple source names in comma-separated format. For example, `name01,name02`.
+type: array
+collectionFormat: csv
+items:
+  type: string

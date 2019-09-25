@@ -8,23 +8,22 @@ import urllib
 from urllib.parse import urlparse
 import sys
 
-
 fb_max_version = { 0:0, 1:8 }      #this is a list of major:minor_max version pairs
-pure1_max_version = { 0:-1, 1:-1}
-thread_count = 4
+pure1_max_version = { 0:-1, 1:0 }
+fa_2_max_version = { 2:0 }
+thread_count = 8
 baseURL = 'http://purest.dev.purestorage.com'
-spec_url = baseURL+'/pure-urls.js'
-with open("fb_template.yaml") as f:
-    template_yaml =  yaml.safe_load(f)
-
+spec_url = baseURL + '/pure-urls.js'
+cache = {}
 
 class SpecWorker(threading.Thread):
-    def __init__(self,s,q,file_download_root,io_lock):
+    def __init__(self, s, q, file_download_root, io_lock, cache_lock):
         threading.Thread.__init__(self)
         self.s = s
         self.q = q
         self.file_download_root = file_download_root
         self.io_lock = io_lock
+        self.cache_lock = cache_lock
 
     def find(self, key, dictionary):
         for k, v in dictionary.items():
@@ -41,12 +40,11 @@ class SpecWorker(threading.Thread):
         
 
     def parse_spec(self, spec_dict):
-        
         for x in self.find("$ref", spec_dict):
             yield x
 
-    def apply_template(self,spec_file):
-        global template_yaml
+    def apply_template(self, spec_file, template, model):
+        template_yaml = template
         
 
         spec_yaml = yaml.safe_load(spec_file)
@@ -59,19 +57,33 @@ class SpecWorker(threading.Thread):
         version = spec_yaml['info']['version']
 
         spec_yaml['basePath'] = "/api"
+        
+        if model == 'fb':
+            #add api version into path
+            #need to do this so we can add non version specific endpoints like get_version & login
+            paths = list(spec_yaml['paths'])
+            #print(paths)
+            for path in paths:
+                new_path = '/' + str(version) + path
+                spec_yaml['paths'][new_path] = spec_yaml['paths'][path]
+                del spec_yaml['paths'][path]
+ 
+            spec_yaml['paths']['/api_version'] = template_yaml['paths']['/api_version']
+            spec_yaml['paths']['/login'] = template_yaml['paths']['/login']
+            spec_yaml['tags'] = template_yaml['tags'] + spec_yaml['tags']
 
-        #add api version into path
-        #need to do this so we can add non version specific endpoints like get_version & login
-        paths = list(spec_yaml['paths'])
-        print(paths)
-        for path in paths:
-            new_path = '/' + str(version) + path
-            spec_yaml['paths'][new_path] = spec_yaml['paths'][path]
-            del spec_yaml['paths'][path]
+        elif model == 'fa2':
+            paths = list(spec_yaml['paths'])
+            #print(paths)
+            for path in paths:
+                new_path = '/' + str(version) + path
+                spec_yaml['paths'][new_path] = spec_yaml['paths'][path]
+                del spec_yaml['paths'][path]
+            
+            spec_yaml['securityDefinitions'] = template_yaml['securityDefinitions']
+            spec_yaml['security'] = template_yaml['security']
 
-        spec_yaml['paths']['/api_version'] = template_yaml['paths']['/api_version']
-        spec_yaml['paths']['/login'] = template_yaml['paths']['/login']
-        spec_yaml['tags'] = template_yaml['tags'] + spec_yaml['tags']
+        
 
 
         return yaml.dump(spec_yaml)
@@ -79,7 +91,7 @@ class SpecWorker(threading.Thread):
 
 
     #Dowload and return the file
-    def get_spec_file(self,spec_url,head):
+    def get_spec_file(self, spec_url, head, template, model):
         #spec_url is absolute path here
         #head means it's the first and we need to apply our template here.
         
@@ -90,7 +102,11 @@ class SpecWorker(threading.Thread):
         url_path = url_path.replace("/purest","")  #pull out the purest
         #print(self.file_download_root)
         #print(url_path)
-        save_to_path = self.file_download_root+url_path
+
+        if head:
+            save_to_path = self.file_download_root + '/original_spec' + url_path
+        else:
+            save_to_path = self.file_download_root + url_path
 
         #print("Spec URL:{}   Local File:{}".format(spec_url,save_to_path))
         
@@ -100,92 +116,78 @@ class SpecWorker(threading.Thread):
                 with self.io_lock:
                     with open(save_to_path,"r") as f:
                         spec_file = f.read()
-                spec_dict = yaml.safe_load(spec_file)
-                if not isinstance(spec_dict, dict):
-                    abc=2
-
                 #print("Returning Local file")
-
                 return spec_file
 
             except FileNotFoundError:
                 pass
         
         #file not found, lets download it
-
-        
         #print("downloading spec ")
         self.response = self.s.get(spec_url)
         spec_file = self.response.text
-
-        spec_dict = yaml.safe_load(spec_file)
-        if not isinstance(spec_dict, dict):
-            abc=2
-        if '404 Not Found' in spec_file:
-            abn = 99
-        if self.response.status_code != 200 or '404' in spec_file:
-            print(response)
-        if spec_file == '':
-            abj = ""
-
-        path,_ = os.path.split(save_to_path)
+        path, _ = os.path.split(save_to_path)
         os.makedirs(path, exist_ok=True)
 
-        if head:
-            spec_file = self.apply_template(spec_file)
-            
+        if '.yaml' in spec_url:
+            spec_yaml = yaml.safe_load(spec_file)
+
+            #remove host references because of security concern.
+            if 'host' in spec_yaml:
+                del spec_yaml['host']
+
+            spec_file = yaml.dump(spec_yaml)
+
         with self.io_lock:
             with open(save_to_path,"w") as f:
                 f.write(spec_file)
-                f.close()
         
-        with self.io_lock:
-            with open(save_to_path,"r") as f:
-                temp_check = f.read()
-
-        spec_dict = yaml.safe_load(temp_check)
-        if not isinstance(spec_dict, dict):
-            abc=2
-        if '404 Not Found' in temp_check:
-            abn = 99
-        if self.response.status_code != 200 or '404' in temp_check:
-            print(response)
-        if temp_check == '':
-            abj = ""
-
-        
-
         return spec_file
 
 
     def run(self):
+        global cache
 
         while True:
             item = self.q.get()
             spec_url = item['url']
+
+            with self.cache_lock:
+                if spec_url in cache:
+                    #it  means another thread is already working on getting this item
+                    self.q.task_done()
+                    continue
+                else:
+                    cache[spec_url] = 'working'
+
             head = item['head']
+            template = None
+            model = item['model']
+            if "template" in item:
+                template = item['template']
 
             try:
-                if spec_url == 'http://purest.dev.purestorage.com/purest/models/FB1.X/_fixed-reference.yaml':
-                    abj = 2
-
-                spec_file = self.get_spec_file(spec_url, head)
+                 spec_file = self.get_spec_file(spec_url, head, template, model)
             except:
                 print("Unexpected error:", sys.exc_info()[0])
                 self.q.task_done()
                 raise
-            
-            spec_dict = yaml.safe_load(spec_file)
-            if not isinstance(spec_dict, dict):
-                abc=2
+            if '.yaml' in spec_url:
+                #means another  yaml file and need to look for more references.
+                spec_dict = yaml.safe_load(spec_file)
 
-            for rel_path in self.parse_spec(spec_dict):
-                new_abs_path = urllib.parse.urljoin(spec_url,rel_path)
-                if '1.X' in new_abs_path:
-                    print("1.x in spec_url: {}".format(spec_url))
+                #There is at least one file with .yaml extension, but is not yaml...
+                if isinstance(spec_dict, dict):
+                    for rel_path in self.parse_spec(spec_dict):
+                        new_abs_path = urllib.parse.urljoin(spec_url,rel_path)
 
-                #print("source: {}  rel: {}  abs: {}".format(spec_url,rel_path,new_abs_path))
-                self.q.put({'url':new_abs_path,'head':False})
+                        #print("source: {}  rel: {}  abs: {}".format(spec_url,rel_path,new_abs_path))
+                        self.q.put({'url':new_abs_path,'head':False, 'model':model })
+                else:
+                    print("Yaml file: {} does not appear to be yaml !".format(spec_url))
+
+            with self.cache_lock:
+                cache[spec_url] = 'finished'
             self.q.task_done()
 
 
@@ -207,17 +209,36 @@ def main():
 
     spec_list = json.loads(json_compat)
 
+    with open("fb_template.yaml") as f:
+        fb_template_yaml =  yaml.safe_load(f)
+    with open("fa2_template.yaml") as f:
+        fa_template_yaml =  yaml.safe_load(f)
+    with open("pure1_template.yaml") as f:
+        pure1_template_yaml =  yaml.safe_load(f)
+
     for spec in spec_list:
-        max_version = {} 
-        if ".x" in spec['name']:
+        max_version = {}
+        lower_name = spec['name'].lower()
+
+        if ".x" in lower_name:
             continue
 
-        elif "Flashblade" in spec['name']:
+        elif "flashblade" in lower_name:
             max_version = fb_max_version
+            template = fb_template_yaml
+            model = 'fb'
         
-        elif "Pure1" in spec['name']:
+        elif "pure1" in lower_name:
             max_version = pure1_max_version
-
+            template = pure1_template_yaml
+            model = 'pure1'
+    
+        elif "flasharray" in lower_name:
+            max_version = fa_2_max_version
+            template = fa_template_yaml
+            model = 'fa2'
+        else:
+            continue
 
         try:
             version = spec['name'].split()[1]
@@ -226,59 +247,21 @@ def main():
             if version_major in max_version and version_minor <= max_version[version_major]:
                 #actually go and pull down this file.
                 #get_spec_file(spec,s) 
-                q.put({"url":baseURL+spec['url'],"head":True})
+                q.put({"url":baseURL+spec['url'],"head":True, "model":model, "template": template})
+                print("Working on {}".format(spec['name']))
         except (ValueError):
             pass
     
     #Start threads to do the work.
     io_lock = threading.Lock()
+    cache_lock = threading.Lock()
     for _ in range(thread_count):
-        t = SpecWorker(s,q,file_download_root,io_lock)
+        t = SpecWorker(s,q,file_download_root,io_lock,cache_lock)
         t.setDaemon(True)
         t.start()
     
     #wait till all threads finish    
     q.join()
-    #index the spec files and create on initial load
-    create_spec_index()
-
-
-def create_spec_index():
-    print ("creating spec index")
-
-    specs_path = os.path.join("../html/specs")
-
-    results=[]
-    for file_name in os.listdir(specs_path):
-        item = {}
-        
-        with open(os.path.join(specs_path,file_name)) as f:
-            print("loading: "+file_name)
-            spec_file = yaml.load(f)
-            if "FlashArray" in spec_file["info"]["title"]:
-                item["model"] = "FlashArray"
-            elif "FlashBlade" in spec_file["info"]["title"]:
-                item["model"] = "FlashBlade"
-            else:
-                item["model"] = "Unknown"
-            
-            item["version"] = str(spec_file["info"]['version'])
-            #print(item['version'])
-            version_split = item["version"].split('.')
-            item["version_sort"] = int(version_split[0])*1000 + int(version_split[1])
-            item['filename'] = file_name
-            item['url'] = 'specs/'+file_name
-            item['name'] = "{} v{}".format(item['model'],item['version'])   
-
-        
-        results.append(item)
-
-
-    sorted_results = sorted(results, key=lambda k: (k['model'], k['version_sort']))
-
-    with open(os.path.join("../html/spec_index.yaml"),"w+") as f:
-        f.write(yaml.dump(sorted_results))
-
 
 
 if __name__=='__main__':   

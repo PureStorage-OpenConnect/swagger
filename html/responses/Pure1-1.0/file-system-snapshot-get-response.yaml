@@ -1,0 +1,3 @@
+allOf:
+- $ref: page-info.yaml
+- $ref: file-system-snapshot-response.yaml

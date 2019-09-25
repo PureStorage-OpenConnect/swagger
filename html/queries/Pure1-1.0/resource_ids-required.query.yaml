@@ -1,0 +1,10 @@
+name: resource_ids
+in: query
+description: >-
+  REQUIRED: either resource_ids or resource_names.
+  A comma-separated list of resource IDs.
+  Single quotes are required around all strings.
+type: array
+collectionFormat: csv
+items:
+  type: string

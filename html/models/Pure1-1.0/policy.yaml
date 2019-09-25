@@ -1,0 +1,13 @@
+description: >-
+  A set of rules that can be applied to resources.
+allOf:
+- $ref: ../Pure1-1.0/_arrays-built-in.yaml
+- properties:
+    enabled:
+      description: Returns `true` if this policy is enabled.
+      type: boolean
+      example: true
+    rules:
+      type: array
+      items:
+        $ref: ../Pure1-1.0/_policy_rule.yaml

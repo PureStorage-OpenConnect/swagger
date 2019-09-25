@@ -1,0 +1,5 @@
+description: BAD REQUEST
+schema:
+  $ref: ../../models/Pure1-1.0/error.yaml
+headers:
+  $ref: ../../responses/Pure1-1.0/headers-all-default.response-400.yaml

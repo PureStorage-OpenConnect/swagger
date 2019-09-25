@@ -1,0 +1,4 @@
+X-RateLimit-Limit-minute:
+  description: The number of requests available per minute.
+  schema:
+    type: integer

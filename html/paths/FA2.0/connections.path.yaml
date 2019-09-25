@@ -1,0 +1,70 @@
+get:
+  summary: List volume connections
+
+  description: >-
+    Return a list of connections between a volume and its hosts and host groups,
+    and the LUNs used by the associated hosts to address these volumes.
+
+  parameters:
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/host_group_names.query.yaml
+  - $ref: ../../queries/FA2.0/host_names.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/protocol_endpoint_names.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  - $ref: ../../queries/FA2.0/volume_names.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.0/connection-get-response.yaml
+
+  tags:
+  - Connections
+
+post:
+  summary: Create a connection between a volume and host or host group
+
+  description: >-
+    Create a connection between a volume and a host or host group.
+    The `volume_names` and `host_names` or `host_group_names` query parameters are required.
+
+  parameters:
+  - $ref: ../../queries/FA2.0/host_group_names.query.yaml
+  - $ref: ../../queries/FA2.0/host_names.query.yaml
+  - $ref: ../../queries/FA2.0/volume_names.query.yaml
+  - name: connection
+    in: body
+    schema:
+      $ref: ../../models/FA2.0/connection-post.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.0/connection-response.yaml
+
+  tags:
+  - Connections
+
+delete:
+  summary: Break a connection between a volume and its host or host group
+
+  description: >-
+    Break the connection between a volume and its associated host
+    or host group.
+    The `volume_names` and `host_names` or `host_group_names` query parameters are required.
+  parameters:
+  - $ref: ../../queries/FA2.0/host_group_names.query.yaml
+  - $ref: ../../queries/FA2.0/host_names.query.yaml
+  - $ref: ../../queries/FA2.0/volume_names.query.yaml
+
+  responses:
+    200:
+      description: OK
+
+  tags:
+  - Connections

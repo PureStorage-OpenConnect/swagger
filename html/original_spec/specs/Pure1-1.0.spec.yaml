@@ -1,0 +1,122 @@
+consumes:
+- application/json
+definitions:
+  Alert:
+    $ref: ../models/Pure1-1.0/alert.yaml
+  Array:
+    $ref: ../models/Pure1-1.0/array.yaml
+  Audit:
+    $ref: ../models/Pure1-1.0/audit.yaml
+  FileSystem:
+    $ref: ../models/Pure1-1.0/file-system.yaml
+  FileSystemSnapshot:
+    $ref: ../models/Pure1-1.0/file-system-snapshot.yaml
+  Metric:
+    $ref: ../models/Pure1-1.0/metric.yaml
+  MetricHistory:
+    $ref: ../models/Pure1-1.0/metric-history.yaml
+  NetworkInterface:
+    $ref: ../models/Pure1-1.0/network-interface.yaml
+  Pod:
+    $ref: ../models/Pure1-1.0/pod.yaml
+  Policy:
+    $ref: ../models/Pure1-1.0/policy.yaml
+  PolicyMember:
+    $ref: ../models/Pure1-1.0/policy-member.yaml
+  Volume:
+    $ref: ../models/Pure1-1.0/volume.yaml
+  VolumeSnapshot:
+    $ref: ../models/Pure1-1.0/volume-snapshot.yaml
+info:
+  description:
+    $ref: ../redoc/P1-api-overview.yaml
+  title: Pure1 Public REST API
+  version: '1.0'
+  x-logo:
+    altText: Pure Storage logo
+    backgroundColor: '#fff'
+    url:
+      $ref: ../redoc/PS-LogoBase64-P1.txt
+paths:
+  /api/1.0/alerts:
+    $ref: ../paths/Pure1-1.0/alerts.path.yaml
+  /api/1.0/arrays:
+    $ref: ../paths/Pure1-1.0/arrays.path.yaml
+  /api/1.0/arrays/tags:
+    $ref: ../paths/Pure1-1.0/arrays-tags.path.yaml
+  /api/1.0/arrays/tags/batch:
+    $ref: ../paths/Pure1-1.0/arrays-tags-batch.path.yaml
+  /api/1.0/audits:
+    $ref: ../paths/Pure1-1.0/audits.path.yaml
+  /api/1.0/file-system-snapshots:
+    $ref: ../paths/Pure1-1.0/file-system-snapshots.path.yaml
+  /api/1.0/file-system-snapshots/policies:
+    $ref: ../paths/Pure1-1.0/file-system-snapshots-policies.path.yaml
+  /api/1.0/file-systems:
+    $ref: ../paths/Pure1-1.0/file-systems.path.yaml
+  /api/1.0/file-systems/policies:
+    $ref: ../paths/Pure1-1.0/file-systems-policies.path.yaml
+  /api/1.0/metrics:
+    $ref: ../paths/Pure1-1.0/metrics.path.yaml
+  /api/1.0/metrics/history:
+    $ref: ../paths/Pure1-1.0/metrics-history.path.yaml
+  /api/1.0/network-interfaces:
+    $ref: ../paths/Pure1-1.0/network-interfaces.path.yaml
+  /api/1.0/pods:
+    $ref: ../paths/Pure1-1.0/pods.path.yaml
+  /api/1.0/policies:
+    $ref: ../paths/Pure1-1.0/policies.path.yaml
+  /api/1.0/policies/file-system-snapshots:
+    $ref: ../paths/Pure1-1.0/policies-file-system-snapshots.path.yaml
+  /api/1.0/policies/file-systems:
+    $ref: ../paths/Pure1-1.0/policies-file-systems.path.yaml
+  /api/1.0/policies/members:
+    $ref: ../paths/Pure1-1.0/policies-members.path.yaml
+  /api/1.0/volume-snapshots:
+    $ref: ../paths/Pure1-1.0/volume-snapshots.path.yaml
+  /api/1.0/volumes:
+    $ref: ../paths/Pure1-1.0/volumes.path.yaml
+  /oauth2/1.0/token:
+    $ref: ../paths/TEx-v2/oauth-token.path.yaml
+produces:
+- application/json
+schemes:
+- https
+security:
+- AuthorizationHeader: []
+securityDefinitions:
+  AuthorizationHeader:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: '2.0'
+tags:
+- description: Handles authorization access to other API endpoints through OAuth 2.0
+    Token Exchange.
+  name: Authorization
+- description: Provides access to capacity, health, and hardware related array alerts.
+  name: Alerts
+- description: Provides information about FlashArray and FlashBlade appliances.
+  name: Arrays
+- description: Provides access to CLI audit logs from FlashArray and FlashBlade appliances.
+  name: Audits
+- description: Provides information about FlashBlade file systems.
+  name: File Systems
+- description: Provides information about FlashBlade file system snapshots.
+  name: File System Snapshots
+- description: Provides information about historical metrics for arrays, volumes,
+    file systems and pods.
+  name: Metrics
+- description: Provides information about network interfaces available on arrays.
+  name: Network Interfaces
+- description: Provides information about FlashArray pods. A pod is the pairing of
+    two arrays that replicate some volumes with each other.
+  name: Pods
+- description: Provides information about FlashBlade policies and the members they
+    apply to.
+  name: Policies
+- description: Provides information about block storage volumes on FlashArray arrays.
+  name: Volumes
+- description: Provides information about snapshots of block storage volumes on FlashArray
+    arrays.
+  name: Volume Snapshots

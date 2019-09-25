@@ -1,0 +1,21 @@
+---
+openapi: 3.0.1
+info:
+  title: Pure1 API
+  description: |- 
+    ## Pure Swagger UI for Pure1
+    Please visit [Pure1 Swagger](https://static.pure1.purestorage.com/api-swagger/index.html) for the official available swagger.
+    For help try the [code-purestorage Slack](https://community.purestorage.com/discussion/9561/join-the-new-pure-code-slack-team-for-api-and-extensibility-discussions)
+    
+    ## Getting Started Blog
+    [https://blog.purestorage.com/introducing-the-pure1-rest-api/](https://blog.purestorage.com/introducing-the-pure1-rest-api/)
+    A walkthrough on getting started with the Pure1 API written
+
+servers:
+- url: /api
+  description: Local host, PureSwagger Proxy, set array IP at top of page.  API calls are proxied to array.
+tags:
+components: 
+  schemas: {}
+  
+  

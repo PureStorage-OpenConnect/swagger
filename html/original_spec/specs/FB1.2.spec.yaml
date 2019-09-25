@@ -1,0 +1,100 @@
+consumes:
+- application/json
+definitions:
+  Admin:
+    $ref: ../models/FB1.2/admin.yaml
+  Alert:
+    $ref: ../models/FB1.2/alert.yaml
+  AlertWatcher:
+    $ref: ../models/FB1.2/alert-watcher.yaml
+  AlertWatcherTest:
+    $ref: ../models/FB1.2/alert-watcher-test.yaml
+  ArrayHttpSpecificPerformance:
+    $ref: ../models/FB1.2/array-http-specific-performance.yaml
+  ArrayPerformance:
+    $ref: ../models/FB1.2/array-performance.yaml
+  ArrayS3SpecificPerformance:
+    $ref: ../models/FB1.2/array-s3-specific-performance.yaml
+  ArraySpace:
+    $ref: ../models/FB1.2/array-space.yaml
+  Blade:
+    $ref: ../models/FB1.2/blade.yaml
+  Certificate:
+    $ref: ../models/FB1.2/certificate.yaml
+  DNS:
+    $ref: ../models/FB1.2/dns.yaml
+  FileSystem:
+    $ref: ../models/FB1.2/file-system.yaml
+  FileSystemSnapshot:
+    $ref: ../models/FB1.1/file-system-snapshot.yaml
+  Hardware:
+    $ref: ../models/FB1.2/hardware.yaml
+info:
+  description: A lightweight client for FlashBlade REST API 1.2, developed by Pure
+    Storage, Inc. (http://www.purestorage.com/).
+  title: FlashBlade REST API Client
+  version: 1.2
+paths:
+  /api/1.2/admins:
+    $ref: ../paths/FB1.2/admins.path.yaml
+  /api/1.2/alert-watchers:
+    $ref: ../paths/FB1.2/alert-watchers.path.yaml
+  /api/1.2/alert-watchers/test:
+    $ref: ../paths/FB1.2/alert-watchers-test.path.yaml
+  /api/1.2/alerts:
+    $ref: ../paths/FB1.2/alerts.path.yaml
+  /api/1.2/arrays/http-specific-performance:
+    $ref: ../paths/FB1.2/arrays-http-specific-performance.path.yaml
+  /api/1.2/arrays/performance:
+    $ref: ../paths/FB1.2/arrays-performance.path.yaml
+  /api/1.2/arrays/s3-specific-performance:
+    $ref: ../paths/FB1.2/arrays-s3-specific-performance.path.yaml
+  /api/1.2/arrays/space:
+    $ref: ../paths/FB1.2/arrays-space.path.yaml
+  /api/1.2/blades:
+    $ref: ../paths/FB1.2/blades.path.yaml
+  /api/1.2/certificates:
+    $ref: ../paths/FB1.2/certificates.path.yaml
+  /api/1.2/dns:
+    $ref: ../paths/FB1.2/dns.path.yaml
+  /api/1.2/file-system-snapshots:
+    $ref: ../paths/FB1.1/file-system-snapshots.path.yaml
+  /api/1.2/file-systems:
+    $ref: ../paths/FB1.2/file-systems.path.yaml
+  /api/1.2/hardware:
+    $ref: ../paths/FB1.2/hardware.path.yaml
+  /api/api_version:
+    $ref: ../paths/FB1.0/api_version.path.yaml
+  /api/login:
+    $ref: ../paths/FB1.0/login.path.yaml
+  /api/logout:
+    $ref: ../paths/FB1.0/logout.path.yaml
+produces:
+- application/json
+schemes:
+- http
+- https
+security:
+- AuthorizationHeader: []
+securityDefinitions:
+  ApiToken:
+    in: header
+    name: api-token
+    type: apiKey
+  AuthorizationHeader:
+    in: header
+    name: x-auth-token
+    type: apiKey
+swagger: '2.0'
+tags:
+- name: Authorization
+- name: Administrators
+- name: Alerts
+- name: Alert Watchers
+- name: Arrays
+- name: Blades
+- name: Certificates
+- name: DNS
+- name: File Systems
+- name: File System Snapshots
+- name: Hardware

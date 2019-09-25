@@ -1,0 +1,8 @@
+
+flask
+pyyaml
+genson
+requests
+paramiko
+jwt
+

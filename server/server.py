@@ -1,6 +1,5 @@
 import os
 from flask import Flask, request, redirect, url_for, send_from_directory, flash, Response, send_file, abort
-import rest_extract
 import requests
 import urllib3
 from urllib import parse

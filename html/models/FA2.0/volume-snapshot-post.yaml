@@ -1,0 +1,11 @@
+allOf:
+- $ref: ../../models/FA2.0/_destroyed-patch-post.yaml
+- properties:
+    suffix:
+      description: >-
+        The suffix that is appended to the `source_name` value to generate the
+        full volume snapshot name in the form `VOL.SUFFIX`.
+        If the suffix is not specified, the system constructs the snapshot name
+        in the form `VOL.NNN`, where `VOL` is the volume name, and `NNN` is a
+        monotonically increasing number.
+      type: string

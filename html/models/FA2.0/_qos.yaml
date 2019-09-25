@@ -1,0 +1,16 @@
+type: object
+properties:
+  bandwidth_limit:
+    description: >-
+      The maximum QoS bandwidth limit for the volume.
+      Whenever throughput exceeds the bandwidth limit, throttling occurs.
+      Measured in bytes.
+    type: integer
+    format: int64
+    minimum: 1048576
+    maximum: 536870912000
+  iops_limit:
+    description: >-
+      The QoS IOPs limit for the volume.
+    type: integer
+    format: int64

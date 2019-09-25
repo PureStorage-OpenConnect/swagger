@@ -1,0 +1,10 @@
+type: object
+properties:
+  key:
+    description: Key of the tag.
+    type: string
+    example: example_key
+  value:
+    description: Value of the tag.
+    type: string
+    example: value123

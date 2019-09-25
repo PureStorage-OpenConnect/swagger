@@ -58,6 +58,12 @@
   url: specs/FlashArray REST v1.17.yaml
   version: '1.17'
   version_sort: 1017
+- filename: FA2.0.spec.yaml
+  model: FlashArray
+  name: FlashArray v2.0
+  url: specs/FA2.0.spec.yaml
+  version: '2.0'
+  version_sort: 2000
 - filename: FB1.0.spec.yaml
   model: FlashBlade
   name: FlashBlade v1.0
@@ -112,3 +118,9 @@
   url: specs/FB1.8.spec.yaml
   version: '1.8'
   version_sort: 1008
+- filename: Pure1-1.0.spec.yaml
+  model: Pure1
+  name: Pure1 v1.0
+  url: specs/Pure1-1.0.spec.yaml
+  version: '1.0'
+  version_sort: 1000

@@ -1,0 +1,84 @@
+description: >-
+  An alert from an array.
+allOf:
+- $ref: ../Pure1-1.0/_arrays-resource.yaml
+- properties:
+    actual:
+      description: Actual condition at the time of the alert.
+      type: string
+      example: empty
+    category:
+      description: >-
+        Category of the alert. Valid values are `array`, `hardware`, and
+        `software`.
+      type: string
+      example: array
+    closed:
+      description: >-
+        Time when the alert was closed, in milliseconds since UNIX epoch.
+      type: integer
+      format: int64
+      example: 1502729489760
+    code:
+      description: Code associated with the alert.
+      type: integer
+      example: 100
+    component_name:
+      description: Name of the component alerted about.
+      type: string
+      example: drive1
+    component_type:
+      description: Type of the component alerted about.
+      type: string
+      example: drive
+    created:
+      description: >-
+        Time when the alert was created, in milliseconds since UNIX epoch.
+      type: integer
+      format: int64
+      example: 1502729489760
+    description:
+      description: Short description of the alert.
+      type: string
+      example: Some sort of failure.
+    expected:
+      description: Expected state/threshold under normal conditions.
+      type: string
+      example: healthy
+    knowledge_base_url:
+      description: URL of the relevant Knowledge Base page.
+      type: string
+      example: https://support.purestorage.com/
+    notified:
+      description: >-
+        Time when the user was notified of the alert, in milliseconds since
+        UNIX epoch.
+      type: integer
+      format: int64
+      example: 1502729489760
+    origin:
+      description: Origin of the alert. Valid values are `array` and `Pure1`.
+      type: string
+      example: array
+    severity:
+      description: >-
+        Current severity level. Valid values are `info`, `warning`, `critical`,
+        and `hidden`.
+      type: string
+      example: critical
+    state:
+      description: >-
+        Current state of the alert. Valid values are `open`, `closing`,
+        and `closed`.
+      type: string
+      example: open
+    summary:
+      description: Summary of the alert.
+      type: string
+      example: Test alert.
+    updated:
+      description: >-
+        Time when the alert was last updated, in milliseconds since UNIX epoch.
+      type: integer
+      format: int64
+      example: 1502729489760

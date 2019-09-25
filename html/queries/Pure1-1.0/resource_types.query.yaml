@@ -1,0 +1,13 @@
+name: resource_types
+in: query
+description: >-
+  The resource types to list the available metrics.
+  Valid values are `arrays`, `volumes`, and `pods`.
+  A metric can belong to a combination of resources,
+  e.g., write-iops from array to pod. In that case, query by
+  ['arrays', 'pods'].
+  Single quotes are required around all strings.
+type: array
+collectionFormat: csv
+items:
+  type: string

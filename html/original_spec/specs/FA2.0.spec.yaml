@@ -1,0 +1,94 @@
+consumes:
+- application/json
+definitions:
+  Connection:
+    $ref: ../models/FA2.0/connection.yaml
+  Host:
+    $ref: ../models/FA2.0/host.yaml
+  HostGroup:
+    $ref: ../models/FA2.0/host-group.yaml
+  HostGroupPerformance:
+    $ref: ../models/FA2.0/resource-performance.yaml
+  HostGroupPerformanceByArray:
+    $ref: ../models/FA2.0/resource-performance-by-array.yaml
+  HostPerformance:
+    $ref: ../models/FA2.0/resource-performance.yaml
+  HostPerformanceByArray:
+    $ref: ../models/FA2.0/resource-performance-by-array.yaml
+  Member:
+    $ref: ../models/FA2.0/member.yaml
+  MemberNoIdAll:
+    $ref: ../models/FA2.0/member-no-id-all.yaml
+  Volume:
+    $ref: ../models/FA2.0/volume.yaml
+  VolumePerformance:
+    $ref: ../models/FA2.0/volume-performance.yaml
+  VolumePerformanceByArray:
+    $ref: ../models/FA2.0/resource-performance-by-array.yaml
+  VolumeSnapshot:
+    $ref: ../models/FA2.0/volume-snapshot.yaml
+  VolumeSnapshotTransfer:
+    $ref: ../models/FA2.0/volume-snapshot-transfer.yaml
+  VolumeSpace:
+    $ref: ../models/FA2.0/resource-space.yaml
+info:
+  title: FlashArray REST API
+  version: '2.0'
+  x-logo:
+    altText: Pure Storage logo
+    backgroundColor: '#ffffff'
+    url:
+      $ref: ../redoc/PS-LogoBase64-FA.txt
+paths:
+  /api/2.0/connections:
+    $ref: ../paths/FA2.0/connections.path.yaml
+  /api/2.0/host-groups:
+    $ref: ../paths/FA2.0/host-groups.path.yaml
+  /api/2.0/host-groups/hosts:
+    $ref: ../paths/FA2.0/host-groups-hosts-members.path.yaml
+  /api/2.0/host-groups/performance:
+    $ref: ../paths/FA2.0/host-groups-performance.path.yaml
+  /api/2.0/host-groups/performance/by-array:
+    $ref: ../paths/FA2.0/host-groups-performance-by-array.path.yaml
+  /api/2.0/hosts:
+    $ref: ../paths/FA2.0/hosts.path.yaml
+  /api/2.0/hosts/host-groups:
+    $ref: ../paths/FA2.0/hosts-host-groups-members.path.yaml
+  /api/2.0/hosts/performance:
+    $ref: ../paths/FA2.0/hosts-performance.path.yaml
+  /api/2.0/hosts/performance/by-array:
+    $ref: ../paths/FA2.0/hosts-performance-by-array.path.yaml
+  /api/2.0/volume-snapshots:
+    $ref: ../paths/FA2.0/volume-snapshots.path.yaml
+  /api/2.0/volume-snapshots/transfer:
+    $ref: ../paths/FA2.0/volume-snapshots-transfer.path.yaml
+  /api/2.0/volumes:
+    $ref: ../paths/FA2.0/volumes.path.yaml
+  /api/2.0/volumes/performance:
+    $ref: ../paths/FA2.0/volumes-performance.path.yaml
+  /api/2.0/volumes/performance/by-array:
+    $ref: ../paths/FA2.0/volumes-performance-by-array.path.yaml
+  /api/2.0/volumes/space:
+    $ref: ../paths/FA2.0/volumes-space.path.yaml
+  /api/api_version:
+    $ref: ../paths/FA2.0/api_version.path.yaml
+  /oauth2/1.0/token:
+    $ref: ../paths/TEx-v2/oauth-token.path.yaml
+produces:
+- application/json
+schemes:
+- https
+swagger: '2.0'
+tags:
+- description: Authorization endpoint description (placeholder)
+  name: Authorization
+- description: Connections endpoint description (placeholder)
+  name: Connections
+- description: Host Groups endpoint description (placeholder)
+  name: Host Groups
+- description: Hosts endpoint description (placeholder)
+  name: Hosts
+- description: Volumes endpoint description (placeholder)
+  name: Volumes
+- description: Volume Snapshots endpoint description (placeholder)
+  name: Volume Snapshots

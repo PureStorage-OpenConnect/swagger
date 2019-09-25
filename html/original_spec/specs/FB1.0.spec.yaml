@@ -1,0 +1,43 @@
+consumes:
+- application/json
+definitions:
+  FileSystem:
+    $ref: ../models/FB1.0/file-system.yaml
+  FileSystemSnapshot:
+    $ref: ../models/FB1.0/file-system-snapshot.yaml
+info:
+  description: A lightweight client for FlashBlade REST API 1.0, developed by Pure
+    Storage, Inc. (http://www.purestorage.com/).
+  title: FlashBlade REST API Client
+  version: 1.0
+paths:
+  /api/1.0/file-system-snapshots:
+    $ref: ../paths/FB1.0/file-system-snapshots.path.yaml
+  /api/1.0/file-systems:
+    $ref: ../paths/FB1.0/file-systems.path.yaml
+  /api/api_version:
+    $ref: ../paths/FB1.0/api_version.path.yaml
+  /api/login:
+    $ref: ../paths/FB1.0/login.path.yaml
+  /api/logout:
+    $ref: ../paths/FB1.0/logout.path.yaml
+produces:
+- application/json
+schemes:
+- http
+- https
+security:
+- AuthorizationHeader: []
+securityDefinitions:
+  ApiToken:
+    in: header
+    name: api-token
+    type: apiKey
+  AuthorizationHeader:
+    in: header
+    name: x-auth-token
+    type: apiKey
+swagger: '2.0'
+tags:
+- name: Authorization
+- name: File Systems

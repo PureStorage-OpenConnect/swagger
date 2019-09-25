@@ -1,0 +1,14 @@
+type: object
+properties:
+  errors:
+    description: The list of errors encountered.
+    type: array
+    items:
+      type: object
+      properties:
+        context:
+          type: string
+          example: "Error with ..."
+        message:
+          type: string
+          example: "Something was wrong"

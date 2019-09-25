@@ -1,0 +1,9 @@
+name: namespaces
+in: query
+description: >-
+  A comma-separated list of namespaces.
+  Single quotes are required around all strings.
+type: array
+collectionFormat: csv
+items:
+  type: string

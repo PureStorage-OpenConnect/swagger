@@ -1,0 +1,13 @@
+type: object
+readOnly: true
+properties:
+  id:
+    type: string
+    description: >-
+      A globally unique, system-generated ID.
+      The ID cannot be modified.
+  name:
+    type: string
+    description: >-
+      The resource name,
+      such as volume name, pod name, snapshot name, and so on.

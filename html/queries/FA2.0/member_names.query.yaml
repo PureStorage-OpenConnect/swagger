@@ -1,0 +1,11 @@
+name: member_names
+in: query
+description: >-
+  Displays all host groups associated
+  with the specified member hosts (`member_names`).
+  Enter multiple names in comma-separated format.
+  For example, `host01,host02`.
+type: array
+collectionFormat: csv
+items:
+  type: string

@@ -1,0 +1,29 @@
+allOf:
+- $ref: ../../models/FA2.0/_resource-no-id.yaml
+- type: object
+  properties:
+    connection_count:
+      description: The number of volumes connected to the host group.
+      type: integer
+      format: int64
+      readOnly: true
+      example: 3
+    host_count:
+      description: The number of hosts in the host group.
+      type: integer
+      format: int64
+      readOnly: true
+      example: 3
+    is_local:
+      type: boolean
+      description:
+        Returns a value of `true` if the host or host group
+        belongs to the current array.
+        Returns a value of `false` if the host or host group
+        belongs to a remote array.
+      readOnly: true
+    space:
+      description: >-
+        Displays size and space consumption information.
+      allOf:
+      - $ref: ../../models/FA2.0/_space.yaml

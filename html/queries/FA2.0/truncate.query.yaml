@@ -1,0 +1,15 @@
+name: truncate
+in: query
+description: >-
+  If set to `true`, reduces the size of a volume
+  during a volume resize operation.
+  When a volume is truncated, Purity automatically takes an undo snapshot,
+  providing a 24-hour window during which the previous contents
+  can be retrieved. After truncating a volume,
+  its provisioned size can be subsequently increased,
+  but the data in truncated sectors cannot be retrieved.
+  If set to `false` or not set at all and the volume is being reduced in size,
+  the volume copy operation fails.
+  Required if the `provisioned` parameter is set to a volume size
+  that is smaller than the original size.
+type: boolean

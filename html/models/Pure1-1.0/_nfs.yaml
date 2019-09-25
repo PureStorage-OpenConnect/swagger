@@ -1,0 +1,10 @@
+allOf:
+- properties:
+    enabled:
+      type: boolean
+      description: Is the protocol enabled?
+      example: false
+    rules:
+      type: string
+      description: NFS rules.
+      example: 10.0.0.1(ro)

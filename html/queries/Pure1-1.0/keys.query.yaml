@@ -1,0 +1,9 @@
+name: keys
+in: query
+description: >-
+  A comma-separated list of tag keys.
+  Single quotes are required around all strings.
+type: array
+collectionFormat: csv
+items:
+  type: string

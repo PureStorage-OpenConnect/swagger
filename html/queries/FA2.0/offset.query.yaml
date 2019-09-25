@@ -1,0 +1,9 @@
+name: offset
+in: query
+description: >-
+  The starting position based on the results of the query
+  in relation to the full set of response objects returned.
+type: integer
+format: int32
+minimum: 0
+example: 10

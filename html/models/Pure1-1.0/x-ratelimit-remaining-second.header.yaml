@@ -1,0 +1,5 @@
+X-RateLimit-Remaining-second:
+  description: >-
+    The number of requests remaining for the organization in that second.
+  schema:
+    type: integer

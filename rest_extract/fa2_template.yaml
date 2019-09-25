@@ -1,0 +1,38 @@
+---
+swagger: 2.0
+info:
+  title: Pure FlashArray API 2.0
+  description: |- 
+    ## Pure Swagger UI for FlashArray
+    A light weight tool to explore the API for FlashArray, community supported. 
+    For  help with this tool, use [Pure1 Community](https://community.purestorage.com/) or the [code-purestorage Slack](https://community.purestorage.com/discussion/9561/join-the-new-pure-code-slack-team-for-api-and-extensibility-discussions)
+    
+    ## Authenticate (uses API Key and returns a cookie)
+    Intro to how OAuth2 works with the 2.0 version: [Intro](https://support.purestorage.com/FlashArray/PurityFA/Purity_FA_REST_API/Reference/REST_API_2.0_Authentication_Guide)
+    
+securityDefinitions:
+  Private-Key:
+    type: apiKey
+    in: header
+    name: X-API-OAuth2-Private-Key
+  Authorization-Token:
+    type: apiKey
+    in: header
+    name: X-API-OAuth2-Token
+
+security:
+- Private-key: []
+- Authorization-Token: []
+
+
+        
+
+servers:
+- url: /api
+  description: Local host, PureSwagger Proxy, set array IP at top of page.  API calls are proxied to array.
+paths:
+tags:
+components: 
+  schemas: {}
+  
+  

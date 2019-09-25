@@ -1,0 +1,90 @@
+get:
+  summary: List hosts
+
+  description: >-
+    Return a list of hosts.
+
+  parameters:
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.0/host-get-response.yaml
+
+  tags:
+  - Hosts
+
+post:
+  summary: Create a host
+
+  description: >-
+    Create a host.
+    The `names` query parameter is required.
+
+  parameters:
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - name: host
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.0/host-post.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.0/host-response.yaml
+
+  tags:
+  - Hosts
+
+delete:
+  summary: Delete a host
+
+  description: >-
+    Delete an existing host. All volumes that are connected to the host,
+    either through private or shared connections,
+    must be disconnected from the host before the host can be deleted.
+    The `names` query parameter is required.
+
+  parameters:
+  - $ref: ../../queries/FA2.0/names.query.yaml
+
+  responses:
+    200:
+      description: OK
+
+  tags:
+  - Hosts
+
+patch:
+  summary: Manage a host
+
+  description: >-
+    Manage an existing host, including its storage network addresses, CHAP, host personality, and
+    preferred arrays, or associate a host to a host group.
+    The `names` query parameter is required.
+
+  parameters:
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - name: host
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.0/host-patch.yaml
+
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.0/host-response.yaml
+
+  tags:
+  - Hosts

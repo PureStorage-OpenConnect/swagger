@@ -1,0 +1,6 @@
+name: "on"
+in: query
+description: >-
+  Performs the operation on the unique target name specified.
+  For example, `targetName01`.
+type: string

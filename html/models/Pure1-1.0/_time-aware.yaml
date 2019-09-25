@@ -1,0 +1,10 @@
+type: object
+properties:
+  _as_of:
+    description: The freshness of the data (timestamp in millis since epoch).
+    type: integer
+    readOnly: true
+    format: int64
+    example: 1502729489760
+required:
+- _as_of

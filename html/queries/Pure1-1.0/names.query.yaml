@@ -1,0 +1,11 @@
+name: names
+in: query
+description: >-
+  A comma-separated list of resource names.
+  If there is not at least one resource that matches each of the elements of
+  names, an error is returned.
+  Single quotes are required around all strings.
+type: array
+collectionFormat: csv
+items:
+  type: string
