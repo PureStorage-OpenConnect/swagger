@@ -1,5 +1,6 @@
 {
     "id": "swagger",
+    "name": "Pure Swagger UI on Docker",  
     "filter": "devops",
     "image": "https://raw.githubusercontent.com/PureStorage-OpenConnect/swagger/master/images/swagger-header.png",
     "featured": 1,
