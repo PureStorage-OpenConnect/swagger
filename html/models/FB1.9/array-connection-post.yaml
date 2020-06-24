@@ -1,0 +1,14 @@
+allOf:
+- $ref: ../../models/FB1.9/array-connection.yaml
+- properties:
+    connection_key:
+      description: The connection key of the target array. Settable on POST only.
+      example: 6207d123-d123-0b5c-5fa1-95fabc5c7123
+      type: string
+    encrypted:
+      description: If this is set to `true`, then all customer data replicated over
+        the connection will be sent over an encrypted connection using TLS, or will
+        not be sent if a secure connection cannot be established. If this is set to
+        `false`, then all customer data replicated over the connection will be sent
+        over an unencrypted connection. Defaults to `false`.
+      type: boolean

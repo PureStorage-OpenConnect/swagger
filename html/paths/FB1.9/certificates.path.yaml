@@ -1,0 +1,64 @@
+delete:
+  description: DELETE certificates (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: DELETE certificates (placeholder)
+  tags:
+  - Certificates
+get:
+  description: GET certificates (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.0/filter.query.yaml
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/limit.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - $ref: ../../queries/FB1.0/sort.query.yaml
+  - $ref: ../../queries/FB1.0/start.query.yaml
+  - $ref: ../../queries/FB1.0/token.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.9/certificate-get-response.yaml
+  summary: GET certificates (placeholder)
+  tags:
+  - Certificates
+patch:
+  description: PATCH certificates (placeholder)
+  parameters:
+  - in: body
+    name: certificate
+    required: true
+    schema:
+      $ref: ../../models/FB1.8/certificate-patch.yaml
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.9/certificate-response.yaml
+  summary: PATCH certificates (placeholder)
+  tags:
+  - Certificates
+post:
+  description: POST certificates (placeholder)
+  parameters:
+  - in: body
+    name: certificate
+    required: true
+    schema:
+      $ref: ../../models/FB1.9/certificate-post.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.9/certificate-response.yaml
+  summary: POST certificates (placeholder)
+  tags:
+  - Certificates

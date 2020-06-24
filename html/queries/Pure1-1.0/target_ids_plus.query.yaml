@@ -1,0 +1,12 @@
+collectionFormat: csv
+description: A list of target IDs. Target IDs separated by a `+` indicate that both
+  targets must be present in each element. Target IDs separated by a `,` indicate
+  that at least one target must be present in each element. If there is not at least
+  one target that matches each of the elements of `target_ids`, an error is returned.
+  Single quotes are required around all strings. When using Try it Out in Swagger,
+  a list of target IDs separated by a `+` must be entered in the same item cell.
+in: query
+items:
+  type: string
+name: target_ids
+type: array

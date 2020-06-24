@@ -1,0 +1,25 @@
+allOf:
+- $ref: ../Pure1-1.0/_arrays-resource.yaml
+- properties:
+    account:
+      $ref: ../Pure1-1.0/_fixed-reference.yaml
+    created:
+      description: Creation time of the bucket, in milliseconds since Unix epoch.
+      example: 1502729489760
+      format: int64
+      readOnly: true
+      type: integer
+    destroyed:
+      description: Returns a value of `true` if the bucket is destroyed, but not yet
+        eradicated.
+      type: boolean
+    object_count:
+      description: The number of objects contained within the bucket.
+      example: 15
+      format: int64
+      readOnly: true
+      type: integer
+    versioning:
+      description: The versioning state for objects within the bucket. Valid values
+        are `none`, `enabled`, and `suspended`.
+      type: string

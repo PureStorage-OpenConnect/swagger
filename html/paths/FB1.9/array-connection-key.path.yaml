@@ -1,0 +1,20 @@
+get:
+  description: GET array-connection-key (placeholder)
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.9/array-connection-key-get-response.yaml
+  summary: GET array-connection-key (placeholder)
+  tags:
+  - Array Connections
+post:
+  description: POST array-connection-key (placeholder)
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.9/array-connection-key-response.yaml
+  summary: POST array-connection-key (placeholder)
+  tags:
+  - Array Connections

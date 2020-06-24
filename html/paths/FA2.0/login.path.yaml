@@ -1,0 +1,24 @@
+post:
+  description: 'Exchange an API token for a session token.
+
+    '
+  parameters:
+  - description: API token for a user.
+    example: 0f2e2884-9486-c6c2-438c-f50418f2aac3
+    in: header
+    name: api-token
+    type: string
+  responses:
+    200:
+      description: OK
+      headers:
+        x-auth-token:
+          description: Session token for a user.
+          example: 3be3d489-55c6-4643-90ac-a476dbc98812
+          schema:
+            type: string
+      schema:
+        $ref: ../../responses/FA2.0/username-response.yaml
+  summary: POST login (placeholder)
+  tags:
+  - Authorization

@@ -1,0 +1,74 @@
+delete:
+  description: DELETE quotas-users (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.6/file_system_names.query.yaml
+  - $ref: ../../queries/FB1.9/file_system_ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - $ref: ../../queries/FB1.6/uids.query.yaml
+  - $ref: ../../queries/FB1.6/user_names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: DELETE quotas-users (placeholder)
+  tags:
+  - Quotas
+get:
+  description: GET quotas-users (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.9/file_system_ids.query.yaml
+  - $ref: ../../queries/FB1.6/file_system_names.query.yaml
+  - $ref: ../../queries/FB1.0/filter.query.yaml
+  - $ref: ../../queries/FB1.0/limit.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - $ref: ../../queries/FB1.0/sort.query.yaml
+  - $ref: ../../queries/FB1.0/start.query.yaml
+  - $ref: ../../queries/FB1.0/token.query.yaml
+  - $ref: ../../queries/FB1.6/uids.query.yaml
+  - $ref: ../../queries/FB1.6/user_names.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.8/user-quota-get-response.yaml
+  summary: GET quotas-users (placeholder)
+  tags:
+  - Quotas
+patch:
+  description: PATCH quotas-users (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.6/file_system_names.query.yaml
+  - $ref: ../../queries/FB1.9/file_system_ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - $ref: ../../queries/FB1.6/uids.query.yaml
+  - $ref: ../../queries/FB1.6/user_names.query.yaml
+  - in: body
+    name: quota
+    schema:
+      $ref: ../../models/FB1.8/user-quota.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.8/user-quota-response.yaml
+  summary: PATCH quotas-users (placeholder)
+  tags:
+  - Quotas
+post:
+  description: POST quotas-users (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.9/file_system_ids.query.yaml
+  - $ref: ../../queries/FB1.6/file_system_names.query.yaml
+  - $ref: ../../queries/FB1.6/uids.query.yaml
+  - $ref: ../../queries/FB1.6/user_names.query.yaml
+  - in: body
+    name: quota
+    schema:
+      $ref: ../../models/FB1.8/user-quota.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.8/user-quota-response.yaml
+  summary: POST quotas-users (placeholder)
+  tags:
+  - Quotas

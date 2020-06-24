@@ -1,0 +1,13 @@
+get:
+  description: GET snmp-managers-test (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.9/snmp-manager-test-response.yaml
+  summary: GET snmp-managers-test (placeholder)
+  tags:
+  - SNMP Managers

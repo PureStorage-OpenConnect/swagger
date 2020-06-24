@@ -1,0 +1,13 @@
+allOf:
+- $ref: ../../responses/FB1.0/page-info.yaml
+- properties:
+    items:
+      items:
+        $ref: ../../models/FB1.9/relationship-performance-replication.yaml
+      type: array
+    total:
+      description: Total of all records after filtering. If `total_only` query param
+        is `true`, then no items will be returned.
+      items:
+        $ref: ../../models/FB1.9/relationship-performance-replication.yaml
+      type: array

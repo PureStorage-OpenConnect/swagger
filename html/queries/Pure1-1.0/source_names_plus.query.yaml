@@ -1,0 +1,12 @@
+collectionFormat: csv
+description: A list of source names. Source names separated by a `+` indicate that
+  both sources must be present in each element. Source names separated by a `,` indicate
+  that at least one source must be present in each element. If there is not at least
+  one source that matches each of the elements of `source_ids`, an error is returned.
+  Single quotes are required around all strings. When using Try it Out in Swagger,
+  a list of source names separated by a `+` must be entered in the same item cell.
+in: query
+items:
+  type: string
+name: source_names
+type: array

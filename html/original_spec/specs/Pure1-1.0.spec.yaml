@@ -7,8 +7,14 @@ definitions:
     $ref: ../models/Pure1-1.0/array.yaml
   Audit:
     $ref: ../models/Pure1-1.0/audit.yaml
+  Bucket:
+    $ref: ../models/Pure1-1.0/bucket.yaml
+  BucketReplicaLink:
+    $ref: ../models/Pure1-1.0/bucket-replica-link.yaml
   FileSystem:
     $ref: ../models/Pure1-1.0/file-system.yaml
+  FileSystemReplicaLink:
+    $ref: ../models/Pure1-1.0/file-system-replica-link.yaml
   FileSystemSnapshot:
     $ref: ../models/Pure1-1.0/file-system-snapshot.yaml
   Metric:
@@ -23,6 +29,12 @@ definitions:
     $ref: ../models/Pure1-1.0/policy.yaml
   PolicyMember:
     $ref: ../models/Pure1-1.0/policy-member.yaml
+  SupportContract:
+    $ref: ../models/Pure1-1.0/support-contract.yaml
+  Tag:
+    $ref: ../models/Pure1-1.0/tag.yaml
+  Target:
+    $ref: ../models/Pure1-1.0/target.yaml
   Volume:
     $ref: ../models/Pure1-1.0/volume.yaml
   VolumeSnapshot:
@@ -42,12 +54,22 @@ paths:
     $ref: ../paths/Pure1-1.0/alerts.path.yaml
   /api/1.0/arrays:
     $ref: ../paths/Pure1-1.0/arrays.path.yaml
+  /api/1.0/arrays/support-contracts:
+    $ref: ../paths/Pure1-1.0/arrays-support-contracts.path.yaml
   /api/1.0/arrays/tags:
     $ref: ../paths/Pure1-1.0/arrays-tags.path.yaml
   /api/1.0/arrays/tags/batch:
     $ref: ../paths/Pure1-1.0/arrays-tags-batch.path.yaml
   /api/1.0/audits:
     $ref: ../paths/Pure1-1.0/audits.path.yaml
+  /api/1.0/bucket-replica-links:
+    $ref: ../paths/Pure1-1.0/bucket-replica-links.path.yaml
+  /api/1.0/buckets:
+    $ref: ../paths/Pure1-1.0/buckets.path.yaml
+  /api/1.0/file-system-replica-links:
+    $ref: ../paths/Pure1-1.0/file-system-replica-links.path.yaml
+  /api/1.0/file-system-replica-links/policies:
+    $ref: ../paths/Pure1-1.0/file-system-replica-links-policies.path.yaml
   /api/1.0/file-system-snapshots:
     $ref: ../paths/Pure1-1.0/file-system-snapshots.path.yaml
   /api/1.0/file-system-snapshots/policies:
@@ -62,16 +84,22 @@ paths:
     $ref: ../paths/Pure1-1.0/metrics-history.path.yaml
   /api/1.0/network-interfaces:
     $ref: ../paths/Pure1-1.0/network-interfaces.path.yaml
+  /api/1.0/object-store-accounts:
+    $ref: ../paths/Pure1-1.0/object-store-accounts.path.yaml
   /api/1.0/pods:
     $ref: ../paths/Pure1-1.0/pods.path.yaml
   /api/1.0/policies:
     $ref: ../paths/Pure1-1.0/policies.path.yaml
+  /api/1.0/policies/file-system-replica-links:
+    $ref: ../paths/Pure1-1.0/policies-file-system-replica-links.path.yaml
   /api/1.0/policies/file-system-snapshots:
     $ref: ../paths/Pure1-1.0/policies-file-system-snapshots.path.yaml
   /api/1.0/policies/file-systems:
     $ref: ../paths/Pure1-1.0/policies-file-systems.path.yaml
   /api/1.0/policies/members:
     $ref: ../paths/Pure1-1.0/policies-members.path.yaml
+  /api/1.0/targets:
+    $ref: ../paths/Pure1-1.0/targets.path.yaml
   /api/1.0/volume-snapshots:
     $ref: ../paths/Pure1-1.0/volume-snapshots.path.yaml
   /api/1.0/volumes:
@@ -100,8 +128,14 @@ tags:
   name: Arrays
 - description: Provides access to CLI audit logs from FlashArray and FlashBlade appliances.
   name: Audits
+- description: Provides information about FlashBlade buckets.
+  name: Buckets
+- description: Provides information about replica links between buckets.
+  name: Bucket Replica Links
 - description: Provides information about FlashBlade file systems.
   name: File Systems
+- description: Provides information about replica links between FlashBlade file systems.
+  name: File System Replica Links
 - description: Provides information about FlashBlade file system snapshots.
   name: File System Snapshots
 - description: Provides information about historical metrics for arrays, volumes,
@@ -109,12 +143,16 @@ tags:
   name: Metrics
 - description: Provides information about network interfaces available on arrays.
   name: Network Interfaces
+- description: Provides information about object store accounts.
+  name: Object Store Accounts
 - description: Provides information about FlashArray pods. A pod is the pairing of
     two arrays that replicate some volumes with each other.
   name: Pods
 - description: Provides information about FlashBlade policies and the members they
     apply to.
   name: Policies
+- description: Provides information about FlashBlade external replication targets.
+  name: Targets
 - description: Provides information about block storage volumes on FlashArray arrays.
   name: Volumes
 - description: Provides information about snapshots of block storage volumes on FlashArray

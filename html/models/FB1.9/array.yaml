@@ -1,0 +1,31 @@
+allOf:
+- $ref: ../../models/FB1.8/_resource.yaml
+- properties:
+    _as_of:
+      description: Array time in milliseconds since UNIX epoch.
+      format: int64
+      readOnly: true
+      type: integer
+    ntp_servers:
+      items:
+        example: time.acme.com
+        type: string
+      type: array
+    os:
+      description: Valid values are `Purity//FA` and `Purity//FB`.
+      example: Purity//FB
+      readOnly: true
+      type: string
+    revision:
+      example: 2017.11.07_8f3ab6f5
+      readOnly: true
+      type: string
+    time_zone:
+      description: The time zone to use for the array. In particular this affects
+        the CLI formatting and the default snapshot policy time zone.
+      example: America/Los_Angeles
+      type: string
+    version:
+      example: 2.1.0
+      readOnly: true
+      type: string

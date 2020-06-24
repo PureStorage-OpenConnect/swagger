@@ -1,0 +1,6 @@
+properties:
+  username:
+    description: The username of the user.
+    example: pureuser
+    type: string
+type: object

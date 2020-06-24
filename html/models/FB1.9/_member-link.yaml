@@ -1,0 +1,14 @@
+properties:
+  local_file_system:
+    allOf:
+    - $ref: ../../models/FB1.8/_fixed-reference.yaml
+    description: Reference to a local file system.
+  remote:
+    allOf:
+    - $ref: ../../models/FB1.9/_fixed-reference-no-resource-type.yaml
+    description: Reference to a remote array.
+  remote_file_system:
+    allOf:
+    - $ref: ../../models/FB1.9/_fixed-reference-no-resource-type.yaml
+    description: Reference to a remote file system.
+type: object

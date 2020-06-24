@@ -1,0 +1,3 @@
+description: The direction of replication. Valid values are `inbound` and `outbound`.
+readOnly: true
+type: string

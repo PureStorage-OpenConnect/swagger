@@ -1,0 +1,16 @@
+allOf:
+- $ref: ../../models/FB1.8/file-system.yaml
+- properties:
+    requested_promotion_state:
+      description: Possible values are `promoted` and `demoted`. The `demoted` state
+        is used for replication targets and is only allowed to be set if the file
+        system is in a replica-link relationship. The additional query param `discard-non-snapshotted-data`
+        must be set to `true` when demoting a file system. The default for new file
+        systems is `promoted`.
+      type: string
+    writable:
+      description: Whether the file system is writable or not. If `false`, this overrides
+        any protocol or file permission settings and prevents changes. If `true`,
+        then the protocol and file permission settings are evaluated. If not specified,
+        defaults to `true`. Modifiable.
+      type: boolean

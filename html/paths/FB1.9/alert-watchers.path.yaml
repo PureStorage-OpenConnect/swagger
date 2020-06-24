@@ -1,0 +1,63 @@
+delete:
+  description: DELETE alert-watchers (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: DELETE alert-watchers (placeholder)
+  tags:
+  - Alert Watchers
+get:
+  description: GET alert-watchers (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.0/filter.query.yaml
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/limit.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - $ref: ../../queries/FB1.0/sort.query.yaml
+  - $ref: ../../queries/FB1.0/start.query.yaml
+  - $ref: ../../queries/FB1.0/token.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.9/alert-watcher-get-response.yaml
+  summary: GET alert-watchers (placeholder)
+  tags:
+  - Alert Watchers
+patch:
+  description: PATCH alert-watchers (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - in: body
+    name: alert-watcher
+    required: true
+    schema:
+      $ref: ../../models/FB1.9/alert-watcher.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.9/alert-watcher-response.yaml
+  summary: PATCH alert-watchers (placeholder)
+  tags:
+  - Alert Watchers
+post:
+  description: POST alert-watchers (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.2/names_required.query.yaml
+  - in: body
+    name: alert-watcher
+    schema:
+      $ref: ../../models/FB1.9/alert-watcher-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.9/alert-watcher-response.yaml
+  summary: POST alert-watchers (placeholder)
+  tags:
+  - Alert Watchers

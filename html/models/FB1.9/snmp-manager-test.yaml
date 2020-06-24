@@ -1,0 +1,12 @@
+allOf:
+- $ref: ../../models/FB1.8/_built-in.yaml
+- properties:
+    error:
+      description: Error message (if failed).
+      readOnly: true
+      type: string
+    sent:
+      description: Is the test trap or inform sent?
+      readOnly: true
+      type: boolean
+  type: object

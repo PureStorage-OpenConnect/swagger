@@ -1,0 +1,15 @@
+allOf:
+- $ref: ../Pure1-1.0/_arrays-resource.yaml
+- properties:
+    created:
+      description: Creation timestamp of the object, in milliseconds since Unix epoch.
+      example: 1502729489760
+      format: int64
+      readOnly: true
+      type: integer
+    object_count:
+      description: The number of objects within the account.
+      example: 15
+      format: int64
+      readOnly: true
+      type: integer

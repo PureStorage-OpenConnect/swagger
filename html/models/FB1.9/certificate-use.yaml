@@ -1,0 +1,7 @@
+allOf:
+- $ref: ../../models/FB1.8/certificate-use.yaml
+- properties:
+    use:
+      allOf:
+      - $ref: ../../models/FB1.9/_fixed-reference-with-remote.yaml
+      description: A reference to an object using this certificate.

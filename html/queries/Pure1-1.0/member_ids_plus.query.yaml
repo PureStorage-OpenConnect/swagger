@@ -1,0 +1,12 @@
+collectionFormat: csv
+description: A list of member IDs. Member IDs separated by a `+` indicate that both
+  members must be present in each element. Member IDs separated by a `,` indicate
+  that at least one member must be present in each element. If there is not at least
+  one member that matches each of the elements of `member_ids`, an error is returned.
+  Single quotes are required around all strings. When using Try it Out in Swagger,
+  a list of member IDs separated by a `+` must be entered in the same item cell.
+in: query
+items:
+  type: string
+name: member_ids
+type: array

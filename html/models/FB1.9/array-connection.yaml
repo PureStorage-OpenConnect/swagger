@@ -1,0 +1,48 @@
+allOf:
+- $ref: ../../models/FB1.9/_built-in-relationship.yaml
+- description: Connection to a target array.
+- properties:
+    ca_certificate_group:
+      allOf:
+      - $ref: ../../models/FB1.8/_fixed-reference.yaml
+      description: The group of CA certificates that can be used, in addition to well-known
+        Certificate Authority certificates, in order to establish a secure connection
+        to the target array. Defaults to a reference to the `_default_replication_certs`
+        group if `secure_connection` is `true`, or `null` otherwise.
+      readOnly: true
+    encrypted:
+      description: If this is set to `true`, then all customer data replicated over
+        the connection will be sent over an encrypted connection using TLS, or will
+        not be sent if a secure connection cannot be established. If this is set to
+        `false`, then all customer data replicated over the connection will be sent
+        over an unencrypted connection. Defaults to `false`.
+      type: boolean
+    management_address:
+      description: Management address of the target array. Settable on POST only.
+      example: 10.202.101.78
+      type: string
+    remote:
+      allOf:
+      - $ref: ../../models/FB1.9/_fixed-reference-no-resource-type.yaml
+      description: The remote array.
+    replication_addresses:
+      description: IP addresses and/or FQDNs of the target arrays. Settable on POST
+        only. If not set on POST, will be set to all the replication addresses available
+        on the target array at the time of the POST.
+      items:
+        example: 10.202.101.70
+        type: string
+      type: array
+    status:
+      description: Status of the connection. Valid values are `connected`, `partially_connected`,
+        `connecting`, and `incompatible`. `connected` - The connection is OK. `partially_connected`
+        - Some replication addresses are working, but others are not. `connecting`
+        - No connection exists and the array is trying to reconnect. `incompatible`
+        - The target array is not compatible.
+      readOnly: true
+      type: string
+    version:
+      description: The version of the target array.
+      example: 2.3.0
+      readOnly: true
+      type: string

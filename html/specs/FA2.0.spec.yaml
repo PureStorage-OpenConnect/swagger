@@ -20,6 +20,8 @@ definitions:
     $ref: ../models/FA2.0/member.yaml
   MemberNoIdAll:
     $ref: ../models/FA2.0/member-no-id-all.yaml
+  Username:
+    $ref: ../models/FA2.0/username.yaml
   Volume:
     $ref: ../models/FA2.0/volume.yaml
   VolumePerformance:
@@ -65,6 +67,10 @@ paths:
     $ref: ../paths/FA2.0/hosts-performance.path.yaml
   /api/2.0/hosts/performance/by-array:
     $ref: ../paths/FA2.0/hosts-performance-by-array.path.yaml
+  /api/2.0/login:
+    $ref: ../paths/FA2.0/login.path.yaml
+  /api/2.0/logout:
+    $ref: ../paths/FA2.0/logout.path.yaml
   /api/2.0/volume-snapshots:
     $ref: ../paths/FA2.0/volume-snapshots.path.yaml
   /api/2.0/volume-snapshots/transfer:
@@ -99,15 +105,47 @@ securityDefinitions:
     type: apiKey
 swagger: '2.0'
 tags:
-- description: Authorization endpoint description (placeholder)
+- description: Pure Storage uses the OAuth 2.0 Token Exchange authorization grant
+    and JSON Web Tokens (JWTs) to authenticate to the Pure Storage REST API. Before
+    you can exchange the ID Token for an access token, create and enable the API client
+    to generate the `key_id`, `id`, and `issuer` values. These values will be used
+    as JWT claims for the `subject_token` parameter.
   name: Authorization
-- description: Connections endpoint description (placeholder)
+- description: A connection gives hosts access to volumes on the array. The system
+    supports private (host-volume) connections and public (host group-volume) connections.
+    A private connection connects one volume to one host. Private connections are
+    typically used for boot volumes and for stand-alone (non-clustered) host applications.
+    A shared connection connects a designated set of hosts (via a host group) to a
+    designated set of volumes, providing the hosts with a consistent "view" of the
+    volumes. All associated hosts use the same LUN to address a given associated volume.
+    All hosts and volumes associated with a host group are automatically connected
+    to each other by virtue of their associations with the group. Shared connections
+    are useful for cluster applications in which several related hosts require consistent
+    (same LUN) connectivity to a set of storage volumes.
   name: Connections
-- description: Host Groups endpoint description (placeholder)
+- description: Host groups implement consistent connections between a set of hosts
+    and one or more volumes. Connections are consistent in the sense that all hosts
+    associated with a host group address a volume connected to the group by the same
+    LUN. Host groups are typically used to provide a common view of storage volumes
+    to the hosts in a clustered application.
   name: Host Groups
-- description: Hosts endpoint description (placeholder)
+- description: Hosts organize the storage network addresses (iSCSI Qualified Names,
+    NVMe qualified names, or Fibre Channel world wide names) of client computers to
+    identify the host's intiators. Hosts also control communications between clients
+    and volumes. After a volume has been created, establish a host-volume connection
+    so that the host can read data from and write data to the volume.
   name: Hosts
-- description: Volumes endpoint description (placeholder)
+- description: A volume represents a container that manages the storage space on the
+    array. After a volume has been created, establish a host-volume connection so
+    that the host can read data from and write data to the volume. Furthermore, protect
+    the volume data through asynchronous replication to a remote array, synchronous
+    replication between remote arrays, and replication to external storage systems.
   name: Volumes
-- description: Volume Snapshots endpoint description (placeholder)
+- description: Volume snapshots are immutable, point-in-time images of the contents
+    of one or more volumes. There are two types of volume snapshots&#58; volume snapshots
+    and protection group volume snapshots. A volume snapshot is a snapshot that captures
+    the contents of a single volume. A protection group volume snapshot is a volume
+    snapshot that is created from a group of volumes that are part of the same protection
+    group. All of the volume snapshots created from a protection group snapshot are
+    point-in-time consistent with each other.
   name: Volume Snapshots

@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../models/FB1.0/_built-in.yaml
+- $ref: ../../models/FB1.2/alert-watcher-test.yaml

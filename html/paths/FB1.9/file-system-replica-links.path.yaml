@@ -1,0 +1,43 @@
+get:
+  description: GET file-system-replica-links (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.0/filter.query.yaml
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/limit.query.yaml
+  - $ref: ../../queries/FB1.9/local_file_system_ids.query.yaml
+  - $ref: ../../queries/FB1.9/local_file_system_names.query.yaml
+  - $ref: ../../queries/FB1.9/remote_file_system_ids.query.yaml
+  - $ref: ../../queries/FB1.9/remote_file_system_names.query.yaml
+  - $ref: ../../queries/FB1.9/remote_ids.query.yaml
+  - $ref: ../../queries/FB1.9/remote_names.query.yaml
+  - $ref: ../../queries/FB1.0/sort.query.yaml
+  - $ref: ../../queries/FB1.0/start.query.yaml
+  - $ref: ../../queries/FB1.0/token.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.9/file-system-replica-link-get-response.yaml
+  summary: GET file-system-replica-links (placeholder)
+  tags:
+  - File System Replica Links
+post:
+  description: POST file-system-replica-links (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.9/local_file_system_ids.query.yaml
+  - $ref: ../../queries/FB1.9/local_file_system_names.query.yaml
+  - $ref: ../../queries/FB1.9/remote_file_system_names.query.yaml
+  - $ref: ../../queries/FB1.9/remote_ids.query.yaml
+  - $ref: ../../queries/FB1.9/remote_names.query.yaml
+  - in: body
+    name: file-system-replica-link
+    schema:
+      $ref: ../../models/FB1.9/file-system-replica-link-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.9/file-system-replica-link-response.yaml
+  summary: POST file-system-replica-links (placeholder)
+  tags:
+  - File System Replica Links

@@ -1,0 +1,12 @@
+description: 'If set to `true`, lists only destroyed objects that are in the eradication
+  pending state. If set to `false`, lists only objects that are not destroyed. If
+  not set, lists both objects that are destroyed and those that are not destroyed.
+
+  If object name(s) are specified in the `names` parameter, then each object referenced
+  must exist. If `destroyed` is set to `true`, then each object referenced must also
+  be destroyed. If `destroyed` is set to `false`, then each object referenced must
+  also not be destroyed. An error is returned if any of these conditions are not met.'
+in: query
+name: destroyed
+readOnly: true
+type: boolean

@@ -1,0 +1,9 @@
+allOf:
+- $ref: ../../models/FB1.3/network-interface-patch.yaml
+- properties:
+    services:
+      description: Services and protocols that are enabled on the interface.
+      items:
+        description: Valid values are `data`, `management`, `replication`, and `support`.
+        type: string
+      type: array

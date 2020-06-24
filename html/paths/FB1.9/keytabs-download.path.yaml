@@ -1,0 +1,16 @@
+get:
+  description: GET keytabs-download (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.9/keytab_ids.query.yaml
+  - $ref: ../../queries/FB1.9/keytab_names.query.yaml
+  produces:
+  - application/octet-stream
+  - text/plain
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.9/keytab-file-response.yaml
+  summary: GET keytabs-download (placeholder)
+  tags:
+  - Keytabs

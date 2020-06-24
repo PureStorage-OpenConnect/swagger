@@ -1,0 +1,6 @@
+allOf:
+- $ref: ../Pure1-1.0/_fixed-reference.yaml
+- properties:
+    location:
+      $ref: ../Pure1-1.0/_fixed-reference.yaml
+description: An ordinary resource that exists in one location.

@@ -1,0 +1,6 @@
+properties:
+  items:
+    items:
+      $ref: ../../models/FB1.9/snmp-agent-mib.yaml
+    type: array
+type: object
