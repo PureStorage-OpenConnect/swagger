@@ -7,10 +7,14 @@ definitions:
     $ref: ../models/Pure1-1.0/array.yaml
   Audit:
     $ref: ../models/Pure1-1.0/audit.yaml
+  Blade:
+    $ref: ../models/Pure1-1.0/blade.yaml
   Bucket:
     $ref: ../models/Pure1-1.0/bucket.yaml
   BucketReplicaLink:
     $ref: ../models/Pure1-1.0/bucket-replica-link.yaml
+  Controller:
+    $ref: ../models/Pure1-1.0/controller.yaml
   FileSystem:
     $ref: ../models/Pure1-1.0/file-system.yaml
   FileSystemReplicaLink:
@@ -25,6 +29,8 @@ definitions:
     $ref: ../models/Pure1-1.0/network-interface.yaml
   Pod:
     $ref: ../models/Pure1-1.0/pod.yaml
+  PodReplicaLink:
+    $ref: ../models/Pure1-1.0/pod-replica-link.yaml
   Policy:
     $ref: ../models/Pure1-1.0/policy.yaml
   PolicyMember:
@@ -62,10 +68,14 @@ paths:
     $ref: ../paths/Pure1-1.0/arrays-tags-batch.path.yaml
   /api/1.0/audits:
     $ref: ../paths/Pure1-1.0/audits.path.yaml
+  /api/1.0/blades:
+    $ref: ../paths/Pure1-1.0/blades.path.yaml
   /api/1.0/bucket-replica-links:
     $ref: ../paths/Pure1-1.0/bucket-replica-links.path.yaml
   /api/1.0/buckets:
     $ref: ../paths/Pure1-1.0/buckets.path.yaml
+  /api/1.0/controllers:
+    $ref: ../paths/Pure1-1.0/controllers.path.yaml
   /api/1.0/file-system-replica-links:
     $ref: ../paths/Pure1-1.0/file-system-replica-links.path.yaml
   /api/1.0/file-system-replica-links/policies:
@@ -86,6 +96,8 @@ paths:
     $ref: ../paths/Pure1-1.0/network-interfaces.path.yaml
   /api/1.0/object-store-accounts:
     $ref: ../paths/Pure1-1.0/object-store-accounts.path.yaml
+  /api/1.0/pod-replica-links:
+    $ref: ../paths/Pure1-1.0/pod-replica-links.path.yaml
   /api/1.0/pods:
     $ref: ../paths/Pure1-1.0/pods.path.yaml
   /api/1.0/policies:
@@ -128,10 +140,14 @@ tags:
   name: Arrays
 - description: Provides access to CLI audit logs from FlashArray and FlashBlade appliances.
   name: Audits
+- description: Provides information about FlashBlade blades.
+  name: Blades
 - description: Provides information about FlashBlade buckets.
   name: Buckets
 - description: Provides information about replica links between buckets.
   name: Bucket Replica Links
+- description: Provides information about FlashArray controllers.
+  name: Controllers
 - description: Provides information about FlashBlade file systems.
   name: File Systems
 - description: Provides information about replica links between FlashBlade file systems.
@@ -148,6 +164,8 @@ tags:
 - description: Provides information about FlashArray pods. A pod is the pairing of
     two arrays that replicate some volumes with each other.
   name: Pods
+- description: Provides information about replica links between FlashArray pods.
+  name: Pod Replica Links
 - description: Provides information about FlashBlade policies and the members they
     apply to.
   name: Policies

@@ -1,0 +1,29 @@
+allOf:
+- $ref: ../Pure1-1.0/_replica-link.yaml
+- properties:
+    members:
+      description: The union of source and target pods in the replica link.
+      items:
+        $ref: ../../models/Pure1-1.0/_resource-with-locations.yaml
+      type: array
+    recovery_point:
+      description: Time when the last piece of data was replicated, in milliseconds
+        since the UNIX epoch, and the recovery point if the target pod is promoted.
+        If the pod is currently baselining then the value is `null`.
+    sources:
+      description: The source pods in the replica link.
+      items:
+        $ref: ../../models/Pure1-1.0/_resource-with-locations.yaml
+      type: array
+    status:
+      description: Status of the replica link. Values include `replicating`, `idle`,
+        `baselining`, `paused`, `quiescing`, `quiesced`, and `unhealthy`.
+      example: replicating
+      type: string
+    targets:
+      description: The target pods in the replica link.
+      items:
+        $ref: ../../models/Pure1-1.0/_resource-with-locations.yaml
+      type: array
+description: A replica link between two pods.
+type: object

@@ -79,7 +79,7 @@ definitions:
   Subnet:
     $ref: ../models/FB1.8/subnet.yaml
   Support:
-    $ref: ../models/FB1.8/support.yaml
+    $ref: ../models/FB1.6/support.yaml
   TestResult:
     $ref: ../models/FB1.3/test-result.yaml
   UserQuota:
@@ -200,7 +200,7 @@ paths:
   /1.8/api/1.8/subnets:
     $ref: ../paths/FB1.8/subnets.path.yaml
   /1.8/api/1.8/support:
-    $ref: ../paths/FB1.8/support.path.yaml
+    $ref: ../paths/FB1.6/support.path.yaml
   /1.8/api/1.8/support/test:
     $ref: ../paths/FB1.6/support-test.path.yaml
   /1.8/api/1.8/usage/groups:

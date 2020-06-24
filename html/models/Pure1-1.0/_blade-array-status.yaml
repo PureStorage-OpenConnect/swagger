@@ -1,0 +1,15 @@
+allOf:
+- $ref: _fixed-reference.yaml
+- type: object
+- readOnly: true
+- properties:
+    total_blades:
+      description: Count of total blade slots in the array.
+      example: 15
+      format: int64
+      type: integer
+    used_blades:
+      description: Count of used blade slots in the array.
+      example: 10
+      format: int64
+      type: integer

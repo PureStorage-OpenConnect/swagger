@@ -1,0 +1,27 @@
+allOf:
+- $ref: ../Pure1-1.0/_arrays-built-in.yaml
+- $ref: ../Pure1-1.0/_arrays.yaml
+- properties:
+    mode:
+      description: Mode of the controller. Values include `not present`, `offline`,
+        `primary`, and `secondary`.
+      example: primary
+      type: string
+    model:
+      description: Model of the controller.
+      example: FA-m50
+      type: string
+    status:
+      description: Status of the controller. Values include `not ready`, `ready`,
+        `unknown`, and `updating`.
+      example: ready
+      type: string
+    type:
+      description: Type of the controller. Values include `array_controller` and `shelf_controller`.
+      example: array_controller
+      type: string
+    version:
+      description: Version of the controller.
+      example: 5.0.0
+      type: string
+description: A platform that runs the Purity//FA Operating Environment.

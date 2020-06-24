@@ -118,7 +118,7 @@ definitions:
   Subnet:
     $ref: ../models/FB1.9/subnet.yaml
   Support:
-    $ref: ../models/FB1.8/support.yaml
+    $ref: ../models/FB1.6/support.yaml
   Target:
     $ref: ../models/FB1.9/target.yaml
   TestResult:
@@ -271,7 +271,7 @@ paths:
   /api/1.9/subnets:
     $ref: ../paths/FB1.9/subnets.path.yaml
   /api/1.9/support:
-    $ref: ../paths/FB1.8/support.path.yaml
+    $ref: ../paths/FB1.6/support.path.yaml
   /api/1.9/support/test:
     $ref: ../paths/FB1.6/support-test.path.yaml
   /api/1.9/targets:
