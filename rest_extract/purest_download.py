@@ -63,10 +63,12 @@ class SpecWorker(threading.Thread):
             #need to do this so we can add non version specific endpoints like get_version & login
             paths = list(spec_yaml['paths'])
             #print(paths)
-            for path in paths:
-                new_path = '/' + str(version) + path
-                spec_yaml['paths'][new_path] = spec_yaml['paths'][path]
-                del spec_yaml['paths'][path]
+
+            # Removed 2020,June, I think they added these upstream on pureset
+            #for path in paths:
+            #    new_path = '/' + str(version) + path
+            #    spec_yaml['paths'][new_path] = spec_yaml['paths'][path]
+            #    del spec_yaml['paths'][path]
  
             spec_yaml['paths']['/api_version'] = template_yaml['paths']['/api_version']
             spec_yaml['paths']['/login'] = template_yaml['paths']['/login']

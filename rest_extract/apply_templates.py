@@ -24,10 +24,12 @@ def apply_template(spec_file, template, model):
         #need to do this so we can add non version specific endpoints like get_version & login
         paths = list(spec_yaml['paths'])
         #print(paths)
-        for path in paths:
-            new_path = '/' + str(version) + path
-            spec_yaml['paths'][new_path] = spec_yaml['paths'][path]
-            del spec_yaml['paths'][path]
+        #removing in 2020 June, I think they added up stream
+        #
+        #for path in paths:
+        #    new_path = '/' + str(version) + path
+        #    spec_yaml['paths'][new_path] = spec_yaml['paths'][path]
+        #    del spec_yaml['paths'][path]
 
         spec_yaml['paths']['/api_version'] = template_yaml['paths']['/api_version']
         spec_yaml['paths']['/login'] = template_yaml['paths']['/login']

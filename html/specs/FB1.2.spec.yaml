@@ -51,39 +51,39 @@ info:
   title: FlashBlade REST API Client
   version: 1.2
 paths:
-  /1.2/api/1.2/admins:
+  /api/1.2/admins:
     $ref: ../paths/FB1.2/admins.path.yaml
-  /1.2/api/1.2/alert-watchers:
+  /api/1.2/alert-watchers:
     $ref: ../paths/FB1.2/alert-watchers.path.yaml
-  /1.2/api/1.2/alert-watchers/test:
+  /api/1.2/alert-watchers/test:
     $ref: ../paths/FB1.2/alert-watchers-test.path.yaml
-  /1.2/api/1.2/alerts:
+  /api/1.2/alerts:
     $ref: ../paths/FB1.2/alerts.path.yaml
-  /1.2/api/1.2/arrays/http-specific-performance:
+  /api/1.2/arrays/http-specific-performance:
     $ref: ../paths/FB1.2/arrays-http-specific-performance.path.yaml
-  /1.2/api/1.2/arrays/performance:
+  /api/1.2/arrays/performance:
     $ref: ../paths/FB1.2/arrays-performance.path.yaml
-  /1.2/api/1.2/arrays/s3-specific-performance:
+  /api/1.2/arrays/s3-specific-performance:
     $ref: ../paths/FB1.2/arrays-s3-specific-performance.path.yaml
-  /1.2/api/1.2/arrays/space:
+  /api/1.2/arrays/space:
     $ref: ../paths/FB1.2/arrays-space.path.yaml
-  /1.2/api/1.2/blades:
+  /api/1.2/blades:
     $ref: ../paths/FB1.2/blades.path.yaml
-  /1.2/api/1.2/certificates:
+  /api/1.2/certificates:
     $ref: ../paths/FB1.2/certificates.path.yaml
-  /1.2/api/1.2/dns:
+  /api/1.2/dns:
     $ref: ../paths/FB1.2/dns.path.yaml
-  /1.2/api/1.2/file-system-snapshots:
+  /api/1.2/file-system-snapshots:
     $ref: ../paths/FB1.1/file-system-snapshots.path.yaml
-  /1.2/api/1.2/file-systems:
+  /api/1.2/file-systems:
     $ref: ../paths/FB1.2/file-systems.path.yaml
-  /1.2/api/1.2/hardware:
+  /api/1.2/hardware:
     $ref: ../paths/FB1.2/hardware.path.yaml
-  /1.2/api/api_version:
+  /api/api_version:
     $ref: ../paths/FB1.0/api_version.path.yaml
-  /1.2/api/login:
+  /api/login:
     $ref: ../paths/FB1.0/login.path.yaml
-  /1.2/api/logout:
+  /api/logout:
     $ref: ../paths/FB1.0/logout.path.yaml
   /api_version:
     get:

@@ -27,15 +27,15 @@ info:
   title: FlashBlade REST API Client
   version: 1.1
 paths:
-  /1.1/api/1.1/file-system-snapshots:
+  /api/1.1/file-system-snapshots:
     $ref: ../paths/FB1.1/file-system-snapshots.path.yaml
-  /1.1/api/1.1/file-systems:
+  /api/1.1/file-systems:
     $ref: ../paths/FB1.1/file-systems.path.yaml
-  /1.1/api/api_version:
+  /api/api_version:
     $ref: ../paths/FB1.0/api_version.path.yaml
-  /1.1/api/login:
+  /api/login:
     $ref: ../paths/FB1.0/login.path.yaml
-  /1.1/api/logout:
+  /api/logout:
     $ref: ../paths/FB1.0/logout.path.yaml
   /api_version:
     get:
