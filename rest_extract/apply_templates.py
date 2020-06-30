@@ -26,6 +26,7 @@ def apply_template(spec_file, template, model):
         #print(paths)
         #removing in 2020 June, I think they added up stream
         #
+        spec_yaml['basePath'] = "/"
         #for path in paths:
         #    new_path = '/' + str(version) + path
         #    spec_yaml['paths'][new_path] = spec_yaml['paths'][path]
