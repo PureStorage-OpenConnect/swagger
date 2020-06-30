@@ -1,0 +1,5 @@
+description: Access token (in JWT format) required to use any API endpoint (except
+  `/oauth2`, `/login`, and `/logout`)
+in: header
+name: Authorization
+type: string

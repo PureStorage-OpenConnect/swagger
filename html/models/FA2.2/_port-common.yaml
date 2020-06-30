@@ -1,0 +1,19 @@
+properties:
+  iqn:
+    description: The iSCSI Qualified Name (or `null` if target is not iSCSI).
+    example: iqn.2010-06.com.purestorage:flasharray.393d930077be2977
+    type: string
+  nqn:
+    description: NVMe Qualified Name (or `null` if target is not NVMeoF).
+    example: nqn.2010-06.com.purestorage:flasharray.512f7bb185978505
+    type: string
+  portal:
+    description: IP and port number (or `null` if target is not iSCSI).
+    example: 10.16.200.27:3260
+    type: string
+  wwn:
+    description: Fibre Channel World Wide Name (or `null` if target is not Fibre Channel).
+    example: 52:4A:93:70:4E:E5:68:00
+    type: string
+readOnly: true
+type: object

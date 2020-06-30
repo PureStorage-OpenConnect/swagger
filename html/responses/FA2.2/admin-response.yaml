@@ -1,0 +1,6 @@
+properties:
+  items:
+    items:
+      $ref: ../../models/FA2.2/admin.yaml
+    type: array
+type: object

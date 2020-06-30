@@ -1,0 +1,7 @@
+properties:
+  add_override_checks:
+    description: Adds the specified checks to the current list of override checks.
+    items:
+      $ref: _override_check.yaml
+    type: array
+type: object

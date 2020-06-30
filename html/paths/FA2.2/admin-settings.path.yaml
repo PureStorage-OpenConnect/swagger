@@ -1,0 +1,36 @@
+get:
+  description: Displays the global administrator settings for the array.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.2/admin-settings-response.yaml
+  summary: List administrator settings
+  tags:
+  - Administrators
+patch:
+  description: Modifies the global administrator settings for the array.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - in: body
+    name: admin-settings
+    required: true
+    schema:
+      $ref: ../../models/FA2.2/admin-settings.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.2/admin-settings-response.yaml
+  summary: Modify administrator settings
+  tags:
+  - Administrators

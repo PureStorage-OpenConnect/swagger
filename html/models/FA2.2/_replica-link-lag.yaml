@@ -1,0 +1,15 @@
+properties:
+  avg:
+    description: The average time difference between the current time and `recovery_point`
+      for a period of time.
+    format: int64
+    minimum: 0
+    type: integer
+  max:
+    description: The maximum time difference between the current time and `recovery_point`
+      for a period of time.
+    format: int64
+    minimum: 0
+    type: integer
+readOnly: true
+type: object

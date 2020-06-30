@@ -1,0 +1,9 @@
+collectionFormat: csv
+description: Performs the operation on the unique resource IDs specified. Enter multiple
+  resource IDs in comma-separated format. The `ids` and `names` parameters cannot
+  be provided together.
+in: query
+items:
+  type: string
+name: ids
+type: array

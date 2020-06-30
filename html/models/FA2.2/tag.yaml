@@ -1,0 +1,25 @@
+properties:
+  copyable:
+    description: Specifies whether or not to include the tag when copying the parent
+      resource. If set to `true`, the tag is included in resource copying. If set
+      to `false`, the tag is not included. If not specified, defaults to `true`.
+    example: true
+    type: boolean
+  key:
+    description: Key of the tag. Supports up to 64 Unicode characters.
+    example: environment
+    type: string
+  namespace:
+    description: Optional namespace of the tag. Namespace identifies the category
+      of the tag. Omitting the namespace defaults to the namespace `default`. The
+      `pure&#42;` namespaces are reserved for plugins and integration partners. It
+      is recommended that customers avoid using reserved namespaces.
+    example: default
+    type: string
+  resource:
+    $ref: ../../models/FA2.0/_fixed-reference.yaml
+  value:
+    description: Value of the tag. Supports up to 256 Unicode characters.
+    example: staging
+    type: string
+type: object

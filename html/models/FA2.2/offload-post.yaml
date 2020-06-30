@@ -1,0 +1,18 @@
+properties:
+  azure:
+    allOf:
+    - $ref: ../../models/FA2.1/_offload_azure.yaml
+    description: Microsoft Azure Blob storage settings.
+  google-cloud:
+    allOf:
+    - $ref: ../../models/FA2.2/_offload-google-cloud.yaml
+    description: Google Cloud Storage settings.
+  nfs:
+    allOf:
+    - $ref: ../../models/FA2.1/_offload_nfs.yaml
+    description: NFS settings.
+  s3:
+    allOf:
+    - $ref: ../../models/FA2.1/_offload_s3.yaml
+    description: S3 settings.
+type: object

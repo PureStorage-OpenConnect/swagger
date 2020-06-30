@@ -1,0 +1,40 @@
+get:
+  description: Displays the role-based access control (RBAC) group role settings.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.2/role_names.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.2/directory-service-role-get-response.yaml
+  summary: List directory services roles
+  tags:
+  - Directory Services
+patch:
+  description: Modifies directory services roles, mapping them to their configured
+    `group` and `group_base` in the directory service.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.2/role_names_required.query.yaml
+  - in: body
+    name: directory-service-roles
+    required: true
+    schema:
+      $ref: ../../models/FA2.2/directory-service-role.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.2/directory-service-role-response.yaml
+  summary: Modify directory services roles
+  tags:
+  - Directory Services

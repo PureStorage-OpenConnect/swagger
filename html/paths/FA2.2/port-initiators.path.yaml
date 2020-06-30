@@ -1,0 +1,22 @@
+get:
+  description: Displays host iSCSI Qualified Names (IQNs), NVMe Qualified Names (NQNs),
+    and Fibre Channel World Wide Names (WWNs), including those that were discovered
+    by Purity//FA and those that have been manually assigned by system administrators,
+    along with the array ports (targets) on which they are eligible to communicate.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.2/port-initiators-get-response.yaml
+  summary: List port initiators
+  tags:
+  - Ports

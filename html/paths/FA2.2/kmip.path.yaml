@@ -1,0 +1,70 @@
+delete:
+  description: Deletes KMIP server objects.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: Delete KMIP server object
+  tags:
+  - KMIP
+get:
+  description: Displays the list of KMIP server objects.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.2/kmip-get-response.yaml
+  summary: List KMIP server objects
+  tags:
+  - KMIP
+patch:
+  description: Modifies one or more attributes of KMIP server objects.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - in: body
+    name: kmip
+    required: true
+    schema:
+      $ref: ../../models/FA2.2/kmip-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.2/kmip-response.yaml
+  summary: Modify KMIP attributes
+  tags:
+  - KMIP
+post:
+  description: Creates KMIP server objects.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - in: body
+    name: kmip
+    required: true
+    schema:
+      $ref: ../../models/FA2.2/kmip-post.yaml
+  responses:
+    200:
+      description: Returns the newly created KMIP server object.
+      schema:
+        $ref: ../../responses/FA2.2/kmip-response.yaml
+  summary: Create KMIP server object
+  tags:
+  - KMIP

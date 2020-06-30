@@ -1,0 +1,508 @@
+basePath: /api
+consumes:
+- application/json
+definitions:
+  APIClient:
+    $ref: ../models/FA2.1/api-client.yaml
+  Admin:
+    $ref: ../models/FA2.2/admin.yaml
+  AdminApiToken:
+    $ref: ../models/FA2.2/admin-api-token.yaml
+  AdminCache:
+    $ref: ../models/FA2.2/admin-cache.yaml
+  AdminSettings:
+    $ref: ../models/FA2.2/admin-settings.yaml
+  Alert:
+    $ref: ../models/FA2.2/alert.yaml
+  AlertEvent:
+    $ref: ../models/FA2.2/alert-event.yaml
+  App:
+    $ref: ../models/FA2.2/app.yaml
+  AppNode:
+    $ref: ../models/FA2.2/app-node.yaml
+  Array:
+    $ref: ../models/FA2.2/arrays.yaml
+  ArrayPerformance:
+    $ref: ../models/FA2.2/array-performance.yaml
+  ArraySpace:
+    $ref: ../models/FA2.2/space.yaml
+  Audit:
+    $ref: ../models/FA2.2/audit.yaml
+  Connection:
+    $ref: ../models/FA2.1/connection.yaml
+  Controllers:
+    $ref: ../models/FA2.2/controller.yaml
+  DNS:
+    $ref: ../models/FA2.2/dns.yaml
+  DirectoryService:
+    $ref: ../models/FA2.2/directory-service.yaml
+  DirectoryServiceRole:
+    $ref: ../models/FA2.2/directory-service-role.yaml
+  Hardware:
+    $ref: ../models/FA2.2/hardware.yaml
+  Host:
+    $ref: ../models/FA2.1/host.yaml
+  HostGroup:
+    $ref: ../models/FA2.0/host-group.yaml
+  HostGroupPerformance:
+    $ref: ../models/FA2.0/resource-performance.yaml
+  HostGroupPerformanceByArray:
+    $ref: ../models/FA2.0/resource-performance-by-array.yaml
+  HostGroupSpace:
+    $ref: ../models/FA2.0/resource-space-no-id.yaml
+  HostPerformance:
+    $ref: ../models/FA2.0/resource-performance.yaml
+  HostPerformanceByArray:
+    $ref: ../models/FA2.0/resource-performance-by-array.yaml
+  HostSpace:
+    $ref: ../models/FA2.0/resource-space-no-id.yaml
+  KMIP:
+    $ref: ../models/FA2.2/kmip.yaml
+  KMIPTestResult:
+    $ref: ../models/FA2.2/kmip-test-result.yaml
+  MaintenanceWindow:
+    $ref: ../models/FA2.2/maintenance-window.yaml
+  Member:
+    $ref: ../models/FA2.0/member.yaml
+  MemberNoIdAll:
+    $ref: ../models/FA2.0/member-no-id-all.yaml
+  MemberNoIdGroup:
+    $ref: ../models/FA2.1/member-no-id-group.yaml
+  Offload:
+    $ref: ../models/FA2.2/offload.yaml
+  Pod:
+    $ref: ../models/FA2.2/pod.yaml
+  PodPerformance:
+    $ref: ../models/FA2.0/resource-performance.yaml
+  PodPerformanceByArray:
+    $ref: ../models/FA2.0/resource-performance-by-array.yaml
+  PodPerformanceReplication:
+    $ref: ../models/FA2.2/pod-performance-replication.yaml
+  PodPerformanceReplicationByArray:
+    $ref: ../models/FA2.2/pod-performance-replication-by-array.yaml
+  PodReplicaLink:
+    $ref: ../models/FA2.2/pod-replica-link.yaml
+  PodReplicaLinkLag:
+    $ref: ../models/FA2.2/pod-replica-link-lag.yaml
+  PodReplicaLinkPerformance:
+    $ref: ../models/FA2.2/pod-replica-link-performance-replication.yaml
+  PodSpace:
+    $ref: ../models/FA2.2/resource-pod-space.yaml
+  Port:
+    $ref: ../models/FA2.2/port.yaml
+  PortInitiator:
+    $ref: ../models/FA2.2/port-initiator.yaml
+  ProtectionGroup:
+    $ref: ../models/FA2.1/protection-group.yaml
+  ProtectionGroupPerformance:
+    $ref: ../models/FA2.1/protection-group-performance.yaml
+  ProtectionGroupPerformanceByArray:
+    $ref: ../models/FA2.1/protection-group-performance-array.yaml
+  ProtectionGroupSnapshot:
+    $ref: ../models/FA2.1/protection-group-snapshot.yaml
+  ProtectionGroupSpace:
+    $ref: ../models/FA2.0/resource-space-no-id.yaml
+  ProtectionGroupTarget:
+    $ref: ../models/FA2.1/protection-group-target.yaml
+  RemoteProtectionGroup:
+    $ref: ../models/FA2.1/remote-protection-group.yaml
+  RemoteProtectionGroupSnapshot:
+    $ref: ../models/FA2.1/remote-protection-group-snapshot.yaml
+  RemoteProtectionGroupSnapshotTransfer:
+    $ref: ../models/FA2.1/remote-protection-group-snapshot-transfer.yaml
+  RemoteVolumeSnapshot:
+    $ref: ../models/FA2.1/remote-volume-snapshot.yaml
+  RemoteVolumeSnapshotTransfer:
+    $ref: ../models/FA2.1/remote-volume-snapshot-transfer.yaml
+  SMI-S:
+    $ref: ../models/FA2.2/smis.yaml
+  Software:
+    $ref: ../models/FA2.2/software.yaml
+  SoftwareInstallationSteps:
+    $ref: ../models/FA2.2/software-installation-step.yaml
+  SoftwareInstallations:
+    $ref: ../models/FA2.2/software-installation.yaml
+  Subnet:
+    $ref: ../models/FA2.2/subnet.yaml
+  Support:
+    $ref: ../models/FA2.2/support.yaml
+  Tag:
+    $ref: ../models/FA2.2/tag.yaml
+  TestResult:
+    $ref: ../models/FA2.2/test-result.yaml
+  TestResultWithResource:
+    $ref: ../models/FA2.2/test-result-with-resource.yaml
+  Username:
+    $ref: ../models/FA2.0/username.yaml
+  Volume:
+    $ref: ../models/FA2.2/volume.yaml
+  VolumeGroup:
+    $ref: ../models/FA2.1/volume-group.yaml
+  VolumeGroupPerformance:
+    $ref: ../models/FA2.1/volume-group-performance.yaml
+  VolumeGroupSpace:
+    $ref: ../models/FA2.0/resource-space.yaml
+  VolumePerformance:
+    $ref: ../models/FA2.0/volume-performance.yaml
+  VolumePerformanceByArray:
+    $ref: ../models/FA2.0/resource-performance-by-array.yaml
+  VolumeSnapshot:
+    $ref: ../models/FA2.0/volume-snapshot.yaml
+  VolumeSnapshotTransfer:
+    $ref: ../models/FA2.1/volume-snapshot-transfer.yaml
+  VolumeSpace:
+    $ref: ../models/FA2.0/resource-space.yaml
+info:
+  description: "## Pure Swagger UI for FlashArray\nA light weight tool to explore\
+    \ the API for FlashArray, community supported. \nFor  help with this tool, use\
+    \ [Pure1 Community](https://community.purestorage.com/) or the [code-purestorage\
+    \ Slack](https://community.purestorage.com/discussion/9561/join-the-new-pure-code-slack-team-for-api-and-extensibility-discussions)\n\
+    \n## Authenticate (uses API Key and returns a cookie)\nIntro to how OAuth2 works\
+    \ with the 2.0 version: [Intro](https://support.purestorage.com/FlashArray/PurityFA/Purity_FA_REST_API/Reference/REST_API_2.0_Authentication_Guide)"
+  title: FlashArray REST API
+  version: '2.2'
+paths:
+  /api/2.2/admins:
+    $ref: ../paths/FA2.2/admins.path.yaml
+  /api/2.2/admins/api-tokens:
+    $ref: ../paths/FA2.2/admins-api-tokens.path.yaml
+  /api/2.2/admins/cache:
+    $ref: ../paths/FA2.2/admins-cache.path.yaml
+  /api/2.2/admins/settings:
+    $ref: ../paths/FA2.2/admin-settings.path.yaml
+  /api/2.2/alerts:
+    $ref: ../paths/FA2.2/alerts.path.yaml
+  /api/2.2/alerts/events:
+    $ref: ../paths/FA2.2/alerts-events.yaml
+  /api/2.2/api-clients:
+    $ref: ../paths/FA2.1/api-clients.path.yaml
+  /api/2.2/apps:
+    $ref: ../paths/FA2.2/apps.path.yaml
+  /api/2.2/apps/nodes:
+    $ref: ../paths/FA2.2/apps-nodes.path.yaml
+  /api/2.2/arrays:
+    $ref: ../paths/FA2.2/arrays.path.yaml
+  /api/2.2/arrays/eula:
+    $ref: ../paths/FA2.2/arrays-eula.path.yaml
+  /api/2.2/arrays/ntp-test:
+    $ref: ../paths/FA2.2/arrays-ntp-test.path.yaml
+  /api/2.2/arrays/performance:
+    $ref: ../paths/FA2.2/arrays-performance.path.yaml
+  /api/2.2/arrays/space:
+    $ref: ../paths/FA2.2/arrays-space.path.yaml
+  /api/2.2/audits:
+    $ref: ../paths/FA2.2/audits.path.yaml
+  /api/2.2/connections:
+    $ref: ../paths/FA2.2/connections.path.yaml
+  /api/2.2/controllers:
+    $ref: ../paths/FA2.2/controllers.path.yaml
+  /api/2.2/directory-services:
+    $ref: ../paths/FA2.2/directory-services.path.yaml
+  /api/2.2/directory-services/roles:
+    $ref: ../paths/FA2.2/directory-services-roles.path.yaml
+  /api/2.2/directory-services/test:
+    $ref: ../paths/FA2.2/directory-services-test.path.yaml
+  /api/2.2/dns:
+    $ref: ../paths/FA2.2/dns.path.yaml
+  /api/2.2/hardware:
+    $ref: ../paths/FA2.2/hardware.path.yaml
+  /api/2.2/host-groups:
+    $ref: ../paths/FA2.1/host-groups.path.yaml
+  /api/2.2/host-groups/hosts:
+    $ref: ../paths/FA2.1/host-groups-hosts-members.path.yaml
+  /api/2.2/host-groups/performance:
+    $ref: ../paths/FA2.1/host-groups-performance.path.yaml
+  /api/2.2/host-groups/performance/by-array:
+    $ref: ../paths/FA2.1/host-groups-performance-by-array.path.yaml
+  /api/2.2/host-groups/protection-groups:
+    $ref: ../paths/FA2.2/host-groups-protection-groups-members.path.yaml
+  /api/2.2/host-groups/space:
+    $ref: ../paths/FA2.1/host-groups-space.path.yaml
+  /api/2.2/hosts:
+    $ref: ../paths/FA2.1/hosts.path.yaml
+  /api/2.2/hosts/host-groups:
+    $ref: ../paths/FA2.1/hosts-host-groups-members.path.yaml
+  /api/2.2/hosts/performance:
+    $ref: ../paths/FA2.1/hosts-performance.path.yaml
+  /api/2.2/hosts/performance/by-array:
+    $ref: ../paths/FA2.1/hosts-performance-by-array.path.yaml
+  /api/2.2/hosts/protection-groups:
+    $ref: ../paths/FA2.2/hosts-protection-groups-members.path.yaml
+  /api/2.2/hosts/space:
+    $ref: ../paths/FA2.1/hosts-space.path.yaml
+  /api/2.2/kmip:
+    $ref: ../paths/FA2.2/kmip.path.yaml
+  /api/2.2/kmip/test:
+    $ref: ../paths/FA2.2/kmip-test.path.yaml
+  /api/2.2/login:
+    $ref: ../paths/FA2.0/login.path.yaml
+  /api/2.2/logout:
+    $ref: ../paths/FA2.0/logout.path.yaml
+  /api/2.2/maintenance-windows:
+    $ref: ../paths/FA2.2/maintenance-windows.path.yaml
+  /api/2.2/offloads:
+    $ref: ../paths/FA2.2/offloads.path.yaml
+  /api/2.2/pod-replica-links:
+    $ref: ../paths/FA2.2/pod-replica-links.path.yaml
+  /api/2.2/pod-replica-links/lag:
+    $ref: ../paths/FA2.2/pod-replica-links-lag.path.yaml
+  /api/2.2/pod-replica-links/performance/replication:
+    $ref: ../paths/FA2.2/pod-replica-links-performance-replication.path.yaml
+  /api/2.2/pods:
+    $ref: ../paths/FA2.2/pods.path.yaml
+  /api/2.2/pods/arrays:
+    $ref: ../paths/FA2.1/pods-arrays-members.path.yaml
+  /api/2.2/pods/performance:
+    $ref: ../paths/FA2.1/pods-performance.path.yaml
+  /api/2.2/pods/performance/by-array:
+    $ref: ../paths/FA2.1/pods-performance-by-array.path.yaml
+  /api/2.2/pods/performance/replication:
+    $ref: ../paths/FA2.2/pods-performance-replication.path.yaml
+  /api/2.2/pods/performance/replication/by-array:
+    $ref: ../paths/FA2.2/pods-performance-replication-by-array.path.yaml
+  /api/2.2/pods/space:
+    $ref: ../paths/FA2.2/pods-space.path.yaml
+  /api/2.2/ports:
+    $ref: ../paths/FA2.2/ports.path.yaml
+  /api/2.2/ports/initiators:
+    $ref: ../paths/FA2.2/port-initiators.path.yaml
+  /api/2.2/protection-group-snapshots:
+    $ref: ../paths/FA2.2/protection-group-snapshots.path.yaml
+  /api/2.2/protection-group-snapshots/transfer:
+    $ref: ../paths/FA2.1/protection-group-snapshots-transfer.path.yaml
+  /api/2.2/protection-groups:
+    $ref: ../paths/FA2.1/protection-groups.path.yaml
+  /api/2.2/protection-groups/host-groups:
+    $ref: ../paths/FA2.1/protection-groups-host-groups-members.path.yaml
+  /api/2.2/protection-groups/hosts:
+    $ref: ../paths/FA2.1/protection-groups-hosts-members.path.yaml
+  /api/2.2/protection-groups/performance/replication:
+    $ref: ../paths/FA2.1/protection-groups-performance-replication.path.yaml
+  /api/2.2/protection-groups/performance/replication/by-array:
+    $ref: ../paths/FA2.1/protection-groups-performance-replication-by-array.path.yaml
+  /api/2.2/protection-groups/space:
+    $ref: ../paths/FA2.1/protection-groups-space.path.yaml
+  /api/2.2/protection-groups/targets:
+    $ref: ../paths/FA2.1/protection-groups-targets.path.yaml
+  /api/2.2/protection-groups/volumes:
+    $ref: ../paths/FA2.1/protection-groups-volumes-members.path.yaml
+  /api/2.2/remote-pods:
+    $ref: ../paths/FA2.1/remote-pods.path.yaml
+  /api/2.2/remote-protection-group-snapshots:
+    $ref: ../paths/FA2.1/remote-protection-group-snapshots.path.yaml
+  /api/2.2/remote-protection-group-snapshots/transfer:
+    $ref: ../paths/FA2.1/remote-protection-group-snapshots-transfer.path.yaml
+  /api/2.2/remote-protection-groups:
+    $ref: ../paths/FA2.1/remote-protection-groups.path.yaml
+  /api/2.2/remote-volume-snapshots:
+    $ref: ../paths/FA2.1/remote-volume-snapshots.path.yaml
+  /api/2.2/remote-volume-snapshots/transfer:
+    $ref: ../paths/FA2.1/remote-volume-snapshots-transfer.path.yaml
+  /api/2.2/smi-s:
+    $ref: ../paths/FA2.2/smis.path.yaml
+  /api/2.2/software:
+    $ref: ../paths/FA2.2/software.path.yaml
+  /api/2.2/software-installation-steps:
+    $ref: ../paths/FA2.2/software-installation-steps.path.yaml
+  /api/2.2/software-installations:
+    $ref: ../paths/FA2.2/software-installations.path.yaml
+  /api/2.2/subnets:
+    $ref: ../paths/FA2.2/subnets.path.yaml
+  /api/2.2/support:
+    $ref: ../paths/FA2.2/support.path.yaml
+  /api/2.2/support/test:
+    $ref: ../paths/FA2.2/support-test.path.yaml
+  /api/2.2/volume-groups:
+    $ref: ../paths/FA2.1/volume-groups.path.yaml
+  /api/2.2/volume-groups/performance:
+    $ref: ../paths/FA2.1/volume-groups-performance.path.yaml
+  /api/2.2/volume-groups/space:
+    $ref: ../paths/FA2.1/volume-groups-space.path.yaml
+  /api/2.2/volume-groups/volumes:
+    $ref: ../paths/FA2.1/volume-groups-volumes-members.path.yaml
+  /api/2.2/volume-snapshots:
+    $ref: ../paths/FA2.1/volume-snapshots.path.yaml
+  /api/2.2/volume-snapshots/tags:
+    $ref: ../paths/FA2.2/volume-snapshots-tags.path.yaml
+  /api/2.2/volume-snapshots/tags/batch:
+    $ref: ../paths/FA2.2/volume-snapshots-tags-batch.path.yaml
+  /api/2.2/volume-snapshots/transfer:
+    $ref: ../paths/FA2.1/volume-snapshots-transfer.path.yaml
+  /api/2.2/volumes:
+    $ref: ../paths/FA2.2/volumes.path.yaml
+  /api/2.2/volumes/performance:
+    $ref: ../paths/FA2.1/volumes-performance.path.yaml
+  /api/2.2/volumes/performance/by-array:
+    $ref: ../paths/FA2.1/volumes-performance-by-array.path.yaml
+  /api/2.2/volumes/protection-groups:
+    $ref: ../paths/FA2.1/volumes-protection-groups-members.path.yaml
+  /api/2.2/volumes/space:
+    $ref: ../paths/FA2.1/volumes-space.path.yaml
+  /api/2.2/volumes/tags:
+    $ref: ../paths/FA2.2/volumes-tags.path.yaml
+  /api/2.2/volumes/tags/batch:
+    $ref: ../paths/FA2.2/volumes-tags-batch.path.yaml
+  /api/2.2/volumes/volume-groups:
+    $ref: ../paths/FA2.1/volumes-volume-groups-members.path.yaml
+  /api/api_version:
+    $ref: ../paths/FA2.0/api_version.path.yaml
+  /oauth2/1.0/token:
+    $ref: ../paths/TEx-v2/oauth-token.path.yaml
+produces:
+- application/json
+security:
+- Private-key: []
+- Authorization-Token: []
+securityDefinitions:
+  Authorization-Token:
+    in: header
+    name: X-API-OAuth2-Token
+    type: apiKey
+  Private-Key:
+    in: header
+    name: X-API-OAuth2-Private-Key
+    type: apiKey
+swagger: '2.0'
+tags:
+- description: Pure Storage uses the OAuth 2.0 Token Exchange authorization grant
+    and JSON Web Tokens (JWTs) to authenticate to the Pure Storage REST API. Before
+    you can exchange the ID Token for an access token, create and enable the API client
+    to generate the `key_id`, `id`, and `issuer` values. These values will be used
+    as JWT claims for the `subject_token` parameter.
+  name: Authorization
+- description: Administrators endpoint description (placeholder)
+  name: Administrators
+- description: Alerts endpoint description (placeholder)
+  name: Alerts
+- description: An API client represents an identity type. API clients are created
+    on the array. To create an API client, register and then enable it on the array.
+    After the API client has been created, the user name (`sub`) and identity tokens
+    (`kid` and `aud` tokens) that are issued by the API client are used as claims
+    for the JSON Web Token that you create to authenticate into the REST API.
+  name: API Clients
+- description: Apps endpoint description (placeholder)
+  name: Apps
+- description: Arrays endpoint description (placeholder)
+  name: Arrays
+- description: Audits endpoint description (placeholder)
+  name: Audits
+- description: A connection gives hosts access to volumes on the array. The system
+    supports private (host-volume) connections and public (host group-volume) connections.
+    A private connection connects one volume to one host. Private connections are
+    typically used for boot volumes and for stand-alone (non-clustered) host applications.
+    A shared connection connects a designated set of hosts (via a host group) to a
+    designated set of volumes, providing the hosts with a consistent "view" of the
+    volumes. All associated hosts use the same LUN to address a given associated volume.
+    All hosts and volumes associated with a host group are automatically connected
+    to each other by virtue of their associations with the group. Shared connections
+    are useful for cluster applications in which several related hosts require consistent
+    (same LUN) connectivity to a set of storage volumes.
+  name: Connections
+- description: Controllers endpoint description (placeholder)
+  name: Controllers
+- description: Directory Services endpoint description (placeholder)
+  name: Directory Services
+- description: DNS endpoint description (placeholder)
+  name: DNS
+- description: Hardware endpoint description (placeholder)
+  name: Hardware
+- description: Host groups implement consistent connections between a set of hosts
+    and one or more volumes. Connections are consistent in the sense that all hosts
+    associated with a host group address a volume connected to the group by the same
+    LUN. Host groups are typically used to provide a common view of storage volumes
+    to the hosts in a clustered application.
+  name: Host Groups
+- description: Hosts organize the storage network addresses (iSCSI Qualified Names,
+    NVMe qualified names, or Fibre Channel world wide names) of client computers to
+    identify the host's intiators. Hosts also control communications between clients
+    and volumes. After a volume has been created, establish a host-volume connection
+    so that the host can read data from and write data to the volume.
+  name: Hosts
+- description: KMIP endpoint description (placeholder)
+  name: KMIP
+- description: Maintenance Windows endpoint description (placeholder)
+  name: Maintenance Windows
+- description: The offload feature enables system administrators to replicate point-in-time
+    volume snapshots from the array to an external storage system for long-term retention.
+    Each offload target represents an external storage system, such as an Azure Blob
+    container, NFS device, or S3 bucket, to where Purity//FA volume snapshots can
+    be replicated.
+  name: Offloads
+- description: Synchronous replication is managed through pods. A pod representing
+    a collection of protection groups and volumes is created on one array and stretched
+    to another array, resulting in fully synchronized writes between the two arrays.
+    A pod can contain a mix of volumes, and protection groups with member volumes.
+    Writes to the pod coming into either array are immediately synchronized and seen
+    on both arrays.
+  name: Pods
+- description: Ports endpoint description (placeholder)
+  name: Ports
+- description: A protection group defines a set of volumes, hosts, or host groups
+    (called members) that are protected together through snapshots with point-in-time
+    consistency across the member volumes. The members within the protection group
+    have common data protection requirements and the same snapshot, replication, and
+    retention schedules. Protection group members include volumes, hosts, and host
+    groups. After a protection group has been created, configure the protection group
+    schedule to generate and replicate snapshots to another array or to an external
+    storage system.
+  name: Protection Groups
+- description: Protection group snapshots capture the content of all volumes on the
+    source array for the specified protection group at a single point in time. The
+    snapshot is an immutable image of the volume data at that instance in time. The
+    volumes are either direct members of the protection group or connected to any
+    of its hosts or host groups within a protection group. Volumes are protected through
+    protection group snapshots that are retained locally, replicated to other arrays
+    or storage systems, or both. Protection group snapshots can be manually generated
+    on demand or enabled to automatically generate at scheduled intervals. After a
+    protection group snapshot has been taken, it is either stored on the local array
+    or replicated over to a remote (target) array.
+  name: Protection Group Snapshots
+- description: A remote pod represents a pod that is on a connected array but not
+    stretched to this array.
+  name: Remote Pods
+- description: A remote protection group represents a protection group that resides
+    on an offload target with the source side of the remote protection group being
+    another array that is connected to the local array. The local array can only see
+    the remote protection groups of other arrays if the two arrays are connected.
+  name: Remote Protection Groups
+- description: A remote protection group snapshot represents a protection group snapshot
+    that resides on an offload target with the source side of the remote protection
+    group snapshot being another array that is connected to the local array. The local
+    array can only see the remote protection group snapshots of other arrays if the
+    two arrays are connected.
+  name: Remote Protection Group Snapshots
+- description: A remote volume snapshot represents a volume snapshot that resides
+    on an offload target with the source side of the remote volume snapshot being
+    another array that is connected to the local array. The local array can only see
+    the remote volume snapshots of other arrays if the two arrays are connected.
+  name: Remote Volume Snapshots
+- description: SMI-S endpoint description (placeholder)
+  name: SMI-S
+- description: Software to be installed on the array.
+  name: Software
+- description: Subnets endpoint description (placeholder)
+  name: Subnets
+- description: Enables Support to fix bugs and help customers solve problems. Support
+    tools include proxy, phonehome, and remote assist.
+  name: Support
+- description: A volume represents a container that manages the storage space on the
+    array. After a volume has been created, establish a host-volume connection so
+    that the host can read data from and write data to the volume. Furthermore, protect
+    the volume data through asynchronous replication to a remote array, synchronous
+    replication between remote arrays, and replication to external storage systems.
+  name: Volumes
+- description: Volume groups organize volumes into logical groupings. If virtual volumes
+    are configured, each volume group on the FlashArray array represents its associated
+    virtual machine, and inside each of those volumes groups are the FlashArray volumes
+    that are assigned to the virtual machine. Volume groups that are associated with
+    virtual machines have names that begin with `vvol-` and end with the virtual machine
+    name.
+  name: Volume Groups
+- description: Volume snapshots are immutable, point-in-time images of the contents
+    of one or more volumes. There are two types of volume snapshots&#58; volume snapshots
+    and protection group volume snapshots. A volume snapshot is a snapshot that captures
+    the contents of a single volume. A protection group volume snapshot is a volume
+    snapshot that is created from a group of volumes that are part of the same protection
+    group. All of the volume snapshots created from a protection group snapshot are
+    point-in-time consistent with each other.
+  name: Volume Snapshots

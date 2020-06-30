@@ -1,0 +1,20 @@
+allOf:
+- $ref: ../../models/FA2.0/_resource-no-id.yaml
+- $ref: ../../models/FA2.2/subnet-post.yaml
+- properties:
+    interfaces:
+      description: List of network interfaces associated with this subnet.
+      items:
+        $ref: ../../models/FA2.0/_fixed-reference-no-id.yaml
+      readOnly: true
+      type: array
+    services:
+      description: The services provided by this subnet, as inherited from all of
+        its interfaces.
+      items:
+        description: Valid values are `iscsi`, `management`, `nvme/fc`, `nvme/roce`,
+          and `replication`.
+        type: string
+      readOnly: true
+      type: array
+  type: object

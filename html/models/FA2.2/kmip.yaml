@@ -1,0 +1,22 @@
+allOf:
+- $ref: ../../models/FA2.0/_built-in-resource-no-id.yaml
+- properties:
+    ca_certificate:
+      description: The text of the CA certificate for the KMIP server.
+      example: '-----BEGIN CERTIFICATE-----...-----END CERTIFICATE-----'
+      maxLength: 3000
+      type: string
+    certificate:
+      allOf:
+      - $ref: ../../models/FA2.0/_reference-no-id.yaml
+      description: The certificate used to verify FlashArray authenticity to the KMIP
+        servers.
+    uris:
+      description: List of URIs for the configured KMIP servers.
+      example:
+      - 1.1.1.1:8888
+      - 2.2.2.2:9999
+      items:
+        type: string
+      type: array
+  type: object

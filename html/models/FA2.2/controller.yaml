@@ -1,0 +1,24 @@
+allOf:
+- $ref: ../../models/FA2.0/_built-in-resource-no-id.yaml
+- properties:
+    mode:
+      description: Mode of controller. Values include `not present`, `offline`, `primary`,
+        and `secondary`.
+      example: primary
+      type: string
+    model:
+      example: FA-m50
+      type: string
+    status:
+      description: Status of controller. Values include `not ready`, `ready`, `unknown`,
+        and `updating`.
+      example: ready
+      type: string
+    type:
+      description: Type of controller. Values include `array_controller` and `shelf_controller`.
+      type: string
+    version:
+      example: 5.0.0
+      type: string
+  readOnly: true
+  type: object

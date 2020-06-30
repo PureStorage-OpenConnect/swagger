@@ -1,0 +1,10 @@
+allOf:
+- $ref: ../../models/FA2.0/_resource.yaml
+- description: Remote pod that's not directly stretched to this array.
+  properties:
+    arrays:
+      items:
+        $ref: ../../models/FA2.0/_resource.yaml
+      minItems: 1
+      type: array
+  type: object

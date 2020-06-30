@@ -1,0 +1,6 @@
+description: The `undo-demote` pod that should be used to promote the pod. After the
+  pod has been promoted, it will have the same data as the `undo-demote` pod and the
+  `undo-demote` pod will be eradicated.
+in: query
+name: promote_from
+type: string

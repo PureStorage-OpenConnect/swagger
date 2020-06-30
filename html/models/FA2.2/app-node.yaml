@@ -1,0 +1,27 @@
+description: An individual node of a Purity app. Nodes are indexed starting at `0`.
+properties:
+  app:
+    allOf:
+    - $ref: ../../models/FA2.0/_fixed-reference.yaml
+    description: A reference to the app of which this node is a part.
+  index:
+    description: An index that represents this node.
+    example: 0
+    type: integer
+  status:
+    description: The node status. Possible values are `starting`, `healthy`, `unhealthy`,
+      `critical`, `stopping`, and `disabled`.
+    example: healthy
+    type: string
+  version:
+    description: The node version.
+    example: 1.0.0
+    type: string
+  vnc:
+    description: The VNC information used to access this node if VNC is enabled.
+    items:
+      example: 10.1.1.10:5900
+      type: string
+    type: array
+readOnly: true
+type: object

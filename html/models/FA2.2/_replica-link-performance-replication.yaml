@@ -1,0 +1,38 @@
+properties:
+  bytes_per_sec_from_remote:
+    description: The number of bytes received per second from a remote array.
+    format: int64
+    minimum: 0
+    type: integer
+  bytes_per_sec_to_remote:
+    description: The number of bytes transmitted per second to a remote array.
+    format: int64
+    minimum: 0
+    type: integer
+  bytes_per_sec_total:
+    description: Total bytes transmitted and received per second.
+    format: int64
+    minimum: 0
+    type: integer
+  direction:
+    description: The direction of replication. Valid values are `inbound` and `outbound`.
+    type: string
+  local_pod:
+    allOf:
+    - $ref: ../../models/FA2.0/_fixed-reference.yaml
+    description: Reference to a local pod.
+  remote_pod:
+    allOf:
+    - $ref: ../../models/FA2.0/_fixed-reference.yaml
+    description: Reference to a remote pod.
+  remotes:
+    description: Reference to a remote array.
+    items:
+      $ref: ../../models/FA2.0/_fixed-reference.yaml
+    type: array
+  time:
+    description: Sample time in milliseconds since the UNIX epoch.
+    format: int64
+    type: integer
+readOnly: true
+type: object

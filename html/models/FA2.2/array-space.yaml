@@ -1,0 +1,28 @@
+allOf:
+- $ref: ../../models/FA2.0/_built-in.yaml
+- properties:
+    capacity:
+      description: Usable capacity in bytes.
+      example: 10995116277760
+      format: int64
+      type: integer
+    parity:
+      description: A representation of data redundancy on the array. Data redundancy
+        is rebuilt automatically by the system whenever parity is less than 1.0.
+      example: 0.99
+      format: float
+      type: number
+    space:
+      allOf:
+      - $ref: ../../models/FA2.0/_space.yaml
+      - properties:
+          replication:
+            description: This is the sum of replication space consumed by all pods
+              on this array.
+            format: int64
+            minimum: 0
+            type: integer
+    time:
+      format: int64
+      type: integer
+  readOnly: true

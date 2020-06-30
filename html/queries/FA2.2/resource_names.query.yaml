@@ -1,0 +1,8 @@
+collectionFormat: csv
+description: A comma-separated list of resource names. The `resource_ids` and `resource_names`
+  parameters cannot be provided together.
+in: query
+items:
+  type: string
+name: resource_names
+type: array

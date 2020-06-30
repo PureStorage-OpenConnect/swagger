@@ -1,0 +1,10 @@
+allOf:
+- $ref: ../../models/FA2.1/_snapshot_schedule.yaml
+- description: The schedule of a replication action.
+  properties:
+    blackout:
+      allOf:
+      - $ref: ../../models/FA2.1/_time_window.yaml
+      description: The range of time when to suspend replication. To clear the blackout
+        period, set to an empty string ("").
+  type: object

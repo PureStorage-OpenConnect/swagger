@@ -1,0 +1,7 @@
+collectionFormat: csv
+description: A comma-separated list of software installation IDs.
+in: query
+items:
+  type: string
+name: software_installation_ids
+type: array

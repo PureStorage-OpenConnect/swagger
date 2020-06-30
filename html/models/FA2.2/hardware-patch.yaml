@@ -1,0 +1,14 @@
+allOf:
+- $ref: ../../models/FA2.0/_built-in-resource-no-id.yaml
+- properties:
+    identify_enabled:
+      description: State of an LED used to visually identify the component.
+      example: true
+      type: boolean
+    index:
+      description: Number that identifies the relative position of a hardware component
+        within the array.
+      example: 1
+      format: int32
+      type: integer
+  type: object

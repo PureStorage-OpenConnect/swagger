@@ -1,0 +1,9 @@
+collectionFormat: csv
+description: A comma-separated list of remote pod names. If, after filtering, there
+  is not at least one resource that matches each of the elements, then an error is
+  returned. This cannot be provided together with the `remote_pod_ids` query parameter.
+in: query
+items:
+  type: string
+name: remote_pod_names
+type: array

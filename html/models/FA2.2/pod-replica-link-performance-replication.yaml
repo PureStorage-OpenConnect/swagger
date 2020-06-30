@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../models/FA2.2/_built-in-relationship.yaml
+- $ref: ../../models/FA2.2/_replica-link-performance-replication.yaml

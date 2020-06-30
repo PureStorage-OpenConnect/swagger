@@ -1,0 +1,71 @@
+delete:
+  description: Deletes subnets. A subnet can only be deleted if it has no interfaces.
+    Interfaces must be removed by using the `network-interfaces` endpoint.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: Delete subnet
+  tags:
+  - Subnets
+get:
+  description: Displays a list of subnets with statuses and attributes.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.2/subnet-get-response.yaml
+  summary: List subnets
+  tags:
+  - Subnets
+patch:
+  description: Modifies one or more specified subnet properties.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - in: body
+    name: subnet
+    required: true
+    schema:
+      $ref: ../../models/FA2.2/subnet-patch.yaml
+  responses:
+    200:
+      description: Displays the updated subnet.
+      schema:
+        $ref: ../../responses/FA2.2/subnet-response.yaml
+  summary: Modify subnet
+  tags:
+  - Subnets
+post:
+  description: Creates a subnet with the specified parameters.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names_required.query.yaml
+  - in: body
+    name: subnet
+    required: true
+    schema:
+      $ref: ../../models/FA2.2/subnet-post.yaml
+  responses:
+    200:
+      description: Displays the newly created subnet.
+      schema:
+        $ref: ../../responses/FA2.2/subnet-response.yaml
+  summary: Create subnet
+  tags:
+  - Subnets

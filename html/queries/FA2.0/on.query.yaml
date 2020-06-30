@@ -1,0 +1,8 @@
+collectionFormat: csv
+description: Performs the operation on the target name specified. Enter multiple target
+  names in comma-separated format. For example, `targetName01,targetName02`.
+in: query
+items:
+  type: string
+name: 'on'
+type: array

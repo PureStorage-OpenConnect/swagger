@@ -1,0 +1,76 @@
+delete:
+  description: Deletes an API client. The `ids` or `names` parameter is required,
+    but cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: Delete an API client
+  tags:
+  - API Clients
+get:
+  description: Returns a list of API clients.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.1/api-client-get-response.yaml
+  summary: List API clients
+  tags:
+  - API Clients
+patch:
+  description: Enables or disables an API client. The `ids` or `names` parameter is
+    required, but cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - in: body
+    name: API clients
+    required: true
+    schema:
+      $ref: ../../models/FA2.1/api-client-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.1/api-client-response.yaml
+  summary: Manage an API client
+  tags:
+  - API Clients
+post:
+  description: Creates an API client. Newly created API clients are disabled by default.
+    Enable an API client through the `PATCH` method. The `names`, `max_role`, `issuer`,
+    and `public_key` parameters are required.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - in: body
+    name: API clients
+    required: true
+    schema:
+      $ref: ../../models/FA2.1/api-client-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.1/api-client-response.yaml
+  summary: Create an API client
+  tags:
+  - API Clients

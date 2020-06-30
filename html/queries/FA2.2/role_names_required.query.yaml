@@ -1,0 +1,9 @@
+collectionFormat: csv
+description: Performs the operation on the unique roles specified. For example, `array_admin`.
+  Enter multiple roles in comma-separated format.
+in: query
+items:
+  type: string
+name: role_names
+required: true
+type: array

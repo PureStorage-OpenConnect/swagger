@@ -1,0 +1,24 @@
+get:
+  description: Displays real-time and historical front-end performance data at the
+    array level including latency, bandwidth, IOPS, average I/O size, and queue depth.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/history_end_time.query.yaml
+  - $ref: ../../queries/FA2.0/history_resolution.query.yaml
+  - $ref: ../../queries/FA2.0/history_start_time.query.yaml
+  - $ref: ../../queries/FA2.2/perf_protocol_type.query.yaml
+  - $ref: ../../queries/FA2.2/perf_protocol_group.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.2/array-performance-get-response.yaml
+  summary: List array front-end performance data
+  tags:
+  - Arrays

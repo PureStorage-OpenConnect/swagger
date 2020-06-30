@@ -1,0 +1,8 @@
+allOf:
+- $ref: ../../responses/FA2.1/page-info.yaml
+- properties:
+    items:
+      items:
+        $ref: ../../models/FA2.2/port.yaml
+      type: array
+  type: object

@@ -1,0 +1,41 @@
+properties:
+  component_address:
+    description: Address of the component running the test.
+    example: 10.230.94.21
+    type: string
+  component_name:
+    description: Name of the component running the test.
+    example: CT0
+    type: string
+  description:
+    description: What the test is doing.
+    example: Testing phonehome connectivity
+    type: string
+  destination:
+    description: The URI of the target server being tested.
+    example: ra.cloud-support.purestorage.com
+    type: string
+  enabled:
+    description: Whether the object being tested is enabled or not. Returns a value
+      of `true` if the the service is enabled. Returns a value of `false` if the service
+      is disabled.
+    example: true
+    type: boolean
+  result_details:
+    description: Additional information about the test result.
+    example: Timeout connecting to phonehome endpoint
+    type: string
+  success:
+    description: Whether the object being tested passed the test or not. Returns a
+      value of `true` if the specified test has succeeded. Returns a value of `false`
+      if the specified test has failed.
+    type: boolean
+  test_type:
+    description: Displays the type of test being performed. The returned values are
+      determined by the `resource` being tested and its configuration. Values include
+      `array-admin-group-searching`, `binding`, `connecting`, `phonehome`, `phonehome-ping`,
+      `remote-assist`, `rootdse-searching`, `read-only-group-searching`, `storage-admin-group-searching`,
+      and `validate-ntp-configuration`.
+    example: phonehome
+    type: string
+type: object

@@ -1,0 +1,6 @@
+description: If set to `true`, lists only flagged messages. If set to `false`, lists
+  only unflagged messages. if not specified, lists all messages.
+in: query
+name: flagged
+readOnly: true
+type: boolean

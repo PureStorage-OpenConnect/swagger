@@ -1,0 +1,37 @@
+allOf:
+- $ref: ../../models/FA2.1/pod.yaml
+- properties:
+    link_source_count:
+      description: Number of source pods that link to the pod.
+      example: 1
+      type: integer
+    link_target_count:
+      description: Number of target pods that link to the pod.
+      example: 1
+      type: integer
+    promotion_status:
+      description: Current promotion status of a pod. Valid values are `promoted`,
+        `demoted`, and `promoting`. The `promoted` status indicates that the pod has
+        been promoted. The pod takes writes from hosts instead of incorporating replicated
+        data. This is the default mode for a pod when it is created. The `demoted`
+        status indicates that the pod has been demoted. The pod does not accept write
+        requests and is ready to be used as a link target. The `promoting` status
+        indicates that the pod is in an intermediate status between `demoted` and
+        `promoted` while the promotion process is taking place.
+      type: string
+    requested_promotion_state:
+      description: Valid values are `promoted` and `demoted`. Patch `requested_promotion_state`
+        to `demoted` to demote the pod so that it can be used as a link target for
+        continuous replication between pods. Demoted pods do not accept write requests,
+        and a destroyed version of the pod with `undo-demote` appended to the pod
+        name is created on the array with the state of the pod when it was in the
+        promoted state. Patch `requested_promotion_state` to `promoted` to start the
+        process of promoting the pod. The `promotion_status` indicates when the pod
+        has been successfully promoted. Promoted pods stop incorporating replicated
+        data from the source pod and start accepting write requests. The replication
+        process does not stop as the source pod continues replicating data to the
+        pod. The space consumed by the unique replicated data is tracked by the `space.journal`
+        field of the pod.
+      type: string
+    space:
+      $ref: ../../models/FA2.2/_pod-space.yaml

@@ -1,0 +1,14 @@
+description: API token
+properties:
+  created_at:
+    description: Creation time in milliseconds since the UNIX epoch.
+    format: int64
+    type: integer
+  expires_at:
+    description: Expiration time in milliseconds since the UNIX epoch.
+    format: int64
+    type: integer
+  token:
+    type: string
+readOnly: true
+type: object

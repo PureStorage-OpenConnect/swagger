@@ -1,0 +1,51 @@
+allOf:
+- $ref: ../../models/FA2.0/_resource.yaml
+- properties:
+    banner:
+      example: Restricted area. Authorized personnel only.
+      type: string
+    capacity:
+      description: Usable capacity in bytes.
+      example: 10995116277760
+      format: int64
+      readOnly: true
+      type: integer
+    console_lock_enabled:
+      example: false
+      type: boolean
+    idle_timeout:
+      description: Idle timeout in milliseconds. Valid values are `0` and any multiple
+        of 60000 in the range of 300000 and 10800000. Any other values will be rounded
+        down to the nearest multiple of 60000.
+      example: 300000
+      format: int32
+      type: integer
+    ntp_servers:
+      items:
+        example: time.acme.com
+        type: string
+      type: array
+    os:
+      description: Valid values are `Purity`, `Purity//FA`, and `Purity//FB`.
+      example: Purity//FA
+      readOnly: true
+      type: string
+    parity:
+      description: A representation of data redundancy on the array. Data redundancy
+        is rebuilt automatically by the system whenever parity is less than 1.0.
+      example: 0.99
+      format: float
+      readOnly: true
+      type: number
+    scsi_timeout:
+      description: The SCSI timeout. This value defaults to 60s if it is not specified.
+      example: 60000
+      format: int32
+      type: integer
+    space:
+      $ref: ../../models/FA2.2/space.yaml
+    version:
+      example: 5.0.0
+      readOnly: true
+      type: string
+  type: object

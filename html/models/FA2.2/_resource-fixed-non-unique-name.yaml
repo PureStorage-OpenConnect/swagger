@@ -1,0 +1,11 @@
+description: A resource with a non-unique name.
+properties:
+  id:
+    description: A globally unique, system-generated ID. The ID cannot be modified.
+    readOnly: true
+    type: string
+  name:
+    description: Name of the resource. The name cannot be modified.
+    readOnly: true
+    type: string
+type: object

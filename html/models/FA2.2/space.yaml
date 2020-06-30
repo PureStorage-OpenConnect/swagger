@@ -1,0 +1,9 @@
+allOf:
+- $ref: ../../models/FA2.0/_space.yaml
+- properties:
+    replication:
+      description: This is the sum of replication space consumed by all pods on this
+        array.
+      format: int64
+      minimum: 0
+      type: integer

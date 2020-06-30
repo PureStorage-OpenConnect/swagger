@@ -1,0 +1,4 @@
+allOf:
+- description: Privilege level. Valid values include `array_admin`, `storage_admin`,
+    and `readonly`.
+- $ref: ../../models/FA2.0/_reference-no-id.yaml

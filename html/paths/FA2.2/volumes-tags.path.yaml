@@ -1,0 +1,36 @@
+delete:
+  description: Deletes specified tags.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.2/keys.query.yaml
+  - $ref: ../../queries/FA2.2/namespaces.query.yaml
+  - $ref: ../../queries/FA2.2/resource_ids.query.yaml
+  - $ref: ../../queries/FA2.2/resource_names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: Delete tags
+  tags:
+  - Volumes
+get:
+  description: Displays the list of tags.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.2/resource_destroyed.query.yaml
+  - $ref: ../../queries/FA2.2/resource_ids.query.yaml
+  - $ref: ../../queries/FA2.2/resource_names.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.2/tag-get-response.yaml
+  summary: List tags
+  tags:
+  - Volumes

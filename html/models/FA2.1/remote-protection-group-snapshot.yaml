@@ -1,0 +1,45 @@
+allOf:
+- $ref: ../../models/FA2.0/_built-in-resource-no-id.yaml
+- description: A remote protection group snapshot is a collection of point-in-time
+    consistent volume snapshots, for volumes associated with the remote protection
+    group when the snapshot was taken.
+  properties:
+    created:
+      description: Creation time of the snapshot on the original source of the snapshot.
+        Measured in milliseconds since the UNIX epoch.
+      example: 1503520993
+      format: int64
+      readOnly: true
+      type: integer
+    destroyed:
+      description: Destroyed and pending eradication? If not specified, defaults to
+        false.
+      type: boolean
+    is_local:
+      description: Whether or not this remote protection group snapshot is replicated
+        from the current array.
+      readOnly: true
+      type: boolean
+    remote:
+      allOf:
+      - $ref: ../../models/FA2.0/_fixed-reference.yaml
+      description: The offload target where the remote protection group snapshot is
+        located.
+    source:
+      allOf:
+      - $ref: ../../models/FA2.0/_fixed-reference-no-id.yaml
+      description: The original protection group from which this snapshot was taken.
+    suffix:
+      description: The suffix that is appended to the `source_name` value to generate
+        the full remote protection group snapshot name in the form `PGROUP.SUFFIX`.
+        If the suffix is not specified, the system constructs the snapshot name in
+        the form `PGROUP.NNN`, where `PGROUP` is the protection group name, and `NNN`
+        is a monotonically increasing number.
+      type: string
+    time_remaining:
+      description: Milliseconds remaining until eradication, if the snapshot has been
+        destroyed.
+      format: int64
+      readOnly: true
+      type: integer
+  type: object

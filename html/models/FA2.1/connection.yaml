@@ -1,0 +1,7 @@
+allOf:
+- $ref: ../../models/FA2.0/connection.yaml
+- properties:
+    host:
+      $ref: ../../models/FA2.0/_reference-no-id.yaml
+    host_group:
+      $ref: ../../models/FA2.0/_reference-no-id.yaml

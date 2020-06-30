@@ -1,0 +1,4 @@
+description: If `true`, exposes the API token of the current user.
+in: query
+name: expose_api_token
+type: boolean

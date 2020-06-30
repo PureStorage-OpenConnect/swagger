@@ -1,0 +1,87 @@
+delete:
+  description: Eradicates a volume that has been destroyed and is pending eradication.
+    Eradicated volumes cannot be recovered. Volumes are destroyed through the `PATCH`
+    method. The `ids` or `names` parameter is required, but cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: Eradicate a volume
+  tags:
+  - Volumes
+get:
+  description: Returns a list of volumes, including those pending eradication.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/destroyed.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  - $ref: ../../queries/FA2.0/total_only.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.1/volume-get-response.yaml
+  summary: List volumes
+  tags:
+  - Volumes
+patch:
+  description: Renames, destroys, or resizes a volume. To rename a volume, set `name`
+    to the new name. To destroy a volume, set `destroyed=true`. To recover a volume
+    that has been destroyed and is pending eradication, set `destroyed=false`. Sets
+    the bandwidth and IOPs limits of a volume through the respective `bandwidth_limit`
+    and `iops_limit` parameter. Moves the volume into a pod or volume group through
+    the respective `pod` or `volume_group` parameter. The `ids` or `names` parameter
+    is required, but cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/truncate.query.yaml
+  - in: body
+    name: volume
+    required: true
+    schema:
+      $ref: ../../models/FA2.0/volume-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.1/volume-response.yaml
+  summary: Manage a volume
+  tags:
+  - Volumes
+post:
+  description: Creates one or more virtual storage volumes of the specified size.
+    If `provisioned` is not specified, the size of the new volume defaults to 1 MB
+    in size. The `names` query parameter is required.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/overwrite.query.yaml
+  - in: body
+    name: volume
+    required: true
+    schema:
+      $ref: ../../models/FA2.0/volume-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.1/volume-response.yaml
+  summary: Create a volume
+  tags:
+  - Volumes

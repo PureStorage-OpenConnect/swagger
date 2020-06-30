@@ -1,0 +1,20 @@
+properties:
+  address:
+    description: The hostname or IP address of the NFS server to where the data will
+      be offloaded. An array can be connected to one offload target at a time, while
+      multiple arrays can be connected to the same offload target. If the protection
+      group is in a stretched pod, for high availability, connect both arrays in the
+      stretched pod to the offload target.
+    type: string
+  mount_options:
+    description: The custom mount options on the NFS server. Enter multiple mount
+      options in comma-separated format. Valid values include `port`, `rsize`, `wsize`,
+      `nfsvers`, and `tcp` or `udp`. These mount options are common to all NFS file
+      systems.
+    type: string
+  mount_point:
+    description: The mount point of the NFS export on the NFS server. For example,
+      `/mnt`. The `access_key_id`, `secret_access_key`, and `bucket` parameters must
+      be set together.
+    type: string
+type: object

@@ -1,0 +1,26 @@
+description: The snapshot retention policy.
+properties:
+  all_for_sec:
+    description: The length of time to keep the specified snapshots. Measured in seconds.
+    example: 86400
+    format: int32
+    max: 34560000
+    min: 60
+    type: integer
+  days:
+    description: The number of days to keep the snapshots after the `all_for_sec`
+      period has passed.
+    example: 7
+    format: int32
+    max: 4000
+    min: 0
+    type: integer
+  per_day:
+    description: The number of snapshots to keep per day after the `all_for_sec` period
+      has passed.
+    example: 3
+    format: int32
+    max: 1440
+    min: 0
+    type: integer
+type: object

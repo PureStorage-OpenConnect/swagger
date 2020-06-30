@@ -1,0 +1,6 @@
+properties:
+  items:
+    items:
+      $ref: ../../models/FA2.2/alert-event.yaml
+    type: array
+type: object

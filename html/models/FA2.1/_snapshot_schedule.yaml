@@ -1,0 +1,24 @@
+description: The replication or snapshot schedule.
+properties:
+  at:
+    description: The time of day the snapshot is scheduled to be taken and retained
+      on the local array or immediately replicated to the target(s). Measured in milliseconds
+      since midnight. The `at` value is only used if the `frequency` parameter is
+      in days (e.g., `259200000`, which is equal to 3 days).
+    example: 7200000
+    format: int64
+    max: 86399000
+    min: 0
+    type: integer
+  enabled:
+    description: If set to `true`, the policy is enabled.
+    example: false
+    type: boolean
+  frequency:
+    description: The frequency of the scheduled action. Measured in milliseconds.
+    example: 259200000
+    format: int64
+    max: 34560000000
+    min: 300000
+    type: integer
+type: object

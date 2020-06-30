@@ -1,0 +1,8 @@
+allOf:
+- $ref: ../../models/FA2.2/test-result.yaml
+- properties:
+    resource:
+      allOf:
+      - $ref: ../../models/FA2.0/_fixed-reference-no-id.yaml
+      description: A reference to the object being tested.
+  type: object

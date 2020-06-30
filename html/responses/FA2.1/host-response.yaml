@@ -1,0 +1,8 @@
+properties:
+  items:
+    description: Returns a list of all items after filtering. The values are displayed
+      for each name where meaningful.
+    items:
+      $ref: ../../models/FA2.1/host.yaml
+    type: array
+type: object

@@ -1,0 +1,41 @@
+allOf:
+- $ref: ../../models/FA2.0/_built-in.yaml
+- description: A remote protection group represents a protection group that is replicated
+    to an offload target.
+  properties:
+    destroyed:
+      description: Returns a value of `true` if the remote protection group has been
+        destroyed and is pending eradication. The `time_remaining` value displays
+        the amount of time left until the destroyed remote protection group is permanently
+        eradicated. Before the `time_remaining` period has elapsed, the destroyed
+        remote protection group can be recovered by setting `destroyed=false`. Once
+        the `time_remaining` period has elapsed, the remote protection group is permanently
+        eradicated and can no longer be recovered.
+      type: boolean
+    is_local:
+      description: If set to `true`, the location reference is to the local array.
+        If set to `false`, the location reference is to a remote location, such as
+        a remote array or offload target.
+      readOnly: true
+      type: boolean
+    remote:
+      allOf:
+      - $ref: ../../models/FA2.0/_fixed-reference.yaml
+      description: The offload target that the remote protection group is on.
+      readOnly: true
+    source:
+      allOf:
+      - $ref: ../../models/FA2.0/_fixed-reference.yaml
+      description: The array where the remote protection group is replicated from.
+      readOnly: true
+    target_retention:
+      allOf:
+      - $ref: ../../models/FA2.1/_retention-policy.yaml
+      description: The retention policy for the remote protection group.
+    time_remaining:
+      description: Milliseconds remaining until eradication, if remote protection
+        group has been destroyed.
+      format: int64
+      readOnly: true
+      type: integer
+  type: object
