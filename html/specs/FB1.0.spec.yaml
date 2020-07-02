@@ -1,4 +1,4 @@
-basePath: /
+basePath: /api
 consumes:
 - application/json
 definitions:
@@ -27,12 +27,10 @@ info:
   title: FlashBlade REST API Client
   version: 1.0
 paths:
-  /api/1.0/file-system-snapshots:
+  /1.0/file-system-snapshots:
     $ref: ../paths/FB1.0/file-system-snapshots.path.yaml
-  /api/1.0/file-systems:
+  /1.0/file-systems:
     $ref: ../paths/FB1.0/file-systems.path.yaml
-  /api/api_version:
-    $ref: ../paths/FB1.0/api_version.path.yaml
   /api/login:
     post:
       description: Create a new session with API_KEY
@@ -57,8 +55,12 @@ paths:
                 type: string
             type: object
       tags:
-      - auth
-  /api/logout:
+      - authorization
+  /api_version:
+    $ref: ../paths/FB1.0/api_version.path.yaml
+  /login:
+    $ref: ../paths/FB1.0/login.path.yaml
+  /logout:
     $ref: ../paths/FB1.0/logout.path.yaml
 produces:
 - application/json
@@ -78,7 +80,6 @@ securityDefinitions:
     type: apiKey
 swagger: '2.0'
 tags:
-- name: api
-- name: auth
+- name: authorization
 - name: Authorization
 - name: File Systems

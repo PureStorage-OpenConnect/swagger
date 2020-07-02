@@ -1,4 +1,4 @@
-basePath: /
+basePath: /api
 consumes:
 - application/json
 definitions:
@@ -75,60 +75,58 @@ info:
   title: FlashBlade REST API Client
   version: 1.3
 paths:
-  /api/1.3/admins:
+  /1.3/admins:
     $ref: ../paths/FB1.2/admins.path.yaml
-  /api/1.3/alert-watchers:
+  /1.3/alert-watchers:
     $ref: ../paths/FB1.2/alert-watchers.path.yaml
-  /api/1.3/alert-watchers/test:
+  /1.3/alert-watchers/test:
     $ref: ../paths/FB1.2/alert-watchers-test.path.yaml
-  /api/1.3/alerts:
+  /1.3/alerts:
     $ref: ../paths/FB1.2/alerts.path.yaml
-  /api/1.3/arrays:
+  /1.3/arrays:
     $ref: ../paths/FB1.3/arrays.path.yaml
-  /api/1.3/arrays/http-specific-performance:
+  /1.3/arrays/http-specific-performance:
     $ref: ../paths/FB1.2/arrays-http-specific-performance.path.yaml
-  /api/1.3/arrays/performance:
+  /1.3/arrays/performance:
     $ref: ../paths/FB1.3/arrays-performance.path.yaml
-  /api/1.3/arrays/s3-specific-performance:
+  /1.3/arrays/s3-specific-performance:
     $ref: ../paths/FB1.2/arrays-s3-specific-performance.path.yaml
-  /api/1.3/arrays/space:
+  /1.3/arrays/space:
     $ref: ../paths/FB1.2/arrays-space.path.yaml
-  /api/1.3/blades:
+  /1.3/blades:
     $ref: ../paths/FB1.2/blades.path.yaml
-  /api/1.3/buckets:
+  /1.3/buckets:
     $ref: ../paths/FB1.3/buckets.path.yaml
-  /api/1.3/certificates:
+  /1.3/certificates:
     $ref: ../paths/FB1.2/certificates.path.yaml
-  /api/1.3/directory-services:
+  /1.3/directory-services:
     $ref: ../paths/FB1.3/directory-services.path.yaml
-  /api/1.3/directory-services/test:
+  /1.3/directory-services/test:
     $ref: ../paths/FB1.3/directory-service-test.path.yaml
-  /api/1.3/dns:
+  /1.3/dns:
     $ref: ../paths/FB1.2/dns.path.yaml
-  /api/1.3/file-system-snapshots:
+  /1.3/file-system-snapshots:
     $ref: ../paths/FB1.1/file-system-snapshots.path.yaml
-  /api/1.3/file-systems:
+  /1.3/file-systems:
     $ref: ../paths/FB1.2/file-systems.path.yaml
-  /api/1.3/hardware:
+  /1.3/hardware:
     $ref: ../paths/FB1.3/hardware.path.yaml
-  /api/1.3/hardware-connectors:
+  /1.3/hardware-connectors:
     $ref: ../paths/FB1.3/hardware-connectors.path.yaml
-  /api/1.3/link-aggregation-groups:
+  /1.3/link-aggregation-groups:
     $ref: ../paths/FB1.3/link-aggregation-groups.path.yaml
-  /api/1.3/network-interfaces:
+  /1.3/network-interfaces:
     $ref: ../paths/FB1.3/network-interfaces.path.yaml
-  /api/1.3/object-store-access-keys:
+  /1.3/object-store-access-keys:
     $ref: ../paths/FB1.3/object-store-access-keys.path.yaml
-  /api/1.3/object-store-accounts:
+  /1.3/object-store-accounts:
     $ref: ../paths/FB1.3/object-store-accounts.path.yaml
-  /api/1.3/object-store-users:
+  /1.3/object-store-users:
     $ref: ../paths/FB1.3/object-store-users.path.yaml
-  /api/1.3/smtp:
+  /1.3/smtp:
     $ref: ../paths/FB1.3/smtp.path.yaml
-  /api/1.3/subnets:
+  /1.3/subnets:
     $ref: ../paths/FB1.3/subnets.path.yaml
-  /api/api_version:
-    $ref: ../paths/FB1.0/api_version.path.yaml
   /api/login:
     post:
       description: Create a new session with API_KEY
@@ -153,8 +151,12 @@ paths:
                 type: string
             type: object
       tags:
-      - auth
-  /api/logout:
+      - authorization
+  /api_version:
+    $ref: ../paths/FB1.0/api_version.path.yaml
+  /login:
+    $ref: ../paths/FB1.0/login.path.yaml
+  /logout:
     $ref: ../paths/FB1.0/logout.path.yaml
 produces:
 - application/json
@@ -174,8 +176,7 @@ securityDefinitions:
     type: apiKey
 swagger: '2.0'
 tags:
-- name: api
-- name: auth
+- name: authorization
 - name: Authorization
 - name: Administrators
 - name: Alerts
