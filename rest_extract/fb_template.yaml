@@ -22,13 +22,6 @@ info:
     Go to the Pure support portal for the [full documentation](https://support.purestorage.com/FlashBlade/Purity_FB/Purity%2F%2F%2F%2FFB_REST_API/Management_REST_API/Management_REST_API_Reference_Guides).
 
 paths:
-  /api_version:
-    get:
-      description: Lists supported API versions on this array.
-      responses:
-        200:
-          description: "List supported API versions"
-      tags: [api]
   /login:
     post:
       description: Create a new session with API_KEY
@@ -47,14 +40,13 @@ paths:
                 description: The user name logged in.
 
             example: {"username":"pureuser"}
-      tags: [auth]
+      tags: [authorization]
       parameters:
         - in: header
           name: api-token
           type: string
           required: true
 tags:
-- {name: api}
-- {name: auth}
+- {name: authorization}
 
     

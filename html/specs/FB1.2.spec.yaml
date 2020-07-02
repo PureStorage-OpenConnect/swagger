@@ -82,18 +82,6 @@ paths:
   /api/api_version:
     $ref: ../paths/FB1.0/api_version.path.yaml
   /api/login:
-    $ref: ../paths/FB1.0/login.path.yaml
-  /api/logout:
-    $ref: ../paths/FB1.0/logout.path.yaml
-  /api_version:
-    get:
-      description: Lists supported API versions on this array.
-      responses:
-        200:
-          description: List supported API versions
-      tags:
-      - api
-  /login:
     post:
       description: Create a new session with API_KEY
       parameters:
@@ -118,6 +106,8 @@ paths:
             type: object
       tags:
       - auth
+  /api/logout:
+    $ref: ../paths/FB1.0/logout.path.yaml
 produces:
 - application/json
 schemes:

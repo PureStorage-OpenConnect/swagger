@@ -43,54 +43,6 @@ class SpecWorker(threading.Thread):
         for x in self.find("$ref", spec_dict):
             yield x
 
-    def apply_template(self, spec_file, template, model):
-        template_yaml = template
-        
-
-        spec_yaml = yaml.safe_load(spec_file)
-        spec_yaml['info']['description'] = template_yaml['info']['description']
-
-        #remove host references because of security concern.
-        if 'host' in spec_yaml:
-            del spec_yaml['host']
-        
-        version = spec_yaml['info']['version']
-
-        spec_yaml['basePath'] = "/api"
-        
-        if model == 'fb':
-            #add api version into path
-            #need to do this so we can add non version specific endpoints like get_version & login
-            paths = list(spec_yaml['paths'])
-            #print(paths)
-
-            # Removed 2020,June, I think they added these upstream on pureset
-            #for path in paths:
-            #    new_path = '/' + str(version) + path
-            #    spec_yaml['paths'][new_path] = spec_yaml['paths'][path]
-            #    del spec_yaml['paths'][path]
- 
-            spec_yaml['paths']['/api_version'] = template_yaml['paths']['/api_version']
-            spec_yaml['paths']['/login'] = template_yaml['paths']['/login']
-            spec_yaml['tags'] = template_yaml['tags'] + spec_yaml['tags']
-
-        elif model == 'fa2':
-            paths = list(spec_yaml['paths'])
-            #print(paths)
-            for path in paths:
-                new_path = '/' + str(version) + path
-                spec_yaml['paths'][new_path] = spec_yaml['paths'][path]
-                del spec_yaml['paths'][path]
-            
-            spec_yaml['securityDefinitions'] = template_yaml['securityDefinitions']
-            spec_yaml['security'] = template_yaml['security']
-
-        
-
-
-        return yaml.dump(spec_yaml)
-
-
 
     #Dowload and return the file
     def get_spec_file(self, spec_url, head, template, model):
