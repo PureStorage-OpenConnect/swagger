@@ -35,7 +35,7 @@ def apply_template(spec_file, template, model):
 
         #spec_yaml['paths']['/api_version'] = template_yaml['paths']['/api_version']
         #overwrite existing to add authorization param
-        spec_yaml['paths']['/api/login'] = template_yaml['paths']['/login']
+        spec_yaml['paths']['/login'] = template_yaml['paths']['/login']
         spec_yaml['tags'] = template_yaml['tags'] + spec_yaml['tags']
 
     elif model == 'fa2':

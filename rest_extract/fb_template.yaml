@@ -40,13 +40,13 @@ paths:
                 description: The user name logged in.
 
             example: {"username":"pureuser"}
-      tags: [authorization]
+      tags: [Authorization]
       parameters:
         - in: header
           name: api-token
           type: string
           required: true
 tags:
-- {name: authorization}
+- {name: Authorization}
 
     

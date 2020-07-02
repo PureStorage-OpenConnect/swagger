@@ -79,7 +79,9 @@ paths:
     $ref: ../paths/FB1.2/file-systems.path.yaml
   /1.2/hardware:
     $ref: ../paths/FB1.2/hardware.path.yaml
-  /api/login:
+  /api_version:
+    $ref: ../paths/FB1.0/api_version.path.yaml
+  /login:
     post:
       description: Create a new session with API_KEY
       parameters:
@@ -103,11 +105,7 @@ paths:
                 type: string
             type: object
       tags:
-      - authorization
-  /api_version:
-    $ref: ../paths/FB1.0/api_version.path.yaml
-  /login:
-    $ref: ../paths/FB1.0/login.path.yaml
+      - Authorization
   /logout:
     $ref: ../paths/FB1.0/logout.path.yaml
 produces:
@@ -128,7 +126,7 @@ securityDefinitions:
     type: apiKey
 swagger: '2.0'
 tags:
-- name: authorization
+- name: Authorization
 - name: Authorization
 - name: Administrators
 - name: Alerts
