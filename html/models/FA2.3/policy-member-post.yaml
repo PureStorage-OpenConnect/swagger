@@ -1,0 +1,15 @@
+properties:
+  members:
+    description: A list of resources to which the policy may be applied.
+    items:
+      properties:
+        member:
+          allOf:
+          - $ref: ../../models/FA2.3/_reference-with-type.yaml
+          description: Reference to the resource to which the policy may be applied.
+            The `id` or `name` parameter is required, but cannot be set together.
+            If the `name` parameter is set, `resource_type` must also be set.
+          required: true
+      type: object
+    type: array
+type: object

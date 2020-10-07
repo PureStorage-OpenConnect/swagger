@@ -1,0 +1,15 @@
+allOf:
+- $ref: ../../models/Pure1-1.0/_fixed-reference.yaml
+- type: object
+- readOnly: true
+- properties:
+    drive_count:
+      description: Count of drives in the array.
+      example: 24
+      format: int64
+      type: integer
+    total_capacity:
+      description: The total capacity of all drives in the array.
+      example: 7625244672
+      format: int64
+      type: integer

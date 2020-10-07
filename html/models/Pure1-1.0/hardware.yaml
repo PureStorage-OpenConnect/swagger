@@ -1,0 +1,52 @@
+allOf:
+- $ref: ../../models/Pure1-1.0/_arrays-built-in.yaml
+- properties:
+    details:
+      description: Details about the component if `status` is not `healthy`.
+      example: Temperature too high
+      type: string
+    identify_enabled:
+      description: If true, the ID light is lit to visually identify the component.
+      example: true
+      type: boolean
+    model:
+      description: Model number of the hardware component.
+      example: DFSC1
+      type: string
+    serial:
+      description: Serial number of the hardware component.
+      example: PSMFL1717009B
+      type: string
+    slot:
+      description: Slot number occupied by the PCI Express card that hosts the component.
+      example: 16
+      format: int32
+      type: integer
+    speed:
+      description: Speed (in bytes per second) at which the component is operating.
+      example: 24000000000
+      format: int64
+      type: integer
+    status:
+      description: Component status. Values include `critical`, `healthy`, `identifying`,
+        `unhealthy`, `unclaimed`, `unknown`, `unrecognized`, and `unused`.
+      example: critical
+      type: string
+    temperature:
+      description: Temperature (in degrees Celsius) reported by the component.
+      example: 25
+      format: int32
+      type: integer
+    type:
+      description: Type of the hardware component. Values include `am`, `chassis`,
+        `controller`, `cooling`, `drive_bay`, `eth_port`, `fan`, `fc_port`, `flash_blade`,
+        `ib_port`, `mgmt_port`, `nvram_bay`, `power_supply`, `sas_module`, `sas_port`,
+        `storage_shelf`, and `temp_sensor`.
+      example: controller
+      type: string
+    voltage:
+      description: Voltage (in Volts) reported by the component.
+      example: 206
+      format: int32
+      type: integer
+description: A hardware component.

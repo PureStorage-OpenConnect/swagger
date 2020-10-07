@@ -1,0 +1,9 @@
+collectionFormat: csv
+description: Performs the operation on the unique managed directory IDs specified.
+  Enter multiple managed directory IDs in comma-separated format. The `directory_ids`
+  and `directory_names` parameters cannot be provided together.
+in: query
+items:
+  type: string
+name: directory_ids
+type: array

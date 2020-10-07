@@ -1,0 +1,7 @@
+allOf:
+- $ref: ../../models/FA2.3/policy-member.yaml
+- properties:
+    export_name:
+      description: The export name for accessing this export.
+      readOnly: true
+      type: string

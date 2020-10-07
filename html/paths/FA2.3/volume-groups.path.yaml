@@ -1,0 +1,89 @@
+delete:
+  description: Deletes a volume group that has been destroyed and is pending eradication.
+    Eradicated volume groups cannot be recovered. Volume groups are destroyed through
+    the PATCH method. The `ids` or `names` parameter is required, but cannot be set
+    together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.3/eradicate_contents.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: Delete a volume group
+  tags:
+  - Volume Groups
+get:
+  description: Displays a list of volume groups, including those pending eradication.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/destroyed.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  - $ref: ../../queries/FA2.0/total_only.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.1/volume-group-get-response.yaml
+  summary: List volume groups
+  tags:
+  - Volume Groups
+patch:
+  description: Modifies a volume group. You can rename, destroy, recover, or set QoS
+    limits for a volume group. To rename a volume group, set `name` to the new name.
+    To destroy a volume group, set `destroyed=true`. To recover a volume group that
+    has been destroyed and is pending eradication, set `destroyed=false`. Sets the
+    bandwidth and IOPs limits of a volume group through the respective `bandwidth_limit`
+    and `iops_limit` parameter. The `ids` or `names` parameter is required, but cannot
+    be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.3/destroy_contents.query.yaml
+  - in: body
+    name: volume-group
+    required: true
+    schema:
+      $ref: ../../models/FA2.1/volume-group.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.1/volume-group-response.yaml
+  summary: Modify a volume group
+  tags:
+  - Volume Groups
+post:
+  description: Creates a volume group. The volume group itself does not contain any
+    meaningful content; instead, it acts as a container that is used to organize volumes.
+    Once a volume group has been created, volumes can be created inside the volume
+    group or moved into and out of the volume group.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - in: body
+    name: volume-group
+    required: true
+    schema:
+      $ref: ../../models/FA2.1/volume-group-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.1/volume-group-response.yaml
+  summary: Create a volume group
+  tags:
+  - Volume Groups

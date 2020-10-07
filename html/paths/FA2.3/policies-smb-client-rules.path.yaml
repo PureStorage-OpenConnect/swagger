@@ -1,0 +1,58 @@
+delete:
+  description: Deletes one or more SMB client policy rules. The `policy_ids` or `policy_names`
+    parameter is required, but they cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.3/policy_ids.query.yaml
+  - $ref: ../../queries/FA2.3/policy_names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: Delete SMB client policy rules.
+  tags:
+  - Policies
+get:
+  description: Displays a list of SMB client policy rules.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.3/policy_ids.query.yaml
+  - $ref: ../../queries/FA2.3/policy_names.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.3/policy-rule-smb-client-get-response.yaml
+  summary: List SMB client policy rules
+  tags:
+  - Policies
+post:
+  description: Create one or more SMB client policy rules. The `policy_ids` or `policy_names`
+    parameter is required, but cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.3/policy_ids.query.yaml
+  - $ref: ../../queries/FA2.3/policy_names.query.yaml
+  - in: body
+    name: rules
+    required: true
+    schema:
+      $ref: ../../models/FA2.3/policy-rule-smb-client-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.3/policy-rule-smb-client-response.yaml
+  summary: Create SMB client policy rules
+  tags:
+  - Policies

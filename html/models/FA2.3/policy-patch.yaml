@@ -1,0 +1,7 @@
+allOf:
+- $ref: ../../models/FA2.0/_new-name.yaml
+- properties:
+    enabled:
+      description: If set to `true`, enables the policy. If set to `false`, disables
+        the policy.
+      type: boolean

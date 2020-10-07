@@ -43,6 +43,13 @@ def apply_template(spec_file, template, model):
         spec_yaml['securityDefinitions'] = template_yaml['securityDefinitions']
         spec_yaml['security'] = template_yaml['security']
 
+        #make basepath /api as it's a bit cleaner
+        paths = list(spec_yaml['paths'])
+        for path in paths:
+            new_path = path.replace('/api/','/')
+            spec_yaml['paths'][new_path] = spec_yaml['paths'][path]
+            del spec_yaml['paths'][path]
+
     elif model == 'pure1':
         return yaml.dump(template_yaml)
 

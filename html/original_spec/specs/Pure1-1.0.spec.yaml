@@ -15,12 +15,18 @@ definitions:
     $ref: ../models/Pure1-1.0/bucket-replica-link.yaml
   Controller:
     $ref: ../models/Pure1-1.0/controller.yaml
+  Drive:
+    $ref: ../models/Pure1-1.0/drive.yaml
   FileSystem:
     $ref: ../models/Pure1-1.0/file-system.yaml
   FileSystemReplicaLink:
     $ref: ../models/Pure1-1.0/file-system-replica-link.yaml
   FileSystemSnapshot:
     $ref: ../models/Pure1-1.0/file-system-snapshot.yaml
+  Hardware:
+    $ref: ../models/Pure1-1.0/hardware.yaml
+  HardwareConnector:
+    $ref: ../models/Pure1-1.0/hardware-connector.yaml
   Metric:
     $ref: ../models/Pure1-1.0/metric.yaml
   MetricHistory:
@@ -35,6 +41,8 @@ definitions:
     $ref: ../models/Pure1-1.0/policy.yaml
   PolicyMember:
     $ref: ../models/Pure1-1.0/policy-member.yaml
+  Port:
+    $ref: ../models/Pure1-1.0/port.yaml
   SupportContract:
     $ref: ../models/Pure1-1.0/support-contract.yaml
   Tag:
@@ -76,6 +84,8 @@ paths:
     $ref: ../paths/Pure1-1.0/buckets.path.yaml
   /api/1.0/controllers:
     $ref: ../paths/Pure1-1.0/controllers.path.yaml
+  /api/1.0/drives:
+    $ref: ../paths/Pure1-1.0/drives.path.yaml
   /api/1.0/file-system-replica-links:
     $ref: ../paths/Pure1-1.0/file-system-replica-links.path.yaml
   /api/1.0/file-system-replica-links/policies:
@@ -88,6 +98,10 @@ paths:
     $ref: ../paths/Pure1-1.0/file-systems.path.yaml
   /api/1.0/file-systems/policies:
     $ref: ../paths/Pure1-1.0/file-systems-policies.path.yaml
+  /api/1.0/hardware:
+    $ref: ../paths/Pure1-1.0/hardware.path.yaml
+  /api/1.0/hardware-connectors:
+    $ref: ../paths/Pure1-1.0/hardware-connectors.path.yaml
   /api/1.0/metrics:
     $ref: ../paths/Pure1-1.0/metrics.path.yaml
   /api/1.0/metrics/history:
@@ -110,6 +124,8 @@ paths:
     $ref: ../paths/Pure1-1.0/policies-file-systems.path.yaml
   /api/1.0/policies/members:
     $ref: ../paths/Pure1-1.0/policies-members.path.yaml
+  /api/1.0/ports:
+    $ref: ../paths/Pure1-1.0/ports.path.yaml
   /api/1.0/targets:
     $ref: ../paths/Pure1-1.0/targets.path.yaml
   /api/1.0/volume-snapshots:
@@ -148,12 +164,18 @@ tags:
   name: Bucket Replica Links
 - description: Provides information about FlashArray controllers.
   name: Controllers
-- description: Provides information about FlashBlade file systems.
+- description: Provides information about FlashArray drives.
+  name: Drives
+- description: Provides information about FlashArray and FlashBlade file systems.
   name: File Systems
 - description: Provides information about replica links between FlashBlade file systems.
   name: File System Replica Links
 - description: Provides information about FlashBlade file system snapshots.
   name: File System Snapshots
+- description: Provides information about hardware components.
+  name: Hardware
+- description: Provides information about FlashBlade hardware connectors.
+  name: Hardware Connectors
 - description: Provides information about historical metrics for arrays, volumes,
     file systems and pods.
   name: Metrics
@@ -169,6 +191,8 @@ tags:
 - description: Provides information about FlashBlade policies and the members they
     apply to.
   name: Policies
+- description: Provides information about FlashArray ports.
+  name: Ports
 - description: Provides information about FlashBlade external replication targets.
   name: Targets
 - description: Provides information about block storage volumes on FlashArray arrays.

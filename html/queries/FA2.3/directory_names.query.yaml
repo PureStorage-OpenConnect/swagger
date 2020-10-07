@@ -1,0 +1,8 @@
+collectionFormat: csv
+description: Performs the operation on the managed directory names specified. Enter
+  multiple full managed directory names in comma-separated format. For example, `fs:dir01,fs:dir02`.
+in: query
+items:
+  type: string
+name: directory_names
+type: array

@@ -1,0 +1,70 @@
+allOf:
+- $ref: ../../models/FA2.0/_resource.yaml
+- properties:
+    bytes_per_op:
+      description: The average I/O size for both read and write (all) operations.
+      format: int64
+      minimum: 0
+      type: integer
+    bytes_per_read:
+      description: The average I/O size per read, measured in bytes.
+      format: int64
+      minimum: 0
+      type: integer
+    bytes_per_write:
+      description: The average I/O size per write, measured in bytes.
+      format: int64
+      minimum: 0
+      type: integer
+    others_per_sec:
+      description: The number of other requests processed per second.
+      format: int64
+      minimum: 0
+      type: integer
+    read_bytes_per_sec:
+      description: The number of bytes read per second.
+      format: int64
+      minimum: 0
+      type: integer
+    reads_per_sec:
+      description: The number of read requests processed per second.
+      format: int64
+      minimum: 0
+      type: integer
+    time:
+      description: The time when the sample performance data was taken. Measured in
+        milliseconds since the UNIX epoch.
+      format: int64
+      type: integer
+    usec_per_other_op:
+      description: The average time it takes the array to process an I/O other request,
+        measured in microseconds. The average time does not include SAN time, queue
+        time, or QoS rate limit time.
+      format: int64
+      minimum: 0
+      type: integer
+    usec_per_read_op:
+      description: The average time it takes the array to process an I/O read request,
+        measured in microseconds. The average time does not include SAN time, queue
+        time, or QoS rate limit time.
+      format: int64
+      minimum: 0
+      type: integer
+    usec_per_write_op:
+      description: The average time it takes the array to process an I/O write request,
+        measured in microseconds. The average time does not include SAN time, queue
+        time, or QoS rate limit time.
+      format: int64
+      minimum: 0
+      type: integer
+    write_bytes_per_sec:
+      description: The number of bytes written per second.
+      format: int64
+      minimum: 0
+      type: integer
+    writes_per_sec:
+      description: The number of write requests processed per second.
+      format: int64
+      minimum: 0
+      type: integer
+  readyOnly: true

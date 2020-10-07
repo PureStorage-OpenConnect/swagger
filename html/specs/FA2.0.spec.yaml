@@ -49,44 +49,42 @@ info:
     url:
       $ref: ../redoc/PS-LogoBase64-FA.txt
 paths:
-  /api/2.0/connections:
+  /2.0/connections:
     $ref: ../paths/FA2.0/connections.path.yaml
-  /api/2.0/host-groups:
+  /2.0/host-groups:
     $ref: ../paths/FA2.0/host-groups.path.yaml
-  /api/2.0/host-groups/hosts:
+  /2.0/host-groups/hosts:
     $ref: ../paths/FA2.0/host-groups-hosts-members.path.yaml
-  /api/2.0/host-groups/performance:
+  /2.0/host-groups/performance:
     $ref: ../paths/FA2.0/host-groups-performance.path.yaml
-  /api/2.0/host-groups/performance/by-array:
+  /2.0/host-groups/performance/by-array:
     $ref: ../paths/FA2.0/host-groups-performance-by-array.path.yaml
-  /api/2.0/hosts:
+  /2.0/hosts:
     $ref: ../paths/FA2.0/hosts.path.yaml
-  /api/2.0/hosts/host-groups:
+  /2.0/hosts/host-groups:
     $ref: ../paths/FA2.0/hosts-host-groups-members.path.yaml
-  /api/2.0/hosts/performance:
+  /2.0/hosts/performance:
     $ref: ../paths/FA2.0/hosts-performance.path.yaml
-  /api/2.0/hosts/performance/by-array:
+  /2.0/hosts/performance/by-array:
     $ref: ../paths/FA2.0/hosts-performance-by-array.path.yaml
-  /api/2.0/login:
+  /2.0/login:
     $ref: ../paths/FA2.0/login.path.yaml
-  /api/2.0/logout:
+  /2.0/logout:
     $ref: ../paths/FA2.0/logout.path.yaml
-  /api/2.0/volume-snapshots:
+  /2.0/volume-snapshots:
     $ref: ../paths/FA2.0/volume-snapshots.path.yaml
-  /api/2.0/volume-snapshots/transfer:
+  /2.0/volume-snapshots/transfer:
     $ref: ../paths/FA2.0/volume-snapshots-transfer.path.yaml
-  /api/2.0/volumes:
+  /2.0/volumes:
     $ref: ../paths/FA2.0/volumes.path.yaml
-  /api/2.0/volumes/performance:
+  /2.0/volumes/performance:
     $ref: ../paths/FA2.0/volumes-performance.path.yaml
-  /api/2.0/volumes/performance/by-array:
+  /2.0/volumes/performance/by-array:
     $ref: ../paths/FA2.0/volumes-performance-by-array.path.yaml
-  /api/2.0/volumes/space:
+  /2.0/volumes/space:
     $ref: ../paths/FA2.0/volumes-space.path.yaml
-  /api/api_version:
+  /api_version:
     $ref: ../paths/FA2.0/api_version.path.yaml
-  /oauth2/1.0/token:
-    $ref: ../paths/TEx-v2/oauth-token.path.yaml
 produces:
 - application/json
 schemes:

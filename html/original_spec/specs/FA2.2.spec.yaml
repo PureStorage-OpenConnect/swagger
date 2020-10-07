@@ -443,25 +443,28 @@ tags:
   name: Remote Pods
 - description: A remote protection group represents a protection group that resides
     on an offload target with the source side of the remote protection group being
-    another array that is connected to the local array. The local array can only see
-    the remote protection groups of other arrays if the two arrays are connected.
+    the local array or another array that is connected to the local array. The local
+    array can see remote protection groups of other arrays that are connected to the
+    same offload target.
   name: Remote Protection Groups
 - description: A remote protection group snapshot represents a protection group snapshot
     that resides on an offload target with the source side of the remote protection
-    group snapshot being another array that is connected to the local array. The local
-    array can only see the remote protection group snapshots of other arrays if the
-    two arrays are connected.
+    group snapshot being the local array or another array that is connected to the
+    same offload target. The local array can see remote protection group snapshots
+    of other arrays that are connected to the same offload target.
   name: Remote Protection Group Snapshots
 - description: A remote volume snapshot represents a volume snapshot that resides
     on an offload target with the source side of the remote volume snapshot being
-    another array that is connected to the local array. The local array can only see
-    the remote volume snapshots of other arrays if the two arrays are connected.
+    the local array or another array that is connected to the same offload target.
+    The local array can see remote volume snapshots of other arrays that are connected
+    to the same offload target.
   name: Remote Volume Snapshots
-- description: SMI-S endpoint description (placeholder)
+- description: Manages the Pure Storage Storage Management Initiative Specification
+    (SMI-S) provider.
   name: SMI-S
 - description: Software to be installed on the array.
   name: Software
-- description: Subnets endpoint description (placeholder)
+- description: Manages the subnets and VLANs used to organize the network interfaces.
   name: Subnets
 - description: Enables Support to fix bugs and help customers solve problems. Support
     tools include proxy, phonehome, and remote assist.

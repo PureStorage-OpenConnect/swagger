@@ -1,0 +1,9 @@
+allOf:
+- $ref: ../../models/FA2.0/_reference.yaml
+- properties:
+    resource_type:
+      description: Type of the object (full name of the endpoint). Valid values are
+        `hosts`, `host-groups`, `network-interfaces`, `pods`, `ports`, `pod-replica-links`,
+        `subnets`, `volumes`, `volume-snapshots`, `volume-groups`, `directories`,
+        `policies/nfs`, `policies/smb`, and `policies/snapshot`.
+      type: string

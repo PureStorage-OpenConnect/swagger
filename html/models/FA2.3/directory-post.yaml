@@ -1,0 +1,13 @@
+properties:
+  directory_name:
+    description: The managed directory name without the file system name prefix. A
+      full managed directory name is constructed in the form of `FILE_SYSTEM:DIR`
+      where `FILE_SYSTEM` is the file system name and `DIR` is the value of this field.
+      `directory_name` is required if `file_system_names` or `file_system_ids` is
+      set. `directory_name` cannot be set if `names` is set.
+    type: string
+  path:
+    description: Path of the managed directory in the file system.
+    required: true
+    type: string
+type: object

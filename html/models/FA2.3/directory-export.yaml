@@ -1,0 +1,32 @@
+properties:
+  destroyed:
+    description: Returns a value of `true` if the managed directory of the export
+      has been destroyed and is pending eradication. The export can be recovered by
+      recovering the destroyed managed directory.
+    readOnly: true
+    type: boolean
+  directory:
+    allOf:
+    - $ref: ../../models/FA2.3/_fixed-reference-with-type.yaml
+    description: The managed directory of the export.
+    readOnly: true
+  enabled:
+    description: Returns a value of `true` if the export policy that manages this
+      export is enabled.
+    readOnly: true
+    type: boolean
+  export_name:
+    description: The export name for accessing this export.
+    readOnly: true
+    type: string
+  path:
+    description: The path of the exported managed directory.
+    readyOnly: true
+    type: string
+  policy:
+    allOf:
+    - $ref: ../../models/FA2.3/_fixed-reference-with-type.yaml
+    description: The export policy that manages this export. An export can be managed
+      by at most one export policy.
+    readyOnly: true
+type: object

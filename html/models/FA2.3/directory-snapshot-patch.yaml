@@ -1,0 +1,15 @@
+allOf:
+- $ref: ../../models/FA2.0/_destroyed-patch-post.yaml
+- properties:
+    keep_for:
+      description: The amount of time to keep the snapshots, in milliseconds. Can
+        only be set on snapshots that are not managed by any snapshot policy. Set
+        to `""` to clear the keep_for value.
+      format: int64
+      type: integer
+    policy:
+      allOf:
+      - $ref: ../../models/FA2.0/_reference.yaml
+      description: The snapshot policy that manages this snapshot. Set to `name` or
+        `id` to `""` to clear the policy.
+  type: object
