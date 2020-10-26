@@ -7,9 +7,9 @@ info:
     A light weight tool to explore the API for FlashArray, community supported. 
     For  help with this tool, use [Pure1 Community](https://community.purestorage.com/) or the [code-purestorage Slack](https://community.purestorage.com/discussion/9561/join-the-new-pure-code-slack-team-for-api-and-extensibility-discussions)
     
-    ## Authenticate (uses API Key and returns a cookie)
-    To get an API Key, you can do POST /auth/apitoken with your user/pass, then use your API key with POST /auth/session.  The array returns 
-    a session cookie which is handled by the browser automatically.  Session cookies expire by default after 30 minutes.
+    ## Authenticate using an API Token
+    To get an API Token, POST /api/auth/apitoken with your user/pass, then use your API Token with POST /api/auth/session.  The array returns 
+    a cookie with the name "session" which is stored by the browser and passed on any subsequent request.  The session cookie expires by default after 30 minutes.
 
     ## Error Codes
     Use HTTP Response codes to determine command results.  Error message json formats are different depending on the endpoint.

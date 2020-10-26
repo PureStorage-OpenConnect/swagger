@@ -1,4 +1,4 @@
-FROM python:3-alpine3.7
+FROM python:3.8-slim-buster
 
 LABEL maintainer="sile16"
 
@@ -13,17 +13,16 @@ ENV OAUTH_APP_NAME "**None**"
 ENV OAUTH_ADDITIONAL_PARAMS "**None**"
 ENV SWAGGER_JSON "/app/swagger.json"
 ENV BASE_URL ""
+ENV DEBIAN_FRONTEND "noninteractive"
 
-RUN apk update --no-cache && apk upgrade --no-cache && apk add --update --no-cache 
-RUN pip install --upgrade pip
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends git \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /usr/share/pureswagger
 ADD server/requirements.txt /usr/share/pureswagger/
 
-RUN apk add --no-cache --update \
-    build-base python3-dev gcc g++ make libffi-dev openssl-dev git && \
-    pip install --no-cache-dir -r /usr/share/pureswagger/requirements.txt && \
-    apk del build-base gcc g++ make
+RUN pip install --no-cache-dir -r /usr/share/pureswagger/requirements.txt 
 
 #Get swagger-ui
 RUN mkdir -p /usr/share/pureswagger/html

@@ -3,6 +3,7 @@ flask
 pyyaml
 genson
 requests
-paramiko
-jwt
+pycryptodome
+pyjwt
+cryptography
 

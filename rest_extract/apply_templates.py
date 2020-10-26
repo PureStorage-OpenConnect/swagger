@@ -15,40 +15,45 @@ def apply_template(spec_file, template, model):
     spec_yaml = yaml.safe_load(spec_file)
     spec_yaml['info']['description'] = template_yaml['info']['description']
     
-    version = spec_yaml['info']['version']
+    # version = spec_yaml['info']['version']
 
-    spec_yaml['basePath'] = "/api"
+    # Need to remove this to expose the oauth2 token
+    # spec_yaml['basePath'] = "/api"
     
     if model == 'fb':
-        #add api version into path
-        #need to do this so we can add non version specific endpoints like get_version & login
+        # add api version into path
+        # need to do this so we can add non version specific endpoints like get_version & login
         paths = list(spec_yaml['paths'])
-        #print(paths)
-        #removing in 2020 June, I think they added up stream api version number
-        #
-        
-        #make basepath /api as it's a bit cleaner
-        for path in paths:
-            new_path = path.replace('/api/','/')
-            spec_yaml['paths'][new_path] = spec_yaml['paths'][path]
-            del spec_yaml['paths'][path]
+        # print(paths)
+        # removing in 2020 June, I think they added up stream api version number
 
-        #spec_yaml['paths']['/api_version'] = template_yaml['paths']['/api_version']
-        #overwrite existing to add authorization param
-        spec_yaml['paths']['/login'] = template_yaml['paths']['/login']
+        # make basepath /api as it's a bit cleaner
+        # Update: removing because of Oauth
+        # for path in paths:
+        #    new_path = path.replace('/api/','/')
+        #    spec_yaml['paths'][new_path] = spec_yaml['paths'][path]
+        #    del spec_yaml['paths'][path]
+
+        # spec_yaml['paths']['/api_version'] = template_yaml['paths']['/api_version']
+        # overwrite existing to add authorization param
+        spec_yaml['paths']['/api/login'] = template_yaml['paths']['/api/login']
         spec_yaml['tags'] = template_yaml['tags'] + spec_yaml['tags']
 
     elif model == 'fa2':
              
         spec_yaml['securityDefinitions'] = template_yaml['securityDefinitions']
         spec_yaml['security'] = template_yaml['security']
+        spec_yaml['tags'] = template_yaml['tags'] + spec_yaml['tags']
+        for p in template_yaml['paths']:
+            spec_yaml['paths'][p] = template_yaml['paths'][p]
 
-        #make basepath /api as it's a bit cleaner
-        paths = list(spec_yaml['paths'])
-        for path in paths:
-            new_path = path.replace('/api/','/')
-            spec_yaml['paths'][new_path] = spec_yaml['paths'][path]
-            del spec_yaml['paths'][path]
+        # make basepath /api as it's a bit cleaner
+        # Update: removing because of Oauth
+        # paths = list(spec_yaml['paths'])
+        # for path in paths:
+        #    new_path = path.replace('/api/','/')
+        #    spec_yaml['paths'][new_path] = spec_yaml['paths'][path]
+        #    del spec_yaml['paths'][path]
 
     elif model == 'pure1':
         return yaml.dump(template_yaml)
@@ -91,6 +96,7 @@ def main():
                 model = 'pure1'
 
             else:
+                # don't need to apply template to fa as that is done during initial creation from the pdf
                 continue
 
             with open(fullpath, "r") as f:

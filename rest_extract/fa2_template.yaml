@@ -1,38 +1,112 @@
 ---
-swagger: 2.0
+swagger: "2.0"
 info:
   title: Pure FlashArray API 2.0
+  version: "1.0"
   description: |- 
     ## Pure Swagger UI for FlashArray
     A light weight tool to explore the API for FlashArray, community supported. 
     For  help with this tool, use [Pure1 Community](https://community.purestorage.com/) or the [code-purestorage Slack](https://community.purestorage.com/discussion/9561/join-the-new-pure-code-slack-team-for-api-and-extensibility-discussions)
     
-    ## Authenticate (uses API Key and returns a cookie)
+    ## Authenticate using API Token
+    To get an API Key, you can do POST /auth/apitoken with your user/pass using the 1.x API, then use your API key with POST /login.  The array returns 
+    a header  with the name "x-auth-token".  This swagger UI tool, translates that into a cookie so the webbrowser will send on subsequent calls.  This Swagger UI tool then
+    translates that cookie back into a header when making the API request to the array.
+
+    ## Authenticate using OAuth
+    ### Manually generate an id_token 
+    
+    ### 
+
+
+
+
     Intro to how OAuth2 works with the 2.0 version: [Intro](https://support.purestorage.com/FlashArray/PurityFA/Purity_FA_REST_API/Reference/REST_API_2.0_Authentication_Guide)
     
 securityDefinitions:
-  Private-Key:
+  AuthorizationHeader:
     type: apiKey
     in: header
-    name: X-API-OAuth2-Private-Key
-  Authorization-Token:
+    name: Authorization
+  SessionToken:
     type: apiKey
     in: header
-    name: X-API-OAuth2-Token
+    name: x-auth-token
 
 security:
-- Private-key: []
-- Authorization-Token: []
+- AuthorizationHeader: []
+- SessionToken: []
 
 
-        
-
-servers:
-- url: /api
-  description: Local host, PureSwagger Proxy, set array IP at top of page.  API calls are proxied to array.
 paths:
+  /oauth2_pub_priv_key_pair:
+    get:
+      description: Returns a public and private key pair, This is not part of the FlashArray API, it's a helper endpoint making it easy to generate an oauth2 token_id in this Swagger UI. 
+      responses:
+        200:
+          description: "Token Generated"
+          schema:
+            type: object
+            properties:
+              private_key:
+                type: string
+                description: Private key in PEM format.
+              public_key:
+                  type: string
+                  description: Public key in PEM format.
+      tags: [Auth Helpers]
+  /oauth2_token_from_private_key:
+    post:
+      consumes: 
+        - "text/plain"
+      description: Authenticates to Flasharray, This returns a token_id (think session id), from an existing API Client, This is not part of the FlashArray API, it's a helper endpoint making it easy to generate an oauth2 token_id in this Swagger UI.
+      responses:
+        200:
+          description: "Token Generated"
+          schema:
+            type: object
+            properties:
+              access_token:
+                type: string
+                description: An OAuth bearer token to be used in the Authorization header for authorization to API endpoints.
+
+            example: {"username":"pureuser"}
+      tags: [Auth Helpers]
+      parameters:
+        - name: issuer_name
+          in: header
+          type: string
+          description:  Issuer value displayed in the FlashArray API
+                        Registration page or pureapiclient list ) by default it's the same name as API Client
+
+        - name: client_id
+          in: header
+          type: string
+          description:  Client Id value displayed in the FlashArray API
+                        Registration page or pureapiclient list
+
+        - name: key_id
+          in: header
+          type: string
+          description:  Key Id value displayed in the FlashArray API
+                        Registration page or pureapiclient list
+      
+        - name: username
+          in: header
+          type: string
+          description:  The name of a valid user on the FlashArray that will be authenticated to.
+    
+        - name: private_key
+          required: true
+          in: body
+          schema: 
+            type: string
+          description: Private key in PEM format that was used to create the Public key for this API Client specified as the issuer in this call.
+
+
 tags:
-components: 
-  schemas: {}
+  - name: Auth Helpers
+    description: A set of endpoints not in the Purity API, but to make OAuth using this tool simple and easy to understand.
+
   
   

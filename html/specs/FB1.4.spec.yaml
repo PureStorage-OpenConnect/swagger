@@ -1,4 +1,3 @@
-basePath: /api
 consumes:
 - application/json
 definitions:
@@ -81,69 +80,69 @@ info:
   title: FlashBlade REST API Client
   version: 1.4
 paths:
-  /1.4/admins:
+  /api/1.4/admins:
     $ref: ../paths/FB1.2/admins.path.yaml
-  /1.4/admins/cache:
+  /api/1.4/admins/cache:
     $ref: ../paths/FB1.4/admins-cache.path.yaml
-  /1.4/alert-watchers:
+  /api/1.4/alert-watchers:
     $ref: ../paths/FB1.2/alert-watchers.path.yaml
-  /1.4/alert-watchers/test:
+  /api/1.4/alert-watchers/test:
     $ref: ../paths/FB1.2/alert-watchers-test.path.yaml
-  /1.4/alerts:
+  /api/1.4/alerts:
     $ref: ../paths/FB1.2/alerts.path.yaml
-  /1.4/arrays:
+  /api/1.4/arrays:
     $ref: ../paths/FB1.3/arrays.path.yaml
-  /1.4/arrays/clients/performance:
+  /api/1.4/arrays/clients/performance:
     $ref: ../paths/FB1.4/clients-performance.path.yaml
-  /1.4/arrays/http-specific-performance:
+  /api/1.4/arrays/http-specific-performance:
     $ref: ../paths/FB1.2/arrays-http-specific-performance.path.yaml
-  /1.4/arrays/performance:
+  /api/1.4/arrays/performance:
     $ref: ../paths/FB1.3/arrays-performance.path.yaml
-  /1.4/arrays/s3-specific-performance:
+  /api/1.4/arrays/s3-specific-performance:
     $ref: ../paths/FB1.2/arrays-s3-specific-performance.path.yaml
-  /1.4/arrays/space:
+  /api/1.4/arrays/space:
     $ref: ../paths/FB1.2/arrays-space.path.yaml
-  /1.4/blades:
+  /api/1.4/blades:
     $ref: ../paths/FB1.2/blades.path.yaml
-  /1.4/buckets:
+  /api/1.4/buckets:
     $ref: ../paths/FB1.4/buckets.path.yaml
-  /1.4/certificates:
+  /api/1.4/certificates:
     $ref: ../paths/FB1.2/certificates.path.yaml
-  /1.4/directory-services:
+  /api/1.4/directory-services:
     $ref: ../paths/FB1.4/directory-services.path.yaml
-  /1.4/directory-services/roles:
+  /api/1.4/directory-services/roles:
     $ref: ../paths/FB1.4/directory-service-roles.path.yaml
-  /1.4/directory-services/test:
+  /api/1.4/directory-services/test:
     $ref: ../paths/FB1.3/directory-service-test.path.yaml
-  /1.4/dns:
+  /api/1.4/dns:
     $ref: ../paths/FB1.2/dns.path.yaml
-  /1.4/file-system-snapshots:
+  /api/1.4/file-system-snapshots:
     $ref: ../paths/FB1.1/file-system-snapshots.path.yaml
-  /1.4/file-systems:
+  /api/1.4/file-systems:
     $ref: ../paths/FB1.4/file-systems.path.yaml
-  /1.4/hardware:
+  /api/1.4/hardware:
     $ref: ../paths/FB1.3/hardware.path.yaml
-  /1.4/hardware-connectors:
+  /api/1.4/hardware-connectors:
     $ref: ../paths/FB1.3/hardware-connectors.path.yaml
-  /1.4/link-aggregation-groups:
+  /api/1.4/link-aggregation-groups:
     $ref: ../paths/FB1.3/link-aggregation-groups.path.yaml
-  /1.4/logs:
+  /api/1.4/logs:
     $ref: ../paths/FB1.4/logs.path.yaml
-  /1.4/network-interfaces:
+  /api/1.4/network-interfaces:
     $ref: ../paths/FB1.3/network-interfaces.path.yaml
-  /1.4/object-store-access-keys:
+  /api/1.4/object-store-access-keys:
     $ref: ../paths/FB1.3/object-store-access-keys.path.yaml
-  /1.4/object-store-accounts:
+  /api/1.4/object-store-accounts:
     $ref: ../paths/FB1.4/object-store-accounts.path.yaml
-  /1.4/object-store-users:
+  /api/1.4/object-store-users:
     $ref: ../paths/FB1.3/object-store-users.path.yaml
-  /1.4/smtp:
+  /api/1.4/smtp:
     $ref: ../paths/FB1.3/smtp.path.yaml
-  /1.4/subnets:
+  /api/1.4/subnets:
     $ref: ../paths/FB1.3/subnets.path.yaml
-  /api_version:
+  /api/api_version:
     $ref: ../paths/FB1.0/api_version.path.yaml
-  /login:
+  /api/login:
     post:
       description: Create a new session with API_KEY
       parameters:
@@ -168,7 +167,7 @@ paths:
             type: object
       tags:
       - Authorization
-  /logout:
+  /api/logout:
     $ref: ../paths/FB1.0/logout.path.yaml
 produces:
 - application/json

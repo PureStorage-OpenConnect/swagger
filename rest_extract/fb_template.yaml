@@ -22,7 +22,7 @@ info:
     Go to the Pure support portal for the [full documentation](https://support.purestorage.com/FlashBlade/Purity_FB/Purity%2F%2F%2F%2FFB_REST_API/Management_REST_API/Management_REST_API_Reference_Guides).
 
 paths:
-  /login:
+  /api/login:
     post:
       description: Create a new session with API_KEY
       responses:

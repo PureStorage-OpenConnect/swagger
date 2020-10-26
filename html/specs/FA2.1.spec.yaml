@@ -1,4 +1,3 @@
-basePath: /api
 consumes:
 - application/json
 definitions:
@@ -85,8 +84,14 @@ info:
     \ the API for FlashArray, community supported. \nFor  help with this tool, use\
     \ [Pure1 Community](https://community.purestorage.com/) or the [code-purestorage\
     \ Slack](https://community.purestorage.com/discussion/9561/join-the-new-pure-code-slack-team-for-api-and-extensibility-discussions)\n\
-    \n## Authenticate (uses API Key and returns a cookie)\nIntro to how OAuth2 works\
-    \ with the 2.0 version: [Intro](https://support.purestorage.com/FlashArray/PurityFA/Purity_FA_REST_API/Reference/REST_API_2.0_Authentication_Guide)"
+    \n## Authenticate using API Token\nTo get an API Key, you can do POST /auth/apitoken\
+    \ with your user/pass using the 1.x API, then use your API key with POST /login.\
+    \  The array returns \na header  with the name \"x-auth-token\".  This swagger\
+    \ UI tool, translates that into a cookie so the webbrowser will send on subsequent\
+    \ calls.  This Swagger UI tool then\ntranslates that cookie back into a header\
+    \ when making the API request to the array.\n\n## Authenticate using OAuth\n###\
+    \ Manually generate an id_token \n\n### \n\n\n\n\nIntro to how OAuth2 works with\
+    \ the 2.0 version: [Intro](https://support.purestorage.com/FlashArray/PurityFA/Purity_FA_REST_API/Reference/REST_API_2.0_Authentication_Guide)"
   title: FlashArray REST API
   version: '2.1'
   x-logo:
@@ -95,124 +100,198 @@ info:
     url:
       $ref: ../redoc/PS-LogoBase64-FA.txt
 paths:
-  /2.1/api-clients:
+  /api/2.1/api-clients:
     $ref: ../paths/FA2.1/api-clients.path.yaml
-  /2.1/connections:
+  /api/2.1/connections:
     $ref: ../paths/FA2.1/connections.path.yaml
-  /2.1/host-groups:
+  /api/2.1/host-groups:
     $ref: ../paths/FA2.1/host-groups.path.yaml
-  /2.1/host-groups/hosts:
+  /api/2.1/host-groups/hosts:
     $ref: ../paths/FA2.1/host-groups-hosts-members.path.yaml
-  /2.1/host-groups/performance:
+  /api/2.1/host-groups/performance:
     $ref: ../paths/FA2.1/host-groups-performance.path.yaml
-  /2.1/host-groups/performance/by-array:
+  /api/2.1/host-groups/performance/by-array:
     $ref: ../paths/FA2.1/host-groups-performance-by-array.path.yaml
-  /2.1/host-groups/protection-groups:
+  /api/2.1/host-groups/protection-groups:
     $ref: ../paths/FA2.1/host-groups-protection-groups-members.path.yaml
-  /2.1/host-groups/space:
+  /api/2.1/host-groups/space:
     $ref: ../paths/FA2.1/host-groups-space.path.yaml
-  /2.1/hosts:
+  /api/2.1/hosts:
     $ref: ../paths/FA2.1/hosts.path.yaml
-  /2.1/hosts/host-groups:
+  /api/2.1/hosts/host-groups:
     $ref: ../paths/FA2.1/hosts-host-groups-members.path.yaml
-  /2.1/hosts/performance:
+  /api/2.1/hosts/performance:
     $ref: ../paths/FA2.1/hosts-performance.path.yaml
-  /2.1/hosts/performance/by-array:
+  /api/2.1/hosts/performance/by-array:
     $ref: ../paths/FA2.1/hosts-performance-by-array.path.yaml
-  /2.1/hosts/protection-groups:
+  /api/2.1/hosts/protection-groups:
     $ref: ../paths/FA2.1/hosts-protection-groups-members.path.yaml
-  /2.1/hosts/space:
+  /api/2.1/hosts/space:
     $ref: ../paths/FA2.1/hosts-space.path.yaml
-  /2.1/login:
+  /api/2.1/login:
     $ref: ../paths/FA2.0/login.path.yaml
-  /2.1/logout:
+  /api/2.1/logout:
     $ref: ../paths/FA2.0/logout.path.yaml
-  /2.1/offloads:
+  /api/2.1/offloads:
     $ref: ../paths/FA2.1/offloads.path.yaml
-  /2.1/pods:
+  /api/2.1/pods:
     $ref: ../paths/FA2.1/pods.path.yaml
-  /2.1/pods/arrays:
+  /api/2.1/pods/arrays:
     $ref: ../paths/FA2.1/pods-arrays-members.path.yaml
-  /2.1/pods/performance:
+  /api/2.1/pods/performance:
     $ref: ../paths/FA2.1/pods-performance.path.yaml
-  /2.1/pods/performance/by-array:
+  /api/2.1/pods/performance/by-array:
     $ref: ../paths/FA2.1/pods-performance-by-array.path.yaml
-  /2.1/pods/space:
+  /api/2.1/pods/space:
     $ref: ../paths/FA2.1/pods-space.path.yaml
-  /2.1/protection-group-snapshots:
+  /api/2.1/protection-group-snapshots:
     $ref: ../paths/FA2.1/protection-group-snapshots.path.yaml
-  /2.1/protection-group-snapshots/transfer:
+  /api/2.1/protection-group-snapshots/transfer:
     $ref: ../paths/FA2.1/protection-group-snapshots-transfer.path.yaml
-  /2.1/protection-groups:
+  /api/2.1/protection-groups:
     $ref: ../paths/FA2.1/protection-groups.path.yaml
-  /2.1/protection-groups/host-groups:
+  /api/2.1/protection-groups/host-groups:
     $ref: ../paths/FA2.1/protection-groups-host-groups-members.path.yaml
-  /2.1/protection-groups/hosts:
+  /api/2.1/protection-groups/hosts:
     $ref: ../paths/FA2.1/protection-groups-hosts-members.path.yaml
-  /2.1/protection-groups/performance/replication:
+  /api/2.1/protection-groups/performance/replication:
     $ref: ../paths/FA2.1/protection-groups-performance-replication.path.yaml
-  /2.1/protection-groups/performance/replication/by-array:
+  /api/2.1/protection-groups/performance/replication/by-array:
     $ref: ../paths/FA2.1/protection-groups-performance-replication-by-array.path.yaml
-  /2.1/protection-groups/space:
+  /api/2.1/protection-groups/space:
     $ref: ../paths/FA2.1/protection-groups-space.path.yaml
-  /2.1/protection-groups/targets:
+  /api/2.1/protection-groups/targets:
     $ref: ../paths/FA2.1/protection-groups-targets.path.yaml
-  /2.1/protection-groups/volumes:
+  /api/2.1/protection-groups/volumes:
     $ref: ../paths/FA2.1/protection-groups-volumes-members.path.yaml
-  /2.1/remote-pods:
+  /api/2.1/remote-pods:
     $ref: ../paths/FA2.1/remote-pods.path.yaml
-  /2.1/remote-protection-group-snapshots:
+  /api/2.1/remote-protection-group-snapshots:
     $ref: ../paths/FA2.1/remote-protection-group-snapshots.path.yaml
-  /2.1/remote-protection-group-snapshots/transfer:
+  /api/2.1/remote-protection-group-snapshots/transfer:
     $ref: ../paths/FA2.1/remote-protection-group-snapshots-transfer.path.yaml
-  /2.1/remote-protection-groups:
+  /api/2.1/remote-protection-groups:
     $ref: ../paths/FA2.1/remote-protection-groups.path.yaml
-  /2.1/remote-volume-snapshots:
+  /api/2.1/remote-volume-snapshots:
     $ref: ../paths/FA2.1/remote-volume-snapshots.path.yaml
-  /2.1/remote-volume-snapshots/transfer:
+  /api/2.1/remote-volume-snapshots/transfer:
     $ref: ../paths/FA2.1/remote-volume-snapshots-transfer.path.yaml
-  /2.1/volume-groups:
+  /api/2.1/volume-groups:
     $ref: ../paths/FA2.1/volume-groups.path.yaml
-  /2.1/volume-groups/performance:
+  /api/2.1/volume-groups/performance:
     $ref: ../paths/FA2.1/volume-groups-performance.path.yaml
-  /2.1/volume-groups/space:
+  /api/2.1/volume-groups/space:
     $ref: ../paths/FA2.1/volume-groups-space.path.yaml
-  /2.1/volume-groups/volumes:
+  /api/2.1/volume-groups/volumes:
     $ref: ../paths/FA2.1/volume-groups-volumes-members.path.yaml
-  /2.1/volume-snapshots:
+  /api/2.1/volume-snapshots:
     $ref: ../paths/FA2.1/volume-snapshots.path.yaml
-  /2.1/volume-snapshots/transfer:
+  /api/2.1/volume-snapshots/transfer:
     $ref: ../paths/FA2.1/volume-snapshots-transfer.path.yaml
-  /2.1/volumes:
+  /api/2.1/volumes:
     $ref: ../paths/FA2.1/volumes.path.yaml
-  /2.1/volumes/performance:
+  /api/2.1/volumes/performance:
     $ref: ../paths/FA2.1/volumes-performance.path.yaml
-  /2.1/volumes/performance/by-array:
+  /api/2.1/volumes/performance/by-array:
     $ref: ../paths/FA2.1/volumes-performance-by-array.path.yaml
-  /2.1/volumes/protection-groups:
+  /api/2.1/volumes/protection-groups:
     $ref: ../paths/FA2.1/volumes-protection-groups-members.path.yaml
-  /2.1/volumes/space:
+  /api/2.1/volumes/space:
     $ref: ../paths/FA2.1/volumes-space.path.yaml
-  /2.1/volumes/volume-groups:
+  /api/2.1/volumes/volume-groups:
     $ref: ../paths/FA2.1/volumes-volume-groups-members.path.yaml
-  /api_version:
+  /api/api_version:
     $ref: ../paths/FA2.0/api_version.path.yaml
+  /oauth2/1.0/token:
+    $ref: ../paths/TEx-v2/oauth-token.path.yaml
+  /oauth2_pub_priv_key_pair:
+    get:
+      description: Returns a public and private key pair, This is not part of the
+        FlashArray API, it's a helper endpoint making it easy to generate an oauth2
+        token_id in this Swagger UI.
+      responses:
+        200:
+          description: Token Generated
+          schema:
+            properties:
+              private_key:
+                description: Private key in PEM format.
+                type: string
+              public_key:
+                description: Public key in PEM format.
+                type: string
+            type: object
+      tags:
+      - Auth Helpers
+  /oauth2_token_from_private_key:
+    post:
+      consumes:
+      - text/plain
+      description: Authenticates to Flasharray, This returns a token_id (think session
+        id), from an existing API Client, This is not part of the FlashArray API,
+        it's a helper endpoint making it easy to generate an oauth2 token_id in this
+        Swagger UI.
+      parameters:
+      - description: Issuer value displayed in the FlashArray API Registration page
+          or pureapiclient list ) by default it's the same name as API Client
+        in: header
+        name: issuer_name
+        type: string
+      - description: Client Id value displayed in the FlashArray API Registration
+          page or pureapiclient list
+        in: header
+        name: client_id
+        type: string
+      - description: Key Id value displayed in the FlashArray API Registration page
+          or pureapiclient list
+        in: header
+        name: key_id
+        type: string
+      - description: The name of a valid user on the FlashArray that will be authenticated
+          to.
+        in: header
+        name: username
+        type: string
+      - description: Private key in PEM format that was used to create the Public
+          key for this API Client specified as the issuer in this call.
+        in: body
+        name: private_key
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Token Generated
+          schema:
+            example:
+              username: pureuser
+            properties:
+              access_token:
+                description: An OAuth bearer token to be used in the Authorization
+                  header for authorization to API endpoints.
+                type: string
+            type: object
+      tags:
+      - Auth Helpers
 produces:
 - application/json
 security:
-- Private-key: []
-- Authorization-Token: []
+- AuthorizationHeader: []
+- SessionToken: []
 securityDefinitions:
-  Authorization-Token:
+  AuthorizationHeader:
     in: header
-    name: X-API-OAuth2-Token
+    name: Authorization
     type: apiKey
-  Private-Key:
+  SessionToken:
     in: header
-    name: X-API-OAuth2-Private-Key
+    name: x-auth-token
     type: apiKey
 swagger: '2.0'
 tags:
+- description: A set of endpoints not in the Purity API, but to make OAuth using this
+    tool simple and easy to understand.
+  name: Auth Helpers
 - description: Pure Storage uses the OAuth 2.0 Token Exchange authorization grant
     and JSON Web Tokens (JWTs) to authenticate to the Pure Storage REST API. Before
     you can exchange the ID Token for an access token, create and enable the API client
