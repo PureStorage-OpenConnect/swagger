@@ -31,7 +31,9 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+
 app.url_map.strict_slashes = False
+
 
 @app.route('/')
 def root():
@@ -57,12 +59,13 @@ class bcolors:
 def print_request(req):
     print("\n================================== API CALL =============================================")
 
-    print( bcolors.CMD + 'HTTP/1.1 {method} {url}\n'.format(
+    print(bcolors.CMD + 'HTTP/1.1 {method} {url}\n'.format(
         method=req.method,
         url=req.url) + bcolors.ENDC)
 
-    print( bcolors.BLUE + '{headers}\n'.format(
-        headers='\n'.join('{}: {}'.format(k, v) for k, v in req.headers.items()),
+    print(bcolors.BLUE + '{headers}\n'.format(
+        headers='\n'.join('{}: {}'.format(k, v)
+                          for k, v in req.headers.items()),
         body=req.body) + bcolors.ENDC)
 
     try:
@@ -81,7 +84,8 @@ def print_response(res):
     ) + bcolors.ENDC)
 
     print(bcolors.BLUE + '{headers}\n'.format(
-        headers='\n'.join('{}: {}'.format(k, v) for k, v in res.headers.items())
+        headers='\n'.join('{}: {}'.format(k, v)
+                          for k, v in res.headers.items())
     ) + bcolors.ENDC)
 
     try:
@@ -93,30 +97,35 @@ def print_response(res):
         print(res.content)
 
 
-#Proxy API calls to the array to bypass CORS
-@app.route('/api', defaults={'path': ''}, methods=['GET', 'PUT','POST','DELETE','OPTIONS','HEAD','PATCH'])
-@app.route("/api/<path:path>", methods=['GET', 'PUT','POST','DELETE','OPTIONS','HEAD','PATCH'])
-@app.route("/oauth2/<path:path>", methods=['GET', 'PUT','POST','DELETE','OPTIONS','HEAD','PATCH'])
+# Proxy API calls to the array to bypass CORS
+@app.route('/api', defaults={'path': ''}, methods=['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS', 'HEAD', 'PATCH'])
+@app.route("/api/<path:path>", methods=['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS', 'HEAD', 'PATCH'])
+@app.route("/oauth2/<path:path>", methods=['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS', 'HEAD', 'PATCH'])
 def proxy_to_fa(*args, **kwargs):
-    #this is how we are passing the IP on the webpage to here, useing an additional cookie
-    #just to make swagger proxy work using the flasharray ip cookie.
+    # this is how we are passing the IP on the webpage to here, useing an additional cookie
+    # just to make swagger proxy work using the flasharray ip cookie.
     if "flasharray" not in request.cookies or request.cookies["flasharray"] == "change-me":
-        return "Error: Please set FlashArray IP / Hostname at top of page before making API Calls" 
+        return "Error: Please set FlashArray IP / Hostname at top of page before making API Calls"
 
-    header_exclude = ['host','set-cookie','cookie', 'User-Agent']
-    swagger_headers = {key: value for (key, value) in request.headers if key.lower() not in header_exclude}
-    cookie_exclude = ['flasharray','x-auth-token', 'Authorization']
-    swagger_cookies = {key: value for (key, value) in request.cookies.items() if key not in cookie_exclude}
-    #print(swagger_cookies)
-    #print(type(swagger_cookies))
+    header_exclude = ['host', 'set-cookie', 'cookie', 'User-Agent']
+    swagger_headers = {key: value for (
+        key, value) in request.headers if key.lower() not in header_exclude}
+    cookie_exclude = ['flasharray', 'x-auth-token', 'Authorization']
+    swagger_cookies = {key: value for (
+        key, value) in request.cookies.items() if key not in cookie_exclude}
+    # print(swagger_cookies)
+    # print(type(swagger_cookies))
 
     # this is used by FA 2.x & FB
-    if "x-auth-token" in request.cookies:
-        swagger_headers['x-auth-token'] = request.cookies['x-auth-token']
-        #remove this so it doesn't get passed to flash array
+    if "x-auth-token" not in swagger_headers and "Authorization" not in swagger_headers:
+        if "x-auth-token" in request.cookies:
+            # don't want to replace a header explicity passed by the swagger UI
+            # but if it doesn't exist and we have one as a cookie
+            swagger_headers['x-auth-token'] = request.cookies['x-auth-token']
+            # remove this so it doesn't get passed to flash array
 
-    if "Authorization" in request.cookies:
-        swagger_headers['Authorization'] = request.cookies['Authorization']
+        elif "Authorization" in request.cookies:
+            swagger_headers['Authorization'] = request.cookies['Authorization']
 
     swagger_headers['User-Agent'] = USER_AGENT
 
@@ -125,7 +134,7 @@ def proxy_to_fa(*args, **kwargs):
     host = request.cookies["flasharray"]
     url = url._replace(scheme="https", netloc=host)
 
-    #Make actual API call
+    # Make actual API call
     try:
         resp = requests.request(
             str(request.method),
@@ -137,10 +146,11 @@ def proxy_to_fa(*args, **kwargs):
             verify=False)
     except:
         abort(Response("Could not connect to {}".format(host)))
-        
-    #print ("flask request: {}".format(request.method))
 
-    excluded_headers = ['content-encoding', 'content-length', 'transfer-encoding', 'connection']
+    # print ("flask request: {}".format(request.method))
+
+    excluded_headers = ['content-encoding',
+                        'content-length', 'transfer-encoding', 'connection']
     response_headers = [(name, value) for (name, value) in resp.raw.headers.items()
                         if name.lower() not in excluded_headers]
 
@@ -159,7 +169,7 @@ def proxy_to_fa(*args, **kwargs):
     return Response(resp.content, resp.status_code, response_headers)
 
 
-#This either lists the directory, or returns the actual file
+# This either lists the directory, or returns the actual file
 @app.route('/<path:req_path>')
 def get_specs(req_path):
     abs_path = os.path.join(ROOT_DIR, req_path)
@@ -172,14 +182,14 @@ def get_specs(req_path):
     if os.path.isfile(abs_path):
         return send_file(abs_path, as_attachment=True)
 
-    #List Directroy
+    # List Directroy
     if req_path == "specs" or req_path == "specs/":
         # Show directory contents
-        results=[]
+        results = []
         for item in get_spec_index():
             results.append({
-                 'name':item['name'], 
-                 'url':item['url'] })
+                'name': item['name'],
+                'url': item['url']})
 
         return json.dumps(results)
 
@@ -192,12 +202,12 @@ def get_spec_index():
     return spec_index
 
 
-#Automatically identify array and load Api
+# Automatically identify array and load Api
 @app.route('/identify', methods=['GET'])
 def identify(*args, **kwargs):
     if "flasharray" not in request.cookies or request.cookies["flasharray"] == "change-me":
         return "Error: Please set FlashArray/FlashBlade IP / Hostname at top of page before making API Calls"
-    
+
     host = "https://{}/api/".format(request.cookies["flasharray"])
 
     try:
@@ -210,7 +220,7 @@ def identify(*args, **kwargs):
     if api_version_response.status_code != 200:
         # Error this is probably not FA or FB
         return "This doesn't look like a FlashArray or FlashBlade with REST API support"
-    
+
     versions_response = json.loads(api_version_response.text)
     if 'version' in versions_response:
         versions = versions_response['version']
@@ -222,27 +232,28 @@ def identify(*args, **kwargs):
     else:
         return "This doesn't look like a FlashArray or FlashBlade with REST API support"
 
-    #because different version vs versions don't need this way to detect, but save in case
-    #ident_response = requests.get(
+    # because different version vs versions don't need this way to detect, but save in case
+    # ident_response = requests.get(
     #    host+"1.0/file-systems",
     #    verify=False)
-    
-    #array_type = ""
-    #if ident_response.status_code == 404:
+
+    # array_type = ""
+    # if ident_response.status_code == 404:
     #    array_type = "FlashArray"
-    #elif ident_response.status_code == 403:
+    # elif ident_response.status_code == 403:
     #    array_type = "FlashBlade"
 
-    #load spec index
+    # load spec index
     spec_index = get_spec_index()
-    #find highest match
+    # find highest match
     matches = []
     for spec in spec_index:
         if spec['model'] == array_type and spec['version'] in versions:
             matches.append(spec)
 
-    #return a reverse sorted list of matching spec files.
-    sorted_list =  sorted(matches,key=lambda k: k['version_sort'], reverse=True)
+    # return a reverse sorted list of matching spec files.
+    sorted_list = sorted(
+        matches, key=lambda k: k['version_sort'], reverse=True)
     if len(sorted_list) > 0:
         return redirect('/?urls.primaryName=' + sorted_list[0]['name'])
     return "Sorry, Could not find matching spec."
@@ -260,15 +271,15 @@ def pub_priv_key_pair(*args, **kwargs):
 
     print("======================== Generating an RSA 2048 Bit Key Pair =========================")
     print(data)
-    
-    return Response(data, mimetype="text/plain")                     
+
+    return Response(data, mimetype="text/plain")
 
 # Authenticate
 @app.route('/oauth2_token_from_private_key', methods=['POST'])
 def id_token_from_private_key(*args, **kwargs):
     if "flasharray" not in request.cookies or request.cookies["flasharray"] == "change-me":
         return "Error: Please set FlashArray/FlashBlade IP / Hostname at top of page before making API Calls"
-    
+
     host = "https://{}/oauth2/1.0/token".format(request.cookies["flasharray"])
 
     required_values = ["issuer_name", "client_id", "key_id", "username"]
@@ -281,7 +292,7 @@ def id_token_from_private_key(*args, **kwargs):
                 missing.append(k)
         if missing:
             return "Missing required values {}".format(",".join(missing))
-    
+
         token = generate_id_token(data['issuer_name'], data['client_id'],
                                   data['key_id'], data['username'], private_key)
 
@@ -290,20 +301,22 @@ def id_token_from_private_key(*args, **kwargs):
                          'subject_token': token,
                          'subject_token_type': 'urn:ietf:params:oauth:token-type:jwt'}
         r = requests.post(host, data=oauth_request, verify=False)
-     
+
         print_request(r.request)
         print_response(r)
         r = r.json()
         if 'access_token' in r:
             return str(r['access_token'])
         return('Failed to get proper access token:\n{}'.format(r))
-        
+
     except ValueError as e:
         print(e)
         return "Unable to json decode payload. {}".format(e)
 
 # Token Exchange requires a JWT in the Authorization Bearer header with this format
 # client_id, key_id, client_name, username
+
+
 def generate_id_token(issuer, client_id, key_id, sub, private_key, expire_hours=24):
     private_key = private_key.replace(' ', '\n', )
     private_key = private_key.replace('\n\n', '\n').strip()
@@ -315,13 +328,13 @@ def generate_id_token(issuer, client_id, key_id, sub, private_key, expire_hours=
 
     addtl_header = {
         "kid": key_id,
-        }
+    }
     payload = {
-            "aud": client_id,
-            "sub": sub,
-            "iss": issuer,
-            "iat": int(time()),
-            "exp": int(time()) + expire_hours*3600
+        "aud": client_id,
+        "sub": sub,
+        "iss": issuer,
+        "iat": int(time()),
+        "exp": int(time()) + expire_hours * 3600
     }
     print("\n================================== Genrating a JWT =============================================")
     print("\nPayload:")
@@ -332,21 +345,20 @@ def generate_id_token(issuer, client_id, key_id, sub, private_key, expire_hours=
     print("Creating jwt using Python jwt library:")
 
     print("\njwt.encode(payload, private_key, algorithm='RS256', headers=addtl_header)")
-    
-    new_jwt = jwt.encode(payload, private_key, algorithm='RS256', headers=addtl_header)
-    
+
+    new_jwt = jwt.encode(payload, private_key,
+                         algorithm='RS256', headers=addtl_header)
+
     # python3 jwt returns bytes, so we need to decode to string
-    #print("ID Token: {}".format(new_jwt.decode()))
+    # print("ID Token: {}".format(new_jwt.decode()))
     return new_jwt.decode()
 
-    
 
 # Generate a token_id to use for authorization
 @app.route('/oauth2_token_id', methods=['POST'])
 def token_id(*args, **kwargs):
-    
+
     data = {}
-    
 
     return json.dumps(data)
 
