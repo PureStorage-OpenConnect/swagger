@@ -344,7 +344,6 @@ securityDefinitions:
     type: apiKey
 swagger: '2.0'
 tags:
-- name: Authorization
 - description: Authorization endpoint description (placeholder)
   name: Authorization
 - description: Administrators endpoint description (placeholder)

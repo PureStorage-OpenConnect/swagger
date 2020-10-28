@@ -46,7 +46,6 @@ paths:
           name: api-token
           type: string
           required: true
-tags:
-- {name: Authorization}
+tags: []
 
     

@@ -254,7 +254,6 @@ securityDefinitions:
 swagger: '2.0'
 tags:
 - name: Authorization
-- name: Authorization
 - name: Administrators
 - name: Alerts
 - name: Alert Watchers

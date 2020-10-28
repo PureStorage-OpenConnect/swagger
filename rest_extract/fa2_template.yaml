@@ -18,30 +18,44 @@ info:
     
     ### 
 
-
-
-
     Intro to how OAuth2 works with the 2.0 version: [Intro](https://support.purestorage.com/FlashArray/PurityFA/Purity_FA_REST_API/Reference/REST_API_2.0_Authentication_Guide)
     
 securityDefinitions:
-  AuthorizationHeader:
+  OAuth2-Bearer-Token:
     type: apiKey
     in: header
     name: Authorization
-  SessionToken:
+  X-Auth-Token:
     type: apiKey
     in: header
     name: x-auth-token
 
 security:
-- AuthorizationHeader: []
-- SessionToken: []
+- OAuth2-Bearer-Token: []
+- X-Auth-Token: []
 
 
 paths:
   /oauth2_pub_priv_key_pair:
     get:
-      description: Returns a public and private key pair, This is not part of the FlashArray API, it's a helper endpoint making it easy to generate an oauth2 token_id in this Swagger UI. 
+      description: |-
+        Returns a public and private key pair, This is not part of the FlashArray API, 
+        it's a helper endpoint making it easier to generate an oauth2 token_id in this Swagger UI. 
+        They keys are generated in the Docker container running on this machine.
+        
+        Recommend to NOT use this API but to use OpenSSL instead for production use cases:
+          You can generate a public and private RSA key pair like this:
+
+            openssl genrsa -des3 -out private.pem 2048
+            
+            That generates a 2048-bit RSA key pair, encrypts them with a password you provide and writes them to a file. 
+            You need to next extract the public key file. You will use this, for instance, on your web server to encrypt 
+            content so that it can only be read with the private key.
+            
+            Export the RSA Public Key to a File
+            This is a command that is
+            
+            openssl rsa -in private.pem -outform PEM -pubout -out public.pem
       responses:
         200:
           description: "Token Generated"
@@ -59,16 +73,29 @@ paths:
     post:
       consumes: 
         - "text/plain"
-      description: Authenticates to Flasharray, This returns a token_id (think session id), from an existing API Client, This is not part of the FlashArray API, it's a helper endpoint making it easy to generate an oauth2 token_id in this Swagger UI.
+      produces:
+        - "application/json"
+      description: |-
+        Authenticates to Flasharray, This returns a token_id (think session id), from an existing API Client, 
+        This is not part of the FlashArray API, it's a helper endpoint making it easy to generate an 
+        oauth2 token_id in this Swagger UI.  The private key is being passed into the Docker container in
+        order to sign the JWT token.  Take a look at the Docker container output to see more details 
+        of what is happening.
+
+        Copy the output value, Authorization header, and then click on the green Authorize button at the 
+        top of the page.  Paste in the value into 
       responses:
         200:
           description: "Token Generated"
           schema:
             type: object
             properties:
-              access_token:
+              Authorization:
                 type: string
                 description: An OAuth bearer token to be used in the Authorization header for authorization to API endpoints.
+              description:
+                type: string
+                desciption: How to use token
 
             example: {"username":"pureuser"}
       tags: [Auth Helpers]

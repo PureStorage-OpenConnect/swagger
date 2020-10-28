@@ -118,14 +118,10 @@ def proxy_to_fa(*args, **kwargs):
 
     # this is used by FA 2.x & FB
     if "x-auth-token" not in swagger_headers and "Authorization" not in swagger_headers:
-        if "x-auth-token" in request.cookies:
+        if "x-auth-token" in request.cookies and request.cookies['x-auth-token'].strip():
             # don't want to replace a header explicity passed by the swagger UI
             # but if it doesn't exist and we have one as a cookie
             swagger_headers['x-auth-token'] = request.cookies['x-auth-token']
-            # remove this so it doesn't get passed to flash array
-
-        elif "Authorization" in request.cookies:
-            swagger_headers['Authorization'] = request.cookies['Authorization']
 
     swagger_headers['User-Agent'] = USER_AGENT
 
@@ -154,6 +150,11 @@ def proxy_to_fa(*args, **kwargs):
     response_headers = [(name, value) for (name, value) in resp.raw.headers.items()
                         if name.lower() not in excluded_headers]
 
+    print_request(resp.request)
+    print_response(resp)
+
+    proxy_response = Response(resp.content, resp.status_code, response_headers)
+
     # we are going to store x-auth-token in the web browser cookie,
     # instead of doing it server side is in browser cookies
     auth_token = ""
@@ -161,12 +162,9 @@ def proxy_to_fa(*args, **kwargs):
         if 'x-auth-token' in header:
             auth_token = value
     if auth_token != "":
-        response_headers.append(("Set-Cookie", "x-auth-token=" + auth_token))
+        proxy_response.set_cookie("x-auth-token", auth_token, path='/')
 
-    print_request(resp.request)
-    print_response(resp)
-
-    return Response(resp.content, resp.status_code, response_headers)
+    return proxy_response
 
 
 # This either lists the directory, or returns the actual file
@@ -306,7 +304,13 @@ def id_token_from_private_key(*args, **kwargs):
         print_response(r)
         r = r.json()
         if 'access_token' in r:
-            return str(r['access_token'])
+            data = {
+                'Authorization': 'Bearer ' + r['access_token'],
+                'description': "Use the SwaggerUI Authorize button at the top of the page and copy in the Authorization token to use other API endpoints."}
+
+            r = Response(json.dumps(data, indent=4))
+            r.set_cookie('x-auth-token', path='/', expires=0)
+            return r
         return('Failed to get proper access token:\n{}'.format(r))
 
     except ValueError as e:
@@ -318,9 +322,7 @@ def id_token_from_private_key(*args, **kwargs):
 
 
 def generate_id_token(issuer, client_id, key_id, sub, private_key, expire_hours=24):
-    private_key = private_key.replace(' ', '\n', )
-    private_key = private_key.replace('\n\n', '\n').strip()
-    private_key = private_key.replace('\nRSA\nPRIVATE\n', ' RSA PRIVATE ')
+    private_key = private_key.strip()
     issuer = issuer.strip()
     client_id = client_id.strip()
     key_id = key_id.strip()

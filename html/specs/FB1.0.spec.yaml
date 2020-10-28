@@ -78,5 +78,4 @@ securityDefinitions:
 swagger: '2.0'
 tags:
 - name: Authorization
-- name: Authorization
 - name: File Systems

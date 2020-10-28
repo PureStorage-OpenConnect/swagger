@@ -61,7 +61,8 @@ def one_off_fixes(file_download_root):
         file_full_path = file_download_root + filepath
         with open(file_full_path) as f:
             temp = yaml.safe_load(f)
-        del(temp['example'])
+        if 'example' in temp:
+            del(temp['example'])
         with open(file_full_path, "w") as f:
             f.write(yaml.dump(temp))
 
@@ -69,6 +70,14 @@ def one_off_fixes(file_download_root):
     delete_example('/queries/FA2.0/limit.query.yaml')
     delete_example('/queries/FB1.0/start.query.yaml')
     delete_example('/queries/FB1.0/limit.query.yaml')
+
+    # Add a note to Authorization header for FA 2.x
+    file_full_path = file_download_root + '/queries/FA2.0/authorization.header.yaml'
+    with open(file_full_path) as f:
+        temp = yaml.safe_load(f)
+    temp['description'] = "Don't use this field, use the Authorize button at top right side of this page. " + temp['description']
+    with open(file_full_path, "w") as f:
+        f.write(yaml.dump(temp))
 
 
 def main():

@@ -44,8 +44,8 @@ info:
     \ UI tool, translates that into a cookie so the webbrowser will send on subsequent\
     \ calls.  This Swagger UI tool then\ntranslates that cookie back into a header\
     \ when making the API request to the array.\n\n## Authenticate using OAuth\n###\
-    \ Manually generate an id_token \n\n### \n\n\n\n\nIntro to how OAuth2 works with\
-    \ the 2.0 version: [Intro](https://support.purestorage.com/FlashArray/PurityFA/Purity_FA_REST_API/Reference/REST_API_2.0_Authentication_Guide)"
+    \ Manually generate an id_token \n\n### \n\nIntro to how OAuth2 works with the\
+    \ 2.0 version: [Intro](https://support.purestorage.com/FlashArray/PurityFA/Purity_FA_REST_API/Reference/REST_API_2.0_Authentication_Guide)"
   title: FlashArray REST API
   version: '2.0'
   x-logo:
@@ -94,9 +94,19 @@ paths:
     $ref: ../paths/TEx-v2/oauth-token.path.yaml
   /oauth2_pub_priv_key_pair:
     get:
-      description: Returns a public and private key pair, This is not part of the
-        FlashArray API, it's a helper endpoint making it easy to generate an oauth2
-        token_id in this Swagger UI.
+      description: "Returns a public and private key pair, This is not part of the\
+        \ FlashArray API, \nit's a helper endpoint making it easier to generate an\
+        \ oauth2 token_id in this Swagger UI. \nThey keys are generated in the Docker\
+        \ container running on this machine.\n\nRecommend to NOT use this API but\
+        \ to use OpenSSL instead for production use cases:\n  You can generate a public\
+        \ and private RSA key pair like this:\n\n    openssl genrsa -des3 -out private.pem\
+        \ 2048\n    \n    That generates a 2048-bit RSA key pair, encrypts them with\
+        \ a password you provide and writes them to a file. \n    You need to next\
+        \ extract the public key file. You will use this, for instance, on your web\
+        \ server to encrypt \n    content so that it can only be read with the private\
+        \ key.\n    \n    Export the RSA Public Key to a File\n    This is a command\
+        \ that is\n    \n    openssl rsa -in private.pem -outform PEM -pubout -out\
+        \ public.pem"
       responses:
         200:
           description: Token Generated
@@ -115,10 +125,14 @@ paths:
     post:
       consumes:
       - text/plain
-      description: Authenticates to Flasharray, This returns a token_id (think session
-        id), from an existing API Client, This is not part of the FlashArray API,
-        it's a helper endpoint making it easy to generate an oauth2 token_id in this
-        Swagger UI.
+      description: "Authenticates to Flasharray, This returns a token_id (think session\
+        \ id), from an existing API Client, \nThis is not part of the FlashArray API,\
+        \ it's a helper endpoint making it easy to generate an \noauth2 token_id in\
+        \ this Swagger UI.  The private key is being passed into the Docker container\
+        \ in\norder to sign the JWT token.  Take a look at the Docker container output\
+        \ to see more details \nof what is happening.\n\nCopy the output value, Authorization\
+        \ header, and then click on the green Authorize button at the \ntop of the\
+        \ page.  Paste in the value into "
       parameters:
       - description: Issuer value displayed in the FlashArray API Registration page
           or pureapiclient list ) by default it's the same name as API Client
@@ -147,6 +161,8 @@ paths:
         required: true
         schema:
           type: string
+      produces:
+      - application/json
       responses:
         200:
           description: Token Generated
@@ -154,9 +170,12 @@ paths:
             example:
               username: pureuser
             properties:
-              access_token:
+              Authorization:
                 description: An OAuth bearer token to be used in the Authorization
                   header for authorization to API endpoints.
+                type: string
+              description:
+                desciption: How to use token
                 type: string
             type: object
       tags:
@@ -166,14 +185,14 @@ produces:
 schemes:
 - https
 security:
-- AuthorizationHeader: []
-- SessionToken: []
+- OAuth2-Bearer-Token: []
+- X-Auth-Token: []
 securityDefinitions:
-  AuthorizationHeader:
+  OAuth2-Bearer-Token:
     in: header
     name: Authorization
     type: apiKey
-  SessionToken:
+  X-Auth-Token:
     in: header
     name: x-auth-token
     type: apiKey

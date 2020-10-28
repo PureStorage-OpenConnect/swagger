@@ -1,5 +1,7 @@
-description: Access token (in JWT format) required to use any API endpoint (except
-  `/oauth2`, `/login`, and `/logout`)
+description: Don't use this field, use the Authorize button at top right side of this
+  page. Don't use this field, use the Authorize button at top right side of this page.
+  Access token (in JWT format) required to use any API endpoint (except `/oauth2`,
+  `/login`, and `/logout`)
 in: header
 name: Authorization
 type: string
