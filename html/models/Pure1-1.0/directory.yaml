@@ -1,0 +1,30 @@
+allOf:
+- $ref: _arrays-built-in.yaml
+- properties:
+    created:
+      description: Creation time in milliseconds since UNIX epoch.
+      example: 1502729489760
+      format: int64
+      readOnly: true
+      type: integer
+    destroyed:
+      description: Is the managed directory destroyed?
+      example: false
+      type: boolean
+    directory_name:
+      description: The managed directory name without the file system name prefix.
+        A managed directory full name is constructed in the form of `FILE_SYSTEM:DIR`
+        where `FILE_SYSTEM` is the file system name and `DIR` is the value of this
+        field. On FlashArray versions below `6.0.2`, the value is always `null`.
+      readOnly: true
+      type: string
+    file_system:
+      allOf:
+      - $ref: _fixed-reference.yaml
+      description: The file system that this managed directory is in.
+      readOnly: true
+    path:
+      description: Absolute path of the managed directory in the file system.
+      readOnly: true
+      type: string
+description: A managed directory on an array.

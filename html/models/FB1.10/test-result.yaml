@@ -1,0 +1,7 @@
+allOf:
+- $ref: ../../models/FB1.3/test-result.yaml
+- properties:
+    result_details:
+      description: Additional information about the test result.
+      example: Timeout connecting to phonehome endpoint
+      type: string

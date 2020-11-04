@@ -1,0 +1,17 @@
+allOf:
+- $ref: ../../models/FB1.8/policy.yaml
+- properties:
+    is_local:
+      description: -> Returns a value of `true` if the policy is defined on the local
+        array. Returns a value of `false` if the policy is defined on the remote array.
+      readOnly: true
+      type: boolean
+    location:
+      allOf:
+      - $ref: ../../models/FB1.8/_fixed-reference.yaml
+      description: Reference to the array where the policy is defined.
+      readOnly: true
+    rules:
+      items:
+        $ref: ../../models/FB1.10/_policy_rule.yaml
+      type: array

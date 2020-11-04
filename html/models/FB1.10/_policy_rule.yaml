@@ -1,0 +1,25 @@
+description: The rules of the policy. Each policy can have up to 5 rules.
+properties:
+  at:
+    description: Specify the number of milliseconds since midnight at which to take
+      a snapshot. Only valid if 'every' is in days. Only the rule with the smallest
+      `every` of a policy is permitted to have `at`.
+    format: int64
+    type: integer
+  every:
+    description: How often to take snapshots. The `every` value for all rules must
+      be multiples of one another.
+    format: int64
+    type: integer
+  keep_for:
+    description: The time to keep the snapshots for, in milliseconds. The rules must
+      have different `keep_for` and the `keep_for` must be increasing when the `every`
+      is increasing.
+    format: int64
+    type: integer
+  time_zone:
+    description: The time zone to use with the `at` time. Default time zone is array
+      time zone.
+    example: America/Los_Angeles
+    type: string
+type: object

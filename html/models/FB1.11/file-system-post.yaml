@@ -1,0 +1,16 @@
+allOf:
+- $ref: ../../models/FB1.9/file-system-post.yaml
+- properties:
+    multi_protocol:
+      allOf:
+      - $ref: ../../models/FB1.11/_multi-protocol-post.yaml
+      description: Configuration options governing the interactions of different protocols
+        when multiple are enabled on the file system.
+    nfs:
+      allOf:
+      - $ref: ../../models/FB1.11/_nfs.yaml
+      description: NFS configuration.
+    smb:
+      allOf:
+      - $ref: ../../models/FB1.11/_smb.yaml
+      description: SMB configuration.

@@ -1,0 +1,14 @@
+allOf:
+- $ref: ../../models/FB1.2/_smb.yaml
+- properties:
+    acl_mode:
+      description: Valid values for existing file systems are `shared` and `native`,
+        and the field can also be `null`. This field is deprecated in favor of the
+        `access_control_style` field on file systems. Modification of this field is
+        allowed and setting its value will change the `access_control_style` field's
+        value to an equivalent value. This field will be `null` if the value of `access_control_style`
+        does not match the behavior of this field being `shared` or `native`. On arrays
+        that don't support REST 1.11, the default for `access_control_style` is `mode-bits`.
+        On arrays that support REST 1.11, the default for `access_control_style` is
+        `shared`.
+      type: string

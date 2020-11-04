@@ -1,0 +1,67 @@
+delete:
+  description: DELETE lifecycle-rules (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.10/bucket_ids.query.yaml
+  - $ref: ../../queries/FB1.10/bucket_names.query.yaml
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: DELETE lifecycle-rules (placeholder)
+  tags:
+  - Buckets
+get:
+  description: GET lifecycle-rules (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.10/bucket_ids.query.yaml
+  - $ref: ../../queries/FB1.10/bucket_names.query.yaml
+  - $ref: ../../queries/FB1.0/filter.query.yaml
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/limit.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - $ref: ../../queries/FB1.0/sort.query.yaml
+  - $ref: ../../queries/FB1.0/start.query.yaml
+  - $ref: ../../queries/FB1.0/token.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.10/lifecycle-rule-get-response.yaml
+  summary: GET lifecycle-rules (placeholder)
+  tags:
+  - Buckets
+patch:
+  description: PATCH lifecycle-rules (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - in: body
+    name: lifecycle
+    required: true
+    schema:
+      $ref: ../../models/FB1.10/lifecycle-rule.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.10/lifecycle-rule-response.yaml
+  summary: PATCH lifecycle-rules (placeholder)
+  tags:
+  - Buckets
+post:
+  description: POST lifecycle-rules (placeholder)
+  parameters:
+  - in: body
+    name: rule
+    required: true
+    schema:
+      $ref: ../../models/FB1.10/lifecycle-rule-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.10/lifecycle-rule-response.yaml
+  summary: POST lifecycle-rules (placeholder)
+  tags:
+  - Buckets

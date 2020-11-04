@@ -1,0 +1,6 @@
+properties:
+  items:
+    items:
+      $ref: ../../models/FB1.10/test-result.yaml
+    type: array
+type: object

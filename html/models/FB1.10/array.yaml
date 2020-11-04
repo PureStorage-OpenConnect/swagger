@@ -1,0 +1,7 @@
+allOf:
+- $ref: ../../models/FB1.9/array.yaml
+- properties:
+    banner:
+      description: A string to be shown when logging in to the array.
+      example: Restricted area. Authorized personnel only.
+      type: string

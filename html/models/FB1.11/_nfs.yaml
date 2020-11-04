@@ -1,0 +1,12 @@
+allOf:
+- $ref: ../../models/FB1.6/_nfs.yaml
+- properties:
+    rules:
+      description: The NFS export rules for the file system. Rules can be applied
+        to an individual client or a range of clients specified by IP address (`ip_address(options)`),
+        netmask (`ip_address/length(options)`), or netgroup (`@groupname(options)`).
+        Possible export options include `rw`, `ro`, `root_squash`, `no_root_squash`,
+        `all_squash`, `no_all_squash`, `fileid_32bit`, and `no_fileid_32bit`. If not
+        specified, defaults to `*(rw,no_root_squash)`.
+      example: 1.0.0.0/8(rw,no_root_squash)
+      type: string

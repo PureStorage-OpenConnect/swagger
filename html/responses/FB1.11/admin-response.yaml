@@ -1,0 +1,7 @@
+properties:
+  items:
+    description: A list of administrative account objects.
+    items:
+      $ref: ../../models/FB1.11/admin.yaml
+    type: array
+type: object

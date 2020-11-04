@@ -1,0 +1,61 @@
+delete:
+  description: DELETE object-store-access-keys (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.2/names_required.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: DELETE object-store-access-keys (placeholder)
+  tags:
+  - Object Store Access Keys
+get:
+  description: GET object-store-access-keys (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.0/filter.query.yaml
+  - $ref: ../../queries/FB1.0/limit.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - $ref: ../../queries/FB1.0/sort.query.yaml
+  - $ref: ../../queries/FB1.0/start.query.yaml
+  - $ref: ../../queries/FB1.0/token.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.10/object-store-access-key-get-response.yaml
+  summary: GET object-store-access-keys (placeholder)
+  tags:
+  - Object Store Access Keys
+patch:
+  description: PATCH object-store-access-keys (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.2/names_required.query.yaml
+  - in: body
+    name: object-store-access-key
+    required: true
+    schema:
+      $ref: ../../models/FB1.10/object-store-access-key.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.10/object-store-access-key-response.yaml
+  summary: PATCH object-store-access-keys (placeholder)
+  tags:
+  - Object Store Access Keys
+post:
+  description: POST object-store-access-keys (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.10/access_key_names.query.yaml
+  - in: body
+    name: object-store-access-key
+    required: true
+    schema:
+      $ref: ../../models/FB1.10/object-store-access-key-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.10/object-store-access-key-response.yaml
+  summary: POST object-store-access-keys (placeholder)
+  tags:
+  - Object Store Access Keys

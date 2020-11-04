@@ -1,0 +1,7 @@
+allOf:
+- $ref: ../../models/FB1.8/admin-patch.yaml
+- properties:
+    public_key:
+      description: Public key for SSH access. Supported key types are `Ed25519` and
+        `RSA`.
+      type: string

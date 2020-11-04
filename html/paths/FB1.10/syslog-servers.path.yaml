@@ -1,0 +1,65 @@
+delete:
+  description: Delete a configured syslog server and stop forwarding syslog messages.
+  parameters:
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.10/names_for_syslog.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: DELETE syslog-servers (placeholder)
+  tags:
+  - Syslog
+get:
+  description: Return a list of configured syslog servers.
+  parameters:
+  - $ref: ../../queries/FB1.0/filter.query.yaml
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/limit.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - $ref: ../../queries/FB1.0/sort.query.yaml
+  - $ref: ../../queries/FB1.0/start.query.yaml
+  - $ref: ../../queries/FB1.0/token.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.10/syslog-server-get-response.yaml
+  summary: GET syslog-servers (placeholder)
+  tags:
+  - Syslog
+patch:
+  description: Modify the URI of a configured syslog server.
+  parameters:
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.10/names_for_syslog.query.yaml
+  - in: body
+    name: syslog-server
+    required: true
+    schema:
+      $ref: ../../models/FB1.10/syslog-server-post-or-patch.yaml
+  responses:
+    200:
+      description: Returns the newly updated syslog server.
+      schema:
+        $ref: ../../responses/FB1.10/syslog-server-response.yaml
+  summary: PATCH syslog-servers (placeholder)
+  tags:
+  - Syslog
+post:
+  description: Configure a new syslog server. Transmission of syslog messages is enabled
+    immediately.
+  parameters:
+  - $ref: ../../queries/FB1.10/names_for_syslog.query.yaml
+  - in: body
+    name: syslog-server
+    required: true
+    schema:
+      $ref: ../../models/FB1.10/syslog-server-post-or-patch.yaml
+  responses:
+    200:
+      description: Returns the newly configured syslog server.
+      schema:
+        $ref: ../../responses/FB1.10/syslog-server-response.yaml
+  summary: POST syslog-servers (placeholder)
+  tags:
+  - Syslog

@@ -1,0 +1,13 @@
+properties:
+  action:
+    description: The `action` that the user can perform on the `resource_type`. Typical
+      values include `get`, `patch`, `post`, and `delete`. Values can also be finer
+      grained.
+    example: get
+    type: string
+  resource_type:
+    description: The `resource_type` that this `permission` affects.
+    example: file-systems
+    type: string
+readOnly: true
+type: object
