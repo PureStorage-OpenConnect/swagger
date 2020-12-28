@@ -1,0 +1,71 @@
+delete:
+  description: Deletes a configured syslog server and stop forwarding syslog messages.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: Delete syslog server
+  tags:
+  - Syslog
+get:
+  description: Displays a list of configured syslog servers.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.4/syslog-server-get-response.yaml
+  summary: List syslog servers
+  tags:
+  - Syslog
+patch:
+  description: Modifies the URI of a configured syslog server.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - in: body
+    name: syslog-server
+    required: true
+    schema:
+      $ref: ../../models/FA2.4/syslog-server.yaml
+  responses:
+    200:
+      description: Displays the newly updated syslog server.
+      schema:
+        $ref: ../../responses/FA2.4/syslog-server-response.yaml
+  summary: Modify syslog server
+  tags:
+  - Syslog
+post:
+  description: Creates a new syslog server. Transmission of syslog messages is enabled
+    immediately.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - in: body
+    name: syslog-server
+    required: true
+    schema:
+      $ref: ../../models/FA2.4/syslog-server.yaml
+  responses:
+    200:
+      description: Displays the newly configured syslog server.
+      schema:
+        $ref: ../../responses/FA2.4/syslog-server-response.yaml
+  summary: Create syslog server
+  tags:
+  - Syslog

@@ -1,0 +1,28 @@
+get:
+  description: Displays pod replication performance data, organized by array. The
+    data returned is the real-time and historical performance data for each replication
+    type at the pod level. Values include `continuous`, `periodic`, `resync`, and
+    `sync`.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/destroyed.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/history_end_time.query.yaml
+  - $ref: ../../queries/FA2.0/history_resolution.query.yaml
+  - $ref: ../../queries/FA2.0/history_start_time.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  - $ref: ../../queries/FA2.0/total_only.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.4/pod-performance-replication-by-array-get-response.yaml
+  summary: List pod replication performance data by array
+  tags:
+  - Pods

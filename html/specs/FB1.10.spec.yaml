@@ -408,6 +408,8 @@ tags:
   name: Hardware Connectors
 - description: Keytabs endpoint description (placeholder)
   name: Keytabs
+- description: Lifecycle Rules endpoint description (placeholder)
+  name: Lifecycle Rules
 - description: Link Aggregation Groups endpoint description (placeholder)
   name: Link Aggregation Groups
 - description: Logs endpoint description (placeholder)

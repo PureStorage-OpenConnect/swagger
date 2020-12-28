@@ -1,0 +1,11 @@
+allOf:
+- $ref: ../../models/FA2.0/_performance.yaml
+- properties:
+    service_usec_per_read_op_cache_reduction:
+      description: The percentage reduction in `service_usec_per_read_op` due to data
+        cache hits. For example, a value of 0.25 indicates that the value of `service_usec_per_read_op`
+        is 25&#37; lower than it would have been without any data cache hits.
+      format: float
+      maximum: 1.0
+      minimum: 0.0
+      type: number

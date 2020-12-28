@@ -1,0 +1,14 @@
+properties:
+  items:
+    description: A list of pod performance replication objects, arranged by array.
+    items:
+      $ref: ../../models/FA2.4/pod-performance-replication-by-array.yaml
+    type: array
+  total:
+    description: The aggregate value of all items after filtering. When applicable,
+      the average value is displayed instead. The values are displayed for each field
+      if meaningful.
+    items:
+      $ref: ../../models/FA2.4/pod-performance-replication-by-array.yaml
+    type: array
+type: object

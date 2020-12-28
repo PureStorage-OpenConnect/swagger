@@ -1,0 +1,16 @@
+allOf:
+- $ref: ../../models/FA2.4/certificate.yaml
+- properties:
+    days:
+      description: The number of days that the self-signed certificate is valid. If
+        not specified, defaults to 3650.
+      example: 3650
+      format: int32
+      type: integer
+    key:
+      description: The text of private key.
+      type: string
+    passphrase:
+      description: The passphrase used to encrypt `private_key`.
+      type: string
+  type: object

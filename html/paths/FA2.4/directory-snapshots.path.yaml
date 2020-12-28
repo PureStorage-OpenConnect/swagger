@@ -1,0 +1,86 @@
+delete:
+  description: Deletes a directory snapshot that has been destroyed and is pending
+    eradication. Eradicated directory snapshots cannot be recovered. Directory snapshots
+    are destroyed by using the PATCH method. The `ids` or `names` parameter is required,
+    but cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: Delete directory snapshot
+  tags:
+  - Directory Snapshots
+get:
+  description: Displays a list of directory snapshots, including those pending eradication.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/destroyed.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/source_ids.query.yaml
+  - $ref: ../../queries/FA2.0/source_names.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  - $ref: ../../queries/FA2.0/total_only.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.3/directory-snapshot-get-response.yaml
+  summary: List directory snapshots
+  tags:
+  - Directory Snapshots
+patch:
+  description: Modifies a directory snapshot. You can destroy, recover, or update
+    the policy or time remaining of a directory snapshot. To destroy a directory snapshot,
+    set `destroyed=true`. To recover a directory snapshot that has been destroyed
+    and is pending eradication, set `destroyed=false`. The `ids` or `names` parameter
+    is required, but cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - in: body
+    name: directory-snapshot
+    required: true
+    schema:
+      $ref: ../../models/FA2.3/directory-snapshot-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.3/directory-snapshot-response.yaml
+  summary: Modify directory snapshot
+  tags:
+  - Directory Snapshots
+post:
+  description: Creates a snapshot of the contents of a directory. The `source_ids`
+    or `source_names` parameter is required, but cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/source_ids.query.yaml
+  - $ref: ../../queries/FA2.0/source_names.query.yaml
+  - in: body
+    name: directory-snapshot
+    required: true
+    schema:
+      $ref: ../../models/FA2.4/directory-snapshot-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.3/directory-snapshot-response.yaml
+  summary: Create directory snapshot
+  tags:
+  - Directory Snapshots

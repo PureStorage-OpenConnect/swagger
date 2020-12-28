@@ -1,0 +1,6 @@
+properties:
+  enabled:
+    description: If set to `true`, email notifications will be sent to this watcher
+      for alerts. If set to `false`, email notifications are disabled.
+    type: boolean
+type: object

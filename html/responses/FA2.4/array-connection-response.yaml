@@ -1,0 +1,6 @@
+properties:
+  items:
+    items:
+      $ref: ../../models/FA2.4/array-connection.yaml
+    type: array
+type: object

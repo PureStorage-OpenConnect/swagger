@@ -1,0 +1,14 @@
+allOf:
+- $ref: ../../models/FA2.0/_resource.yaml
+- description: A token that is required to perform a factory reset of the array. A
+    factory reset of the array permanently eradicates all data and deletes all configurations,
+    restoring the state of the array to the original manufacturer settings.
+  properties:
+    token:
+      description: A random number required as input to perform a factory reset of
+        the array.
+      example: 4671919
+      format: int64
+      readOnly: true
+      type: integer
+  type: object

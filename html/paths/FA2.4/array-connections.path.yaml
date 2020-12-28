@@ -1,0 +1,69 @@
+delete:
+  description: Deletes the connection to the current array from the specified array.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: Delete an array connection
+  tags:
+  - Array Connections
+get:
+  description: Display a list of connected arrays.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.4/array-connection-get-response.yaml
+  summary: List connected arrays
+  tags:
+  - Array Connections
+patch:
+  description: Modifies the bandwidth throttling attributes for a connected array.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - in: body
+    name: array-connection
+    required: true
+    schema:
+      $ref: ../../models/FA2.4/_throttle.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.4/array-connection-response.yaml
+  summary: Modify an array connection
+  tags:
+  - Array Connections
+post:
+  description: Creates a connection between the current array and the specified array.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - in: body
+    name: array-connection
+    required: true
+    schema:
+      $ref: ../../models/FA2.4/array-connection-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.4/array-connection-response.yaml
+  summary: Create an array connection
+  tags:
+  - Array Connections

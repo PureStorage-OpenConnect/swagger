@@ -9,3 +9,4 @@ pdf/
 rest_extract/pdfs*
 *.pyc
 __pycache__
+html/original_spec/*

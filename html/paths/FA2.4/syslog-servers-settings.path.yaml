@@ -1,0 +1,38 @@
+get:
+  description: Displays syslog settings. Values include `continuation_token`, `items`,
+    `more_items_remaining`, and `total_item_count`.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.4/syslog-server-settings-get-response.yaml
+  summary: List syslog settings
+  tags:
+  - Syslog
+patch:
+  description: Modifies syslog settings. Values include `continuation_token`, `items`,
+    `more_items_remaining`, and `total_item_count`.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - in: body
+    name: syslog-server-settings
+    required: true
+    schema:
+      $ref: ../../models/FA2.4/syslog-server-settings.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.4/syslog-server-settings-response.yaml
+  summary: Modify syslog settings
+  tags:
+  - Syslog

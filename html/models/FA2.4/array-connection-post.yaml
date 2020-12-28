@@ -1,0 +1,29 @@
+allOf:
+- type: object
+- properties:
+    connection_key:
+      description: The connection key of the target array.
+      example: 6207d123-d123-0b5c-5fa1-95fabc5c7123
+      type: string
+    management_address:
+      description: Management IP address of the target array.
+      example: 10.202.101.78
+      type: string
+    replication_addresses:
+      description: IP addresses and FQDNs of the target arrays. Configurable only
+        when `replication_transport` is set to `ip`. If not configured, will be set
+        to all the replication addresses available on the target array at the time
+        of the POST.
+      items:
+        example: 10.202.101.70
+        type: string
+      type: array
+    replication_transport:
+      description: The protocol used to transport data betwen the local array and
+        the remote array. Valid values are `ip` and `fc`. The default is `ip`.
+      example: ip
+      type: string
+    type:
+      description: The type of replication. Valid values are `async-replication` and
+        `sync-replication`.
+      type: string

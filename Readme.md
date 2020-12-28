@@ -9,15 +9,14 @@ Requires [docker](https://docs.docker.com/install/) to be installed
 > docker run -it --rm -p 80:5000 quay.io/purestorage/swagger 
 
 Then open your browser to http://127.0.0.1
-Then select an API spec and enter your FlashArray or FlashBlade IP
-That's it!
+Then select an API spec and enter your FlashArray or FlashBlade IP.
 
 ## To stop run:
 just ctrl^c on the console docker container 
 
 ## Update to the latest version
 
-> docker pull sile16/pureswagger
+> docker pull quay.io/purestorage/swagger
 
 
 ## Screenshots
@@ -46,5 +45,5 @@ just ctrl^c on the console docker container
 ## Notes:
 
 In order to send API calls to an array you must 
-1.  Have a FlashArray or FlashBlade
+1.  Have a FlashArray or FlashBlade and login credentials
 
