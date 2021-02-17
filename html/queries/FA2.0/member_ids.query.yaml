@@ -1,7 +1,0 @@
-collectionFormat: csv
-description: A comma-separated list of member IDs.
-in: query
-items:
-  type: string
-name: member_ids
-type: array

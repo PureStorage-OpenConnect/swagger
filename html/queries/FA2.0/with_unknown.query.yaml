@@ -1,8 +1,0 @@
-description: If set to `true`, unstretches the specified pod from the specified array
-  by force. Use the `with_unknown` parameter in the following rare event&#58; the
-  local array goes offline while the pod is still stretched across two arrays, the
-  status of the remote array becomes unknown, and there is no guarantee that the pod
-  is online elsewhere.
-in: query
-name: with_unknown
-type: boolean

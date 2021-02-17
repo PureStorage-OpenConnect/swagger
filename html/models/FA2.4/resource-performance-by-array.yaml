@@ -1,7 +1,0 @@
-allOf:
-- $ref: resource-performance.yaml
-- properties:
-    array:
-      allOf:
-      - $ref: ../../models/FA2.0/_resource.yaml
-      description: The array on which the performance metrics were recorded.

@@ -1,7 +1,0 @@
-type: object
-properties:
-  items:
-    type: array
-    items:
-      $ref: ../../models/FB1.8/certificate-group.yaml
-    description: A list of certificate group objects.

@@ -1,7 +1,0 @@
-properties:
-  items:
-    description: A list of pod replica link objects.
-    items:
-      $ref: ../../models/FA2.2/pod-replica-link.yaml
-    type: array
-type: object

@@ -1,6 +1,0 @@
-properties:
-  items:
-    items:
-      $ref: ../../models/FA2.1/remote-volume-snapshot-transfer.yaml
-    type: array
-type: object

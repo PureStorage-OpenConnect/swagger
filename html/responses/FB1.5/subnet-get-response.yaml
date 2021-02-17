@@ -1,3 +1,0 @@
-allOf:
-- $ref: ../../responses/FB1.0/page-info.yaml
-- $ref: ../../responses/FB1.5/subnet-response.yaml

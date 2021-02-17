@@ -1,9 +1,0 @@
-allOf:
-- $ref: ../../models/FB1.5/bucket.yaml
-- properties:
-    versioning:
-      type: string
-      readOnly: true
-      description: >-
-        The versioning state for objects within the bucket.
-        Valid values are `none`, `enabled`, and `suspended`.

@@ -1,6 +1,0 @@
-properties:
-  items:
-    items:
-      $ref: ../../models/FB1.9/array-connection-key.yaml
-    type: array
-type: object

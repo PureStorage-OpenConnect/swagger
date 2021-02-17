@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../../models/FB1.5/array.yaml
-- properties:
-    _as_of:
-      description: Array time in milliseconds since UNIX epoch.
-      type: integer
-      format: int64
-      readOnly: true

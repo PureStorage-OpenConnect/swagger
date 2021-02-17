@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../../responses/FA2.4/total-item-count-response.yaml
-- properties:
-    items:
-      items:
-        $ref: ../../models/FA2.2/test-result-with-resource.yaml
-      type: array
-  type: object

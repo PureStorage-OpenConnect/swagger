@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../../models/FB1.1/file-system-snapshot.yaml
-- $ref: ../../models/FB1.0/_built-in.yaml
-- properties:
-    policy:
-      description: A reference to the associated policy.
-      allOf:
-      - $ref: ../../models/FB1.5/_fixed-reference.yaml

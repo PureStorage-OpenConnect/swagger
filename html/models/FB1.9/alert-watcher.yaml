@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../../models/FB1.8/alert-watcher.yaml
-- properties:
-    minimum_notification_severity:
-      description: The minimum severity that an alert must have in order for emails
-        to be sent to the watcher. Possible values include `info`, `warning`, and
-        `critical`.
-      type: string

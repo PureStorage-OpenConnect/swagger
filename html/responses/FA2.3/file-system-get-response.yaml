@@ -1,3 +1,0 @@
-allOf:
-- $ref: ../../responses/FA2.1/page-info.yaml
-- $ref: ../../responses/FA2.3/file-system-response.yaml

@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../../responses/FA2.1/page-info.yaml
-- properties:
-    items:
-      description: A list of protection group performance objects.
-      items:
-        $ref: ../../models/FA2.1/protection-group-performance.yaml
-      type: array

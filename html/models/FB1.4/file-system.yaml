@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../../models/FB1.2/file-system.yaml
-- properties:
-    hard_limit_enabled:
-      type: boolean
-      description: >-
-        Is the file system's size a hard limit quota?
-        If not specified, defaults to `false`.

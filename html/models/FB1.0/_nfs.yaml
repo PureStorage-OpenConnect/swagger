@@ -1,8 +1,0 @@
-type: object
-properties:
-  enabled:
-    type: boolean
-    description: Is the protocol enabled? If not specified, defaults to `false`.
-  rules:
-    type: string
-    description: NFS rules.

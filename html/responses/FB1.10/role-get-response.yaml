@@ -1,7 +1,0 @@
-allOf:
-- $ref: ../../responses/FB1.0/page-info.yaml
-- properties:
-    items:
-      items:
-        $ref: ../../models/FB1.10/role.yaml
-      type: array

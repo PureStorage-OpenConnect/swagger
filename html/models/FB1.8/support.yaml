@@ -1,3 +1,0 @@
-allOf:
-- $ref: ../../models/FB1.6/support.yaml
-- $ref: ../../models/FB1.0/_built-in.yaml

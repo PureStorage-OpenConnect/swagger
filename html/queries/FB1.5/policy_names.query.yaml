@@ -1,5 +1,0 @@
-allOf:
-- $ref: ../../queries/FB1.0/_names_query_base.query.yaml
-- name: policy_names
-description: >-
-  A comma-separated list of policy names.

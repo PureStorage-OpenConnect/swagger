@@ -1,6 +1,0 @@
-description: Set to `true` to eradicate contents (e.g., volumes, protection groups,
-  snapshots) and containers (e.g., pods, volume groups). This enables you to eradicate
-  containers with contents.
-in: query
-name: eradicate_contents
-type: boolean

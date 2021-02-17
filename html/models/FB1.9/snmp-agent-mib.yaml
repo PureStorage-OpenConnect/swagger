@@ -1,6 +1,0 @@
-properties:
-  mib:
-    description: MIB text.
-    readOnly: true
-    type: string
-type: object

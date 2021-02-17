@@ -1,9 +1,0 @@
-allOf:
-- $ref: ../../responses/FB1.0/page-info.yaml
-- type: object
-  properties:
-    items:
-      type: array
-      items:
-        $ref: ../../models/FB1.4/client-performance.yaml
-      description: A list of client performance metrics objects.

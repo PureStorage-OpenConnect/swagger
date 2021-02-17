@@ -1,9 +1,0 @@
-name: source_ids
-in: query
-description: >-
-  Performs the operation on the source ID specified.
-  Enter multiple source IDs in comma-separated format.
-type: array
-collectionFormat: csv
-items:
-  type: string

@@ -1,5 +1,0 @@
-description: Set to `true` to have the snapshot be eradicated when it is no longer
-  baseline on source.
-in: query
-name: convert_source_to_baseline
-type: boolean

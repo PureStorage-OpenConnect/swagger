@@ -1,9 +1,0 @@
-description: An association between a policy and a member.
-type: object
-allOf:
-- $ref: ../../models/Pure1-1.0/_time-aware.yaml
-- properties:
-    policy:
-      $ref: ../../models/Pure1-1.0/_fixed-reference.yaml
-    member:
-      $ref: ../../models/Pure1-1.0/_fixed-reference.yaml
