@@ -353,7 +353,7 @@ def generate_id_token(issuer, client_id, key_id, sub, private_key, expire_hours=
 
     # python3 jwt returns bytes, so we need to decode to string
     # print("ID Token: {}".format(new_jwt.decode()))
-    return new_jwt.decode()
+    return new_jwt
 
 
 # Generate a token_id to use for authorization
