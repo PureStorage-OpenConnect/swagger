@@ -21,6 +21,10 @@ just ctrl^c on the console docker container
 
 ## Authentication Examples Videos
 
+
+### FlashBlade 1.x API Token
+[Flash Blade 1.x Token Auth](https://youtu.be/b5uGAvk55Yw)
+
 ### FlashArray 1.x API Token
 [Flash Array 1.x Token Auth](https://youtu.be/iKcWDcDhDH8)
 
