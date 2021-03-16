@@ -17,6 +17,22 @@ just ctrl^c on the console docker container
 ## Update to the latest version
 
 > docker pull quay.io/purestorage/swagger
+> 
+
+## Authentication Examples Videos
+
+
+### FlashBlade 1.x API Token
+[Flash Blade 1.x Token Auth](https://youtu.be/b5uGAvk55Yw)
+
+### FlashArray 1.x API Token
+[Flash Array 1.x Token Auth](https://youtu.be/iKcWDcDhDH8)
+
+### FlashArray 2.2+ API Token
+[Flash Array 2.x Token Auth](https://youtu.be/ZN1CdXnpozU)
+
+### FlashArray 2.0+ OAuth2 API Client Auth
+[Flash Array 2.x OAuth2](https://youtu.be/rqLYTLElJWA)
 
 
 ## Screenshots
