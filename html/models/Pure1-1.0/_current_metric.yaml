@@ -1,0 +1,14 @@
+properties:
+  data:
+    description: The data value.
+    example: 123
+    type: number
+  metric:
+    allOf:
+    - $ref: ../../models/Pure1-1.0/_fixed-reference.yaml
+    description: A reference to the metric this data measures.
+  unit:
+    description: The unit of the metric.
+    example: B
+    type: string
+type: object

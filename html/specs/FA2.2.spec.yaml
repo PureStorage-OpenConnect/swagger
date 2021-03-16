@@ -466,9 +466,13 @@ tags:
     to generate the `key_id`, `id`, and `issuer` values. These values will be used
     as JWT claims for the `subject_token` parameter.
   name: Authorization
-- description: Administrators endpoint description (placeholder)
+- description: The FlashArray has a single default administrative account named `pureuser`.
+    The administrator can add, delete, and modify administrators on the array. Administrator
+    roles may be assigned to user accounts including `array_admin`, `storage_admin`,
+    and `readonly`.
   name: Administrators
-- description: Alerts endpoint description (placeholder)
+- description: Alerts indicate significant events that occur on an array, including
+    whenever a component degrades or the capacity threshold of the component is reached.
   name: Alerts
 - description: An API client represents an identity type. API clients are created
     on the array. To create an API client, register and then enable it on the array.
@@ -476,31 +480,29 @@ tags:
     (`kid` and `aud` tokens) that are issued by the API client are used as claims
     for the JSON Web Token that you create to authenticate into the REST API.
   name: API Clients
-- description: Apps endpoint description (placeholder)
+- description: Apps that extend array functionality can be integrated into the Purity//FA
+    operating system.
   name: Apps
-- description: Arrays endpoint description (placeholder)
+- description: Array features provide the ability to configure settings that affect
+    the operation of the array as a whole and monitor array I/O performance.
   name: Arrays
-- description: Audits endpoint description (placeholder)
+- description: Audit trail records describe administrative actions performed by a
+    user to modify the configuration of an array.
   name: Audits
-- description: A connection gives hosts access to volumes on the array. The system
-    supports private (host-volume) connections and public (host group-volume) connections.
-    A private connection connects one volume to one host. Private connections are
-    typically used for boot volumes and for stand-alone (non-clustered) host applications.
-    A shared connection connects a designated set of hosts (via a host group) to a
-    designated set of volumes, providing the hosts with a consistent "view" of the
-    volumes. All associated hosts use the same LUN to address a given associated volume.
-    All hosts and volumes associated with a host group are automatically connected
-    to each other by virtue of their associations with the group. Shared connections
-    are useful for cluster applications in which several related hosts require consistent
-    (same LUN) connectivity to a set of storage volumes.
+- description: A connection gives hosts access to volumes on the array.
   name: Connections
-- description: Controllers endpoint description (placeholder)
+- description: Controller data includes the name, mode, FlashArray model, Purity//FA
+    software version, and status of each controller in the array.
   name: Controllers
-- description: Directory Services endpoint description (placeholder)
+- description: Manages directory service configurations for integration with LDAP
+    servers (e.g. Active Directory and OpenLDAP) in order to support various array
+    services.
   name: Directory Services
-- description: DNS endpoint description (placeholder)
+- description: DNS attributes include the domain suffix, static name servers, mode
+    (static or DHCP), and search domain.
   name: DNS
-- description: Hardware endpoint description (placeholder)
+- description: Operational status is reported by most of the hardware components in
+    an array, including the chassis, controller, and storage shelf.
   name: Hardware
 - description: Host groups implement consistent connections between a set of hosts
     and one or more volumes. Connections are consistent in the sense that all hosts
@@ -514,9 +516,12 @@ tags:
     and volumes. After a volume has been created, establish a host-volume connection
     so that the host can read data from and write data to the volume.
   name: Hosts
-- description: KMIP endpoint description (placeholder)
+- description: The Key Management Interoperability Protocol (KMIP) server is used
+    in combination with the Pure Storage Rapid Data Locking (RDL) feature and EncryptReduce
+    feature to further secure the encrypted data on a FlashArray.
   name: KMIP
-- description: Maintenance Windows endpoint description (placeholder)
+- description: During a maintenance window, alerts are suppressed that are related
+    to connections, paths, ports, and other resources that are down during maintenance.
   name: Maintenance Windows
 - description: The offload feature enables system administrators to replicate point-in-time
     volume snapshots from the array to an external storage system for long-term retention.
@@ -527,52 +532,37 @@ tags:
 - description: Synchronous replication is managed through pods. A pod representing
     a collection of protection groups and volumes is created on one array and stretched
     to another array, resulting in fully synchronized writes between the two arrays.
-    A pod can contain a mix of volumes, and protection groups with member volumes.
-    Writes to the pod coming into either array are immediately synchronized and seen
-    on both arrays.
   name: Pods
-- description: Ports endpoint description (placeholder)
+- description: The ports on a FlashArray are assigned iSCSI Qualified Names (IQNs),
+    NVMe Qualified Names (NQNs), and Fibre Channel World Wide Names (WWNs).
   name: Ports
 - description: A protection group defines a set of volumes, hosts, or host groups
     (called members) that are protected together through snapshots with point-in-time
     consistency across the member volumes. The members within the protection group
     have common data protection requirements and the same snapshot, replication, and
-    retention schedules. Protection group members include volumes, hosts, and host
-    groups. After a protection group has been created, configure the protection group
-    schedule to generate and replicate snapshots to another array or to an external
-    storage system.
+    retention schedules.
   name: Protection Groups
 - description: Protection group snapshots capture the content of all volumes on the
-    source array for the specified protection group at a single point in time. The
-    snapshot is an immutable image of the volume data at that instance in time. The
-    volumes are either direct members of the protection group or connected to any
-    of its hosts or host groups within a protection group. Volumes are protected through
-    protection group snapshots that are retained locally, replicated to other arrays
-    or storage systems, or both. Protection group snapshots can be manually generated
-    on demand or enabled to automatically generate at scheduled intervals. After a
-    protection group snapshot has been taken, it is either stored on the local array
-    or replicated over to a remote (target) array.
+    source array for the specified protection group at a single point in time.
   name: Protection Group Snapshots
 - description: A remote pod represents a pod that is on a connected array but not
     stretched to this array.
   name: Remote Pods
 - description: A remote protection group represents a protection group that resides
     on an offload target with the source side of the remote protection group being
-    the local array or another array that is connected to the local array. The local
-    array can see remote protection groups of other arrays that are connected to the
-    same offload target.
+    another array that is connected to the local array. The local array can only see
+    the remote protection groups of other arrays if the two arrays are connected.
   name: Remote Protection Groups
 - description: A remote protection group snapshot represents a protection group snapshot
     that resides on an offload target with the source side of the remote protection
-    group snapshot being the local array or another array that is connected to the
-    same offload target. The local array can see remote protection group snapshots
-    of other arrays that are connected to the same offload target.
+    group snapshot being another array that is connected to the local array. The local
+    array can only see the remote protection group snapshots of other arrays if the
+    two arrays are connected.
   name: Remote Protection Group Snapshots
 - description: A remote volume snapshot represents a volume snapshot that resides
     on an offload target with the source side of the remote volume snapshot being
-    the local array or another array that is connected to the same offload target.
-    The local array can see remote volume snapshots of other arrays that are connected
-    to the same offload target.
+    another array that is connected to the local array. The local array can only see
+    the remote volume snapshots of other arrays if the two arrays are connected.
   name: Remote Volume Snapshots
 - description: Manages the Pure Storage Storage Management Initiative Specification
     (SMI-S) provider.

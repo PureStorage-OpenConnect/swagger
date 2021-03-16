@@ -635,15 +635,13 @@ tags:
 - description: Apps that extend array functionality can be integrated into the Purity//FA
     operating system.
   name: Apps
-- description: Arrays features provide the ability to configure settings that affect
-    the array as a whole, monitor array I/O performance, and make sure that the array
-    is operating properly.
+- description: Array features provide the ability to configure settings that affect
+    the operation of the array as a whole and monitor array I/O performance.
   name: Arrays
 - description: Manages connections between arrays.
   name: Array Connections
 - description: Audit trail records describe administrative actions performed by a
-    user to modify the configuration of an array. For example, creating, destroying,
-    or eradicating a volume creates an audit record.
+    user to modify the configuration of an array.
   name: Audits
 - description: Purity//FA creates a self-signed certificate and private key when you
     start the system for the first time. You can use the default certificate, change

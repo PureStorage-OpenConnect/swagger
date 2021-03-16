@@ -1,0 +1,10 @@
+collectionFormat: csv
+description: A comma-separated list of subscription names. If there is not at least
+  one resource that matches each `subscription.name` element, an error is returned.
+  Single quotes are required around all strings.
+in: query
+items:
+  type: string
+name: subscription_names
+type: array
+x-quoted: true

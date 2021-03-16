@@ -1,0 +1,32 @@
+allOf:
+- $ref: ../FA2.2/_built-in-relationship.yaml
+- description: Software bundle to be installed on the array.
+  properties:
+    created:
+      description: Creation time in milliseconds since the UNIX epoch.
+      format: integer
+      min: 0
+      type: number
+    details:
+      description: The detailed reason for the `status`.
+      type: string
+    download_progress:
+      description: The progress of the download. Displayed in decimal format.
+      format: float
+      max: 1
+      min: 0
+      type: number
+    source:
+      description: The location of the upgrade bundle.
+      example: ftp://local/upgrade_bundle.sh
+      type: string
+    status:
+      description: The status of the software bundle. Valid values are `downloading`,
+        `failed`, `ready`, and `verifying`. A status of `downloading` indicates that
+        the array is downloading the upgrade bundle. A status of `failed` indicates
+        that the array has failed to download the upgrade bundle. A status of `ready`
+        indicates that the upgrade bundle is ready to be installed. A status of `verifying`
+        indicates that the array is verifying the upgrade bundle.
+      example: downloading
+      type: string
+  type: object
