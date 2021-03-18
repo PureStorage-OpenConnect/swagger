@@ -1,7 +1,0 @@
-collectionFormat: csv
-description: A comma-separated list of tag keys.
-in: query
-items:
-  type: string
-name: keys
-type: array

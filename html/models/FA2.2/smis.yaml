@@ -1,9 +1,0 @@
-properties:
-  slp_enabled:
-    description: If set to `true`, the Service Location Protocol (SLP) and its ports,
-      TCP 427 and UDP 427, are enabled.
-    type: boolean
-  wbem_https_enabled:
-    description: If set to `true`, the SMI-S provider and its port, TCP 5989 is enabled.
-    type: boolean
-type: object

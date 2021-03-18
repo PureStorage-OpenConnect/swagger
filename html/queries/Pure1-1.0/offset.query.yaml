@@ -1,7 +1,0 @@
-name: offset
-in: query
-description: >-
-  The offset of the first resource to return from a collection.
-type: integer
-format: int32
-minimum: 0

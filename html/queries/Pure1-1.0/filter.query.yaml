@@ -1,6 +1,0 @@
-name: filter
-in: query
-description: >-
-  Exclude resources that don't match the specified criteria.
-  Single quotes are required around all strings inside the filters.
-type: string

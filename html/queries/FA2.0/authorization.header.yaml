@@ -1,5 +1,0 @@
-description: 'Don''t use this field, use the Authorize button at top right side of
-  this page. '
-in: header
-name: Authorization
-type: string

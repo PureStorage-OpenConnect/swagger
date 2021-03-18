@@ -1,6 +1,0 @@
-description: If set to `true`, initializes the Amazon S3/Azure Blob container/Google
-  Cloud Storage in preparation for offloading. The parameter must be set to `true`
-  if this is the first time the array is connecting to the offload target.
-in: query
-name: initialize
-type: boolean

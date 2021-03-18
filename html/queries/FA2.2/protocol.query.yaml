@@ -1,4 +1,0 @@
-description: Protocol type. Valid values are `azure`, `google-cloud`, `nfs`, and `s3`.
-in: query
-name: protocol
-type: string

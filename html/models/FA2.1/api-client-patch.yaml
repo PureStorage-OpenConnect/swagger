@@ -1,7 +1,0 @@
-properties:
-  enabled:
-    description: Returns a value of `true` if the API client is permitted to exchange
-      ID tokens for access tokens. API clients are disabled by default.
-    example: true
-    type: boolean
-type: object

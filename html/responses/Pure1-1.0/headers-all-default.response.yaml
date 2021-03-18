@@ -1,6 +1,0 @@
-allOf:
-- $ref: ../../models/Pure1-1.0/x-request-id.header.yaml
-- $ref: ../../models/Pure1-1.0/x-ratelimit-limit-minute.header.yaml
-- $ref: ../../models/Pure1-1.0/x-ratelimit-limit-second.header.yaml
-- $ref: ../../models/Pure1-1.0/x-ratelimit-remaining-minute.header.yaml
-- $ref: ../../models/Pure1-1.0/x-ratelimit-remaining-second.header.yaml

@@ -1,7 +1,0 @@
-collectionFormat: csv
-description: A comma-separated list of group IDs.
-in: query
-items:
-  type: string
-name: group_ids
-type: array

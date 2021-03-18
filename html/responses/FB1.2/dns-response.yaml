@@ -1,7 +1,0 @@
-type: object
-properties:
-  items:
-    type: array
-    items:
-      $ref: ../../models/FB1.2/dns.yaml
-    description: A list of dns objects.

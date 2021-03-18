@@ -1,4 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.0/_resource-no-id.yaml
-- $ref: ../../models/FA2.1/_transfer.yaml
-- description: The transfer statistics for snapshot replication data.

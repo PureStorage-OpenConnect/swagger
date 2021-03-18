@@ -1,5 +1,0 @@
-properties:
-  paused:
-    description: Create link in the paused state? Defaults to `false`.
-    type: boolean
-type: object

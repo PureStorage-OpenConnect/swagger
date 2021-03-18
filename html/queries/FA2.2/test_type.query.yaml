@@ -1,5 +1,0 @@
-description: Specifies the type of test. Valid values are `all`, `phonehome`, and
-  `remote-assist`. If not specified, defaults to `all`.
-in: query
-name: test_type
-type: string

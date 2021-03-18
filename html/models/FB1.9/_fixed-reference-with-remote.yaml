@@ -1,7 +1,0 @@
-allOf:
-- $ref: ../../models/FB1.8/_fixed-reference.yaml
-- properties:
-    remote:
-      allOf:
-      - $ref: ../../models/FB1.9/_fixed-reference-no-resource-type.yaml
-      description: The remote field of the corresponding array connection.

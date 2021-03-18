@@ -1,7 +1,0 @@
-allOf:
-- $ref: ../../models/FB1.5/bucket-post.yaml
-- properties:
-    account:
-      description: The account name for bucket creation.
-      allOf:
-      - $ref: ../../models/FB1.8/_reference.yaml

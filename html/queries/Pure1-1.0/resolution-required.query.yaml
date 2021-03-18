@@ -1,7 +1,0 @@
-name: resolution
-in: query
-description: >-
-  The duration of time between individual data points, in milliseconds.
-type: integer
-format: int64
-required: true

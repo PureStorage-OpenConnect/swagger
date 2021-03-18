@@ -1,9 +1,0 @@
-properties:
-  items:
-    description: Returns a list of all items after filtering. The values are displayed
-      for each name where meaningful. If `total_only=true`, the `items` list will
-      be empty.
-    items:
-      $ref: ../../models/FA2.1/volume-snapshot-transfer.yaml
-    type: array
-type: object

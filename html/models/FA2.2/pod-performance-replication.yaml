@@ -1,2 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.2/_pod-performance-replication.yaml

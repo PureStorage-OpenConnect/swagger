@@ -1,7 +1,0 @@
-type: object
-properties:
-  address:
-    description: >-
-      The IPv4 or IPv6 address to be associated with the specified network
-      interface.
-    type: string

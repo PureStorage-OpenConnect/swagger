@@ -1,9 +1,0 @@
-allOf:
-- $ref: ../../models/FB1.8/certificate-post.yaml
-- properties:
-    certificate_type:
-      description: The type of certificate. Possible values are `appliance` and `external`.
-        Certificates of type `appliance` are used by the array to verify its identity
-        to clients. Certificates of type `external` are used by the array to identify
-        external servers to which it is configured to communicate.
-      type: string

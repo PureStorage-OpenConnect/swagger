@@ -1,6 +1,0 @@
-properties:
-  items:
-    items:
-      $ref: ../../models/FA2.2/smis.yaml
-    type: array
-type: object

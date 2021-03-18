@@ -1,7 +1,0 @@
-properties:
-  items:
-    description: A list of Active Directory computer account configuration objects.
-    items:
-      $ref: ../../models/FA2.3/active-directory.yaml
-    type: array
-type: object

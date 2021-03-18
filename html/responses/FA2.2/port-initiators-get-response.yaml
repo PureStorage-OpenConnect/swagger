@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../FA2.1/page-info.yaml
-- properties:
-    items:
-      items:
-        $ref: ../../models/FA2.2/port-initiator.yaml
-      type: array
-  type: object

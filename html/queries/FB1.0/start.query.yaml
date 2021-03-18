@@ -1,6 +1,0 @@
-description: The offset of the first resource to return from a collection.
-format: int32
-in: query
-minimum: 0
-name: start
-type: integer

@@ -1,3 +1,0 @@
-allOf:
-- $ref: _resource.yaml
-- $ref: _performance.yaml

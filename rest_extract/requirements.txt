@@ -1,5 +1,0 @@
-#rest_extract
-pdfminer.six
-pyyaml
-genson
-requests

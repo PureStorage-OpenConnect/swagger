@@ -1,7 +1,0 @@
-description: Path from an initiator port to a target port.
-properties:
-  initiator:
-    $ref: ../../models/FA2.2/_port-common.yaml
-  target:
-    $ref: ../../models/FA2.2/port.yaml
-type: object

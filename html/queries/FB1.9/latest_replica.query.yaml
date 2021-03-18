@@ -1,6 +1,0 @@
-description: Used when destroying a snapshot. If not present or `false`, and the snapshot
-  is the latest replicated snapshot, then destroy will fail. If `true` or the snapshot
-  is not the latest replicated snapshot, then destroy will be successful.
-in: query
-name: latest_replica
-type: boolean

@@ -1,9 +1,0 @@
-collectionFormat: csv
-description: Performs the operation on the member types specified. The type of member
-  is the full name of the resource endpoint. Valid values include `directories`. Enter
-  multiple member types in comma-separated format. For example, `type01,type02`.
-in: query
-items:
-  type: string
-name: member_types
-type: array

@@ -1,6 +1,0 @@
-properties:
-  items:
-    items:
-      $ref: ../../models/Pure1-1.0/port.yaml
-    type: array
-type: object

@@ -1,6 +1,0 @@
-description: Set to `true` to demote the pod after the `pod-replica-link` goes into
-  `quiesced` state and allow the pod to become a target of the remote pod. This ensures
-  that all local data has been replicated to the remote pod before the pod is demoted.
-in: query
-name: quiesce
-type: boolean

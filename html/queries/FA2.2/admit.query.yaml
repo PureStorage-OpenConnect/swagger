@@ -1,4 +1,0 @@
-description: If `true`, admits any `unadmitted` drives into the system.
-in: query
-name: admit
-type: boolean

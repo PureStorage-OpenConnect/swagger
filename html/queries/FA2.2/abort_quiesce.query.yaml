@@ -1,6 +1,0 @@
-description: Set to `true` to promote the pod when the `pod-replica-link` is in the
-  `quiescing` state and abort when waiting for the `pod-replica-link` to complete
-  the quiescing operation.
-in: query
-name: abort_quiesce
-type: boolean

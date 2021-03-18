@@ -1,8 +1,0 @@
-type: string
-description: >-
-  Type of the object (full name of the endpoint).
-  Valid values are `directory-services`, `file-systems`,
-  `file-system-snapshots`, `hardware`, `link-aggregation-groups`,
-  `network-interfaces`, `object-store-accounts`, `object-store-access-keys`,
-  `object-store-users`, `policies`, and `subnets`.
-readOnly: true

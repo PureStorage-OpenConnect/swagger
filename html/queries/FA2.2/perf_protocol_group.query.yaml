@@ -1,4 +1,0 @@
-description: Protocol group type. Valid values are `block`, `file`, and `all`.
-in: query
-name: protocol_group
-type: string

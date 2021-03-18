@@ -1,7 +1,0 @@
-type: object
-properties:
-  items:
-    type: array
-    items:
-      $ref: ../../models/FB1.6/user-quota.yaml
-    description: A list of quota objects.

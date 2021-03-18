@@ -1,9 +1,0 @@
-
-flask
-pyyaml
-genson
-requests
-pycryptodome
-pyjwt
-cryptography
-

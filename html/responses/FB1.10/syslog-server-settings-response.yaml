@@ -1,6 +1,0 @@
-properties:
-  items:
-    items:
-      $ref: ../../models/FB1.10/syslog-server-settings.yaml
-    type: array
-type: object
