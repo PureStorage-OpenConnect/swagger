@@ -1,0 +1,15 @@
+get:
+  description: GET alert-watchers-test (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.0/filter.query.yaml
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - $ref: ../../queries/FB1.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.12/alert-watcher-test-response.yaml
+  summary: GET alert-watchers-test (placeholder)
+  tags:
+  - Alert Watchers

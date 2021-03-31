@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../models/FB1.8/_built-in.yaml
+- $ref: ../../models/FB1.9/array-nfs-specific-performance.yaml

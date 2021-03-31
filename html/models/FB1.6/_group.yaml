@@ -1,0 +1,12 @@
+allOf:
+- type: object
+- properties:
+    id:
+      description: The numeric group id that represents the group's identity in a
+        POSIX system.
+      format: int64
+      type: integer
+    name:
+      description: The group name that represents the group's identity, and which
+        resolves to the group's id in a configured directory service.
+      type: string

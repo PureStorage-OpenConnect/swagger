@@ -1,0 +1,67 @@
+delete:
+  description: DELETE api-clients (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: DELETE api-clients (placeholder)
+  tags:
+  - API Clients
+get:
+  description: GET api-clients (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.0/filter.query.yaml
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/limit.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - $ref: ../../queries/FB1.0/sort.query.yaml
+  - $ref: ../../queries/FB1.0/start.query.yaml
+  - $ref: ../../queries/FB1.0/token.query.yaml
+  responses:
+    200:
+      description: Returns a list of API clients.
+      schema:
+        $ref: ../../responses/FB1.12/api-clients-response.yaml
+  summary: GET api-clients (placeholder)
+  tags:
+  - API Clients
+patch:
+  description: PATCH api-clients (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - in: body
+    name: api-clients
+    required: true
+    schema:
+      $ref: ../../models/FB1.12/api-client.yaml
+  responses:
+    200:
+      description: Returns the patched api-clients.
+      schema:
+        $ref: ../../responses/FB1.12/api-clients-response.yaml
+  summary: PATCH api-clients (placeholder)
+  tags:
+  - API Clients
+post:
+  description: POST api-clients (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - in: body
+    name: api-client
+    required: true
+    schema:
+      $ref: ../../models/FB1.12/api-clients-post.yaml
+  responses:
+    200:
+      description: Returns the new api-clients. All new api-clients are disabled.
+        An authorized party must patch the api-clients to be enabled, which signifies
+        the api-clients are now trusted and authorized to issue id tokens for this
+        array.
+      schema:
+        $ref: ../../responses/FB1.12/api-clients-response.yaml
+  summary: POST api-clients (placeholder)
+  tags:
+  - API Clients

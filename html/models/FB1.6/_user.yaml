@@ -1,0 +1,12 @@
+allOf:
+- type: object
+- properties:
+    id:
+      description: The numeric user id that represents the user's identity in a POSIX
+        system.
+      format: int64
+      type: integer
+    name:
+      description: The user name that represents the user's identity, and which resolves
+        to the user's id in a configured directory service.
+      type: string

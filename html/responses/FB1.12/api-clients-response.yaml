@@ -1,0 +1,6 @@
+properties:
+  items:
+    items:
+      $ref: ../../models/FB1.12/api-client.yaml
+    type: array
+type: object

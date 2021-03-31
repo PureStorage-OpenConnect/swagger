@@ -1,0 +1,9 @@
+allOf:
+- $ref: ../../responses/FB1.0/page-info.yaml
+- properties:
+    items:
+      description: A list of array performance metrics objects.
+      items:
+        $ref: ../../models/FB1.12/array-performance.yaml
+      type: array
+  type: object

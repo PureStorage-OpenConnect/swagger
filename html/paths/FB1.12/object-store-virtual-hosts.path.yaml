@@ -1,0 +1,41 @@
+delete:
+  description: DELETE object-store-virtual-hosts (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: DELETE object-store-virtual-hosts (placeholder)
+  tags:
+  - Object Store Virtual Hosts
+get:
+  description: GET object-store-virtual-hosts (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.0/filter.query.yaml
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/limit.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - $ref: ../../queries/FB1.0/sort.query.yaml
+  - $ref: ../../queries/FB1.0/start.query.yaml
+  - $ref: ../../queries/FB1.0/token.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.12/object-store-virtual-host-get-response.yaml
+  summary: GET object-store-virtual-hosts (placeholder)
+  tags:
+  - Object Store Virtual Hosts
+post:
+  description: POST object-store-virtual-hosts (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.2/names_required.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.12/object-store-virtual-host-response.yaml
+  summary: POST object-store-virtual-hosts (placeholder)
+  tags:
+  - Object Store Virtual Hosts

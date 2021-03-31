@@ -1,0 +1,14 @@
+get:
+  description: GET arrays-http-specific-performance (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.2/end_time.query.yaml
+  - $ref: ../../queries/FB1.2/resolution.query.yaml
+  - $ref: ../../queries/FB1.2/start_time.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.12/array-http-specific-performance-get.yaml
+  summary: GET arrays-http-specific-performance (placeholder)
+  tags:
+  - Arrays
