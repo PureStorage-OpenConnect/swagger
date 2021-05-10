@@ -1,0 +1,6 @@
+properties:
+  items:
+    items:
+      $ref: ../../models/FA2.6/arrays.yaml
+    type: array
+type: object

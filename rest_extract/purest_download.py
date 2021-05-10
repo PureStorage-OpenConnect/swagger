@@ -5,12 +5,11 @@ import queue
 import threading
 import os
 import urllib
-from urllib.parse import urlparse
 import sys
 
 fb_max_version = { 0:0, 1:12 }      #this is a list of major:minor_max version pairs
 pure1_max_version = { 0:-1, 1:0 }
-fa_2_max_version = { 2:5 }
+fa_2_max_version = { 2:6 }
 thread_count = 8
 baseURL = 'http://purest.dev.purestorage.com'
 spec_url = baseURL + '/pure-urls.js'
@@ -45,12 +44,10 @@ class SpecWorker(threading.Thread):
 
 
     #Dowload and return the file
-    def get_spec_file(self, spec_url, head, template, model):
-        #spec_url is absolute path here
-        #head means it's the first and we need to apply our template here.
-        
+    def get_spec_file(self, spec_url, head, model):
+      
 
-        #figure out local path
+        # figure out local path
         url_parse_result = urllib.parse.urlparse(spec_url)
         url_path = url_parse_result.path
         url_path = url_path.replace("/purest","")  #pull out the purest
@@ -115,13 +112,10 @@ class SpecWorker(threading.Thread):
                     cache[spec_url] = 'working'
 
             head = item['head']
-            template = None
             model = item['model']
-            if "template" in item:
-                template = item['template']
 
             try:
-                 spec_file = self.get_spec_file(spec_url, head, template, model)
+                 spec_file = self.get_spec_file(spec_url, head, model)
             except:
                 print("Unexpected error:", sys.exc_info()[0])
                 self.q.task_done()
@@ -164,11 +158,11 @@ def main():
     spec_list = json.loads(json_compat)
 
     with open("fb_template.yaml") as f:
-        fb_template_yaml =  yaml.safe_load(f)
+        fb_template_yaml = yaml.safe_load(f)
     with open("fa2_template.yaml") as f:
-        fa_template_yaml =  yaml.safe_load(f)
+        fa_template_yaml = yaml.safe_load(f)
     with open("pure1_template.yaml") as f:
-        pure1_template_yaml =  yaml.safe_load(f)
+        pure1_template_yaml = yaml.safe_load(f)
 
     for spec in spec_list:
         max_version = {}
@@ -214,7 +208,7 @@ def main():
         t.setDaemon(True)
         t.start()
     
-    #wait till all threads finish    
+    # wait till all threads finish    
     q.join()
 
 

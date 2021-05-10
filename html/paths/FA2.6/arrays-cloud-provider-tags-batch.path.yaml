@@ -1,0 +1,24 @@
+put:
+  description: Updates users tags to deployed cloud resources of a CBS array.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - description: A list of tags to be created or, if already existing, updated.
+    in: body
+    name: tag
+    required: true
+    schema:
+      items:
+        $ref: ../../models/FA2.6/cloud-provider-tag.yaml
+      maxItems: 50
+      minItems: 1
+      type: array
+      uniqueItems: true
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.6/cloud-provider-tag-response.yaml
+  summary: Update user tags on the cloud.
+  tags:
+  - Arrays
