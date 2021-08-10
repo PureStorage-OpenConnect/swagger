@@ -1,0 +1,53 @@
+delete:
+  description: Deletes one or more specified Active Directory accounts.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.3/local_only_ad.query.yaml
+  - $ref: ../../queries/FA2.0/names_required.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: Delete Active Directory account
+  tags:
+  - Active Directory
+get:
+  description: Displays configured Active Directory attributes.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.3/active-directory-get-response.yaml
+  summary: List Active Directory attributes
+  tags:
+  - Active Directory
+post:
+  description: Creates one or more Active Directory accounts, including specified
+    `domain`, `computer_name`, `kerberos_servers`, and `directory_servers`.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names_required.query.yaml
+  - in: body
+    name: active-directory
+    required: true
+    schema:
+      $ref: ../../models/FA2.8/active-directory-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.3/active-directory-response.yaml
+  summary: Create Active Directory account
+  tags:
+  - Active Directory

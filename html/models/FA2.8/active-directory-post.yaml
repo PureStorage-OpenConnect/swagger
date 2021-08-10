@@ -1,0 +1,10 @@
+allOf:
+- $ref: ../../models/FA2.3/active-directory-post.yaml
+- properties:
+    join_ou:
+      description: The distinguished name of the organizational unit in which the
+        computer account should be created when joining the domain. The `DC=...` components
+        of the distinguished name can be optionally omitted. If not specified, defaults
+        to `CN=Computers`.
+      example: OU=Dev,OU=Sweden,DC=purestorage,DC=com
+      type: string

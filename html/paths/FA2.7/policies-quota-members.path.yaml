@@ -1,0 +1,67 @@
+delete:
+  description: Deletes a membership between one or more quota policies and managed
+    directories. The `policy_ids` or `policy_names` parameter is required, but cannot
+    be set together. The `member_ids` or `member_names` parameter is required, but
+    cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/member_ids.query.yaml
+  - $ref: ../../queries/FA2.0/member_names.query.yaml
+  - $ref: ../../queries/FA2.3/member_types.query.yaml
+  - $ref: ../../queries/FA2.3/policy_ids.query.yaml
+  - $ref: ../../queries/FA2.3/policy_names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: Delete membership between quota policies and managed directories
+  tags:
+  - Policies
+get:
+  description: Displays a list of quota policy members.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/destroyed.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/member_ids.query.yaml
+  - $ref: ../../queries/FA2.0/member_names.query.yaml
+  - $ref: ../../queries/FA2.3/member_types.query.yaml
+  - $ref: ../../queries/FA2.3/policy_ids.query.yaml
+  - $ref: ../../queries/FA2.3/policy_names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.3/policy-member-get-response.yaml
+  summary: List quota policy members
+  tags:
+  - Policies
+post:
+  description: Creates a membership between one or more managed directories and a
+    quota policy. The `policy_ids` or `policy_names` parameter is required, but cannot
+    be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.3/policy_ids.query.yaml
+  - $ref: ../../queries/FA2.3/policy_names.query.yaml
+  - $ref: ../../queries/FA2.7/ignore_usage.query.yaml
+  - in: body
+    name: members
+    required: true
+    schema:
+      $ref: ../../models/FA2.3/policy-member-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.3/policy-member-response.yaml
+  summary: Create a membership between a managed directory and a quota policy
+  tags:
+  - Policies

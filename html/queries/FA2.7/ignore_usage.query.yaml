@@ -1,0 +1,9 @@
+description: Flag used to override checks for quota management operations. If set
+  to `true`, directory usage is not checked against the `quota_limits` that are set.
+  If set to `false`, the actual logical bytes in use are prevented from exceeding
+  the limits set on the directory. Client operations might be impacted. If the limit
+  exceeds the quota, the client operation is not allowed. If not specified, defaults
+  to `false`.
+in: query
+name: ignore_usage
+type: boolean
