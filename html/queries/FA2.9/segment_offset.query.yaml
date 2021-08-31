@@ -1,0 +1,6 @@
+description: Absolute offset, in bytes, of the segment to compare. Must be a multiple
+  of block_size.
+format: int64
+in: query
+name: segment_offset
+type: integer

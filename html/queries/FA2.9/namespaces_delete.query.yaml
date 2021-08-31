@@ -1,0 +1,8 @@
+collectionFormat: csv
+description: A comma-separated list of namespaces. Only one namespace is allowed per
+  delete request.
+in: query
+items:
+  type: string
+name: namespaces
+type: array

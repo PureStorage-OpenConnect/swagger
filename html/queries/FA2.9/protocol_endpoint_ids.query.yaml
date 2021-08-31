@@ -1,0 +1,11 @@
+collectionFormat: csv
+description: Performs the operation on the protocol endpoints specified. Enter multiple
+  IDs in comma-separated format. For example, `peid01,peid02`. A request cannot include
+  a mix of multiple objects with multiple IDs. For example, a request cannot include
+  a mix of multiple protocol endpoint IDs and host names. Instead, at least one of
+  the objects (e.g., `protocol_endpoint_ids`) must be set to one ID (e.g., `peid01`).
+in: query
+items:
+  type: string
+name: protocol_endpoint_ids
+type: array

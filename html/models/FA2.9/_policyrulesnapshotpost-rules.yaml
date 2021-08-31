@@ -1,0 +1,21 @@
+allOf:
+- $ref: ../../models/FA2.3/_policyrulesnapshotpost-rules.yaml
+- properties:
+    client_name:
+      description: The snapshot client name. A full snapshot name is constructed in
+        the form of `DIR.CLIENT_NAME.SUFFIX` where `DIR` is the managed directory
+        name, `CLIENT_NAME` is the snapshot client name, and `SUFFIX` is the snapshot
+        suffix. The client-visible snapshot name is `CLIENT_NAME.SUFFIX`.
+      required: true
+      type: string
+    suffix:
+      description: The snapshot suffix name. A full snapshot name is constructed in
+        the form of `DIR.CLIENT_NAME.SUFFIX` where `DIR` is the managed directory
+        name, `CLIENT_NAME` is the snapshot client name, and `SUFFIX` is the snapshot
+        suffix. The client-visible snapshot name is `CLIENT_NAME.SUFFIX`. The `suffix`
+        value can only be set for one rule in the same policy. The `suffix` value
+        can only be set on a rule with the same `keep_for` value and `every` value.
+        The `suffix` value can only be set on the rule with the largest `keep_for`
+        value. If not specified, defaults to a monotonically increasing number generated
+        by the system.
+      type: string

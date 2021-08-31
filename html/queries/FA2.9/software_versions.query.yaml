@@ -1,0 +1,7 @@
+collectionFormat: csv
+description: A comma-separated list of target software versions.
+in: query
+items:
+  type: string
+name: software_versions
+type: array

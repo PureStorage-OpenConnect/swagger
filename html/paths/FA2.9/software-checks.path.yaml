@@ -1,0 +1,53 @@
+delete:
+  description: Deletes a software check task specified by software name and version.
+    The check task must be queued. If the check task is running or passed/failed then
+    the task cannot be deleted.
+  parameters:
+  - $ref: ../../queries/FA2.9/software_versions.query.yaml
+  - $ref: ../../queries/FA2.2/software_names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: Delete a software check task
+  tags:
+  - Software
+get:
+  description: Displays a list of software check tasks.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.9/software_versions.query.yaml
+  - $ref: ../../queries/FA2.2/software_names.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.9/software-checks-get-response.yaml
+  summary: List software check tasks
+  tags:
+  - Software
+post:
+  description: Creates a software check task. If there are no previously queued or
+    running software check tasks, the new task immediately starts. Otherwise, it is
+    queued and starts once all previously queued or running software check tasks finish.
+    To create a task, use a software name and version.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.9/software_versions.query.yaml
+  - $ref: ../../queries/FA2.2/software_names.query.yaml
+  responses:
+    200:
+      description: The software check record was created successfully.
+      schema:
+        $ref: ../../responses/FA2.9/software-checks-response.yaml
+  summary: Create a software check task
+  tags:
+  - Software

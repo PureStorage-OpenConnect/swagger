@@ -1,0 +1,11 @@
+description: Software to be installed on the array.
+properties:
+  name:
+    description: The name of the software.
+    example: Purity//FA
+    type: string
+  version:
+    description: The version of the software.
+    example: 5.2.3
+    type: string
+type: object

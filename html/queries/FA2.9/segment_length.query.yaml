@@ -1,0 +1,6 @@
+description: Length of the segment, in bytes, to compare.
+format: int64
+in: query
+name: segment_length
+required: true
+type: integer
