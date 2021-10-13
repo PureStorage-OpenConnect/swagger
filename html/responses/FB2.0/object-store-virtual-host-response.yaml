@@ -1,0 +1,7 @@
+properties:
+  items:
+    description: A list of object store virtual host objects.
+    items:
+      $ref: ../../models/FB2.0/object-store-virtual-host.yaml
+    type: array
+type: object

@@ -1,0 +1,97 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in.yaml
+- properties:
+    created:
+      description: Creation timestamp of the file system.
+      format: int64
+      readOnly: true
+      type: integer
+    default_group_quota:
+      description: The default space quota for a group writing to this file system.
+      format: int64
+      type: integer
+    default_user_quota:
+      description: The default space quota for a user writing to this file system.
+      format: int64
+      type: integer
+    destroyed:
+      description: Returns a value of `true` if the file system has been destroyed
+        and is pending eradication. The file system cannot be modified while it is
+        in the destroyed state. The `time_remaining` value displays the amount of
+        time left until the destroyed file system is permanently eradicated. Once
+        eradication has begun, the file system can no longer be recovered. Before
+        the `time_remaining` period has elapsed, the destroyed file system can be
+        recovered through the PATCH method by setting `destroyed=false`.
+      type: boolean
+    fast_remove_directory_enabled:
+      description: If set to `true`, the file system, when mounted, will contain a
+        directory that can be used for fast removal of other directories. Directories
+        can be moved into the fast remove directory in order to have them deleted,
+        and their space freed, more quickly than a normal removal operation.
+      type: boolean
+    hard_limit_enabled:
+      description: If set to `true`, the file system's size, as defined by `provisioned`,
+        is used as a hard limit quota.
+      type: boolean
+    http:
+      allOf:
+      - $ref: ../../models/FB2.0/_http.yaml
+      description: HTTP configuration.
+    multi_protocol:
+      allOf:
+      - $ref: ../../models/FB2.0/_multi-protocol.yaml
+      description: Multi-protocol configuration.
+    nfs:
+      allOf:
+      - $ref: ../../models/FB2.0/_nfs-patch.yaml
+      description: NFS configuration.
+    promotion_status:
+      description: Possible values are `promoted` and `demoted`. The current status
+        of the file system with respect to replication. Changes via `requested_promotion_state`.
+        The default for new file systems is `promoted`.
+      readOnly: true
+      type: string
+    provisioned:
+      description: The provisioned size of the file system, displayed in bytes. If
+        set to an empty string (`""`), the file system is unlimited in size.
+      example: 1048576
+      format: int64
+      type: integer
+    requested_promotion_state:
+      description: Possible values are `promoted` and `demoted`. The `demoted` state
+        is used for replication targets and is only allowed to be set if the file
+        system is in a replica-link relationship. The additional query param `discard-non-snapshotted-data`
+        must be set to `true` when demoting a file system. The default for new file
+        systems is `promoted`.
+      type: string
+    smb:
+      allOf:
+      - $ref: ../../models/FB2.0/_smb.yaml
+      description: SMB configuration.
+    snapshot_directory_enabled:
+      description: If set to `true`, a hidden .snapshot directory will be present
+        in each directory of the file system when it is mounted. The .snapshot directory
+        allows clients read access to the contents of the snapshots that have been
+        taken of a directory. If set to `false`, the .snapshot directory will not
+        be present in any directories within a mounted file system.
+      type: boolean
+    source:
+      allOf:
+      - $ref: ../../models/FB2.0/_location-reference.yaml
+      description: A reference to the source file system.
+    space:
+      allOf:
+      - $ref: ../../models/FB2.0/_space.yaml
+      description: The space usage of the file system.
+    time_remaining:
+      description: Time in milliseconds before the file system is eradicated. `null`
+        if not destroyed.
+      format: int64
+      readOnly: true
+      type: integer
+    writable:
+      description: Whether the file system is writable or not. If `false`, this overrides
+        any protocol or file permission settings and prevents changes. If `true`,
+        then the protocol and file permission settings are evaluated. If not specified,
+        defaults to `true`. Modifiable.
+      type: boolean

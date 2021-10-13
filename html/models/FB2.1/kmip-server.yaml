@@ -1,0 +1,27 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in.yaml
+- properties:
+    ca_certificate:
+      allOf:
+      - $ref: ../../models/FB2.0/_reference.yaml
+      description: CA certificate used to validate the authenticity of the configured
+        servers.
+    ca_certificate_group:
+      allOf:
+      - $ref: ../../models/FB2.0/_reference.yaml
+      description: A certificate group containing CA certificates that can be used
+        to validate the authenticity of the configured servers.
+    uris:
+      description: List of URIs for the configured KMIP servers in the format [protocol://]hostname:port.
+      example:
+      - my1.kmipserver.com:5696
+      - tls://my2.kmipserver.com:5696
+      items:
+        pattern: ^(tls://)?
+        type: string
+      maxItems: 30
+      minItems: 1
+      minLength: 1
+      required: true
+      type: array
+  type: object

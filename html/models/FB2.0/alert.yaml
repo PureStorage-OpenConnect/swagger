@@ -1,0 +1,72 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in.yaml
+- properties:
+    action:
+      description: The action of the alert.
+      readOnly: true
+      type: string
+    code:
+      description: Alert code.
+      format: int64
+      readOnly: true
+      type: integer
+    component_name:
+      description: The component name of the alert.
+      readOnly: true
+      type: string
+    component_type:
+      description: The component type of the alert.
+      readOnly: true
+      type: string
+    created:
+      description: The creation timestamp of the alert.
+      format: int64
+      readOnly: true
+      type: integer
+    description:
+      description: The description of the alert.
+      readOnly: true
+      type: string
+    flagged:
+      description: Flagged state of the alert.
+      type: boolean
+    index:
+      description: The unique index of the alert.
+      format: int64
+      readOnly: true
+      type: integer
+    knowledge_base_url:
+      description: URL of the relevant Knowledge Base page.
+      readOnly: true
+      type: string
+    notified:
+      description: The last notification timestamp of the alert.
+      format: int64
+      readOnly: true
+      type: integer
+    severity:
+      description: Severity of the alert. Valid values are `info`, `warning`, and
+        `critical`.
+      readOnly: true
+      type: string
+    state:
+      description: The current state of the alert. Valid values are `open`, `closing`,
+        `closed`, and `waiting to downgrade`.
+      readOnly: true
+      type: string
+    summary:
+      description: The summary of the alert.
+      readOnly: true
+      type: string
+    updated:
+      description: The last updated timestamp of the alert.
+      format: int64
+      readOnly: true
+      type: integer
+    variables:
+      additionalProperties:
+        type: string
+      description: Key-value pairs of additional information of the alert.
+      readOnly: true
+      type: object
+  type: object

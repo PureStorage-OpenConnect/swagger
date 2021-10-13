@@ -1,0 +1,7 @@
+properties:
+  items:
+    description: A list of array objects.
+    items:
+      $ref: ../../models/FB2.0/array.yaml
+    type: array
+type: object

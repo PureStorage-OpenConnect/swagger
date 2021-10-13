@@ -1,0 +1,16 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in.yaml
+- description: SSL Certificate managed by Purity.
+  properties:
+    certificate:
+      description: The text of the certificate.
+      type: string
+    intermediate_certificate:
+      description: Intermediate certificate chains.
+      type: string
+    passphrase:
+      description: The passphrase used to encrypt `private_key`.
+      type: string
+    private_key:
+      description: The private key used to sign the certificate.
+      type: string

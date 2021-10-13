@@ -1,0 +1,7 @@
+properties:
+  items:
+    description: A list of object store user objects.
+    items:
+      $ref: ../../models/FB2.0/object-store-user.yaml
+    type: array
+type: object

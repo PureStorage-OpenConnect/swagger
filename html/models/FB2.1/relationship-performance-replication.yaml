@@ -1,0 +1,19 @@
+allOf:
+- $ref: ../../models/FB2.0/relationship-performance-replication.yaml
+- properties:
+    aggregate:
+      allOf:
+      - $ref: ../../models/FB2.0/_replication_performance.yaml
+      description: Total bytes transmitted or received per second for all types of
+        replication.
+    continuous:
+      allOf:
+      - $ref: ../../models/FB2.0/_replication_performance.yaml
+      description: Total bytes transmitted or received per second for continuous replication.
+        Continuous replication includes object replication.
+    periodic:
+      allOf:
+      - $ref: ../../models/FB2.0/_replication_performance.yaml
+      description: Total bytes transmitted or received per second for periodic replication.
+        Periodic replication includes file system replication, which is snapshot based.
+  readOnly: true

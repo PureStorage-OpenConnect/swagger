@@ -1,0 +1,7 @@
+allOf:
+- $ref: ../../models/FB2.0/policy-member.yaml
+- properties:
+    policy:
+      allOf:
+      - $ref: ../../models/FB2.0/_location-reference.yaml
+      description: Reference to the policy.

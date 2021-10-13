@@ -1,0 +1,71 @@
+delete:
+  description: Delete a file system snapshot.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: DELETE file-system-snapshots
+  tags:
+  - File System Snapshots
+get:
+  description: List file system snapshots.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/destroyed.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names_or_owner_names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/owner_ids.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  - $ref: ../../queries/FB2.0/total_only.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/file-system-snapshot-get-response.yaml
+  summary: GET file-system-snapshots
+  tags:
+  - File System Snapshots
+patch:
+  description: Modify file system snapshot attributes.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/latest_replica.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - in: body
+    name: file-system-snapshot
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/file-system-snapshot.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/file-system-snapshot-response.yaml
+  summary: PATCH file-system-snapshots
+  tags:
+  - File System Snapshots
+post:
+  description: Create a snapshot for a specified source file system. If a source file
+    system is not specified, creates snapshots for all file systems on the array.
+  parameters:
+  - $ref: ../../queries/FB2.0/source_ids.query.yaml
+  - $ref: ../../queries/FB2.0/source_names.query.yaml
+  - $ref: ../../queries/FB2.0/send.query.yaml
+  - $ref: ../../queries/FB2.0/targets.query.yaml
+  - in: body
+    name: file-system-snapshot
+    schema:
+      $ref: ../../models/FB2.0/file-system-snapshot-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/file-system-snapshot-response.yaml
+  summary: POST file-system-snapshots
+  tags:
+  - File System Snapshots

@@ -1,0 +1,7 @@
+collectionFormat: csv
+description: A comma-separated list of policy names.
+in: query
+items:
+  type: string
+name: policy_names
+type: array

@@ -1,0 +1,37 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in.yaml
+- properties:
+    phonehome_enabled:
+      type: boolean
+    proxy:
+      type: string
+    remote_assist_active:
+      description: The switch to open all remote-assist sessions.
+      type: boolean
+    remote_assist_expires:
+      description: The time when the session expires.
+      readOnly: true
+      type: string
+    remote_assist_opened:
+      description: The time when the session opened.
+      readOnly: true
+      type: string
+    remote_assist_paths:
+      items:
+        properties:
+          component_name:
+            description: The name of the FM.
+            type: string
+          status:
+            description: The status of the remote-assist session on the local FM.
+              Valid values are `reconnecting`, `connected`, `disconnected`, and `unknown`.
+            example: connected
+            type: string
+      readOnly: true
+      type: array
+    remote_assist_status:
+      description: The status of the remote-assist sessions. Valid values are `connected`,
+        `partially_connected`, `reconnecting`, and `disconnected`.
+      example: connected
+      readOnly: true
+      type: string

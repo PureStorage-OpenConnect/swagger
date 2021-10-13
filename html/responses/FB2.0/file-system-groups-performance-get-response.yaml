@@ -1,0 +1,13 @@
+properties:
+  items:
+    description: A list of file system group performance objects.
+    items:
+      $ref: ../../models/FB2.0/file-system-group-performance.yaml
+    type: array
+  total:
+    description: Total of all records after filtering. If `total_only` query param
+      is `true`, then no items will be returned.
+    items:
+      $ref: ../../models/FB2.0/file-system-group-performance.yaml
+    type: array
+type: object

@@ -1,0 +1,16 @@
+get:
+  description: List NFS client I/O performance metrics.
+  parameters:
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  - $ref: ../../queries/FB2.0/total_only.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/client-performance-get-response.yaml
+  summary: GET clients-performance
+  tags:
+  - Clients

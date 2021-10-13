@@ -1,0 +1,6 @@
+allOf:
+- description: A Kerberos keytab file.
+- schema:
+    oneOf:
+    - $ref: ../../models/FB2.0/keytab-file-binary.yaml
+    - $ref: ../../models/FB2.0/keytab-file-base64.yaml

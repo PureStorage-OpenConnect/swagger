@@ -1,0 +1,22 @@
+properties:
+  abort_incomplete_multipart_uploads_after:
+    description: Duration of time after which incomplete multipart uploads will be
+      aborted. Measured in milliseconds. Must be a multiple of 86400000 to represent
+      a whole number of days.
+    example: 86400000
+    format: int64
+    type: integer
+  keep_current_version_for:
+    description: Time after which current versions will be marked expired. Measured
+      in milliseconds. Must be a multiple of 86400000 to represent a whole number
+      of days.
+    example: 86400000
+    format: int64
+    type: integer
+  keep_current_version_until:
+    description: Time after which current versions will be marked expired. Measured
+      in milliseconds, time since epoch. Must be a valid date, accurate to day.
+    example: 1636588800000
+    format: int64
+    type: integer
+type: object

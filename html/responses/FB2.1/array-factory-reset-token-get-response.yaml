@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../responses/FB2.0/page-info.yaml
+- $ref: ../../responses/FB2.1/array-factory-reset-token-response.yaml

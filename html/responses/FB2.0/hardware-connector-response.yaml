@@ -1,0 +1,7 @@
+properties:
+  items:
+    description: A list of connector objects.
+    items:
+      $ref: ../../models/FB2.0/hardware-connector.yaml
+    type: array
+type: object

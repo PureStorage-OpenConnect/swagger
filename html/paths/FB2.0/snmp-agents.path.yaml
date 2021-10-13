@@ -1,0 +1,34 @@
+get:
+  description: List SNMP agent attributes.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/snmp-agent-get-response.yaml
+  summary: GET snmp-agents
+  tags:
+  - SNMP Agents
+patch:
+  description: Modify SNMP agent attributes.
+  parameters:
+  - in: body
+    name: snmp-agent
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/snmp-agent.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/snmp-agent-response.yaml
+  summary: PATCH snmp-agents
+  tags:
+  - SNMP Agents

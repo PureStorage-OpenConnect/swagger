@@ -1,0 +1,6 @@
+properties:
+  enabled:
+    description: If set to `true`, enables access to the file system over the SMB
+      protocol. If not specified, defaults to `false`.
+    type: boolean
+type: object

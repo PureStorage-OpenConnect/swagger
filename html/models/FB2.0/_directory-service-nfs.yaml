@@ -1,0 +1,15 @@
+description: Properties specific to the NFS service.
+properties:
+  nis_domains:
+    description: NIS domains to search.
+    items:
+      example: ypdomain
+      type: string
+    type: array
+  nis_servers:
+    description: A list of the IP addresses or hostnames of NIS servers to search.
+    items:
+      example: 181.44.543.12
+      type: string
+    type: array
+type: object

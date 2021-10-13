@@ -1,0 +1,8 @@
+collectionFormat: csv
+description: The target arrays to replicate created snapshots to. Only valid when
+  `send` is `true`.
+in: query
+items:
+  type: string
+name: targets
+type: array

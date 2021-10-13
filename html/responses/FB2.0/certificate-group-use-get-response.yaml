@@ -1,0 +1,8 @@
+allOf:
+- $ref: ../../responses/FB2.0/page-info.yaml
+- properties:
+    items:
+      description: A list of certificate group use objects.
+      items:
+        $ref: ../../models/FB2.0/certificate-group-use.yaml
+      type: array

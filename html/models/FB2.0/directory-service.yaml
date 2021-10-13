@@ -1,0 +1,54 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in.yaml
+- description: Configuration information for the directory service.
+  properties:
+    base_dn:
+      description: Base of the Distinguished Name (DN) of the directory service groups.
+      example: DC=mycompany,DC=com
+      type: string
+    bind_password:
+      description: Obfuscated password used to query the directory.
+      example: '****'
+      type: string
+    bind_user:
+      description: Username used to query the directory.
+      example: CN=John,OU=Users,DC=example,DC=com
+      type: string
+    ca_certificate:
+      allOf:
+      - $ref: ../../models/FB2.0/_reference.yaml
+      description: CA certificate used to validate the authenticity of the configured
+        servers.
+    ca_certificate_group:
+      allOf:
+      - $ref: ../../models/FB2.0/_reference.yaml
+      description: A certificate group containing CA certificates that can be used
+        to validate the authenticity of the configured servers.
+    enabled:
+      description: Is the directory service enabled or not?
+      example: true
+      type: boolean
+    management:
+      $ref: ../../models/FB2.0/_directory-service-management.yaml
+    nfs:
+      $ref: ../../models/FB2.0/_directory-service-nfs.yaml
+    services:
+      description: Services that the directory service configuration is used for.
+      example:
+      - management
+      items:
+        description: Valid values are `nfs`, `smb`, and `management`.
+        example: management
+        type: string
+      readOnly: true
+      type: array
+    smb:
+      $ref: ../../models/FB2.0/_directory-service-smb.yaml
+    uris:
+      description: List of URIs for the configured directory servers.
+      items:
+        example: ldaps://ad1.mycompany.com
+        pattern: ^(ldap|ldaps)
+        type: string
+      maxItems: 30
+      type: array

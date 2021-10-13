@@ -1,0 +1,78 @@
+delete:
+  description: Remove a link aggregation group to unbind the ports.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: DELETE link-aggregation-groups
+  tags:
+  - Link Aggregation Groups
+get:
+  description: List the status and attributes of the Ethernet ports in the configured
+    link aggregation groups.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/link-aggregation-group-get-response.yaml
+  summary: GET link-aggregation-groups
+  tags:
+  - Link Aggregation Groups
+patch:
+  description: Modify link aggregation groups by adding and removing Ethernet ports.
+  parameters:
+  - in: body
+    name: link-aggregation-group
+    required: true
+    schema:
+      properties:
+        add_ports:
+          items:
+            $ref: ../../models/FB2.0/_fixed-reference.yaml
+          type: array
+        ports:
+          items:
+            $ref: ../../models/FB2.0/_fixed-reference.yaml
+          type: array
+        remove_ports:
+          items:
+            $ref: ../../models/FB2.0/_fixed-reference.yaml
+          type: array
+      type: object
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/link-aggregation-group-response.yaml
+  summary: PATCH link-aggregation-groups
+  tags:
+  - Link Aggregation Groups
+post:
+  description: Create a link aggregation group of Ethernet ports on the array.
+  parameters:
+  - in: body
+    name: link-aggregation-group
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/link-aggregation-group.yaml
+  - $ref: ../../queries/FB2.0/names_required.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/link-aggregation-group-response.yaml
+  summary: POST link-aggregation-groups
+  tags:
+  - Link Aggregation Groups

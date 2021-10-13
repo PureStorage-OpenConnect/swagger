@@ -1,0 +1,17 @@
+allOf:
+- $ref: ../../models/FB2.0/_fixed-reference.yaml
+- properties:
+    display_name:
+      description: Full name of the source with remote array information. Response
+        will be same as source name for local file systems and policies.
+      example: irp624-c02:fs1
+      readOnly: true
+      type: string
+    is_local:
+      description: -> Is the location reference to the local array or somewhere remote?
+      readOnly: true
+      type: boolean
+    location:
+      allOf:
+      - $ref: ../../models/FB2.0/_fixed-reference.yaml
+      description: A reference to the location where the object is defined.

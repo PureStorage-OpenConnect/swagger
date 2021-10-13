@@ -1,0 +1,12 @@
+allOf:
+- type: object
+- properties:
+    group:
+      allOf:
+      - $ref: ../../models/FB2.0/_reference.yaml
+      description: A reference to a group object that has the referenced member object
+        as a member.
+    member:
+      allOf:
+      - $ref: ../../models/FB2.0/_reference.yaml
+      description: A reference to an object that is a member of the referenced group.

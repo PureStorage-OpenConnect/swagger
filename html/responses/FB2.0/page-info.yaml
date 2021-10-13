@@ -1,0 +1,15 @@
+properties:
+  continuation_token:
+    description: Continuation token that can be provided in the `continuation_token`
+      query param to get the next page of data. If you use the `continuation_token`
+      to page through data you are guaranteed to get all items exactly once regardless
+      of how items are modified. If an item is added or deleted during the pagination
+      then it may or may not be returned. The `continuation_token` is generated if
+      the `limit` is less than the remaining number of items, and the default sort
+      is used (no sort is specified).
+    type: string
+  total_item_count:
+    description: Total number of items after applying `filter` params.
+    format: int32
+    type: integer
+type: object

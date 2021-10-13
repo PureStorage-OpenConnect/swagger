@@ -1,0 +1,16 @@
+properties:
+  connection_key:
+    description: Connection-key, used on another array to connect to this array. After
+      creation, listing will only show ****.
+    example: 6207d123-d123-0b5c-5fa1-95fabc5c7123
+    type: string
+  created:
+    description: Creation time in milliseconds since UNIX epoch.
+    format: int64
+    type: integer
+  expires:
+    description: Expiration time in milliseconds since UNIX epoch.
+    format: int64
+    type: integer
+readOnly: true
+type: object

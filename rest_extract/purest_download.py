@@ -7,7 +7,7 @@ import os
 import urllib
 import sys
 
-fb_max_version = { 0:0, 1:12 }      #this is a list of major:minor_max version pairs
+fb_max_version = { 0:0, 1:12, 2:1 }      #this is a list of major:minor_max version pairs
 pure1_max_version = { 0:-1, 1:0 }
 fa_2_max_version = { 2:9 }
 thread_count = 8
@@ -153,6 +153,8 @@ def main():
     step1 = resp[resp.find('['):resp.find(']')+1]
     #need to add quotes around the url&name 
     json_compat = step1.replace(' url: ',' "url": ').replace(' name: ',' "name": ')
+    # someone put a typo in the json list with a double ,,
+    json_compat = json_compat.replace(',,',',')
     #print(json_compat)
 
     spec_list = json.loads(json_compat)

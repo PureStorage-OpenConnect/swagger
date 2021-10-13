@@ -1,0 +1,30 @@
+get:
+  description: List connection keys used to authenticate the connection from one array
+    to another.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/array-connection-key-get-response.yaml
+  summary: GET array-connections/connection-key
+  tags:
+  - Array Connections
+post:
+  description: Create an array connection key allowing one array to connect to another
+    for replication.
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/array-connection-key-response.yaml
+  summary: POST array-connections/connection-key
+  tags:
+  - Array Connections

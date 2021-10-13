@@ -1,0 +1,48 @@
+delete:
+  description: Remove the snapshot scheduling policy mapped to a file system.
+  parameters:
+  - $ref: ../../queries/FB2.0/member_ids.query.yaml
+  - $ref: ../../queries/FB2.0/member_names.query.yaml
+  - $ref: ../../queries/FB2.0/policy_ids.query.yaml
+  - $ref: ../../queries/FB2.0/policy_names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: DELETE policies/file-systems
+  tags:
+  - Policies
+get:
+  description: List file systems mapped to a snapshot scheduling policy.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/member_ids.query.yaml
+  - $ref: ../../queries/FB2.0/member_names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/policy_ids.query.yaml
+  - $ref: ../../queries/FB2.0/policy_names.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/policy-member-get-response.yaml
+  summary: GET policies/file-systems
+  tags:
+  - Policies
+post:
+  description: Map a file system to a snapshot scheduling policy.
+  parameters:
+  - $ref: ../../queries/FB2.0/member_ids.query.yaml
+  - $ref: ../../queries/FB2.0/member_names.query.yaml
+  - $ref: ../../queries/FB2.0/policy_ids.query.yaml
+  - $ref: ../../queries/FB2.0/policy_names.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/policy-member-response.yaml
+  summary: POST policies/file-systems
+  tags:
+  - Policies

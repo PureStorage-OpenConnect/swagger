@@ -1,0 +1,29 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in.yaml
+- properties:
+    connector_type:
+      description: Form-factor of the interface. Valid values include `QSFP` and `RJ-45`.
+      example: QSFP
+      readOnly: true
+      type: string
+    lane_speed:
+      description: Configured speed of each lane in the connector in bits-per-second.
+      example: 10000000000
+      format: int64
+      type: integer
+    port_count:
+      description: Configured number of ports in the connector (1/4 for QSFP).
+      example: 1
+      format: int64
+      type: integer
+    transceiver_type:
+      description: Details about the transceiver which is plugged into the connector
+        port. Transceiver type will be read-only for pureuser. If nothing is plugged
+        into QSFP port, value will be `Unused` and type cannot be auto-detected, and
+        internal user has not specified a type - value will be `Unknown`. If transceiver
+        is plugged in, and type is auto-detected, and/or type has been explicitly
+        set by internal user - that value will be shown. Transceiver type is not applicable
+        for RJ-45 connectors.
+      example: 40GBASE-LR4
+      readOnly: true
+      type: string

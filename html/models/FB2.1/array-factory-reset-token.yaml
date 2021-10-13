@@ -1,0 +1,14 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in-no-id.yaml
+- description: A token that is required to perform a factory reset of the array. A
+    factory reset of the array permanently eradicates all data and deletes all configurations,
+    restoring the state of the array to the original manufacturer settings.
+  properties:
+    token:
+      description: A random 7-digit number required as input to perform a factory
+        reset of the array.
+      example: 5671919
+      format: int64
+      readOnly: true
+      type: integer
+  type: object

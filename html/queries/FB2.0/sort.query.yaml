@@ -1,0 +1,10 @@
+collectionFormat: csv
+description: 'Sort the response by the specified fields (in descending order if ''-''
+  is appended to the field name). NOTE: If you provide a sort you will not get a `continuation_token`
+  in the response.'
+in: query
+items:
+  pattern: ^[a-z]+(_[a-z]+)*-?
+  type: string
+name: sort
+type: array

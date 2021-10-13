@@ -1,0 +1,7 @@
+properties:
+  items:
+    description: A list of certificate and certificate group relationships.
+    items:
+      $ref: ../../models/FB2.0/member.yaml
+    type: array
+type: object

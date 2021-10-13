@@ -1,0 +1,14 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in.yaml
+- properties:
+    group:
+      allOf:
+      - $ref: ../../models/FB2.0/_fixed-reference.yaml
+      description: A reference to a certificate group that is being used, if any,
+        where this certificate is a member of the certificate-group. This field is
+        `null` if the referenced use object is not using a group, but is rather using
+        this certificate directly.
+    use:
+      allOf:
+      - $ref: ../../models/FB2.0/_fixed-reference-with-remote.yaml
+      description: A reference to an object using this certificate.

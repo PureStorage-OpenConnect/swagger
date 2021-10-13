@@ -1,0 +1,34 @@
+delete:
+  description: Delete file system snapshot transfers from the source array to the
+    target array.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/remote_names.query.yaml
+  - $ref: ../../queries/FB2.0/remote_ids.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: DELETE file-system-snapshots/transfer
+  tags:
+  - File System Snapshots
+get:
+  description: List file system snapshot transfers from the source array to the target
+    array.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names_or_owner_names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  - $ref: ../../queries/FB2.0/total_only.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/file-system-snapshot-get-transfer-response.yaml
+  summary: GET file-system-snapshots/transfer
+  tags:
+  - File System Snapshots

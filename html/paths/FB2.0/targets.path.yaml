@@ -1,0 +1,64 @@
+delete:
+  description: Delete the connection to the target for replication.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: DELETE targets
+  tags:
+  - Targets
+get:
+  description: List targets used for replication.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/target-get-response.yaml
+  summary: GET targets
+  tags:
+  - Targets
+patch:
+  description: Modify the target attributes for replication.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - in: body
+    name: target
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/target.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/target-response.yaml
+  summary: PATCH targets
+  tags:
+  - Targets
+post:
+  description: Add a target for replication.
+  parameters:
+  - $ref: ../../queries/FB2.0/names_required.query.yaml
+  - in: body
+    name: target
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/target-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/target-response.yaml
+  summary: POST targets
+  tags:
+  - Targets

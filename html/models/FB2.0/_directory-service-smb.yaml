@@ -1,0 +1,10 @@
+description: Properties specific to the SMB service.
+properties:
+  join_ou:
+    description: 'Optional organizational unit where the machine account for the directory
+      service will be created.
+
+      '
+    example: OU=my_organizational_unit
+    type: string
+type: object

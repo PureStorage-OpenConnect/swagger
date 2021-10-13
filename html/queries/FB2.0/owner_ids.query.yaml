@@ -1,0 +1,10 @@
+collectionFormat: csv
+description: A comma-separated list of owning file system IDs. If after filtering,
+  there is not at least one resource that matches each of the elements of owner IDs,
+  then an error is returned. This cannot be provided together with the `ids`, `names_or_owner_names`,
+  or `names_or_sources` query parameters.
+in: query
+items:
+  type: string
+name: owner_ids
+type: array

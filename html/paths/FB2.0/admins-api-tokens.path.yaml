@@ -1,0 +1,44 @@
+delete:
+  description: Deletes the API tokens of the specified administrators.
+  parameters:
+  - $ref: ../../queries/FB2.0/admin_ids.query.yaml
+  - $ref: ../../queries/FB2.0/admin_names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: DELETE admins/api-tokens
+  tags:
+  - Administrators
+get:
+  description: Displays API tokens for the specified administrators.
+  parameters:
+  - $ref: ../../queries/FB2.0/admin_ids.query.yaml
+  - $ref: ../../queries/FB2.0/admin_names.query.yaml
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/expose_api_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/admin-api-token-get-response.yaml
+  summary: GET admins/api-tokens
+  tags:
+  - Administrators
+post:
+  description: Creates API tokens for the specified administrators.
+  parameters:
+  - $ref: ../../queries/FB2.0/admin_ids.query.yaml
+  - $ref: ../../queries/FB2.0/admin_names.query.yaml
+  - $ref: ../../queries/FB2.0/timeout.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/admin-api-token-response.yaml
+  summary: POST admins/api-tokens
+  tags:
+  - Administrators

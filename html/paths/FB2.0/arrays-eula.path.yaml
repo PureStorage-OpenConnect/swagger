@@ -1,0 +1,32 @@
+get:
+  description: List the End User Agreement and signature.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/eula-get-response.yaml
+  summary: GET arrays/eula
+  tags:
+  - Arrays
+patch:
+  description: Modifies the signature on the End User Agreement.
+  parameters:
+  - in: body
+    name: eula
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/eula.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/eula-response.yaml
+  summary: PATCH arrays/eula
+  tags:
+  - Arrays

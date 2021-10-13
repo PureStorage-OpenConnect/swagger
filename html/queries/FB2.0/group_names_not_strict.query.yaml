@@ -1,0 +1,8 @@
+collectionFormat: csv
+description: A comma-separated list of group names. This cannot be provided together
+  with `gids` query parameter.
+in: query
+items:
+  type: string
+name: group_names
+type: array

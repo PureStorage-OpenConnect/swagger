@@ -1,0 +1,7 @@
+properties:
+  items:
+    description: A list of lag objects.
+    items:
+      $ref: ../../models/FB2.0/link-aggregation-group.yaml
+    type: array
+type: object

@@ -1,0 +1,4 @@
+description: Exclude resources that don't match the specified criteria.
+in: query
+name: filter
+type: string

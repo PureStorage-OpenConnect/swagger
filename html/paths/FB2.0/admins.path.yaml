@@ -1,0 +1,38 @@
+get:
+  description: List the administrator's attributes, including the API token and public
+    key.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/expose_api_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/admin-get-response.yaml
+  summary: GET admins
+  tags:
+  - Administrators
+patch:
+  description: Modify the attributes of the administrator.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - in: body
+    name: admin
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/admin-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/admin-response.yaml
+  summary: PATCH admins
+  tags:
+  - Administrators

@@ -1,0 +1,6 @@
+properties:
+  name:
+    description: Name of the object (e.g., a file system or snapshot).
+    readOnly: true
+    type: string
+type: object

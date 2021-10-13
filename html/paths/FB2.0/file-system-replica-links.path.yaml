@@ -1,0 +1,45 @@
+get:
+  description: List file system replication link.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/local_file_system_ids.query.yaml
+  - $ref: ../../queries/FB2.0/local_file_system_names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/remote_file_system_ids.query.yaml
+  - $ref: ../../queries/FB2.0/remote_file_system_names.query.yaml
+  - $ref: ../../queries/FB2.0/remote_ids.query.yaml
+  - $ref: ../../queries/FB2.0/remote_names.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/file-system-replica-link-get-response.yaml
+  summary: GET file-system-replica-links
+  tags:
+  - File System Replica Links
+post:
+  description: Create a file system replication link.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/local_file_system_ids.query.yaml
+  - $ref: ../../queries/FB2.0/local_file_system_names.query.yaml
+  - $ref: ../../queries/FB2.0/remote_file_system_names.query.yaml
+  - $ref: ../../queries/FB2.0/remote_ids.query.yaml
+  - $ref: ../../queries/FB2.0/remote_names.query.yaml
+  - in: body
+    name: file-system-replica-link
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/file-system-replica-link.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/file-system-replica-link-response.yaml
+  summary: POST file-system-replica-links
+  tags:
+  - File System Replica Links

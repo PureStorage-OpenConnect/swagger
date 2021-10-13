@@ -1,0 +1,10 @@
+properties:
+  versions:
+    description: A list of supported API versions.
+    example:
+    - '1.0'
+    - '1.1'
+    items:
+      type: string
+    type: array
+type: object

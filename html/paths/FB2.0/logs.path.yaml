@@ -1,0 +1,18 @@
+get:
+  description: Download a history of log events from the array to provide to Pure
+    Technical Services for analysis.
+  parameters:
+  - $ref: ../../queries/FB2.0/end_time.query.yaml
+  - $ref: ../../queries/FB2.0/start_time.query.yaml
+  produces:
+  - application/octet-stream
+  - text/plain
+  - application/json
+  responses:
+    200:
+      description: OK
+      schema:
+        type: file
+  summary: GET logs
+  tags:
+  - Logs

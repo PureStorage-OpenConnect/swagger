@@ -1,0 +1,19 @@
+description: API token
+properties:
+  created_at:
+    description: Creation time in milliseconds since the UNIX epoch.
+    format: int64
+    type: integer
+  expires_at:
+    description: Expiration time in milliseconds since the UNIX epoch.
+    format: int64
+    type: integer
+  token:
+    description: An Admin API token. A newly-created token is visible as the result
+      of the POST operation which created it. An existing token is visible when `expose_api_token`
+      is `true` and it is being requested by the user to whom it belongs. In all other
+      cases, the token will be masked.
+    example: '****'
+    type: string
+readOnly: true
+type: object

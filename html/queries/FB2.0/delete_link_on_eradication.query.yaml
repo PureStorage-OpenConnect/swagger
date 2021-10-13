@@ -1,0 +1,6 @@
+description: If set to `true`, the file system can be destroyed, even if it has a
+  replica link. If set to `false`, the file system cannot be destroyed if it has a
+  replica link. Defaults to `false`.
+in: query
+name: delete_link_on_eradication
+type: boolean

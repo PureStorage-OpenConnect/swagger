@@ -1,0 +1,7 @@
+properties:
+  items:
+    description: A list of subnet objects.
+    items:
+      $ref: ../../models/FB2.0/subnet.yaml
+    type: array
+type: object

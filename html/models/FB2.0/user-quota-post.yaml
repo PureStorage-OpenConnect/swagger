@@ -1,0 +1,11 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in-no-id.yaml
+- properties:
+    quota:
+      description: The limit of the quota (in bytes) for the specified user, cannot
+        be `0`. If specified, this value will override the file system's default user
+        quota.
+      format: int64
+      type: integer
+  required:
+  - quota

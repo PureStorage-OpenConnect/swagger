@@ -1,0 +1,7 @@
+collectionFormat: csv
+description: A comma-separated list of member types.
+in: query
+items:
+  $ref: ../../models/FB2.0/_resource-type.yaml
+name: member_types
+type: array

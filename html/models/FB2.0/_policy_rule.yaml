@@ -1,0 +1,20 @@
+description: Rule
+properties:
+  at:
+    description: Time during the day to take the snapshot (using array time zone),
+      only valid if 'every' is in days.
+    format: int64
+    type: integer
+  every:
+    description: How often to take snapshots.
+    format: int64
+    type: integer
+  keep_for:
+    description: The time to keep the snapshots for.
+    format: int64
+    type: integer
+  time_zone:
+    description: The time zone to use with the `at` time.
+    example: America/Los_Angeles
+    type: string
+type: object

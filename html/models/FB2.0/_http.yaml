@@ -1,0 +1,5 @@
+properties:
+  enabled:
+    description: Is the protocol enabled? If not specified, defaults to `false`.
+    type: boolean
+type: object

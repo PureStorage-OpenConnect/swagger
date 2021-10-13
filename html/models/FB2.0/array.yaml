@@ -1,0 +1,41 @@
+allOf:
+- $ref: ../../models/FB2.0/_resource.yaml
+- properties:
+    _as_of:
+      description: Array time in milliseconds since UNIX epoch.
+      format: int64
+      readOnly: true
+      type: integer
+    banner:
+      description: A string to be shown when logging in to the array.
+      example: Restricted area. Authorized personnel only.
+      type: string
+    idle_timeout:
+      description: Idle timeout in milliseconds. Valid values are in the range of
+        300000 and 10800000. Setting this value to 0 disables timeouts.
+      example: 300000
+      format: int32
+      type: integer
+    ntp_servers:
+      items:
+        example: time.acme.com
+        type: string
+      type: array
+    os:
+      description: Valid values are `Purity//FA` and `Purity//FB`.
+      example: Purity//FB
+      readOnly: true
+      type: string
+    revision:
+      example: 2017.11.07_8f3ab6f5
+      readOnly: true
+      type: string
+    time_zone:
+      description: The time zone to use for the array. In particular this affects
+        the CLI formatting and the default snapshot policy time zone.
+      example: America/Los_Angeles
+      type: string
+    version:
+      example: 2.1.0
+      readOnly: true
+      type: string

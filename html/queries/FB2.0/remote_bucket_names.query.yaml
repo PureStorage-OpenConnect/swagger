@@ -1,0 +1,8 @@
+collectionFormat: csv
+description: A comma-separated list of remote bucket names. If there is not at least
+  one resource that matches each of the elements, then an error is returned.
+in: query
+items:
+  type: string
+name: remote_bucket_names
+type: array

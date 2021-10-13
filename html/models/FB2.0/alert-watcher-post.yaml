@@ -1,0 +1,7 @@
+properties:
+  minimum_notification_severity:
+    description: The minimum severity that an alert must have in order for emails
+      to be sent to the watcher. Possible values include `info`, `warning`, and `critical`.
+      If not specified, defaults to `info`.
+    type: string
+type: object

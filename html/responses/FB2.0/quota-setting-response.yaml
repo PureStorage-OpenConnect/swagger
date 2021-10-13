@@ -1,0 +1,7 @@
+properties:
+  items:
+    description: A list of quota settings objects.
+    items:
+      $ref: ../../models/FB2.0/quota-setting.yaml
+    type: array
+type: object

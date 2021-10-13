@@ -1,0 +1,7 @@
+allOf:
+- $ref: ../../responses/FB2.0/page-info.yaml
+- properties:
+    items:
+      items:
+        $ref: ../../models/FB2.0/array-connection-path.yaml
+      type: array

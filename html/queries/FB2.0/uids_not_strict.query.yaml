@@ -1,0 +1,9 @@
+collectionFormat: csv
+description: A comma-separated list of user IDs. This cannot be provided together
+  with `user_names` query parameter.
+in: query
+items:
+  format: int32
+  type: integer
+name: uids
+type: array

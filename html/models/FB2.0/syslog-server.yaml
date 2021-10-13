@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../models/FB2.0/_resource.yaml
+- $ref: ../../models/FB2.0/syslog-server-post-or-patch.yaml

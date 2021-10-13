@@ -1,0 +1,62 @@
+delete:
+  description: Delete an object store access key. Once an access key has been deleted,
+    it cannot be recovered.
+  parameters:
+  - $ref: ../../queries/FB2.0/names_required.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: DELETE object-store-access-keys
+  tags:
+  - Object Store Access Keys
+get:
+  description: List object store access keys.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/object-store-access-key-get-response.yaml
+  summary: GET object-store-access-keys
+  tags:
+  - Object Store Access Keys
+patch:
+  description: Enable or disable object store access keys.
+  parameters:
+  - $ref: ../../queries/FB2.0/names_required.query.yaml
+  - in: body
+    name: object-store-access-key
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/object-store-access-key.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/object-store-access-key-response.yaml
+  summary: PATCH object-store-access-keys
+  tags:
+  - Object Store Access Keys
+post:
+  description: Create or import object store access keys.
+  parameters:
+  - $ref: ../../queries/FB2.0/access_key_names.query.yaml
+  - in: body
+    name: object-store-access-key
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/object-store-access-key-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/object-store-access-key-response.yaml
+  summary: POST object-store-access-keys
+  tags:
+  - Object Store Access Keys

@@ -1,0 +1,77 @@
+delete:
+  description: Delete a hard limit file system quota for a user.
+  parameters:
+  - $ref: ../../queries/FB2.0/file_system_names.query.yaml
+  - $ref: ../../queries/FB2.0/file_system_ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/uids.query.yaml
+  - $ref: ../../queries/FB2.0/user_names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: DELETE quotas/users
+  tags:
+  - Quotas
+get:
+  description: List users with hard limit file system quotas.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/file_system_ids.query.yaml
+  - $ref: ../../queries/FB2.0/file_system_names.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  - $ref: ../../queries/FB2.0/uids.query.yaml
+  - $ref: ../../queries/FB2.0/user_names.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/user-quota-get-response.yaml
+  summary: GET quotas/users
+  tags:
+  - Quotas
+patch:
+  description: "Modify the attributes of a hard limit file system quota. Note that\
+    \ if you modify a user's quota to a lower value and that user\xE2\u20AC\u2122\
+    s usage has already exceeded the new value, writes will automatically halt until\
+    \ usage decreases below the new quota setting."
+  parameters:
+  - $ref: ../../queries/FB2.0/file_system_names.query.yaml
+  - $ref: ../../queries/FB2.0/file_system_ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/uids.query.yaml
+  - $ref: ../../queries/FB2.0/user_names.query.yaml
+  - in: body
+    name: quota
+    schema:
+      $ref: ../../models/FB2.0/user-quota-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/user-quota-response.yaml
+  summary: PATCH quotas/users
+  tags:
+  - Quotas
+post:
+  description: Create a hard limit file system quota for a user.
+  parameters:
+  - $ref: ../../queries/FB2.0/file_system_ids.query.yaml
+  - $ref: ../../queries/FB2.0/file_system_names.query.yaml
+  - $ref: ../../queries/FB2.0/uids.query.yaml
+  - $ref: ../../queries/FB2.0/user_names.query.yaml
+  - in: body
+    name: quota
+    schema:
+      $ref: ../../models/FB2.0/user-quota-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/user-quota-response.yaml
+  summary: POST quotas/users
+  tags:
+  - Quotas

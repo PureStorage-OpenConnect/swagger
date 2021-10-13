@@ -1,0 +1,7 @@
+properties:
+  items:
+    description: A list of administrator API tokens.
+    items:
+      $ref: ../../models/FB2.0/admin-api-token.yaml
+    type: array
+type: object

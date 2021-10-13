@@ -1,0 +1,17 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in.yaml
+- properties:
+    created:
+      description: Creation timestamp of the object.
+      format: int64
+      readOnly: true
+      type: integer
+    object_count:
+      description: The count of objects within the account.
+      format: int64
+      readOnly: true
+      type: integer
+    space:
+      allOf:
+      - $ref: ../FB2.0/_space.yaml
+      readOnly: true

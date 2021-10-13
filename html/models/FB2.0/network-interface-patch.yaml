@@ -1,0 +1,12 @@
+properties:
+  address:
+    description: The IPv4 or IPv6 address to be associated with the specified network
+      interface.
+    type: string
+  services:
+    description: Services and protocols that are enabled on the interface.
+    items:
+      description: Valid values are `data`, `management`, `replication`, and `support`.
+      type: string
+    type: array
+type: object

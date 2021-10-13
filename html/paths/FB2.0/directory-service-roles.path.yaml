@@ -1,0 +1,38 @@
+get:
+  description: Return array's RBAC group configuration settings for manageability.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/ids_for_directory_service_roles.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/role_ids.query.yaml
+  - $ref: ../../queries/FB2.0/role_names.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/directory-service-roles-get-response.yaml
+  summary: GET directory-service/roles
+  tags:
+  - Directory Services
+patch:
+  description: Update an RBAC group configuration setting for manageability.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids_for_directory_service_roles.query.yaml
+  - $ref: ../../queries/FB2.0/role_ids.query.yaml
+  - $ref: ../../queries/FB2.0/role_names.query.yaml
+  - in: body
+    name: directory-service-roles
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/directory-service-role.yaml
+  responses:
+    200:
+      description: Returns the newly updated directory-service-role object.
+      schema:
+        $ref: ../../responses/FB2.0/directory-service-roles-response.yaml
+  summary: PATCH directory-service/roles
+  tags:
+  - Directory Services

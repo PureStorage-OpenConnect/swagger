@@ -1,0 +1,8 @@
+collectionFormat: csv
+description: A comma-separated list of resource names. Either the names of the snapshots
+  or the owning file systems.
+in: query
+items:
+  type: string
+name: names_or_owner_names
+type: array

@@ -1,0 +1,15 @@
+get:
+  description: Lists the overall performance metrics of the array.
+  parameters:
+  - $ref: ../../queries/FB2.0/end_time.query.yaml
+  - $ref: ../../queries/FB2.0/protocol.query.yaml
+  - $ref: ../../queries/FB2.0/resolution.query.yaml
+  - $ref: ../../queries/FB2.0/start_time.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/array-performance-get-response.yaml
+  summary: GET arrays/performance
+  tags:
+  - Arrays

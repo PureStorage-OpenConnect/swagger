@@ -1,0 +1,11 @@
+properties:
+  id:
+    description: A non-modifiable, globally unique ID chosen by the system.
+    readOnly: true
+    type: string
+  name:
+    type: string
+  resource_type:
+    $ref: ../../models/FB2.0/_resource-type.yaml
+readOnly: true
+type: object

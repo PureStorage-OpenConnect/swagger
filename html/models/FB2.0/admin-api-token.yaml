@@ -1,0 +1,9 @@
+allOf:
+- properties:
+    admin:
+      allOf:
+      - $ref: ../../models/FB2.0/_reference.yaml
+      description: A reference to the admin to whom this token belongs.
+    api_token:
+      $ref: ../../models/FB2.0/_api-token.yaml
+  readOnly: true

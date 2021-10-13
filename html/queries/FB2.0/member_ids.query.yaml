@@ -1,0 +1,10 @@
+collectionFormat: csv
+description: A comma-separated list of member IDs. If after filtering, there is not
+  at least one resource that matches each of the elements of `member_ids`, then an
+  error is returned. This cannot be provided together with the `member_names` query
+  parameter.
+in: query
+items:
+  type: string
+name: member_ids
+type: array

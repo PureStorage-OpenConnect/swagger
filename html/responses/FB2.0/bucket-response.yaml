@@ -1,0 +1,7 @@
+properties:
+  items:
+    description: A list of bucket objects.
+    items:
+      $ref: ../../models/FB2.0/bucket.yaml
+    type: array
+type: object

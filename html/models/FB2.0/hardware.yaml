@@ -1,0 +1,60 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in.yaml
+- properties:
+    details:
+      description: Details about the status of the component if not healthy.
+      example: Temperature too high
+      readOnly: true
+      type: string
+    identify_enabled:
+      description: State of an LED used to visually identify the component.
+      example: true
+      type: boolean
+    index:
+      description: Number that identifies the relative position of a hardware component
+        within the array.
+      example: 1
+      format: int32
+      readOnly: true
+      type: integer
+    model:
+      description: Model number of the hardware component.
+      example: FB-8TB
+      readOnly: true
+      type: string
+    serial:
+      description: Serial number of the hardware component.
+      example: S16445515B09553
+      readOnly: true
+      type: string
+    slot:
+      description: Slot number occupied by the PCI Express card that hosts the component.
+      example: 16
+      format: int32
+      readOnly: true
+      type: integer
+    speed:
+      description: The maximum speed (in b/s) at which the component is capable of
+        operating.
+      example: 10000000000
+      format: int64
+      readOnly: true
+      type: integer
+    status:
+      description: Component status. Valid values are `critical`, `healthy`, `identifying`,
+        `unhealthy`, `unknown`, and `unused`.
+      example: critical
+      readOnly: true
+      type: string
+    temperature:
+      description: Temperature (in degrees celsius) reported by the component.
+      example: 25
+      format: int32
+      readOnly: true
+      type: integer
+    type:
+      description: Type of hardware component. Valid values are `ch`, `eth`, `fan`,
+        `fb`, `fm`, `pwr`, and `xfm`.
+      example: ch
+      readOnly: true
+      type: string

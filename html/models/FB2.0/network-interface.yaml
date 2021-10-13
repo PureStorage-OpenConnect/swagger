@@ -1,0 +1,43 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in.yaml
+- properties:
+    address:
+      description: The IPv4 or IPv6 address to be associated with the specified network
+        interface.
+      type: string
+    enabled:
+      description: Indicates if the specified network interface is enabled (`true`)
+        or disabled (`false`). If not specified, defaults to `true`.
+      readOnly: true
+      type: boolean
+    gateway:
+      description: Derived from `subnet.gateway`.
+      readOnly: true
+      type: string
+    mtu:
+      description: Derived from `subnet.mtu`.
+      format: int32
+      readOnly: true
+      type: integer
+    netmask:
+      description: Derived from `subnet.prefix`.
+      readOnly: true
+      type: string
+    services:
+      description: Services and protocols that are enabled on the interface.
+      items:
+        description: Valid values are `data`, `management`, `replication`, and `support`.
+        type: string
+      type: array
+    subnet:
+      allOf:
+      - $ref: ../../models/FB2.0/_fixed-reference.yaml
+      - readOnly: true
+    type:
+      description: The only valid value is `vip`.
+      type: string
+    vlan:
+      description: Derived from `subnet.vlan`.
+      format: int32
+      readOnly: true
+      type: integer

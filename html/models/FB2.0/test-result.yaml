@@ -1,0 +1,39 @@
+properties:
+  component_address:
+    description: Address of the component running the test.
+    example: 10.230.94.21
+    type: string
+  component_name:
+    description: Name of the component running the test.
+    example: fm1
+    type: string
+  description:
+    description: What the test is doing.
+    example: Testing phonehome connectivity
+    type: string
+  destination:
+    description: The URI of the target server being tested.
+    example: ra.cloud-support.purestorage.com
+    type: string
+  enabled:
+    description: Is the service enabled or not?
+    example: true
+    type: boolean
+  resource:
+    allOf:
+    - $ref: ../../models/FB2.0/_fixed-reference.yaml
+    description: A reference to the object being tested.
+  result_details:
+    description: Additional information about the test result.
+    example: Timeout connecting to phonehome endpoint
+    type: string
+  success:
+    description: Returns a value of `true` if the specified test succeeded. Returns
+      a value of `false` if the specified test failed.
+    type: boolean
+  test_type:
+    description: Displays the type of test being performed. The returned values are
+      determined by the `resource` being tested and its configuration.
+    example: phonehome
+    type: string
+type: object

@@ -1,0 +1,10 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in.yaml
+- description: Hostname configuration for virtual hosted-style S3 requests.
+- properties:
+    name:
+      description: A hostname by which the array can be addressed for virtual hosted-style
+        S3 requests.
+      example: s3.myarray.com
+      readOnly: true
+      type: string

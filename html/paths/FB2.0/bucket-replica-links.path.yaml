@@ -1,0 +1,81 @@
+delete:
+  description: Delete a bucket replica link.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/local_bucket_ids.query.yaml
+  - $ref: ../../queries/FB2.0/local_bucket_names.query.yaml
+  - $ref: ../../queries/FB2.0/remote_bucket_names.query.yaml
+  - $ref: ../../queries/FB2.0/remote_ids.query.yaml
+  - $ref: ../../queries/FB2.0/remote_names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: DELETE bucket-replica-links
+  tags:
+  - Bucket Replica Links
+get:
+  description: List bucket replica links for object replication.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/local_bucket_ids.query.yaml
+  - $ref: ../../queries/FB2.0/local_bucket_names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/remote_bucket_names.query.yaml
+  - $ref: ../../queries/FB2.0/remote_ids.query.yaml
+  - $ref: ../../queries/FB2.0/remote_names.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/bucket-replica-link-get-response.yaml
+  summary: GET bucket-replica-links
+  tags:
+  - Bucket Replica Links
+patch:
+  description: Modify the configuration of a bucket replica link including whether
+    the link is paused and the object store remote credentials used.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/local_bucket_ids.query.yaml
+  - $ref: ../../queries/FB2.0/local_bucket_names.query.yaml
+  - $ref: ../../queries/FB2.0/remote_bucket_names.query.yaml
+  - $ref: ../../queries/FB2.0/remote_ids.query.yaml
+  - $ref: ../../queries/FB2.0/remote_names.query.yaml
+  - in: body
+    name: bucket-replica-link
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/bucket-replica-link.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/bucket-replica-link-response.yaml
+  summary: PATCH bucket-replica-links
+  tags:
+  - Bucket Replica Links
+post:
+  description: Create a bucket replica link for object replication.
+  parameters:
+  - $ref: ../../queries/FB2.0/local_bucket_names.query.yaml
+  - $ref: ../../queries/FB2.0/local_bucket_ids.query.yaml
+  - $ref: ../../queries/FB2.0/remote_bucket_names.query.yaml
+  - $ref: ../../queries/FB2.0/remote_credentials_names.query.yaml
+  - $ref: ../../queries/FB2.0/remote_credentials_ids.query.yaml
+  - in: body
+    name: bucket-replica-link
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/bucket-replica-link-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/bucket-replica-link-response.yaml
+  summary: POST bucket-replica-links
+  tags:
+  - Bucket Replica Links

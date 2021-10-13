@@ -1,0 +1,15 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in.yaml
+- properties:
+    domain:
+      description: Domain suffix to be appended by the Array when performing DNS lookups.
+      example: example.com
+      type: string
+    nameservers:
+      description: List of DNS server IP addresses.
+      items:
+        example: 192.168.0.125
+        type: string
+      maxItems: 3
+      type: array
+  type: object

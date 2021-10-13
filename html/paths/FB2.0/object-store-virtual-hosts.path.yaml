@@ -1,0 +1,45 @@
+delete:
+  description: Delete an object store virtual host.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: DELETE object-store-virtual-hosts
+  tags:
+  - Object Store Virtual Hosts
+get:
+  description: List object store virtual hosts.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/object-store-virtual-host-get-response.yaml
+  summary: GET object-store-virtual-hosts
+  tags:
+  - Object Store Virtual Hosts
+post:
+  description: Create an object store virtual host. An example of a hostname is buckethost.example.com.
+    A hostname cannot exceed 255 characters in length, it cannot be an IP address,
+    only 10 hostnames are supported, supersets or subsets of existing hostnames with
+    the same root are not allowed. The default hostname is s3.amazonaws.com and it
+    cannot be deleted.
+  parameters:
+  - $ref: ../../queries/FB2.0/names_required.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/object-store-virtual-host-response.yaml
+  summary: POST object-store-virtual-hosts
+  tags:
+  - Object Store Virtual Hosts

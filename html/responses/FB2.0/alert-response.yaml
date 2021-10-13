@@ -1,0 +1,7 @@
+properties:
+  items:
+    description: A list of alert objects.
+    items:
+      $ref: ../../models/FB2.0/alert.yaml
+    type: array
+type: object

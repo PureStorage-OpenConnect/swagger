@@ -1,0 +1,31 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in.yaml
+- properties:
+    arguments:
+      readOnly: true
+      type: string
+    command:
+      readOnly: true
+      type: string
+    ip_address:
+      readOnly: true
+      type: string
+    subcommand:
+      readOnly: true
+      type: string
+    time:
+      format: int64
+      readOnly: true
+      type: integer
+    user:
+      readOnly: true
+      type: string
+    user_agent:
+      readOnly: true
+      type: string
+    user_interface:
+      description: The user interface through which the user session event was performed.
+        Valid values are `CLI`, `GUI`, and `REST`.
+      example: CLI
+      readOnly: true
+      type: string

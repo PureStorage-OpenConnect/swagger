@@ -1,0 +1,5 @@
+description: An opaque token used to iterate over a collection. The token to use on
+  the next request is returned in the `continuation_token` field of the result.
+in: query
+name: continuation_token
+type: string

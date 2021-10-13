@@ -1,0 +1,10 @@
+get:
+  description: Displays a detailed result of a Rapid Data Locking test.
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/test-result-response.yaml
+  summary: Displays Rapid Data Locking test results.
+  tags:
+  - RDL

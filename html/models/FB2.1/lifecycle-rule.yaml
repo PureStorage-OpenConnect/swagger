@@ -1,0 +1,10 @@
+allOf:
+- $ref: ../../models/FB2.0/lifecycle-rule.yaml
+- $ref: ../../models/FB2.1/_lifecycle-rule-config-extension.yaml
+- properties:
+    cleanup_expired_object_delete_marker:
+      description: Returns a value of `true` if the expired object delete markers
+        will be removed.
+      example: true
+      readOnly: true
+      type: boolean

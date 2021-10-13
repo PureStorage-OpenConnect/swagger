@@ -1,0 +1,67 @@
+delete:
+  description: Delete an Active Directory account.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/local_only_ad.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: DELETE active-directory
+  tags:
+  - Active Directory
+get:
+  description: List an Active Directory account and its configuration.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/active-directory-get-response.yaml
+  summary: GET active-directory
+  tags:
+  - Active Directory
+patch:
+  description: Modify the configuration of an Active Directory account.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - in: body
+    name: active-directory
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/active-directory-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/active-directory-response.yaml
+  summary: PATCH active-directory
+  tags:
+  - Active Directory
+post:
+  description: Join an Active Directory domain and generate keytabs for the registered
+    SPNs and supported encryption types.
+  parameters:
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/join_existing_acct_ad.yaml
+  - in: body
+    name: active-directory
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/active-directory-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/active-directory-response.yaml
+  summary: POST active-directory
+  tags:
+  - Active Directory

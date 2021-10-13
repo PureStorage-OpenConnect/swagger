@@ -1,0 +1,7 @@
+properties:
+  items:
+    description: A list of certificate objects.
+    items:
+      $ref: ../../models/FB2.0/certificate.yaml
+    type: array
+type: object

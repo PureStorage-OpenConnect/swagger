@@ -1,0 +1,16 @@
+get:
+  description: Testing if the configuration of an Active Directory account is valid.
+  parameters:
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/test-result-get-response.yaml
+  summary: GET active-directory/test
+  tags:
+  - Active Directory

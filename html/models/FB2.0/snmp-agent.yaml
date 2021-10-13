@@ -1,0 +1,18 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in.yaml
+- properties:
+    engine_id:
+      description: An SNMP agent's adminstration domain unique name.
+      example: 80009e2205d7c0bd31fef5b87f4f44da
+      maxLength: 32
+      readOnly: true
+      type: string
+    v2c:
+      $ref: ../../models/FB2.0/_snmp_v2c.yaml
+    v3:
+      $ref: ../../models/FB2.0/_snmp_v3.yaml
+    version:
+      description: Version of the SNMP protocol to be used by an SNMP manager in communications
+        with Purity's SNMP agent. Valid values are `v2c` and `v3`.
+      example: v3
+      type: string

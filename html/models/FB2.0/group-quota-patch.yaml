@@ -1,0 +1,2 @@
+allOf:
+- $ref: ../../models/FB2.0/group-quota-post.yaml

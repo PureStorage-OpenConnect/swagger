@@ -1,0 +1,7 @@
+description: When the time window ends (in milliseconds since epoch).
+example: 1514764800000
+format: int64
+in: query
+minimum: 0
+name: end_time
+type: integer

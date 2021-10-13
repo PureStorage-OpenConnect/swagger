@@ -1,0 +1,19 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in.yaml
+- properties:
+    access_keys:
+      description: References of the user's access keys.
+      items:
+        $ref: ../../models/FB2.0/_fixed-reference.yaml
+      readOnly: true
+      type: array
+    account:
+      allOf:
+      - $ref: ../../models/FB2.0/_fixed-reference.yaml
+      description: Reference of the associated account.
+      readOnly: true
+    created:
+      description: Creation timestamp of the object.
+      format: int64
+      readOnly: true
+      type: integer

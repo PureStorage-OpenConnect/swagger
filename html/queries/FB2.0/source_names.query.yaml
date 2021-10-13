@@ -1,0 +1,9 @@
+collectionFormat: csv
+description: A comma-separated list of names for the source of the object. If there
+  is not at least one resource that matches each of the elements of `source_names`,
+  an error is returned.
+in: query
+items:
+  type: string
+name: source_names
+type: array

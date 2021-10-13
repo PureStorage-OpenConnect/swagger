@@ -1,0 +1,21 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in-no-id.yaml
+- properties:
+    created:
+      description: Creation timestamp of the object.
+      format: int64
+      readOnly: true
+      type: integer
+    enabled:
+      description: Is the access key enabled? If not specified, defaults to `false`.
+      type: boolean
+    secret_access_key:
+      description: The secret access key, only populated on creation if it is not
+        imported from another FlashBlade.
+      readOnly: true
+      type: string
+    user:
+      allOf:
+      - $ref: ../../models/FB2.0/_fixed-reference.yaml
+      description: Reference of the associated user.
+      readOnly: true

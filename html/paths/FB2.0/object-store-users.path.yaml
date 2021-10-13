@@ -1,0 +1,43 @@
+delete:
+  description: Delete an object store user.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: DELETE object-store-users
+  tags:
+  - Object Store Users
+get:
+  description: List object store users and their attributes.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/object-store-user-get-response.yaml
+  summary: GET object-store-users
+  tags:
+  - Object Store Users
+post:
+  description: Create object store users to administer object storage for an object
+    store account.
+  parameters:
+  - $ref: ../../queries/FB2.0/names_required.query.yaml
+  - $ref: ../../queries/FB2.0/full_access.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/object-store-user-response.yaml
+  summary: POST object-store-users
+  tags:
+  - Object Store Users

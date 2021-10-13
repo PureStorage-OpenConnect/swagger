@@ -1,0 +1,6 @@
+properties:
+  id:
+    description: A non-modifiable, globally unique ID chosen by the system.
+    readOnly: true
+    type: string
+type: object

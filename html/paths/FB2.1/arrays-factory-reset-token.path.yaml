@@ -1,0 +1,40 @@
+delete:
+  description: Deletes any existing token that could be used to perform a factory
+    reset on the array.
+  responses:
+    200:
+      description: OK
+  summary: Delete a factory reset token
+  tags:
+  - Arrays
+get:
+  description: Displays a list of tokens used to perform a factory reset on the array.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.1/array-factory-reset-token-get-response.yaml
+  summary: List factory reset tokens
+  tags:
+  - Arrays
+post:
+  description: Creates a token that can be used to perform a factory reset on the
+    array. Factory reset tokens can only be created after the array has been prepared
+    for reset (e.g., all file systems, buckets, and snapshots must first be eradicated).
+    After a token has been created, operations that would take the array out of the
+    prepared state (e.g., creating file systems) are disabled until all tokens have
+    been deleted.
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.1/array-factory-reset-token-response.yaml
+  summary: Create a factory reset token
+  tags:
+  - Arrays

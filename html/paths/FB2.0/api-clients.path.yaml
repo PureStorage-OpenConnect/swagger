@@ -1,0 +1,70 @@
+delete:
+  description: Delete the API client.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: DELETE api-clients
+  tags:
+  - API Clients
+get:
+  description: List an API client and its configuration attributes.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: Returns a list of API clients.
+      schema:
+        $ref: ../../responses/FB2.0/api-clients-response.yaml
+  summary: GET api-clients
+  tags:
+  - API Clients
+patch:
+  description: Modify an API client. Newly created API clients can be enabled by setting
+    the `enabled` parameter to `true`.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - in: body
+    name: api-clients
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/api-client.yaml
+  responses:
+    200:
+      description: Returns the patched api-clients.
+      schema:
+        $ref: ../../responses/FB2.0/api-clients-response.yaml
+  summary: PATCH api-clients
+  tags:
+  - API Clients
+post:
+  description: Create an API client to authorize Access Token or Bearer Tokens for
+    use on the array. Required fields include `issuer`, `public_key`, and `access_token_ttl_in_ms`.
+    After creating an API client, it can only be enabled by an authorized user.
+  parameters:
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - in: body
+    name: api-client
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/api-clients-post.yaml
+  responses:
+    200:
+      description: Returns the new api-clients. All new api-clients are disabled.
+        An authorized party must patch the api-clients to be enabled, which signifies
+        the api-clients are now trusted and authorized to issue id tokens for this
+        array.
+      schema:
+        $ref: ../../responses/FB2.0/api-clients-response.yaml
+  summary: POST api-clients
+  tags:
+  - API Clients
