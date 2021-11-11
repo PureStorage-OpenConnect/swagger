@@ -1,0 +1,13 @@
+properties:
+  items:
+    description: A list of object store bucket replica link objects.
+    items:
+      $ref: ../../models/FB2.2/bucket-replica-link.yaml
+    type: array
+  total:
+    allOf:
+    - $ref: ../../models/FB2.2/bucket-replica-link.yaml
+    description: If `total_only` query param is `true`, then it will be a total of
+      all records after filtering and no items will be returned. If `total_only` is
+      `false`, then it will be a total of all records on this page.
+type: object

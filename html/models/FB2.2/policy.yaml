@@ -1,0 +1,7 @@
+allOf:
+- $ref: ../../models/FB2.2/policy-base.yaml
+- properties:
+    rules:
+      items:
+        $ref: ../../models/FB2.0/_policy_rule.yaml
+      type: array

@@ -1,0 +1,9 @@
+allOf:
+- $ref: ../../models/FB2.0/_replication_performance.yaml
+- properties:
+    object_backlog:
+      allOf:
+      - $ref: ../../models/FB2.2/_object-backlog.yaml
+      description: The total number of pending object operations and their size that
+        are currently in the backlog.
+  readOnly: true

@@ -1,0 +1,23 @@
+properties:
+  bytes_count:
+    description: The size of the objects in bytes that need to be replicated. This
+      does not include the size of custom metadata.
+    format: int64
+    readOnly: true
+    type: integer
+  delete_ops_count:
+    description: The number of DELETE operations that need to be replicated.
+    format: int64
+    readOnly: true
+    type: integer
+  other_ops_count:
+    description: The number of other operations that need to be replicated.
+    format: int64
+    readOnly: true
+    type: integer
+  put_ops_count:
+    description: The number of PUT operations that need to be replicated.
+    format: int64
+    readOnly: true
+    type: integer
+type: object

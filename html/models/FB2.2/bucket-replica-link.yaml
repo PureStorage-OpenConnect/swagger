@@ -1,0 +1,16 @@
+allOf:
+- $ref: ../../models/FB2.0/_replica-link-built-in.yaml
+- $ref: ../../models/FB2.0/bucket-replica-link.yaml
+- properties:
+    cascading_enabled:
+      description: If set to `true`, objects replicated to this bucket via a replica
+        link from another array will also be replicated by this link to the remote
+        bucket. Defaults to `false`.
+      readOnly: true
+      type: boolean
+    object_backlog:
+      allOf:
+      - $ref: ../../models/FB2.2/_object-backlog.yaml
+      description: The number of pending operations and their size that are currently
+        in the backlog.
+      readOnly: true

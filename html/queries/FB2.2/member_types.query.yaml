@@ -1,0 +1,9 @@
+collectionFormat: csv
+description: A comma-separated list of member types. Valid values are `file-systems`,
+  `file-system-snapshots`, `file-system-replica-links`, and `object-store-users`.
+  Different endpoints may accept different subsets of these values.
+in: query
+items:
+  $ref: ../../models/FB2.0/_resource-type.yaml
+name: member_types
+type: array
