@@ -1,0 +1,19 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in.yaml
+- $ref: ../../models/FB2.0/admin.yaml
+- properties:
+    locked:
+      description: Returns a value of `true` if the user is currently locked out,
+        otherwise `false`. Can be patched to false to unlock a user. This field is
+        only visible to `array_admin` roles. For all other users, the value is always
+        `null`.
+      example: false
+      type: boolean
+    lockout_remaining:
+      description: The remaining lockout period, in milliseconds, if the user is locked
+        out. This field is only visible to `array_admin` roles. For all other users,
+        the value is always `null`.
+      example: null
+      format: int64
+      readOnly: true
+      type: integer

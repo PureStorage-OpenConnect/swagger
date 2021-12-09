@@ -1,0 +1,7 @@
+allOf:
+- $ref: ../../models/FB2.2/file-system-patch.yaml
+- properties:
+    nfs:
+      allOf:
+      - $ref: ../../models/FB2.3/_nfs-patch.yaml
+      description: NFS configuration.

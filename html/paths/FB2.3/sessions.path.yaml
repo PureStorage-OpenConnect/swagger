@@ -1,0 +1,19 @@
+get:
+  description: Displays session data for user login events performed in the Purity//FB
+    GUI, CLI, and REST API.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.3/session-get-response.yaml
+  summary: List session data
+  tags:
+  - Sessions

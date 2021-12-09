@@ -1,0 +1,26 @@
+properties:
+  lockout_duration:
+    description: The lockout duration, in milliseconds, if a user has reached the
+      maximum number of login attempts. Ranges from 1 second to 90 days. Default value
+      is `null`. Use 0 to reset the value to `null`.
+    example: 3600000
+    format: int64
+    maximum: 7776000000
+    minimum: 0
+    type: integer
+  max_login_attempts:
+    description: The maximum number of failed login attempts allowed before the user
+      is locked out. Default value is `null`. Use 0 to reset the value to `null`.
+    example: 10
+    format: int32
+    maximum: 100
+    minimum: 0
+    type: integer
+  min_password_length:
+    description: The minimum password length. If not specified, defaults to 1 character.
+    example: 1
+    format: int32
+    maximum: 100
+    minimum: 1
+    type: integer
+type: object

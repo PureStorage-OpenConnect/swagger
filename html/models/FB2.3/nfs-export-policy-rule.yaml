@@ -1,0 +1,11 @@
+allOf:
+- $ref: ../../models/FB2.3/nfs-export-policy-rule-base.yaml
+- properties:
+    index:
+      description: 'The index within the policy. The `index` indicates the order the
+        rules are evaluated. NOTE: It is recommended to use the query param `before_rule_id`
+        to do reordering to avoid concurrency issues, but changing `index` is also
+        supported. `index` can not be changed if `before_rule_id` or `before_rule_name`
+        are specified.'
+      format: int32
+      type: integer

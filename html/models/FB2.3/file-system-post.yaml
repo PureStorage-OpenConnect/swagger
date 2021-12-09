@@ -1,0 +1,6 @@
+allOf:
+- $ref: ../../models/FB2.2/file-system-post.yaml
+- properties:
+    nfs:
+      allOf:
+      - $ref: ../../models/FB2.3/_nfs.yaml

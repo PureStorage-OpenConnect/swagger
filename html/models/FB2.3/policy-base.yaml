@@ -1,0 +1,8 @@
+allOf:
+- $ref: ../../models/FB2.2/policy-base.yaml
+- properties:
+    policy_type:
+      description: Type of the policy. Valid values are `nfs`, `object-access`, and
+        `snapshot`.
+      readOnly: true
+      type: string

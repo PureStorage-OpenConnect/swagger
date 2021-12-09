@@ -1,0 +1,6 @@
+properties:
+  items:
+    items:
+      $ref: ../../models/FB2.3/object-store-access-policy.yaml
+    type: array
+type: object

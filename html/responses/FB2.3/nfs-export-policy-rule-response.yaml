@@ -1,0 +1,7 @@
+properties:
+  items:
+    description: Displays a list of all items after filtering.
+    items:
+      $ref: ../../models/FB2.3/nfs-export-policy-rule.yaml
+    type: array
+type: object

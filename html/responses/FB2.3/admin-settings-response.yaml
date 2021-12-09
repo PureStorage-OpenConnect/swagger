@@ -1,0 +1,7 @@
+properties:
+  items:
+    description: Returns global admin settings.
+    items:
+      $ref: ../../models/FB2.3/admin-setting.yaml
+    type: array
+type: object

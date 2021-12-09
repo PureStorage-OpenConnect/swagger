@@ -1,0 +1,19 @@
+description: The bandwidth throttling for an array connection.
+properties:
+  default_limit:
+    description: Default maximum bandwidth threshold for outbound traffic in bytes.
+      Once exceeded, bandwidth throttling occurs.
+    example: 1073741824
+    format: int64
+    type: integer
+  window:
+    allOf:
+    - $ref: ../../models/FB2.3/_time_window.yaml
+    description: The time during which the window_limit threshold is in effect.
+  window_limit:
+    description: Maximum bandwidth threshold for outbound traffic during the specified
+      `window_limit` time range in bytes. Once exceeded, bandwidth throttling occurs.
+    example: 2097152
+    format: int64
+    type: integer
+type: object
