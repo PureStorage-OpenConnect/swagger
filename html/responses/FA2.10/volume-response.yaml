@@ -1,0 +1,8 @@
+properties:
+  items:
+    description: Displays a list of all items after filtering. The values are displayed
+      for each name, if meaningful. If `total_only=true`, the `items` list is empty.
+    items:
+      $ref: ../../models/FA2.10/volume.yaml
+    type: array
+type: object

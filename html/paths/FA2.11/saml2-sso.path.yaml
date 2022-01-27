@@ -1,0 +1,74 @@
+delete:
+  description: Deletes SAML2 SSO configurations.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: Delete SAML2 SSO configurations
+  tags:
+  - SAML2 SSO
+get:
+  description: Displays the SAML2 SSO service provider and identity provider configuration
+    settings in the array.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.11/saml2-sso-get-response.yaml
+  summary: List SAML2 SSO configurations
+  tags:
+  - SAML2 SSO
+patch:
+  description: Modifies one or more attributes of SAML2 SSO configurations.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - in: body
+    name: idp
+    required: true
+    schema:
+      $ref: ../../models/FA2.11/saml2-sso-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.11/saml2-sso-response.yaml
+  summary: Modify SAML2 SSO configurations
+  tags:
+  - SAML2 SSO
+post:
+  description: Creates SAML2 SSO configurations.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names_required.query.yaml
+  - in: body
+    name: idp
+    required: true
+    schema:
+      $ref: ../../models/FA2.11/saml2-sso-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.11/saml2-sso-response.yaml
+  summary: Create SAML2 SSO configurations
+  tags:
+  - SAML2 SSO

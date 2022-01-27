@@ -1,0 +1,43 @@
+patch:
+  description: Modifies a virtual machine, recovering it from the destroyed state.
+    If recovering the virtual machine causes a conflict with an existing virtual machine,
+    the operation fails.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - in: body
+    name: virtual-machine
+    required: true
+    schema:
+      $ref: ../../models/FA2.10/virtual-machine-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.10/virtual-machine-response.yaml
+  summary: Modify a virtual machine
+  tags:
+  - Virtual Machines
+post:
+  description: Creates one or more virtual machines from a protection group snapshot.
+    If `overwrite` is specified, an existing virtual machine has its volumes overwritten
+    by the snapshot. Otherwise, a new virtual machine is created from the snapshot.
+    If creating the new virtual machine causes a conflict with an existing virtual
+    machine, the operation fails.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/overwrite.query.yaml
+  - in: body
+    name: virtual-machine
+    required: true
+    schema:
+      $ref: ../../models/FA2.10/virtual-machine-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.10/virtual-machine-response.yaml
+  summary: Create a virtual machine
+  tags:
+  - Virtual Machines

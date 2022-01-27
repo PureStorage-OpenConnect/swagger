@@ -1,0 +1,43 @@
+get:
+  description: Displays the existing SAML2 SSO configurations in the array.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.2/test-result-with-resource-response.yaml
+  summary: List existing SAML2 SSO configurations
+  tags:
+  - SAML2 SSO
+patch:
+  description: Modifies the provided SAML2 SSO configurations. If the configurations
+    with the specified `ids` or `names` exist, the provided configurations will overwrite
+    the existing configurations, but will not be persisted in the array.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - in: body
+    name: idp
+    required: true
+    schema:
+      $ref: ../../models/FA2.11/saml2-sso-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.11/test-result-with-resource-patch-response.yaml
+  summary: Modify provided SAML2 SSO configurations
+  tags:
+  - SAML2 SSO
