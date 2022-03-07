@@ -1,0 +1,6 @@
+properties:
+  items:
+    items:
+      $ref: ../../models/FA2.13/pod.yaml
+    type: array
+type: object

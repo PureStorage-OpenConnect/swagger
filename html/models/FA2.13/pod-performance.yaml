@@ -1,0 +1,16 @@
+allOf:
+- $ref: ../../models/FA2.4/_performance.yaml
+- $ref: ../../models/FA2.0/_resource.yaml
+- properties:
+    others_per_sec:
+      description: The number of other requests processed per second.
+      format: int64
+      minimum: 0
+      type: integer
+    usec_per_other_op:
+      description: The average time it takes the pod to process an I/O other request,
+        measured in microseconds. The average time does not include SAN time, queue
+        time, or QoS rate limit time.
+      format: int64
+      minimum: 0
+      type: integer

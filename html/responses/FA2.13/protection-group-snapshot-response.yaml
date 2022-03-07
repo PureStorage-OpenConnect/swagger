@@ -1,0 +1,8 @@
+properties:
+  items:
+    description: Returns a list of all items after filtering. If applicable, the values
+      are displayed for each name.
+    items:
+      $ref: ../../models/FA2.13/protection-group-snapshot.yaml
+    type: array
+type: object

@@ -1,0 +1,8 @@
+allOf:
+- $ref: ../../models/FA2.0/_built-in.yaml
+- $ref: ../../models/FA2.13/protection-group-snapshot.yaml
+- properties:
+    destroyed:
+      readOnly: true
+      type: boolean
+  type: object

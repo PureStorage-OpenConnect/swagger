@@ -1,0 +1,28 @@
+allOf:
+- $ref: ../../models/FA2.0/_resource.yaml
+- properties:
+    destroyed:
+      description: Returns a value of `true` if the policy has been destroyed and
+        is pending eradication. The `time_remaining` value displays the amount of
+        time left until the destroyed policy is permanently eradicated. Once the `time_remaining`
+        period has elapsed, the policy is permanently eradicated and can no longer
+        be recovered.
+      type: boolean
+    enabled:
+      description: Returns a value of `true` if the policy is enabled.
+      type: boolean
+    pod:
+      allOf:
+      - $ref: ../../models/FA2.0/_reference.yaml
+      description: A reference to the pod.
+    policy_type:
+      description: The type of policy. Valid values include `nfs`, `smb`, `snapshot`,
+        and `quota`.
+      readOnly: true
+      type: string
+    time_remaining:
+      description: The amount of time left, measured in milliseconds, until the destroyed
+        policy is permanently eradicated.
+      format: int64
+      readOnly: true
+      type: integer

@@ -1,0 +1,12 @@
+allOf:
+- $ref: ../../models/FA2.1/protection-group.yaml
+- properties:
+    eradication_config:
+      $ref: ../../models/FA2.13/protection-group-eradication-config.yaml
+    retention_lock:
+      description: The valid values are `ratcheted` and `unlocked`. The default value
+        for a newly created protection group is `unlocked`. Set `retention_lock` to
+        `ratcheted` to enable SafeMode restrictions on the protection group. Contact
+        Pure Technical Services to change `retention_lock` to `unlocked`.
+      example: unlocked
+      type: string

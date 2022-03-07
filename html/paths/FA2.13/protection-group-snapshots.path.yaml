@@ -1,0 +1,84 @@
+delete:
+  description: Deletes a protection group snapshot that has been destroyed and is
+    pending eradication. Eradicating a protection group snapshot eradicates all of
+    its protection group snapshots and cannot be recovered. Protection group snapshots
+    are destroyed through the `PATCH` method. The `ids` or `names` parameter is required,
+    but cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: Delete a protection group snapshot
+  tags:
+  - Protection Group Snapshots
+get:
+  description: Displays a list of protection group snapshots, including those pending
+    eradication.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/destroyed.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/source_names.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  - $ref: ../../queries/FA2.0/total_only.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.13/protection-group-snapshot-get-response.yaml
+  summary: List protection group snapshots
+  tags:
+  - Protection Group Snapshots
+patch:
+  description: Modifies a protection group snapshot so that it can be destroyed. To
+    destroy a volume, set `destroyed=true`. To recover a volume that has been destroyed
+    and is pending eradication, set `destroyed=false`. The `names` parameter is required.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - in: body
+    name: protection-group-snapshot
+    required: true
+    schema:
+      $ref: ../../models/FA2.13/protection-group-snapshot-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.13/protection-group-snapshot-response.yaml
+  summary: Modify a protection group snapshot
+  tags:
+  - Protection Group Snapshots
+post:
+  description: Creates a point-in-time snapshot of the contents of a protection group.
+    The `source_ids` or `source_names` parameter is required, but cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/apply_retention.query.yaml
+  - $ref: ../../queries/FA2.2/for_replication.query.yaml
+  - $ref: ../../queries/FA2.2/replicate.query.yaml
+  - $ref: ../../queries/FA2.2/replicate_now.query.yaml
+  - $ref: ../../queries/FA2.0/source_names.query.yaml
+  - in: body
+    name: protection-group-snapshot
+    schema:
+      $ref: ../../models/FA2.13/protection-group-snapshot-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.13/protection-group-snapshot-response.yaml
+  summary: Create a protection group snapshot
+  tags:
+  - Protection Group Snapshots

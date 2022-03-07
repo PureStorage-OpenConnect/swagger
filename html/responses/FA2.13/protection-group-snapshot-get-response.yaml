@@ -1,0 +1,11 @@
+allOf:
+- $ref: ../../responses/FA2.1/page-info.yaml
+- $ref: ../../responses/FA2.13/protection-group-snapshot-response.yaml
+- properties:
+    total:
+      description: The aggregate value of all items after filtering. If applicable,
+        the average value is displayed instead. If applicable, the values are displayed
+        for each field.
+      items:
+        $ref: ../../models/FA2.13/protection-group-snapshot.yaml
+      type: array

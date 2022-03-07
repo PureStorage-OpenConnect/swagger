@@ -1,0 +1,17 @@
+allOf:
+- $ref: ../../responses/FA2.1/page-info.yaml
+- properties:
+    items:
+      description: Performance data, broken down by array. If `total_only=true`, the
+        `items` list will be empty.
+      items:
+        $ref: ../../models/FA2.13/pod-performance-by-array.yaml
+      type: array
+    total:
+      description: The aggregate value of all items after filtering. When applicable,
+        the average value is displayed instead. If applicable, the values are displayed
+        for each field.
+      items:
+        $ref: ../../models/FA2.13/pod-performance-by-array.yaml
+      type: array
+  type: object

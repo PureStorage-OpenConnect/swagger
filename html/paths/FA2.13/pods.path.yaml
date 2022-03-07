@@ -1,0 +1,87 @@
+delete:
+  description: Deletes a pod that has been destroyed and is pending eradication. Eradicated
+    pods cannot be recovered. Pods are destroyed using the PATCH method. The `ids`
+    or `names` parameter is required, but cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.3/eradicate_contents.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: Delete a pod
+  tags:
+  - Pods
+get:
+  description: Displays a list of pods that are stretched to the array.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/destroyed.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  - $ref: ../../queries/FA2.0/total_only.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.13/pod-get-response.yaml
+  summary: List pods
+  tags:
+  - Pods
+patch:
+  description: Modifies pod details.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.2/abort_quiesce.query.yaml
+  - $ref: ../../queries/FA2.2/quiesce.query.yaml
+  - $ref: ../../queries/FA2.2/skip_quiesce.query.yaml
+  - $ref: ../../queries/FA2.2/promote_from.query.yaml
+  - $ref: ../../queries/FA2.3/destroy_contents.query.yaml
+  - in: body
+    name: pod
+    required: true
+    schema:
+      $ref: ../../models/FA2.2/pod-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.13/pod-response.yaml
+  summary: Modify a pod
+  tags:
+  - Pods
+post:
+  description: Creates a pod on the local array. Each pod must be given a name that
+    is unique across the arrays to which they are stretched, so a pod cannot be stretched
+    to an array that already contains a pod with the same name. After a pod has been
+    created, add volumes and protection groups to the pod, and then stretch the pod
+    to another connected array.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - in: body
+    name: pod
+    required: true
+    schema:
+      $ref: ../../models/FA2.1/pod-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.13/pod-response.yaml
+  summary: Create a pod
+  tags:
+  - Pods
