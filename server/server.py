@@ -9,7 +9,7 @@ import pprint
 from Crypto.PublicKey import RSA
 from time import time
 import jwt
-
+from werkzeug.utils import safe_join
 
 import logging
 log = logging.getLogger('werkzeug')
@@ -170,7 +170,7 @@ def proxy_to_fa(*args, **kwargs):
 # This either lists the directory, or returns the actual file
 @app.route('/<path:req_path>')
 def get_specs(req_path):
-    abs_path = os.path.join(ROOT_DIR, req_path)
+    abs_path = safe_join(ROOT_DIR, req_path)
 
     # Return 404 if path doesn't exist
     if not os.path.exists(abs_path):
