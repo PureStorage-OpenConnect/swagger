@@ -1,0 +1,14 @@
+allOf:
+- $ref: ../../responses/FB2.0/page-info.yaml
+- properties:
+    items:
+      description: A list of drive objects.
+      items:
+        $ref: ../../models/FB2.4/drive.yaml
+      type: array
+    total:
+      allOf:
+      - $ref: ../../models/FB2.4/drive.yaml
+      - description: If `total_only` query param is `true`, then it will be a total
+          of all records after filtering and no items will be returned. If `total_only`
+          is `false`, then it will be a total of all records on this page.

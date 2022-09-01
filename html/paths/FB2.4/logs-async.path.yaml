@@ -1,0 +1,36 @@
+get:
+  description: List the attributes and status of preparation for a history of log
+    events from the array to provide to Pure Technical Services for analysis.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.4/logs-async-get-response.yaml
+  summary: GET logs-async
+  tags:
+  - Logs
+patch:
+  description: Start the preparation for a history of log events from the array to
+    provide to Pure Technical Services for analysis.
+  parameters:
+  - in: body
+    name: logs-async
+    required: true
+    schema:
+      $ref: ../../models/FB2.4/logs-async.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.4/logs-async-response.yaml
+  summary: PATCH logs-async
+  tags:
+  - Logs

@@ -1,0 +1,8 @@
+allOf:
+- $ref: ../../models/FA2.3/policy-post.yaml
+- properties:
+    user_mapping_enabled:
+      description: If set to `true`, FlashArray queries the joined AD/OpenLDAP server
+        to find the user corresponding to the incoming UID. If set to `false`, users
+        are defined by UID/GID pair. If not specified, defaults to `true`.
+      type: boolean

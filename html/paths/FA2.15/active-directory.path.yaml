@@ -1,0 +1,73 @@
+delete:
+  description: Deletes one or more specified Active Directory accounts.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.3/local_only_ad.query.yaml
+  - $ref: ../../queries/FA2.0/names_required.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: Delete Active Directory account
+  tags:
+  - Active Directory
+get:
+  description: Displays configured Active Directory accounts.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.15/active-directory-get-response.yaml
+  summary: List Active Directory accounts
+  tags:
+  - Active Directory
+patch:
+  description: Modifies specified Active Directory account.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names_required.query.yaml
+  - in: body
+    name: active-directory
+    required: true
+    schema:
+      $ref: ../../models/FA2.15/active-directory-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.15/active-directory-response.yaml
+  summary: Modify Active Directory account
+  tags:
+  - Active Directory
+post:
+  description: Creates one or more Active Directory accounts. The `user` and `password`
+    provided are used to join the array to the specified `domain`.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names_required.query.yaml
+  - $ref: ../../queries/FA2.15/join_existing_acct_ad.yaml
+  - in: body
+    name: active-directory
+    required: true
+    schema:
+      $ref: ../../models/FA2.15/active-directory-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.15/active-directory-response.yaml
+  summary: Create Active Directory account
+  tags:
+  - Active Directory

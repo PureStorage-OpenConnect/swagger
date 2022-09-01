@@ -1,0 +1,8 @@
+description: If specified as `true`, the initial protection of the newly created volumes
+  will be the union of the container default protection configuration and `add_to_protection_group_names`.
+  If specified as `false`, the default protection of the container will not be applied
+  automatically. The initial protection of the newly created volumes will be configured
+  by `add_to_protection_group_names`. If not specified, defaults to `true`.
+in: query
+name: with_default_protection
+type: boolean

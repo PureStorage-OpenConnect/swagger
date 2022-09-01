@@ -142,6 +142,24 @@
   url: specs/FA2.13.spec.yaml
   version: '2.13'
   version_sort: 2013
+- filename: FA2.14.spec.yaml
+  model: FlashArray
+  name: FlashArray v2.14
+  url: specs/FA2.14.spec.yaml
+  version: '2.14'
+  version_sort: 2014
+- filename: FA2.15.spec.yaml
+  model: FlashArray
+  name: FlashArray v2.15
+  url: specs/FA2.15.spec.yaml
+  version: '2.15'
+  version_sort: 2015
+- filename: FA2.16.spec.yaml
+  model: FlashArray
+  name: FlashArray v2.16
+  url: specs/FA2.16.spec.yaml
+  version: '2.16'
+  version_sort: 2016
 - filename: FB1.0.spec.yaml
   model: FlashBlade
   name: FlashBlade v1.0
@@ -244,6 +262,12 @@
   url: specs/FB2.3.spec.yaml
   version: '2.3'
   version_sort: 2003
+- filename: FB2.4.spec.yaml
+  model: FlashBlade
+  name: FlashBlade v2.4
+  url: specs/FB2.4.spec.yaml
+  version: '2.4'
+  version_sort: 2004
 - filename: Pure1-1.0.spec.yaml
   model: Pure1
   name: Pure1 v1.0

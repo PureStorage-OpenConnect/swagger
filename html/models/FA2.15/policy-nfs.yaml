@@ -1,0 +1,8 @@
+allOf:
+- $ref: ../../models/FA2.13/policy.yaml
+- properties:
+    user_mapping_enabled:
+      description: Returns `true` if user mapping is enabled on the policy. If `true`,
+        FlashArray queries the joined AD/OpenLDAP server to find the user corresponding
+        to the incoming UID. If `false`, users are defined by UID/GID pair.
+      type: boolean

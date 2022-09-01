@@ -1,0 +1,82 @@
+get:
+  description: Displays a list of virtual machines, including those pending eradication.
+    If `vm_type` is `vvol`, the `recovery_context` in the response will represent
+    the most recent snapshot of the config vVol. This must be used as the `source`
+    in the `PATCH` method when recovering a virtual machine from the destroyed state.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/destroyed.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  - description: The type of virtual machine. The only valid value is `vvol`.
+    in: query
+    name: vm_type
+    type: string
+  - collectionFormat: csv
+    description: Performs the operation on the unique virtual machine IDs specified.
+      Enter multiple virtual machine IDs in a comma-separated format.
+    in: query
+    items:
+      type: string
+    name: vm_ids
+    type: array
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.14/virtual-machine-get-response.yaml
+  summary: List Virtual Machines
+  tags:
+  - Virtual Machines
+patch:
+  description: Updates a virtual machine, recovering it from the destroyed state.
+    If the virtual machine is of type `vvol`, the `source` property of the request
+    body must be a `recovery_context` value retrieved from the `GET /virtual-machines`
+    endpoint. If recovering the virtual machine will cause a conflict with an existing
+    virtual machine, the operation will fail.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - in: body
+    name: virtual-machine
+    required: true
+    schema:
+      $ref: ../../models/FA2.14/virtual-machine-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.14/virtual-machine-response.yaml
+  summary: Update a virtual machine
+  tags:
+  - Virtual Machines
+post:
+  description: Creates one or more virtual machines from a protection group snapshot.
+    If the virtual machine is of type `vvol`, the `source` property of the request
+    body must be a `recovery_context` value retrieved from the `GET /virtual-machine-snapshots`
+    endpoint. If `overwrite` is specified, an existing virtual machine will have its
+    volumes overwritten by the snapshot. Otherwise, a new virtual machine will be
+    created from the snapshot. If creating the new virtual machine will cause a conflict
+    with an existing virtual machine, the operation will fail.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/overwrite.query.yaml
+  - in: body
+    name: virtual-machine
+    required: true
+    schema:
+      $ref: ../../models/FA2.14/virtual-machine-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.14/virtual-machine-response.yaml
+  summary: Create a virtual machine
+  tags:
+  - Virtual Machines

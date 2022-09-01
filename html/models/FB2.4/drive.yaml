@@ -1,0 +1,25 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in.yaml
+- properties:
+    details:
+      description: Details about the status of the drive if not healthy.
+      readOnly: true
+      type: string
+    progress:
+      description: Reflects this drive's current progress toward completing a planned
+        evacuation. If a planned evacuation is not occurring, the value will be `null`.
+      format: float
+      maximum: 1.0
+      minimum: 0.0
+      readOnly: true
+      type: number
+    raw_capacity:
+      format: int64
+      readOnly: true
+      type: integer
+    status:
+      description: Current status of the drive. Valid values are `evacuated`, `evacuating`,
+        `healthy`, `unhealthy`, `unused`, and `updating`.
+      readOnly: true
+      type: string
+  type: object

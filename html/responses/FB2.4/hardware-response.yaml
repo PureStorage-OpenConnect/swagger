@@ -1,0 +1,7 @@
+properties:
+  items:
+    description: A list of hardware component objects.
+    items:
+      $ref: ../../models/FB2.4/hardware.yaml
+    type: array
+type: object

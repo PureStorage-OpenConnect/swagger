@@ -1,0 +1,403 @@
+allOf:
+- $ref: ../../models/FA2.0/_built-in-resource-no-id.yaml
+- description: Network interface SFP details.
+- properties:
+    interface_type:
+      description: The interface type. Valid values are `eth` and `fc`.
+      type: string
+    rx_los:
+      description: Displays status flags for Rx LOS. A value of `true` indicates Rx
+        Loss-of-Signal. For four-lane modules, the array contains a flag for each
+        channel. If the transceiver does not support digital diagnostic monitoring,
+        the array is empty.
+      items:
+        properties:
+          channel:
+            description: The channel number if the transceiver is a multilane transceiver.
+              If not specified, defaults to `null`. Valid values are `0`, `1`, `2`,
+              and `3`.
+            example: 0
+            type: integer
+          flag:
+            description: A value of `true` indicates Rx Loss-of-Signal.
+            type: boolean
+        type: object
+      type: array
+    rx_power:
+      description: Displays real-time measurement of Rx input power and whether it
+        is within range. For four-lane modules, the array contains a measurement and
+        status for each channel. If the transceiver does not support digital diagnostic
+        monitoring, the array is empty.
+      items:
+        properties:
+          channel:
+            description: The channel number if the transceiver is a multilane transceiver.
+              If not specified, defaults to `null`. Valid values are `0`, `1`, `2`,
+              and `3`.
+            example: 0
+            type: integer
+          measurement:
+            description: Rx input power in mW.
+            format: double
+            type: number
+          status:
+            description: Indicates whether the measurement is outside the high alarm,
+              low alarm, high warning, or low warning thresholds for Rx input power.
+              Valid values are `alarm low`, `alarm high`, `warn low`, `warn high`,
+              and `ok`.
+            example: ok
+            type: string
+        type: object
+      type: array
+    static:
+      description: Static module identity and capabilities information for the specified
+        network interface or Fibre Channel port.
+      properties:
+        cable_technology:
+          description: The SFP+ cable technology supported by the transceiver.
+          items:
+            example: Active Cable
+            type: string
+          type: array
+        connector_type:
+          description: The media connector type of the transceiver.
+          example: LC
+          type: string
+        encoding:
+          description: The serial encoding algorithm of the transceiver.
+          example: 64B/66B
+          type: string
+        extended_identifier:
+          description: The extended identifier of the transceiver type.
+          example: GBIC/SFP function is defined by 2-wire interface ID only
+          type: string
+        fc_link_lengths:
+          description: The Fibre Channel distance capabilities supported by the transceiver.
+          items:
+            example: short distance (S)
+            type: string
+          type: array
+        fc_speeds:
+          description: The Fibre Channel speeds supported by the transceiver. Speeds
+            are in units of 100 MBytes/sec, which correspond to GFC (Gb/s).
+          example: 16|32|64 Gb/s
+          type: string
+        fc_technology:
+          description: The Fibre Channel technologies supported by the transceiver.
+          items:
+            example: Electrical intra-enclosure (EL)
+            type: string
+          type: array
+        fc_transmission_media:
+          description: The Fibre Channel transmission media supported by the transceiver.
+          items:
+            example: Multimode, 62.5um (M6)
+            type: string
+          type: array
+        identifier:
+          description: The transceiver type.
+          example: SFP or SFP+
+          type: string
+        link_length:
+          description: Link length and cable attenuation (for active or copper cables)
+            for the specified transceiver. Values are comma-separated lists of fields
+            and values, where each field is separated from its corresponding value
+            by a colon. Valid fields include `Copper Cable Attenuation (12.9 GHz)`,
+            `Copper Cable Attenuation (25.78 GHz)`, `Copper Cable`, `SMF`, `OM2`,
+            `OM1`, `OM4`, and `OM3`. The unit for attenuation is dB, and the units
+            for length are meters or kilometers. Unspecified fields are omitted.
+          example: 'OM2: 40 m, OM1: 20 m, OM3: 100 m'
+          type: string
+        rate_identifier:
+          description: The type of rate select functionality of the transceiver.
+          example: FC-PI-5 (16/8/4G Independent Rx, Tx Rate_select)
+          type: string
+        rx_power_thresholds:
+          description: The alarm low, warn low, warn high, alarm high thresholds for
+            Rx input power in mW.
+          properties:
+            alarm_high:
+              description: The alarm high threshold for Rx input power in mW.
+              format: double
+              type: number
+            alarm_low:
+              description: The alarm low threshold for Rx input power in mW.
+              format: double
+              type: number
+            warn_high:
+              description: The warn high threshold for Rx input power in mW.
+              format: double
+              type: number
+            warn_low:
+              description: The warn low threshold for Rx input power in mW.
+              format: double
+              type: number
+          type: object
+        signaling_rate:
+          description: The nominal signaling rate in MBd, rounded off to the nearest
+            100 MBd, or if greater than 25400 MBd, rounded off to the nearest 250
+            MBd. The value can be unspecified.
+          example: 14000 MBd
+          type: string
+        signaling_rate_max:
+          description: The upper signaling rate limit at which the transceiver still
+            meets its specifications, specified as a percentage above the nominal
+            signaling rate. The value can be unspecified.
+          example: 1%
+          type: string
+        signaling_rate_min:
+          description: The lower signaling rate limit at which the transceiver still
+            meets its specifications, specified as a percentage below the nominal
+            signaling rate. The value can be unspecified.
+          example: 1%
+          type: string
+        specifications:
+          description: The Ethernet, 10G Ethernet, ESCON, Infiniband, SONET, and other
+            specifications supported by the transceiver.
+          items:
+            example: 1000BASE-T
+            type: string
+          type: array
+        temperature_thresholds:
+          description: The alarm low, warn low, warn high, alarm high thresholds for
+            temperature in degrees Celsius.
+          properties:
+            alarm_high:
+              description: The alarm high threshold for temperature in degrees Celsius.
+              format: double
+              type: number
+            alarm_low:
+              description: The alarm low threshold for temperature in degrees Celsius.
+              format: double
+              type: number
+            warn_high:
+              description: The warn high threshold for temperature in degrees Celsius.
+              format: double
+              type: number
+            warn_low:
+              description: The warn low threshold for temperature in degrees Celsius.
+              format: double
+              type: number
+          type: object
+        tx_bias_thresholds:
+          description: The alarm low, warn low, warn high, alarm high thresholds for
+            Tx bias current in mA.
+          properties:
+            alarm_high:
+              description: The alarm high threshold for Tx bias current in mA.
+              format: double
+              type: number
+            alarm_low:
+              description: The alarm low threshold for Tx bias current in mA.
+              format: double
+              type: number
+            warn_high:
+              description: The warn high threshold for Tx bias current in mA.
+              format: double
+              type: number
+            warn_low:
+              description: The warn low threshold for Tx bias current in mA.
+              format: double
+              type: number
+          type: object
+        tx_power_thresholds:
+          description: The alarm low, warn low, warn high, alarm high thresholds for
+            Tx output power in mW.
+          properties:
+            alarm_high:
+              description: The alarm high threshold for Tx output power in mW.
+              format: double
+              type: number
+            alarm_low:
+              description: The alarm low threshold for Tx output power in mW.
+              format: double
+              type: number
+            warn_high:
+              description: The warn high threshold for Tx output power in mW.
+              format: double
+              type: number
+            warn_low:
+              description: The warn low threshold for Tx output power in mW.
+              format: double
+              type: number
+          type: object
+        vendor_date_code:
+          description: The SFP vendor's manufacturing date code. The first six characters
+            are the date in YYMMDD format, and the last two characters are the vendor
+            specific lot code. The last two characters are optional.
+          example: '190221'
+          maxLength: 8
+          type: string
+        vendor_name:
+          description: The SFP vendor name.
+          example: EMULEX
+          maxLength: 16
+          type: string
+        vendor_oui:
+          description: The SFP vendor IEEE company ID.
+          example: 00-17-6A
+          maxLength: 8
+          type: string
+        vendor_part_number:
+          description: The part number provided by the SFP vendor.
+          example: ABCD-12E3FG-ELX
+          maxLength: 16
+          type: string
+        vendor_revision:
+          description: The revision level for the part number provided by the SFP
+            vendor.
+          maxLength: 4
+          type: string
+        vendor_serial_number:
+          description: The serial number provided by the SFP vendor.
+          example: AB1234C56DE
+          maxLength: 16
+          type: string
+        voltage_thresholds:
+          description: The alarm low, warn low, warn high, alarm high thresholds for
+            supply voltage (in volts).
+          properties:
+            alarm_high:
+              description: The alarm high threshold for supply voltage in volts.
+              format: double
+              type: number
+            alarm_low:
+              description: The alarm low threshold for supply voltage in volts.
+              format: double
+              type: number
+            warn_high:
+              description: The warn high threshold for supply voltage in volts.
+              format: double
+              type: number
+            warn_low:
+              description: The warn low threshold for supply voltage in volts.
+              format: double
+              type: number
+          type: object
+        wavelength:
+          description: Laser wavelength (for optical variants) at room temperature,
+            in units of nm. For passive and active cable variants, the value is unspecified.
+          example: 850 nm
+          type: string
+      type: object
+    temperature:
+      description: Displays real-time measurement of transceiver temperature and range.
+        If the transceiver does not support digital diagnostic monitoring, the array
+        is empty.
+      items:
+        properties:
+          channel:
+            description: The channel number if the diagnostic has an associated channel
+              number. If not specified, defaults to `null`. Valid values are `0`,
+              `1`, `2`, and `3`.
+            example: 0
+            type: integer
+          measurement:
+            description: Temperature in degrees Celsius.
+            format: double
+            type: number
+          status:
+            description: Indicates whether the measurement is outside the high alarm,
+              low alarm, high warning, or low warning thresholds for temperature.
+              Valid values are `alarm low`, `alarm high`, `warn low`, `warn high`,
+              and `ok`.
+            example: ok
+            type: string
+        type: object
+      type: array
+    tx_bias:
+      description: Displays real-time measurement of Tx bias current and whether it
+        is within range. For four-lane modules, the array contains a measurement and
+        status for each channel. If the transceiver does not support digital diagnostic
+        monitoring, the array is empty.
+      items:
+        properties:
+          channel:
+            description: The channel number if the transceiver is a multilane transceiver.
+              If not specified, defaults to `null`. Valid values are `0`, `1`, `2`,
+              and `3`.
+            example: 0
+            type: integer
+          measurement:
+            description: Tx bias current in mA.
+            format: double
+            type: number
+          status:
+            description: Indicates whether the measurement is outside the high alarm,
+              low alarm, high warning, or low warning thresholds for Tx bias current.
+              Valid values are `alarm low`, `alarm high`, `warn low`, `warn high`,
+              and `ok`.
+            example: ok
+            type: string
+        type: object
+      type: array
+    tx_fault:
+      description: Displays status flags for Tx Fault. A value of `true` indicates
+        transmitter/laser fault. For four-lane modules, the array contains a flag
+        for each channel. If the transceiver does not support digital diagnostic monitoring,
+        the array is empty.
+      items:
+        properties:
+          channel:
+            description: The channel number if the transceiver is a multilane transceiver.
+              If not specified, defaults to `null`. Valid values are `0`, `1`, `2`,
+              and `3`.
+            example: 0
+            type: integer
+          flag:
+            description: A value of `true` indicates transmitter/laser fault.
+            type: boolean
+        type: object
+      type: array
+    tx_power:
+      description: Displays real-time measurement of Tx output power and whether it
+        is within range. For four-lane modules, the array contains a measurement and
+        status for each channel. If the transceiver does not support digital diagnostic
+        monitoring, the array is empty.
+      items:
+        properties:
+          channel:
+            description: The channel number if the transceiver is a multilane transceiver.
+              If not specified, defaults to `null`. Valid values are `0`, `1`, `2`,
+              and `3`.
+            example: 0
+            type: integer
+          measurement:
+            description: Tx output power in mW.
+            format: double
+            type: number
+          status:
+            description: Indicates whether the measurement is outside the high alarm,
+              low alarm, high warning, or low warning thresholds for Tx output power.
+              Valid values are `alarm low`, `alarm high`, `warn low`, `warn high`,
+              and `ok`.
+            example: ok
+            type: string
+        type: object
+      type: array
+    voltage:
+      description: Displays real-time measurement of supply voltage and whether it
+        is within range. If the transceiver does not support digital diagnostic monitoring,
+        the array is empty.
+      items:
+        properties:
+          channel:
+            description: The channel number if the diagnostic has an associated channel
+              number. If not specified, defaults to `null`. Valid values are `0`,
+              `1`, `2`, and `3`.
+            example: 0
+            type: integer
+          measurement:
+            description: Supply voltage in volts.
+            format: double
+            type: number
+          status:
+            description: Indicates whether the measurement is outside the high alarm,
+              low alarm, high warning, or low warning thresholds for supply voltage.
+              Valid values are `alarm low`, `alarm high`, `warn low`, `warn high`,
+              and `ok`.
+            example: ok
+            type: string
+        type: object
+      type: array
+  readOnly: true

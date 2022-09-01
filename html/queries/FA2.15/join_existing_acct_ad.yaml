@@ -1,0 +1,9 @@
+description: If specified as `true`, the domain is searched for a pre-existing computer
+  account to join to, and no new account will be created within the domain. The `user`
+  specified when joining a pre-existing account must have permissions to 'read all
+  properties from' and 'reset the password of' the pre-existing account. `join_ou`
+  will be read from the pre-existing account and cannot be specified when joining
+  to an existing account. If not specified, defaults to `false`.
+in: query
+name: join_existing_account
+type: boolean

@@ -1,0 +1,28 @@
+get:
+  description: Displays real-time and historical performance data, real-time latency
+    data, and average I/O size data. The data is displayed by total size across all
+    hosts on each array and by individual host on each array. The displayed data represents
+    the volumes that are connected to a host on the current array and the volumes
+    that are connected to a host on any remote arrays that are visible to the current
+    array.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/history_end_time.query.yaml
+  - $ref: ../../queries/FA2.0/history_resolution.query.yaml
+  - $ref: ../../queries/FA2.0/history_start_time.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  - $ref: ../../queries/FA2.0/total_only.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.4/resource-performance-no-id-by-array-get-response.yaml
+  summary: List host performance data by array
+  tags:
+  - Hosts

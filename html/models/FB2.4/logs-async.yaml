@@ -1,0 +1,51 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in.yaml
+- properties:
+    available_files:
+      description: All of the available files ready for download.
+      items:
+        $ref: ../../models/FB2.4/file-info.yaml
+      readOnly: true
+      type: array
+    end_time:
+      description: When the time window ends (in milliseconds since epoch). start_time
+        and end_time determine the number of hours for which the logs are prepared
+        for. At most 6 hours of logs can be prepared in one request. start_time and
+        end_time are truncated to hour boundaries.
+      example: 1514764800000
+      format: int64
+      minimum: 0
+      type: integer
+    hardware_components:
+      description: All of the hardware components for which logs are being processed.
+      items:
+        $ref: ../../models/FB2.0/_fixed-reference.yaml
+      type: array
+    last_request_time:
+      description: The last time log preparation was requested (in milliseconds since
+        epoch).
+      example: 1514764800000
+      format: int64
+      minimum: 0
+      readOnly: true
+      type: integer
+    processing:
+      description: Returns a value of `true` if the logs are being prepared.
+      readOnly: true
+      type: boolean
+    progress:
+      description: A representation of log preparation progress. Ranges from 0 to
+        1.0.
+      example: 0.99
+      format: float
+      readOnly: true
+      type: number
+    start_time:
+      description: When the time window starts (in milliseconds since epoch). start_time
+        and end_time determine the number of hours for which the logs are prepared
+        for. At most 6 hours of logs can be prepared in one request. start_time and
+        end_time are truncated to hour boundaries.
+      example: 1514764800000
+      format: int64
+      minimum: 0
+      type: integer

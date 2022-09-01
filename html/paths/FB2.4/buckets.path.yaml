@@ -1,0 +1,67 @@
+delete:
+  description: Delete object store buckets.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  summary: DELETE buckets
+  tags:
+  - Buckets
+get:
+  description: List object store bucket attributes such as creation time and space
+    usage.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/destroyed.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  - $ref: ../../queries/FB2.0/total_only.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.4/bucket-get-response.yaml
+  summary: GET buckets
+  tags:
+  - Buckets
+patch:
+  description: Modify object store bucket attributes such as destroyed and versioning.
+  parameters:
+  - in: body
+    name: bucket
+    required: true
+    schema:
+      $ref: ../../models/FB2.4/bucket.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.4/bucket-response.yaml
+  summary: PATCH buckets
+  tags:
+  - Buckets
+post:
+  description: Create a new object store bucket.
+  parameters:
+  - in: body
+    name: bucket
+    required: true
+    schema:
+      $ref: ../../models/FB2.4/bucket-post.yaml
+  - $ref: ../../queries/FB2.0/names_required.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.4/bucket-response.yaml
+  summary: POST buckets
+  tags:
+  - Buckets

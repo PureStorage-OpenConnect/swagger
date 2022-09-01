@@ -1,0 +1,10 @@
+allOf:
+- $ref: ../../models/FB2.4/policy-base.yaml
+- properties:
+    rules:
+      description: All of the rules that are part of this policy. The order is the
+        evaluation order.
+      items:
+        $ref: ../../models/FB2.3/nfs-export-policy-rule-in-policy.yaml
+      maxItems: 200
+      type: array

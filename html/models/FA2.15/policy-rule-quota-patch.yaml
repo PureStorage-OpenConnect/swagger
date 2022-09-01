@@ -1,0 +1,9 @@
+properties:
+  rules:
+    description: Accepts a single policy update object to apply to the specified name(s)
+      of the rule. Will error out if the list contains more than one update object.
+    items:
+      $ref: ../../models/FA2.15/_policyrulequotapatch-rules.yaml
+    maxItems: 1
+    type: array
+type: object
