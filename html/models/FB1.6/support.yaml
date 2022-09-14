@@ -17,10 +17,8 @@ allOf:
       type: string
       readOnly: true
     remote_assist_status:
-      description: >-
-        The status of the remote-assist sessions.
-        Valid values are `connected`, `partially_connected`, `reconnecting`,
-        and `disconnected`.
+      description: The status of the remote-assist sessions. Valid values are `connected`,
+        `partially_connected`, `reconnecting`, and `disconnected`.
       type: string
       readOnly: true
       example: connected
@@ -33,9 +31,7 @@ allOf:
             description: The name of the FM.
             type: string
           status:
-            description: >-
-              The status of the remote-assist session on the local FM.
-              Valid values are `reconnecting`, `connected`, `disconnected`,
-              and `unknown`.
+            description: The status of the remote-assist session on the local FM.
+              Valid values are `reconnecting`, `connected`, `disconnected`, and `unknown`.
             type: string
             example: connected

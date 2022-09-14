@@ -1,4 +1,5 @@
 get:
+  summary: GET array-connections-path (placeholder)
   description: GET array-connections-path (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
@@ -14,6 +15,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/array-connection-path-get-response.yaml
-  summary: GET array-connections-path (placeholder)
   tags:
   - Array Connections

@@ -1,16 +1,5 @@
-delete:
-  description: Deletes the API tokens of the specified administrators.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: Delete API tokens
-  tags:
-  - Administrators
 get:
+  summary: List API tokens
   description: Displays API tokens for the specified administrators.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -28,10 +17,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/admin-api-token-get-response.yaml
-  summary: List API tokens
   tags:
   - Administrators
 post:
+  summary: Create API tokens
   description: Creates API tokens for the specified administrators.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -43,6 +32,17 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/admin-api-token-response.yaml
-  summary: Create API tokens
+  tags:
+  - Administrators
+delete:
+  summary: Delete API tokens
+  description: Deletes the API tokens of the specified administrators.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Administrators

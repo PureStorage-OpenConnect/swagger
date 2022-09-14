@@ -61,9 +61,7 @@ allOf:
       readOnly: true
     status:
       type: string
-      description: >-
-        The type of certificate.
-        Valid values are `self-signed` and `imported`.
+      description: The type of certificate. Valid values are `self-signed` and `imported`.
       readOnly: true
     valid_from:
       type: string

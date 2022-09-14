@@ -1,9 +1,9 @@
+type: object
+readOnly: true
 properties:
   id:
+    type: string
     description: A non-modifiable, globally unique ID chosen by the system.
     readOnly: true
-    type: string
   name:
     type: string
-readOnly: true
-type: object

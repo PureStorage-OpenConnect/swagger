@@ -3,5 +3,5 @@ allOf:
 - properties:
     export_name:
       description: The export name for accessing this export.
-      readOnly: true
       type: string
+      readOnly: true

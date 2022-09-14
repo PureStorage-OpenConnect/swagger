@@ -1,6 +1,10 @@
 type: object
 properties:
   policy:
-    $ref: ../../models/FB1.8/_fixed-reference.yaml
+    description: Reference to the policy.
+    allOf:
+    - $ref: ../../models/FB1.8/_fixed-reference.yaml
   member:
-    $ref: ../../models/FB1.8/_fixed-reference.yaml
+    description: Reference to the resource the policy is applied to.
+    allOf:
+    - $ref: ../../models/FB1.8/_fixed-reference.yaml

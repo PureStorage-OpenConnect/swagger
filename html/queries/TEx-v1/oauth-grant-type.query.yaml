@@ -1,16 +1,8 @@
 name: grant_type
 in: formData
-description: >-
-    The method with which an access token will be obtained. While the OAuth 2.0
-    spec allows for multiple grant types, currently only
-    `urn:ietf:params:oauth:grant-type:token-exchange` is supported here, which
-    indicates that a token exchange is being performed.
+description: The method by which the access token will be obtained. The Pure Storage
+  REST API supports the OAuth 2.0 "token exchange" grant type, which indicates that
+  a token exchange is being performed. Set `grant_type` to `urn:ietf:params:oauth:grant-type:token-exchange`.
 type: string
 required: true
-# default is useful here since this is the only possible value so having it as
-# default means sdk users do not have to enter this value every time they make
-# this call. However, in the general case we strongly discourage using default
-# and it should never ever be used if the resource can be updated (i.e. it has
-# a patch endpoint) as that can cause the user to update fields they didn't
-# intend to.
 default: urn:ietf:params:oauth:grant-type:token-exchange

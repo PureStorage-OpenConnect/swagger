@@ -1,15 +1,5 @@
-delete:
-  description: DELETE api-clients (placeholder)
-  parameters:
-  - $ref: ../../queries/FB1.8/ids.query.yaml
-  - $ref: ../../queries/FB1.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE api-clients (placeholder)
-  tags:
-  - API Clients
 get:
+  summary: GET api-clients (placeholder)
   description: GET api-clients (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
@@ -24,33 +14,15 @@ get:
       description: Returns a list of API clients.
       schema:
         $ref: ../../responses/FB1.12/api-clients-response.yaml
-  summary: GET api-clients (placeholder)
-  tags:
-  - API Clients
-patch:
-  description: PATCH api-clients (placeholder)
-  parameters:
-  - $ref: ../../queries/FB1.8/ids.query.yaml
-  - $ref: ../../queries/FB1.0/names.query.yaml
-  - in: body
-    name: api-clients
-    required: true
-    schema:
-      $ref: ../../models/FB1.12/api-client.yaml
-  responses:
-    200:
-      description: Returns the patched api-clients.
-      schema:
-        $ref: ../../responses/FB1.12/api-clients-response.yaml
-  summary: PATCH api-clients (placeholder)
   tags:
   - API Clients
 post:
+  summary: POST api-clients (placeholder)
   description: POST api-clients (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/names.query.yaml
-  - in: body
-    name: api-client
+  - name: api-client
+    in: body
     required: true
     schema:
       $ref: ../../models/FB1.12/api-clients-post.yaml
@@ -62,6 +34,34 @@ post:
         array.
       schema:
         $ref: ../../responses/FB1.12/api-clients-response.yaml
-  summary: POST api-clients (placeholder)
+  tags:
+  - API Clients
+patch:
+  summary: PATCH api-clients (placeholder)
+  description: PATCH api-clients (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - name: api-clients
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB1.12/api-client.yaml
+  responses:
+    200:
+      description: Returns the patched api-clients.
+      schema:
+        $ref: ../../responses/FB1.12/api-clients-response.yaml
+  tags:
+  - API Clients
+delete:
+  summary: DELETE api-clients (placeholder)
+  description: DELETE api-clients (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - API Clients

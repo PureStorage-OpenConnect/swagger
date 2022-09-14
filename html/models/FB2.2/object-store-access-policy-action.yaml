@@ -1,9 +1,9 @@
 allOf:
 - $ref: ../../models/FB2.0/_built-in-no-id.yaml
-- properties:
+- type: object
+  properties:
     description:
+      type: string
+      readOnly: true
       description: A description of the action.
       example: Grants permission to create a new bucket.
-      readOnly: true
-      type: string
-  type: object

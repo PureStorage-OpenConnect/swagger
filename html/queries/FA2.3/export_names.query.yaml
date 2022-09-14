@@ -1,8 +1,8 @@
-collectionFormat: csv
+name: export_names
+in: query
 description: Performs the operation on the export names specified. Enter multiple
   names in comma-separated format. For example, `name01,name02`.
-in: query
+type: array
+collectionFormat: csv
 items:
   type: string
-name: export_names
-type: array

@@ -2,21 +2,21 @@ allOf:
 - $ref: ../../models/FB2.0/_built-in.yaml
 - properties:
     details:
-      readOnly: true
       type: string
+      readOnly: true
     progress:
+      type: number
       format: float
       readOnly: true
-      type: number
     raw_capacity:
+      type: integer
       format: int64
       readOnly: true
-      type: integer
     status:
       description: Valid values are `critical`, `evacuated`, `evacuating`, `healthy`,
         `identifying`, `unhealthy`, `unknown`, and `unused`.
-      readOnly: true
       type: string
+      readOnly: true
     target:
-      readOnly: true
       type: string
+      readOnly: true

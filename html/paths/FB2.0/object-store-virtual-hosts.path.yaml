@@ -1,15 +1,5 @@
-delete:
-  description: Delete an object store virtual host.
-  parameters:
-  - $ref: ../../queries/FB2.0/ids.query.yaml
-  - $ref: ../../queries/FB2.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE object-store-virtual-hosts
-  tags:
-  - Object Store Virtual Hosts
 get:
+  summary: GET object-store-virtual-hosts
   description: List object store virtual hosts.
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
@@ -24,10 +14,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/object-store-virtual-host-get-response.yaml
-  summary: GET object-store-virtual-hosts
   tags:
   - Object Store Virtual Hosts
 post:
+  summary: POST object-store-virtual-hosts
   description: Create an object store virtual host. An example of a hostname is buckethost.example.com.
     A hostname cannot exceed 255 characters in length, it cannot be an IP address,
     only 10 hostnames are supported, supersets or subsets of existing hostnames with
@@ -40,6 +30,16 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/object-store-virtual-host-response.yaml
-  summary: POST object-store-virtual-hosts
+  tags:
+  - Object Store Virtual Hosts
+delete:
+  summary: DELETE object-store-virtual-hosts
+  description: Delete an object store virtual host.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Object Store Virtual Hosts

@@ -4,9 +4,8 @@ properties:
   at:
     type: integer
     format: int64
-    description: >-
-      Time of day to take the snapshot, in milliseconds since 00:00 in the
-      specified `time_zone`. Only valid if `every` is set as whole days.
+    description: Time of day to take the snapshot, in milliseconds since 00:00 in
+      the specified `time_zone`. Only valid if `every` is set as whole days.
     example: 32400000
   every:
     type: integer

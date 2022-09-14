@@ -1,16 +1,16 @@
 allOf:
 - $ref: ../../models/FB2.0/_built-in-relationship.yaml
-- properties:
+- readOnly: true
+  properties:
     periodic:
+      description: Total bytes transmitted or received per second for periodic replication.
       allOf:
       - $ref: ../../models/FB2.0/_replication_performance.yaml
-      description: Total bytes transmitted or received per second for periodic replication.
     remote:
+      description: Reference to a remote array.
       allOf:
       - $ref: ../../models/FB2.0/_fixed-reference-no-resource-type.yaml
-      description: Reference to a remote array.
     time:
       description: Sample time in milliseconds since UNIX epoch.
-      format: int64
       type: integer
-  readOnly: true
+      format: int64

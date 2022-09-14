@@ -1,9 +1,9 @@
-collectionFormat: csv
+name: file_system_names
 description: A comma-separated list of file system names. If there is not at least
   one resource that matches each of the elements of `file_system_names`, then an error
   is returned.
 in: query
+type: array
+collectionFormat: csv
 items:
   type: string
-name: file_system_names
-type: array

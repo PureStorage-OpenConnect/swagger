@@ -9,8 +9,7 @@ allOf:
       description: Creation timestamp of the object.
     enabled:
       type: boolean
-      description: >-
-        Is the access key enabled? If not specified, defaults to `false`.
+      description: Is the access key enabled? If not specified, defaults to `false`.
     secret_access_key:
       type: string
       description: The secret access key, only populated on creation.

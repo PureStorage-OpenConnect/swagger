@@ -2,6 +2,6 @@ allOf:
 - $ref: ../../responses/FA2.1/page-info.yaml
 - properties:
     items:
+      type: array
       items:
         $ref: ../../models/FA2.4/array-connection-key.yaml
-      type: array

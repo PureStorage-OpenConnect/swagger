@@ -1,16 +1,5 @@
-delete:
-  description: Deletes a host group. The `names` query parameter is required.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: Delete a host group
-  tags:
-  - Host Groups
 get:
+  summary: List host groups
   description: Returns a list of host groups.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -27,29 +16,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.1/host-group-get-response.yaml
-  summary: List host groups
-  tags:
-  - Host Groups
-patch:
-  description: Manages a host group. The `names` query parameter is required.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/names.query.yaml
-  - in: body
-    name: host-group
-    required: true
-    schema:
-      $ref: ../../models/FA2.0/host-group-patch.yaml
-  responses:
-    200:
-      description: OK
-      schema:
-        $ref: ../../responses/FA2.0/host-group-response.yaml
-  summary: Manage a host group
   tags:
   - Host Groups
 post:
+  summary: Create a host group
   description: Creates a host group. The `names` query parameter is required.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -60,6 +30,36 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FA2.0/host-group-response.yaml
-  summary: Create a host group
+  tags:
+  - Host Groups
+delete:
+  summary: Delete a host group
+  description: Deletes a host group. The `names` query parameter is required.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Host Groups
+patch:
+  summary: Manage a host group
+  description: Manages a host group. The `names` query parameter is required.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - name: host-group
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.0/host-group-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.0/host-group-response.yaml
   tags:
   - Host Groups

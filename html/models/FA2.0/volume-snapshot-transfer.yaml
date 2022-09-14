@@ -1,5 +1,4 @@
 allOf:
 - $ref: _resource.yaml
 - $ref: _transfer.yaml
-- description: >-
-    Transfer statistics for snapshot replication.
+- description: Transfer statistics for snapshot replication.

@@ -1,17 +1,5 @@
-delete:
-  description: Deletes one or more Active Directory members.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.3/local_only_ad.query.yaml
-  - $ref: ../../queries/FA2.0/names_required.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: Delete Active Directory members
-  tags:
-  - Active Directory
 get:
+  summary: List Active Directory accounts
   description: Displays a list of Active Directory accounts.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -28,17 +16,30 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.3/active-directory-get-response.yaml
-  summary: List Active Directory accounts
+  tags:
+  - Active Directory
+delete:
+  summary: Delete Active Directory members
+  description: Deletes one or more Active Directory members.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.3/local_only_ad.query.yaml
+  - $ref: ../../queries/FA2.0/names_required.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Active Directory
 post:
+  summary: Create Active Directory member
   description: Creates Active Directory members.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - $ref: ../../queries/FA2.0/names_required.query.yaml
-  - in: body
-    name: active-directory
+  - name: active-directory
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.3/active-directory-post.yaml
@@ -47,6 +48,5 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FA2.3/active-directory-response.yaml
-  summary: Create Active Directory member
   tags:
   - Active Directory

@@ -1,15 +1,5 @@
-delete:
-  description: Delete one or more snapshot scheduling policies.
-  parameters:
-  - $ref: ../../queries/FB2.0/ids.query.yaml
-  - $ref: ../../queries/FB2.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE policies
-  tags:
-  - Policies - Snapshot
 get:
+  summary: GET policies
   description: Display snapshot scheduling policies and their attributes.
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
@@ -24,18 +14,47 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.4/policy-get-response.yaml
-  summary: GET policies
+  tags:
+  - Policies - Snapshot
+post:
+  summary: POST policies
+  description: Create a new snapshot scheduling policy with rule attributes to capture
+    file system snapshots for a set period of time and frequency, as well as how long
+    snapshots are retained before being destroyed and eradicated.
+  parameters:
+  - $ref: ../../queries/FB2.0/names_required.query.yaml
+  - name: policy
+    in: body
+    schema:
+      $ref: ../../models/FB2.4/policy.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.4/policy-response.yaml
+  tags:
+  - Policies - Snapshot
+delete:
+  summary: DELETE policies
+  description: Delete one or more snapshot scheduling policies.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Policies - Snapshot
 patch:
+  summary: PATCH policies
   description: "Modify a snapshot scheduling policy\xE2\u20AC\u2122s attributes for\
     \ when and how often snapshots are created and how long they are retained."
   parameters:
   - $ref: ../../queries/FB2.0/ids.query.yaml
   - $ref: ../../queries/FB2.0/destroy_snapshots.query.yaml
   - $ref: ../../queries/FB2.0/names.query.yaml
-  - in: body
-    name: policy
+  - name: policy
+    in: body
     required: true
     schema:
       $ref: ../../models/FB2.4/policy-patch.yaml
@@ -44,24 +63,5 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FB2.4/policy-response.yaml
-  summary: PATCH policies
-  tags:
-  - Policies - Snapshot
-post:
-  description: Create a new snapshot scheduling policy with rule attributes to capture
-    file system snapshots for a set period of time and frequency, as well as how long
-    snapshots are retained before being destroyed and eradicated.
-  parameters:
-  - $ref: ../../queries/FB2.0/names_required.query.yaml
-  - in: body
-    name: policy
-    schema:
-      $ref: ../../models/FB2.4/policy.yaml
-  responses:
-    200:
-      description: OK
-      schema:
-        $ref: ../../responses/FB2.4/policy-response.yaml
-  summary: POST policies
   tags:
   - Policies - Snapshot

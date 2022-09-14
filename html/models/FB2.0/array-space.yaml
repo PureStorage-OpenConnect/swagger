@@ -3,18 +3,18 @@ allOf:
 - properties:
     capacity:
       description: Usable capacity in bytes.
-      example: 10995116277760
-      format: int64
       type: integer
+      format: int64
+      example: 10995116277760
     parity:
       description: A representation of data redundancy on the array. Data redundancy
         is rebuilt automatically by the system whenever parity is less than 1.0.
-      example: 0.99
-      format: float
       type: number
+      format: float
+      example: 0.99
     space:
       $ref: ../FB2.0/_space.yaml
     time:
       description: Sample time in milliseconds since UNIX epoch.
-      format: int64
       type: integer
+      format: int64

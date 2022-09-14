@@ -4,5 +4,4 @@ allOf:
   properties:
     enabled:
       type: boolean
-      description: >-
-        Is email notification enabled? If not specified, defaults to `true`.
+      description: Is email notification enabled? If not specified, defaults to `true`.

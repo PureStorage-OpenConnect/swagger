@@ -1,4 +1,5 @@
 get:
+  summary: List SFP port details
   description: Displays Ethernet and Fibre Channel SFP details.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -14,6 +15,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.16/network-interfaces-port-details-get-response.yaml
-  summary: List SFP port details
   tags:
   - Network Interfaces

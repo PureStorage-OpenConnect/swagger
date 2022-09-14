@@ -1,8 +1,8 @@
+description: A resource that may relate to multiple locations.
 allOf:
-- $ref: ../Pure1-1.0/_fixed-reference.yaml
+- $ref: ../../models/Pure1-1.0/_fixed-reference.yaml
 - properties:
     locations:
-      items:
-        $ref: ../Pure1-1.0/_fixed-reference.yaml
       type: array
-description: A resource that may relate to multiple locations.
+      items:
+        $ref: ../../models/Pure1-1.0/_fixed-reference.yaml

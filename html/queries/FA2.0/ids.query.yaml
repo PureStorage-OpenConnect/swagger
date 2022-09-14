@@ -1,9 +1,8 @@
 name: ids
 in: query
-description: >-
-  Performs the operation on the unique resource IDs specified.
-  Enter multiple resource IDs in comma-separated format.
-  The `ids` and `names` parameters cannot be set together.
+description: Performs the operation on the unique resource IDs specified. Enter multiple
+  resource IDs in comma-separated format. The `ids` or `names` parameter is required,
+  but they cannot be set together.
 type: array
 collectionFormat: csv
 items:

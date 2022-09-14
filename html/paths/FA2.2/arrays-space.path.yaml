@@ -1,4 +1,5 @@
 get:
+  summary: List array space information
   description: Displays real-time and historical array space information including
     unique volume and snapshot space, shared space, data reduction, provisioned capacity,
     usable capacity, and parity.
@@ -18,6 +19,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/array-space-get-response.yaml
-  summary: List array space information
   tags:
   - Arrays

@@ -7,16 +7,13 @@ get:
   - $ref: ../../queries/FB1.0/sort.query.yaml
   - $ref: ../../queries/FB1.0/start.query.yaml
   - $ref: ../../queries/FB1.0/token.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.8/hardware-connector-get-response.yaml
-
   tags:
   - Hardware Connectors
-
 patch:
   summary: PATCH hardware-connectors (placeholder)
   description: PATCH hardware-connectors (placeholder)
@@ -26,16 +23,13 @@ patch:
     required: true
     schema:
       $ref: ../../models/FB1.3/hardware-connector.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.8/hardware-connector-response.yaml
-
   tags:
   - Hardware Connectors
-
 parameters:
 - $ref: ../../queries/FB1.8/ids.query.yaml
 - $ref: ../../queries/FB1.0/names.query.yaml

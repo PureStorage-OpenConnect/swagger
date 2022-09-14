@@ -1,12 +1,10 @@
 name: sort
 in: query
-description: >-
-  Sort the response by the specified fields (in descending order if '-'
-  is appended to the field name).
-  If you provide a sort you will not get a continuation token in
-  the response.
+description: Sort the response by the specified fields (in descending order if '-'
+  is appended to the field name). If you provide a sort you will not get a continuation
+  token in the response.
 type: array
 collectionFormat: csv
 items:
   type: string
-  pattern: '^[a-z]+(_[a-z]+)*-?'
+  pattern: ^[a-z]+(_[a-z]+)*-?

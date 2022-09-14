@@ -1,8 +1,10 @@
 allOf:
 - $ref: ../../models/FA2.0/_built-in-resource-no-id.yaml
-- properties:
+- type: object
+  properties:
     eth:
       description: Ethernet network interface properties.
+      type: object
       properties:
         address:
           description: The IPv4 or IPv6 address to be associated with the specified
@@ -11,17 +13,16 @@ allOf:
         subinterfaces:
           description: List of network interfaces configured to be a subinterface
             of the specified network interface.
+          type: array
           items:
             $ref: ../../models/FA2.0/_fixed-reference-no-id.yaml
-          type: array
         subnet:
+          description: Subnet that is associated with the specified network interface.
           allOf:
           - $ref: ../../models/FA2.0/_reference-no-id.yaml
-          description: Subnet that is associated with the specified network interface.
         subtype:
           description: The subtype of the specified network interface. Only interfaces
-            of subtype `virtual` and `lacp_bond` can be created. Configurable on POST
-            only. Valid values are `failover_bond`, `lacp_bond`, `physical`, and `virtual`.
+            of subtype `vif` and `lacp_bond` can be created. Configurable on POST
+            only. Valid values are `failover_bond`, `lacp_bond`, `physical`, and `vif`.
+            If the subtype is `vif`, the services parameter must not be set.
           type: string
-      type: object
-  type: object

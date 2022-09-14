@@ -1,4 +1,5 @@
 get:
+  summary: GET array-connections/path
   description: List network path details of connected arrays.
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
@@ -14,6 +15,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/array-connection-path-get-response.yaml
-  summary: GET array-connections/path
   tags:
   - Array Connections

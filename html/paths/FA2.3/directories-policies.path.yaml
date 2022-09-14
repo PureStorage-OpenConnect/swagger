@@ -1,4 +1,5 @@
 get:
+  summary: List policies
   description: Displays a list of policies that are attached to directories.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -19,6 +20,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.3/policy-member-get-response.yaml
-  summary: List policies
   tags:
   - Directories

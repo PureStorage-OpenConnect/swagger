@@ -1,4 +1,5 @@
 get:
+  summary: List directory space information
   description: Displays physical storage consumption data for each directory.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -20,6 +21,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.1/resource-space-get-response.yaml
-  summary: List directory space information
   tags:
   - Directories

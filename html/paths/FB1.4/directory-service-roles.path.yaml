@@ -1,6 +1,5 @@
 get:
-  description: >-
-    Return array's RBAC group configuration settings for manageability.
+  description: Return array's RBAC group configuration settings for manageability.
   parameters:
   - $ref: ../../queries/FB1.0/names.query.yaml
   - $ref: ../../queries/FB1.0/filter.query.yaml
@@ -8,20 +7,15 @@ get:
   - $ref: ../../queries/FB1.0/sort.query.yaml
   - $ref: ../../queries/FB1.0/start.query.yaml
   - $ref: ../../queries/FB1.0/token.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.4/directory-service-roles-get-response.yaml
-
   tags:
   - Directory Services
-
 patch:
-  description: >-
-    Update an RBAC group configuration setting for manageability.
-
+  description: Update an RBAC group configuration setting for manageability.
   parameters:
   - $ref: ../../queries/FB1.2/names_required.query.yaml
   - name: directory-service-roles
@@ -29,12 +23,10 @@ patch:
     required: true
     schema:
       $ref: ../../models/FB1.4/directory-service-role.yaml
-
   responses:
     200:
       description: Returns the newly updated directory-service-role object.
       schema:
         $ref: ../../responses/FB1.4/directory-service-roles-response.yaml
-
   tags:
   - Directory Services

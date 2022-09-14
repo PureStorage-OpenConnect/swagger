@@ -1,4 +1,5 @@
 get:
+  summary: List NTP test results
   description: Displays test results for configured NTP servers.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -8,6 +9,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/test-result-get-response.yaml
-  summary: List NTP test results
   tags:
   - Arrays

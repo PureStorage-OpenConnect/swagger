@@ -2,6 +2,6 @@ allOf:
 - $ref: ../../responses/FB2.0/page-info.yaml
 - properties:
     items:
+      type: array
       items:
         $ref: ../../models/FB2.0/role.yaml
-      type: array

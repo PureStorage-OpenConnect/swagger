@@ -1,8 +1,7 @@
 name: ignore_usage
 in: query
-description: >-
-  Allow update operations that lead to a `hard_limit_enabled` file system with
-  usage over its provisioned size. The update can be either setting
-  `hard_limit_enabled` when usage is higher than provisioned size, or resize
-  provisioned size to a value under usage when `hard_limit_enabled` is `true`.
+description: Allow update operations that lead to a `hard_limit_enabled` file system
+  with usage over its provisioned size. The update can be either setting `hard_limit_enabled`
+  when usage is higher than provisioned size, or resize provisioned size to a value
+  under usage when `hard_limit_enabled` is `true`.
 type: boolean

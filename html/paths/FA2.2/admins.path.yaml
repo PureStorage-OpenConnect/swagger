@@ -1,16 +1,5 @@
-delete:
-  description: Deletes the specified administrator.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: Deletes an administrator
-  tags:
-  - Administrators
 get:
+  summary: List administrators
   description: Displays a list of administrators.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -28,36 +17,17 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/admin-get-response.yaml
-  summary: List administrators
-  tags:
-  - Administrators
-patch:
-  description: Modifies properties for the specified administrator.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/names.query.yaml
-  - in: body
-    name: admin
-    required: true
-    schema:
-      $ref: ../../models/FA2.2/admin-patch.yaml
-  responses:
-    200:
-      description: OK
-      schema:
-        $ref: ../../responses/FA2.2/admin-response.yaml
-  summary: Modify an administrator
   tags:
   - Administrators
 post:
+  summary: Create an administrator
   description: Creates an administrator.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - $ref: ../../queries/FA2.0/names.query.yaml
-  - in: body
-    name: admin
+  - name: admin
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.2/admin-post.yaml
@@ -66,6 +36,36 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/admin-response.yaml
-  summary: Create an administrator
+  tags:
+  - Administrators
+delete:
+  summary: Deletes an administrator
+  description: Deletes the specified administrator.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Administrators
+patch:
+  summary: Modify an administrator
+  description: Modifies properties for the specified administrator.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - name: admin
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.2/admin-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.2/admin-response.yaml
   tags:
   - Administrators

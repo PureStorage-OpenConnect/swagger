@@ -1,21 +1,5 @@
-delete:
-  description: Deletes the connection between a volume and its associated host or
-    host group. The `volume_names` or `volume_ids` and `host_names` or `host_group_names`
-    query parameters are required.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/host_group_names.query.yaml
-  - $ref: ../../queries/FA2.0/host_names.query.yaml
-  - $ref: ../../queries/FA2.0/volume_names.query.yaml
-  - $ref: ../../queries/FA2.9/volume_ids.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: Delete a connection between a volume and its host or host group
-  tags:
-  - Connections
 get:
+  summary: List volume connections
   description: Displays a list of connections between a volume and its hosts and host
     groups, and the logical unit numbers (LUNs) used by the associated hosts to address
     these volumes.
@@ -39,10 +23,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.1/connection-get-response.yaml
-  summary: List volume connections
   tags:
   - Connections
 post:
+  summary: Create a connection between a volume and host or host group
   description: Creates a connection between a volume and a host or host group. The
     `volume_names` or `volume_ids` and `host_names` or `host_group_names` query parameters
     are required.
@@ -53,8 +37,8 @@ post:
   - $ref: ../../queries/FA2.0/host_names.query.yaml
   - $ref: ../../queries/FA2.0/volume_names.query.yaml
   - $ref: ../../queries/FA2.9/volume_ids.query.yaml
-  - in: body
-    name: connection
+  - name: connection
+    in: body
     schema:
       $ref: ../../models/FA2.0/connection-post.yaml
   responses:
@@ -62,6 +46,22 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FA2.1/connection-response.yaml
-  summary: Create a connection between a volume and host or host group
+  tags:
+  - Connections
+delete:
+  summary: Delete a connection between a volume and its host or host group
+  description: Deletes the connection between a volume and its associated host or
+    host group. The `volume_names` or `volume_ids` and `host_names` or `host_group_names`
+    query parameters are required.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/host_group_names.query.yaml
+  - $ref: ../../queries/FA2.0/host_names.query.yaml
+  - $ref: ../../queries/FA2.0/volume_names.query.yaml
+  - $ref: ../../queries/FA2.9/volume_ids.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Connections

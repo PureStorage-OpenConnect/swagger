@@ -1,4 +1,5 @@
 get:
+  summary: GET clients-performance
   description: List NFS client I/O performance metrics.
   parameters:
   - $ref: ../../queries/FB2.0/filter.query.yaml
@@ -11,6 +12,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/client-performance-get-response.yaml
-  summary: GET clients-performance
   tags:
   - Clients

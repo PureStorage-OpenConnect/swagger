@@ -8,8 +8,7 @@ allOf:
       description: Creation timestamp of the object.
     fast_remove_directory_enabled:
       type: boolean
-      description: >-
-        Is fast remove directory enabled?
+      description: Is fast remove directory enabled?
     http:
       description: HTTP configuration.
       allOf:
@@ -21,17 +20,15 @@ allOf:
     provisioned:
       type: integer
       format: int64
-      description: >-
-        The provisioned size of the file system in bytes. A value of `0` means
-        unlimited.
+      description: The provisioned size of the file system in bytes. A value of `0`
+        means unlimited.
     smb:
       description: SMB configuration.
       allOf:
       - $ref: ../../models/FB1.0/_smb.yaml
     snapshot_directory_enabled:
       type: boolean
-      description: >-
-        Is snapshot directory enabled?
+      description: Is snapshot directory enabled?
     space:
       description: The space specification of the file system.
       allOf:

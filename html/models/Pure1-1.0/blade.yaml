@@ -1,26 +1,26 @@
+description: A FlashBlade blade.
 allOf:
-- $ref: _built-in-as-of.yaml
+- $ref: ../../models/Pure1-1.0/_built-in-as-of.yaml
 - properties:
     arrays:
       description: A list of arrays that contain this blade. Each blade should only
         exist on one array.
-      items:
-        $ref: _blade-array-status.yaml
-      minItems: 1
       type: array
+      items:
+        $ref: ../../models/Pure1-1.0/_blade-array-status.yaml
+      minItems: 1
     details:
-      description: Extra details about the blade. Will be `null` if none exist.
-      readOnly: true
       type: string
+      readOnly: true
+      description: Extra details about the blade. Will be `null` if none exist.
     raw_capacity:
-      description: The raw storage capacity of the blade.
+      type: number
       format: int64
       readOnly: true
-      type: number
+      description: The raw storage capacity of the blade.
     status:
       description: Valid values are `critical`, `evacuated`, `evacuating`, `healthy`,
         `identifying`, `unclaimed`, `unhealthy`, `unknown`, `unrecognized`.
-      example: healthy
-      readOnly: true
       type: string
-description: A FlashBlade blade.
+      readOnly: true
+      example: healthy

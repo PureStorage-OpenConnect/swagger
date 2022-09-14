@@ -1,10 +1,15 @@
+type: object
+required:
+- domain
+- user
+- password
 properties:
   computer_name:
     description: The common name of the computer account to be created in the Active
       Directory domain. If not specified, defaults to the name of the Active Directory
       configuration.
-    example: FLASHBLADE01
     type: string
+    example: FLASHBLADE01
   directory_servers:
     description: A list of directory servers that will be used for lookups related
       to user authorization. Accepted server formats are IP address and DNS name.
@@ -12,24 +17,24 @@ properties:
       array's configured DNS and will only be communicated with over the secure LDAP
       (LDAPS) protocol. If not specified, servers are resolved for the domain in DNS.
       The specified list can have a maximum length of 5.
-    items:
-      example: ldap.my-corporation.com
-      type: string
-    maxItems: 5
     type: array
+    maxItems: 5
+    items:
+      type: string
+      example: ldap.my-corporation.com
   domain:
     description: The Active Directory domain to join.
-    example: my-corporation.com
     type: string
+    example: my-corporation.com
   encryption_types:
     description: The encryption types that will be supported for use by clients for
       Kerberos authentication. Defaults to `aes256-cts-hmac-sha1-96`. Valid values
       include `aes256-cts-hmac-sha1-96`, `aes128-cts-hmac-sha1-96`, and `arcfour-hmac`.
       Cannot be provided if using an existing machine account.
-    items:
-      example: aes256-cts-hmac-sha1-96
-      type: string
     type: array
+    items:
+      type: string
+      example: aes256-cts-hmac-sha1-96
   fqdns:
     description: A list of fully qualified domain names to use to register service
       principal names for the machine account. If specified, every service principal
@@ -38,35 +43,35 @@ properties:
       the default `service_principal_names` are constructed using the `computer_name`
       and `domain` fields. Cannot be provided in combination with `service_principal_names`.
       Cannot be provided if using an existing machine account.
-    items:
-      example: vip1.my-array.my-corporation.com
-      type: string
-    maxItems: 32
     type: array
+    maxItems: 32
+    items:
+      type: string
+      example: vip1.my-array.my-corporation.com
   join_ou:
     description: The relative distinguished name of the organizational unit in which
       the computer account should be created when joining the domain. Cannot be provided
       if using an existing machine account. If not specified, defaults to `CN=Computers`.
-    example: CN=Computers
     type: string
+    example: CN=Computers
   kerberos_servers:
     description: A list of key distribution servers to use for Kerberos protocol.
       Accepted server formats are IP address and DNS name. All specified servers must
       be registered to the domain appropriately in the array's configured DNS. If
       not specified, servers are resolved for the domain in DNS. The specified list
       can have a maximum length of 5.
-    items:
-      example: kdc.my-corporation.com
-      type: string
-    maxItems: 5
     type: array
+    maxItems: 5
+    items:
+      type: string
+      example: kdc.my-corporation.com
   password:
     description: The login password of the user with privileges to create the computer
       account in the domain. If using an existing computer account, the user must
       have privileges to read attributes from the computer account and reset the password
       on that account. This is not persisted on the array.
-    example: Anything#but$adMinistrat0r
     type: string
+    example: Anything#but$adMinistrat0r
   service_principal_names:
     description: A list of service principal names to register for the machine account,
       which can be used for the creation of keys for Kerberos authentication. If neither
@@ -74,21 +79,16 @@ properties:
       are constructed using the `computer_name` and `domain` fields. Cannot be provided
       in combination with `fqdns`. Cannot be provided if using an existing machine
       account.
-    items:
-      example: nfs/vip1.my-array.my-corporation.com
-      pattern: (service)/(fqdn)
-      type: string
-    maxItems: 32
     type: array
+    maxItems: 32
+    items:
+      type: string
+      pattern: (service)/(fqdn)
+      example: nfs/vip1.my-array.my-corporation.com
   user:
     description: The login name of the user with privileges to create the computer
       account in the domain. If using an existing computer account, the user must
       have privileges to read attributes from the computer account and reset the password
       on that account. This is not persisted on the array.
-    example: Administrator
     type: string
-required:
-- domain
-- user
-- password
-type: object
+    example: Administrator

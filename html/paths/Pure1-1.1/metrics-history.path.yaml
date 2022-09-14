@@ -1,4 +1,5 @@
 get:
+  summary: Get metrics history
   description: 'Retrieves historical metric data for resources.
 
     '
@@ -30,6 +31,5 @@ get:
       $ref: ../../responses/Pure1-1.0/error-429.response.yaml
     500:
       $ref: ../../responses/Pure1-1.0/error-500.response.yaml
-  summary: Get metrics history
   tags:
   - Metrics

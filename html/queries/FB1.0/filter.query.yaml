@@ -1,5 +1,4 @@
 name: filter
 in: query
-description: >-
-  Exclude resources that don't match the specified criteria.
+description: Exclude resources that don't match the specified criteria.
 type: string

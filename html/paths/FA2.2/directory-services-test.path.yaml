@@ -1,4 +1,5 @@
 get:
+  summary: List directory services test results
   description: Displays the directory services test and displays the results. The
     test verifies that URIs can be resolved and that the array can bind and query
     the tree using the bind user credentials. The test also verifies that the array
@@ -19,6 +20,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/test-result-with-resource-response.yaml
-  summary: List directory services test results
   tags:
   - Directory Services

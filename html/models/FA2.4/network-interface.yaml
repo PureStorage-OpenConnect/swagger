@@ -1,14 +1,36 @@
 allOf:
 - $ref: ../../models/FA2.0/_built-in-resource-no-id.yaml
-- properties:
+- type: object
+  properties:
     enabled:
       description: Returns a value of `true` if the specified network interface or
         Fibre Channel port is enabled. Returns a value of `false` if the specified
         network interface or Fibre Channel port is disabled.
-      readOnly: true
       type: boolean
+      readOnly: true
+    interface_type:
+      description: The interface type. Valid values are `eth` and `fc`.
+      type: string
+      readOnly: true
+    services:
+      description: The services provided by the specified network interface or Fibre
+        Channel port.
+      type: array
+      items:
+        description: Valid values include `iscsi`, `management`, `nvme-fc`, `nvme-roce`,
+          `replication`, `scsi-fc`, and `system`.
+        type: string
+      readOnly: true
+    speed:
+      description: Configured speed of the specified network interface or Fibre Channel
+        port (in Gb/s). Typically this is the maximum speed of the port or bond represented
+        by the network interface.
+      type: integer
+      format: int64
+      readOnly: true
     eth:
       description: Ethernet network interface properties.
+      type: object
       properties:
         address:
           description: The IPv4 or IPv6 address to be associated with the specified
@@ -21,66 +43,44 @@ allOf:
         mac_address:
           description: The media access control address associated with the specified
             network interface.
-          readOnly: true
           type: string
+          readOnly: true
         mtu:
           description: Maximum message transfer unit (packet) size for the network
             interface, in bytes. MTU setting cannot exceed the MTU of the corresponding
             physical interface.
-          format: int32
           type: integer
+          format: int32
         netmask:
           description: Netmask of the specified network interface that, when combined
             with the address of the interface, determines the network address of the
             interface.
           type: string
-        subinterfaces:
-          description: List of network interfaces configured to be a subinterface
-            of the specified network interface.
-          items:
-            $ref: ../../models/FA2.0/_fixed-reference-no-id.yaml
-          type: array
-        subnet:
-          allOf:
-          - $ref: ../../models/FA2.0/_reference-no-id.yaml
-          description: Subnet that is associated with the specified network interface.
         subtype:
           description: The subtype of the specified network interface. Only interfaces
             of subtype `virtual` can be created. Configurable on POST only. Valid
             values are `failover_bond`, `lacp_bond`, `physical`, and `virtual`.
           type: string
+        subinterfaces:
+          description: List of network interfaces configured to be a subinterface
+            of the specified network interface.
+          type: array
+          items:
+            $ref: ../../models/FA2.0/_fixed-reference-no-id.yaml
+        subnet:
+          description: Subnet that is associated with the specified network interface.
+          allOf:
+          - $ref: ../../models/FA2.0/_reference-no-id.yaml
         vlan:
           description: VLAN ID
+          type: integer
           format: int32
           readOnly: true
-          type: integer
-      type: object
     fc:
       description: Fibre Channel port properties.
+      type: object
       properties:
         wwn:
           description: World Wide Name of the specified Fibre Channel port.
-          readOnly: true
           type: string
-      type: object
-    interface_type:
-      description: The interface type. Valid values are `eth` and `fc`.
-      readOnly: true
-      type: string
-    services:
-      description: The services provided by the specified network interface or Fibre
-        Channel port.
-      items:
-        description: Valid values are `iscsi`, `management`, `nvme/fc`, `nvme/roce`,
-          `replication`, `scsi/fc`, and `system`.
-        type: string
-      readOnly: true
-      type: array
-    speed:
-      description: Configured speed of the specified network interface or Fibre Channel
-        port (in Gb/s). Typically this is the maximum speed of the port or bond represented
-        by the network interface.
-      format: int64
-      readOnly: true
-      type: integer
-  type: object
+          readOnly: true

@@ -1,4 +1,5 @@
 get:
+  summary: GET quotas-settings
   description: List notification attributes of a group or user quota.
   parameters:
   - $ref: ../../queries/FB2.0/ids.query.yaml
@@ -8,14 +9,14 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/quota-setting-get-response.yaml
-  summary: GET quotas-settings
   tags:
   - Quotas
 patch:
+  summary: PATCH quotas-settings
   description: Modify the notification attributes of a group or user quota.
   parameters:
-  - in: body
-    name: quota-setting
+  - name: quota-setting
+    in: body
     required: true
     schema:
       $ref: ../../models/FB2.0/quota-setting.yaml
@@ -24,6 +25,5 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/quota-setting-response.yaml
-  summary: PATCH quotas-settings
   tags:
   - Quotas

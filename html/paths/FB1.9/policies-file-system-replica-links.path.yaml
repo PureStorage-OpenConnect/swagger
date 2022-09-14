@@ -1,20 +1,5 @@
-delete:
-  description: DELETE policies-file-system-replica-links (placeholder)
-  parameters:
-  - $ref: ../../queries/FB1.9/local_file_system_ids.query.yaml
-  - $ref: ../../queries/FB1.9/local_file_system_names.query.yaml
-  - $ref: ../../queries/FB1.8/member_ids.query.yaml
-  - $ref: ../../queries/FB1.8/policy_ids.query.yaml
-  - $ref: ../../queries/FB1.5/policy_names.query.yaml
-  - $ref: ../../queries/FB1.9/remote_ids.query.yaml
-  - $ref: ../../queries/FB1.9/remote_names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE policies-file-system-replica-links (placeholder)
-  tags:
-  - Policies
 get:
+  summary: GET policies-file-system-replica-links (placeholder)
   description: GET policies-file-system-replica-links (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
@@ -36,10 +21,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/policy-member-with-remote-get-response.yaml
-  summary: GET policies-file-system-replica-links (placeholder)
   tags:
   - Policies
 post:
+  summary: POST policies-file-system-replica-links (placeholder)
   description: POST policies-file-system-replica-links (placeholder)
   parameters:
   - $ref: ../../queries/FB1.9/local_file_system_ids.query.yaml
@@ -54,6 +39,21 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/policy-member-with-remote-response.yaml
-  summary: POST policies-file-system-replica-links (placeholder)
+  tags:
+  - Policies
+delete:
+  summary: DELETE policies-file-system-replica-links (placeholder)
+  description: DELETE policies-file-system-replica-links (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.9/local_file_system_ids.query.yaml
+  - $ref: ../../queries/FB1.9/local_file_system_names.query.yaml
+  - $ref: ../../queries/FB1.8/member_ids.query.yaml
+  - $ref: ../../queries/FB1.8/policy_ids.query.yaml
+  - $ref: ../../queries/FB1.5/policy_names.query.yaml
+  - $ref: ../../queries/FB1.9/remote_ids.query.yaml
+  - $ref: ../../queries/FB1.9/remote_names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Policies

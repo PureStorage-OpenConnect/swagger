@@ -2,17 +2,13 @@ allOf:
 - $ref: ../../models/FA2.0/_built-in-resource-no-id.yaml
 - description: An app that is installed on Purity to extend its functionality. The
     app is an add-on service that is integrated into the system to extend array functionality.
+  type: object
   properties:
     description:
       description: A description of the app.
+      type: string
+      readOnly: true
       example: Snapshot offload to NFS or Amazon S3
-      readOnly: true
-      type: string
-    details:
-      description: Details of the status of the app.
-      example: Insufficient resources to operate
-      readOnly: true
-      type: string
     enabled:
       description: If set to `true`, the app is enabled. By default, apps are disabled.
       type: boolean
@@ -21,18 +17,22 @@ allOf:
         For cluster apps, this represents the aggregate status of the app. The aggregate
         status is only `healthy` if all nodes are `healthy`&#59; otherwise, it is
         `unhealthy`.
-      example: healthy
-      readOnly: true
       type: string
+      readOnly: true
+      example: healthy
     version:
       description: The app version. For cluster apps, this represents the node version
         if all nodes are of the same version. If the node versions differ, a value
         of `null` is returned.
-      example: 1.0.0
-      readOnly: true
       type: string
+      readOnly: true
+      example: 1.0.0
+    details:
+      description: Details of the status of the app.
+      type: string
+      readOnly: true
+      example: Insufficient resources to operate
     vnc_enabled:
       description: If set to `true`, VNC access is enabled. By default, VNC access
         is disabled.
       type: boolean
-  type: object

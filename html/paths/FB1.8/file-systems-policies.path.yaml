@@ -11,16 +11,13 @@ get:
   - $ref: ../../queries/FB1.0/sort.query.yaml
   - $ref: ../../queries/FB1.0/start.query.yaml
   - $ref: ../../queries/FB1.0/token.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.8/policy-member-get-response.yaml
-
   tags:
   - File Systems
-
 post:
   summary: POST file-systems-policies (placeholder)
   description: POST file-systems-policies (placeholder)
@@ -29,16 +26,13 @@ post:
   - $ref: ../../queries/FB1.5/member_names.query.yaml
   - $ref: ../../queries/FB1.8/policy_ids.query.yaml
   - $ref: ../../queries/FB1.5/policy_names.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.8/policy-member-response.yaml
-
   tags:
   - File Systems
-
 delete:
   summary: DELETE file-systems-policies (placeholder)
   description: DELETE file-systems-policies (placeholder)
@@ -47,10 +41,8 @@ delete:
   - $ref: ../../queries/FB1.5/member_names.query.yaml
   - $ref: ../../queries/FB1.8/policy_ids.query.yaml
   - $ref: ../../queries/FB1.5/policy_names.query.yaml
-
   responses:
     200:
       description: OK
-
   tags:
   - File Systems

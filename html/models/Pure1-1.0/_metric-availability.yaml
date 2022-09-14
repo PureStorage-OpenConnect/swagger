@@ -2,12 +2,11 @@ type: object
 readOnly: true
 properties:
   aggregations:
-    description: Available aggregations for this metric at the given resolution,
-     e.g. 'avg', 'max'.
+    description: Available aggregations for this metric at the given resolution, e.g.
+      'avg', 'max'.
     type: array
     items:
-      description: >-
-        Valid values are `avg` and `max`.
+      description: Valid values are `avg` and `max`.
       type: string
       example: avg
   resolution:

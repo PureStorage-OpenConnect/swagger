@@ -90,7 +90,7 @@ class SpecWorker(threading.Thread):
             if 'host' in spec_yaml:
                 del spec_yaml['host']
 
-            spec_file = yaml.dump(spec_yaml)
+            spec_file = yaml.dump(spec_yaml, sort_keys=False)
 
         with self.io_lock:
             with open(save_to_path,"w") as f:
@@ -143,11 +143,14 @@ class SpecWorker(threading.Thread):
 
 
 def main():
+    global overwrite_local_files
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--overwrite-local-files", help="overwrite local files", action="store_true")
     args = parser.parse_args()
+
     if args.overwrite_local_files:
+        
         overwrite_local_files = True
 
     script_path = os.path.dirname(os.path.realpath(__file__))

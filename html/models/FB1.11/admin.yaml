@@ -1,12 +1,12 @@
 allOf:
 - $ref: ../../models/FB1.8/admin.yaml
 - properties:
-    is_local:
-      description: Returns a value of `true` if the user is local to the machine,
-        otherwise `false`.
-      readOnly: true
-      type: boolean
     public_key:
       description: Public key for SSH access. Supported key types are `Ed25519` and
         `RSA`.
       type: string
+    is_local:
+      description: Returns a value of `true` if the user is local to the machine,
+        otherwise `false`.
+      type: boolean
+      readOnly: true

@@ -1,15 +1,5 @@
-delete:
-  description: DELETE keytabs (placeholder)
-  parameters:
-  - $ref: ../../queries/FB1.8/ids.query.yaml
-  - $ref: ../../queries/FB1.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE keytabs (placeholder)
-  tags:
-  - Keytabs
 get:
+  summary: GET keytabs (placeholder)
   description: GET keytabs (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
@@ -24,6 +14,16 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/keytab-get-response.yaml
-  summary: GET keytabs (placeholder)
+  tags:
+  - Keytabs
+delete:
+  summary: DELETE keytabs (placeholder)
+  description: DELETE keytabs (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Keytabs

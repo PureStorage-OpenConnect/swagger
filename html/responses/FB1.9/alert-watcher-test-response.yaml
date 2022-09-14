@@ -1,7 +1,7 @@
+type: object
 properties:
   items:
-    description: A list of alert watcher test results.
+    type: array
     items:
       $ref: ../../models/FB1.9/alert-watcher-test.yaml
-    type: array
-type: object
+    description: A list of alert watcher test results.

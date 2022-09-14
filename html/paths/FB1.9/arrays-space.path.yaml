@@ -1,4 +1,5 @@
 get:
+  summary: GET arrays-space (placeholder)
   description: GET arrays-space (placeholder)
   parameters:
   - $ref: ../../queries/FB1.2/end_time.query.yaml
@@ -10,6 +11,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.2/array-space-get-response.yaml
-  summary: GET arrays-space (placeholder)
   tags:
   - Arrays

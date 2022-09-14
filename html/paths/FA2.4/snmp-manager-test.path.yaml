@@ -1,4 +1,5 @@
 get:
+  summary: List SNMP manager test results
   description: Displays SNMP manager test results (traps or informs).
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -14,6 +15,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.4/test-result-with-resource-get-response.yaml
-  summary: List SNMP manager test results
   tags:
   - SNMP Managers

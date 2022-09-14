@@ -1,34 +1,34 @@
 allOf:
 - $ref: ../../models/FA2.0/_built-in-resource-no-id.yaml
 - description: Information about a flash, NVRAM, or cache module.
+  type: object
   properties:
     capacity:
       description: Physical storage capacity of the module in bytes.
-      example: 1099511627776
-      format: int64
-      readOnly: true
       type: integer
+      format: int64
+      example: 1099511627776
+      readOnly: true
     details:
       description: Details about the status of the module if not healthy.
+      type: string
       example: Cache module in wrong bay.
       readOnly: true
-      type: string
     protocol:
       description: Storage protocol of the module. Valid values are `NVMe` and `SAS`.
+      type: string
       example: SAS
       readOnly: true
-      type: string
     status:
       description: Current status of the module. Valid values are `empty`, `failed`,
         `healthy`, `identifying`, `missing`, `recovering`, `unadmitted`, `unhealthy`,
         `unrecognized`, and `updating`.
+      type: string
       example: healthy
       readOnly: true
-      type: string
     type:
       description: The type of the module. Valid values are `cache`, `NVRAM`, `SSD`,
         and `virtual`.
+      type: string
       example: SSD
       readOnly: true
-      type: string
-  type: object

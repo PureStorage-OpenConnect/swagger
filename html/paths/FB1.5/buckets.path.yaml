@@ -7,16 +7,13 @@ get:
   - $ref: ../../queries/FB1.0/sort.query.yaml
   - $ref: ../../queries/FB1.0/start.query.yaml
   - $ref: ../../queries/FB1.0/total_only.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.5/bucket-get-response.yaml
-
   tags:
   - Buckets
-
 post:
   parameters:
   - name: bucket
@@ -24,16 +21,13 @@ post:
     required: true
     schema:
       $ref: ../../models/FB1.5/bucket-post.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.5/bucket-response.yaml
-
   tags:
   - Buckets
-
 patch:
   parameters:
   - name: bucket
@@ -41,23 +35,18 @@ patch:
     required: true
     schema:
       $ref: ../../models/FB1.5/bucket.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.5/bucket-response.yaml
-
   tags:
   - Buckets
-
 delete:
   responses:
     200:
       description: OK
-
   tags:
   - Buckets
-
 parameters:
 - $ref: ../../queries/FB1.0/names.query.yaml

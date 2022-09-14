@@ -11,5 +11,5 @@ allOf:
         The `suffix` value can only be set on the rule with the largest `keep_for`
         value. If not specified, defaults to a monotonically increasing number generated
         by the system.
-      readOnly: true
       type: string
+      readOnly: true

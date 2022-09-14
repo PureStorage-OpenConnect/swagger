@@ -6,5 +6,5 @@ allOf:
         that is used by the array for SMB. Possible values include `ad-auto`, `ad-rfc2307`,
         `guest`, and `native`. Modifying this value requires the assistance of Pure
         Storage Support.
-      readOnly: true
       type: string
+      readOnly: true

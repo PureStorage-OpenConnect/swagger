@@ -1,12 +1,12 @@
+type: object
+readOnly: true
 properties:
   member:
-    allOf:
-    - $ref: ../../models/FA2.3/_fixed-reference-with-type.yaml
     description: Reference to the resource to which the effective quota policy is
       attached.
-  policy:
     allOf:
     - $ref: ../../models/FA2.3/_fixed-reference-with-type.yaml
+  policy:
     description: Reference to the effective quota policy.
-readOnly: true
-type: object
+    allOf:
+    - $ref: ../../models/FA2.3/_fixed-reference-with-type.yaml

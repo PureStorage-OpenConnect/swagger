@@ -1,9 +1,9 @@
-collectionFormat: csv
+name: certificate_ids
+in: query
 description: A comma-separated list of certificate ids. If there is not at least one
   resource that matches each of the elements of `certificate_ids`, then an error is
   returned. This cannot be provided in conjunction with the `certificate_names` parameter.
-in: query
+type: array
+collectionFormat: csv
 items:
   type: string
-name: certificate_ids
-type: array

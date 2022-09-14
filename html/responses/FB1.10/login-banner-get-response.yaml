@@ -1,6 +1,6 @@
+type: object
 properties:
   login_banner:
     description: The string to show as login banner.
-    example: Restricted area. Authorized personnel only.
     type: string
-type: object
+    example: Restricted area. Authorized personnel only.

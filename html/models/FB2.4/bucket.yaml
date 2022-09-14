@@ -2,6 +2,6 @@ allOf:
 - $ref: ../../models/FB2.0/bucket.yaml
 - properties:
     bucket_type:
-      description: The bucket type for the bucket.
-      readOnly: true
       type: string
+      readOnly: true
+      description: The bucket type for the bucket.

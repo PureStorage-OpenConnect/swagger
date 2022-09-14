@@ -1,74 +1,74 @@
 allOf:
 - $ref: ../../models/FB1.0/_built-in.yaml
-- properties:
+- readOnly: true
+  properties:
     bytes_per_op:
       description: Average operation size (read bytes+write bytes/read ops+write ops).
+      type: number
       format: double
       minimum: 0.0
-      type: number
     bytes_per_read:
       description: Average read size in bytes per read operation.
+      type: number
       format: double
       minimum: 0.0
-      type: number
     bytes_per_write:
       description: Average write size in bytes per write operation.
+      type: number
       format: double
       minimum: 0.0
-      type: number
     file_system:
+      description: The file system on which the performance was measured.
       allOf:
       - $ref: ../../models/FB1.8/_fixed-reference.yaml
-      description: The file system on which the performance was measured.
     others_per_sec:
       description: Other operations processed per second.
+      type: number
       format: double
       minimum: 0.0
-      type: number
     read_bytes_per_sec:
       description: Bytes read per second.
+      type: number
       format: double
       minimum: 0.0
-      type: number
     reads_per_sec:
       description: Read requests processed per second.
+      type: number
       format: double
       minimum: 0.0
-      type: number
     time:
       description: Sample time in milliseconds since UNIX epoch.
-      format: int64
       type: integer
+      format: int64
     usec_per_other_op:
       description: Average time, measured in microseconds, it takes the array to process
         other operations.
+      type: number
       format: double
       minimum: 0.0
-      type: number
     usec_per_read_op:
       description: Average time, measured in microseconds, it takes the array to process
         a read request.
+      type: number
       format: double
       minimum: 0.0
-      type: number
     usec_per_write_op:
       description: Average time, measured in microseconds, it takes the array to process
         a write request.
+      type: number
       format: double
       minimum: 0.0
-      type: number
     user:
+      description: The user whose performance is represented.
       allOf:
       - $ref: ../../models/FB1.6/_user.yaml
-      description: The user whose performance is represented.
     write_bytes_per_sec:
       description: Bytes written per second.
+      type: number
       format: double
       minimum: 0.0
-      type: number
     writes_per_sec:
       description: Write requests processed per second.
+      type: number
       format: double
       minimum: 0.0
-      type: number
-  readOnly: true

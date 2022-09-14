@@ -1,4 +1,5 @@
 get:
+  summary: GET audits
   description: List the array audit trail to view activities that were performed on
     the array.
   parameters:
@@ -14,6 +15,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/audit-get-response.yaml
-  summary: GET audits
   tags:
   - Audits

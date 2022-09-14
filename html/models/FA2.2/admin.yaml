@@ -1,30 +1,31 @@
 allOf:
 - $ref: ../../models/FA2.2/_fixed-name-resource-no-id.yaml
 - description: Administrator account.
-- properties:
+- type: object
+  properties:
     api_token:
       $ref: ../../models/FA2.2/_api-token.yaml
     is_local:
       description: Returns a value of `true` if the user is local to the machine,
         otherwise `false`.
+      type: boolean
       example: true
       readOnly: true
-      type: boolean
     locked:
       description: Returns a value of `true` if the user is currently locked out,
         otherwise `false`. Can be patched to `false` to unlock a user. This field
         is only visible to `array_admin` roles. For all other users, the value is
         always `null`.
-      example: false
       type: boolean
+      example: false
     lockout_remaining:
       description: The remaining lockout period, in milliseconds, if the user is locked
         out. This field is only visible to `array_admin` roles. For all other users,
         the value is always `null`.
-      example: null
-      format: int64
-      readOnly: true
       type: integer
+      format: int64
+      example: null
+      readOnly: true
     password:
       description: Password associated with the account.
       type: string
@@ -33,4 +34,3 @@ allOf:
       type: string
     role:
       $ref: ../../models/FA2.2/_admin-role.yaml
-  type: object

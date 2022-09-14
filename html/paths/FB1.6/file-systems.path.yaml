@@ -7,16 +7,13 @@ get:
   - $ref: ../../queries/FB1.0/start.query.yaml
   - $ref: ../../queries/FB1.0/token.query.yaml
   - $ref: ../../queries/FB1.0/total_only.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.6/file-system-get-response.yaml
-
   tags:
   - File Systems
-
 post:
   parameters:
   - name: file-system
@@ -24,27 +21,21 @@ post:
     required: true
     schema:
       $ref: ../../models/FB1.6/file-system-post.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.6/file-system-response.yaml
-
   tags:
   - File Systems
-
 delete:
   parameters:
   - $ref: ../../queries/FB1.0/name_required.query.yaml
-
   responses:
     200:
       description: OK
-
   tags:
   - File Systems
-
 patch:
   parameters:
   - $ref: ../../queries/FB1.4/ignore_usage.query.yaml
@@ -54,12 +45,10 @@ patch:
     schema:
       $ref: ../../models/FB1.6/file-system.yaml
   - $ref: ../../queries/FB1.0/name_required.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.6/file-system-response.yaml
-
   tags:
   - File Systems

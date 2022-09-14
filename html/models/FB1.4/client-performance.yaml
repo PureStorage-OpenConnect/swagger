@@ -3,8 +3,7 @@ allOf:
 - readOnly: true
   properties:
     bytes_per_op:
-      description: >-
-        Average operation size (read bytes+write bytes/read ops+write ops).
+      description: Average operation size (read bytes+write bytes/read ops+write ops).
       type: integer
       format: int64
       minimum: 0
@@ -38,23 +37,20 @@ allOf:
       type: integer
       format: int64
     usec_per_other_op:
-      description: >-
-        Average time, measured in microseconds, it takes the client to process
-        other operations.
+      description: Average time, measured in microseconds, it takes the client to
+        process other operations.
       type: integer
       format: int64
       minimum: 0
     usec_per_read_op:
-      description: >-
-        Average time, measured in microseconds, it takes the client to process
-        a read request.
+      description: Average time, measured in microseconds, it takes the client to
+        process a read request.
       type: integer
       format: int64
       minimum: 0
     usec_per_write_op:
-      description: >-
-        Average time, measured in microseconds, it takes the client to process
-        a write request.
+      description: Average time, measured in microseconds, it takes the client to
+        process a write request.
       type: integer
       format: int64
       minimum: 0

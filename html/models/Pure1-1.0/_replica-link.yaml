@@ -2,25 +2,25 @@ allOf:
 - $ref: ../../models/Pure1-1.0/_resource-no-name.yaml
 - properties:
     lag:
+      type: integer
+      format: int64
+      readOnly: true
+      example: 1560
       description: Duration, in milliseconds, which represents how far behind the
         replication `target` is from the `source`.
-      example: 1560
+    paused:
+      type: boolean
+      example: false
+      description: Returns `true` if the replica link is paused.
+    recovery_point:
+      type: integer
       format: int64
       readOnly: true
-      type: integer
-    paused:
-      description: Returns `true` if the replica link is paused.
-      example: false
-      type: boolean
-    recovery_point:
+      example: 1565034592494
       description: Time when the last piece of data was replicated, measured in milliseconds
         since the UNIX epoch, and the recovery point of the resource.
-      example: 1565034592494
-      format: int64
-      readOnly: true
-      type: integer
     status:
+      type: string
+      example: replicating
       description: Status of the replica link. Values include `replicating`, `idle`,
         and `unhealthy`.
-      example: replicating
-      type: string

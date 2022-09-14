@@ -1,4 +1,5 @@
 get:
+  summary: List protection group replication performance data
   description: Returns the total number of bytes of replication data transmitted and
     received per second. The data is grouped by protection group.
   parameters:
@@ -18,7 +19,6 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.1/protection-group-performance-response.yaml
-  summary: List protection group replication performance data
   tags:
   - Protection Groups
 parameters:

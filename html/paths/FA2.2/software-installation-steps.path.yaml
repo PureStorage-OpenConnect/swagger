@@ -1,4 +1,5 @@
 get:
+  summary: List software upgrade steps
   description: Displays a list of currently running and completed software upgrade
     steps.
   parameters:
@@ -17,6 +18,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/software-installation-steps-get-response.yaml
-  summary: List software upgrade steps
   tags:
   - Software

@@ -3,15 +3,12 @@ allOf:
 - type: object
   properties:
     provisioned:
-      description: >-
-        Sets the virtual size of the volume. Measured in bytes.
+      description: Sets the virtual size of the volume. Measured in bytes.
       type: integer
       format: int64
-      minimum: 1048576
       maximum: 4503599627370496
     qos:
-      description: >-
-        Sets QoS limits.
+      description: Sets QoS limits.
       allOf:
       - $ref: ../../models/FA2.0/_qos.yaml
     source:
@@ -19,7 +16,5 @@ allOf:
       allOf:
       - $ref: ../../models/FA2.0/_reference.yaml
     subtype:
-      description: >-
-          The type of volume.
-          Valid values are `protocol_endpoint` and `regular`.
+      description: The type of volume. Valid values are `protocol_endpoint` and `regular`.
       type: string

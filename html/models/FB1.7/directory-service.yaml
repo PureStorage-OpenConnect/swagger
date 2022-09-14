@@ -10,11 +10,10 @@ allOf:
           type: array
           items:
             type: string
-            example: "ypdomain"
+            example: ypdomain
         nis_servers:
-          description: >-
-            A list of the IP addresses or hostnames of NIS servers to search.
+          description: A list of the IP addresses or hostnames of NIS servers to search.
           type: array
           items:
             type: string
-            example: "181.44.543.12"
+            example: 181.44.543.12

@@ -1,4 +1,5 @@
 get:
+  summary: GET arrays (placeholder)
   description: GET arrays (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
@@ -11,14 +12,14 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/array-get-response.yaml
-  summary: GET arrays (placeholder)
   tags:
   - Arrays
 patch:
+  summary: PATCH arrays (placeholder)
   description: PATCH arrays (placeholder)
   parameters:
-  - in: body
-    name: array
+  - name: array
+    in: body
     required: true
     schema:
       $ref: ../../models/FB1.9/array.yaml
@@ -27,6 +28,5 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/array-response.yaml
-  summary: PATCH arrays (placeholder)
   tags:
   - Arrays

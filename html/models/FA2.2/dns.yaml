@@ -1,15 +1,15 @@
 description: Configuration information for the domain name servers.
+type: object
 properties:
   domain:
     description: Domain suffix to be appended by the appliance when performing DNS
       lookups.
-    example: example.com
     type: string
+    example: example.com
   nameservers:
     description: List of DNS server IP addresses.
-    items:
-      example: 192.168.0.125
-      type: string
-    maxLength: 3
     type: array
-type: object
+    maxLength: 3
+    items:
+      type: string
+      example: 192.168.0.125

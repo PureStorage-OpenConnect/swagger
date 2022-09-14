@@ -1,20 +1,21 @@
 allOf:
 - $ref: _resource-fixed-non-unique-name.yaml
-- description: Software to be installed on the array.
+- type: object
+  description: Software to be installed on the array.
   properties:
     details:
       description: The detailed reason of the `status`.
       type: string
     payload_id:
       description: A checksum hash referring to the update bundle.
-      example: 4f7b319106401d072ff94808535cb3ce
       type: string
+      example: 4f7b319106401d072ff94808535cb3ce
     progress:
       description: The progress of the software upgrade. Displayed in decimal format.
-      format: float
-      max: 1
       min: 0
+      max: 1
       type: number
+      format: float
     status:
       description: The status of the software package. Valid values are `available`,
         `downloaded`, `downloading`, `download_failed`, `checking`, `installing`,
@@ -34,22 +35,21 @@ allOf:
         installed due to an `abort`. The array has been upgraded to an intermediate
         version and the `software` is no longer available for installation. A status
         of `installed` indicates that the upgrade has finished.
-      example: Available
       type: string
+      example: Available
     upgrade_hops:
       description: By which plan the upgrade will be conducted. The first element
         is the current version, the last element is the destination version, and the
         elements in between are intermediate versions.
+      type: array
+      items:
+        type: string
+      uniqueItems: true
       example:
       - 5.0.0
       - 5.1.6
       - 5.2.3
-      items:
-        type: string
-      type: array
-      uniqueItems: true
     version:
       description: The version of the software package.
-      example: 5.2.3
       type: string
-  type: object
+      example: 5.2.3

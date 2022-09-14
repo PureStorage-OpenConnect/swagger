@@ -4,30 +4,30 @@ allOf:
     account:
       $ref: ../../models/FB2.0/_fixed-reference.yaml
     created:
+      type: integer
+      readOnly: true
+      format: int64
       description: Creation timestamp of the object.
-      format: int64
-      readOnly: true
-      type: integer
     destroyed:
-      description: Is the bucket destroyed?
       type: boolean
+      description: Is the bucket destroyed?
     object_count:
-      description: The count of objects within the bucket.
-      format: int64
-      readOnly: true
       type: integer
+      readOnly: true
+      format: int64
+      description: The count of objects within the bucket.
     space:
+      description: The space specification of the file system.
       allOf:
       - $ref: ../../models/FB2.0/_space.yaml
-      description: The space specification of the file system.
       readOnly: true
     time_remaining:
+      type: integer
+      format: int64
       description: Time in milliseconds before the bucket is eradicated. `null` if
         not destroyed.
-      format: int64
       readOnly: true
-      type: integer
     versioning:
+      type: string
       description: The versioning state for objects within the bucket. Valid values
         are `none`, `enabled`, and `suspended`.
-      type: string

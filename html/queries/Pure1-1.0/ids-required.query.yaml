@@ -1,14 +1,10 @@
 name: ids
 in: query
-description: >-
-  REQUIRED: either ids or names.
-  A comma-separated list of object IDs.
-  If there is not at least one resource that matches each of the elements
-  of ids, an error is returned.
-  Single quotes are required around all strings.
+description: 'REQUIRED: either `ids` or `names`. A comma-separated list of object
+  IDs. If there is not at least one resource that matches each `id` element, an error
+  is returned. Single quotes are required around all strings.'
+x-quoted: true
 type: array
 collectionFormat: csv
 items:
   type: string
-# NOTE: it is not possible to specify that between two parameters, only one
-#       or the other is required

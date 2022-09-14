@@ -10,8 +10,8 @@ properties:
     type: string
     example: example_name
   resource_type:
-    description: >-
-      The type of this resource represented by the name of its REST endpoint.
-      For example, "arrays", "network-interfaces", and "metrics".
+    description: The type of this resource represented by the name of its REST endpoint.
+      For example, "arrays", "network-interfaces", and "metrics". The value may be
+      `null` if the resource is not represented.
     type: string
     example: example_resource_type

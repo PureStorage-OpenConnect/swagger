@@ -4,32 +4,29 @@ allOf:
   type: object
   properties:
     base_dn:
-      description: >-
-        Base of the Distinguished Name (DN) of the directory service groups.
+      description: Base of the Distinguished Name (DN) of the directory service groups.
       type: string
-      example: "DC=mycompany,DC=com"
+      example: DC=mycompany,DC=com
     bind_password:
       description: Obfuscated password used to query the directory.
       type: string
-      example: "****"
+      example: '****'
     bind_user:
       description: Username used to query the directory.
       type: string
-      example: "CN=John,OU=Users,DC=example,DC=com"
+      example: CN=John,OU=Users,DC=example,DC=com
     enabled:
       description: Is the directory service enabled or not?
       type: boolean
       example: true
     services:
-      description: >-
-        Services that the directory service configuration is used for.
+      description: Services that the directory service configuration is used for.
       type: array
       readOnly: true
       items:
-        description: >-
-          Valid values are `nfs` and `smb`.
+        description: Valid values are `nfs` and `smb`.
         type: string
-        example: "nfs"
+        example: nfs
       example:
       - nfs
     uris:
@@ -38,5 +35,5 @@ allOf:
       maxLength: 30
       items:
         type: string
-        pattern: "^(ldap|ldaps)"
-        example: "ldaps://ad1.mycompany.com"
+        pattern: ^(ldap|ldaps)
+        example: ldaps://ad1.mycompany.com

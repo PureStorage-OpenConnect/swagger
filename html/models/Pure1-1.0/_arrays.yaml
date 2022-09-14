@@ -2,9 +2,9 @@ type: object
 readOnly: true
 properties:
   arrays:
-    description: >-
-      The list of arrays where this resource exists. Many resources are on a single array, but
-      some resources, such as pods, can be shared across multiple arrays.
+    description: The list of arrays where this resource exists. Many resources are
+      on a single array, but some resources, such as pods, can be shared across multiple
+      arrays.
     type: array
     items:
-      $ref: _fixed-reference.yaml
+      $ref: ../../models/Pure1-1.0/_fixed-reference.yaml

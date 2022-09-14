@@ -5,15 +5,14 @@ allOf:
       type: string
       description: Name of the role; can be any role that exists on the system.
       readOnly: true
-      example: "array_admin"
+      example: array_admin
     group:
-      description: >-
-        Common Name (CN) of the directory service group containing
-        users with authority level of the specified role name.
+      description: Common Name (CN) of the directory service group containing users
+        with authority level of the specified role name.
       type: string
       example: groupOfUsers
     group_base:
-      description: >-
-        Specifies where the configured group is located in the directory tree.
+      description: Specifies where the configured group is located in the directory
+        tree.
       type: string
-      example: "OU=PureGroups,OU=SANManagers"
+      example: OU=PureGroups,OU=SANManagers

@@ -1,17 +1,5 @@
-delete:
-  description: Remove snapshot scheduling policies from a file system.
-  parameters:
-  - $ref: ../../queries/FB2.0/member_ids.query.yaml
-  - $ref: ../../queries/FB2.0/member_names.query.yaml
-  - $ref: ../../queries/FB2.0/policy_ids.query.yaml
-  - $ref: ../../queries/FB2.0/policy_names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE file-system-snapshots/policies
-  tags:
-  - File System Snapshots
 get:
+  summary: GET file-system-snapshots/policies
   description: List file system snapshots mapped to snapshot scheduling policies.
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
@@ -28,6 +16,18 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/policy-file-system-snapshot-get-response.yaml
-  summary: GET file-system-snapshots/policies
+  tags:
+  - File System Snapshots
+delete:
+  summary: DELETE file-system-snapshots/policies
+  description: Remove snapshot scheduling policies from a file system.
+  parameters:
+  - $ref: ../../queries/FB2.0/member_ids.query.yaml
+  - $ref: ../../queries/FB2.0/member_names.query.yaml
+  - $ref: ../../queries/FB2.0/policy_ids.query.yaml
+  - $ref: ../../queries/FB2.0/policy_names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - File System Snapshots

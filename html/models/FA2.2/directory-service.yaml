@@ -1,69 +1,69 @@
 allOf:
 - $ref: ../../models/FA2.0/_built-in-resource-no-id.yaml
 - description: Configuration information for the directory service.
+  type: object
   properties:
     base_dn:
       description: Base of the Distinguished Name (DN) of the directory service groups.
-      example: DC=mycompany,DC=com
       type: string
+      example: DC=mycompany,DC=com
     bind_password:
       description: Masked password used to query the directory.
-      example: '****'
       type: string
+      example: '****'
     bind_user:
       description: Username used to query the directory.
-      example: CN=John,OU=Users,DC=example,DC=com
       type: string
+      example: CN=John,OU=Users,DC=example,DC=com
     ca_certificate:
       description: The certificate of the Certificate Authority (CA) that signed the
         certificates of the directory servers, which is used to validate the authenticity
         of the configured servers.
-      maxLength: 3000
       type: string
+      maxLength: 3000
     check_peer:
       description: Whether or not server authenticity is enforced when a certificate
         is provided.
-      example: false
       type: boolean
+      example: false
     enabled:
       description: Whether or not the directory service is enabled.
-      example: true
       type: boolean
+      example: true
+    services:
+      description: Services for which the directory service configuration is used.
+      type: array
+      items:
+        description: Valid values are `data` and `management`.
+        type: string
+        example: data
+      example:
+      - data
+      - management
+      readOnly: true
+    uris:
+      description: List of URIs for the configured directory servers.
+      type: array
+      maxLength: 30
+      items:
+        type: string
+        pattern: ^(ldap|ldaps)
+        example: ldaps://ad1.mycompany.com
     management:
       description: Properties specific to the management service.
+      type: object
       properties:
         user_login_attribute:
           description: User login attribute in the structure of the configured LDAP
             servers. Typically the attribute field that holds the user's unique login
             name. Default value is `sAMAccountName` for Active Directory or `uid`
             for all other directory services.
-          example: email
           type: string
+          example: email
         user_object_class:
           description: Value of the object class for a management LDAP user. Defaults
             to `User` for Active Directory servers, `posixAccount` or `shadowAccount`
             for OpenLDAP servers dependent on the group type of the server, or `person`
             for all other directory servers.
-          example: inetOrgPerson
           type: string
-      type: object
-    services:
-      description: Services for which the directory service configuration is used.
-      example:
-      - data
-      - management
-      items:
-        description: Valid values are `data` and `management`.
-        example: data
-        type: string
-      readOnly: true
-      type: array
-    uris:
-      description: List of URIs for the configured directory servers.
-      items:
-        example: ldaps://ad1.mycompany.com
-        pattern: ^(ldap|ldaps)
-        type: string
-      maxLength: 30
-      type: array
-  type: object
+          example: inetOrgPerson

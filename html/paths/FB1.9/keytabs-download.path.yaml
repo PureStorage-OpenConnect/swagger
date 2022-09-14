@@ -1,4 +1,5 @@
 get:
+  summary: GET keytabs-download (placeholder)
   description: GET keytabs-download (placeholder)
   parameters:
   - $ref: ../../queries/FB1.9/keytab_ids.query.yaml
@@ -11,6 +12,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/keytab-file-response.yaml
-  summary: GET keytabs-download (placeholder)
   tags:
   - Keytabs

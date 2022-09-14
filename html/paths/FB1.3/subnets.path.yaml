@@ -5,16 +5,13 @@ get:
   - $ref: ../../queries/FB1.0/sort.query.yaml
   - $ref: ../../queries/FB1.0/start.query.yaml
   - $ref: ../../queries/FB1.0/token.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.3/subnet-get-response.yaml
-
   tags:
   - Subnets
-
 post:
   parameters:
   - name: subnet
@@ -22,16 +19,13 @@ post:
     required: true
     schema:
       $ref: ../../models/FB1.3/subnet.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.3/subnet-response.yaml
-
   tags:
   - Subnets
-
 patch:
   parameters:
   - name: subnet
@@ -39,23 +33,18 @@ patch:
     required: true
     schema:
       $ref: ../../models/FB1.3/subnet.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.3/subnet-response.yaml
-
   tags:
   - Subnets
-
 delete:
   responses:
     200:
       description: OK
-
   tags:
   - Subnets
-
 parameters:
 - $ref: ../../queries/FB1.0/names.query.yaml

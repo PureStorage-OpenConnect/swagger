@@ -3,8 +3,8 @@ allOf:
 - description: Hostname configuration for virtual hosted-style S3 requests.
 - properties:
     name:
+      type: string
       description: A hostname by which the array can be addressed for virtual hosted-style
         S3 requests.
-      example: s3.myarray.com
       readOnly: true
-      type: string
+      example: s3.myarray.com

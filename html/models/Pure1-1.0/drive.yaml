@@ -1,40 +1,40 @@
+description: Information about a flash, NVRAM, or cache module.
 allOf:
 - $ref: ../../models/Pure1-1.0/_built-in-as-of.yaml
 - properties:
     arrays:
       description: A list of arrays that contain this drive. Each drive should only
         exist on one array.
+      type: array
       items:
         $ref: ../../models/Pure1-1.0/_drive-array-status.yaml
       minItems: 1
-      type: array
     capacity:
+      type: number
+      readOnly: true
+      format: int64
       description: Physical storage capacity of the module (in bytes).
       example: 494927872
-      format: int64
-      readOnly: true
-      type: number
     details:
+      type: string
+      readOnly: true
       description: Details about the status of the module if status is not `healthy`.
       example: Slow link speed.
-      readOnly: true
-      type: string
     protocol:
+      type: string
+      readOnly: true
       description: Storage protocol of the module. Values include `NVMe` and `SAS`.
       example: SAS
-      readOnly: true
-      type: string
     status:
+      type: string
+      readOnly: true
       description: Current status of the module. Values include `empty`, `failed`,
         `healthy`, `identifying`, `missing`, `recovering`, `unadmitted`, `unhealthy`,
         `unrecognized`, and `updating`.
       example: healthy
-      readOnly: true
-      type: string
     type:
+      type: string
+      readOnly: true
       description: The type of the module. Values include `cache`, `NVRAM`, `SSD`,
         and `virtual`.
       example: SSD
-      readOnly: true
-      type: string
-description: Information about a flash, NVRAM, or cache module.

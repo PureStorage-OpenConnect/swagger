@@ -1,4 +1,5 @@
 get:
+  summary: GET file-systems-performance (placeholder)
   description: GET file-systems-performance (placeholder)
   parameters:
   - $ref: ../../queries/FB1.2/end_time.query.yaml
@@ -17,6 +18,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.5/file-system-performance-get-response.yaml
-  summary: GET file-systems-performance (placeholder)
   tags:
   - File Systems

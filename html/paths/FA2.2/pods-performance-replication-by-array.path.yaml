@@ -1,4 +1,5 @@
 get:
+  summary: List pod replication performance data by array
   description: Displays pod replication performance data, organized by array. The
     data returned is the real-time and historical performance data for each replication
     type at the pod level. Values include `continuous`, `periodic`, `resync`, and
@@ -23,6 +24,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/pod-performance-replication-by-array-get-response.yaml
-  summary: List pod replication performance data by array
   tags:
   - Pods

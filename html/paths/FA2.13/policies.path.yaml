@@ -1,4 +1,5 @@
 get:
+  summary: List policies
   description: Displays a list of policies.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -17,6 +18,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.13/policy-get-response.yaml
-  summary: List policies
   tags:
   - Policies

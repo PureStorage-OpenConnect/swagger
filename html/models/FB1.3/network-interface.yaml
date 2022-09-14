@@ -3,14 +3,12 @@ allOf:
 - type: object
   properties:
     address:
-      description: >-
-        The IPv4 or IPv6 address to be associated with the specified network
+      description: The IPv4 or IPv6 address to be associated with the specified network
         interface.
       type: string
     enabled:
-      description: >-
-        Indicates if the specified network interface is enabled (`true`) or
-        disabled (`false`). If not specified, defaults to `true`.
+      description: Indicates if the specified network interface is enabled (`true`)
+        or disabled (`false`). If not specified, defaults to `true`.
       type: boolean
       readOnly: true
     gateway:
@@ -30,16 +28,14 @@ allOf:
       type: array
       description: Services and protocols that are enabled on the interface.
       items:
-        description: >-
-          Valid values are `data`, `management`, and `support`.
+        description: Valid values are `data`, `management`, and `support`.
         type: string
     subnet:
       allOf:
       - $ref: ../../models/FB1.3/_fixed-reference.yaml
       - readOnly: true
     type:
-      description: >-
-        The only valid value is `vip`.
+      description: The only valid value is `vip`.
       type: string
     vlan:
       description: Derived from `subnet.vlan`.

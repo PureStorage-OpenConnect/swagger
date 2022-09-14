@@ -1,6 +1,7 @@
 get:
-  description: Displays the provisioned (virtual) size and physical storage consumption
-    data for each volume.
+  summary: List volume space information
+  description: Displays the provisioned size and physical storage consumption data
+    for each volume.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
@@ -20,7 +21,6 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.9/volume-space-get-response.yaml
-  summary: List volume space information
   tags:
   - Volumes
 parameters:

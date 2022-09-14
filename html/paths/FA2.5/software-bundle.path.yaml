@@ -1,4 +1,5 @@
 get:
+  summary: List software-bundle
   description: Displays a list of software bundles.
   parameters:
   - $ref: ../../queries/FA2.0/filter.query.yaml
@@ -12,14 +13,14 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.5/software-bundle-get-response.yaml
-  summary: List software-bundle
   tags:
   - Software
 post:
+  summary: Create software-bundle
   description: Creates and initiates a software bundle download.
   parameters:
-  - in: body
-    name: source
+  - name: source
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.5/software-bundle-post.yaml
@@ -28,6 +29,5 @@ post:
       description: The software bundle has started downloading successfully.
       schema:
         $ref: ../../responses/FA2.5/software-bundle-response.yaml
-  summary: Create software-bundle
   tags:
   - Software

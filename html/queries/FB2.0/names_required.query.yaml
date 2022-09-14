@@ -1,8 +1,8 @@
-collectionFormat: csv
-description: A comma-separated list of resource names.
+name: names
 in: query
+description: A comma-separated list of resource names.
+type: array
+required: true
+collectionFormat: csv
 items:
   type: string
-name: names
-required: true
-type: array

@@ -1,28 +1,28 @@
+description: A Purity//FA port.
+type: object
 allOf:
 - $ref: ../../models/Pure1-1.0/_arrays-built-in.yaml
 - properties:
-    failover:
-      description: If the array port has failed over, returns the name of the port
-        to which this port has failed over.
-      example: CT0.ETH2
-      type: string
     iqn:
+      type: string
       description: The iSCSI Qualified Name if the port is iSCSI, `null` otherwise.
       example: iqn.2010-06.com.purestorage:flasharray.393d930077be2977
-      type: string
     nqn:
+      type: string
       description: The NVMe Qualified Name if the port is NVMe-oF, `null` otherwise.
       example: nqn.2010-06.com.purestorage:flasharray.512f7bb185978505
-      type: string
-    portal:
-      description: The IP and port number if the port is iSCSI or NVMe-oF, `null`
-        otherwise.
-      example: 10.16.200.27:3260
-      type: string
     wwn:
+      type: string
       description: The Fibre Channel World Wide Name if the port is Fibre Channel,
         `null` otherwise.
       example: 52:4A:93:70:4E:E5:68:00
+    portal:
       type: string
-description: A Purity//FA port.
-type: object
+      description: The IP and port number if the port is iSCSI or NVMe-oF, `null`
+        otherwise.
+      example: 10.16.200.27:3260
+    failover:
+      type: string
+      description: If the array port has failed over, returns the name of the port
+        to which this port has failed over.
+      example: CT0.ETH2

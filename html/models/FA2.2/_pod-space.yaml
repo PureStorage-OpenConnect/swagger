@@ -6,6 +6,6 @@ allOf:
         been replicated to the target pod. On target pods, the space consumed by unique
         data that has been replicated to the target but not yet incorporated into
         the target pod.
+      type: integer
       format: int64
       minimum: 0
-      type: integer

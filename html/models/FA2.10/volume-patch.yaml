@@ -1,32 +1,32 @@
 allOf:
 - $ref: ../../models/FA2.0/_destroyed-patch-post.yaml
 - $ref: ../../models/FA2.0/_new-name.yaml
-- properties:
+- type: object
+  properties:
     pod:
+      description: Moves the volume into the specified pod.
       allOf:
       - $ref: ../../models/FA2.0/_reference.yaml
-      description: Moves the volume into the specified pod.
-    priority_adjustment:
-      allOf:
-      - $ref: ../../models/FA2.10/_priority-adjustment.yaml
-      description: Adjusts volume priority.
     provisioned:
       description: Updates the virtual size of the volume, measured in bytes.
+      type: integer
       format: int64
       maximum: 4503599627370496
-      type: integer
     qos:
+      description: Sets QoS limits.
       allOf:
       - $ref: ../../models/FA2.0/_qos.yaml
-      description: Sets QoS limits.
+    priority_adjustment:
+      description: Adjusts volume priority.
+      allOf:
+      - $ref: ../../models/FA2.10/_priority-adjustment.yaml
+    volume_group:
+      description: Adds the volume to the specified volume group.
+      allOf:
+      - $ref: ../../models/FA2.0/_reference.yaml
     requested_promotion_state:
       description: Valid values are `promoted` and `demoted`. Patch `requested_promotion_state`
         to `demoted` to demote the volume so that the volume stops accepting write
         requests. Patch `requested_promotion_state` to `promoted` to promote the volume
         so that the volume starts accepting write requests.
       type: string
-    volume_group:
-      allOf:
-      - $ref: ../../models/FA2.0/_reference.yaml
-      description: Adds the volume to the specified volume group.
-  type: object

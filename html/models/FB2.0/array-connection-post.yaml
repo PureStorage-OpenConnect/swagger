@@ -3,8 +3,8 @@ allOf:
 - properties:
     connection_key:
       description: The connection key of the target array. Settable on POST only.
-      example: 6207d123-d123-0b5c-5fa1-95fabc5c7123
       type: string
+      example: 6207d123-d123-0b5c-5fa1-95fabc5c7123
     encrypted:
       description: If this is set to `true`, then all customer data replicated over
         the connection will be sent over an encrypted connection using TLS, or will

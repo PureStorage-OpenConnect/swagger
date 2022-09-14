@@ -3,36 +3,36 @@ allOf:
 - properties:
     replication:
       description: The sum of replication space consumed by all pods on this array.
+      type: integer
       format: int64
       minimum: 0
       readOnly: true
-      type: integer
     shared_effective:
       description: The effective space contributed by data that is not unique to a
         specific volume or snapshot, measured in bytes.
+      type: integer
       format: int64
       minimum: 0
       readOnly: true
-      type: integer
     snapshots_effective:
       description: The effective space contributed by data unique to one or more snapshots,
         measured in bytes.
+      type: integer
       format: int64
       minimum: 0
       readOnly: true
-      type: integer
-    total_effective:
-      description: The total effective space contributed by customer data, measured
-        in bytes.
-      format: int64
-      minimum: 0
-      readOnly: true
-      type: integer
     unique_effective:
       description: The effective space contributed by unique customer data, measured
         in bytes. Unique data does not include shared space, snapshots, and internal
         array metadata.
+      type: integer
       format: int64
       minimum: 0
       readOnly: true
+    total_effective:
+      description: The total effective space contributed by customer data, measured
+        in bytes.
       type: integer
+      format: int64
+      minimum: 0
+      readOnly: true

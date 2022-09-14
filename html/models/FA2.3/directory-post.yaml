@@ -1,3 +1,4 @@
+type: object
 properties:
   directory_name:
     description: The managed directory name without the file system name prefix. A
@@ -8,6 +9,5 @@ properties:
     type: string
   path:
     description: Path of the managed directory in the file system.
-    required: true
     type: string
-type: object
+    required: true

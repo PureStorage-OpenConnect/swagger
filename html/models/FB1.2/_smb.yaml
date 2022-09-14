@@ -2,9 +2,9 @@ type: object
 properties:
   acl_mode:
     type: string
-    description: >-
-      Valid values are `shared` and `native`.
-      If not specified, defaults to `shared`.
+    description: Valid values are `shared` and `native`. If not specified, defaults
+      to `shared`.
   enabled:
     type: boolean
-    description: Is the protocol enabled? If not specified, defaults to `false`.
+    description: If set to `true`, enables access to the file system over the SMB
+      protocol. If not specified, defaults to `false`.

@@ -1,7 +1,7 @@
-collectionFormat: csv
-description: A comma-separated list of file system names.
+name: sources
 in: query
+description: A comma-separated list of file system names.
+type: array
+collectionFormat: csv
 items:
   type: string
-name: sources
-type: array

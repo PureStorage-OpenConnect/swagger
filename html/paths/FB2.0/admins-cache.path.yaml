@@ -1,15 +1,5 @@
-delete:
-  description: Delete cached administrator role information by name or ID.
-  parameters:
-  - $ref: ../../queries/FB2.0/ids.query.yaml
-  - $ref: ../../queries/FB2.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE admins/cache
-  tags:
-  - Administrators
 get:
+  summary: GET admins/cache
   description: List cached administrator information used to determine role based
     access control privileges.
   parameters:
@@ -26,6 +16,16 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/admin-cache-get-response.yaml
-  summary: GET admins/cache
+  tags:
+  - Administrators
+delete:
+  summary: DELETE admins/cache
+  description: Delete cached administrator role information by name or ID.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Administrators

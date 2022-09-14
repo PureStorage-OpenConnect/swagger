@@ -1,15 +1,15 @@
 allOf:
 - $ref: ../../responses/FB2.0/page-info.yaml
-- properties:
+- type: object
+  properties:
     items:
-      description: A list of hardware connector performance objects.
+      type: array
       items:
         $ref: ../../models/FB2.3/hardware-connector-performance.yaml
-      type: array
+      description: A list of hardware connector performance objects.
     total:
+      type: array
+      items:
+        $ref: ../../models/FB2.3/hardware-connector-performance.yaml
       description: Total of all records after filtering. If `total_only` query param
         is `true`, then no individual items will be returned.
-      items:
-        $ref: ../../models/FB2.3/hardware-connector-performance.yaml
-      type: array
-  type: object

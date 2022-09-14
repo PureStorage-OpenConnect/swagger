@@ -3,5 +3,5 @@ allOf:
 - properties:
     time_zone:
       description: The time zone to use with the `at` time.
-      example: America/Los_Angeles
       type: string
+      example: America/Los_Angeles

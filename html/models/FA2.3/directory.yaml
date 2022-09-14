@@ -4,9 +4,9 @@ allOf:
     created:
       description: The managed directory creation time, measured in milliseconds since
         the UNIX epoch.
+      type: integer
       format: int64
       readOnly: true
-      type: integer
     destroyed:
       description: Returns a value of `true` if the managed directory has been destroyed
         and is pending eradication. The `time_remaining` value displays the amount
@@ -19,24 +19,24 @@ allOf:
         A full managed directory name is constructed in the form of `FILE_SYSTEM:DIR`
         where `FILE_SYSTEM` is the file system name and `DIR` is the value of this
         field.
-      readOnly: true
       type: string
+      readOnly: true
     file_system:
+      description: The file system that this managed directory is in.
       allOf:
       - $ref: ../../models/FA2.0/_fixed-reference.yaml
-      description: The file system that this managed directory is in.
       readOnly: true
     path:
       description: Absolute path of the managed directory in the file system.
-      readOnly: true
       type: string
+      readOnly: true
     space:
+      description: Displays size and space consumption information.
       allOf:
       - $ref: ../../models/FA2.0/_space.yaml
-      description: Displays size and space consumption information.
     time_remaining:
       description: The amount of time left, measured in milliseconds until the destroyed
         managed directory is permanently eradicated.
+      type: integer
       format: int64
       readOnly: true
-      type: integer

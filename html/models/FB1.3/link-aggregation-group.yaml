@@ -1,12 +1,10 @@
 allOf:
 - $ref: ../../models/FB1.0/_built-in.yaml
-- description: >-
-    Configuration information for a combination of physical ports grouped
+- description: Configuration information for a combination of physical ports grouped
     together into an aggregated-port.
   properties:
     lag_speed:
-      description: >-
-        Combined speed of all ports in the LAG in bits-per-second.
+      description: Combined speed of all ports in the LAG in bits-per-second.
       type: integer
       format: int64
       readOnly: true
@@ -15,8 +13,8 @@ allOf:
       description: Unique MAC address assigned to the LAG.
       type: string
       readOnly: true
-      pattern: "^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$"
-      example: "24:a9:37:11:f5:21"
+      pattern: ^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$
+      example: 24:a9:37:11:f5:21
     ports:
       description: Ports associated with the LAG.
       type: array
@@ -29,10 +27,8 @@ allOf:
       readOnly: true
       example: 10000000000
     status:
-      description: >-
-        Health status of the LAG.
-        Valid values are `critical`, `healthy`, `identifying`, `unclaimed`,
-        `unhealthy`, `unrecognized`, and `unused`.
+      description: Health status of the LAG. Valid values are `critical`, `healthy`,
+        `identifying`, `unclaimed`, `unhealthy`, `unrecognized`, and `unused`.
       type: string
       readOnly: true
-      example: "healthy"
+      example: healthy

@@ -1,4 +1,5 @@
 get:
+  summary: GET arrays/supported-time-zones (placeholder)
   description: GET arrays/supported-time-zones (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
@@ -12,6 +13,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.12/arrays-supported-time-zones-get-response.yaml
-  summary: GET arrays/supported-time-zones (placeholder)
   tags:
   - Arrays

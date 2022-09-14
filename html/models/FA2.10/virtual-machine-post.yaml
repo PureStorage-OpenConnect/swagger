@@ -1,15 +1,15 @@
 allOf:
-- properties:
+- type: object
+  properties:
     id:
       description: The ID of the virtual machine to recreate.
       type: string
-    source:
-      allOf:
-      - $ref: ../../models/FA2.0/_reference.yaml
-      description: The protection group snapshot to recreate the virtual machine from.
     vm_type:
       description: The type of virtual machine. Currently, the only valid value is
         `vvol`.
-      example: vvol
       type: string
-  type: object
+      example: vvol
+    source:
+      description: The protection group snapshot to recreate the virtual machine from.
+      allOf:
+      - $ref: ../../models/FA2.0/_reference.yaml

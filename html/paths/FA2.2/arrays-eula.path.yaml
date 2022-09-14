@@ -1,4 +1,5 @@
 get:
+  summary: List End User Agreement and signature
   description: Displays the End User Agreement and signature.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -13,16 +14,16 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/eula-get-response.yaml
-  summary: List End User Agreement and signature
   tags:
   - Arrays
 patch:
+  summary: Modify signature on the End User Agreement
   description: Modifies the signature on the End User Agreement.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - in: body
-    name: eula
+  - name: eula
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.2/eula.yaml
@@ -31,6 +32,5 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/eula-response.yaml
-  summary: Modify signature on the End User Agreement
   tags:
   - Arrays

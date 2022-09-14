@@ -2,6 +2,6 @@ allOf:
 - $ref: ../../models/FA2.4/_pod-performance-replication.yaml
 - properties:
     array:
+      description: Array that shares this pod.
       allOf:
       - $ref: ../../models/FA2.0/_resource.yaml
-      description: Array that shares this pod.

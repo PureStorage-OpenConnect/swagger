@@ -1,20 +1,5 @@
-delete:
-  description: DELETE file-system-replica-links-policies (placeholder)
-  parameters:
-  - $ref: ../../queries/FB1.9/local_file_system_ids.query.yaml
-  - $ref: ../../queries/FB1.9/local_file_system_names.query.yaml
-  - $ref: ../../queries/FB1.8/member_ids.query.yaml
-  - $ref: ../../queries/FB1.8/policy_ids.query.yaml
-  - $ref: ../../queries/FB1.5/policy_names.query.yaml
-  - $ref: ../../queries/FB1.9/remote_ids.query.yaml
-  - $ref: ../../queries/FB1.9/remote_names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE file-system-replica-links-policies (placeholder)
-  tags:
-  - File System Replica Links
 get:
+  summary: GET file-system-replica-links-policies (placeholder)
   description: GET file-system-replica-links-policies (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
@@ -36,10 +21,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/policy-member-with-remote-get-response.yaml
-  summary: GET file-system-replica-links-policies (placeholder)
   tags:
   - File System Replica Links
 post:
+  summary: POST file-system-replica-links-policies (placeholder)
   description: POST file-system-replica-links-policies (placeholder)
   parameters:
   - $ref: ../../queries/FB1.9/local_file_system_ids.query.yaml
@@ -54,6 +39,21 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/policy-member-with-remote-response.yaml
-  summary: POST file-system-replica-links-policies (placeholder)
+  tags:
+  - File System Replica Links
+delete:
+  summary: DELETE file-system-replica-links-policies (placeholder)
+  description: DELETE file-system-replica-links-policies (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.9/local_file_system_ids.query.yaml
+  - $ref: ../../queries/FB1.9/local_file_system_names.query.yaml
+  - $ref: ../../queries/FB1.8/member_ids.query.yaml
+  - $ref: ../../queries/FB1.8/policy_ids.query.yaml
+  - $ref: ../../queries/FB1.5/policy_names.query.yaml
+  - $ref: ../../queries/FB1.9/remote_ids.query.yaml
+  - $ref: ../../queries/FB1.9/remote_names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - File System Replica Links

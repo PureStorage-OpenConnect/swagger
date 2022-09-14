@@ -1,17 +1,17 @@
 allOf:
 - $ref: ../../responses/FA2.1/page-info.yaml
-- properties:
+- type: object
+  properties:
     items:
-      description: Performance data. If `total_only=true`, the `items` list will be
-        empty.
+      type: array
       items:
         $ref: ../../models/FA2.3/directory-performance.yaml
-      type: array
+      description: Performance data. If `total_only=true`, the `items` list will be
+        empty.
     total:
+      type: array
+      items:
+        $ref: ../../models/FA2.3/directory-performance.yaml
       description: The aggregate value of all items after filtering. When it makes
         sense, the average value is displayed instead. The values are displayed for
         each field if meaningful.
-      items:
-        $ref: ../../models/FA2.3/directory-performance.yaml
-      type: array
-  type: object

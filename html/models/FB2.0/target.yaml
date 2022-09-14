@@ -2,16 +2,16 @@ allOf:
 - $ref: ../../models/FB2.0/_resource.yaml
 - properties:
     address:
-      description: IP address or FQDN of the target system.
       type: string
+      description: IP address or FQDN of the target system.
     ca_certificate_group:
-      allOf:
-      - $ref: ../../models/FB2.0/_fixed-reference.yaml
       description: The group of CA certificates that can be used, in addition to well-known
         Certificate Authority certificates, in order to establish a secure connection
         to the target system. Defaults to a reference to the `_default_replication_certs`
         group.
       readOnly: true
+      allOf:
+      - $ref: ../../models/FB2.0/_fixed-reference.yaml
     status:
       description: Status of the connection. Valid values are `connected` and `connecting`.
         `connected` - The connection is OK. `connecting` - No connection exists and

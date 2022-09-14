@@ -1,4 +1,5 @@
 get:
+  summary: List syslog server test results
   description: Displays syslog server test results, which indicate whether the syslog
     is working and configured correctly.
   parameters:
@@ -14,6 +15,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.4/test-result-with-resource-get-response.yaml
-  summary: List syslog server test results
   tags:
   - Syslog

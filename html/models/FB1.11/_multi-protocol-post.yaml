@@ -1,5 +1,7 @@
+type: object
 properties:
   access_control_style:
+    type: string
     description: The access control style that is utilized for client actions such
       as setting file and directory ACLs. Possible values include `nfs`, `smb`, `shared`,
       `independent`, and `mode-bits`. If `nfs` is specified, then SMB clients will
@@ -16,8 +18,8 @@ properties:
       permissions on files and directories, but only mode bits may be used to set
       permissions for NFS clients. When SMB clients set an ACL, it will be converted
       to have the same permission granularity as NFS mode bits. Defaults to `shared`.
-    type: string
   safeguard_acls:
+    type: boolean
     description: If set to `true`, prevents NFS clients from erasing a configured
       ACL when setting NFS mode bits. If this is `true`, then attempts to set mode
       bits on a file or directory will fail if they cannot be combined with the existing
@@ -25,5 +27,3 @@ properties:
       bits that would not erase an existing ACL will still succeed and the mode bit
       changes will be merged with the existing ACL. This must be `false` when `access_control_style`
       is set to either `independent` or `mode-bits`. Defaults to `true`.
-    type: boolean
-type: object

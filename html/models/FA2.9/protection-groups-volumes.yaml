@@ -1,5 +1,6 @@
 allOf:
-- properties:
+- type: object
+  properties:
     group:
       $ref: ../../models/FA2.0/_reference-no-id.yaml
     member:
@@ -12,4 +13,3 @@ allOf:
               can see `time_remaining` of the destroyed volume, recover, or eradicate
               the destroyed volume.
             type: boolean
-  type: object

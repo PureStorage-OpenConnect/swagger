@@ -1,12 +1,12 @@
+type: object
 properties:
-  length:
-    description: Length of the chunk that is different, in bytes.
-    format: int64
-    readOnly: true
-    type: integer
   offset:
     description: Absolute offset of the chunk that is different, in bytes.
-    format: int64
-    readOnly: true
     type: integer
-type: object
+    readOnly: true
+    format: int64
+  length:
+    description: Length of the chunk that is different, in bytes.
+    type: integer
+    readOnly: true
+    format: int64

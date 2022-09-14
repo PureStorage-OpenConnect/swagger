@@ -1,6 +1,6 @@
+name: send
+in: query
 description: Whether to replicate created snapshots immediately to other arrays. If
   it's `false`, created snapshots may still be replicated to other arrays according
   to policy.
-in: query
-name: send
 type: boolean

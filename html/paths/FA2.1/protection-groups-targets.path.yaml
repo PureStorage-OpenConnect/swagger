@@ -1,21 +1,5 @@
-delete:
-  description: Removes an array or offload target from a protection group. The `group_names`
-    parameter represents the name of the protection group. The `member_names` parameter
-    represents the name of the array or offload target that is being removed from
-    the protection group. The `group_names` and `member_names` parameters are required
-    and must be set together.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/group_names.query.yaml
-  - $ref: ../../queries/FA2.0/member_names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: Removes a target from a protection group
-  tags:
-  - Protection Groups
 get:
+  summary: List protection groups with targets
   description: Returns a list of protection groups that have target arrays or offload
     targets.
   parameters:
@@ -34,35 +18,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.1/protection-group-target-get-response.yaml
-  summary: List protection groups with targets
-  tags:
-  - Protection Groups
-patch:
-  description: Allows the source array to replicate protection group data to the target
-    array, or disallows the source array from replicating protection group data to
-    the target array. The `allowed` parameter must be set from the target array. The
-    `group_names` parameter represents the name of the protection group. The `allowed`
-    and `group_names` parameters are required and must be set together. Offload targets
-    do not support the `allowed` parameter.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/group_names.query.yaml
-  - $ref: ../../queries/FA2.0/member_names.query.yaml
-  - in: body
-    name: target
-    required: true
-    schema:
-      $ref: ../../models/FA2.1/target-protection-group-post-patch.yaml
-  responses:
-    200:
-      description: OK
-      schema:
-        $ref: ../../responses/FA2.1/protection-group-target-response.yaml
-  summary: Manage a protection group target
   tags:
   - Protection Groups
 post:
+  summary: Add a target to a protection group
   description: Adds an array or offload target to a protection group. The `group_names`
     parameter represents the name of the protection group. The `member_names` parameter
     represents the name of the array or offload target that is being added to the
@@ -78,6 +37,47 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FA2.1/protection-group-target-response.yaml
-  summary: Add a target to a protection group
+  tags:
+  - Protection Groups
+patch:
+  summary: Manage a protection group target
+  description: Allows the source array to replicate protection group data to the target
+    array, or disallows the source array from replicating protection group data to
+    the target array. The `allowed` parameter must be set from the target array. The
+    `group_names` parameter represents the name of the protection group. The `allowed`
+    and `group_names` parameters are required and must be set together. Offload targets
+    do not support the `allowed` parameter.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/group_names.query.yaml
+  - $ref: ../../queries/FA2.0/member_names.query.yaml
+  - name: target
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.1/target-protection-group-post-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.1/protection-group-target-response.yaml
+  tags:
+  - Protection Groups
+delete:
+  summary: Removes a target from a protection group
+  description: Removes an array or offload target from a protection group. The `group_names`
+    parameter represents the name of the protection group. The `member_names` parameter
+    represents the name of the array or offload target that is being removed from
+    the protection group. The `group_names` and `member_names` parameters are required
+    and must be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/group_names.query.yaml
+  - $ref: ../../queries/FA2.0/member_names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Protection Groups

@@ -6,8 +6,9 @@ allOf:
       type: object
       properties:
         join_ou:
-          description: >
-            Optional organizational unit where the machine account for the
-            directory service will be created.
+          description: 'Optional organizational unit where the machine account for
+            the directory service will be created.
+
+            '
           type: string
-          example: "OU=my_organizational_unit"
+          example: OU=my_organizational_unit

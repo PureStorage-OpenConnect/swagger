@@ -1,7 +1,7 @@
+type: object
 properties:
   items:
-    description: A list of NFS export policy objects.
+    type: array
     items:
       $ref: ../../models/FB2.3/nfs-export-policy.yaml
-    type: array
-type: object
+    description: A list of NFS export policy objects.

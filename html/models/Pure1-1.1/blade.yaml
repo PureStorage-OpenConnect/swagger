@@ -4,7 +4,7 @@ allOf:
     arrays:
       description: A list of arrays that contain this blade. Each blade should only
         exist on one array.
+      type: array
       items:
         $ref: ../../models/Pure1-1.1/_blade-array-status.yaml
       minItems: 1
-      type: array

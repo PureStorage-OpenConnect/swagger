@@ -6,16 +6,13 @@ get:
   - $ref: ../../queries/FB1.0/sort.query.yaml
   - $ref: ../../queries/FB1.0/start.query.yaml
   - $ref: ../../queries/FB1.0/token.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.5/object-store-access-key-get-response.yaml
-
   tags:
   - Object Store Access Keys
-
 post:
   parameters:
   - name: object-store-access-key
@@ -23,16 +20,13 @@ post:
     required: true
     schema:
       $ref: ../../models/FB1.3/object-store-access-key-post.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.5/object-store-access-key-response.yaml
-
   tags:
   - Object Store Access Keys
-
 patch:
   parameters:
   - $ref: ../../queries/FB1.2/names_required.query.yaml
@@ -41,23 +35,18 @@ patch:
     required: true
     schema:
       $ref: ../../models/FB1.5/object-store-access-key.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.5/object-store-access-key-response.yaml
-
   tags:
   - Object Store Access Keys
-
 delete:
   parameters:
   - $ref: ../../queries/FB1.2/names_required.query.yaml
-
   responses:
     200:
       description: OK
-
   tags:
   - Object Store Access Keys

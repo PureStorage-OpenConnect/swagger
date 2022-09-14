@@ -1,7 +1,6 @@
 name: end_time
 in: query
-description: >-
-  When the time window ends (in milliseconds since epoch).
+description: When the time window ends (in milliseconds since epoch).
 type: integer
 format: int64
 minimum: 0

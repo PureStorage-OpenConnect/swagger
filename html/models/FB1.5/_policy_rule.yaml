@@ -8,10 +8,9 @@ properties:
   keep_for:
     type: integer
     format: int64
-    description: How long we keep the snapshots.
+    description: The time to keep the snapshots for.
   at:
     type: integer
     format: int64
-    description: >-
-      Time during the day to take the snapshot (using array time zone),
+    description: Time during the day to take the snapshot (using array time zone),
       only valid if 'every' is in days.

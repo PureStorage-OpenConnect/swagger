@@ -1,16 +1,5 @@
-delete:
-  description: Remove a data VIP. Once removed, any clients connected through the
-    data VIP will lose their connection to the file system.
-  parameters:
-  - $ref: ../../queries/FB2.0/ids.query.yaml
-  - $ref: ../../queries/FB2.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE network-interfaces
-  tags:
-  - Network Interfaces
 get:
+  summary: GET network-interfaces
   description: List network interfaces and their attributes.
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
@@ -25,32 +14,14 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/network-interface-get-response.yaml
-  summary: GET network-interfaces
-  tags:
-  - Network Interfaces
-patch:
-  description: Modify the attributes of a data VIP.
-  parameters:
-  - $ref: ../../queries/FB2.0/ids.query.yaml
-  - $ref: ../../queries/FB2.0/names.query.yaml
-  - in: body
-    name: network-interface
-    required: true
-    schema:
-      $ref: ../../models/FB2.0/network-interface-patch.yaml
-  responses:
-    200:
-      description: OK
-      schema:
-        $ref: ../../responses/FB2.0/network-interface-response.yaml
-  summary: PATCH network-interfaces
   tags:
   - Network Interfaces
 post:
+  summary: POST network-interfaces
   description: Create a data VIP to export a file system.
   parameters:
-  - in: body
-    name: network-interface
+  - name: network-interface
+    in: body
     required: true
     schema:
       $ref: ../../models/FB2.0/network-interface.yaml
@@ -60,6 +31,35 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/network-interface-response.yaml
-  summary: POST network-interfaces
+  tags:
+  - Network Interfaces
+patch:
+  summary: PATCH network-interfaces
+  description: Modify the attributes of a data VIP.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - name: network-interface
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/network-interface-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/network-interface-response.yaml
+  tags:
+  - Network Interfaces
+delete:
+  summary: DELETE network-interfaces
+  description: Remove a data VIP. Once removed, any clients connected through the
+    data VIP will lose their connection to the file system.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Network Interfaces

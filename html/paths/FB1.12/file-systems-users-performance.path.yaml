@@ -7,8 +7,8 @@ get:
   - $ref: ../../queries/FB1.0/names.query.yaml
   - $ref: ../../queries/FB1.0/sort.query.yaml
   - $ref: ../../queries/FB1.0/total_only.query.yaml
-  - $ref: ../../queries/FB1.6/uids.query.yaml
-  - $ref: ../../queries/FB1.6/user_names.query.yaml
+  - $ref: ../../queries/FB1.12/uids_not_strict.query.yaml
+  - $ref: ../../queries/FB1.12/user_names_not_strict.query.yaml
   responses:
     200:
       description: OK

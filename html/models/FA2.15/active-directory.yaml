@@ -6,5 +6,5 @@ allOf:
         are `required` and `optional`. `required` forces TLS communication with a
         domain controller. `optional` allows the use of non-TLS communication, TLS
         will still be preferred, if available. If not specified, defaults to `required`.
-      example: required
       type: string
+      example: required

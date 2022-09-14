@@ -1,4 +1,5 @@
 get:
+  summary: List directory performance data
   description: Displays real-time and historical performance data, real-time latency
     data, and average I/O sizes for each directory and as a total of all directories
     across the entire array.
@@ -24,6 +25,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.3/directory-performance-get-response.yaml
-  summary: List directory performance data
   tags:
   - Directories

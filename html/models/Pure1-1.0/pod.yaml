@@ -1,17 +1,14 @@
-description: >-
-  An administrative domain, a data container, and a namespace for
-  volumes and protection groups.
+description: An administrative domain, a data container, and a namespace for volumes
+  and protection groups.
 allOf:
-- $ref: _resource.yaml
+- $ref: ../../models/Pure1-1.0/_resource.yaml
 - properties:
     arrays:
-      description: >-
-        A list of arrays that share this pod. If two or more arrays are
-        specified, all data in the pod is synchronously mirrored between
-        them.
+      description: A list of arrays that share this pod. If two or more arrays are
+        specified, all data in the pod is synchronously mirrored between them.
       type: array
       items:
-        $ref: _pod-array-status.yaml
+        $ref: ../../models/Pure1-1.0/_pod-array-status.yaml
       minItems: 1
     mediator:
       description: The URL of the mediator for this pod.
@@ -20,4 +17,4 @@ allOf:
     source:
       description: A reference to the source pod of a pod clone.
       allOf:
-      - $ref: _fixed-reference.yaml
+      - $ref: ../../models/Pure1-1.0/_fixed-reference.yaml

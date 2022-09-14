@@ -1,4 +1,5 @@
 get:
+  summary: List flash, NVRAM, and cache modules
   description: Displays a list of flash, NVRAM, and cache modules that are installed
     in the array along with their attributes and status.
   parameters:
@@ -16,10 +17,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.4/drive-get-response.yaml
-  summary: List flash, NVRAM, and cache modules
   tags:
   - Drives
 patch:
+  summary: Modify flash and NVRAM modules
   description: Modifies flash and NVRAM modules that have been added or connected
     but not yet admitted to the array.
   parameters:
@@ -31,6 +32,5 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FA2.4/drive-response.yaml
-  summary: Modify flash and NVRAM modules
   tags:
   - Drives

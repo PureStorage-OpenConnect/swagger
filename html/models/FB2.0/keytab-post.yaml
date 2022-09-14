@@ -2,8 +2,8 @@ allOf:
 - type: object
 - properties:
     source:
-      allOf:
-      - $ref: ../../models/FB2.0/_reference.yaml
       description: A reference to the Active Directory configuration for the computer
         account whose keys will be rotated in order to create new keytabs for all
         of its registered service principal names.
+      allOf:
+      - $ref: ../../models/FB2.0/_reference.yaml

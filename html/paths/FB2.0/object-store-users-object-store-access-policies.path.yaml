@@ -1,17 +1,5 @@
-delete:
-  description: "Revoke an object store user\xE2\u20AC\u2122s access policy."
-  parameters:
-  - $ref: ../../queries/FB2.0/member_ids.query.yaml
-  - $ref: ../../queries/FB2.0/member_names.query.yaml
-  - $ref: ../../queries/FB2.0/policy_ids.query.yaml
-  - $ref: ../../queries/FB2.0/policy_names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE object-store-users/object-store-access-policies
-  tags:
-  - Object Store Users
 get:
+  summary: GET object-store-users/object-store-access-policies
   description: List object store users and their access policies.
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
@@ -28,10 +16,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/policy-member-get-response.yaml
-  summary: GET object-store-users/object-store-access-policies
   tags:
   - Object Store Users
 post:
+  summary: POST object-store-users/object-store-access-policies
   description: Grant access policies to an object store user.
   parameters:
   - $ref: ../../queries/FB2.0/member_ids.query.yaml
@@ -43,6 +31,18 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/policy-member-response.yaml
-  summary: POST object-store-users/object-store-access-policies
+  tags:
+  - Object Store Users
+delete:
+  summary: DELETE object-store-users/object-store-access-policies
+  description: "Revoke an object store user\xE2\u20AC\u2122s access policy."
+  parameters:
+  - $ref: ../../queries/FB2.0/member_ids.query.yaml
+  - $ref: ../../queries/FB2.0/member_names.query.yaml
+  - $ref: ../../queries/FB2.0/policy_ids.query.yaml
+  - $ref: ../../queries/FB2.0/policy_names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Object Store Users

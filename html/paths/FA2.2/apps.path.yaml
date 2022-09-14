@@ -1,4 +1,5 @@
 get:
+  summary: List apps
   description: Displays a list of installed apps.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -15,18 +16,18 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/app-get-response.yaml
-  summary: List apps
   tags:
   - Apps
 patch:
+  summary: Modify app
   description: Modifies an installed app or modifies Virtual Network Computing (VNC)
     access for apps that are being patched.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - $ref: ../../queries/FA2.0/names_required.query.yaml
-  - in: body
-    name: app
+  - name: app
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.2/app.yaml
@@ -35,6 +36,5 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/app-response.yaml
-  summary: Modify app
   tags:
   - Apps

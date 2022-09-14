@@ -2,6 +2,7 @@ allOf:
 - $ref: ../../models/FA2.1/pod-patch.yaml
 - properties:
     requested_promotion_state:
+      type: string
       description: Patch `requested_promotion_state` to `demoted` to demote the pod
         so that it can be used as a link target for continuous replication between
         pods. Demoted pods do not accept write requests, and a destroyed version of
@@ -13,4 +14,3 @@ allOf:
         requests. The replication process does not stop when the source pod continues
         replicating data to the pod. The space consumed by the unique replicated data
         is tracked by the `space.journal` field of the pod.
-      type: string

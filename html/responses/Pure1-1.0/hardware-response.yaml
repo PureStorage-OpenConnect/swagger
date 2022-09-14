@@ -1,6 +1,6 @@
+type: object
 properties:
   items:
+    type: array
     items:
       $ref: ../../models/Pure1-1.0/hardware.yaml
-    type: array
-type: object

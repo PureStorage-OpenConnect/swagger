@@ -1,15 +1,5 @@
-delete:
-  description: DELETE certificates (placeholder)
-  parameters:
-  - $ref: ../../queries/FB1.8/ids.query.yaml
-  - $ref: ../../queries/FB1.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE certificates (placeholder)
-  tags:
-  - Certificates
 get:
+  summary: GET certificates (placeholder)
   description: GET certificates (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
@@ -24,14 +14,31 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/certificate-get-response.yaml
-  summary: GET certificates (placeholder)
+  tags:
+  - Certificates
+post:
+  summary: POST certificates (placeholder)
+  description: POST certificates (placeholder)
+  parameters:
+  - name: certificate
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB1.9/certificate-post.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.9/certificate-response.yaml
   tags:
   - Certificates
 patch:
+  summary: PATCH certificates (placeholder)
   description: PATCH certificates (placeholder)
   parameters:
-  - in: body
-    name: certificate
+  - name: certificate
+    in: body
     required: true
     schema:
       $ref: ../../models/FB1.8/certificate-patch.yaml
@@ -42,23 +49,16 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/certificate-response.yaml
-  summary: PATCH certificates (placeholder)
   tags:
   - Certificates
-post:
-  description: POST certificates (placeholder)
+delete:
+  summary: DELETE certificates (placeholder)
+  description: DELETE certificates (placeholder)
   parameters:
-  - in: body
-    name: certificate
-    required: true
-    schema:
-      $ref: ../../models/FB1.9/certificate-post.yaml
+  - $ref: ../../queries/FB1.8/ids.query.yaml
   - $ref: ../../queries/FB1.0/names.query.yaml
   responses:
     200:
       description: OK
-      schema:
-        $ref: ../../responses/FB1.9/certificate-response.yaml
-  summary: POST certificates (placeholder)
   tags:
   - Certificates

@@ -1,17 +1,5 @@
-delete:
-  description: 'Delete one or more NFS export policy rules. One of the following is
-    required: `ids` or `names`.'
-  parameters:
-  - $ref: ../../queries/FB2.0/ids.query.yaml
-  - $ref: ../../queries/FB2.0/names.query.yaml
-  - $ref: ../../queries/FB2.3/versions.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE nfs-export-policies/rules
-  tags:
-  - Policies - NFS
 get:
+  summary: GET nfs-export-policies/rules
   description: Displays a list of NFS export policy rules. The default sort is by
     policy name, then index.
   parameters:
@@ -29,34 +17,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.3/nfs-export-policy-rule-get-response.yaml
-  summary: GET nfs-export-policies/rules
-  tags:
-  - Policies - NFS
-patch:
-  description: 'Modify an existing NFS export policy rule. If `before_rule_id` or
-    `before_rule_name` are specified, the rule will be moved before that rule. Rules
-    are ordered in three groups; ip addresses, other and `*` and can only be moved
-    within the appropriate group. One of the following is required: `ids` or `names`.'
-  parameters:
-  - $ref: ../../queries/FB2.3/before_rule_id.query.yaml
-  - $ref: ../../queries/FB2.3/before_rule_name.query.yaml
-  - $ref: ../../queries/FB2.0/ids.query.yaml
-  - $ref: ../../queries/FB2.0/names.query.yaml
-  - $ref: ../../queries/FB2.3/versions.query.yaml
-  - in: body
-    name: rule
-    required: true
-    schema:
-      $ref: ../../models/FB2.3/nfs-export-policy-rule.yaml
-  responses:
-    200:
-      description: OK
-      schema:
-        $ref: ../../responses/FB2.3/nfs-export-policy-rule-response.yaml
-  summary: PATCH nfs-export-policies/rules
   tags:
   - Policies - NFS
 post:
+  summary: POST nfs-export-policies/rules
   description: Add a NFS export policy rule. Rules are ordered in three groups; ip
     addresses, other and `*`. The new rule will be added at the end of the appropriate
     group if neither `before_rule_id` and `before_rule_name` are specified. Rules
@@ -68,8 +32,8 @@ post:
   - $ref: ../../queries/FB2.0/policy_ids.query.yaml
   - $ref: ../../queries/FB2.0/policy_names.query.yaml
   - $ref: ../../queries/FB2.3/versions.query.yaml
-  - in: body
-    name: rule
+  - name: rule
+    in: body
     required: true
     schema:
       $ref: ../../models/FB2.3/nfs-export-policy-rule.yaml
@@ -78,6 +42,42 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FB2.3/nfs-export-policy-rule-response.yaml
-  summary: POST nfs-export-policies/rules
+  tags:
+  - Policies - NFS
+delete:
+  summary: DELETE nfs-export-policies/rules
+  description: 'Delete one or more NFS export policy rules. One of the following is
+    required: `ids` or `names`.'
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.3/versions.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Policies - NFS
+patch:
+  summary: PATCH nfs-export-policies/rules
+  description: 'Modify an existing NFS export policy rule. If `before_rule_id` or
+    `before_rule_name` are specified, the rule will be moved before that rule. Rules
+    are ordered in three groups; ip addresses, other and `*` and can only be moved
+    within the appropriate group. One of the following is required: `ids` or `names`.'
+  parameters:
+  - $ref: ../../queries/FB2.3/before_rule_id.query.yaml
+  - $ref: ../../queries/FB2.3/before_rule_name.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.3/versions.query.yaml
+  - name: rule
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.3/nfs-export-policy-rule.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.3/nfs-export-policy-rule-response.yaml
   tags:
   - Policies - NFS

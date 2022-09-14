@@ -7,5 +7,5 @@ allOf:
         to do reordering to avoid concurrency issues, but changing `index` is also
         supported. `index` can not be changed if `before_rule_id` or `before_rule_name`
         are specified.'
-      format: int32
       type: integer
+      format: int32

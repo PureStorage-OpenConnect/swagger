@@ -1,4 +1,5 @@
 get:
+  summary: GET snmp-agents
   description: List SNMP agent attributes.
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
@@ -13,14 +14,14 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/snmp-agent-get-response.yaml
-  summary: GET snmp-agents
   tags:
   - SNMP Agents
 patch:
+  summary: PATCH snmp-agents
   description: Modify SNMP agent attributes.
   parameters:
-  - in: body
-    name: snmp-agent
+  - name: snmp-agent
+    in: body
     required: true
     schema:
       $ref: ../../models/FB2.0/snmp-agent.yaml
@@ -29,6 +30,5 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/snmp-agent-response.yaml
-  summary: PATCH snmp-agents
   tags:
   - SNMP Agents

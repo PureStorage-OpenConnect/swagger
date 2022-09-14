@@ -1,6 +1,6 @@
 description: SSL certificate managed by Purity//FA.
+type: object
 properties:
   certificate_signing_request:
     description: The text of a new certificate signing request.
     type: string
-type: object

@@ -4,8 +4,8 @@ allOf:
     services:
       description: The services provided by this subnet, as inherited from all of
         its interfaces.
-      items:
-        description: Valid values are `data`, `management`, `replication`, and `support`.
-        type: string
-      readOnly: true
       type: array
+      readOnly: true
+      items:
+        type: string
+        description: Valid values are `data`, `management`, `replication`, and `support`.

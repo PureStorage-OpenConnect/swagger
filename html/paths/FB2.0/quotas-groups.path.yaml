@@ -1,19 +1,8 @@
-delete:
-  description: Delete a hard limit quota for a group.
-  parameters:
-  - $ref: ../../queries/FB2.0/file_system_names.query.yaml
-  - $ref: ../../queries/FB2.0/file_system_ids.query.yaml
-  - $ref: ../../queries/FB2.0/gids.query.yaml
-  - $ref: ../../queries/FB2.0/group_names.query.yaml
-  - $ref: ../../queries/FB2.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE quotas/groups
+get:
+  summary: GET quotas/groups
+  description: List groups with hard limit quotas.
   tags:
   - Quotas
-get:
-  description: List groups with hard limit quotas.
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
   - $ref: ../../queries/FB2.0/file_system_ids.query.yaml
@@ -30,40 +19,18 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/group-quota-get-response.yaml
-  summary: GET quotas/groups
-  tags:
-  - Quotas
-patch:
-  description: Modify a quota for a group. Note that if you modify a group's quota
-    to a lower value and that group's usage has already exceeded the new value, writes
-    will automatically halt until usage decreases below the new quota setting.
-  parameters:
-  - $ref: ../../queries/FB2.0/file_system_names.query.yaml
-  - $ref: ../../queries/FB2.0/file_system_ids.query.yaml
-  - $ref: ../../queries/FB2.0/gids.query.yaml
-  - $ref: ../../queries/FB2.0/group_names.query.yaml
-  - $ref: ../../queries/FB2.0/names.query.yaml
-  - in: body
-    name: quota
-    schema:
-      $ref: ../../models/FB2.0/group-quota-patch.yaml
-  responses:
-    200:
-      description: OK
-      schema:
-        $ref: ../../responses/FB2.0/group-quota-response.yaml
-  summary: PATCH quotas/groups
-  tags:
-  - Quotas
 post:
+  summary: POST quotas/groups
   description: Create a hard limit quota for a group.
+  tags:
+  - Quotas
   parameters:
   - $ref: ../../queries/FB2.0/file_system_ids.query.yaml
   - $ref: ../../queries/FB2.0/file_system_names.query.yaml
   - $ref: ../../queries/FB2.0/gids.query.yaml
   - $ref: ../../queries/FB2.0/group_names.query.yaml
-  - in: body
-    name: quota
+  - name: quota
+    in: body
     schema:
       $ref: ../../models/FB2.0/group-quota-post.yaml
   responses:
@@ -71,6 +38,39 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/group-quota-response.yaml
-  summary: POST quotas/groups
+delete:
+  summary: DELETE quotas/groups
+  description: Delete a hard limit quota for a group.
   tags:
   - Quotas
+  parameters:
+  - $ref: ../../queries/FB2.0/file_system_names.query.yaml
+  - $ref: ../../queries/FB2.0/file_system_ids.query.yaml
+  - $ref: ../../queries/FB2.0/gids.query.yaml
+  - $ref: ../../queries/FB2.0/group_names.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+patch:
+  summary: PATCH quotas/groups
+  description: Modify a quota for a group. Note that if you modify a group's quota
+    to a lower value and that group's usage has already exceeded the new value, writes
+    will automatically halt until usage decreases below the new quota setting.
+  tags:
+  - Quotas
+  parameters:
+  - $ref: ../../queries/FB2.0/file_system_names.query.yaml
+  - $ref: ../../queries/FB2.0/file_system_ids.query.yaml
+  - $ref: ../../queries/FB2.0/gids.query.yaml
+  - $ref: ../../queries/FB2.0/group_names.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - name: quota
+    in: body
+    schema:
+      $ref: ../../models/FB2.0/group-quota-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/group-quota-response.yaml

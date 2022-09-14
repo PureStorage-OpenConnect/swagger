@@ -1,16 +1,5 @@
-delete:
-  description: DELETE active directory (placeholder)
-  parameters:
-  - $ref: ../../queries/FB1.8/ids.query.yaml
-  - $ref: ../../queries/FB1.12/local_only_ad.query.yaml
-  - $ref: ../../queries/FB1.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE active directory (placeholder)
-  tags:
-  - Active Directory
 get:
+  summary: GET active directory (placeholder)
   description: GET active directory (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
@@ -25,16 +14,28 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.12/active-directory-get-response.yaml
-  summary: GET active directory (placeholder)
+  tags:
+  - Active Directory
+delete:
+  summary: DELETE active directory (placeholder)
+  description: DELETE active directory (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.12/local_only_ad.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Active Directory
 patch:
+  summary: PATCH active directory (placeholder)
   description: PATCH active directory (placeholder)
   parameters:
   - $ref: ../../queries/FB1.8/ids.query.yaml
   - $ref: ../../queries/FB1.0/names.query.yaml
-  - in: body
-    name: active-directory
+  - name: active-directory
+    in: body
     required: true
     schema:
       $ref: ../../models/FB1.12/active-directory-patch.yaml
@@ -43,17 +44,17 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FB1.12/active-directory-response.yaml
-  summary: PATCH active directory (placeholder)
   tags:
   - Active Directory
 post:
+  summary: POST an active directory configuration to join a domain.
   description: Join an Active Directory domain and generate keytabs for the registered
     SPNs and supported encryption types.
   parameters:
   - $ref: ../../queries/FB1.0/names.query.yaml
   - $ref: ../../queries/FB1.12/join_existing_acct_ad.yaml
-  - in: body
-    name: active-directory
+  - name: active-directory
+    in: body
     required: true
     schema:
       $ref: ../../models/FB1.12/active-directory-post.yaml
@@ -62,6 +63,5 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FB1.12/active-directory-response.yaml
-  summary: POST an active directory configuration to join a domain.
   tags:
   - Active Directory

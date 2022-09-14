@@ -1,14 +1,14 @@
+type: object
 properties:
-  azure:
-    allOf:
-    - $ref: ../../models/FA2.1/_offload_azure.yaml
-    description: The Microsoft Azure Blob storage settings.
   nfs:
+    description: The NFS storage settings.
     allOf:
     - $ref: ../../models/FA2.1/_offload_nfs.yaml
-    description: The NFS storage settings.
   s3:
+    description: The Amazon S3 storage settings.
     allOf:
     - $ref: ../../models/FA2.1/_offload_s3.yaml
-    description: The Amazon S3 storage settings.
-type: object
+  azure:
+    description: The Microsoft Azure Blob storage settings.
+    allOf:
+    - $ref: ../../models/FA2.1/_offload_azure.yaml

@@ -1,4 +1,5 @@
 get:
+  summary: GET directory-service-test (placeholder)
   description: GET directory-service-test (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
@@ -11,21 +12,21 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.10/test-result-get-response.yaml
-  summary: GET directory-service-test (placeholder)
   tags:
   - Directory Services
 patch:
+  summary: PATCH directory-service-test (placeholder)
   description: PATCH directory-service-test (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
   - $ref: ../../queries/FB1.8/ids.query.yaml
   - $ref: ../../queries/FB1.0/names.query.yaml
   - $ref: ../../queries/FB1.0/sort.query.yaml
-  - description: An optional directory service configuration that, if provided, will
+  - name: directory-service
+    in: body
+    description: An optional directory service configuration that, if provided, will
       be used to overwrite aspects of the existing directory service objects when
       performing tests.
-    in: body
-    name: directory-service
     schema:
       $ref: ../../models/FB1.9/directory-service.yaml
   responses:
@@ -33,6 +34,5 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FB1.10/test-result-response.yaml
-  summary: PATCH directory-service-test (placeholder)
   tags:
   - Directory Services

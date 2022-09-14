@@ -1,15 +1,5 @@
-delete:
-  description: Delete the connection to the target for replication.
-  parameters:
-  - $ref: ../../queries/FB2.0/ids.query.yaml
-  - $ref: ../../queries/FB2.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE targets
-  tags:
-  - Targets
 get:
+  summary: GET targets
   description: List targets used for replication.
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
@@ -24,33 +14,15 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/target-get-response.yaml
-  summary: GET targets
-  tags:
-  - Targets
-patch:
-  description: Modify the target attributes for replication.
-  parameters:
-  - $ref: ../../queries/FB2.0/ids.query.yaml
-  - $ref: ../../queries/FB2.0/names.query.yaml
-  - in: body
-    name: target
-    required: true
-    schema:
-      $ref: ../../models/FB2.0/target.yaml
-  responses:
-    200:
-      description: OK
-      schema:
-        $ref: ../../responses/FB2.0/target-response.yaml
-  summary: PATCH targets
   tags:
   - Targets
 post:
+  summary: POST targets
   description: Add a target for replication.
   parameters:
   - $ref: ../../queries/FB2.0/names_required.query.yaml
-  - in: body
-    name: target
+  - name: target
+    in: body
     required: true
     schema:
       $ref: ../../models/FB2.0/target-post.yaml
@@ -59,6 +31,34 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/target-response.yaml
-  summary: POST targets
+  tags:
+  - Targets
+patch:
+  summary: PATCH targets
+  description: Modify the target attributes for replication.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - name: target
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/target.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/target-response.yaml
+  tags:
+  - Targets
+delete:
+  summary: DELETE targets
+  description: Delete the connection to the target for replication.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Targets

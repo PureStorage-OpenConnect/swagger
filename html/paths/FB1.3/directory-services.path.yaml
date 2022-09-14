@@ -5,35 +5,27 @@ get:
   - $ref: ../../queries/FB1.0/sort.query.yaml
   - $ref: ../../queries/FB1.0/start.query.yaml
   - $ref: ../../queries/FB1.0/token.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.3/directory-service-get-response.yaml
-
   tags:
   - Directory Services
-
 patch:
-  description: >-
-    Modifies and tests the directory service configuration.
-
+  description: Modifies and tests the directory service configuration.
   parameters:
   - name: directory-service
     in: body
     required: true
     schema:
       $ref: ../../models/FB1.3/directory-service.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.3/directory-service-response.yaml
-
   tags:
   - Directory Services
-
 parameters:
 - $ref: ../../queries/FB1.0/names.query.yaml

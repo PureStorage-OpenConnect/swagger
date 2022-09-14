@@ -1,20 +1,20 @@
+type: object
 properties:
-  accepted:
-    description: Accepted time in milliseconds since the UNIX epoch.
-    example: 1577880000000
-    format: int64
-    readOnly: true
-    type: integer
-  company:
-    description: Company of the person who accepted the End User Agreement.
-    example: Pure Storage Inc.
-    type: string
   name:
+    type: string
     description: Name of the person who accepted the End User Agreement.
     example: Nice Guy
-    type: string
   title:
+    type: string
     description: Title of the person who accepted the End User Agreement.
     example: Admin
+  company:
     type: string
-type: object
+    description: Company of the person who accepted the End User Agreement.
+    example: Pure Storage Inc.
+  accepted:
+    description: Accepted time in milliseconds since the UNIX epoch.
+    type: integer
+    format: int64
+    readOnly: true
+    example: 1577880000000

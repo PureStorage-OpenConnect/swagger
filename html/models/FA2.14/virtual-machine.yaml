@@ -1,43 +1,43 @@
 allOf:
 - properties:
-    created:
-      description: The virtual machine creation time, measured in milliseconds since
-        the UNIX epoch.
-      format: int64
-      readOnly: true
-      type: integer
-    destroyed:
-      description: Returns a value of `true` if the virtual machine has been destroyed
-        and is pending eradication.
-      readOnly: true
-      type: boolean
     id:
       description: The ID of the virtual machine to create or modify, as assigned
         by the external system. `id` is deprecated. Use `vm_id` instead.
       type: string
+    vm_id:
+      description: The ID of the virtual machine, as assigned by the external system.
+      type: string
+      readOnly: true
     name:
       description: The name of the virtual machine, as assigned by the external system
-      readOnly: true
       type: string
-    recover_context:
-      allOf:
-      - $ref: ../../models/FA2.0/_fixed-reference.yaml
-      description: A reference to any additional entities needed to recover this virtual
-        machine.
+      readOnly: true
+    vm_type:
+      description: The type of virtual machine. The only valid value is `vvol`.
+      type: string
+      example: vvol
+      readOnly: true
+    created:
+      description: The virtual machine creation time, measured in milliseconds since
+        the UNIX epoch.
+      type: integer
+      format: int64
+      readOnly: true
+    destroyed:
+      description: Returns a value of `true` if the virtual machine has been destroyed
+        and is pending eradication.
+      type: boolean
       readOnly: true
     time_remaining:
       description: The amount of time left until the destroyed volume is permanently
         eradicated, measured in milliseconds. Before the `time_remaining` period has
         elapsed, the destroyed volume can be recovered by setting `destroyed=false`.
+      type: integer
       format: int64
       readOnly: true
-      type: integer
-    vm_id:
-      description: The ID of the virtual machine, as assigned by the external system.
+    recover_context:
+      description: A reference to any additional entities needed to recover this virtual
+        machine.
       readOnly: true
-      type: string
-    vm_type:
-      description: The type of virtual machine. The only valid value is `vvol`.
-      example: vvol
-      readOnly: true
-      type: string
+      allOf:
+      - $ref: ../../models/FA2.0/_fixed-reference.yaml

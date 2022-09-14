@@ -2,5 +2,4 @@ type: object
 properties:
   enabled:
     type: boolean
-    description: >-
-      Is the protocol enabled?
+    description: Is the protocol enabled?

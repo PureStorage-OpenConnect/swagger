@@ -1,19 +1,6 @@
-delete:
-  description: Delete one or more SMB policies. The `ids` or `names` parameter is
-    required, but they cannot be set together.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/ids.query.yaml
-  - $ref: ../../queries/FA2.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: Delete SMB policies
-  tags:
-  - Policies
 get:
-  description: Return a list of SMB policies.
+  summary: List SMB policies
+  description: Displays a list of SMB policies.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
@@ -30,11 +17,45 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.4/policy-smb-get-response.yaml
-  summary: List SMB policies
+  tags:
+  - Policies
+post:
+  summary: Create SMB policies
+  description: Creates one or more SMB policies. To create an SMB policy with access
+    based enumeration enabled, set `access_based_enumeration_enabled=true`.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - name: policy
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.4/policy-smb-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.4/policy-smb-response.yaml
+  tags:
+  - Policies
+delete:
+  summary: Delete SMB policies
+  description: Deletes one or more SMB policies. The `ids` or `names` parameter is
+    required, but they cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Policies
 patch:
-  description: Update one or more SMB policies. To enable a policy, set `enabled=true`.
+  summary: Update SMB policies
+  description: Updates one or more SMB policies. To enable a policy, set `enabled=true`.
     To disable a policy, set `enabled=false`. To enable access based enumeration,
     set `access_based_enumeration_enabled=true`. To disable access based enumeration,
     set `access_based_enumeration_enabled=false`. To rename a policy, set `name` to
@@ -44,8 +65,8 @@ patch:
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - $ref: ../../queries/FA2.0/ids.query.yaml
   - $ref: ../../queries/FA2.0/names.query.yaml
-  - in: body
-    name: policy
+  - name: policy
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.4/policy-smb-patch.yaml
@@ -54,26 +75,5 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FA2.4/policy-smb-response.yaml
-  summary: Update SMB policies
-  tags:
-  - Policies
-post:
-  description: Create one or more SMB policies. To create an SMB policy with access
-    based enumeration enabled, set `access_based_enumeration_enabled=true`.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/names.query.yaml
-  - in: body
-    name: policy
-    required: true
-    schema:
-      $ref: ../../models/FA2.4/policy-smb-post.yaml
-  responses:
-    200:
-      description: OK
-      schema:
-        $ref: ../../responses/FA2.4/policy-smb-response.yaml
-  summary: Create SMB policies
   tags:
   - Policies

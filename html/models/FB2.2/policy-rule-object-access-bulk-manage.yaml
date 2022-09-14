@@ -2,5 +2,5 @@ allOf:
 - $ref: ../../models/FB2.2/policy-rule-object-access-post.yaml
 - properties:
     name:
-      description: Name of the object (e.g., a file system or snapshot).
       type: string
+      description: Name of the object (e.g., a file system or snapshot).

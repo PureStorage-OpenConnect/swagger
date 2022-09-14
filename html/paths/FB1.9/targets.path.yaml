@@ -1,15 +1,5 @@
-delete:
-  description: DELETE targets (placeholder)
-  parameters:
-  - $ref: ../../queries/FB1.8/ids.query.yaml
-  - $ref: ../../queries/FB1.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE targets (placeholder)
-  tags:
-  - Targets
 get:
+  summary: GET targets (placeholder)
   description: GET targets (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
@@ -24,33 +14,15 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/target-get-response.yaml
-  summary: GET targets (placeholder)
-  tags:
-  - Targets
-patch:
-  description: PATCH targets (placeholder)
-  parameters:
-  - $ref: ../../queries/FB1.8/ids.query.yaml
-  - $ref: ../../queries/FB1.0/names.query.yaml
-  - in: body
-    name: target
-    required: true
-    schema:
-      $ref: ../../models/FB1.9/target.yaml
-  responses:
-    200:
-      description: OK
-      schema:
-        $ref: ../../responses/FB1.9/target-response.yaml
-  summary: PATCH targets (placeholder)
   tags:
   - Targets
 post:
+  summary: POST targets (placeholder)
   description: POST targets (placeholder)
   parameters:
   - $ref: ../../queries/FB1.2/names_required.query.yaml
-  - in: body
-    name: target
+  - name: target
+    in: body
     required: true
     schema:
       $ref: ../../models/FB1.9/target-post.yaml
@@ -59,6 +31,34 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/target-response.yaml
-  summary: POST targets (placeholder)
+  tags:
+  - Targets
+patch:
+  summary: PATCH targets (placeholder)
+  description: PATCH targets (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - name: target
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB1.9/target.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.9/target-response.yaml
+  tags:
+  - Targets
+delete:
+  summary: DELETE targets (placeholder)
+  description: DELETE targets (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Targets

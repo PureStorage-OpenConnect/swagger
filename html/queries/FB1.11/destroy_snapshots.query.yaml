@@ -1,5 +1,5 @@
+name: destroy_snapshots
+in: query
 description: This parameter must be set to `true` in order to modify a policy such
   that local or remote snapshots would be destroyed.
-in: query
-name: destroy_snapshots
 type: boolean

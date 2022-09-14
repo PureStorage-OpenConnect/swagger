@@ -1,11 +1,10 @@
 get:
   summary: List volume space information
-
-  description: >-
-    Return provisioned (virtual) size and physical storage consumption data
-    for each volume.
-
+  description: Return provisioned size and physical storage consumption data for each
+    volume.
   parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - $ref: ../../queries/FA2.0/destroyed.query.yaml
   - $ref: ../../queries/FA2.0/filter.query.yaml
   - $ref: ../../queries/FA2.0/history_end_time.query.yaml
@@ -17,15 +16,12 @@ get:
   - $ref: ../../queries/FA2.0/sort.query.yaml
   - $ref: ../../queries/FA2.0/total_item_count.query.yaml
   - $ref: ../../queries/FA2.0/total_only.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FA2.0/resource-space-get-response.yaml
-
   tags:
   - Volumes
-
 parameters:
 - $ref: ../../queries/FA2.0/names.query.yaml

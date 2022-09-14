@@ -1,8 +1,8 @@
+name: command
+in: query
 description: A user command that interacts with the upgrade. Commands may only be
   issued when the upgrade is paused. Valid values are `continue`, `retry`, and `abort`.
   The `continue` command continues a `paused` upgrade. The `retry` command retries
   the previous step. The `abort` command aborts the upgrade.
-in: query
-name: command
-required: true
 type: string
+required: true

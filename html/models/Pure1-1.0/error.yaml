@@ -8,7 +8,7 @@ properties:
       properties:
         context:
           type: string
-          example: "Error with ..."
+          example: Error with ...
         message:
           type: string
-          example: "Something was wrong"
+          example: Something was wrong

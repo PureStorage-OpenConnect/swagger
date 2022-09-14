@@ -2,6 +2,7 @@ allOf:
 - $ref: ../../models/FA2.0/_built-in.yaml
 - description: A remote protection group represents a protection group that is replicated
     to an offload target.
+  type: object
   properties:
     destroyed:
       description: Returns a value of `true` if the remote protection group has been
@@ -16,26 +17,25 @@ allOf:
       description: If set to `true`, the location reference is to the local array.
         If set to `false`, the location reference is to a remote location, such as
         a remote array or offload target.
-      readOnly: true
       type: boolean
+      readOnly: true
     remote:
-      allOf:
-      - $ref: ../../models/FA2.0/_fixed-reference.yaml
       description: The offload target that the remote protection group is on.
       readOnly: true
-    source:
       allOf:
       - $ref: ../../models/FA2.0/_fixed-reference.yaml
+    source:
       description: The array where the remote protection group is replicated from.
       readOnly: true
+      allOf:
+      - $ref: ../../models/FA2.0/_fixed-reference.yaml
     target_retention:
+      description: The retention policy for the remote protection group.
       allOf:
       - $ref: ../../models/FA2.1/_retention-policy.yaml
-      description: The retention policy for the remote protection group.
     time_remaining:
       description: Milliseconds remaining until eradication, if remote protection
         group has been destroyed.
+      type: integer
       format: int64
       readOnly: true
-      type: integer
-  type: object

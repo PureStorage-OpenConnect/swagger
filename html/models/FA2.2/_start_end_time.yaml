@@ -1,15 +1,15 @@
+type: object
 description: A resource with a start time and end time.
 properties:
-  end_time:
-    description: End time in milliseconds since the UNIX epoch.
-    example: 1567026888000
-    format: int64
-    min: 0
-    type: integer
   start_time:
     description: Start time in milliseconds since the UNIX epoch.
-    example: 1567026779000
+    type: integer
     format: int64
     min: 0
+    example: 1567026779000
+  end_time:
+    description: End time in milliseconds since the UNIX epoch.
     type: integer
-type: object
+    format: int64
+    min: 0
+    example: 1567026888000

@@ -1,4 +1,5 @@
 get:
+  summary: List protection group replication performance data with array details
   description: Returns the total number of bytes of replication data transmitted and
     received per second. The data is grouped by protection group and includes the
     names of the source array and targets for each protection group.
@@ -19,7 +20,6 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.1/protection-group-performance-array-response.yaml
-  summary: List protection group replication performance data with array details
   tags:
   - Protection Groups
 parameters:

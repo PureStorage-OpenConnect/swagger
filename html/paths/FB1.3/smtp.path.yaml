@@ -2,23 +2,18 @@ get:
   summary: GET smtp (placeholder)
   description: GET smtp (placeholder)
   parameters:
-  # there is only 1 smtp so sort, start and token don't make much sense,
-  # but since we eventually want them and they are implemented, docing them here
   - $ref: ../../queries/FB1.0/filter.query.yaml
   - $ref: ../../queries/FB1.0/limit.query.yaml
   - $ref: ../../queries/FB1.0/sort.query.yaml
   - $ref: ../../queries/FB1.0/start.query.yaml
   - $ref: ../../queries/FB1.0/token.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.3/smtp-get-response.yaml
-
   tags:
   - SMTP
-
 patch:
   summary: PATCH smtp (placeholder)
   description: PATCH smtp (placeholder)
@@ -28,12 +23,10 @@ patch:
     required: true
     schema:
       $ref: ../../models/FB1.3/smtp.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.3/smtp-response.yaml
-
   tags:
   - SMTP

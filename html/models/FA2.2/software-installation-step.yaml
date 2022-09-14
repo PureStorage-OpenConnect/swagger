@@ -1,22 +1,25 @@
 allOf:
 - $ref: _resource-fixed-non-unique-name.yaml
 - $ref: _start_end_time.yaml
-- description: Step needed to complete an upgrade.
+- type: object
+  description: Step needed to complete an upgrade.
   properties:
     checks:
       description: A list of checks in this upgrade step.
+      type: array
       items:
+        type: object
         properties:
-          details:
-            description: Detailed result of the check used to diagnose check failures.
-            type: string
           name:
             description: Name of the upgrade check.
-            example: HostIOCheck
             type: string
+            example: HostIOCheck
           overridable:
             description: Whether the check failure can be overridden.
             type: boolean
+          details:
+            description: Detailed result of the check used to diagnose check failures.
+            type: string
           status:
             description: Status of the check. Valid values are `running`, `failed`,
               `passed`, and `overridden`. A status of `running` indicates that the
@@ -25,25 +28,22 @@ allOf:
               A status of `overridden` indicates that the check has failed, but the
               failure has been overridden.
             type: string
-        type: object
-      type: array
     description:
       description: Detailed description of the step.
       type: string
+    hop_version:
+      description: The version to which the current hop is upgrading.
+      type: string
+      example: 99.9.9
+    installation:
+      description: Referenced `software-installation` to which the step belongs.
+      allOf:
+      - $ref: ../../models/FA2.0/_reference.yaml
     details:
       description: Detailed result of the step used to diagnose step failures.
       type: string
-    hop_version:
-      description: The version to which the current hop is upgrading.
-      example: 99.9.9
-      type: string
-    installation:
-      allOf:
-      - $ref: ../../models/FA2.0/_reference.yaml
-      description: Referenced `software-installation` to which the step belongs.
     status:
       description: Status of the step. Valid values are `running` and `finished`.
         A status of `running` indicates that the step has not finished. A status of
         `finished` indicates that the check has finished.
       type: string
-  type: object

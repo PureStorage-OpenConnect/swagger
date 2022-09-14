@@ -1,14 +1,15 @@
 allOf:
 - $ref: ../../models/FA2.0/_reference.yaml
 - type: object
-- properties:
+- readOnly: true
+  properties:
     frozen_at:
       description: The timestamp of when the data on the pod was frozen when the array
         went offline. Measured in milliseconds since the UNIX epoch. Also known as
         the recovery point. If the pod is in sync, a value of `null` will be returned.
-      example: 1492662000
-      format: int64
       type: integer
+      format: int64
+      example: 1492662000
     mediator_status:
       description: The status of the mediator, which determines whether it is available
         to mediate a high availability event. Valid values are `flummoxed`, `online`,
@@ -40,11 +41,11 @@ allOf:
       description: The percentage progress of the pod resyncing process for this array.
         The percentage is displayed as a decimal value, starting at 0.00 and ending
         at 1.00.
-      example: 0.66
-      format: float
-      max: 1.0
-      min: 0.0
       type: number
+      format: float
+      min: 0.0
+      max: 1.0
+      example: 0.66
     status:
       description: The status of the array within the stretched pod. Valid values
         are `offline`, `online`, `resyncing`, and `unknown`. If set to `offline`,
@@ -60,6 +61,5 @@ allOf:
         cannot determine the state of the pod on the peer array. Only the peer array
         can ever be in unknown status; this unknown status is unique to the local
         array and will differ when viewed from its peer array.
-      example: resyncing
       type: string
-  readOnly: true
+      example: resyncing

@@ -1,15 +1,15 @@
 allOf:
 - properties:
     enabled:
-      description: If set to `true`, this rule will be enabled.
       type: boolean
+      description: If set to `true`, this rule will be enabled.
     keep_previous_version_for:
+      type: integer
+      format: int64
       description: Time after which previous versions will be marked expired. Measured
         in milliseconds. Must be a multiple of 86400000 to represent a whole number
         of days.
-      format: int64
-      type: integer
     prefix:
+      type: string
       description: Object key prefix identifying one or more objects in the bucket.
         Can have a maximum length of 1024 characters.
-      type: string

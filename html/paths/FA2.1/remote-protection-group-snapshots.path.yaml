@@ -1,22 +1,5 @@
-delete:
-  description: Eradicates a remote protection group snapshot that has been destroyed
-    and is pending eradication. Eradicated remote protection group snapshots cannot
-    be recovered. Remote protection group snapshots are destroyed through the `PATCH`
-    method. The `names` parameter represents the name of the protection group snapshot.
-    The `on` parameter represents the name of the offload target. The `names` and
-    `on` parameters are required and must be used together.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/names.query.yaml
-  - $ref: ../../queries/FA2.0/on-single.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: Eradicate a remote protection group snapshot
-  tags:
-  - Remote Protection Group Snapshots
 get:
+  summary: List remote protection group snapshots
   description: Returns a list of remote protection group snapshots.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -35,10 +18,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.1/remote-protection-group-snapshot-get-response.yaml
-  summary: List remote protection group snapshots
   tags:
   - Remote Protection Group Snapshots
 patch:
+  summary: Manage a remote protection group
   description: Destroys a remote protection group snapshot from the offload target.
     The `on` parameter represents the name of the offload target. The `ids` or `names`
     parameter and the `on` parameter are required and must be used together.
@@ -47,8 +30,8 @@ patch:
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - $ref: ../../queries/FA2.0/names.query.yaml
   - $ref: ../../queries/FA2.0/on-single.query.yaml
-  - in: body
-    name: remote-protection-group-snapshot
+  - name: remote-protection-group-snapshot
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.0/_destroyed-patch-post.yaml
@@ -57,6 +40,23 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FA2.1/remote-protection-group-snapshot-response.yaml
-  summary: Manage a remote protection group
+  tags:
+  - Remote Protection Group Snapshots
+delete:
+  summary: Eradicate a remote protection group snapshot
+  description: Eradicates a remote protection group snapshot that has been destroyed
+    and is pending eradication. Eradicated remote protection group snapshots cannot
+    be recovered. Remote protection group snapshots are destroyed through the `PATCH`
+    method. The `names` parameter represents the name of the protection group snapshot.
+    The `on` parameter represents the name of the offload target. The `names` and
+    `on` parameters are required and must be used together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/on-single.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Remote Protection Group Snapshots

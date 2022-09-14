@@ -1,14 +1,14 @@
 get:
+  summary: GET login_banner (placeholder)
   description: 'Get the login banner for the array. No authentication is required
     to access this endpoint.
 
     '
+  security: []
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.10/login-banner-get-response.yaml
-  security: []
-  summary: GET login_banner (placeholder)
   tags:
   - Authorization

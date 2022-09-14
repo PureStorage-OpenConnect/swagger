@@ -2,8 +2,7 @@ allOf:
 - $ref: ../../models/FB1.3/array.yaml
 - properties:
     time_zone:
-      description: >-
-        The time zone to use for the array. In particular this affects
+      description: The time zone to use for the array. In particular this affects
         the CLI formatting and snapshot policies.
       readOnly: true
       type: string

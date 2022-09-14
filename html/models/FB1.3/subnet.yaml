@@ -3,14 +3,12 @@ allOf:
 - type: object
   properties:
     enabled:
-      description: >-
-        Indicates if subnet is enabled (`true`) or disabled (`false`).
+      description: Indicates if subnet is enabled (`true`) or disabled (`false`).
         If not specified, defaults to `true`.
       type: boolean
       readOnly: true
     gateway:
-      description: >-
-        The IPv4 or IPv6 address of the gateway through which the specified
+      description: The IPv4 or IPv6 address of the gateway through which the specified
         subnet is to communicate with the network.
       type: string
     interfaces:
@@ -24,28 +22,24 @@ allOf:
       allOf:
       - $ref: ../../models/FB1.0/_resource.yaml
     mtu:
-      description: >-
-        Maximum message transfer unit (packet) size for the subnet in bytes.
-        MTU setting cannot exceed the MTU of the corresponding physical
-        interface. If not specified, defaults to `1500`.
+      description: Maximum message transfer unit (packet) size for the subnet in bytes.
+        MTU setting cannot exceed the MTU of the corresponding physical interface.
+        If not specified, defaults to `1500`.
       type: integer
       format: int32
       minimum: 1280
       maximum: 9216
     prefix:
-      description: >-
-        The IPv4 or IPv6 address to be associated with the specified subnet.
+      description: The IPv4 or IPv6 address to be associated with the specified subnet.
       type: string
     services:
-      description: >-
-        The services provided by this subnet, as inherited from all of its
-        interfaces.
+      description: The services provided by this subnet, as inherited from all of
+        its interfaces.
       type: array
       readOnly: true
       items:
         type: string
-        description: >-
-          Valid values are `data`, `management`, and `support`.
+        description: Valid values are `data`, `management`, and `support`.
     vlan:
       description: VLAN ID.
       type: integer

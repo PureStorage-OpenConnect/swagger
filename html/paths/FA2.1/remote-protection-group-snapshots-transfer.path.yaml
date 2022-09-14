@@ -1,4 +1,5 @@
 get:
+  summary: List remote protection groups with transfer statistics
   description: Returns a list of remote protection groups and their transfer statistics.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -17,7 +18,6 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.1/remote-protection-group-snapshot-transfer-get-response.yaml
-  summary: List remote protection groups with transfer statistics
   tags:
   - Remote Protection Group Snapshots
 parameters:

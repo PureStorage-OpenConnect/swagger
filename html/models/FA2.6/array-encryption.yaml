@@ -1,23 +1,23 @@
+type: object
+readOnly: true
 properties:
   data_at_rest:
     description: Data at rest encryption properties.
+    type: object
     properties:
       algorithm:
         description: The algorithm used to encrypt data on the array. Values include
           `AES-256-CTR` and `null`.
-        example: AES-256-CTR
         type: string
+        example: AES-256-CTR
       enabled:
         description: Returns a value of `true` if data at rest encryption is enabled
           on the array.
         type: boolean
-    type: object
   module_version:
     description: The version of the Purity encryption module installed on the array.
       Security certifications are carried out on a per-version basis. On non-encrypt
       builds, an encryption module may be installed without being enabled. Values
       include `FA-1.0`, `FA-1.1`, `FA-1.2`, `FA-1.3`, and so on.
-    example: FA-1.3
     type: string
-readOnly: true
-type: object
+    example: FA-1.3

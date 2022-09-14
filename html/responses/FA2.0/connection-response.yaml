@@ -4,7 +4,6 @@ properties:
     type: array
     items:
       $ref: ../../models/FA2.0/connection.yaml
-    description: >-
-      Returns a list of all items after filtering.
-      The values are displayed for each name where meaningful.
-      If `total_only=true`, the `items` list will be empty.
+    description: Returns a list of all items after filtering. The values are displayed
+      for each name where meaningful. If `total_only=true`, the `items` list will
+      be empty.

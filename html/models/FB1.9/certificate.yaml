@@ -2,17 +2,17 @@ allOf:
 - $ref: ../../models/FB1.8/certificate.yaml
 - properties:
     certificate_type:
+      type: string
+      readOnly: true
       description: The type of certificate. Possible values are `appliance` and `external`.
         Certificates of type `appliance` are used by the array to verify its identity
         to clients. Certificates of type `external` are used by the array to identify
         external servers to which it is configured to communicate.
-      readOnly: true
-      type: string
     subject_alternative_names:
+      type: array
+      readOnly: true
+      items:
+        type: string
+        example: otherdnsname.mydomain.com
       description: The alternative names that are secured by this certificate. Alternative
         names may be IP addresses, DNS names, or URIs.
-      items:
-        example: otherdnsname.mydomain.com
-        type: string
-      readOnly: true
-      type: array

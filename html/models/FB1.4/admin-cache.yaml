@@ -6,7 +6,6 @@ allOf:
       description: The role of the user.
       type: string
     time:
-      description: >-
-        Time the role was cached in milliseconds since UNIX epoch.
+      description: Time the role was cached in milliseconds since UNIX epoch.
       type: integer
       format: int64

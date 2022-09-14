@@ -1,4 +1,5 @@
 get:
+  summary: GET array-connections-performance-replication (placeholder)
   description: GET array-connections-performance-replication (placeholder)
   parameters:
   - $ref: ../../queries/FB1.2/end_time.query.yaml
@@ -19,6 +20,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/relationship-performance-replication-get-resp.yaml
-  summary: GET array-connections-performance-replication (placeholder)
   tags:
   - Array Connections

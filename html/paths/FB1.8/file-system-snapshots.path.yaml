@@ -9,47 +9,38 @@ get:
   - $ref: ../../queries/FB1.0/start.query.yaml
   - $ref: ../../queries/FB1.0/token.query.yaml
   - $ref: ../../queries/FB1.0/total_only.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.8/file-system-snapshot-get-response.yaml
-
   tags:
   - File System Snapshots
-
 post:
   parameters:
   - $ref: ../../queries/FB1.8/source_ids.query.yaml
-  - $ref: ../../queries/FB1.0/sources.query.yaml
+  - $ref: ../../queries/FB1.8/sources.query.yaml
   - name: file-system-snapshot
     in: body
     schema:
       $ref: ../../models/FB1.1/file-system-snapshot-post.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.8/file-system-snapshot-response.yaml
-
   tags:
   - File System Snapshots
-
 delete:
   parameters:
   - $ref: ../../queries/FB1.8/ids.query.yaml
   - $ref: ../../queries/FB1.8/name.query.yaml
   - $ref: ../../queries/FB1.0/names.query.yaml
-
   responses:
     200:
       description: OK
-
   tags:
   - File System Snapshots
-
 patch:
   parameters:
   - $ref: ../../queries/FB1.8/ids.query.yaml
@@ -60,12 +51,10 @@ patch:
     required: true
     schema:
       $ref: ../../models/FB1.8/file-system-snapshot.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.8/file-system-snapshot-response.yaml
-
   tags:
   - File System Snapshots

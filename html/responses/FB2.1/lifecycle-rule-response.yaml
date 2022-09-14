@@ -1,7 +1,7 @@
+type: object
 properties:
   items:
-    description: A list of lifecycle rule objects.
+    type: array
     items:
       $ref: ../../models/FB2.1/lifecycle-rule.yaml
-    type: array
-type: object
+    description: A list of lifecycle rule objects.

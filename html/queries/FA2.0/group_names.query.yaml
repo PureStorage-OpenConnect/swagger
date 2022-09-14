@@ -1,10 +1,8 @@
 name: group_names
 in: query
-description: >-
-  Displays all member hosts associated
-  with the specified host groups (`group_names`).
-  Enter multiple names in comma-separated format.
-    For example, `hgroup01,hgroup02`.
+description: Performs the operation on the unique group name specified. Examples of
+  groups include host groups, pods, protection groups, and volume groups. Enter multiple
+  names in comma-separated format. For example, `hgroup01,hgroup02`.
 type: array
 collectionFormat: csv
 items:

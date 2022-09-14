@@ -3,33 +3,32 @@ allOf:
 - properties:
     computer_name:
       description: The name of the computer account in the Active Directory domain.
-      example: FLASHARRAY01
-      readOnly: true
       type: string
+      readOnly: true
+      example: FLASHARRAY01
     directory_servers:
       description: A list of directory servers used for lookups related to user authorization.
-        Accepted server formats are IP address and DNS name. All specified servers
-        must be registered to the domain appropriately in the configured DNS of the
-        array and are only communicated with over the secure LDAP (LDAPS) protocol.
-        If this field is `null`, the servers are resolved for the domain in DNS.
-      items:
-        example: ldap.my-corporation.com
-        type: string
-      readOnly: true
+        Servers must be specified in FQDN format. All specified servers must be registered
+        to the domain appropriately in the configured DNS of the array and are only
+        communicated with over the secure LDAP (LDAPS) protocol. If this field is
+        `null`, the servers are resolved for the domain in DNS.
       type: array
+      readOnly: true
+      items:
+        type: string
+        example: ldap.my-corporation.com
     domain:
       description: The Active Directory domain joined.
-      example: my-corporation.com
-      readOnly: true
       type: string
+      readOnly: true
+      example: my-corporation.com
     kerberos_servers:
       description: A list of key distribution servers to use for Kerberos protocol.
-        Accepted server formats are IP address and DNS name. All specified servers
-        must be registered to the domain appropriately in the configured DNS of the
-        array. If this field is `null`, the servers are resolved for the domain in
-        DNS.
-      items:
-        example: kdc.my-corporation.com
-        type: string
-      readOnly: true
+        Servers must be specified in FQDN format. All specified servers must be registered
+        to the domain appropriately in the configured DNS of the array. If this field
+        is `null`, the servers are resolved for the domain in DNS.
       type: array
+      readOnly: true
+      items:
+        type: string
+        example: kdc.my-corporation.com

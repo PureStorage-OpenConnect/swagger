@@ -1,4 +1,5 @@
 get:
+  summary: List DNS parameters
   description: Displays the current DNS parameters of the array, including domain
     suffix and name servers.
   parameters:
@@ -14,17 +15,17 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/dns-get-response.yaml
-  summary: List DNS parameters
   tags:
   - DNS
 patch:
+  summary: Modify DNS parameters
   description: Modifies the DNS parameters of an array, including the domain suffix
     and the list of DNS name server IP addresses.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - in: body
-    name: dns
+  - name: dns
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.2/dns-patch.yaml
@@ -33,6 +34,5 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/dns-response.yaml
-  summary: Modify DNS parameters
   tags:
   - DNS

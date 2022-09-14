@@ -1,4 +1,5 @@
 get:
+  summary: List audits
   description: Displays a list of audits.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -16,6 +17,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/audit-get-response.yaml
-  summary: List audits
   tags:
   - Audits

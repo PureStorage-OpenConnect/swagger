@@ -3,34 +3,27 @@ get:
   description: GET quotas-groups (placeholder)
   tags:
   - Quotas
-
   parameters:
-  - $ref: ../../queries/FB1.8/file_system_ids.query.yaml
   - $ref: ../../queries/FB1.6/file_system_names.query.yaml
   - $ref: ../../queries/FB1.0/filter.query.yaml
   - $ref: ../../queries/FB1.6/gids.query.yaml
   - $ref: ../../queries/FB1.6/group_names.query.yaml
-  - $ref: ../../queries/FB1.8/ids.query.yaml
   - $ref: ../../queries/FB1.0/limit.query.yaml
   - $ref: ../../queries/FB1.0/names.query.yaml
   - $ref: ../../queries/FB1.0/sort.query.yaml
   - $ref: ../../queries/FB1.0/start.query.yaml
   - $ref: ../../queries/FB1.0/token.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.8/group-quota-get-response.yaml
-
 post:
   summary: POST quotas-groups (placeholder)
   description: POST quotas-groups (placeholder)
   tags:
   - Quotas
-
   parameters:
-  - $ref: ../../queries/FB1.8/file_system_ids.query.yaml
   - $ref: ../../queries/FB1.6/file_system_names.query.yaml
   - $ref: ../../queries/FB1.6/gids.query.yaml
   - $ref: ../../queries/FB1.6/group_names.query.yaml
@@ -38,41 +31,31 @@ post:
     in: body
     schema:
       $ref: ../../models/FB1.8/group-quota.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.8/group-quota-response.yaml
-
 delete:
   summary: DELETE quotas-groups (placeholder)
   description: DELETE quotas-groups (placeholder)
   tags:
   - Quotas
-
   parameters:
-  - $ref: ../../queries/FB1.8/ids.query.yaml
   - $ref: ../../queries/FB1.6/file_system_names.query.yaml
-  - $ref: ../../queries/FB1.8/file_system_ids.query.yaml
   - $ref: ../../queries/FB1.6/gids.query.yaml
   - $ref: ../../queries/FB1.6/group_names.query.yaml
   - $ref: ../../queries/FB1.0/names.query.yaml
-
   responses:
     200:
       description: OK
-
 patch:
   summary: PATCH quotas-groups (placeholder)
   description: PATCH quotas-groups (placeholder)
   tags:
   - Quotas
-
   parameters:
-  - $ref: ../../queries/FB1.8/ids.query.yaml
   - $ref: ../../queries/FB1.6/file_system_names.query.yaml
-  - $ref: ../../queries/FB1.8/file_system_ids.query.yaml
   - $ref: ../../queries/FB1.6/gids.query.yaml
   - $ref: ../../queries/FB1.6/group_names.query.yaml
   - $ref: ../../queries/FB1.0/names.query.yaml
@@ -80,7 +63,6 @@ patch:
     in: body
     schema:
       $ref: ../../models/FB1.8/group-quota.yaml
-
   responses:
     200:
       description: OK

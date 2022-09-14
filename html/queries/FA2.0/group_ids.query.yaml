@@ -1,7 +1,7 @@
-collectionFormat: csv
-description: A comma-separated list of group IDs.
+name: group_ids
 in: query
+description: A comma-separated list of group IDs.
+type: array
+collectionFormat: csv
 items:
   type: string
-name: group_ids
-type: array

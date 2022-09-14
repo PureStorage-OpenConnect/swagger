@@ -1,4 +1,5 @@
 get:
+  summary: List software packages
   description: Displays a list of available software packages.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -16,6 +17,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/software-get-response.yaml
-  summary: List software packages
   tags:
   - Software

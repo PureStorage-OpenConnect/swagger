@@ -1,20 +1,56 @@
 allOf:
 - $ref: ../../models/FA2.2/_resource-fixed-non-unique-name.yaml
-- description: Software to be installed on the array.
+- type: object
+  description: Software to be installed on the array.
   properties:
     details:
       description: The detailed reason for the `status`.
       type: string
     payload_id:
       description: A checksum hash referring to the update bundle.
-      example: 4f7b319106401d072ff94808535cb3ce
       type: string
+      example: 4f7b319106401d072ff94808535cb3ce
     progress:
       description: The progress of the software upgrade. Displayed in decimal format.
-      format: float
-      max: 1
       min: 0
+      max: 1
       type: number
+      format: float
+    upgrade_hops:
+      description: The plan by which the upgrade will be conducted. The first element
+        is the current version, the last element is the destination version, and the
+        elements in between are intermediate versions.
+      type: array
+      items:
+        type: string
+      uniqueItems: true
+      example:
+      - 5.0.0
+      - 5.1.6
+      - 5.2.3
+    version:
+      description: The version of the software package.
+      type: string
+      example: 5.2.3
+    upgrade_plan:
+      description: A list of steps that are planned to run during the upgrade in an
+        optimal scenario (i.e., all upgrade checks pass, no step is retried, and the
+        upgrade is not aborted). Steps are listed in the order that they should occur.
+      type: array
+      items:
+        type: object
+        properties:
+          step_name:
+            description: Name of the upgrade step.
+            type: string
+            example: Pre-upgrade check
+          description:
+            description: Description of the upgrade step.
+            type: string
+          hop_version:
+            description: The version to which the step is upgrading.
+            type: string
+            example: 99.9.9
     status:
       description: The status of the software package. Valid values are `available`,
         `downloaded`, `downloading`, `download_failed`, `checking`, `installing`,
@@ -36,41 +72,5 @@ allOf:
         has been upgraded to an intermediate version and the `software` is no longer
         available for installation. A status of `installed` indicates that the upgrade
         has finished.
+      type: string
       example: Available
-      type: string
-    upgrade_hops:
-      description: The plan by which the upgrade will be conducted. The first element
-        is the current version, the last element is the destination version, and the
-        elements in between are intermediate versions.
-      example:
-      - 5.0.0
-      - 5.1.6
-      - 5.2.3
-      items:
-        type: string
-      type: array
-      uniqueItems: true
-    upgrade_plan:
-      description: A list of steps that are planned to run during the upgrade in an
-        optimal scenario (i.e., all upgrade checks pass, no step is retried, and the
-        upgrade is not aborted). Steps are listed in the order that they should occur.
-      items:
-        properties:
-          description:
-            description: Description of the upgrade step.
-            type: string
-          hop_version:
-            description: The version to which the step is upgrading.
-            example: 99.9.9
-            type: string
-          step_name:
-            description: Name of the upgrade step.
-            example: Pre-upgrade check
-            type: string
-        type: object
-      type: array
-    version:
-      description: The version of the software package.
-      example: 5.2.3
-      type: string
-  type: object

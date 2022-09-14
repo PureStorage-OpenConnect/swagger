@@ -1,13 +1,5 @@
-delete:
-  description: Deletes an existing token that could be used to perform a factory reset
-    on the array.
-  responses:
-    200:
-      description: OK
-  summary: Delete a factory reset token
-  tags:
-  - Arrays
 get:
+  summary: List factory reset tokens
   description: Displays a list of tokens used to perform a factory reset on the array.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -22,10 +14,19 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.4/array-factory-reset-token-get-response.yaml
-  summary: List factory reset tokens
+  tags:
+  - Arrays
+delete:
+  summary: Delete a factory reset token
+  description: Deletes an existing token that could be used to perform a factory reset
+    on the array.
+  responses:
+    200:
+      description: OK
   tags:
   - Arrays
 post:
+  summary: Create a factory reset token
   description: Creates a token that can be used to perform a factory reset on the
     array. Factory reset tokens can only be created after the array has been prepared
     for reset (e.g., all volumes and snapshots must first be eradicated). After a
@@ -39,6 +40,5 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FA2.4/array-factory-reset-token-response.yaml
-  summary: Create a factory reset token
   tags:
   - Arrays

@@ -1,22 +1,17 @@
 get:
   parameters:
-  # there is only 1 array so sort, start and token don't make much sense,
-  # but since we eventually want them and they are implemented, docing them here
   - $ref: ../../queries/FB1.0/filter.query.yaml
   - $ref: ../../queries/FB1.0/limit.query.yaml
   - $ref: ../../queries/FB1.0/sort.query.yaml
   - $ref: ../../queries/FB1.0/start.query.yaml
   - $ref: ../../queries/FB1.0/token.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.3/array-get-response.yaml
-
   tags:
   - Arrays
-
 patch:
   parameters:
   - name: array
@@ -24,12 +19,10 @@ patch:
     required: true
     schema:
       $ref: ../../models/FB1.3/array.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.3/array-response.yaml
-
   tags:
   - Arrays

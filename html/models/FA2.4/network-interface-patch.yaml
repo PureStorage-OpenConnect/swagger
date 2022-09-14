@@ -1,18 +1,22 @@
 allOf:
-- properties:
+- type: object
+  properties:
     enabled:
       description: Returns a value of `true` if the specified network interface or
         Fibre Channel port is enabled. Returns a value of `false` if the specified
         network interface or Fibre Channel port is disabled.
       type: boolean
+    override_npiv_check:
+      description: N-Port ID Virtualization (NPIV) requires a balanced configuration
+        of Fibre Channel ports configured for SCSI on both controllers. Enabling or
+        Disabling a Fibre Channel port configured for SCSI might cause the NPIV status
+        to change from enabled to disabled or vice versa. Set this option to proceed
+        with enabling or disabling the port.
+      type: boolean
     eth:
       description: Ethernet network interface properties.
+      type: object
       properties:
-        add_subinterfaces:
-          description: Slave devices to be added to the specified bond interface.
-          items:
-            $ref: ../../models/FA2.0/_fixed-reference-no-id.yaml
-          type: array
         address:
           description: The IPv4 or IPv6 address to be associated with the specified
             network interface.
@@ -25,33 +29,29 @@ allOf:
           description: Maximum message transfer unit (packet) size for the network
             interface in bytes. MTU setting cannot exceed the MTU of the corresponding
             physical interface.
-          format: int32
           type: integer
+          format: int32
         netmask:
           description: Netmask of the specified network interface that, when combined
             with the address of the interface, determines the network address of the
             interface.
           type: string
+        add_subinterfaces:
+          description: Slave devices to be added to the specified bond interface.
+          type: array
+          items:
+            $ref: ../../models/FA2.0/_fixed-reference-no-id.yaml
         remove_subinterfaces:
           description: Slave devices to be removed from the specified bond interface.
+          type: array
           items:
             $ref: ../../models/FA2.0/_fixed-reference-no-id.yaml
-          type: array
         subinterfaces:
           description: Slave devices to be added to the specified bond interface.
+          type: array
           items:
             $ref: ../../models/FA2.0/_fixed-reference-no-id.yaml
-          type: array
         subnet:
+          description: Subnet that is associated with the specified network interface.
           allOf:
           - $ref: ../../models/FA2.0/_reference-no-id.yaml
-          description: Subnet that is associated with the specified network interface.
-      type: object
-    override_npiv_check:
-      description: N-Port ID Virtualization (NPIV) requires a balanced configuration
-        of Fibre Channel ports configured for SCSI on both controllers. Enabling or
-        Disabling a Fibre Channel port configured for SCSI might cause the NPIV status
-        to change from enabled to disabled or vice versa. Set this option to proceed
-        with enabling or disabling the port.
-      type: boolean
-  type: object

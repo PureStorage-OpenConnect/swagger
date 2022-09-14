@@ -2,40 +2,40 @@ allOf:
 - $ref: ../../models/FB2.0/_built-in.yaml
 - properties:
     completed:
+      type: integer
+      readOnly: true
+      format: int64
       description: A timestamp at which the replication of the snapshot completed.
-      format: int64
-      readOnly: true
-      type: integer
     data_transferred:
-      description: The amount of data transferred to the target, in bytes.
-      format: int64
-      readOnly: true
       type: integer
+      readOnly: true
+      format: int64
+      description: The amount of data transferred to the target, in bytes.
     direction:
       $ref: ../../models/FB2.0/_direction.yaml
     progress:
+      type: number
+      readOnly: true
+      format: double
+      minimum: 0
+      maximum: 1
       description: A percentage that indicates how much progress has been made on
         the transfer.
-      format: double
-      maximum: 1
-      minimum: 0
-      readOnly: true
-      type: number
     remote:
-      allOf:
-      - $ref: ../../models/FB2.0/_fixed-reference-no-resource-type.yaml
       description: The array where the remote file system snapshot is located.
-    remote_snapshot:
       allOf:
       - $ref: ../../models/FB2.0/_fixed-reference-no-resource-type.yaml
+    remote_snapshot:
       description: A reference to the associated remote file system snapshot.
+      allOf:
+      - $ref: ../../models/FB2.0/_fixed-reference-no-resource-type.yaml
     started:
-      description: A timestamp at which the replication of the snapshot started.
-      format: int64
-      readOnly: true
       type: integer
+      readOnly: true
+      format: int64
+      description: A timestamp at which the replication of the snapshot started.
     status:
+      type: string
+      readOnly: true
       description: The status of current replication. Valid values are `completed`,
         `in-progress`, and `queued`.
-      readOnly: true
-      type: string

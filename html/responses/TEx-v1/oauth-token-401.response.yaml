@@ -8,4 +8,4 @@ schema:
       example: invalid_client
     error_description:
       type: string
-      example: "Invalid identity: JWT validation failed."
+      example: 'Invalid identity: JWT validation failed.'

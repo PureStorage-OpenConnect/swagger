@@ -1,16 +1,9 @@
 name: subject_token_type
 in: formData
-description: An identifier that indicates the type of the security
-  token in the `subject_token` parameter. While the OAuth 2.0 spec allows for
-  multiple subject token types, currently only
-  `urn:ietf:params:oauth:token-type:jwt` is supported here, which indicates that
-  the token is a JSON Web Token.
+description: An identifier that indicates the type of security token specifed in the
+  `subject_token` parameter. The Pure Storage REST API supports the JSON Web Token
+  (JWT) as the means for requesting the access token. Set `subject_token_type` to
+  `urn:ietf:params:oauth:token-type:jwt`.
 type: string
 required: true
-# default is useful here since this is the only possible value so having it as
-# default means sdk users do not have to enter this value every time they make
-# this call. However, in the general case we strongly discourage using default
-# and it should never ever be used if the resource can be updated (i.e. it has
-# a patch endpoint) as that can cause the user to update fields they didn't
-# intend to.
 default: urn:ietf:params:oauth:token-type:jwt

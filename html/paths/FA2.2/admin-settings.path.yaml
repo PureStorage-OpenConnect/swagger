@@ -1,4 +1,5 @@
 get:
+  summary: List administrator settings
   description: Displays the global administrator settings for the array.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -13,16 +14,16 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/admin-settings-response.yaml
-  summary: List administrator settings
   tags:
   - Administrators
 patch:
+  summary: Modify administrator settings
   description: Modifies the global administrator settings for the array.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - in: body
-    name: admin-settings
+  - name: admin-settings
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.2/admin-settings.yaml
@@ -31,6 +32,5 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/admin-settings-response.yaml
-  summary: Modify administrator settings
   tags:
   - Administrators

@@ -1,46 +1,46 @@
+type: object
 allOf:
 - $ref: ../../models/FB2.0/_built-in.yaml
 - properties:
     enabled:
       description: Indicates if subnet is enabled (`true`) or disabled (`false`).
         If not specified, defaults to `true`.
-      readOnly: true
       type: boolean
+      readOnly: true
     gateway:
       description: The IPv4 or IPv6 address of the gateway through which the specified
         subnet is to communicate with the network.
       type: string
     interfaces:
       description: List of network interfaces associated with this subnet.
+      type: array
+      readOnly: true
       items:
         $ref: ../../models/FB2.0/_fixed-reference.yaml
-      readOnly: true
-      type: array
     link_aggregation_group:
+      description: Reference to the associated LAG.
       allOf:
       - $ref: ../../models/FB2.0/_reference.yaml
-      description: Reference to the associated LAG.
     mtu:
       description: Maximum message transfer unit (packet) size for the subnet in bytes.
         MTU setting cannot exceed the MTU of the corresponding physical interface.
         If not specified, defaults to `1500`.
-      format: int32
-      maximum: 9216
-      minimum: 1280
       type: integer
+      format: int32
+      minimum: 1280
+      maximum: 9216
     prefix:
       description: The IPv4 or IPv6 address to be associated with the specified subnet.
       type: string
     services:
       description: The services provided by this subnet, as inherited from all of
         its interfaces.
-      items:
-        description: Valid values are `data`, `management`, `replication`, and `support`.
-        type: string
-      readOnly: true
       type: array
+      readOnly: true
+      items:
+        type: string
+        description: Valid values are `data`, `management`, `replication`, and `support`.
     vlan:
       description: VLAN ID.
-      format: int32
       type: integer
-type: object
+      format: int32

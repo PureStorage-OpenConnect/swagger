@@ -1,10 +1,10 @@
+type: object
+readOnly: true
 description: The configuration of the eradication feature.
 properties:
   manual_eradication:
     description: Manual eradication status of objects like protection group and protection
       group snapshots. If manual_eradication is `disabled`, you cannot eradicate objects.
       Values include `disabled` and `enabled`.
-    example: enabled
     type: string
-readOnly: true
-type: object
+    example: enabled

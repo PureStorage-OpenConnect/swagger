@@ -4,6 +4,5 @@ allOf:
     versioning:
       type: string
       readOnly: true
-      description: >-
-        The versioning state for objects within the bucket.
-        Valid values are `none`, `enabled`, and `suspended`.
+      description: The versioning state for objects within the bucket. Valid values
+        are `none`, `enabled`, and `suspended`.

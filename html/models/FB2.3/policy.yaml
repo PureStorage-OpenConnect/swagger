@@ -2,6 +2,6 @@ allOf:
 - $ref: ../../models/FB2.3/policy-base.yaml
 - properties:
     rules:
+      type: array
       items:
         $ref: ../../models/FB2.0/_policy_rule.yaml
-      type: array

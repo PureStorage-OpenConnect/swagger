@@ -3,14 +3,12 @@ allOf:
 - $ref: ../../models/FB1.8/_built-in.yaml
 - properties:
     ca_certificate:
-      description: >-
-        CA certificate used to validate the authenticity of the configured
+      description: CA certificate used to validate the authenticity of the configured
         servers.
       allOf:
       - $ref: ../../models/FB1.8/_reference.yaml
     ca_certificate_group:
-      description: >-
-        A certificate group containing CA certificates that can be used to
-        validate the authenticity of the configured servers.
+      description: A certificate group containing CA certificates that can be used
+        to validate the authenticity of the configured servers.
       allOf:
       - $ref: ../../models/FB1.8/_reference.yaml

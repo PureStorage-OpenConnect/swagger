@@ -1,4 +1,5 @@
 get:
+  summary: Get volume snapshots
   description: 'Retrieves information about snapshots of volumes.
 
     '
@@ -31,6 +32,5 @@ get:
       $ref: ../../responses/Pure1-1.0/error-429.response.yaml
     500:
       $ref: ../../responses/Pure1-1.0/error-500.response.yaml
-  summary: Get volume snapshots
   tags:
   - Volume Snapshots

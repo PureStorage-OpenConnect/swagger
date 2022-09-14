@@ -1,5 +1,5 @@
+name: confirm_date
+in: query
 description: If set to `true`, then confirm the date of `keep_current_version_until`
   is correct.
-in: query
-name: confirm_date
 type: boolean

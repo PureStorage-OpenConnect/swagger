@@ -1,4 +1,5 @@
 get:
+  summary: List remote volume snapshots with transfer statistics
   description: Returns a list of remote volume snapshots and their transfer statistics.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -19,7 +20,6 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.1/remote-volume-snapshot-transfer-get-response.yaml
-  summary: List remote volume snapshots with transfer statistics
   tags:
   - Remote Volume Snapshots
 parameters:

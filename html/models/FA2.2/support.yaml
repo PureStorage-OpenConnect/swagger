@@ -1,6 +1,7 @@
 allOf:
 - $ref: ../../models/FA2.2/support-patch.yaml
-- properties:
+- type: object
+  properties:
     phonehome_enabled:
       description: The status of phonehome. If set to `true`, enables phonehome. If
         set to `false`, disables phonehome.
@@ -9,45 +10,44 @@ allOf:
       description: The value of the current proxy, which is used to connect to cloud
         services such as phonehome and remote assist. Specify the server name, including
         the scheme and proxy port number.
-      example: http://proxy.example.com:8080
       type: string
+      example: http://proxy.example.com:8080
     remote_assist_active:
       description: The status of the remote assist session. If set to `true`, enables
         the remote assist session. If set to `false`, disables the remote assist session.
       type: boolean
-    remote_assist_expires:
-      description: The timestamp when the session expires, measured in milliseconds
-        since the UNIX epoch.
-      example: 1574633337678
-      format: int64
-      readOnly: true
-      type: integer
     remote_assist_opened:
       description: The timestamp when the session opened, measured in milliseconds
         since the UNIX epoch.
-      example: 1574460534674
+      type: integer
       format: int64
       readOnly: true
+      example: 1574460534674
+    remote_assist_expires:
+      description: The timestamp when the session expires, measured in milliseconds
+        since the UNIX epoch.
       type: integer
+      format: int64
+      readOnly: true
+      example: 1574633337678
+    remote_assist_status:
+      description: The status of the remote assist session. Values include `connected`,
+        `connecting`, `disconnected`, and `session-active`.
+      type: string
+      readOnly: true
+      example: connected
     remote_assist_paths:
+      type: array
+      readOnly: true
       items:
         properties:
           component_name:
             description: The name of the local controller that is running the remote
               assist session.
-            example: CT0
             type: string
+            example: CT0
           status:
             description: The status of the remote assist session on the local controller.
               Values include `connected`, `connecting`, `disconnected`, and `session-active`.
-            example: connected
             type: string
-      readOnly: true
-      type: array
-    remote_assist_status:
-      description: The status of the remote assist session. Values include `connected`,
-        `connecting`, `disconnected`, and `session-active`.
-      example: connected
-      readOnly: true
-      type: string
-  type: object
+            example: connected

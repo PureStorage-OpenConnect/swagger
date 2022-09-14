@@ -1,4 +1,5 @@
 get:
+  summary: List controller information and status
   description: Displays the name, mode, FlashArray model, Purity//FA software version,
     and status of each controller in the array.
   parameters:
@@ -16,6 +17,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/controller-get-response.yaml
-  summary: List controller information and status
   tags:
   - Controllers

@@ -1,6 +1,5 @@
 name: filter
 in: query
-description: >-
-  Narrows down the results to only the response objects
-  that satisfy the filter criteria.
+description: Narrows down the results to only the response objects that satisfy the
+  filter criteria.
 type: string

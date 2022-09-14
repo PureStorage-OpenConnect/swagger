@@ -1,20 +1,20 @@
 allOf:
-- properties:
+- type: object
+  properties:
     id:
       description: The ID of the virtual machine to create or modify, as assigned
         by the external system. `id` is deprecated. Use `vm_id` instead.
       type: string
-    source:
-      allOf:
-      - $ref: ../../models/FA2.0/_reference.yaml
-      description: The recovery context for the virtual machine or virtual machine
-        snapshot being modified.
     vm_id:
       description: The ID of the virtual machine to create or modify, as assigned
         by the external system.
       type: string
     vm_type:
       description: The type of virtual machine. The only valid value is `vvol`.
-      example: vvol
       type: string
-  type: object
+      example: vvol
+    source:
+      description: The recovery context for the virtual machine or virtual machine
+        snapshot being modified.
+      allOf:
+      - $ref: ../../models/FA2.0/_reference.yaml

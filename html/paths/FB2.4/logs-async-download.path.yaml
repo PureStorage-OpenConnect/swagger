@@ -1,4 +1,5 @@
 get:
+  summary: GET logs-async/download
   description: Download the files which contain a history of log events from the array
     to provide to Pure Technical Services for analysis.
   parameters:
@@ -12,6 +13,5 @@ get:
       description: OK
       schema:
         type: file
-  summary: GET logs-async/download
   tags:
   - Logs

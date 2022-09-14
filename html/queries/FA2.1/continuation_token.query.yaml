@@ -1,8 +1,8 @@
+name: continuation_token
+in: query
 description: A token used to retrieve the next page of data with some consistency
   guaranteed. The token is a Base64 encoded value. Set `continuation_token` to the
   system-generated token taken from the `x-next-token` header field of the response.
   A query has reached its last page when the response does not include a token. Pagination
   requires the `limit` and `continuation_token` query parameters.
-in: query
-name: continuation_token
 type: string

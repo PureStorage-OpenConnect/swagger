@@ -1,32 +1,32 @@
+description: A replica link between two FlashBlade file systems.
+type: object
 allOf:
-- $ref: ../Pure1-1.0/_replica-link.yaml
+- $ref: ../../models/Pure1-1.0/_replica-link.yaml
 - properties:
+    recovery_point:
+      type: integer
+      format: int64
+      readOnly: true
+      example: 1565034592494
+      description: Time when the last replicated snapshot was created, in milliseconds
+        since the UNIX epoch. (i.e. the recovery point if the file system is promoted.)
+    status_details:
+      type: string
+      example: null
+      description: Detailed information about the status of the replica link when
+        it is `unhealthy`.
     members:
+      type: array
       description: The union of source and target file systems in the replica link.
       items:
         $ref: ../../models/Pure1-1.0/_resource-with-location.yaml
-      type: array
-    recovery_point:
-      description: Time when the last replicated snapshot was created, in milliseconds
-        since the UNIX epoch. (i.e. the recovery point if the file system is promoted.)
-      example: 1565034592494
-      format: int64
-      readOnly: true
-      type: integer
     sources:
+      type: array
       description: The source file systems in the replica link.
       items:
         $ref: ../../models/Pure1-1.0/_resource-with-location.yaml
-      type: array
-    status_details:
-      description: Detailed information about the status of the replica link when
-        it is `unhealthy`.
-      example: null
-      type: string
     targets:
+      type: array
       description: The target file systems in the replica link.
       items:
         $ref: ../../models/Pure1-1.0/_resource-with-location.yaml
-      type: array
-description: A replica link between two file systems.
-type: object

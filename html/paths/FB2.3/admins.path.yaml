@@ -1,4 +1,5 @@
 get:
+  summary: GET admins
   description: List the administrator's attributes, including the API token and public
     key.
   parameters:
@@ -15,16 +16,16 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.3/admin-get-response.yaml
-  summary: GET admins
   tags:
   - Administrators
 patch:
+  summary: PATCH admins
   description: Modify the attributes of the administrator.
   parameters:
   - $ref: ../../queries/FB2.0/ids.query.yaml
   - $ref: ../../queries/FB2.0/names.query.yaml
-  - in: body
-    name: admin
+  - name: admin
+    in: body
     required: true
     schema:
       $ref: ../../models/FB2.3/admin-patch.yaml
@@ -33,6 +34,5 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FB2.3/admin-response.yaml
-  summary: PATCH admins
   tags:
   - Administrators

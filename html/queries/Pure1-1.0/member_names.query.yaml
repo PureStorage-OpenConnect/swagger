@@ -1,10 +1,9 @@
 name: member_names
 in: query
-description: >-
-  A comma-separated list of member names.
-  If there is not at least one member that matches each of the elements of
-  `member_names`, an error is returned.
-  Single quotes are required around all strings.
+description: A comma-separated list of member names. If there is not at least one
+  resource that matches each `member_name` element, an error is returned. Single quotes
+  are required around all strings.
+x-quoted: true
 type: array
 collectionFormat: csv
 items:

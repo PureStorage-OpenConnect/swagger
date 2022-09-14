@@ -1,4 +1,5 @@
 get:
+  summary: List SNMP agent MIB text
   description: Displays the SNMP MIB text.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -13,6 +14,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.4/snmp-agent-mib-get-response.yaml
-  summary: List SNMP agent MIB text
   tags:
   - SNMP Agents

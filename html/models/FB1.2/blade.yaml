@@ -14,8 +14,7 @@ allOf:
       format: int64
       readOnly: true
     status:
-      description: >-
-        Valid values are `critical`, `evacuated`, `evacuating`, `healthy`,
+      description: Valid values are `critical`, `evacuated`, `evacuating`, `healthy`,
         `identifying`, `unhealthy`, `unknown`, and `unused`.
       type: string
       readOnly: true

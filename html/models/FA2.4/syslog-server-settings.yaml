@@ -1,4 +1,5 @@
 description: Global settings for syslog servers.
+type: object
 properties:
   ca_certificate:
     description: The certificate of the certificate authority (CA) that signed the
@@ -10,4 +11,3 @@ properties:
       to audit TLS negotiations performed by the array are forwarded to the configured
       syslog servers.
     type: boolean
-type: object

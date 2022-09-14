@@ -1,7 +1,6 @@
 name: member_types
 in: query
-description: >-
-  A comma-separated list of member types.
+description: A comma-separated list of member types.
 type: array
 collectionFormat: csv
 items:

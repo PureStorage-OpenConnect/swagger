@@ -1,7 +1,8 @@
 allOf:
 - $ref: ../../models/FA2.0/_built-in-resource-no-id.yaml
 - $ref: ../../models/FA2.1/_aggregate_replication_performance.yaml
-- properties:
+- readOnly: true
+  properties:
     source:
       description: The source array from where the data is replicated.
       type: string
@@ -11,6 +12,5 @@ allOf:
     time:
       description: The time when the sample performance data was taken. Measured in
         milliseconds since the UNIX epoch.
-      format: int64
       type: integer
-  readOnly: true
+      format: int64

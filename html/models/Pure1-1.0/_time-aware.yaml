@@ -6,5 +6,3 @@ properties:
     readOnly: true
     format: int64
     example: 1502729489760
-required:
-- _as_of

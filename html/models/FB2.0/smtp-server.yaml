@@ -1,6 +1,7 @@
 allOf:
 - $ref: ../../models/FB2.0/_built-in.yaml
-- properties:
+- type: object
+  properties:
     relay_host:
       description: Relay server used as a forwarding point for email sent from the
         array. Can be set as a hostname, IPv4 address, or IPv6 address, with optional
@@ -11,4 +12,3 @@ allOf:
     sender_domain:
       description: Domain name appended to alert email messages.
       type: string
-  type: object

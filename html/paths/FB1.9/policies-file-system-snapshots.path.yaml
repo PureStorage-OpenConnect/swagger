@@ -1,17 +1,5 @@
-delete:
-  description: DELETE policies-file-system-snapshots (placeholder)
-  parameters:
-  - $ref: ../../queries/FB1.8/member_ids.query.yaml
-  - $ref: ../../queries/FB1.5/member_names.query.yaml
-  - $ref: ../../queries/FB1.8/policy_ids.query.yaml
-  - $ref: ../../queries/FB1.5/policy_names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE policies-file-system-snapshots (placeholder)
-  tags:
-  - Policies
 get:
+  summary: GET policies-file-system-snapshots (placeholder)
   description: GET policies-file-system-snapshots (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
@@ -28,6 +16,18 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/policy-file-system-snapshot-get-response.yaml
-  summary: GET policies-file-system-snapshots (placeholder)
+  tags:
+  - Policies
+delete:
+  summary: DELETE policies-file-system-snapshots (placeholder)
+  description: DELETE policies-file-system-snapshots (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.8/member_ids.query.yaml
+  - $ref: ../../queries/FB1.5/member_names.query.yaml
+  - $ref: ../../queries/FB1.8/policy_ids.query.yaml
+  - $ref: ../../queries/FB1.5/policy_names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Policies

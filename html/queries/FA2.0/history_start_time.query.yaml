@@ -1,17 +1,13 @@
 name: start_time
 in: query
-description: >-
-  Displays historical performance data for the specified time window,
-  where `start_time` is the beginning of the time window,
-  and `end_time` is the end of the time window.
-  The `start_time` and `end_time` parameters
-  are specified in milliseconds since epoch (January 1, 1970).
-  If `start_time` is not specified,
-  the start time will default to one resolution before the end time,
-  meaning that the most recent sample of performance data will be displayed.
-  If `end_time`is not specified, the end time will default to the current time.
-  Include the `resolution` parameter to display the performance data at the specified resolution.
-  If not specified, `resolution` defaults to the lowest valid resolution.
-
+description: Displays historical performance data for the specified time window, where
+  `start_time` is the beginning of the time window, and `end_time` is the end of the
+  time window. The `start_time` and `end_time` parameters are specified in milliseconds
+  since the UNIX epoch. If `start_time` is not specified, the start time will default
+  to one resolution before the end time, meaning that the most recent sample of performance
+  data will be displayed. If `end_time`is not specified, the end time will default
+  to the current time. Include the `resolution` parameter to display the performance
+  data at the specified resolution. If not specified, `resolution` defaults to the
+  lowest valid resolution.
 type: integer
 format: int64

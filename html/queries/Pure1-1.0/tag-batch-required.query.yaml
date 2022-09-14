@@ -1,7 +1,6 @@
 name: tag
 in: body
-description: >-
-  A list of tags to be upserted.
+description: A list of tags to be upserted.
 required: true
 schema:
   type: array

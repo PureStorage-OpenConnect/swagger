@@ -2,12 +2,12 @@ allOf:
 - properties:
     eradication_timer:
       description: The eradication configuration timer in millisecond.
-      example: 86400
-      format: int64
       type: integer
+      format: int64
+      example: 86400
     status:
       description: Status of the eradication configuration. Valid values are `all-enabled`,
         `all-disabled`,
-      example: all-enabled
-      readOnly: true
       type: string
+      readOnly: true
+      example: all-enabled

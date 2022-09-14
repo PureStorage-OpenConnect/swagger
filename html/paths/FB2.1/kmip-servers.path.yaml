@@ -1,16 +1,5 @@
-delete:
-  description: Deletes a KMIP server configuration. A server can only be deleted when
-    not in use by the array.
-  parameters:
-  - $ref: ../../queries/FB2.0/names.query.yaml
-  - $ref: ../../queries/FB2.0/ids.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: Delete a KMIP server configuration
-  tags:
-  - KMIP
 get:
+  summary: List KMIP server configurations
   description: Displays a list of KMIP server configurations.
   parameters:
   - $ref: ../../queries/FB2.0/names.query.yaml
@@ -25,16 +14,33 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.1/kmip-server-response.yaml
-  summary: List KMIP server configurations
+  tags:
+  - KMIP
+post:
+  summary: Create a KMIP server configuration
+  description: Creates a KMIP server configuration.
+  parameters:
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - name: kmip-server
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.1/kmip-server.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.1/kmip-server-response.yaml
   tags:
   - KMIP
 patch:
+  summary: Modify a KMIP server configuration
   description: Modifies KMIP server properties - URI, certificate, certificate group.
   parameters:
   - $ref: ../../queries/FB2.0/names.query.yaml
   - $ref: ../../queries/FB2.0/ids.query.yaml
-  - in: body
-    name: kmip-server
+  - name: kmip-server
+    in: body
     required: true
     schema:
       $ref: ../../models/FB2.1/kmip-server.yaml
@@ -43,23 +49,17 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FB2.1/kmip-server-response.yaml
-  summary: Modify a KMIP server configuration
   tags:
   - KMIP
-post:
-  description: Creates a KMIP server configuration.
+delete:
+  summary: Delete a KMIP server configuration
+  description: Deletes a KMIP server configuration. A server can only be deleted when
+    not in use by the array.
   parameters:
   - $ref: ../../queries/FB2.0/names.query.yaml
-  - in: body
-    name: kmip-server
-    required: true
-    schema:
-      $ref: ../../models/FB2.1/kmip-server.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
   responses:
     200:
       description: OK
-      schema:
-        $ref: ../../responses/FB2.1/kmip-server-response.yaml
-  summary: Create a KMIP server configuration
   tags:
   - KMIP

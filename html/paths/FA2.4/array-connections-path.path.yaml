@@ -1,4 +1,5 @@
 get:
+  summary: List connection path
   description: Displays the connection path from the array where the connection was
     made.
   parameters:
@@ -16,6 +17,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.4/array-connection-path-get-response.yaml
-  summary: List connection path
   tags:
   - Array Connections

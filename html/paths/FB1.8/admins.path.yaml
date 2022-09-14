@@ -10,16 +10,13 @@ get:
   - $ref: ../../queries/FB1.0/sort.query.yaml
   - $ref: ../../queries/FB1.0/start.query.yaml
   - $ref: ../../queries/FB1.0/token.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.8/admin-get-response.yaml
-
   tags:
   - Administrators
-
 patch:
   summary: PATCH admins (placeholder)
   description: PATCH admins (placeholder)
@@ -31,12 +28,10 @@ patch:
       $ref: ../../models/FB1.8/admin-patch.yaml
   - $ref: ../../queries/FB1.8/ids.query.yaml
   - $ref: ../../queries/FB1.0/names.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.8/admin-response.yaml
-
   tags:
   - Administrators

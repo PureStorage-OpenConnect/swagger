@@ -1,4 +1,5 @@
 get:
+  summary: List session data
   description: Displays session data for user login events performed in the Purity//FA
     GUI, CLI, and REST API.
   parameters:
@@ -17,6 +18,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.4/session-get-response.yaml
-  summary: List session data
   tags:
   - Sessions

@@ -1,4 +1,5 @@
 get:
+  summary: GET file-system-replica-links (placeholder)
   description: GET file-system-replica-links (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
@@ -18,10 +19,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/file-system-replica-link-get-response.yaml
-  summary: GET file-system-replica-links (placeholder)
   tags:
   - File System Replica Links
 post:
+  summary: POST file-system-replica-links (placeholder)
   description: POST file-system-replica-links (placeholder)
   parameters:
   - $ref: ../../queries/FB1.9/local_file_system_ids.query.yaml
@@ -29,8 +30,8 @@ post:
   - $ref: ../../queries/FB1.9/remote_file_system_names.query.yaml
   - $ref: ../../queries/FB1.9/remote_ids.query.yaml
   - $ref: ../../queries/FB1.9/remote_names.query.yaml
-  - in: body
-    name: file-system-replica-link
+  - name: file-system-replica-link
+    in: body
     schema:
       $ref: ../../models/FB1.9/file-system-replica-link-post.yaml
   responses:
@@ -38,6 +39,5 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/file-system-replica-link-response.yaml
-  summary: POST file-system-replica-links (placeholder)
   tags:
   - File System Replica Links

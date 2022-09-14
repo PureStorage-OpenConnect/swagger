@@ -3,8 +3,8 @@ allOf:
 - properties:
     fast_remove_directory_enabled:
       type: boolean
-      description: >-
-        Is fast remove directory enabled? If not specified, defaults to `false`.
+      description: Is fast remove directory enabled? If not specified, defaults to
+        `false`.
     http:
       description: HTTP configuration.
       allOf:
@@ -16,14 +16,12 @@ allOf:
     provisioned:
       type: integer
       format: int64
-      description: >-
-        The provisioned size of the file system in bytes. A value of `0` means
-        unlimited. If not specified, defaults to `0`.
+      description: The provisioned size of the file system in bytes. A value of `0`
+        means unlimited. If not specified, defaults to `0`.
     smb:
       description: SMB configuration.
       allOf:
       - $ref: ../../models/FB1.0/_smb.yaml
     snapshot_directory_enabled:
       type: boolean
-      description: >-
-        Is snapshot directory enabled? If not specified, defaults to `false`.
+      description: Is snapshot directory enabled? If not specified, defaults to `false`.

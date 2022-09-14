@@ -3,6 +3,5 @@ allOf:
 - properties:
     hard_limit_enabled:
       type: boolean
-      description: >-
-        Is the file system's size a hard limit quota?
-        If not specified, defaults to `false`.
+      description: Is the file system's size a hard limit quota? If not specified,
+        defaults to `false`.

@@ -1,4 +1,5 @@
 get:
+  summary: GET hardware-connectors/performance
   description: Displays network statistics, historical bandwidth, and error reporting
     for all specified hardware connectors.
   parameters:
@@ -17,6 +18,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.3/hardware-connector-performance-get-response.yaml
-  summary: GET hardware-connectors/performance
   tags:
   - Hardware Connectors

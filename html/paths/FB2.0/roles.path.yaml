@@ -1,4 +1,5 @@
 get:
+  summary: GET roles
   description: List roles and permission attributes for role-based access control
     (RBAC).
   parameters:
@@ -14,6 +15,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/role-get-response.yaml
-  summary: GET roles
   tags:
   - Roles

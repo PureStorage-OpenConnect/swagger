@@ -1,42 +1,42 @@
 allOf:
 - $ref: ../../models/FA2.0/_built-in.yaml
-- properties:
+- type: object
+  properties:
     arguments:
       description: The arguments provided to the command.
-      example: --size 1G vol2
-      readOnly: true
       type: string
+      readOnly: true
+      example: --size 1G vol2
     command:
       description: The top level command that starts with the string "pure" as a convention.
-      example: purevol
-      readOnly: true
       type: string
-    origin:
-      allOf:
-      - $ref: ../../models/FA2.0/_fixed-reference.yaml
-      description: The array from which the command originated.
+      readOnly: true
+      example: purevol
     subcommand:
       description: The `command` and `subcommand` combination determines which action
         the user attempted to perform.
-      example: create
-      readOnly: true
       type: string
+      readOnly: true
+      example: create
     time:
       description: The time at which the command was run in milliseconds since the
         UNIX epoch.
-      example: 1577402821354
+      type: integer
       format: int64
       readOnly: true
-      type: integer
+      example: 1577402821354
     user:
       description: The user who ran the command.
-      example: pureuser
-      readOnly: true
       type: string
+      readOnly: true
+      example: pureuser
+    origin:
+      description: The array from which the command originated.
+      allOf:
+      - $ref: ../../models/FA2.0/_fixed-reference.yaml
     user_interface:
       description: The user interface through which the user session event was performed.
         Valid values are `CLI`, `GUI`, and `REST`.
-      example: CLI
-      readOnly: true
       type: string
-  type: object
+      readOnly: true
+      example: CLI

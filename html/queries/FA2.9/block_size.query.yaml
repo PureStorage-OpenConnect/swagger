@@ -1,6 +1,6 @@
-description: Granularity at which to compare, in bytes. Must be a multiple of 512.
-format: int64
-in: query
 name: block_size
-required: true
+in: query
+description: Granularity at which to compare, in bytes. Must be a multiple of 512.
 type: integer
+format: int64
+required: true

@@ -1,15 +1,5 @@
-delete:
-  description: Remove an SNMP manager.
-  parameters:
-  - $ref: ../../queries/FB2.0/ids.query.yaml
-  - $ref: ../../queries/FB2.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE snmp-managers
-  tags:
-  - SNMP Managers
 get:
+  summary: GET snmp-managers
   description: List SNMP managers and their attributes.
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
@@ -24,14 +14,31 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/snmp-manager-get-response.yaml
-  summary: GET snmp-managers
+  tags:
+  - SNMP Managers
+post:
+  summary: POST snmp-managers
+  description: Create an SNMP manager.
+  parameters:
+  - name: snmp-manager
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/snmp-manager-post.yaml
+  - $ref: ../../queries/FB2.0/names_required.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/snmp-manager-response.yaml
   tags:
   - SNMP Managers
 patch:
+  summary: PATCH snmp-managers
   description: Modify SNMP manager attributes such as versions.
   parameters:
-  - in: body
-    name: snmp-manager
+  - name: snmp-manager
+    in: body
     required: true
     schema:
       $ref: ../../models/FB2.0/snmp-manager.yaml
@@ -42,23 +49,16 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/snmp-manager-response.yaml
-  summary: PATCH snmp-managers
   tags:
   - SNMP Managers
-post:
-  description: Create an SNMP manager.
+delete:
+  summary: DELETE snmp-managers
+  description: Remove an SNMP manager.
   parameters:
-  - in: body
-    name: snmp-manager
-    required: true
-    schema:
-      $ref: ../../models/FB2.0/snmp-manager-post.yaml
-  - $ref: ../../queries/FB2.0/names_required.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
   responses:
     200:
       description: OK
-      schema:
-        $ref: ../../responses/FB2.0/snmp-manager-response.yaml
-  summary: POST snmp-managers
   tags:
   - SNMP Managers

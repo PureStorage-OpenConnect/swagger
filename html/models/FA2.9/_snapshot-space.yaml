@@ -4,7 +4,7 @@ allOf:
     snapshots_effective:
       description: The effective space contributed by data unique to one or more snapshots,
         measured in bytes.
+      type: integer
       format: int64
       minimum: 0
       readOnly: true
-      type: integer

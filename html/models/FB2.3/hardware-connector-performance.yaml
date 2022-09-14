@@ -1,62 +1,62 @@
 allOf:
 - $ref: ../../models/FB2.0/_built-in.yaml
-- properties:
+- readOnly: true
+  properties:
     link_aggregation_group:
+      description: The link aggregation group which this entity belongs to.
       allOf:
       - $ref: ../../models/FB2.0/_fixed-reference.yaml
-      description: The link aggregation group which this entity belongs to.
     other_errors_per_sec:
       description: The sum of unspecified reception and transmission errors per second.
+      type: integer
       format: int64
       minimum: 0
-      type: integer
     received_bytes_per_sec:
       description: Bytes received per second.
+      type: integer
       format: int64
       minimum: 0
-      type: integer
     received_crc_errors_per_sec:
       description: Reception CRC errors per second.
+      type: integer
       format: int64
       minimum: 0
-      type: integer
     received_frame_errors_per_sec:
       description: Received packet frame errors per second.
+      type: integer
       format: int64
       minimum: 0
-      type: integer
     received_packets_per_sec:
       description: Packets received per second.
+      type: integer
       format: int64
       minimum: 0
-      type: integer
     time:
       description: Sample time in milliseconds since UNIX epoch.
-      format: int64
       type: integer
+      format: int64
     total_errors_per_sec:
       description: The sum of all reception and transmission errors per second.
+      type: integer
       format: int64
       minimum: 0
-      type: integer
     transmitted_bytes_per_sec:
       description: Bytes transmitted per second.
+      type: integer
       format: int64
       minimum: 0
-      type: integer
     transmitted_carrier_errors_per_sec:
       description: Transmission carrier errors per second.
+      type: integer
       format: int64
       minimum: 0
-      type: integer
     transmitted_dropped_errors_per_sec:
       description: Transmitted packets dropped per second.
+      type: integer
       format: int64
       minimum: 0
-      type: integer
     transmitted_packets_per_sec:
       description: Packets transmitted per second.
+      type: integer
       format: int64
       minimum: 0
-      type: integer
-  readOnly: true

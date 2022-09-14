@@ -1,5 +1,7 @@
-allOf:
-- $ref: ../../queries/FB1.0/_names_query_base.query.yaml
-- name: member_names
-description: >-
-  A comma-separated list of member names.
+name: member_names
+description: A comma-separated list of member names.
+in: query
+type: array
+collectionFormat: csv
+items:
+  type: string

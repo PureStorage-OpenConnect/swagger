@@ -4,5 +4,4 @@ allOf:
     id:
       type: string
       readOnly: true
-      description: >-
-        A non-modifiable, globally unique ID chosen by the system.
+      description: A non-modifiable, globally unique ID chosen by the system.

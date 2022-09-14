@@ -1,4 +1,5 @@
 get:
+  summary: List array front-end performance data
   description: Displays real-time and historical front-end performance data at the
     array level including latency, bandwidth, IOPS, average I/O size, and queue depth.
   parameters:
@@ -19,6 +20,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.4/array-performance-get-response.yaml
-  summary: List array front-end performance data
   tags:
   - Arrays

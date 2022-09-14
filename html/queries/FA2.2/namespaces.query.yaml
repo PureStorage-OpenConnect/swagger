@@ -1,7 +1,7 @@
-collectionFormat: csv
-description: A comma-separated list of namespaces.
+name: namespaces
 in: query
+description: A comma-separated list of namespaces.
+type: array
 items:
   type: string
-name: namespaces
-type: array
+collectionFormat: csv

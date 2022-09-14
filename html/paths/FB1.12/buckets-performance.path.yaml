@@ -1,4 +1,5 @@
 get:
+  summary: GET buckets-performance (placeholder)
   description: GET buckets-performance (placeholder)
   parameters:
   - $ref: ../../queries/FB1.2/end_time.query.yaml
@@ -17,6 +18,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.12/bucket-performance-get-response.yaml
-  summary: GET buckets-performance (placeholder)
   tags:
   - Buckets

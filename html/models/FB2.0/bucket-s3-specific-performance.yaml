@@ -1,63 +1,63 @@
 allOf:
 - $ref: ../../models/FB2.0/_built-in.yaml
-- properties:
+- readOnly: true
+  properties:
     others_per_sec:
       description: Other operations processed per second.
+      type: number
       format: double
       minimum: 0.0
-      type: number
     read_buckets_per_sec:
       description: Read buckets requests processed per second.
+      type: number
       format: double
       minimum: 0.0
-      type: number
     read_objects_per_sec:
       description: Read object requests processed per second.
+      type: number
       format: double
       minimum: 0.0
+    write_buckets_per_sec:
+      description: Write buckets requests processed per second.
       type: number
+      format: double
+      minimum: 0.0
+    write_objects_per_sec:
+      description: Write object requests processed per second.
+      type: number
+      format: double
+      minimum: 0.0
     time:
       description: Sample time in milliseconds since UNIX epoch.
-      format: int64
       type: integer
+      format: int64
     usec_per_other_op:
       description: Average time, measured in microseconds, it takes the array to process
         other operations.
+      type: number
       format: double
       minimum: 0.0
-      type: number
     usec_per_read_bucket_op:
       description: Average time, measured in microseconds, it takes the array to process
         a read bucket request.
+      type: number
       format: double
       minimum: 0.0
-      type: number
     usec_per_read_object_op:
       description: Average time, measured in microseconds, it takes the array to process
         a read object request.
+      type: number
       format: double
       minimum: 0.0
-      type: number
     usec_per_write_bucket_op:
       description: Average time, measured in microseconds, it takes the array to process
         a write bucket request.
+      type: number
       format: double
       minimum: 0.0
-      type: number
     usec_per_write_object_op:
       description: Average time, measured in microseconds, it takes the array to process
         a write object request.
+      type: number
       format: double
       minimum: 0.0
-      type: number
-    write_buckets_per_sec:
-      description: Write buckets requests processed per second.
-      format: double
-      minimum: 0.0
-      type: number
-    write_objects_per_sec:
-      description: Write object requests processed per second.
-      format: double
-      minimum: 0.0
-      type: number
-  readOnly: true

@@ -4,14 +4,14 @@ allOf:
     direction:
       $ref: ../../models/FB1.9/_direction.yaml
     lag:
+      type: integer
       description: Duration in milliseconds that represents how far behind the replication
         target is from the source. This is the time difference between current time
         and `recovery_point`.
-      format: int64
       readOnly: true
-      type: integer
+      format: int64
     status_details:
+      type: string
       description: Detailed information about the status of the replica link when
         it is unhealthy.
       readOnly: true
-      type: string

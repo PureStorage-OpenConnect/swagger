@@ -1,10 +1,10 @@
 get:
+  summary: GET snmp-agents-mib
   description: List the SNMP MIB text.
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/snmp-agent-mib-response.yaml
-  summary: GET snmp-agents-mib
   tags:
   - SNMP Agents

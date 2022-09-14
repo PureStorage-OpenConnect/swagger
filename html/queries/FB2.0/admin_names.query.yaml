@@ -1,9 +1,9 @@
-collectionFormat: csv
+name: admin_names
+in: query
 description: A comma-separated list of admin names. If there is not at least one admin
   resource that matches each of the elements, then an error is returned. This cannot
   be provided together with `admin_ids` query parameter.
-in: query
+type: array
+collectionFormat: csv
 items:
   type: string
-name: admin_names
-type: array

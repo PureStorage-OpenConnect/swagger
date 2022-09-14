@@ -1,4 +1,5 @@
 get:
+  summary: GET roles (placeholder)
   description: GET roles (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
@@ -13,6 +14,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.10/role-get-response.yaml
-  summary: GET roles (placeholder)
   tags:
   - Roles

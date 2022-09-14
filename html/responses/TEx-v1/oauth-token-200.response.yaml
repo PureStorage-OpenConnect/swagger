@@ -2,42 +2,28 @@ description: OK
 type: object
 schema:
   type: object
+  title: oauth_token_response
   properties:
     access_token:
-      description: >-
-        A serialized OAuth 2.0 access token required as a Bearer token
-        in the Authorization header of further API calls.
+      description: The serialized OAuth 2.0 Bearer token used to perform authenticated
+        requests. The access token must be added to the Authorization header of all
+        API calls.
       type: string
-      example: "eyJraWQiOiJqTlBzL1Ria2c4U2Vua3F3ZmkvbnI4bWxxQ3NPIiwidHlwIjo\
-        iSldUIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiI5NDcyMTkwOC1mNzkyLTcxMmUtYTY\
-        zOS0wODM5ZmE4MzA5MjIiLCJzdWIiOiJqb2UiLCJyb2xlIjoic3RvcmFnZV9hZG1pbi\
-        IsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6OTAwMCIsImlhdCI6MTU0NDAzNjA1MiwiZ\
-        XhwIjoxNTQ0MDcyMDUyLCJqdGkiOiJjOTg0MjgyNS1mNGM3LTRiNGUtODdkNy03OWFi\
-        ZmIxYTUzNDgifQ.pnuYAx0CkmkIG0LDrMAQGRr5Ci4-t5yMto3A7BkmyKnAVHBXG5ZI\
-        WwvNkWDLhqbA4YjmG7LZmWHrCVehLy2zy2vRLahFURsd3GTnOaWSyWFIyrwpoO81jQR\
-        tOQATtseweuMT_-C8o3oa4MgBNBsuKrhwKQS3oDDpeRPaCRTGev1_xRDxh_K6CWJBTA\
-        eOP2pcR4LW6zIJkCLzzkMuyL4aTJWWUjSbl04mcFbyw8r8W1GURrmaDVOvvpT634Hk9\
-        -GGh9OMIRlS6OOq7cJKc-RRWn18IK2Gs53V_KYshXTBbnRr990Y_qOX8MaTWOJTqgzs\
-        ojY02MSVuJ9XDJWoIU3TQytr4K1vM2EvwDZDgl7LuUYUn7vWhbKktFzpeZyyhOjq3eX\
-        -ViugYKpIjBcG2f_-fcTPceEWGV82rd6TyVNB5A-v9u2kxCdW198t_kesgVQfuupDeS\
-        02cZe0ABLCzEHPiVF17JfiVr6sjkciioxN7Wj_j18ga4U0mdSukauT8yhbgCW1ijTVT\
-        Fu1VwWebW0s8z3BWMtXdTtZ3BhcZVAdKRF8bOq7nfEbUQGhTn9g7dK-yF050winjtp-\
-        VTL2oUtkF5j1v_N8vPNiN9ZdkGJZr7VVZ-qeOJZcjdaRbxL6YB__yT1wkTcKPh8RHz6\
-        GUq7Jbyw8VIlcBE2nvJ63d0tH9C4"
+      example: eyJraWQiOiJqTlBzL1Ria2c4U2Vua3F3ZmkvbnI4bWxxQ3NPIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiI5NDcyMTkwOC1mNzkyLTcxMmUtYTYzOS0wODM5ZmE4MzA5MjIiLCJzdWIiOiJqb2UiLCJyb2xlIjoic3RvcmFnZV9hZG1pbiIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6OTAwMCIsImlhdCI6MTU0NDAzNjA1MiwiZXhwIjoxNTQ0MDcyMDUyLCJqdGkiOiJjOTg0MjgyNS1mNGM3LTRiNGUtODdkNy03OWFiZmIxYTUzNDgifQ.pnuYAx0CkmkIG0LDrMAQGRr5Ci4-t5yMto3A7BkmyKnAVHBXG5ZIWwvNkWDLhqbA4YjmG7LZmWHrCVehLy2zy2vRLahFURsd3GTnOaWSyWFIyrwpoO81jQRtOQATtseweuMT_-C8o3oa4MgBNBsuKrhwKQS3oDDpeRPaCRTGev1_xRDxh_K6CWJBTAeOP2pcR4LW6zIJkCLzzkMuyL4aTJWWUjSbl04mcFbyw8r8W1GURrmaDVOvvpT634Hk9-GGh9OMIRlS6OOq7cJKc-RRWn18IK2Gs53V_KYshXTBbnRr990Y_qOX8MaTWOJTqgzsojY02MSVuJ9XDJWoIU3TQytr4K1vM2EvwDZDgl7LuUYUn7vWhbKktFzpeZyyhOjq3eX-ViugYKpIjBcG2f_-fcTPceEWGV82rd6TyVNB5A-v9u2kxCdW198t_kesgVQfuupDeS02cZe0ABLCzEHPiVF17JfiVr6sjkciioxN7Wj_j18ga4U0mdSukauT8yhbgCW1ijTVTFu1VwWebW0s8z3BWMtXdTtZ3BhcZVAdKRF8bOq7nfEbUQGhTn9g7dK-yF050winjtp-VTL2oUtkF5j1v_N8vPNiN9ZdkGJZr7VVZ-qeOJZcjdaRbxL6YB__yT1wkTcKPh8RHz6GUq7Jbyw8VIlcBE2nvJ63d0tH9C4
     issued_token_type:
-      description: >-
-        Representation of the issued security token. Currently only access
-        tokens are supported.
+      description: The type of token that is issued. The Pure Storage REST API supports
+        OAuth 2.0 access tokens.
       type: string
       example: urn:ietf:params:oauth:token-type:access_token
     token_type:
-      description: >-
-        Specifies the method of using the `access_token` issued. Currently only
-        returns `Bearer` as a supported value.
+      description: Indicates how the API client can use the access token issued. The
+        Pure Storage REST API supports the `Bearer` token.
       type: string
       example: Bearer
     expires_in:
-      description: The epoch timestamp at which the token expires.
+      description: The duration after which the access token will expire. Measured
+        in seconds. This differs from other duration fields that are expressed in
+        milliseconds.
       type: integer
       format: uint32
-      example: 1567137895
+      example: 35999

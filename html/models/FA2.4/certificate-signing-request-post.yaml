@@ -1,34 +1,34 @@
 description: SSL Certificate managed by Purity//FA.
+type: object
 properties:
   certificate:
     allOf:
     - $ref: ../../models/FA2.0/_reference-no-id.yaml
   common_name:
     description: The common name field listed in the certificate.
-    example: Pure Storage Inc.
     type: string
+    example: Pure Storage Inc.
   country:
     description: Two-letter country (ISO) code listed in the certificate.
-    example: CA
     type: string
+    example: CA
   email:
     description: The email field listed in the certificate.
-    example: tcrisp@veridiandynamics.com
     type: string
+    example: tcrisp@veridiandynamics.com
   locality:
     description: The locality field listed in the certificate.
-    example: Toronto
     type: string
+    example: Toronto
   organization:
     description: The organization field listed in the certificate.
-    example: Veridian Dynamics
     type: string
+    example: Veridian Dynamics
   organizational_unit:
     description: The organizational unit field listed in the certificate.
-    example: Research & Development
     type: string
+    example: Research & Development
   state:
     description: The state/province field listed in the certificate.
-    example: Ontario
     type: string
-type: object
+    example: Ontario

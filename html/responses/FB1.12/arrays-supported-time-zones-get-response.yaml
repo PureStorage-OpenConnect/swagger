@@ -1,8 +1,8 @@
 allOf:
 - $ref: ../../responses/FB1.0/page-info.yaml
-- properties:
+- type: object
+  properties:
     items:
+      type: array
       items:
         $ref: ../../models/FB1.12/_time-zone.yaml
-      type: array
-  type: object

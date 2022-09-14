@@ -1,8 +1,8 @@
 allOf:
 - $ref: ../../models/FA2.2/test-result.yaml
-- properties:
+- type: object
+  properties:
     resource:
+      description: A reference to the object being tested.
       allOf:
       - $ref: ../../models/FA2.0/_fixed-reference-no-id.yaml
-      description: A reference to the object being tested.
-  type: object

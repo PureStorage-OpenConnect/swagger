@@ -1,7 +1,7 @@
+type: object
 properties:
   export_name:
     description: The name of the export to create. Export names must be unique within
       the same protocol.
-    required: true
     type: string
-type: object
+    required: true

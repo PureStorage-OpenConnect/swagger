@@ -1,10 +1,10 @@
 allOf:
 - $ref: ../../models/FB2.1/relationship-performance-replication.yaml
-- properties:
+- readOnly: true
+  properties:
     continuous:
-      allOf:
-      - $ref: ../../models/FB2.2/_continuous-replication-performance.yaml
       description: Object backlog information and total bytes transmitted or received
         per second for continuous replication. Continuous replication includes object
         replication.
-  readOnly: true
+      allOf:
+      - $ref: ../../models/FB2.2/_continuous-replication-performance.yaml

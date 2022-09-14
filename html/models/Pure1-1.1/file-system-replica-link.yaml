@@ -1,20 +1,20 @@
+description: A replica link between two FlashBlade file systems.
+type: object
 allOf:
 - $ref: ../../models/Pure1-1.0/file-system-replica-link.yaml
 - properties:
     members:
+      type: array
       description: The union of source and target file systems in the replica link.
       items:
         $ref: ../../models/Pure1-1.1/_resource-with-location.yaml
-      type: array
     sources:
+      type: array
       description: The source file systems in the replica link.
       items:
         $ref: ../../models/Pure1-1.1/_resource-with-location.yaml
-      type: array
     targets:
+      type: array
       description: The target file systems in the replica link.
       items:
         $ref: ../../models/Pure1-1.1/_resource-with-location.yaml
-      type: array
-description: A replica link between two FlashBlade file systems.
-type: object

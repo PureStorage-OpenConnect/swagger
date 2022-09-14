@@ -2,9 +2,8 @@ allOf:
 - $ref: ../../models/FB1.0/_resource.yaml
 - properties:
     id:
-      description: >-
-        A globally unique ID chosen by the system. Cannot change. Cannot ever
-        refer to another resource.
+      description: A globally unique ID chosen by the system. Cannot change. Cannot
+        ever refer to another resource.
       type: string
       readOnly: true
     ntp_servers:
@@ -13,8 +12,7 @@ allOf:
         type: string
         example: time.acme.com
     os:
-      description: >-
-        Valid values are `Purity//FA` and `Purity//FB`.
+      description: Valid values are `Purity//FA` and `Purity//FB`.
       type: string
       readOnly: true
       example: Purity//FB

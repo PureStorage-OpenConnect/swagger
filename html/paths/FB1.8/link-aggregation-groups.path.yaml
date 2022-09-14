@@ -9,16 +9,13 @@ get:
   - $ref: ../../queries/FB1.0/sort.query.yaml
   - $ref: ../../queries/FB1.0/start.query.yaml
   - $ref: ../../queries/FB1.0/token.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.8/link-aggregation-group-get-response.yaml
-
   tags:
   - Link Aggregation Groups
-
 post:
   summary: POST link-aggregation-groups (placeholder)
   description: POST link-aggregation-groups (placeholder)
@@ -29,16 +26,13 @@ post:
     schema:
       $ref: ../../models/FB1.8/link-aggregation-group.yaml
   - $ref: ../../queries/FB1.2/names_required.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.8/link-aggregation-group-response.yaml
-
   tags:
   - Link Aggregation Groups
-
 patch:
   summary: PATCH link-aggregation-groups (placeholder)
   description: PATCH link-aggregation-groups (placeholder)
@@ -63,26 +57,21 @@ patch:
             $ref: ../../models/FB1.8/_fixed-reference.yaml
   - $ref: ../../queries/FB1.8/ids.query.yaml
   - $ref: ../../queries/FB1.0/names.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.8/link-aggregation-group-response.yaml
-
   tags:
   - Link Aggregation Groups
-
 delete:
   summary: DELETE link-aggregation-groups (placeholder)
   description: DELETE link-aggregation-groups (placeholder)
   parameters:
   - $ref: ../../queries/FB1.8/ids.query.yaml
   - $ref: ../../queries/FB1.0/names.query.yaml
-
   responses:
     200:
       description: OK
-
   tags:
   - Link Aggregation Groups

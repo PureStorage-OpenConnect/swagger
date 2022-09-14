@@ -1,16 +1,5 @@
-delete:
-  description: Deletes the connection to the current array from the specified array.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: Delete an array connection
-  tags:
-  - Array Connections
 get:
+  summary: List connected arrays
   description: Display a list of connected arrays.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -27,17 +16,17 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.4/array-connection-get-response.yaml
-  summary: List connected arrays
   tags:
   - Array Connections
 patch:
+  summary: Modify an array connection
   description: Modifies the bandwidth throttling attributes for a connected array.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - $ref: ../../queries/FA2.0/names.query.yaml
-  - in: body
-    name: array-connection
+  - name: array-connection
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.4/_throttle.yaml
@@ -46,16 +35,16 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FA2.4/array-connection-response.yaml
-  summary: Modify an array connection
   tags:
   - Array Connections
 post:
+  summary: Create an array connection
   description: Creates a connection between the current array and the specified array.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - in: body
-    name: array-connection
+  - name: array-connection
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.4/array-connection-post.yaml
@@ -64,6 +53,17 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FA2.4/array-connection-response.yaml
-  summary: Create an array connection
+  tags:
+  - Array Connections
+delete:
+  summary: Delete an array connection
+  description: Deletes the connection to the current array from the specified array.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Array Connections

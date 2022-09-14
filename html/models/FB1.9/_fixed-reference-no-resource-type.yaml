@@ -2,6 +2,6 @@ allOf:
 - $ref: ../../models/FB1.3/_fixed-reference.yaml
 - properties:
     id:
+      type: string
       description: A non-modifiable, globally unique ID chosen by the system.
       readOnly: true
-      type: string

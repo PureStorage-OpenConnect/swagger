@@ -1,12 +1,13 @@
 post:
+  summary: POST keytabs-upload (placeholder)
+  description: POST keytabs-upload (placeholder)
   consumes:
   - multipart/form-data
-  description: POST keytabs-upload (placeholder)
   parameters:
   - $ref: ../../queries/FB1.9/name_prefixes.query.yaml
-  - description: The keytab file to upload.
+  - name: keytab_file
     in: formData
-    name: keytab_file
+    description: The keytab file to upload.
     required: true
     schema:
       oneOf:
@@ -20,6 +21,5 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/keytab-file-response.yaml
-  summary: POST keytabs-upload (placeholder)
   tags:
   - Keytabs

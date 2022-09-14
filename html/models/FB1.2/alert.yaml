@@ -43,16 +43,13 @@ allOf:
       readOnly: true
     severity:
       type: string
-      description: >-
-        Severity of the alert.
-        Valid values are `info`, `warning`, and `critical`.
+      description: Severity of the alert. Valid values are `info`, `warning`, and
+        `critical`.
       readOnly: true
     state:
       type: string
-      description: >-
-        The current state of the alert.
-        Valid values are `open`, `closing`, `closed`, and
-        `waiting to downgrade`.
+      description: The current state of the alert. Valid values are `open`, `closing`,
+        `closed`, and `waiting to downgrade`.
       readOnly: true
     subject:
       type: string
@@ -65,7 +62,7 @@ allOf:
       readOnly: true
     variables:
       type: object
-      description: Key-value pairs of additional information of the alert.
+      description: Key-value pairs of additional information about the alert.
       readOnly: true
       additionalProperties:
         type: string

@@ -1,4 +1,5 @@
 get:
+  summary: List SMI-S settings
   description: Displays the SMI-S settings, including the name of the array and whether
     SLP and WBEM-HTTPS are enabled.
   parameters:
@@ -14,17 +15,17 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/smis-get-response.yaml
-  summary: List SMI-S settings
   tags:
   - SMI-S
 patch:
+  summary: Modify SLP and SMI-S
   description: Modifies the Service Location Protocol (SLP) and the SMI-S provider,
     enabling or disabling them.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - in: body
-    name: smi-s
+  - name: smi-s
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.2/smis.yaml
@@ -33,6 +34,5 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/smis-response.yaml
-  summary: Modify SLP and SMI-S
   tags:
   - SMI-S

@@ -6,12 +6,10 @@ get:
   - $ref: ../../queries/FB1.0/limit.query.yaml
   - $ref: ../../queries/FB1.0/names.query.yaml
   - $ref: ../../queries/FB1.0/sort.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.4/client-performance-get-response.yaml
-
   tags:
   - Clients

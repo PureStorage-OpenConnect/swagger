@@ -1,15 +1,5 @@
-delete:
-  description: Remove an array subnet.
-  parameters:
-  - $ref: ../../queries/FB2.0/ids.query.yaml
-  - $ref: ../../queries/FB2.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE subnets
-  tags:
-  - Subnets
 get:
+  summary: GET subnets
   description: "List the array\xE2\u20AC\u2122s subnets."
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
@@ -24,14 +14,31 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/subnet-get-response.yaml
-  summary: GET subnets
+  tags:
+  - Subnets
+post:
+  summary: POST subnets
+  description: Create an array subnet.
+  parameters:
+  - name: subnet
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/subnet.yaml
+  - $ref: ../../queries/FB2.0/names_required.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/subnet-response.yaml
   tags:
   - Subnets
 patch:
+  summary: PATCH subnets
   description: Modify array subnet attributes.
   parameters:
-  - in: body
-    name: subnet
+  - name: subnet
+    in: body
     required: true
     schema:
       $ref: ../../models/FB2.0/subnet.yaml
@@ -42,23 +49,16 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/subnet-response.yaml
-  summary: PATCH subnets
   tags:
   - Subnets
-post:
-  description: Create an array subnet.
+delete:
+  summary: DELETE subnets
+  description: Remove an array subnet.
   parameters:
-  - in: body
-    name: subnet
-    required: true
-    schema:
-      $ref: ../../models/FB2.0/subnet.yaml
-  - $ref: ../../queries/FB2.0/names_required.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
   responses:
     200:
       description: OK
-      schema:
-        $ref: ../../responses/FB2.0/subnet-response.yaml
-  summary: POST subnets
   tags:
   - Subnets

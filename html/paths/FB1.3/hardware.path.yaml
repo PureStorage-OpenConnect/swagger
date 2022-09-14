@@ -5,35 +5,27 @@ get:
   - $ref: ../../queries/FB1.0/sort.query.yaml
   - $ref: ../../queries/FB1.0/start.query.yaml
   - $ref: ../../queries/FB1.0/token.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.3/hardware-get-response.yaml
-
   tags:
   - Hardware
-
 patch:
-  description: >-
-    Controls the visual identification of the specified hardware component.
-
+  description: Controls the visual identification of the specified hardware component.
   parameters:
   - name: hardware
     in: body
     required: true
     schema:
       $ref: ../../models/FB1.3/hardware.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.3/hardware-response.yaml
-
   tags:
   - Hardware
-
 parameters:
 - $ref: ../../queries/FB1.0/names.query.yaml

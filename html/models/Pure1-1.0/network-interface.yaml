@@ -1,9 +1,8 @@
-description: >-
-  A point of interconnection between the appliance and a private or public
-  network. May be associated with a physical device or a representation of
-  a virtual interface.
+description: A point of interconnection between the appliance and a private or public
+  network. May be associated with a physical device or a representation of a virtual
+  interface.
 allOf:
-- $ref: _arrays-built-in.yaml
+- $ref: ../../models/Pure1-1.0/_arrays-built-in.yaml
 - properties:
     address:
       type: string
@@ -31,14 +30,13 @@ allOf:
       type: array
       description: Services and protocols that are enabled on the interface.
       items:
-        description: >-
-          Valid values are `iscsi`, `management`, `nvme/fc`, `nvme/roce`,
-            and `replication`.
+        description: "Valid values are `iscsi`, `management`, `nvme/fc`, `nvme/roce`,\n\
+          \  and `replication`."
         type: string
         example: iscsi
     speed:
       type: integer
-      format: int32
+      format: int64
       description: Speed in bytes per second.
       example: 10000000000
     subinterfaces:

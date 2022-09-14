@@ -1,6 +1,6 @@
+type: object
 properties:
   items:
+    type: array
     items:
       $ref: ../../models/FA2.1/remote-protection-group-snapshot-transfer.yaml
-    type: array
-type: object

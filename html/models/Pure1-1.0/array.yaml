@@ -1,7 +1,6 @@
-description: >-
-  A FlashArray or FlashBlade storage appliance.
+description: A FlashArray or FlashBlade storage appliance.
 allOf:
-- $ref: _built-in-as-of.yaml
+- $ref: ../../models/Pure1-1.0/_built-in-as-of.yaml
 - properties:
     model:
       description: Model of the array.
@@ -9,8 +8,7 @@ allOf:
       type: string
       example: FA-m70r2
     os:
-      description: >-
-        Valid values are `Elasticity`, `Purity`, `Purity//FA` and `Purity//FB`.
+      description: Valid values are `Elasticity`, `Purity`, `Purity//FA` and `Purity//FB`.
       type: string
       readOnly: true
       example: Purity//FA

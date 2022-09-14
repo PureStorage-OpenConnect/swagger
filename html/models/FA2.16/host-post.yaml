@@ -1,11 +1,11 @@
 allOf:
 - $ref: ../../models/FA2.0/host-post.yaml
-- properties:
+- type: object
+  properties:
     vlan:
+      type: string
       description: The VLAN ID that the host is associated with. If not set or set
         to `any`, the host can access any VLAN. If set to `untagged`, the host can
         only access untagged VLANs. If set to a number between `1` and `4094`, the
         host can only access the specified VLAN with that number.
       example: 1
-      type: string
-  type: object

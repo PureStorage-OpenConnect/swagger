@@ -1,6 +1,6 @@
-description: Length of the segment, in bytes, to compare.
-format: int64
-in: query
 name: segment_length
-required: true
+in: query
+description: Length of the segment, in bytes, to compare.
 type: integer
+format: int64
+required: true

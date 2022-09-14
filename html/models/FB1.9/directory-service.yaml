@@ -3,6 +3,7 @@ allOf:
 - properties:
     management:
       description: Properties specific to the Management service.
+      type: object
       properties:
         user_login_attribute:
           description: 'User login attribute in the structure of the configured LDAP
@@ -11,8 +12,8 @@ allOf:
             for all other directory server types.
 
             '
-          example: userPrincipalName
           type: string
+          example: userPrincipalName
         user_object_class:
           description: 'Value of the object class for a management LDAP user. Defaults
             to `User` for Active Directory servers, `posixAccount` or `shadowAccount`
@@ -20,6 +21,5 @@ allOf:
             for all other directory servers.
 
             '
-          example: inetOrgPerson
           type: string
-      type: object
+          example: inetOrgPerson

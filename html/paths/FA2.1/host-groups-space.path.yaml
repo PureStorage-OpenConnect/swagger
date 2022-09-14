@@ -1,6 +1,7 @@
 get:
-  description: Returns provisioned (virtual) size and physical storage consumption
-    data for each host group.
+  summary: List host group space information
+  description: Returns provisioned size and physical storage consumption data for
+    each host group.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
@@ -15,6 +16,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.1/resource-space-no-id-get-response.yaml
-  summary: List host group space information
   tags:
   - Host Groups

@@ -1,17 +1,5 @@
-delete:
-  description: Deletes an open maintenance window before its scheduled end (`expire`)
-    time. The `names` parameter is required and must be set to `environment`.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: Delete maintenance window
-  tags:
-  - Maintenance Windows
 get:
+  summary: List maintenance window details
   description: Displays maintenance window details, including start time, end time,
     and maintenance type.
   parameters:
@@ -29,10 +17,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/maintenance-windows-get-response.yaml
-  summary: List maintenance window details
   tags:
   - Maintenance Windows
 post:
+  summary: Create a maintenance window
   description: Creates a maintenance window that suppresses alerts for a specified
     period of time. A maintenance window can be manually closed at any time. The `names`
     and `timeout` parameters are required. Set the `names` parameter to `environment`.
@@ -40,8 +28,8 @@ post:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - $ref: ../../queries/FA2.0/names.query.yaml
-  - in: body
-    name: maintenance-window
+  - name: maintenance-window
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.2/maintenance-window-post.yaml
@@ -50,6 +38,18 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/maintenance-windows-response.yaml
-  summary: Create a maintenance window
+  tags:
+  - Maintenance Windows
+delete:
+  summary: Delete maintenance window
+  description: Deletes an open maintenance window before its scheduled end (`expire`)
+    time. The `names` parameter is required and must be set to `environment`.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Maintenance Windows

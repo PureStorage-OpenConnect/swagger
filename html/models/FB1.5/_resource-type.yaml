@@ -1,8 +1,5 @@
 type: string
-description: >-
-  Type of the object (full name of the endpoint).
-  Valid values are `directory-services`, `file-systems`,
-  `file-system-snapshots`, `hardware`, `link-aggregation-groups`,
-  `network-interfaces`, `object-store-accounts`, `object-store-access-keys`,
-  `object-store-users`, `policies`, and `subnets`.
+description: Type of the object (full name of the endpoint). Valid values are the
+  unique part of the resource's REST endpoint. For example, a reference to a file
+  system would have a `resource_type` of `file-systems`.
 readOnly: true

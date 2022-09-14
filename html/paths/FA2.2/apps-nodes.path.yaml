@@ -1,4 +1,5 @@
 get:
+  summary: List app nodes
   description: Displays a list of installed apps and their nodes.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -15,6 +16,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/app-node-get-response.yaml
-  summary: List app nodes
   tags:
   - Apps

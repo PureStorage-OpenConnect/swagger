@@ -1,5 +1,7 @@
 get:
-  description: 'Retrieves pairs of file system replica link members and their policies.
+  summary: Get FlashBlade file system replica link / policy pairs
+  description: 'Retrieves pairs of FlashBlade file system replica link members and
+    their policies.
 
     '
   parameters:
@@ -21,8 +23,15 @@ get:
         $ref: ../../responses/Pure1-1.0/headers-all-default.response.yaml
       schema:
         $ref: ../../responses/Pure1-1.0/policy-members-get-response.yaml
-    allOf:
-    - $ref: ../../responses/Pure1-1.0/errors-all.response.yaml
-  summary: Get file system replica link / policy pairs
+    400:
+      $ref: ../../responses/Pure1-1.0/error-400.response.yaml
+    403:
+      $ref: ../../responses/Pure1-1.0/error-403.response.yaml
+    404:
+      $ref: ../../responses/Pure1-1.0/error-404.response.yaml
+    429:
+      $ref: ../../responses/Pure1-1.0/error-429.response.yaml
+    500:
+      $ref: ../../responses/Pure1-1.0/error-500.response.yaml
   tags:
   - File System Replica Links

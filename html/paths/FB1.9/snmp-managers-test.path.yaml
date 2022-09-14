@@ -1,4 +1,5 @@
 get:
+  summary: GET snmp-managers-test (placeholder)
   description: GET snmp-managers-test (placeholder)
   parameters:
   - $ref: ../../queries/FB1.8/ids.query.yaml
@@ -8,6 +9,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/snmp-manager-test-response.yaml
-  summary: GET snmp-managers-test (placeholder)
   tags:
   - SNMP Managers

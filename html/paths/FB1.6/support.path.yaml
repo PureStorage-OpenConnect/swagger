@@ -4,10 +4,8 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.6/support-get-response.yaml
-
   tags:
   - Support
-
 patch:
   parameters:
   - name: support
@@ -15,12 +13,10 @@ patch:
     required: true
     schema:
       $ref: ../../models/FB1.6/support.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.6/support-response.yaml
-
   tags:
   - Support

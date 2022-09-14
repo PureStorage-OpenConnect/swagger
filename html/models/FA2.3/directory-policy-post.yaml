@@ -1,14 +1,14 @@
+type: object
 properties:
   policies:
-    description: A list of policies to apply to the resource. The `id` and `name`
-      field in each `policy` parameter is required, but cannot be set together.
+    description: A list of policies to apply to the resource. The `id` or `name` field
+      in each `policy` parameter is required, but they cannot be set together.
+    type: array
     items:
+      type: object
       properties:
         policy:
-          allOf:
-          - $ref: ../../models/FA2.0/_reference.yaml
           description: Reference to the policy to apply to the resource.
           required: true
-      type: object
-    type: array
-type: object
+          allOf:
+          - $ref: ../../models/FA2.0/_reference.yaml

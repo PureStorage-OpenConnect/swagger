@@ -1,4 +1,42 @@
+get:
+  summary: List arrays
+  description: Displays a list of connection paths to each of the connected arrays.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.6/array-get-response.yaml
+  tags:
+  - Arrays
+patch:
+  summary: Modify an array
+  description: Modifies general array properties such as the array name, login banner,
+    idle timeout for management sessions, and NTP servers.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - name: array
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.6/arrays.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.6/array-response.yaml
+  tags:
+  - Arrays
 delete:
+  summary: Delete an array
   description: Deletes an array. For physical appliances, deleting an array restores
     the hardware to factory settings. This entails deleting all data, metadata, configuration,
     and logs; the array returns to the state it was in prior to any configuration
@@ -16,43 +54,5 @@ delete:
   responses:
     200:
       description: OK
-  summary: Delete an array
-  tags:
-  - Arrays
-get:
-  description: Displays a list of connection paths to each of the connected arrays.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/filter.query.yaml
-  - $ref: ../../queries/FA2.0/limit.query.yaml
-  - $ref: ../../queries/FA2.0/offset.query.yaml
-  - $ref: ../../queries/FA2.0/sort.query.yaml
-  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
-  responses:
-    200:
-      description: OK
-      schema:
-        $ref: ../../responses/FA2.6/array-get-response.yaml
-  summary: List arrays
-  tags:
-  - Arrays
-patch:
-  description: Modifies general array properties such as the array name, login banner,
-    idle timeout for management sessions, and NTP servers.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - in: body
-    name: array
-    required: true
-    schema:
-      $ref: ../../models/FA2.6/arrays.yaml
-  responses:
-    200:
-      description: OK
-      schema:
-        $ref: ../../responses/FA2.6/array-response.yaml
-  summary: Modify an array
   tags:
   - Arrays

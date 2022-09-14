@@ -1,4 +1,5 @@
 get:
+  summary: List connection paths
   description: Displays connection paths between the current array and each connected
     array.
   parameters:
@@ -15,16 +16,16 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/support-get-response.yaml
-  summary: List connection paths
   tags:
   - Support
 patch:
+  summary: Create connection path
   description: Creates a connection path from the array to another array.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - in: body
-    name: support
+  - name: support
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.2/support-patch.yaml
@@ -33,6 +34,5 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/support-response.yaml
-  summary: Create connection path
   tags:
   - Support

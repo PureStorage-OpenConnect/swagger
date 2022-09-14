@@ -2,5 +2,5 @@ type: object
 properties:
   name:
     type: string
-    description: >-
-      The resource name, such as volume name, pod name, snapshot name, and so on.
+    description: The resource name, such as volume name, pod name, snapshot name,
+      and so on.

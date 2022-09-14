@@ -1,7 +1,7 @@
-description: >-
-  A file system on an array.
+description: A file system on an array, including both FlashArray and FlashBlade file
+  systems.
 allOf:
-- $ref: _arrays-built-in.yaml
+- $ref: ../../models/Pure1-1.0/_arrays-built-in.yaml
 - properties:
     created:
       description: Creation time in milliseconds since UNIX epoch.
@@ -10,41 +10,45 @@ allOf:
       readOnly: true
       example: 1502729489760
     destroyed:
-      description: >-
-        Is the file system destroyed?
+      description: Is the file system destroyed?
       type: boolean
       example: false
     fast_remove_directory_enabled:
-      description: >-
-        Is fast remove directory enabled?
+      description: On a FlashBlade file system, returns the value of `true` if fast
+        remove directory is enabled and `false` if it is not. On a FlashArray file
+        system, the value is always `null`.
       type: boolean
       example: false
     hard_limit_enabled:
-      description: >-
-        Is the file system's size a hard limit quota?
+      description: On a FlashBlade file system, returns the value of `true` if the
+        file system's size is a hard limit quota and `false` if it is not. On a FlashArray
+        file system, the value is always `null`.
       type: boolean
       example: false
     http:
-      description: HTTP configuration.
+      description: HTTP configuration. On a FlashArray file system, the value is always
+        `null`.
       allOf:
       - $ref: ../../models/Pure1-1.0/_http.yaml
     nfs:
-      description: NFS configuration.
+      description: NFS configuration. On a FlashArray file system, the value is always
+        `null`.
       allOf:
       - $ref: ../../models/Pure1-1.0/_nfs.yaml
     provisioned:
-      description: >-
-        The provisioned size of the file system in bytes. A value of 0 means
-        unlimited.
+      description: The provisioned size of the file system in bytes. A value of 0
+        means unlimited. On a FlashArray file system, the value is always `null`.
       type: integer
       format: int64
       example: 1099511627776
     smb:
-      description: SMB configuration.
+      description: SMB configuration. On a FlashArray file system, the value is always
+        `null`.
       allOf:
       - $ref: ../../models/Pure1-1.0/_smb.yaml
     snapshot_directory_enabled:
       type: boolean
-      description: >-
-        Is snapshot directory enabled?
+      description: On a FlashBlade file system, returns the value of `true` if snapshot
+        directory is enabled and `false` if it is not. On a FlashArray file system,
+        the value is always `null`.
       example: false

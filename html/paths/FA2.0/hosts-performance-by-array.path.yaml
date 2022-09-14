@@ -1,15 +1,13 @@
 get:
   summary: List host performance data by array
-
-  description: >-
-    Return real-time and historical performance data, real-time latency data,
-    and average I/O size data.
-    The data returned is for each volume that is connected to a host on the current array and
-    for each volume that is connected to a host on any remote arrays
-    that are visible to the current array.
-    The data is displayed as a total across all hosts on each array and by individual host.
-
+  description: Return real-time and historical performance data, real-time latency
+    data, and average I/O size data. The data returned is for each volume that is
+    connected to a host on the current array and for each volume that is connected
+    to a host on any remote arrays that are visible to the current array. The data
+    is displayed as a total across all hosts on each array and by individual host.
   parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - $ref: ../../queries/FA2.0/filter.query.yaml
   - $ref: ../../queries/FA2.0/limit.query.yaml
   - $ref: ../../queries/FA2.0/names.query.yaml
@@ -17,13 +15,10 @@ get:
   - $ref: ../../queries/FA2.0/sort.query.yaml
   - $ref: ../../queries/FA2.0/total_item_count.query.yaml
   - $ref: ../../queries/FA2.0/total_only.query.yaml
-
   responses:
     200:
       description: OK
       schema:
-        $ref: >-
-          ../../responses/FA2.0/resource-performance-no-id-by-array-get-response.yaml
-
+        $ref: ../../responses/FA2.0/resource-performance-no-id-by-array-get-response.yaml
   tags:
   - Hosts

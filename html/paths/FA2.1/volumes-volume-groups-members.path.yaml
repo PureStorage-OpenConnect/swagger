@@ -1,4 +1,5 @@
 get:
+  summary: List volumes that are in volume groups
   description: Returns a list of volumes that are in a volume group.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -16,7 +17,6 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.1/member-get-response.yaml
-  summary: List volumes that are in volume groups
   tags:
   - Volumes
 parameters:

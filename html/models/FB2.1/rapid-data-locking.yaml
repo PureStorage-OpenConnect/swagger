@@ -1,10 +1,10 @@
+type: object
 properties:
   enabled:
     description: '`True` if the Rapid Data Locking feature is enabled.'
-    example: true
     type: boolean
+    example: true
   kmip_server:
+    description: The KMIP server configuration associated with RDL.
     allOf:
     - $ref: ../../models/FB2.0/_reference.yaml
-    description: The KMIP server configuration associated with RDL.
-type: object

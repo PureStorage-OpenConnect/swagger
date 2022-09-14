@@ -1,15 +1,5 @@
-delete:
-  description: DELETE network-interfaces (placeholder)
-  parameters:
-  - $ref: ../../queries/FB1.8/ids.query.yaml
-  - $ref: ../../queries/FB1.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE network-interfaces (placeholder)
-  tags:
-  - Network Interfaces
 get:
+  summary: GET network-interfaces (placeholder)
   description: GET network-interfaces (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
@@ -24,32 +14,14 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/network-interface-get-response.yaml
-  summary: GET network-interfaces (placeholder)
-  tags:
-  - Network Interfaces
-patch:
-  description: PATCH network-interfaces (placeholder)
-  parameters:
-  - $ref: ../../queries/FB1.8/ids.query.yaml
-  - $ref: ../../queries/FB1.0/names.query.yaml
-  - in: body
-    name: network-interface
-    required: true
-    schema:
-      $ref: ../../models/FB1.9/network-interface-patch.yaml
-  responses:
-    200:
-      description: OK
-      schema:
-        $ref: ../../responses/FB1.9/network-interface-response.yaml
-  summary: PATCH network-interfaces (placeholder)
   tags:
   - Network Interfaces
 post:
+  summary: POST network-interfaces (placeholder)
   description: POST network-interfaces (placeholder)
   parameters:
-  - in: body
-    name: network-interface
+  - name: network-interface
+    in: body
     required: true
     schema:
       $ref: ../../models/FB1.9/network-interface.yaml
@@ -59,6 +31,34 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/network-interface-response.yaml
-  summary: POST network-interfaces (placeholder)
+  tags:
+  - Network Interfaces
+patch:
+  summary: PATCH network-interfaces (placeholder)
+  description: PATCH network-interfaces (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - name: network-interface
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB1.9/network-interface-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.9/network-interface-response.yaml
+  tags:
+  - Network Interfaces
+delete:
+  summary: DELETE network-interfaces (placeholder)
+  description: DELETE network-interfaces (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Network Interfaces

@@ -1,4 +1,5 @@
 get:
+  summary: GET hardware
   description: List hardware slots and bays and the status of installed components.
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
@@ -11,18 +12,15 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/hardware-get-response.yaml
-  summary: GET hardware
   tags:
   - Hardware
-parameters:
-- $ref: ../../queries/FB2.0/ids.query.yaml
-- $ref: ../../queries/FB2.0/names.query.yaml
 patch:
+  summary: PATCH hardware
   description: Controls the visual identification light of the specified hardware
     component.
   parameters:
-  - in: body
-    name: hardware
+  - name: hardware
+    in: body
     required: true
     schema:
       $ref: ../../models/FB2.0/hardware.yaml
@@ -31,6 +29,8 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/hardware-response.yaml
-  summary: PATCH hardware
   tags:
   - Hardware
+parameters:
+- $ref: ../../queries/FB2.0/ids.query.yaml
+- $ref: ../../queries/FB2.0/names.query.yaml

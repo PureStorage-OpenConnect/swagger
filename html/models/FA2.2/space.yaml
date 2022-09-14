@@ -4,6 +4,7 @@ allOf:
     replication:
       description: This is the sum of replication space consumed by all pods on this
         array.
+      type: integer
       format: int64
       minimum: 0
-      type: integer
+      readOnly: true

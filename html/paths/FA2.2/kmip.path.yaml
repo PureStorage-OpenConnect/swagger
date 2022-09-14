@@ -1,16 +1,5 @@
-delete:
-  description: Deletes KMIP server objects.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: Delete KMIP server object
-  tags:
-  - KMIP
 get:
+  summary: List KMIP server objects
   description: Displays the list of KMIP server objects.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -27,36 +16,17 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/kmip-get-response.yaml
-  summary: List KMIP server objects
-  tags:
-  - KMIP
-patch:
-  description: Modifies one or more attributes of KMIP server objects.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/names.query.yaml
-  - in: body
-    name: kmip
-    required: true
-    schema:
-      $ref: ../../models/FA2.2/kmip-patch.yaml
-  responses:
-    200:
-      description: OK
-      schema:
-        $ref: ../../responses/FA2.2/kmip-response.yaml
-  summary: Modify KMIP attributes
   tags:
   - KMIP
 post:
+  summary: Create KMIP server object
   description: Creates KMIP server objects.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - $ref: ../../queries/FA2.0/names.query.yaml
-  - in: body
-    name: kmip
+  - name: kmip
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.2/kmip-post.yaml
@@ -65,6 +35,36 @@ post:
       description: Returns the newly created KMIP server object.
       schema:
         $ref: ../../responses/FA2.2/kmip-response.yaml
-  summary: Create KMIP server object
+  tags:
+  - KMIP
+delete:
+  summary: Delete KMIP server object
+  description: Deletes KMIP server objects.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - KMIP
+patch:
+  summary: Modify KMIP attributes
+  description: Modifies one or more attributes of KMIP server objects.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - name: kmip
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.2/kmip-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.2/kmip-response.yaml
   tags:
   - KMIP

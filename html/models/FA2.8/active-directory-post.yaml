@@ -6,5 +6,5 @@ allOf:
         computer account should be created when joining the domain. The `DC=...` components
         of the distinguished name can be optionally omitted. If not specified, defaults
         to `CN=Computers`.
-      example: OU=Dev,OU=Sweden,DC=purestorage,DC=com
       type: string
+      example: OU=Dev,OU=Sweden,DC=purestorage,DC=com

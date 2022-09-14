@@ -11,9 +11,7 @@ allOf:
       allOf:
       - $ref: ../../models/FA2.0/_fixed-reference.yaml
     subtype:
-      description: >-
-          The type of volume.
-          Valid values are `protocol_endpoint` and `regular`.
+      description: The type of volume. Valid values are `protocol_endpoint` and `regular`.
       type: string
       readOnly: true
     volume_group:

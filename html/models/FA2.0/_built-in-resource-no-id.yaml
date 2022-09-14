@@ -6,9 +6,9 @@ description: 'A built-in resource. Many are singletons predefined by Purity (e.g
   Typically, a user can''t create, delete or rename a built-in resource. A few can
   be created or deleted, but not renamed because the names are meaningful to Purity
   (e.g., VIFs, file systems, file system snapshots, volume snapshot).'
+type: object
 properties:
   name:
     description: A locally unique, system-generated name. The name cannot be modified.
-    readOnly: true
     type: string
-type: object
+    readOnly: true

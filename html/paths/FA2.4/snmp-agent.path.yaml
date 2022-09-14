@@ -1,4 +1,5 @@
 get:
+  summary: List SNMP agent
   description: Displays the SNMP agent name and protocol attributes.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -13,24 +14,23 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.4/snmp-agent-get-response.yaml
-  summary: List SNMP agent
   tags:
   - SNMP Agents
 patch:
+  summary: Modify SNMP agent
   description: Modifies the name or the protocol attributes of the SNMP agent.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - in: body
-    name: snmp-agent
+  - name: snmp-agent
+    in: body
     required: true
     schema:
-      $ref: ../../models/FA2.4/snmp-agent.yaml
+      $ref: ../../models/FA2.4/snmp-agent-patch.yaml
   responses:
     200:
       description: Returns the newly updated SNMP agent object.
       schema:
         $ref: ../../responses/FA2.4/snmp-agent-response.yaml
-  summary: Modify SNMP agent
   tags:
   - SNMP Agents

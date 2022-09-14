@@ -1,4 +1,5 @@
 get:
+  summary: GET keytabs/download
   description: Download a Kerberos keytab file. The file can be downloaded in the
     native binary format or a base64 encoded format. If not specified, defaults to
     binary.
@@ -13,6 +14,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/keytab-file-response.yaml
-  summary: GET keytabs/download
   tags:
   - Keytabs

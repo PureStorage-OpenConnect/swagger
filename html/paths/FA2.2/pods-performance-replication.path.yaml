@@ -1,8 +1,8 @@
 get:
-  description: Displays pod replication performance data, organized by array. The
-    data returned is the real-time and historical performance data for each replication
-    type at the pod level. Values include `continuous`, `periodic`, `resync`, and
-    `sync`.
+  summary: List pod replication performance data
+  description: Displays pod replication performance data. The data returned is the
+    real-time and historical performance data for each replication type at the pod
+    level. Values include `continuous`, `periodic`, `resync`, and `sync`.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
@@ -23,6 +23,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/pod-performance-replication-get-response.yaml
-  summary: List pod replication performance data
   tags:
   - Pods

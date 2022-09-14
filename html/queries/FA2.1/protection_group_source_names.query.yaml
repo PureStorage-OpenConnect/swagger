@@ -1,4 +1,5 @@
-collectionFormat: csv
+name: source_names
+in: query
 description: The name of the protection group or protection group snapshot to be copied
   into a new or existing protection group. If the destination protection group and
   all of its volumes already exist, include the `overwrite` parameter to overwrite
@@ -7,8 +8,7 @@ description: The name of the protection group or protection group snapshot to be
   of the volumes that are being restored. If the source is a protection group, the
   latest snapshot of the protection group will be used as the source during the copy
   operation.
-in: query
+type: array
+collectionFormat: csv
 items:
   type: string
-name: source_names
-type: array

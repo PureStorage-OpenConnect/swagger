@@ -5,13 +5,11 @@ properties:
     type: string
     example: example_key
   namespace:
-    description: >-
-      Namespace of the tag.
-      Namespace identifies the category of the tag.
+    description: Namespace of the tag. Namespace identifies the category of the tag.
     type: string
     example: pure1
   resource:
-    $ref: _fixed-reference.yaml
+    $ref: ../../models/Pure1-1.0/_fixed-reference.yaml
   tag_organization_id:
     description: Org id of the tag.
     type: integer

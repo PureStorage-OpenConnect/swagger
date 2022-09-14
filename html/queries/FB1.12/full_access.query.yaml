@@ -1,6 +1,6 @@
+name: full_access
+in: query
 description: If set to `true`, creates an object store user with full permissions.
   If set to `false`, creates an object store user with no permission. If not specified,
   defaults to `true`.
-in: query
-name: full_access
 type: boolean

@@ -1,4 +1,5 @@
 get:
+  summary: GET syslog-servers/settings (placeholder)
   description: GET syslog-servers/settings (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
@@ -13,14 +14,14 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.10/syslog-server-settings-get-response.yaml
-  summary: GET syslog-servers/settings (placeholder)
   tags:
   - Syslog
 patch:
+  summary: PATCH syslog-servers/settings (placeholder)
   description: PATCH syslog-servers/settings (placeholder)
   parameters:
-  - in: body
-    name: syslog-server-settings
+  - name: syslog-server-settings
+    in: body
     required: true
     schema:
       $ref: ../../models/FB1.10/syslog-server-settings.yaml
@@ -31,6 +32,5 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FB1.10/syslog-server-settings-response.yaml
-  summary: PATCH syslog-servers/settings (placeholder)
   tags:
   - Syslog

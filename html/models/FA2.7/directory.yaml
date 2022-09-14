@@ -2,10 +2,10 @@ allOf:
 - $ref: ../../models/FA2.3/directory.yaml
 - properties:
     limited_by:
-      allOf:
-      - $ref: ../../models/FA2.7/_limited-by.yaml
       description: The quota policy that is limiting usage on this managed directory.
         This policy defines the total amount of space provisioned to this managed
         directory and its descendants. The returned value contains two parts&#58;
         the name of the policy and the managed directory to which the policy is attached.
+      allOf:
+      - $ref: ../../models/FA2.7/_limited-by.yaml
       readOnly: true

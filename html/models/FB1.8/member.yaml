@@ -2,13 +2,11 @@ allOf:
 - type: object
 - properties:
     member:
-      description: >-
-        A reference to an object that is a member of the referenced group.
+      description: A reference to an object that is a member of the referenced group.
       allOf:
       - $ref: ../../models/FB1.8/_reference.yaml
     group:
-      description: >-
-        A reference to a group object that has the referenced member object
+      description: A reference to a group object that has the referenced member object
         as a member.
       allOf:
       - $ref: ../../models/FB1.8/_reference.yaml

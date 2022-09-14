@@ -4,43 +4,43 @@ allOf:
     encryption_type:
       description: The encryption type used by the Kerberos domain controller to generate
         the keytab.
-      example: aes256-cts-hmac-sha1-96
-      readOnly: true
       type: string
+      readOnly: true
+      example: aes256-cts-hmac-sha1-96
     fqdn:
       description: The fully qualified domain name to which the keytab was issued.
-      example: vip1.my-array.customerdomain.example.com
-      readOnly: true
       type: string
+      readOnly: true
+      example: vip1.my-array.customerdomain.example.com
     kvno:
       description: The key version number of the key used to generate the keytab.
-      example: 1
+      type: integer
       format: int64
       readOnly: true
-      type: integer
+      example: 1
     prefix:
       description: The prefix in the name of the keytab object. This is the same for
         all keytab objects created from a single keytab file. The name of a keytab
         entry is created in the format `<prefix>.<suffix>` for all entries.
-      example: auth-keytabs
-      readOnly: true
       type: string
+      readOnly: true
+      example: auth-keytabs
     principal:
       description: The service name for which the keytab was issued.
-      example: nfs
-      readOnly: true
       type: string
+      readOnly: true
+      example: nfs
     realm:
       description: The Kerberos realm that issued the keytab.
-      example: my-secure-realm.com
-      readOnly: true
       type: string
+      readOnly: true
+      example: my-secure-realm.com
     suffix:
       description: The suffix in the name of the keytab object, determined at creation
         time using the slot number of the keytab entry in a file and the number of
         existing entries with the same prefix. The name of a keytab entry is created
         in the format `<prefix>.<suffix>` for all entries.
-      example: 4
+      type: integer
       format: int64
       readOnly: true
-      type: integer
+      example: 4

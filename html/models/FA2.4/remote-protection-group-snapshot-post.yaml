@@ -1,10 +1,11 @@
 allOf:
 - $ref: ../../models/FA2.0/_built-in.yaml
 - $ref: ../../models/FA2.1/remote-protection-group-snapshot.yaml
-- properties:
+- type: object
+  properties:
     destroyed:
-      readOnly: true
       type: boolean
+      readOnly: true
     suffix:
       description: Specifies a name suffix for the snapshots created. The snapshot
         is created on the FlashArray specified by the `on` parameter. The `on` parameter
@@ -13,4 +14,3 @@ allOf:
         The names of all snapshots created by a single command that specifies this
         option have the same suffix.
       type: string
-  type: object

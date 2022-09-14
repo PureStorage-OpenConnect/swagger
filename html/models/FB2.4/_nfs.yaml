@@ -2,13 +2,14 @@ allOf:
 - $ref: ../../models/FB2.3/_nfs.yaml
 - properties:
     export_policy:
-      allOf:
-      - $ref: ../../models/FB2.0/_reference.yaml
       description: The NFS export policy for the system. Either the `export_policy`
         or `rules` will control the NFS export functionality for the file system.
         If this is set, then the `rules` field will be cleared. Both `export_policy`
         and `rules` can not be set in the same request.
+      allOf:
+      - $ref: ../../models/FB2.0/_reference.yaml
     rules:
+      type: string
       description: The NFS export rules for the system. Either the `export_policy`
         or `rules` will control the NFS export functionality for the file system.
         If this is set, then the `policy` field will be cleared. Both `export_policy`
@@ -20,4 +21,3 @@ allOf:
         `insecure`, `atime`, `noatime`, and `sec`. If not specified, defaults to `*(rw,no_root_squash)`.
       example: 1.0.0.0/8(rw,no_root_squash) fd01:abcd::/64(ro,secure,root_squash,anongid=16000)
         @netgrp(rw,all_squash,anonuid=99,fileid_32bit) 1.41.8.32(rw,no_all_squash,sec=krb5:krb5i:krp5p)
-      type: string

@@ -2,15 +2,16 @@ allOf:
 - $ref: ../../models/FA2.0/_resource.yaml
 - description: A pod is an administrative domain, a data container, and a namespace
     for volumes and protection groups.
+  type: object
   properties:
     arrays:
       description: A list of arrays over which the pod is stretched. If there are
         two or more arrays in the stretched pod, all data in the pod is synchronously
         replicated between all of the arrays within the pod.
+      type: array
       items:
         $ref: ../../models/FA2.1/_pod_array_status.yaml
       minItems: 1
-      type: array
     destroyed:
       description: Returns a value of `true` if the pod has been destroyed and is
         pending eradication. The `time_remaining` value displays the amount of time
@@ -25,39 +26,38 @@ allOf:
         array and any peer arrays that are connected to the current array for synchronous
         replication can be added to a pod for failover preference. By default, `failover_preferences=null`,
         meaning no arrays have been configured for failover preference.
+      type: array
       items:
         $ref: ../../models/FA2.0/_reference.yaml
-      type: array
     footprint:
       description: The maximum amount of physical space the pod would take up on any
         array, ignoring any data shared outside the pod. Measured in bytes. The footprint
         metric is mostly used for capacity planning.
+      type: integer
       format: int64
       minimum: 0
-      type: integer
     mediator:
       description: The URL of the mediator for the pod. By default, the Pure1 Cloud
         Mediator (`purestorage`) serves as the mediator.
-      example: https://mediator.cloud-support.purestorage.com
       type: string
+      example: https://mediator.cloud-support.purestorage.com
     mediator_version:
       description: The mediator version.
-      example: 1.0.0
       type: string
+      example: 1.0.0
     source:
+      description: The source pod from where data is cloned to create the new pod.
       allOf:
       - $ref: ../../models/FA2.0/_fixed-reference.yaml
-      description: The source pod from where data is cloned to create the new pod.
     space:
+      description: Displays provisioned size and physical storage consumption information
+        for the sum of all volumes connected to the specified host.
       allOf:
       - $ref: ../../models/FA2.1/_pod_space.yaml
-      description: Displays provisioned (virtual) size and physical storage consumption
-        information for the sum of all volumes connected to the specified host.
     time_remaining:
       description: The amount of time left until the destroyed pod is permanently
         eradicated. Measured in milliseconds. Before the `time_remaining` period has
         elapsed, the destroyed pod can be recovered by setting `destroyed=false`.
+      type: integer
       format: int64
       readOnly: true
-      type: integer
-  type: object

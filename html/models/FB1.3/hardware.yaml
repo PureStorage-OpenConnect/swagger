@@ -2,9 +2,8 @@ allOf:
 - $ref: ../../models/FB1.2/hardware.yaml
 - properties:
     type:
-      description: >-
-        Type of hardware component.
-        Valid values are `ch`, `eth`, `fan`, `fb`, `fm`, `pwr`, and `xfm`.
+      description: Type of hardware component. Valid values are `ch`, `eth`, `fan`,
+        `fb`, `fm`, `pwr`, and `xfm`.
       type: string
       example: ch
       readOnly: true

@@ -1,7 +1,7 @@
+type: object
 properties:
   items:
-    description: A list of object store bucket replica link objects.
+    type: array
     items:
       $ref: ../../models/FB2.0/bucket-replica-link.yaml
-    type: array
-type: object
+    description: A list of object store bucket replica link objects.

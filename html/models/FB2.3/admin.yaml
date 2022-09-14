@@ -7,13 +7,13 @@ allOf:
         otherwise `false`. Can be patched to false to unlock a user. This field is
         only visible to `array_admin` roles. For all other users, the value is always
         `null`.
-      example: false
       type: boolean
+      example: false
     lockout_remaining:
       description: The remaining lockout period, in milliseconds, if the user is locked
         out. This field is only visible to `array_admin` roles. For all other users,
         the value is always `null`.
-      example: null
-      format: int64
-      readOnly: true
       type: integer
+      format: int64
+      example: null
+      readOnly: true

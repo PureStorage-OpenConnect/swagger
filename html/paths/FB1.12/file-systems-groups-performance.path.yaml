@@ -3,8 +3,8 @@ get:
   - $ref: ../../queries/FB1.9/file_system_ids.query.yaml
   - $ref: ../../queries/FB1.6/file_system_names.query.yaml
   - $ref: ../../queries/FB1.0/filter.query.yaml
-  - $ref: ../../queries/FB1.6/gids.query.yaml
-  - $ref: ../../queries/FB1.6/group_names.query.yaml
+  - $ref: ../../queries/FB1.12/gids_not_strict.query.yaml
+  - $ref: ../../queries/FB1.12/group_names_not_strict.query.yaml
   - $ref: ../../queries/FB1.0/limit.query.yaml
   - $ref: ../../queries/FB1.0/names.query.yaml
   - $ref: ../../queries/FB1.0/sort.query.yaml

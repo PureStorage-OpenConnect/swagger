@@ -3,14 +3,14 @@ allOf:
 - description: SSL Certificate managed by Purity.
   properties:
     certificate:
+      type: string
       description: The text of the certificate.
-      type: string
     intermediate_certificate:
+      type: string
       description: Intermediate certificate chains.
-      type: string
     passphrase:
+      type: string
       description: The passphrase used to encrypt `private_key`.
-      type: string
     private_key:
-      description: The private key used to sign the certificate.
       type: string
+      description: The private key used to sign the certificate.

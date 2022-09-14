@@ -1,4 +1,5 @@
 get:
+  summary: GET file-systems/policies-all
   description: List file system policies.
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
@@ -15,6 +16,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/policy-member-get-response.yaml
-  summary: GET file-systems/policies-all
   tags:
   - File Systems

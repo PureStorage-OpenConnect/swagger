@@ -6,10 +6,8 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.8/quota-setting-get-response.yaml
-
   tags:
   - Quotas
-
 patch:
   summary: PATCH quotas-settings (placeholder)
   description: PATCH quotas-settings (placeholder)
@@ -19,12 +17,10 @@ patch:
     required: true
     schema:
       $ref: ../../models/FB1.8/quota-setting.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.8/quota-setting-response.yaml
-
   tags:
   - Quotas

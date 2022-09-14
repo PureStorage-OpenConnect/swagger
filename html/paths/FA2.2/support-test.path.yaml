@@ -1,5 +1,6 @@
 get:
-  description: Dislays information about whether the array can connect to Pure Storage
+  summary: List Pure Storage Support connection data
+  description: Displays information about whether the array can connect to Pure Storage
     Support by establishing a secure shell or secure HTTP connection and verifies
     that messages can be exchanged.
   parameters:
@@ -16,6 +17,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/test-result-get-response.yaml
-  summary: List Pure Storage Support connection data
   tags:
   - Support

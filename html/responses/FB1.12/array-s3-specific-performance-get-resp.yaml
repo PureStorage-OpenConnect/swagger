@@ -1,9 +1,9 @@
 allOf:
 - $ref: ../../responses/FB1.0/page-info.yaml
-- properties:
+- type: object
+  properties:
     items:
-      description: A list of S3 specific array performance metrics objects.
+      type: array
       items:
         $ref: ../../models/FB1.12/array-s3-specific-performance.yaml
-      type: array
-  type: object
+      description: A list of S3 specific array performance metrics objects.

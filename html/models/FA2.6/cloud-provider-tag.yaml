@@ -1,17 +1,17 @@
+type: object
 properties:
-  details:
-    description: Details about the status of the tag if not healthy.
-    example: partially applied
-    readOnly: true
-    type: string
   key:
     description: Key of the tag. Supports UTF-8 Unicode characters. Please refer to
       the offical document from cloud providers for limitations.
-    example: environment
     type: string
+    example: environment
   value:
     description: Value of the tag. Supports UTF-8 Unicode characters. Please refer
       to the offical document from cloud providers for limitations.
-    example: staging
     type: string
-type: object
+    example: staging
+  details:
+    description: Details about the status of the tag if not healthy.
+    type: string
+    example: partially applied
+    readOnly: true

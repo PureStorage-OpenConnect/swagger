@@ -1,13 +1,13 @@
+type: object
+readOnly: true
 properties:
-  received_bytes_per_sec:
-    description: Total bytes received per second.
-    format: double
-    minimum: 0.0
-    type: number
   transmitted_bytes_per_sec:
     description: Total bytes transmitted per second.
+    type: number
     format: double
     minimum: 0.0
+  received_bytes_per_sec:
+    description: Total bytes received per second.
     type: number
-readOnly: true
-type: object
+    format: double
+    minimum: 0.0

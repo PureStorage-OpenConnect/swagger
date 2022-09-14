@@ -2,6 +2,6 @@ allOf:
 - $ref: ../../responses/FB1.0/page-info.yaml
 - properties:
     items:
+      type: array
       items:
         $ref: ../../models/FB1.9/array-connection-path.yaml
-      type: array

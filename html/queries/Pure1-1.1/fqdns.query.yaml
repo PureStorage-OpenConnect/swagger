@@ -1,10 +1,10 @@
-collectionFormat: csv
+name: fqdns
+in: query
 description: A comma-separated list of resource FQDNs. If there is not at least one
   resource that matches each `fqdn` element, an error is returned. Single quotes are
   required around all strings.
-in: query
+x-quoted: true
+type: array
+collectionFormat: csv
 items:
   type: string
-name: fqdns
-type: array
-x-quoted: true

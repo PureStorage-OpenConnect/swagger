@@ -3,7 +3,6 @@ allOf:
 - $ref: ../../models/FB1.5/file-system-snapshot.yaml
 - properties:
     source_id:
-      description: >-
-        The unique global ID of the source file system.
+      description: The unique global ID of the source file system.
       type: string
       readOnly: true

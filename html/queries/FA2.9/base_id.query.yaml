@@ -1,7 +1,7 @@
+name: base_id
+in: query
 description: ID of the volume or volume snapshot that the diff comparison is based
   on. If a base volume or volume snapshot is not specified, all mapped blocks for
-  the volume or volume snapshot are displayed. The `base_name` and `base_id` parameters
-  cannot be provided together.
-in: query
-name: base_id
+  the volume or volume snapshot are displayed. The `base_name` or `base_id` parameter
+  is required, but they cannot be set together.
 type: string

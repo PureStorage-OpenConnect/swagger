@@ -1,3 +1,4 @@
+type: object
 description: Software upgrade attempt.
 properties:
   mode:
@@ -9,13 +10,12 @@ properties:
       upgrade pauses if there are any upgrade check failures and functions like `one-click`
       mode otherwise. In `one-click` mode, the upgrade proceeds automatically without
       pausing.
-    example: interactive
     type: string
+    example: interactive
   override_checks:
     description: A list of upgrade checks whose failures are overridden during the
       upgrade. If any optional `args` are provided, they are validated later when
       the corresponding check script runs.
+    type: array
     items:
       $ref: ../../models/FA2.4/_override_check.yaml
-    type: array
-type: object

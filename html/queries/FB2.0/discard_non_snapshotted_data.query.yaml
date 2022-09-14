@@ -1,8 +1,8 @@
+name: discard_non_snapshotted_data
+in: query
 description: This parameter must be set to `true` in order to restore a file system
   from a snapshot or to demote a file system (which restores the file system from
   the common baseline snapshot). Setting this parameter to `true` is acknowledgement
   that any non-snapshotted data currently in the file system will be irretrievably
   lost.
-in: query
-name: discard_non_snapshotted_data
 type: boolean

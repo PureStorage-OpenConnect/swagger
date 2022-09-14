@@ -1,4 +1,5 @@
 get:
+  summary: GET alert-watchers/test
   description: Test an alert watcher's contact information to verify alerts can be
     sent and received.
   parameters:
@@ -11,6 +12,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/test-result-response.yaml
-  summary: GET alert-watchers/test
   tags:
   - Alert Watchers

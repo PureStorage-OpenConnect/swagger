@@ -1,4 +1,5 @@
 get:
+  summary: GET logs-async
   description: List the attributes and status of preparation for a history of log
     events from the array to provide to Pure Technical Services for analysis.
   parameters:
@@ -14,15 +15,15 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.4/logs-async-get-response.yaml
-  summary: GET logs-async
   tags:
   - Logs
 patch:
+  summary: PATCH logs-async
   description: Start the preparation for a history of log events from the array to
     provide to Pure Technical Services for analysis.
   parameters:
-  - in: body
-    name: logs-async
+  - name: logs-async
+    in: body
     required: true
     schema:
       $ref: ../../models/FB2.4/logs-async.yaml
@@ -31,6 +32,5 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FB2.4/logs-async-response.yaml
-  summary: PATCH logs-async
   tags:
   - Logs

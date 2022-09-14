@@ -4,6 +4,6 @@ allOf:
     index:
       description: The index within the policy. The `index` indicates the order the
         rules are evaluated.
-      format: int32
-      readOnly: true
       type: integer
+      readOnly: true
+      format: int32

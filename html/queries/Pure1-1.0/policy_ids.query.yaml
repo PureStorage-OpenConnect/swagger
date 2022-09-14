@@ -1,10 +1,9 @@
 name: policy_ids
 in: query
-description: >-
-  A comma-separated list of policy IDs.
-  If there is not at least one policy that matches each of the elements
-  of `policy_ids`, an error is returned.
-  Single quotes are required around all strings.
+description: A comma-separated list of policy IDs. If there is not at least one resource
+  that matches each `policy_id` element, an error is returned. Single quotes are required
+  around all strings.
+x-quoted: true
 type: array
 collectionFormat: csv
 items:

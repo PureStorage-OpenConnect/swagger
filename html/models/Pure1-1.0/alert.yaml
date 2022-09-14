@@ -1,21 +1,18 @@
-description: >-
-  An alert from an array.
+description: An alert from an array.
 allOf:
-- $ref: ../Pure1-1.0/_arrays-resource.yaml
+- $ref: ../../models/Pure1-1.0/_arrays-resource.yaml
 - properties:
     actual:
       description: Actual condition at the time of the alert.
       type: string
       example: empty
     category:
-      description: >-
-        Category of the alert. Valid values are `array`, `hardware`, and
+      description: Category of the alert. Valid values are `array`, `hardware`, and
         `software`.
       type: string
       example: array
     closed:
-      description: >-
-        Time when the alert was closed, in milliseconds since UNIX epoch.
+      description: Time when the alert was closed, in milliseconds since UNIX epoch.
       type: integer
       format: int64
       example: 1502729489760
@@ -32,8 +29,7 @@ allOf:
       type: string
       example: drive
     created:
-      description: >-
-        Time when the alert was created, in milliseconds since UNIX epoch.
+      description: Time when the alert was created, in milliseconds since UNIX epoch.
       type: integer
       format: int64
       example: 1502729489760
@@ -50,8 +46,7 @@ allOf:
       type: string
       example: https://support.purestorage.com/
     notified:
-      description: >-
-        Time when the user was notified of the alert, in milliseconds since
+      description: Time when the user was notified of the alert, in milliseconds since
         UNIX epoch.
       type: integer
       format: int64
@@ -61,14 +56,12 @@ allOf:
       type: string
       example: array
     severity:
-      description: >-
-        Current severity level. Valid values are `info`, `warning`, `critical`,
+      description: Current severity level. Valid values are `info`, `warning`, `critical`,
         and `hidden`.
       type: string
       example: critical
     state:
-      description: >-
-        Current state of the alert. Valid values are `open`, `closing`,
+      description: Current state of the alert. Valid values are `open`, `closing`,
         and `closed`.
       type: string
       example: open
@@ -77,8 +70,8 @@ allOf:
       type: string
       example: Test alert.
     updated:
-      description: >-
-        Time when the alert was last updated, in milliseconds since UNIX epoch.
+      description: Time when the alert was last updated, in milliseconds since UNIX
+        epoch.
       type: integer
       format: int64
       example: 1502729489760

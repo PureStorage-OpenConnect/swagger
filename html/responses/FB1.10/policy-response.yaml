@@ -1,7 +1,7 @@
+type: object
 properties:
   items:
-    description: A list of policy objects.
+    type: array
     items:
       $ref: ../../models/FB1.10/policy.yaml
-    type: array
-type: object
+    description: A list of policy objects.

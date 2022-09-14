@@ -1,4 +1,5 @@
 get:
+  summary: List pod replication performance data
   description: Displays pod replication performance data. The data returned is the
     real-time and historical performance data for each replication type at the pod
     level. Values include `continuous`, `periodic`, `resync`, and `sync`.
@@ -22,6 +23,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.4/pod-performance-replication-get-response.yaml
-  summary: List pod replication performance data
   tags:
   - Pods

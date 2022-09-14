@@ -5,47 +5,47 @@ allOf:
       description: The common name of the computer account to be created in the Active
         Directory domain. If not specified, defaults to the name of the Active Directory
         configuration.
-      example: FLASHBLADE01
       type: string
+      example: FLASHBLADE01
     directory_servers:
       description: A list of directory servers that will be used for lookups related
         to user authorization. Accepted server formats are IP address and DNS name.
         All specified servers must be registered to the domain appropriately in the
         array's configured DNS and will only be communicated with over the secure
         LDAP (LDAPS) protocol.
-      items:
-        example: ldap.my-corporation.com
-        type: string
       type: array
+      items:
+        type: string
+        example: ldap.my-corporation.com
     domain:
       description: The Active Directory domain to join.
-      example: my-corporation.com
       type: string
+      example: my-corporation.com
     encryption_types:
       description: The encryption types that are supported for use by clients for
         Kerberos authentication.
-      items:
-        example: aes256-cts-hmac-sha1-96
-        type: string
       type: array
+      items:
+        type: string
+        example: aes256-cts-hmac-sha1-96
     join_ou:
       description: The relative distinguished name of the organizational unit in which
         the computer account was created when joining the domain.
-      example: CN=Computers
       type: string
+      example: CN=Computers
     kerberos_servers:
       description: A list of key distribution servers to use for Kerberos protocol.
         Accepted server formats are IP address and DNS name. All specified servers
         must be registered to the domain appropriately in the array's configured DNS.
-      items:
-        example: krb-host.my-corporation.com
-        type: string
       type: array
+      items:
+        type: string
+        example: krb-host.my-corporation.com
     service_principal_names:
       description: A list of service principal names registered for the machine account,
         which can be used for the creation of keys for Kerberos authentication.
-      items:
-        example: nfs/vip1.my-array.my-corporation.com
-        pattern: (service)/(fqdn)
-        type: string
       type: array
+      items:
+        type: string
+        pattern: (service)/(fqdn)
+        example: nfs/vip1.my-array.my-corporation.com

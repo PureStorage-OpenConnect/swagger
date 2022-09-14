@@ -1,19 +1,8 @@
-delete:
-  description: DELETE quotas-groups (placeholder)
-  parameters:
-  - $ref: ../../queries/FB1.6/file_system_names.query.yaml
-  - $ref: ../../queries/FB1.9/file_system_ids.query.yaml
-  - $ref: ../../queries/FB1.6/gids.query.yaml
-  - $ref: ../../queries/FB1.6/group_names.query.yaml
-  - $ref: ../../queries/FB1.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE quotas-groups (placeholder)
+get:
+  summary: GET quotas-groups (placeholder)
+  description: GET quotas-groups (placeholder)
   tags:
   - Quotas
-get:
-  description: GET quotas-groups (placeholder)
   parameters:
   - $ref: ../../queries/FB1.9/file_system_ids.query.yaml
   - $ref: ../../queries/FB1.6/file_system_names.query.yaml
@@ -30,38 +19,52 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.8/group-quota-get-response.yaml
-  summary: GET quotas-groups (placeholder)
+post:
+  summary: POST quotas-groups (placeholder)
+  description: POST quotas-groups (placeholder)
   tags:
   - Quotas
-patch:
-  description: PATCH quotas-groups (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.9/file_system_ids.query.yaml
+  - $ref: ../../queries/FB1.6/file_system_names.query.yaml
+  - $ref: ../../queries/FB1.6/gids.query.yaml
+  - $ref: ../../queries/FB1.6/group_names.query.yaml
+  - name: quota
+    in: body
+    schema:
+      $ref: ../../models/FB1.8/group-quota.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.8/group-quota-response.yaml
+delete:
+  summary: DELETE quotas-groups (placeholder)
+  description: DELETE quotas-groups (placeholder)
+  tags:
+  - Quotas
   parameters:
   - $ref: ../../queries/FB1.6/file_system_names.query.yaml
   - $ref: ../../queries/FB1.9/file_system_ids.query.yaml
   - $ref: ../../queries/FB1.6/gids.query.yaml
   - $ref: ../../queries/FB1.6/group_names.query.yaml
   - $ref: ../../queries/FB1.0/names.query.yaml
-  - in: body
-    name: quota
-    schema:
-      $ref: ../../models/FB1.8/group-quota.yaml
   responses:
     200:
       description: OK
-      schema:
-        $ref: ../../responses/FB1.8/group-quota-response.yaml
+patch:
   summary: PATCH quotas-groups (placeholder)
+  description: PATCH quotas-groups (placeholder)
   tags:
   - Quotas
-post:
-  description: POST quotas-groups (placeholder)
   parameters:
-  - $ref: ../../queries/FB1.9/file_system_ids.query.yaml
   - $ref: ../../queries/FB1.6/file_system_names.query.yaml
+  - $ref: ../../queries/FB1.9/file_system_ids.query.yaml
   - $ref: ../../queries/FB1.6/gids.query.yaml
   - $ref: ../../queries/FB1.6/group_names.query.yaml
-  - in: body
-    name: quota
+  - $ref: ../../queries/FB1.0/names.query.yaml
+  - name: quota
+    in: body
     schema:
       $ref: ../../models/FB1.8/group-quota.yaml
   responses:
@@ -69,6 +72,3 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FB1.8/group-quota-response.yaml
-  summary: POST quotas-groups (placeholder)
-  tags:
-  - Quotas

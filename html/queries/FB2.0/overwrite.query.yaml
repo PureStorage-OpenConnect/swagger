@@ -1,5 +1,5 @@
+name: overwrite
+in: query
 description: When used for snapshot restore, overwrites (`true`) an existing file
   system.
-in: query
-name: overwrite
 type: boolean

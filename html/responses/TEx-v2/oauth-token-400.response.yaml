@@ -8,4 +8,4 @@ schema:
       example: invalid_request
     error_description:
       type: string
-      example: "Unsupported subject_token_type: urn:ietf:params:oauth:token-"
+      example: 'Unsupported subject_token_type: urn:ietf:params:oauth:token-'

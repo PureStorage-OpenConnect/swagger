@@ -1,72 +1,72 @@
 allOf:
 - $ref: ../../models/FA2.0/_built-in-resource-no-id.yaml
-- description: Alert timeline event.
+- type: object
+  description: Alert timeline event.
   properties:
     actual:
-      description: Actual condition at the time the alert is created.
-      example: 95%
-      readOnly: true
       type: string
+      description: Actual condition at the time the alert is created.
+      readOnly: true
+      example: 95%
     alert:
       allOf:
       - $ref: ../../models/FA2.0/_fixed-reference.yaml
-    code:
-      description: The parent alert number.
-      example: 7
-      format: int64
-      readOnly: true
-      type: integer
-    component_name:
-      description: The component type of the alert.
-      example: vm-tom
-      readOnly: true
-      type: string
-    component_type:
-      description: The component name of the alert.
-      example: storage
-      readOnly: true
-      type: string
     created:
+      type: integer
+      format: int64
       description: The time the parent alert was created.
       example: 1576275532434
-      format: int64
+    code:
       type: integer
+      format: int64
+      description: The parent alert number.
+      readOnly: true
+      example: 7
+    component_name:
+      type: string
+      description: The component type of the alert.
+      readOnly: true
+      example: vm-tom
+    component_type:
+      type: string
+      description: The component name of the alert.
+      readOnly: true
+      example: storage
     expected:
+      type: string
       description: Expected state and threshold under normal conditions.
+      readOnly: true
       example: 90%
-      readOnly: true
-      type: string
     issue:
+      type: string
       description: Information about the alert cause.
+      readOnly: true
       example: boot drive overutilization
-      readOnly: true
-      type: string
     knowledge_base_url:
-      description: The knowledge base URL of the alert.
-      example: https://support.purestorage.com/?cid=Alert_0007
-      readOnly: true
       type: string
+      description: The knowledge base URL of the alert.
+      readOnly: true
+      example: https://support.purestorage.com/?cid=Alert_0007
     severity:
+      type: string
       description: The severity level of the alert. Valid values include `info`, `warning`,
         `critical`, and `hidden`.
-      example: critical
       readOnly: true
-      type: string
+      example: critical
     state:
+      type: string
       description: The state of the alert. Valid values include `open`, `closing`,
         and `closed`.
+      readOnly: true
       example: open
-      readOnly: true
-      type: string
     summary:
-      description: A summary of the alert.
-      example: boot drive overutilization
-      readOnly: true
       type: string
-    time:
-      description: The time the event occurred.
-      example: 1578440491109
-      format: int64
+      description: A summary of the alert.
       readOnly: true
+      example: boot drive overutilization
+    time:
       type: integer
-  type: object
+      format: int64
+      description: The time the event occurred.
+      readOnly: true
+      example: 1578440491109

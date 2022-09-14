@@ -1,4 +1,15 @@
+type: object
 properties:
+  name:
+    description: The name of the upgrade check to be overridden so the software upgrade
+      can continue if the check failed or is anticipated to fail during the upgrade
+      process. Overriding the check forces the system to ignore the check failure
+      and continue with the upgrade. If the check includes more specific checks that
+      failed or are anticipated to fail, set them using the `args` parameter. For
+      example, the HostIOCheck check may include a list of hosts that have failed
+      or are anticipated to fail the upgrade check.
+    type: string
+    example: HostIOCheck
   args:
     description: The name of the specific check within the override check to ignore
       so that the system can continue with the software upgrade. The `name` parameter
@@ -8,18 +19,8 @@ properties:
       checks for host01 and host02, set `name=HostIOCheck`, and set `args=host01,host02`.
       Enter multiple `args` in comma-separated format. Note that not all checks have
       `args` values.
+    type: string
     example: host1,host2,host3
-    type: string
-  name:
-    description: The name of the upgrade check to be overridden so the software upgrade
-      can continue if the check failed or is anticipated to fail during the upgrade
-      process. Overriding the check forces the system to ignore the check failure
-      and continue with the upgrade. If the check includes more specific checks that
-      failed or are anticipated to fail, set them using the `args` parameter. For
-      example, the HostIOCheck check may include a list of hosts that have failed
-      or are anticipated to fail the upgrade check.
-    example: HostIOCheck
-    type: string
   persistent:
     description: 'If set to `true`, the system always ignores the failure of the specified
       upgrade check and continues with the upgrade process.
@@ -29,4 +30,3 @@ properties:
       the `continue` command is successfully issued in an `interactive` mode, or the
       first upgrade check step successfully finishes in a `one-click` mode.'
     type: boolean
-type: object

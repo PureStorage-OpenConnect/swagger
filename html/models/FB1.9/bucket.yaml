@@ -5,6 +5,6 @@ allOf:
     account:
       $ref: ../../models/FB1.8/_fixed-reference.yaml
     versioning:
+      type: string
       description: The versioning state for objects within the bucket. Valid values
         are `none`, `enabled`, and `suspended`.
-      type: string

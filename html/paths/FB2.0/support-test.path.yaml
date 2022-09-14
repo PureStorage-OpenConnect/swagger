@@ -1,4 +1,5 @@
 get:
+  summary: GET support-test
   description: Test if the Phone Home and Remote Assistance settings are functioning
     properly.
   parameters:
@@ -10,6 +11,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/test-result-get-response.yaml
-  summary: GET support-test
   tags:
   - Support

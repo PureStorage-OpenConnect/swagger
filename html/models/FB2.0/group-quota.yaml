@@ -4,25 +4,25 @@ allOf:
     file_system:
       $ref: ../../models/FB2.0/_fixed-reference.yaml
     file_system_default_quota:
+      type: integer
+      format: int64
       description: File system's default group quota (in bytes). If it is `0`, it
         means there is no default quota. This will be the effective group quota if
         the group doesn't have an individual quota. This default quota is set through
         the `file-systems` endpoint.
-      format: int64
       readOnly: true
-      type: integer
     group:
+      description: The group on which this quota is enforced.
       allOf:
       - $ref: ../../models/FB2.0/_group.yaml
-      description: The group on which this quota is enforced.
     quota:
+      type: integer
+      format: int64
       description: The space limit of the quota (in bytes) for the specified group,
         cannot be `0`. If specified, this value will override the file system's default
         group quota.
-      format: int64
-      type: integer
     usage:
-      description: The usage of the file system (in bytes) by the specified group.
-      format: int64
-      readOnly: true
       type: integer
+      format: int64
+      description: The usage of the file system (in bytes) by the specified group.
+      readOnly: true

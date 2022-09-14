@@ -1,71 +1,71 @@
 allOf:
 - $ref: ../../models/FA2.0/_built-in-resource-no-id.yaml
 - description: SSL certificate managed by Purity.
+  type: object
   properties:
     certificate:
       description: The text of the certificate.
       type: string
     common_name:
       description: The common name field listed in the certificate.
-      example: Pure Storage Inc.
       type: string
+      example: Pure Storage Inc.
     country:
       description: Two-letter country (ISO) code listed in the certificate.
-      example: CA
       type: string
+      example: CA
     email:
       description: The email field listed in the certificate.
-      example: tcrisp@veridiandynamics.com
       type: string
+      example: tcrisp@veridiandynamics.com
     intermediate_certificate:
       description: The text of the intermediate certificate chains.
       type: string
     issued_by:
       description: The party that issued the certificate.
-      example: Symantec, Inc.
-      readOnly: true
       type: string
+      readOnly: true
+      example: Symantec, Inc.
     issued_to:
       description: The party to whom the certificate is issued.
-      example: Pure Storage, Inc.
-      readOnly: true
       type: string
+      readOnly: true
+      example: Pure Storage, Inc.
     key_size:
       description: The size of the private key for the certificate in bits. Default
         is 2048 bits.
-      example: 2048
-      format: int32
       type: integer
+      format: int32
+      example: 2048
     locality:
       description: The locality field listed in the certificate.
-      example: Toronto
       type: string
+      example: Toronto
     organization:
       description: The organization field listed in the certificate.
-      example: Veridian Dynamics
       type: string
+      example: Veridian Dynamics
     organizational_unit:
       description: The organizational unit field listed in the certificate.
-      example: Research & Development
       type: string
+      example: Research & Development
     state:
       description: The state/province field listed in the certificate.
-      example: Ontario
       type: string
+      example: Ontario
     status:
       description: The type of certificate. Valid values are `self-signed` and `imported`.
-      readOnly: true
       type: string
+      readOnly: true
     valid_from:
       description: The date when the certificate starts being valid.
-      example: 1491070899
+      type: integer
       format: int64
       readOnly: true
-      type: integer
+      example: 1491070899
     valid_to:
       description: The date of when the certificate stops being valid.
-      example: 1524248499
+      type: integer
       format: int64
       readOnly: true
-      type: integer
-  type: object
+      example: 1524248499

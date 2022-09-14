@@ -3,14 +3,15 @@ allOf:
 - description: A protection group snapshot is a collection of point-in-time consistent
     volume snapshots, for volumes associated with the protection group when the snapshot
     was taken.
+  type: object
   properties:
     created:
       description: The snapshot creation time of the original snapshot source. Measured
         in milliseconds since the UNIX epoch.
-      example: 1503520993
+      type: integer
       format: int64
       readOnly: true
-      type: integer
+      example: 1503520993
     destroyed:
       description: Returns a value of `true` if the protection group snapshot has
         been destroyed and is pending eradication. The `time_remaining` value displays
@@ -20,19 +21,19 @@ allOf:
         has elapsed, the snapshot is permanently eradicated and can no longer be recovered.
       type: boolean
     pod:
-      allOf:
-      - $ref: ../../models/FA2.0/_fixed-reference.yaml
       description: The pod in which the protection group of the protection group snapshot
         resides.
-    source:
       allOf:
       - $ref: ../../models/FA2.0/_fixed-reference.yaml
-      description: The original protection group from which this snapshot was taken.
     space:
+      description: Returns provisioned size and physical storage consumption data
+        for each protection group.
       allOf:
       - $ref: ../../models/FA2.0/_space.yaml
-      description: Returns provisioned (virtual) size and physical storage consumption
-        data for each protection group.
+    source:
+      description: The original protection group from which this snapshot was taken.
+      allOf:
+      - $ref: ../../models/FA2.0/_fixed-reference.yaml
     suffix:
       description: The name suffix appended to the protection group name to make up
         the full protection group snapshot name in the form `PGROUP.SUFFIX`. If `suffix`
@@ -45,7 +46,6 @@ allOf:
       description: The amount of time left until the destroyed snapshot is permanently
         eradicated. Measured in milliseconds. Before the `time_remaining` period has
         elapsed, the destroyed snapshot can be recovered by setting `destroyed=false`.
+      type: integer
       format: int64
       readOnly: true
-      type: integer
-  type: object

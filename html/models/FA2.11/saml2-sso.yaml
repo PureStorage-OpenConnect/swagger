@@ -1,16 +1,16 @@
 allOf:
 - $ref: ../FA2.2/_resource-fixed-non-unique-name.yaml
 - description: Configuration information for SAML2-based SSO for FlashArray.
-- properties:
-    array_url:
-      description: The URL of the array.
-      example: https://myarray.mycompany.com
-      type: string
+- type: object
+  properties:
     enabled:
       description: If set to `true`, the SAML2 SSO configuration is enabled.
       type: boolean
-    idp:
-      $ref: ../../models/FA2.11/_saml2-sso-idp.yaml
+    array_url:
+      description: The URL of the array.
+      type: string
+      example: https://myarray.mycompany.com
     sp:
       $ref: ../../models/FA2.11/_saml2-sso-sp.yaml
-  type: object
+    idp:
+      $ref: ../../models/FA2.11/_saml2-sso-idp.yaml

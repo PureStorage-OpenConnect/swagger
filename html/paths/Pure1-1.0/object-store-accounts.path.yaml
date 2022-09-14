@@ -1,4 +1,5 @@
 get:
+  summary: Get object store accounts
   description: 'Retrieves object store accounts.
 
     '
@@ -19,8 +20,15 @@ get:
         $ref: ../../responses/Pure1-1.0/headers-all-default.response.yaml
       schema:
         $ref: ../../responses/Pure1-1.0/object-store-account-get-response.yaml
-    allOf:
-    - $ref: ../../responses/Pure1-1.0/errors-all.response.yaml
-  summary: Get object store accounts
+    400:
+      $ref: ../../responses/Pure1-1.0/error-400.response.yaml
+    403:
+      $ref: ../../responses/Pure1-1.0/error-403.response.yaml
+    404:
+      $ref: ../../responses/Pure1-1.0/error-404.response.yaml
+    429:
+      $ref: ../../responses/Pure1-1.0/error-429.response.yaml
+    500:
+      $ref: ../../responses/Pure1-1.0/error-500.response.yaml
   tags:
   - Object Store Accounts

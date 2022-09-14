@@ -1,4 +1,5 @@
 get:
+  summary: GET file-systems/performance
   description: Displays the performance metrics for a file system.
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
@@ -18,6 +19,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/file-system-performance-get-response.yaml
-  summary: GET file-systems/performance
   tags:
   - File Systems

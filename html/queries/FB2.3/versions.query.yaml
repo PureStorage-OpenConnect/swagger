@@ -1,10 +1,10 @@
-collectionFormat: csv
+name: versions
 description: A comma-separated list of versions. This is an optional query param used
   for concurrency control. The ordering should match the names or ids query param.
   This will fail with a 412 Precondition failed if the resource was changed and the
   current version of the resource doesn't match the value in the query param.
 in: query
+type: array
+collectionFormat: csv
 items:
   type: string
-name: versions
-type: array

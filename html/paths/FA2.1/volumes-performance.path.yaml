@@ -1,4 +1,5 @@
 get:
+  summary: List volume performance data
   description: Returns real-time and historical performance data, real-time latency
     data, and average I/O sizes for each volume and and as a total of all volumes
     across the entire array.
@@ -22,6 +23,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.1/resource-performance-get-response.yaml
-  summary: List volume performance data
   tags:
   - Volumes

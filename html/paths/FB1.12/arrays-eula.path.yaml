@@ -1,4 +1,5 @@
 get:
+  summary: List End User Agreement and signature
   description: Displays the End User Agreement and signature.
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
@@ -11,14 +12,14 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.12/eula-get-response.yaml
-  summary: List End User Agreement and signature
   tags:
   - Arrays
 patch:
+  summary: Modify signature on the End User Agreement
   description: Modifies the signature on the End User Agreement.
   parameters:
-  - in: body
-    name: eula
+  - name: eula
+    in: body
     required: true
     schema:
       $ref: ../../models/FB1.12/eula.yaml
@@ -27,6 +28,5 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FB1.12/eula-response.yaml
-  summary: Modify signature on the End User Agreement
   tags:
   - Arrays

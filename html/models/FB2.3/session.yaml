@@ -2,50 +2,50 @@ allOf:
 - $ref: ../../models/FB2.0/_built-in.yaml
 - description: User session logs represent user login events performed in the Purity//FB
     GUI, CLI, and REST API.
+  type: object
+  readOnly: true
   properties:
     end_time:
       description: Date and time the user logged out of the Purity//FB interface in
         milliseconds since UNIX epoch. Set to 0 if the session is still active.
-      example: 1502234638
-      format: int64
       type: integer
+      format: int64
+      example: 1502234638
     event:
       description: Description of session events. Valid values include `failed authentication`,
         `user session`, `login`, `logout`, `API token obtained`, and `request without
         session`.
-      example: user session
       type: string
+      example: user session
     event_count:
       description: Number of session events.
-      example: 3
-      format: int32
       type: integer
+      format: int32
+      example: 3
     location:
       description: IP address of the user client connecting to the array or console
         if connected through local console.
-      example: 10.202.101.11
       type: string
+      example: 10.202.101.11
     method:
       description: Method by which the user attempted to log in. Valid values include
         `API token`, `password`, and `public key`.
-      example: public key
       type: string
+      example: public key
     start_time:
       description: Date and time the user logged in to the Purity//FB interface in
         milliseconds since UNIX epoch.
-      example: 1502234212
-      format: int64
       type: integer
+      format: int64
+      example: 1502234212
     user:
       description: Username of the Purity//FB user who triggered the user session
         event.
-      example: pureuser
       type: string
+      example: pureuser
     user_interface:
       description: The user interface through which the user session event was performed.
         Valid values include `CLI`, `GUI`, and `REST`.
-      example: CLI
-      readOnly: true
       type: string
-  readOnly: true
-  type: object
+      readOnly: true
+      example: CLI

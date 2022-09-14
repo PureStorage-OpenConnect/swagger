@@ -1,7 +1,7 @@
+name: enforce_action_restrictions
+in: query
 description: Certain combinations of actions and other rule elements are inherently
   ignored if specified together in a rule. If set to `true`, operations which attempt
   to set these combinations will fail. If set to `false`, such operations will instead
   be allowed. Defaults to `true`.
-in: query
-name: enforce_action_restrictions
 type: boolean

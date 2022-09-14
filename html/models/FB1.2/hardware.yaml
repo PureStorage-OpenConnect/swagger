@@ -3,19 +3,16 @@ allOf:
 - type: object
   properties:
     details:
-      description: >-
-        Details about the status of the component if not healthy.
+      description: Details about the status of the component if not healthy.
       type: string
       example: Temperature too high
       readOnly: true
     identify_enabled:
-      description: >-
-        State of an LED used to visually identify the component.
+      description: State of an LED used to visually identify the component.
       type: boolean
       example: true
     index:
-      description: >-
-        Number that identifies the relative position of a hardware component
+      description: Number that identifies the relative position of a hardware component
         within the array.
       type: integer
       format: int32
@@ -32,23 +29,21 @@ allOf:
       example: S16445515B09553
       readOnly: true
     slot:
-      description: >-
-        Slot number occupied by the PCI Express card that hosts the component.
+      description: Slot number occupied by the PCI Express card that hosts the component.
       type: integer
       format: int32
       example: 16
       readOnly: true
     speed:
-      description: Speed (in b/s) at which the component is operating.
+      description: The maximum speed (in b/s) at which the component is capable of
+        operating.
       type: integer
       format: int64
       example: 10000000000
       readOnly: true
     status:
-      description: >-
-        Component status.
-        Valid values are `critical`, `healthy`, `identifying`, `unhealthy`,
-        `unknown`, and `unused`.
+      description: Component status. Valid values are `critical`, `healthy`, `identifying`,
+        `unhealthy`, `unknown`, and `unused`.
       type: string
       example: critical
       readOnly: true
@@ -59,9 +54,8 @@ allOf:
       example: 25
       readOnly: true
     type:
-      description: >-
-        Type of hardware component.
-        Valid values are `ch`, `eth`, `fb`, `fm`, and `pwr`.
+      description: Type of hardware component. Valid values are `ch`, `eth`, `fb`,
+        `fm`, and `pwr`.
       type: string
       example: ch
       readOnly: true

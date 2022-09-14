@@ -1,7 +1,7 @@
+type: object
 properties:
   password:
     description: Password associated with the account.
     type: string
   role:
     $ref: ../../models/FA2.2/_admin-role.yaml
-type: object

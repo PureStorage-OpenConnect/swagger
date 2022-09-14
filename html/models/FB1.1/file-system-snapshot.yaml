@@ -3,9 +3,8 @@ allOf:
 - properties:
     destroyed:
       type: boolean
-      description: >-
-        Is the file system snapshot destroyed? If not specified, defaults to
-        `false`.
+      description: Is the file system snapshot destroyed? If not specified, defaults
+        to `false`.
     source_destroyed:
       type: boolean
       description: Is the source file system destroyed?
@@ -13,7 +12,6 @@ allOf:
     time_remaining:
       type: integer
       format: int64
-      description: >-
-        Time in milliseconds before the file system snapshot is eradicated.
+      description: Time in milliseconds before the file system snapshot is eradicated.
         `null` if not destroyed.
       readOnly: true

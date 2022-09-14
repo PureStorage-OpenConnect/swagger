@@ -1,6 +1,6 @@
+type: object
 properties:
   items:
+    type: array
     items:
       $ref: ../../models/FA2.11/saml2-sso.yaml
-    type: array
-type: object

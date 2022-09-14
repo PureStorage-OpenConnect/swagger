@@ -2,6 +2,6 @@ allOf:
 - $ref: ../../models/FB2.0/_built-in-no-id.yaml
 - properties:
     length:
+      type: integer
       description: Length of the file (in bytes).
       readOnly: true
-      type: integer

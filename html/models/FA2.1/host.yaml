@@ -1,10 +1,10 @@
 allOf:
 - $ref: ../../models/FA2.0/host.yaml
-- properties:
+- type: object
+  properties:
     is_local:
+      type: boolean
       description: -> If set to `true`, the location reference is to the local array.
         If set to `false`, the location reference is to a remote location, such as
         a remote array or offload target.
       readOnly: true
-      type: boolean
-  type: object

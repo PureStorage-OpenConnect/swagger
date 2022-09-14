@@ -1,72 +1,72 @@
 allOf:
 - $ref: ../../models/FB2.0/_built-in.yaml
-- properties:
+- type: object
+  properties:
     action:
+      type: string
       description: The action of the alert.
       readOnly: true
-      type: string
     code:
-      description: Alert code.
-      format: int64
-      readOnly: true
       type: integer
+      format: int64
+      description: Alert code.
+      readOnly: true
     component_name:
+      type: string
       description: The component name of the alert.
       readOnly: true
-      type: string
     component_type:
+      type: string
       description: The component type of the alert.
       readOnly: true
-      type: string
     created:
-      description: The creation timestamp of the alert.
-      format: int64
-      readOnly: true
       type: integer
+      format: int64
+      description: The creation timestamp of the alert.
+      readOnly: true
     description:
+      type: string
       description: The description of the alert.
       readOnly: true
-      type: string
     flagged:
-      description: Flagged state of the alert.
       type: boolean
+      description: Flagged state of the alert.
     index:
-      description: The unique index of the alert.
-      format: int64
-      readOnly: true
       type: integer
+      format: int64
+      description: The unique index of the alert.
+      readOnly: true
     knowledge_base_url:
+      type: string
       description: URL of the relevant Knowledge Base page.
       readOnly: true
-      type: string
     notified:
-      description: The last notification timestamp of the alert.
-      format: int64
-      readOnly: true
       type: integer
+      format: int64
+      description: The last notification timestamp of the alert.
+      readOnly: true
     severity:
+      type: string
       description: Severity of the alert. Valid values are `info`, `warning`, and
         `critical`.
       readOnly: true
-      type: string
     state:
+      type: string
       description: The current state of the alert. Valid values are `open`, `closing`,
         `closed`, and `waiting to downgrade`.
       readOnly: true
-      type: string
     summary:
+      type: string
       description: The summary of the alert.
       readOnly: true
-      type: string
     updated:
-      description: The last updated timestamp of the alert.
-      format: int64
-      readOnly: true
       type: integer
+      format: int64
+      description: The last updated timestamp of the alert.
+      readOnly: true
     variables:
-      additionalProperties:
-        type: string
+      type: object
       description: Key-value pairs of additional information of the alert.
       readOnly: true
-      type: object
-  type: object
+      additionalProperties:
+        type: string

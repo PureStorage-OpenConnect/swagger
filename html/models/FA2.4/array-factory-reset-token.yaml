@@ -3,12 +3,12 @@ allOf:
 - description: A token that is required to perform a factory reset of the array. A
     factory reset of the array permanently eradicates all data and deletes all configurations,
     restoring the state of the array to the original manufacturer settings.
+  type: object
   properties:
     token:
       description: A random number required as input to perform a factory reset of
         the array.
-      example: 4671919
+      type: integer
       format: int64
       readOnly: true
-      type: integer
-  type: object
+      example: 4671919

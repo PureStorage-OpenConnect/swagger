@@ -1,9 +1,9 @@
-collectionFormat: csv
+name: names
+in: query
 description: Performs the operation on the unique name specified. For example, `name01`.
   Enter multiple names in comma-separated format.
-in: query
+type: array
+required: true
+collectionFormat: csv
 items:
   type: string
-name: names
-required: true
-type: array

@@ -1,4 +1,5 @@
 get:
+  summary: Lists KMIP connection tests
   description: Displays communication data between a FlashArray and KMIP server.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -9,6 +10,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/kmip-test-result-get-response.yaml
-  summary: Lists KMIP connection tests
   tags:
   - KMIP

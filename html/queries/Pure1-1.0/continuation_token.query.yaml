@@ -1,8 +1,7 @@
 name: continuation_token
 in: query
-description: >-
-  An opaque token used to iterate over a collection.
-  The token to use on the next request is returned in the
-  continuation_token field of the result.
-  Single quotes are required around all strings.
+description: An opaque token used to iterate over a collection. The token to use on
+  the next request is returned in the `continuation_token` field of the result. Single
+  quotes are required around all strings.
+x-quoted: true
 type: string

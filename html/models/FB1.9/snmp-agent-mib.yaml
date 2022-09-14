@@ -1,6 +1,6 @@
+type: object
 properties:
   mib:
     description: MIB text.
-    readOnly: true
     type: string
-type: object
+    readOnly: true

@@ -5,9 +5,7 @@ allOf:
     certificate_type:
       type: string
       readOnly: true
-      description: >-
-        The type of certificate. Possible values are `array` and `external`.
-        Certificates of type `array` are used by the array to verify its
-        identity to clients. Certificates of type `external` are used by
-        the array to identify external servers to which it is configured
-        to communicate.
+      description: The type of certificate. Possible values are `array` and `external`.
+        Certificates of type `array` are used by the array to verify its identity
+        to clients. Certificates of type `external` are used by the array to identify
+        external servers to which it is configured to communicate.

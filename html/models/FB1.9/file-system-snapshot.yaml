@@ -2,24 +2,24 @@ allOf:
 - $ref: ../../models/FB1.8/file-system-snapshot.yaml
 - properties:
     owner:
-      allOf:
-      - $ref: ../../models/FB1.8/_fixed-reference.yaml
       description: A reference to the file system that owns this snapshot. If the
         owner is destroyed, this will be destroyed.
+      allOf:
+      - $ref: ../../models/FB1.8/_fixed-reference.yaml
     owner_destroyed:
       description: Is the owning file system destroyed?
       readOnly: true
       type: boolean
     policy:
-      allOf:
-      - $ref: ../../models/FB1.9/_location-reference.yaml
       description: A reference to the associated policy.
+      allOf:
+      - $ref: ../../models/FB1.9/_fixed-location-reference.yaml
     source:
+      type: string
+      readOnly: true
       description: The name of the file system that was the source of the data in
         this snapshot. Normally this is the same as the owner, but if the snapshot
         is replicated, the source is the original file system.
-      readOnly: true
-      type: string
     source_destroyed:
       description: Deprecated. Use `owner_destroyed`. Is the owning file system destroyed?
       readOnly: true
@@ -27,14 +27,14 @@ allOf:
     source_display_name:
       description: Full name of the source with remote array information. Response
         will be same as source for local file system snapshots.
+      type: string
       example: irp624-c02:fs1
       readOnly: true
-      type: string
     source_is_local:
+      type: boolean
       description: Is the source of this file system snapshot on the local array?
       readOnly: true
-      type: boolean
     source_location:
+      description: A reference to the source array.
       allOf:
       - $ref: ../../models/FB1.8/_fixed-reference.yaml
-      description: A reference to the source array.

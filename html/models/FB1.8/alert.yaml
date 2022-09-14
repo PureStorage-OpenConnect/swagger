@@ -1,5 +1,3 @@
-# Note: models/FB2.X/alert.yaml exists and doesn't inherit from this version.
-# Changes here will need to be reflected manually there.
 allOf:
 - $ref: ../../models/FB1.8/_built-in.yaml
 - $ref: ../../models/FB1.2/alert.yaml

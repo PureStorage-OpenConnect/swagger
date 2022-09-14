@@ -1,17 +1,5 @@
-delete:
-  description: Delete one or more certificate groups.
-  parameters:
-  - $ref: ../../queries/FB2.0/certificate_ids.query.yaml
-  - $ref: ../../queries/FB2.0/certificate_group_ids.query.yaml
-  - $ref: ../../queries/FB2.0/certificate_group_names.query.yaml
-  - $ref: ../../queries/FB2.0/certificate_names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE certificate-groups/certificates
-  tags:
-  - Certificate Groups
 get:
+  summary: GET certificate-groups/certificates
   description: List membership associations between groups and certificates on the
     array.
   parameters:
@@ -29,10 +17,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/certificate-group-certificate-get-resp.yaml
-  summary: GET certificate-groups/certificates
   tags:
   - Certificate Groups
 post:
+  summary: POST certificate-groups/certificates
   description: Add one or more certificates to one or more certificate groups on the
     array.
   parameters:
@@ -45,6 +33,18 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/certificate-group-certificate-response.yaml
-  summary: POST certificate-groups/certificates
+  tags:
+  - Certificate Groups
+delete:
+  summary: DELETE certificate-groups/certificates
+  description: Delete one or more certificate groups.
+  parameters:
+  - $ref: ../../queries/FB2.0/certificate_ids.query.yaml
+  - $ref: ../../queries/FB2.0/certificate_group_ids.query.yaml
+  - $ref: ../../queries/FB2.0/certificate_group_names.query.yaml
+  - $ref: ../../queries/FB2.0/certificate_names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Certificate Groups

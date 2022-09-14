@@ -1,4 +1,5 @@
 get:
+  summary: GET array-connections/performance/replication
   description: List performance metrics of file systems or objects being replicated
     from one array to another.
   parameters:
@@ -20,6 +21,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.2/relationship-performance-replication-get-resp.yaml
-  summary: GET array-connections/performance/replication
   tags:
   - Array Connections

@@ -1,5 +1,4 @@
-description: >-
-  A built-in resource that exists on one or multiple arrays.
+description: A built-in resource that exists on one or multiple arrays.
 allOf:
-- $ref: _built-in-as-of.yaml
-- $ref: _arrays.yaml
+- $ref: ../../models/Pure1-1.0/_built-in-as-of.yaml
+- $ref: ../../models/Pure1-1.0/_arrays.yaml

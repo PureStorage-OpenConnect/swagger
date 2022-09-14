@@ -1,22 +1,5 @@
-delete:
-  description: Deletes one or more snapshot policies from resources. The `policy_ids`
-    or `policy_names` parameter is required, but cannot be set together. The `member_ids`
-    or `member_names` parameter is required, but cannot be set together.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/member_ids.query.yaml
-  - $ref: ../../queries/FA2.0/member_names.query.yaml
-  - $ref: ../../queries/FA2.3/member_types.query.yaml
-  - $ref: ../../queries/FA2.3/policy_ids.query.yaml
-  - $ref: ../../queries/FA2.3/policy_names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: Delete snapshot policies
-  tags:
-  - Policies
 get:
+  summary: List snapshot policy members
   description: Displays a list of snapshot policy members.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -38,10 +21,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.3/policy-member-get-response.yaml
-  summary: List snapshot policy members
   tags:
   - Policies
 post:
+  summary: Create snapshot policies
   description: Creates a membership between one or more resources with a snapshot
     policy. Applicable resources are directories. The `policy_ids` or `policy_names`
     parameter is required, but cannot be set together.
@@ -50,8 +33,8 @@ post:
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - $ref: ../../queries/FA2.3/policy_ids.query.yaml
   - $ref: ../../queries/FA2.3/policy_names.query.yaml
-  - in: body
-    name: members
+  - name: members
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.3/policy-member-post.yaml
@@ -60,6 +43,23 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FA2.3/policy-member-response.yaml
-  summary: Create snapshot policies
+  tags:
+  - Policies
+delete:
+  summary: Delete snapshot policies
+  description: Deletes one or more snapshot policies from resources. The `policy_ids`
+    or `policy_names` parameter is required, but cannot be set together. The `member_ids`
+    or `member_names` parameter is required, but cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/member_ids.query.yaml
+  - $ref: ../../queries/FA2.0/member_names.query.yaml
+  - $ref: ../../queries/FA2.3/member_types.query.yaml
+  - $ref: ../../queries/FA2.3/policy_ids.query.yaml
+  - $ref: ../../queries/FA2.3/policy_names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Policies

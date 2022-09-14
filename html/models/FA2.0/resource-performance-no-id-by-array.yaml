@@ -2,7 +2,6 @@ allOf:
 - $ref: resource-performance-no-id.yaml
 - properties:
     array:
-      description: >-
-        Array on which the performance metrics were recorded.
+      description: The array on which the performance metrics were recorded.
       allOf:
       - $ref: _resource.yaml

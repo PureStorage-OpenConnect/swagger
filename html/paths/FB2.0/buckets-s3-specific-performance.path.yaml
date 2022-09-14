@@ -1,4 +1,5 @@
 get:
+  summary: GET buckets/s3-specific-performance
   description: List performance metrics specific to S3 operations for a bucket.
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
@@ -17,6 +18,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/bucket-s3-specific-performance-get-resp.yaml
-  summary: GET buckets/s3-specific-performance
   tags:
   - Buckets

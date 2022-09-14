@@ -1,4 +1,5 @@
 get:
+  summary: List container default protections
   description: Displays a list of containers with its default protections.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -17,10 +18,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.16/container-default-protection-get-response.yaml
-  summary: List container default protections
   tags:
   - Container Default Protections
 patch:
+  summary: Modify a container's default protections
   description: Modifies a container's default protections. To modify, set `default_protections`
     to the new list.
   parameters:
@@ -28,8 +29,8 @@ patch:
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - $ref: ../../queries/FA2.16/container_ids.query.yaml
   - $ref: ../../queries/FA2.16/container_names.query.yaml
-  - in: body
-    name: container-default-protection
+  - name: container-default-protection
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.16/container-default-protection.yaml
@@ -38,6 +39,5 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FA2.16/container-default-protection-response.yaml
-  summary: Modify a container's default protections
   tags:
   - Container Default Protections

@@ -1,7 +1,6 @@
-description: >-
-  A point-in-time image of the contents of a file system.
+description: A point-in-time image of the contents of a FlashBlade file system.
 allOf:
-- $ref: _arrays-built-in.yaml
+- $ref: ../../models/Pure1-1.0/_arrays-built-in.yaml
 - properties:
     created:
       description: Creation time in milliseconds since UNIX epoch.
@@ -9,21 +8,17 @@ allOf:
       format: int64
       example: 1502729489760
     destroyed:
-      description: >-
-        Indicates if this snapshot has been destroyed and is pending
-        eradication.
+      description: Indicates if this snapshot has been destroyed and is pending eradication.
       type: boolean
       example: false
-    on:  # yamllint disable rule:truthy
-      description: >-
-        A reference to the array where the snapshot is stored.
+    true:
+      description: A reference to the array where the snapshot is stored.
       allOf:
-      - $ref: _fixed-reference.yaml
+      - $ref: ../../models/Pure1-1.0/_fixed-reference.yaml
     source:
-      description: >-
-        A reference to the file system that the snapshot was taken from.
+      description: A reference to the file system that the snapshot was taken from.
       allOf:
-      - $ref: _fixed-reference.yaml
+      - $ref: ../../models/Pure1-1.0/_fixed-reference.yaml
     suffix:
       description: Indicates the suffix of the snapshot.
       type: string

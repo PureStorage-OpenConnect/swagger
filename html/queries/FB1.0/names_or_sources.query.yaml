@@ -1,8 +1,7 @@
 name: names_or_sources
 in: query
-description: >-
-  A comma-separated list of resource names.
-  Either the name of the snapshots or the source file systems.
+description: A comma-separated list of resource names. Either the name of the snapshots
+  or the source file systems.
 type: array
 collectionFormat: csv
 items:

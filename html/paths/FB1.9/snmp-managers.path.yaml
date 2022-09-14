@@ -1,15 +1,5 @@
-delete:
-  description: DELETE snmp-managers (placeholder)
-  parameters:
-  - $ref: ../../queries/FB1.8/ids.query.yaml
-  - $ref: ../../queries/FB1.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE snmp-managers (placeholder)
-  tags:
-  - SNMP Managers
 get:
+  summary: GET snmp-managers (placeholder)
   description: GET snmp-managers (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
@@ -24,14 +14,31 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/snmp-manager-get-response.yaml
-  summary: GET snmp-managers (placeholder)
+  tags:
+  - SNMP Managers
+post:
+  summary: POST snmp-managers (placeholder)
+  description: POST snmp-managers (placeholder)
+  parameters:
+  - name: snmp-manager
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB1.9/snmp-manager-post.yaml
+  - $ref: ../../queries/FB1.2/names_required.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.9/snmp-manager-response.yaml
   tags:
   - SNMP Managers
 patch:
+  summary: PATCH snmp-managers (placeholder)
   description: PATCH snmp-managers (placeholder)
   parameters:
-  - in: body
-    name: snmp-manager
+  - name: snmp-manager
+    in: body
     required: true
     schema:
       $ref: ../../models/FB1.9/snmp-manager.yaml
@@ -42,23 +49,16 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/snmp-manager-response.yaml
-  summary: PATCH snmp-managers (placeholder)
   tags:
   - SNMP Managers
-post:
-  description: POST snmp-managers (placeholder)
+delete:
+  summary: DELETE snmp-managers (placeholder)
+  description: DELETE snmp-managers (placeholder)
   parameters:
-  - in: body
-    name: snmp-manager
-    required: true
-    schema:
-      $ref: ../../models/FB1.9/snmp-manager-post.yaml
-  - $ref: ../../queries/FB1.2/names_required.query.yaml
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
   responses:
     200:
       description: OK
-      schema:
-        $ref: ../../responses/FB1.9/snmp-manager-response.yaml
-  summary: POST snmp-managers (placeholder)
   tags:
   - SNMP Managers

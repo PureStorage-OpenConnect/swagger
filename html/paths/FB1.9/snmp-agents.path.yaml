@@ -1,4 +1,5 @@
 get:
+  summary: GET snmp-agents (placeholder)
   description: GET snmp-agents (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
@@ -11,14 +12,14 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/snmp-agent-get-response.yaml
-  summary: GET snmp-agents (placeholder)
   tags:
   - SNMP Agents
 patch:
+  summary: PATCH snmp-agents (placeholder)
   description: PATCH snmp-agents (placeholder)
   parameters:
-  - in: body
-    name: snmp-agent
+  - name: snmp-agent
+    in: body
     required: true
     schema:
       $ref: ../../models/FB1.9/snmp-agent.yaml
@@ -27,6 +28,5 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/snmp-agent-response.yaml
-  summary: PATCH snmp-agents (placeholder)
   tags:
   - SNMP Agents

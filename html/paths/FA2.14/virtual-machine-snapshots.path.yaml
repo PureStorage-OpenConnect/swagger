@@ -1,4 +1,5 @@
 get:
+  summary: List Virtual Machine Snapshots
   description: Displays a list of virtual machine snapshots, including those pending
     eradication. If `vm_type` is `vvol`, the `recovery_context` in the response will
     represent a protection group snapshot containing the virtual machine. This must
@@ -14,23 +15,22 @@ get:
   - $ref: ../../queries/FA2.0/offset.query.yaml
   - $ref: ../../queries/FA2.0/sort.query.yaml
   - $ref: ../../queries/FA2.0/total_item_count.query.yaml
-  - description: The type of virtual machine. The only valid value is `vvol`.
+  - name: vm_type
     in: query
-    name: vm_type
+    description: The type of virtual machine. The only valid value is `vvol`.
     type: string
-  - collectionFormat: csv
+  - name: vm_ids
+    in: query
     description: Performs the operation on the unique virtual machine IDs specified.
       Enter multiple resource IDs in a comma-separated format.
-    in: query
+    type: array
+    collectionFormat: csv
     items:
       type: string
-    name: vm_ids
-    type: array
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FA2.14/virtual-machine-get-response.yaml
-  summary: List Virtual Machine Snapshots
   tags:
   - Virtual Machines

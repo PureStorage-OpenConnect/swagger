@@ -1,6 +1,10 @@
 allOf:
 - $ref: ../../models/FA2.3/directory-snapshot-patch.yaml
 - properties:
+    name:
+      description: The new name of a directory snapshot. The name of a directory snapshot
+        managed by a snapshot policy is not changeable.
+      type: string
     client_name:
       description: The client name portion of the client-visible snapshot name. A
         full snapshot name is constructed in the form of `DIR.CLIENT_NAME.SUFFIX`
@@ -9,10 +13,6 @@ allOf:
         The client name of a directory snapshot managed by a snapshot policy is not
         changeable. If the `name` and `client_name` parameters are both specified,
         `client_name` must match the client name portion of `name`.
-      type: string
-    name:
-      description: The new name of a directory snapshot. The name of a directory snapshot
-        managed by a snapshot policy is not changeable.
       type: string
     suffix:
       description: The suffix portion of the client-visible snapshot name. A full

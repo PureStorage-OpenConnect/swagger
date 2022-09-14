@@ -1,16 +1,5 @@
-delete:
-  description: Deletes a network interface on a controller.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: Delete network interface
-  tags:
-  - Network Interfaces
 get:
+  summary: List network interfaces
   description: Displays all network interfaces for all controllers on the array.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -27,36 +16,17 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.4/network-interface-get-response.yaml
-  summary: List network interfaces
-  tags:
-  - Network Interfaces
-patch:
-  description: Modifies a network interface on a controller.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/names.query.yaml
-  - in: body
-    name: network
-    required: true
-    schema:
-      $ref: ../../models/FA2.4/network-interface-patch.yaml
-  responses:
-    200:
-      description: OK
-      schema:
-        $ref: ../../responses/FA2.4/network-interface-response.yaml
-  summary: Modify network interface
   tags:
   - Network Interfaces
 post:
+  summary: Create network interface
   description: Creates a network interface on a controller on the array.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - $ref: ../../queries/FA2.0/names.query.yaml
-  - in: body
-    name: network
+  - name: network
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.4/network-interface-post.yaml
@@ -65,6 +35,36 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FA2.4/network-interface-response.yaml
-  summary: Create network interface
+  tags:
+  - Network Interfaces
+delete:
+  summary: Delete network interface
+  description: Deletes a network interface on a controller.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Network Interfaces
+patch:
+  summary: Modify network interface
+  description: Modifies a network interface on a controller.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - name: network
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.4/network-interface-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.4/network-interface-response.yaml
   tags:
   - Network Interfaces

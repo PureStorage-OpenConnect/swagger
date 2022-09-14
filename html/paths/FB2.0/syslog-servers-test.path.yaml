@@ -1,4 +1,5 @@
 get:
+  summary: GET syslog-servers/test
   description: Send test messages to conifgured remote syslog servers.
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
@@ -7,6 +8,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/test-result-get-response.yaml
-  summary: GET syslog-servers/test
   tags:
   - Syslog

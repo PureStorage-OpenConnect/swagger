@@ -1,13 +1,13 @@
+type: object
 properties:
   items:
-    description: A list of file system user performance objects.
+    type: array
     items:
       $ref: ../../models/FB1.12/file-system-user-performance.yaml
-    type: array
+    description: A list of file system user performance objects.
   total:
+    type: array
+    items:
+      $ref: ../../models/FB1.12/file-system-user-performance.yaml
     description: Total of all records after filtering. If `total_only` query param
       is `true`, then no items will be returned.
-    items:
-      $ref: ../../models/FB1.12/file-system-user-performance.yaml
-    type: array
-type: object

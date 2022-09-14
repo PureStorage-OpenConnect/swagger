@@ -1,16 +1,5 @@
-delete:
-  description: Deletes all entries from the administrator cache.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.2/remove_all_entries.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: Delete cache entries
-  tags:
-  - Administrators
 get:
+  summary: List administrator cache entries
   description: Displays entries in the administrator cache.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -27,10 +16,22 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/admin-cache-get-response.yaml
-  summary: List administrator cache entries
+  tags:
+  - Administrators
+delete:
+  summary: Delete cache entries
+  description: Deletes all entries from the administrator cache.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.2/remove_all_entries.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Administrators
 put:
+  summary: Update or refresh entries in the administrator cache
   description: Updates entries in the cache for administrators who currently do not
     have a cache entry, otherwise refreshes the existing entry.
   parameters:
@@ -42,6 +43,5 @@ put:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/admin-cache-response.yaml
-  summary: Update or refresh entries in the administrator cache
   tags:
   - Administrators

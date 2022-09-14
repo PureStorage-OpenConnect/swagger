@@ -1,7 +1,7 @@
+type: object
 properties:
   items:
-    description: A list of SNMP manager test results.
+    type: array
     items:
       $ref: ../../models/FB1.9/snmp-manager-test.yaml
-    type: array
-type: object
+    description: A list of SNMP manager test results.

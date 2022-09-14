@@ -2,32 +2,32 @@ allOf:
 - $ref: ../../models/FB1.9/_replica-link-built-in.yaml
 - properties:
     local_file_system:
+      description: Reference to a local file system.
       allOf:
       - $ref: ../../models/FB1.8/_fixed-reference.yaml
-      description: Reference to a local file system.
     policies:
+      type: array
       items:
+        description: Reference to a policy that is driving replication.
         allOf:
         - $ref: ../../models/FB1.9/_location-reference.yaml
-        description: Reference to a policy that is driving replication.
-      type: array
     recovery_point:
       description: Time when the last replicated snapshot was created, in milliseconds
         since UNIX epoch. I.e. the recovery point if the file system is promoted.
-      example: 1565034592494
+      type: integer
       format: int64
       readOnly: true
-      type: integer
+      example: 1565034592494
     remote:
-      allOf:
-      - $ref: ../../models/FB1.9/_fixed-reference-no-resource-type.yaml
       description: Reference to a remote array.
-    remote_file_system:
       allOf:
       - $ref: ../../models/FB1.9/_fixed-reference-no-resource-type.yaml
+    remote_file_system:
       description: Reference to a remote file system.
+      allOf:
+      - $ref: ../../models/FB1.9/_fixed-reference-no-resource-type.yaml
     status:
+      type: string
       description: Status of the replica link. Values include `replicating`, `idle`,
         and `unhealthy`.
       readOnly: true
-      type: string

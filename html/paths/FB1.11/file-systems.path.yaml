@@ -1,15 +1,5 @@
-delete:
-  description: DELETE file-systems (placeholder)
-  parameters:
-  - $ref: ../../queries/FB1.8/ids.query.yaml
-  - $ref: ../../queries/FB1.8/name.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE file-systems (placeholder)
-  tags:
-  - File Systems
 get:
+  summary: GET file-systems (placeholder)
   description: GET file-systems (placeholder)
   parameters:
   - $ref: ../../queries/FB1.9/destroyed.query.yaml
@@ -26,38 +16,16 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.11/file-system-get-response.yaml
-  summary: GET file-systems (placeholder)
-  tags:
-  - File Systems
-patch:
-  description: PATCH file-systems (placeholder)
-  parameters:
-  - $ref: ../../queries/FB1.9/delete_link_on_eradication.query.yaml
-  - $ref: ../../queries/FB1.11/discard_detailed_permissions.query.yaml
-  - $ref: ../../queries/FB1.9/discard_non_snapshotted_data.query.yaml
-  - $ref: ../../queries/FB1.8/ids.query.yaml
-  - $ref: ../../queries/FB1.4/ignore_usage.query.yaml
-  - $ref: ../../queries/FB1.8/name.query.yaml
-  - in: body
-    name: file-system
-    required: true
-    schema:
-      $ref: ../../models/FB1.11/file-system-patch.yaml
-  responses:
-    200:
-      description: OK
-      schema:
-        $ref: ../../responses/FB1.11/file-system-response.yaml
-  summary: PATCH file-systems (placeholder)
   tags:
   - File Systems
 post:
+  summary: POST file-systems (placeholder)
   description: POST file-systems (placeholder)
   parameters:
   - $ref: ../../queries/FB1.8/overwrite.query.yaml
   - $ref: ../../queries/FB1.9/discard_non_snapshotted_data.query.yaml
-  - in: body
-    name: file-system
+  - name: file-system
+    in: body
     required: true
     schema:
       $ref: ../../models/FB1.11/file-system-post.yaml
@@ -66,6 +34,38 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FB1.11/file-system-response.yaml
-  summary: POST file-systems (placeholder)
+  tags:
+  - File Systems
+delete:
+  summary: DELETE file-systems (placeholder)
+  description: DELETE file-systems (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.8/name.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - File Systems
+patch:
+  summary: PATCH file-systems (placeholder)
+  description: PATCH file-systems (placeholder)
+  parameters:
+  - $ref: ../../queries/FB1.9/delete_link_on_eradication.query.yaml
+  - $ref: ../../queries/FB1.11/discard_detailed_permissions.query.yaml
+  - $ref: ../../queries/FB1.9/discard_non_snapshotted_data.query.yaml
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.4/ignore_usage.query.yaml
+  - $ref: ../../queries/FB1.8/name.query.yaml
+  - name: file-system
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB1.11/file-system-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.11/file-system-response.yaml
   tags:
   - File Systems

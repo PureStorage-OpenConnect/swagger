@@ -1,10 +1,10 @@
-collectionFormat: csv
+name: subscription_ids
+in: query
 description: A comma-separated list of subscription IDs. If there is not at least
   one resource that matches each `subscription.id` element, an error is returned.
   Single quotes are required around all strings.
-in: query
+x-quoted: true
+type: array
+collectionFormat: csv
 items:
   type: string
-name: subscription_ids
-type: array
-x-quoted: true

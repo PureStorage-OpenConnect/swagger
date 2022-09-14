@@ -1,4 +1,5 @@
 get:
+  summary: GET policies-all
   description: List all policies of all types.
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
@@ -13,6 +14,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.3/policy-base-get-response.yaml
-  summary: GET policies-all
   tags:
   - Policies (All)

@@ -1,7 +1,7 @@
 allOf:
 - properties:
     total_item_count:
-      description: Total number of items after applying `filter` params.
-      format: int32
       type: integer
+      format: int32
+      description: Total number of items after applying `filter` params.
 - $ref: ../../responses/FB2.0/test-result-response.yaml

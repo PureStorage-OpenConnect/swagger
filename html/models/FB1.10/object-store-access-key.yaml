@@ -2,7 +2,7 @@ allOf:
 - $ref: ../../models/FB1.8/object-store-access-key.yaml
 - properties:
     secret_access_key:
+      type: string
+      readOnly: true
       description: The secret access key, only populated on creation if it is not
         imported from another FlashBlade.
-      readOnly: true
-      type: string

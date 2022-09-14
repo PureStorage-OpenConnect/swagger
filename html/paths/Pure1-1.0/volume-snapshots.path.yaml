@@ -1,7 +1,8 @@
 get:
   summary: Get volume snapshots
-  description: >
-    Retrieves information about snapshots of volumes.
+  description: 'Retrieves information about snapshots of volumes.
+
+    '
   parameters:
   - $ref: ../../queries/Pure1-1.0/authorization.header.yaml
   - $ref: ../../queries/Pure1-1.0/x-request-id.header.yaml
@@ -14,7 +15,6 @@ get:
   - $ref: ../../queries/Pure1-1.0/sort.query.yaml
   - $ref: ../../queries/Pure1-1.0/source_ids.yaml
   - $ref: ../../queries/Pure1-1.0/source_names.yaml
-
   responses:
     200:
       description: OK
@@ -22,8 +22,15 @@ get:
         $ref: ../../responses/Pure1-1.0/headers-all-default.response.yaml
       schema:
         $ref: ../../responses/Pure1-1.0/volume-snapshot-get-response.yaml
-    allOf:
-    - $ref: ../../responses/Pure1-1.0/errors-all.response.yaml
-
+    400:
+      $ref: ../../responses/Pure1-1.0/error-400.response.yaml
+    403:
+      $ref: ../../responses/Pure1-1.0/error-403.response.yaml
+    404:
+      $ref: ../../responses/Pure1-1.0/error-404.response.yaml
+    429:
+      $ref: ../../responses/Pure1-1.0/error-429.response.yaml
+    500:
+      $ref: ../../responses/Pure1-1.0/error-500.response.yaml
   tags:
   - Volume Snapshots

@@ -4,5 +4,5 @@ allOf:
     locked:
       description: If set to `false`, the specified user is unlocked. Setting to `true`
         is not allowed.
-      example: false
       type: boolean
+      example: false

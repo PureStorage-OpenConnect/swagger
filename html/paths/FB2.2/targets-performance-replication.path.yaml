@@ -1,4 +1,5 @@
 get:
+  summary: GET targets/performance/replication
   description: List replication performance metrics for targets.
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
@@ -17,6 +18,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.2/resource-performance-replication-get-response.yaml
-  summary: GET targets/performance/replication
   tags:
   - Targets

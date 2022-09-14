@@ -1,4 +1,5 @@
 get:
+  summary: TEST active directory (placeholder)
   description: TEST active directory (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
@@ -11,6 +12,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.10/test-result-get-response.yaml
-  summary: TEST active directory (placeholder)
   tags:
   - Active Directory

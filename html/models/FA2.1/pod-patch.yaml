@@ -2,6 +2,7 @@ allOf:
 - $ref: ../../models/FA2.0/_resource.yaml
 - description: A pod is an administrative domain, a data container, and a namespace
     for volumes and protection groups.
+  type: object
   properties:
     destroyed:
       description: If set to `true`, the pod has been destroyed and is pending eradication.
@@ -21,13 +22,12 @@ allOf:
         replication can be added to a pod for failover preference. By default, `failover_preferences=null`,
         meaning no arrays have been configured for failover preference. Enter multiple
         arrays in comma-separated format.
+      type: array
       items:
         $ref: ../../models/FA2.0/_reference.yaml
-      type: array
     mediator:
       description: Sets the URL of the mediator for this pod, replacing the URL of
         the current mediator. By default, the Pure1 Cloud Mediator (`purestorage`)
         serves as the mediator.
-      example: https://mediator.cloud-support.purestorage.com
       type: string
-  type: object
+      example: https://mediator.cloud-support.purestorage.com

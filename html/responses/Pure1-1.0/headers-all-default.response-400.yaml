@@ -11,12 +11,10 @@ X-RateLimit-Limit-second:
   schema:
     type: integer
 X-RateLimit-Remaining-minute:
-  description: >-
-    The number of requests remaining for the organization in that minute.
+  description: The number of requests remaining for the organization in that minute.
   schema:
     type: integer
 X-RateLimit-Remaining-second:
-  description: >-
-    The number of requests remaining for the organization in that second.
+  description: The number of requests remaining for the organization in that second.
   schema:
     type: integer

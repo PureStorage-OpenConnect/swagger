@@ -1,14 +1,14 @@
+type: object
 properties:
-  end:
-    description: The window end time. Measured in milliseconds since midnight. The
-      time must be set on the hour. (e.g., `28800000`, which is equal to 8:00 AM).
-    example: 46800000
-    format: int64
-    type: integer
   start:
     description: The window start time. Measured in milliseconds since midnight. The
       time must be set on the hour. (e.g., `18000000`, which is equal to 5:00 AM).
-    example: 3600000
-    format: int64
     type: integer
-type: object
+    format: int64
+    example: 3600000
+  end:
+    description: The window end time. Measured in milliseconds since midnight. The
+      time must be set on the hour. (e.g., `28800000`, which is equal to 8:00 AM).
+    type: integer
+    format: int64
+    example: 46800000

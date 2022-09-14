@@ -1,16 +1,5 @@
-delete:
-  description: Disconnects the array from an offload target.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: Disconnect from an offload target
-  tags:
-  - Offloads
 get:
+  summary: List offload targets
   description: Returns a list of offload targets that are connected to the array.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -28,10 +17,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.1/offload-get-response.yaml
-  summary: List offload targets
   tags:
   - Offloads
 post:
+  summary: Connect to an offload target
   description: Connects the array to an offload target. Before you can connect to,
     manage, and replicate to an offload target, the respective Purity//FA app must
     be installed. For more information about Purity//FA apps, refer to the Apps section
@@ -39,8 +28,8 @@ post:
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - in: body
-    name: offload
+  - name: offload
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.1/offload-post.yaml
@@ -53,6 +42,17 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FA2.1/offload-response.yaml
-  summary: Connect to an offload target
+  tags:
+  - Offloads
+delete:
+  summary: Disconnect from an offload target
+  description: Disconnects the array from an offload target.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Offloads

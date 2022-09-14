@@ -1,4 +1,5 @@
 get:
+  summary: GET hardware-connectors
   description: List array connection information.
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
@@ -11,17 +12,14 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/hardware-connector-get-response.yaml
-  summary: GET hardware-connectors
   tags:
   - Hardware Connectors
-parameters:
-- $ref: ../../queries/FB2.0/ids.query.yaml
-- $ref: ../../queries/FB2.0/names.query.yaml
 patch:
+  summary: PATCH hardware-connectors
   description: Modify array connection information.
   parameters:
-  - in: body
-    name: hardware-connector
+  - name: hardware-connector
+    in: body
     required: true
     schema:
       $ref: ../../models/FB2.0/hardware-connector.yaml
@@ -30,6 +28,8 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/hardware-connector-response.yaml
-  summary: PATCH hardware-connectors
   tags:
   - Hardware Connectors
+parameters:
+- $ref: ../../queries/FB2.0/ids.query.yaml
+- $ref: ../../queries/FB2.0/names.query.yaml

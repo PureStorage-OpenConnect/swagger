@@ -1,4 +1,5 @@
 get:
+  summary: List directory services configuration
   description: Displays the role-based access control (RBAC) group configuration settings
     for manageability.
   parameters:
@@ -16,17 +17,17 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/directory-service-get-response.yaml
-  summary: List directory services configuration
   tags:
   - Directory Services
 patch:
+  summary: Modify directory services configuration
   description: Modifies the directory service configuration.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - $ref: ../../queries/FA2.0/names_required.query.yaml
-  - in: body
-    name: directory-service
+  - name: directory-service
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.2/directory-service.yaml
@@ -35,6 +36,5 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/directory-service-response.yaml
-  summary: Modify directory services configuration
   tags:
   - Directory Services

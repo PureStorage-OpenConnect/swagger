@@ -1,16 +1,5 @@
-delete:
-  description: Deletes user tags from deployed cloud resources of a CBS array.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.2/keys.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: Delete user tags from the cloud.
-  tags:
-  - Arrays
 get:
+  summary: List user tags on the cloud.
   description: Displays the list of user tags on deployed cloud resources of a CBS
     array.
   parameters:
@@ -27,6 +16,17 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.6/cloud-provider-tag-get-response.yaml
-  summary: List user tags on the cloud.
+  tags:
+  - Arrays
+delete:
+  summary: Delete user tags from the cloud.
+  description: Deletes user tags from deployed cloud resources of a CBS array.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.2/keys.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Arrays

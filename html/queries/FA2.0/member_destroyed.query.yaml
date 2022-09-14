@@ -1,7 +1,7 @@
+name: member_destroyed
+in: query
 description: If true, returns only destroyed member objects. Returns an error if a
   name of a live member object is specified in the member_names query param. If false,
   returns only live member objects. Returns an error if a name of a destroyed member
   object is specified in the member_names query param.
-in: query
-name: member_destroyed
 type: boolean

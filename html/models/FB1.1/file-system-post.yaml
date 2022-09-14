@@ -3,6 +3,5 @@ allOf:
 - properties:
     destroyed:
       type: boolean
-      description: >-
-        Allowed by rest, not supported by backend during create,
-        so 400 error.
+      description: Allowed by rest, not supported by backend during create, so 400
+        error.

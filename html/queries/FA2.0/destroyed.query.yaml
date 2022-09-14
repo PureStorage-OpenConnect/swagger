@@ -1,9 +1,7 @@
 name: destroyed
 in: query
-description: >-
-  If set to `true`, lists only destroyed objects
-  that are in the eradication pending state.
-  If set to `false`, lists only objects that are not destroyed.
-  For destroyed objects, the time remaining is displayed in seconds.
+description: If set to `true`, lists only destroyed objects that are in the eradication
+  pending state. If set to `false`, lists only objects that are not destroyed. For
+  destroyed objects, the time remaining is displayed in milliseconds.
 type: boolean
 readOnly: true

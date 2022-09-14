@@ -8,16 +8,13 @@ get:
   - $ref: ../../queries/FB1.0/sort.query.yaml
   - $ref: ../../queries/FB1.0/start.query.yaml
   - $ref: ../../queries/FB1.0/token.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.8/object-store-access-key-get-response.yaml
-
   tags:
   - Object Store Access Keys
-
 post:
   summary: POST object-store-access-keys (placeholder)
   description: POST object-store-access-keys (placeholder)
@@ -27,16 +24,13 @@ post:
     required: true
     schema:
       $ref: ../../models/FB1.3/object-store-access-key-post.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.8/object-store-access-key-response.yaml
-
   tags:
   - Object Store Access Keys
-
 patch:
   summary: PATCH object-store-access-keys (placeholder)
   description: PATCH object-store-access-keys (placeholder)
@@ -47,25 +41,20 @@ patch:
     required: true
     schema:
       $ref: ../../models/FB1.8/object-store-access-key.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.8/object-store-access-key-response.yaml
-
   tags:
   - Object Store Access Keys
-
 delete:
   summary: DELETE object-store-access-keys (placeholder)
   description: DELETE object-store-access-keys (placeholder)
   parameters:
   - $ref: ../../queries/FB1.2/names_required.query.yaml
-
   responses:
     200:
       description: OK
-
   tags:
   - Object Store Access Keys

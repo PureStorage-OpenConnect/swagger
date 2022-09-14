@@ -1,17 +1,5 @@
-delete:
-  description: Deletes a software check task specified by software name and version.
-    The check task must be queued. If the check task is running or passed/failed then
-    the task cannot be deleted.
-  parameters:
-  - $ref: ../../queries/FA2.9/software_versions.query.yaml
-  - $ref: ../../queries/FA2.2/software_names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: Delete a software check task
-  tags:
-  - Software
 get:
+  summary: List software check tasks
   description: Displays a list of software check tasks.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -30,10 +18,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.9/software-checks-get-response.yaml
-  summary: List software check tasks
   tags:
   - Software
 post:
+  summary: Create a software check task
   description: Creates a software check task. If there are no previously queued or
     running software check tasks, the new task immediately starts. Otherwise, it is
     queued and starts once all previously queued or running software check tasks finish.
@@ -48,6 +36,18 @@ post:
       description: The software check record was created successfully.
       schema:
         $ref: ../../responses/FA2.9/software-checks-response.yaml
-  summary: Create a software check task
+  tags:
+  - Software
+delete:
+  summary: Delete a software check task
+  description: Deletes a software check task specified by software name and version.
+    The check task must be queued. If the check task is running or passed/failed then
+    the task cannot be deleted.
+  parameters:
+  - $ref: ../../queries/FA2.9/software_versions.query.yaml
+  - $ref: ../../queries/FA2.2/software_names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Software

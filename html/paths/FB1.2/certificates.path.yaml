@@ -1,22 +1,17 @@
 get:
   parameters:
-  # there is only 1 certificate so sort, start and token don't make much sense,
-  # but since we eventually want them and they are implemented, docing them here
   - $ref: ../../queries/FB1.0/filter.query.yaml
   - $ref: ../../queries/FB1.0/limit.query.yaml
   - $ref: ../../queries/FB1.0/sort.query.yaml
   - $ref: ../../queries/FB1.0/start.query.yaml
   - $ref: ../../queries/FB1.0/token.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.2/certificate-get-response.yaml
-
   tags:
   - Certificates
-
 patch:
   parameters:
   - name: certificate
@@ -25,12 +20,10 @@ patch:
     schema:
       $ref: ../../models/FB1.2/certificate-patch.yaml
   - $ref: ../../queries/FB1.0/names.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.2/certificate-response.yaml
-
   tags:
   - Certificates

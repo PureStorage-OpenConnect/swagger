@@ -3,6 +3,6 @@ allOf:
 - properties:
     fqdn:
       description: The fully qualified domain name of the array.
-      example: https://array01.dc1.example.com
       readOnly: true
       type: string
+      example: https://array01.dc1.example.com

@@ -1,15 +1,15 @@
 allOf:
-- $ref: _fixed-reference.yaml
+- $ref: ../../models/Pure1-1.0/_fixed-reference.yaml
 - type: object
 - readOnly: true
 - properties:
-    total_blades:
-      description: Count of total blade slots in the array.
-      example: 15
-      format: int64
-      type: integer
     used_blades:
       description: Count of used blade slots in the array.
-      example: 10
-      format: int64
       type: integer
+      format: int64
+      example: 10
+    total_blades:
+      description: Count of total blade slots in the array.
+      type: integer
+      format: int64
+      example: 15

@@ -1,66 +1,66 @@
 allOf:
 - $ref: ../../models/FB2.0/_built-in-no-id.yaml
-- properties:
+- readOnly: true
+  properties:
     bytes_per_op:
       description: Average operation size (read bytes+write bytes/read ops+write ops).
+      type: integer
       format: int64
       minimum: 0
-      type: integer
     bytes_per_read:
       description: Average read size in bytes per read operation.
+      type: integer
       format: int64
       minimum: 0
-      type: integer
     bytes_per_write:
       description: Average write size in bytes per write operation.
+      type: integer
       format: int64
       minimum: 0
-      type: integer
     others_per_sec:
       description: Other operations processed per second.
+      type: integer
       format: int64
       minimum: 0
-      type: integer
     read_bytes_per_sec:
       description: Bytes read per second.
+      type: integer
       format: int64
       minimum: 0
-      type: integer
     reads_per_sec:
       description: Read requests processed per second.
+      type: integer
       format: int64
       minimum: 0
-      type: integer
     time:
       description: Sample time in milliseconds since UNIX epoch.
-      format: int64
       type: integer
+      format: int64
     usec_per_other_op:
       description: Average time, measured in microseconds, it takes the client to
         process other operations.
+      type: integer
       format: int64
       minimum: 0
-      type: integer
     usec_per_read_op:
       description: Average time, measured in microseconds, it takes the client to
         process a read request.
+      type: integer
       format: int64
       minimum: 0
-      type: integer
     usec_per_write_op:
       description: Average time, measured in microseconds, it takes the client to
         process a write request.
+      type: integer
       format: int64
       minimum: 0
-      type: integer
     write_bytes_per_sec:
       description: Bytes written per second.
+      type: integer
       format: int64
       minimum: 0
-      type: integer
     writes_per_sec:
       description: Write requests processed per second.
+      type: integer
       format: int64
       minimum: 0
-      type: integer
-  readOnly: true

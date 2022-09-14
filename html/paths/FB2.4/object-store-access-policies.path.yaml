@@ -1,15 +1,5 @@
-delete:
-  description: Delete one or more access policies.
-  parameters:
-  - $ref: ../../queries/FB2.0/ids.query.yaml
-  - $ref: ../../queries/FB2.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE object-store-access-policies
-  tags:
-  - Policies - Object Store Access
 get:
+  summary: GET object-store-access-policies
   description: List access policies and their attributes.
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
@@ -25,34 +15,16 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.4/object-store-access-policy-get-response.yaml
-  summary: GET object-store-access-policies
-  tags:
-  - Policies - Object Store Access
-patch:
-  description: Modify the rules of an object store access policy.
-  parameters:
-  - $ref: ../../queries/FB2.2/enforce_action_restrictions.query.yaml
-  - $ref: ../../queries/FB2.0/ids.query.yaml
-  - $ref: ../../queries/FB2.0/names.query.yaml
-  - in: body
-    name: policy
-    schema:
-      $ref: ../../models/FB2.2/object-store-access-policy-patch.yaml
-  responses:
-    200:
-      description: OK
-      schema:
-        $ref: ../../responses/FB2.4/object-store-access-policy-response.yaml
-  summary: PATCH object-store-access-policies
   tags:
   - Policies - Object Store Access
 post:
+  summary: POST object-store-access-policies
   description: Create a new access policy.
   parameters:
   - $ref: ../../queries/FB2.2/enforce_action_restrictions.query.yaml
   - $ref: ../../queries/FB2.0/names_required.query.yaml
-  - in: body
-    name: policy
+  - name: policy
+    in: body
     schema:
       $ref: ../../models/FB2.2/object-store-access-policy-post.yaml
   responses:
@@ -60,6 +32,34 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FB2.4/object-store-access-policy-response.yaml
-  summary: POST object-store-access-policies
+  tags:
+  - Policies - Object Store Access
+patch:
+  summary: PATCH object-store-access-policies
+  description: Modify the rules of an object store access policy.
+  parameters:
+  - $ref: ../../queries/FB2.2/enforce_action_restrictions.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - name: policy
+    in: body
+    schema:
+      $ref: ../../models/FB2.2/object-store-access-policy-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.4/object-store-access-policy-response.yaml
+  tags:
+  - Policies - Object Store Access
+delete:
+  summary: DELETE object-store-access-policies
+  description: Delete one or more access policies.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Policies - Object Store Access

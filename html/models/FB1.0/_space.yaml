@@ -19,9 +19,8 @@ properties:
     type: integer
     readOnly: true
     format: int64
-    description: >-
-      Unique physical space occupied by customer data, in bytes.
-      Excludes shared space, snapshots, and metadata.
+    description: Unique physical space occupied by customer data, in bytes. Excludes
+      shared space, snapshots, and metadata.
   virtual:
     type: integer
     readOnly: true

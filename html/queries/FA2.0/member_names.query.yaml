@@ -1,10 +1,8 @@
 name: member_names
 in: query
-description: >-
-  Displays all host groups associated
-  with the specified member hosts (`member_names`).
-  Enter multiple names in comma-separated format.
-  For example, `host01,host02`.
+description: Performs the operation on the unique member name specified. Examples
+  of members include volumes, hosts, host groups, and directories. Enter multiple
+  names in comma-separated format. For example, `vol01,vol02`.
 type: array
 collectionFormat: csv
 items:

@@ -1,6 +1,6 @@
+type: object
 properties:
   items:
+    type: array
     items:
       $ref: ../../models/FB1.12/eula.yaml
-    type: array
-type: object

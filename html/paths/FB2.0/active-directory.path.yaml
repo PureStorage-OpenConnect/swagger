@@ -1,16 +1,5 @@
-delete:
-  description: Delete an Active Directory account.
-  parameters:
-  - $ref: ../../queries/FB2.0/ids.query.yaml
-  - $ref: ../../queries/FB2.0/local_only_ad.query.yaml
-  - $ref: ../../queries/FB2.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE active-directory
-  tags:
-  - Active Directory
 get:
+  summary: GET active-directory
   description: List an Active Directory account and its configuration.
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
@@ -25,16 +14,28 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/active-directory-get-response.yaml
-  summary: GET active-directory
+  tags:
+  - Active Directory
+delete:
+  summary: DELETE active-directory
+  description: Delete an Active Directory account.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/local_only_ad.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Active Directory
 patch:
+  summary: PATCH active-directory
   description: Modify the configuration of an Active Directory account.
   parameters:
   - $ref: ../../queries/FB2.0/ids.query.yaml
   - $ref: ../../queries/FB2.0/names.query.yaml
-  - in: body
-    name: active-directory
+  - name: active-directory
+    in: body
     required: true
     schema:
       $ref: ../../models/FB2.0/active-directory-patch.yaml
@@ -43,17 +44,17 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/active-directory-response.yaml
-  summary: PATCH active-directory
   tags:
   - Active Directory
 post:
+  summary: POST active-directory
   description: Join an Active Directory domain and generate keytabs for the registered
     SPNs and supported encryption types.
   parameters:
   - $ref: ../../queries/FB2.0/names.query.yaml
   - $ref: ../../queries/FB2.0/join_existing_acct_ad.yaml
-  - in: body
-    name: active-directory
+  - name: active-directory
+    in: body
     required: true
     schema:
       $ref: ../../models/FB2.0/active-directory-post.yaml
@@ -62,6 +63,5 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/active-directory-response.yaml
-  summary: POST active-directory
   tags:
   - Active Directory

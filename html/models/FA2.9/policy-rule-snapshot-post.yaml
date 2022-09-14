@@ -1,7 +1,7 @@
+type: object
 properties:
   rules:
     description: A list of snapshot policy rules to create.
+    type: array
     items:
       $ref: ../../models/FA2.9/_policyrulesnapshotpost-rules.yaml
-    type: array
-type: object

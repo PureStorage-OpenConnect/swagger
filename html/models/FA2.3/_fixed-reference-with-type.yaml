@@ -2,9 +2,9 @@ allOf:
 - $ref: ../../models/FA2.0/_fixed-reference.yaml
 - properties:
     resource_type:
-      description: Type of the object (full name of the endpoint). Valid values are
+      type: string
+      description: Type of the object (full name of the endpoint). Valid values include
         `hosts`, `host-groups`, `network-interfaces`, `pods`, `ports`, `pod-replica-links`,
         `subnets`, `volumes`, `volume-snapshots`, `volume-groups`, `directories`,
-        `policies/nfs`, `policies/smb`, and `policies/snapshot`.
+        `policies/nfs`, `policies/smb`, `policies/snapshot`, and `policies/quota`.
       readOnly: true
-      type: string

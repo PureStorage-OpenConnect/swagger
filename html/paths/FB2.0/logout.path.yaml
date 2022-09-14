@@ -1,10 +1,10 @@
 post:
+  summary: POST logout
   description: 'Invalidate a REST session token.
 
     '
   responses:
     200:
       description: OK
-  summary: POST logout
   tags:
   - Authorization

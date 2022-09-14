@@ -1,4 +1,5 @@
 get:
+  summary: List SMTP server attributes
   description: Displays SMTP server attributes. Values include `user_name`, `password`,
     `relay_host`, `sender_domain`, and `name`.
   parameters:
@@ -14,17 +15,17 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.4/smtp-server-get-response.yaml
-  summary: List SMTP server attributes
   tags:
   - SMTP
 patch:
+  summary: Modify SMTP server attributes
   description: Modifies SMTP server attributes. Values include `user_name`, `password`,
     `relay_host`, `sender_domain`, and `name`.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - in: body
-    name: smtp
+  - name: smtp
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.4/smtp-server.yaml
@@ -33,6 +34,5 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FA2.4/smtp-server-response.yaml
-  summary: Modify SMTP server attributes
   tags:
   - SMTP

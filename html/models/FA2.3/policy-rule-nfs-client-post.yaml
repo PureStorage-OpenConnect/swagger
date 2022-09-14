@@ -1,7 +1,10 @@
+type: object
 properties:
   rules:
     description: A list of NFS policy rules to create.
+    type: array
     items:
+      type: object
       properties:
         access:
           description: Specifies access control for the export. Valid values are `root-squash`
@@ -16,6 +19,3 @@ properties:
             for the export. Valid values are `rw` and `ro`. The default is `rw` if
             not specified.
           type: string
-      type: object
-    type: array
-type: object

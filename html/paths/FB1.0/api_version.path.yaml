@@ -1,15 +1,14 @@
 get:
   summary: GET api_version (placeholder)
-  description: >
-    Get available API versions. No authentication is required to access this
-    endpoint.
-  security: []   # No security
+  description: 'Get available API versions. No authentication is required to access
+    this endpoint.
 
+    '
+  security: []
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.0/api_version.response.yaml
-
   tags:
   - Authorization

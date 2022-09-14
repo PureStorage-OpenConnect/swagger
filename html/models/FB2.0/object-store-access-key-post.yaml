@@ -1,11 +1,11 @@
+type: object
 properties:
-  secret_access_key:
-    description: The secret access key to import from another FlashBlade. To import
-      a set of credentials, this field must be specified with the `names` query parameter.
-      If both of these not specified, the system will generate a new set of credentials.
-    type: string
   user:
     allOf:
     - $ref: ../../models/FB2.0/_reference.yaml
     - description: Reference of the associated user.
-type: object
+  secret_access_key:
+    type: string
+    description: The secret access key to import from another FlashBlade. To import
+      a set of credentials, this field must be specified with the `names` query parameter.
+      If both of these not specified, the system will generate a new set of credentials.

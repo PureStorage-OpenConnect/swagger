@@ -1,15 +1,5 @@
-delete:
-  description: Delete a CA certificate from the array.
-  parameters:
-  - $ref: ../../queries/FB2.0/ids.query.yaml
-  - $ref: ../../queries/FB2.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE certificates
-  tags:
-  - Certificates
 get:
+  summary: GET certificates
   description: List array certificates and their attributes.
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
@@ -24,15 +14,32 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/certificate-get-response.yaml
-  summary: GET certificates
+  tags:
+  - Certificates
+post:
+  summary: POST certificates
+  description: Upload a CA certificate to the array.
+  parameters:
+  - name: certificate
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/certificate-post.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/certificate-response.yaml
   tags:
   - Certificates
 patch:
+  summary: PATCH certificates
   description: Modify SSL certificate attributes such as passphrases and intermediate
     certificates.
   parameters:
-  - in: body
-    name: certificate
+  - name: certificate
+    in: body
     required: true
     schema:
       $ref: ../../models/FB2.0/certificate-patch.yaml
@@ -43,23 +50,16 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/certificate-response.yaml
-  summary: PATCH certificates
   tags:
   - Certificates
-post:
-  description: Upload a CA certificate to the array.
+delete:
+  summary: DELETE certificates
+  description: Delete a CA certificate from the array.
   parameters:
-  - in: body
-    name: certificate
-    required: true
-    schema:
-      $ref: ../../models/FB2.0/certificate-post.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
   - $ref: ../../queries/FB2.0/names.query.yaml
   responses:
     200:
       description: OK
-      schema:
-        $ref: ../../responses/FB2.0/certificate-response.yaml
-  summary: POST certificates
   tags:
   - Certificates

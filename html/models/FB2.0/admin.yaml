@@ -6,13 +6,13 @@ allOf:
     is_local:
       description: Returns a value of `true` if the user is local to the machine,
         otherwise `false`.
-      readOnly: true
       type: boolean
+      readOnly: true
     public_key:
       description: Public key for SSH access. Supported key types are `Ed25519` and
         `RSA`.
       type: string
     role:
+      description: A reference to this administrator's management role.
       allOf:
       - $ref: ../../models/FB2.0/_reference.yaml
-      description: A reference to this administrator's management role.

@@ -1,15 +1,5 @@
-delete:
-  description: Delete an object store account.
-  parameters:
-  - $ref: ../../queries/FB2.0/ids.query.yaml
-  - $ref: ../../queries/FB2.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE object-store-accounts
-  tags:
-  - Object Store Accounts
 get:
+  summary: GET object-store-accounts
   description: List object store accounts and their attributes.
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
@@ -25,10 +15,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/object-store-account-get-response.yaml
-  summary: GET object-store-accounts
   tags:
   - Object Store Accounts
 post:
+  summary: POST object-store-accounts
   description: Create an object store account.
   parameters:
   - $ref: ../../queries/FB2.0/names_required.query.yaml
@@ -37,6 +27,16 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/object-store-account-response.yaml
-  summary: POST object-store-accounts
+  tags:
+  - Object Store Accounts
+delete:
+  summary: DELETE object-store-accounts
+  description: Delete an object store account.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Object Store Accounts

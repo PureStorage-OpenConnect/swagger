@@ -1,3 +1,4 @@
+type: object
 properties:
   old_password:
     description: Old user password.
@@ -9,4 +10,3 @@ properties:
     description: Public key for SSH access. Supported key types are `Ed25519` and
       `RSA`.
     type: string
-type: object

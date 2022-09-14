@@ -4,6 +4,6 @@ allOf:
     idle_timeout:
       description: Idle timeout in milliseconds. Valid values are in the range of
         300000 and 10800000. Setting this value to 0 disables timeouts.
-      example: 300000
-      format: int32
       type: integer
+      format: int32
+      example: 300000

@@ -1,19 +1,5 @@
-delete:
-  description: Deletes one or more snapshot policy rules. The `policy_ids` or `policy_names`
-    parameter is required, but they cannot be set together.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/names.query.yaml
-  - $ref: ../../queries/FA2.3/policy_ids.query.yaml
-  - $ref: ../../queries/FA2.3/policy_names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: Delete snapshot policy rules.
-  tags:
-  - Policies
 get:
+  summary: List snapshot policy rules
   description: Displays a list of snapshot policy rules.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -32,10 +18,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.9/policy-rule-snapshot-get-response.yaml
-  summary: List snapshot policy rules
   tags:
   - Policies
 post:
+  summary: Create snapshot policy rules
   description: Creates one or more snapshot policy rules. The `policy_ids` or `policy_names`
     parameter is required, but cannot be set together.
   parameters:
@@ -43,8 +29,8 @@ post:
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - $ref: ../../queries/FA2.3/policy_ids.query.yaml
   - $ref: ../../queries/FA2.3/policy_names.query.yaml
-  - in: body
-    name: rules
+  - name: rules
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.9/policy-rule-snapshot-post.yaml
@@ -53,6 +39,20 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FA2.9/policy-rule-snapshot-response.yaml
-  summary: Create snapshot policy rules
+  tags:
+  - Policies
+delete:
+  summary: Delete snapshot policy rules.
+  description: Deletes one or more snapshot policy rules. The `policy_ids` or `policy_names`
+    parameter is required, but they cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.3/policy_ids.query.yaml
+  - $ref: ../../queries/FA2.3/policy_names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Policies

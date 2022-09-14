@@ -5,12 +5,10 @@ get:
   - $ref: ../../queries/FB1.0/filter.query.yaml
   - $ref: ../../queries/FB1.0/sort.query.yaml
   - $ref: ../../queries/FB1.6/test_type.query.yaml
-
   responses:
     200:
       description: OK
       schema:
-        $ref: ../../responses/FB1.3/test-result-response.yaml
-
+        $ref: ../../responses/FB1.3/test-result-get-response.yaml
   tags:
   - Support

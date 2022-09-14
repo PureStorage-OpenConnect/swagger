@@ -15,14 +15,14 @@ allOf:
       description: Any user whose GID is affected by an `access` of `root_squash`
         or `all_squash` will have their GID mapped to `anongid`. The default `anongid`
         is null, which means 65534. Use "" to clear.
-      example: 65530
       type: string
+      example: 65530
     anonuid:
       description: Any user whose UID is affected by an `access` of `root_squash`
         or `all_squash` will have their UID mapped to `anonuid`. The default `anonuid`
         is null, which means 65534. Use "" to clear.
-      example: 65530
       type: string
+      example: 65530
     atime:
       description: 'If `true`, after a read operation has occurred, the inode access
         time is updated only if any of the following conditions is true: the previous
@@ -39,20 +39,20 @@ allOf:
     fileid_32bit:
       description: Whether the file id is 32 bits or not. Defaults to `false`.
       type: boolean
+    policy:
+      description: The policy to which this rule belongs.
+      readOnly: true
+      allOf:
+      - $ref: ../../models/FB2.0/_fixed-reference.yaml
+    policy_version:
+      description: The policy's version. This can be used when updating the resource
+        to ensure there aren't any updates to the policy since the resource was read.
+      type: string
+      readOnly: true
     permission:
       description: Specifies which read-write client access permissions are allowed
         for the export. Valid values are `rw` and `ro`. The default is `ro` if not
         specified.
-      type: string
-    policy:
-      allOf:
-      - $ref: ../../models/FB2.0/_fixed-reference.yaml
-      description: The policy to which this rule belongs.
-      readOnly: true
-    policy_version:
-      description: The policy's version. This can be used when updating the resource
-        to ensure there aren't any updates to the policy since the resource was read.
-      readOnly: true
       type: string
     secure:
       description: If `true`, prevents NFS access to client connections coming from
@@ -72,7 +72,7 @@ allOf:
         to ensure the data has not been tampered with. If `krb5p`, adds integrity
         checking and encryption to krb5. This is the most secure setting, but it also
         involves the most performance overhead. The default is `sys` if not specified.
-      items:
-        example: sys
-        type: string
       type: array
+      items:
+        type: string
+        example: sys

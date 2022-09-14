@@ -1,5 +1,8 @@
 get:
+  summary: GET usage/users
   description: List users with hard limit quotas and their file system usage.
+  tags:
+  - Usage
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
   - $ref: ../../queries/FB2.0/file_system_ids.query.yaml
@@ -15,6 +18,3 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/user-quota-get-response.yaml
-  summary: GET usage/users
-  tags:
-  - Usage

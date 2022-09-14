@@ -5,30 +5,30 @@ allOf:
   properties:
     lag_speed:
       description: Combined speed of all ports in the LAG in bits-per-second.
-      example: 260000000000
+      type: integer
       format: int64
       readOnly: true
-      type: integer
+      example: 260000000000
     mac_address:
       description: Unique MAC address assigned to the LAG.
-      example: 24:a9:37:11:f5:21
-      pattern: ^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$
-      readOnly: true
       type: string
-    port_speed:
-      description: Configured speed of each port in the LAG in bits-per-second.
-      example: 10000000000
-      format: int64
       readOnly: true
-      type: integer
+      pattern: ^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$
+      example: 24:a9:37:11:f5:21
     ports:
       description: Ports associated with the LAG.
+      type: array
       items:
         $ref: ../../models/FB2.0/_fixed-reference.yaml
-      type: array
+    port_speed:
+      description: Configured speed of each port in the LAG in bits-per-second.
+      type: integer
+      format: int64
+      readOnly: true
+      example: 10000000000
     status:
       description: Health status of the LAG. Valid values are `critical`, `healthy`,
         `identifying`, `unclaimed`, `unhealthy`, `unrecognized`, and `unused`.
-      example: healthy
-      readOnly: true
       type: string
+      readOnly: true
+      example: healthy

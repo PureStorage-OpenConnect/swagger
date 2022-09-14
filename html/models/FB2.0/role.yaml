@@ -3,6 +3,6 @@ allOf:
 - properties:
     permissions:
       description: A list of permissions that the role can perform.
+      type: array
       items:
         $ref: ../../models/FB2.0/_permission.yaml
-      type: array

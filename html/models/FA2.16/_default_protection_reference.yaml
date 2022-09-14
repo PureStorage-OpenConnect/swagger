@@ -1,9 +1,9 @@
+type: object
 allOf:
 - $ref: ../../models/FA2.0/_reference-no-id.yaml
 - properties:
     type:
       description: The type of default protection. Currently, the only valid value
         is `protection_group`.
-      example: protection_group
       type: string
-type: object
+      example: protection_group

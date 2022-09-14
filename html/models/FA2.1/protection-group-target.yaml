@@ -1,13 +1,13 @@
 allOf:
-- properties:
+- type: object
+  properties:
+    protection_group:
+      $ref: ../../models/FA2.0/_reference-no-id.yaml
+    target:
+      $ref: ../../models/FA2.0/_reference-no-id.yaml
     allowed:
       description: If set to `true`, the target array has allowed the source array
         to replicate protection group data to the target array. If set to `false`,
         the target array has not allowed the source array to replicate protection
         group data to the target.
       type: boolean
-    protection_group:
-      $ref: ../../models/FA2.0/_reference-no-id.yaml
-    target:
-      $ref: ../../models/FA2.0/_reference-no-id.yaml
-  type: object

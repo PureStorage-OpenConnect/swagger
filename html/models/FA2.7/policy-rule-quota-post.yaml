@@ -1,7 +1,7 @@
+type: object
 properties:
   rules:
     description: A list of quota policy rules to create.
+    type: array
     items:
       $ref: ../../models/FA2.7/_policyrulequotapost-rules.yaml
-    type: array
-type: object

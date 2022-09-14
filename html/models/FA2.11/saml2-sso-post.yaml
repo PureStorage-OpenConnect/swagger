@@ -1,12 +1,12 @@
+type: object
 properties:
   array_url:
     description: The URL of the array.
-    example: https://myarray.mycompany.com
     type: string
-  idp:
-    $ref: ../../models/FA2.11/_saml2-sso-idp.yaml
+    example: https://myarray.mycompany.com
   sp:
+    description: Properties specific to the service provider.
     allOf:
     - $ref: ../../models/FA2.11/_saml2-sso-sp-credential.yaml
-    description: Properties specific to the service provider.
-type: object
+  idp:
+    $ref: ../../models/FA2.11/_saml2-sso-idp.yaml

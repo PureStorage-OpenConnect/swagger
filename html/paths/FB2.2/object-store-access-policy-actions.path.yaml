@@ -1,4 +1,5 @@
 get:
+  summary: GET object-store-access-policy-actions
   description: List valid actions for access policy rules. Each action is either a
     valid AWS S3 action (prefixed by `s3:`) or our special wildcard action (`s3:*`).
     Each action, when included in a rule, may restrict which other properties may
@@ -15,6 +16,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.2/object-store-access-policy-action-get-response.yaml
-  summary: GET object-store-access-policy-actions
   tags:
   - Policies - Object Store Access

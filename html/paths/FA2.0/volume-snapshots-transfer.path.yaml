@@ -1,10 +1,9 @@
 get:
   summary: List volume snapshots with transfer statistics
-
-  description: >-
-    Return a list of volume snapshots with transfer statistics.
-
+  description: Returns a list of volume snapshots and their transfer statistics.
   parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - $ref: ../../queries/FA2.0/destroyed.query.yaml
   - $ref: ../../queries/FA2.0/filter.query.yaml
   - $ref: ../../queries/FA2.0/ids.query.yaml
@@ -20,9 +19,7 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.0/volume-snapshot-transfer-get-response.yaml
-
   tags:
   - Volume Snapshots
-
 parameters:
 - $ref: ../../queries/FA2.0/names.query.yaml

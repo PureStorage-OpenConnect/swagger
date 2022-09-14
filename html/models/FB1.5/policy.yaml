@@ -3,8 +3,7 @@ allOf:
 - properties:
     enabled:
       type: boolean
-      description: >-
-        Indicates if policy is enabled (`true`) or disabled (`false`).
+      description: Indicates if policy is enabled (`true`) or disabled (`false`).
         If not specified, defaults to `true`.
     rules:
       type: array

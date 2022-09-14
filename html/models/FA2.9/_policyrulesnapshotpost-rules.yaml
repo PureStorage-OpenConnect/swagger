@@ -6,8 +6,8 @@ allOf:
         the form of `DIR.CLIENT_NAME.SUFFIX` where `DIR` is the managed directory
         name, `CLIENT_NAME` is the snapshot client name, and `SUFFIX` is the snapshot
         suffix. The client-visible snapshot name is `CLIENT_NAME.SUFFIX`.
-      required: true
       type: string
+      required: true
     suffix:
       description: The snapshot suffix name. A full snapshot name is constructed in
         the form of `DIR.CLIENT_NAME.SUFFIX` where `DIR` is the managed directory

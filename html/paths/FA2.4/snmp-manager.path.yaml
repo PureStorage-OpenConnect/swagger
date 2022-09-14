@@ -1,17 +1,5 @@
-delete:
-  description: Deletes the SNMP manager object and stops communication with specified
-    managers.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: Delete SNMP manager
-  tags:
-  - SNMP Managers
 get:
+  summary: List SNMP managers
   description: Displays designated SNMP managers and their communication and security
     attributes.
   parameters:
@@ -29,30 +17,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.4/snmp-manager-get-response.yaml
-  summary: List SNMP managers
-  tags:
-  - SNMP Managers
-patch:
-  description: Modifies the name or the protocol attributes of the specified SNMP
-    manager.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/names.query.yaml
-  - in: body
-    name: snmp-manager
-    required: true
-    schema:
-      $ref: ../../models/FA2.4/snmp-manager.yaml
-  responses:
-    200:
-      description: Returns the newly updated snmp manager object.
-      schema:
-        $ref: ../../responses/FA2.4/snmp-manager-response.yaml
-  summary: Modify SNMP manager
   tags:
   - SNMP Managers
 post:
+  summary: Create SNMP manager
   description: Creates a Purity SNMP manager object that identifies a host (SNMP manager)
     and specifies the protocol attributes for communicating with it. Once a manager
     object is created, the transmission of SNMP traps is immediately enabled.
@@ -60,8 +28,8 @@ post:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - $ref: ../../queries/FA2.0/names.query.yaml
-  - in: body
-    name: snmp-manager
+  - name: snmp-manager
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.4/snmp-manager-post.yaml
@@ -70,6 +38,38 @@ post:
       description: Returns the newly created snmp manager object.
       schema:
         $ref: ../../responses/FA2.4/snmp-manager-response.yaml
-  summary: Create SNMP manager
+  tags:
+  - SNMP Managers
+delete:
+  summary: Delete SNMP manager
+  description: Deletes the SNMP manager object and stops communication with specified
+    managers.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - SNMP Managers
+patch:
+  summary: Modify SNMP manager
+  description: Modifies the name or the protocol attributes of the specified SNMP
+    manager.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - name: snmp-manager
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.4/snmp-manager-patch.yaml
+  responses:
+    200:
+      description: Returns the newly updated snmp manager object.
+      schema:
+        $ref: ../../responses/FA2.4/snmp-manager-response.yaml
   tags:
   - SNMP Managers

@@ -1,15 +1,5 @@
-delete:
-  description: Delete one or more certificate groups from the array.
-  parameters:
-  - $ref: ../../queries/FB2.0/ids.query.yaml
-  - $ref: ../../queries/FB2.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE certificate-groups
-  tags:
-  - Certificate Groups
 get:
+  summary: GET certificate-groups
   description: Display all array certificate groups.
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
@@ -24,10 +14,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/certificate-group-get-response.yaml
-  summary: GET certificate-groups
   tags:
   - Certificate Groups
 post:
+  summary: POST certificate-groups
   description: Create one or more certificate groups on the array.
   parameters:
   - $ref: ../../queries/FB2.0/names.query.yaml
@@ -36,6 +26,16 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/certificate-group-response.yaml
-  summary: POST certificate-groups
+  tags:
+  - Certificate Groups
+delete:
+  summary: DELETE certificate-groups
+  description: Delete one or more certificate groups from the array.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Certificate Groups

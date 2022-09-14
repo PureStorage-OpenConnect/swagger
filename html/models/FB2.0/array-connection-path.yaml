@@ -9,9 +9,9 @@ allOf:
       readOnly: true
       type: string
     remote:
+      description: The remote array.
       allOf:
       - $ref: ../../models/FB2.0/_fixed-reference-no-resource-type.yaml
-      description: The remote array.
     source:
       description: IP address of the source array.
       example: 10.202.101.70

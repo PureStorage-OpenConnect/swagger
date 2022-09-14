@@ -2,7 +2,7 @@ allOf:
 - $ref: ../../models/FB2.0/policy-file-system-snapshot.yaml
 - properties:
     link:
-      allOf:
-      - $ref: ../../models/FB2.0/_member-link.yaml
       description: Only populated if the `member` is a file system replica link. Contains
         additional information about the link.
+      allOf:
+      - $ref: ../../models/FB2.0/_member-link.yaml

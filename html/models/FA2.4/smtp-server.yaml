@@ -1,6 +1,7 @@
 allOf:
 - $ref: ../../models/FA2.0/_built-in-resource-no-id.yaml
-- properties:
+- type: object
+  properties:
     password:
       description: Password for the relay host, if needed.
       type: string
@@ -17,4 +18,3 @@ allOf:
     user_name:
       description: User name for the relay host, if needed.
       type: string
-  type: object

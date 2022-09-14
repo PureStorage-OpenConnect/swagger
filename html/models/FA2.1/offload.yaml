@@ -1,17 +1,24 @@
 allOf:
 - $ref: offload-post.yaml
 - $ref: ../../models/FA2.0/_resource-no-id.yaml
-- properties:
+- type: object
+  properties:
     protocol:
       description: The type of offload. Valid values are `nfs` for Network File System,
         `s3` for Amazon S3, and `azure` for Microsoft Azure.
       readOnly: true
       type: string
+    target_id:
+      description: The unique ID for the offload target. When multiple connections
+        to one offload target are created, they will each have distinct IDs but share
+        the same target ID.
+      readOnly: true
+      type: string
     space:
+      description: Displays provisioned size and physical storage consumption information
+        for the sum of all volumes connected to the specified host.
       allOf:
       - $ref: ../../models/FA2.0/_space.yaml
-      description: Displays provisioned (virtual) size and physical storage consumption
-        information for the sum of all volumes connected to the specified host.
     status:
       description: "The connection status of the offload target. Valid values are\
         \ `connecting`, `connected`, `disconnecting`, `not connected`, and `scanning`.\n\
@@ -28,10 +35,3 @@ allOf:
         \ status will change to `connected`."
       readOnly: true
       type: string
-    target_id:
-      description: The unique ID for the offload target. When multiple connections
-        to one offload target are created, they will each have distinct IDs but share
-        the same target ID.
-      readOnly: true
-      type: string
-  type: object

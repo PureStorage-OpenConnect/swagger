@@ -5,16 +5,13 @@ get:
   - $ref: ../../queries/FB1.0/sort.query.yaml
   - $ref: ../../queries/FB1.0/start.query.yaml
   - $ref: ../../queries/FB1.0/token.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.3/network-interface-get-response.yaml
-
   tags:
   - Network Interfaces
-
 post:
   parameters:
   - name: network-interface
@@ -22,16 +19,13 @@ post:
     required: true
     schema:
       $ref: ../../models/FB1.3/network-interface.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.3/network-interface-response.yaml
-
   tags:
   - Network Interfaces
-
 patch:
   parameters:
   - name: network-interface
@@ -39,23 +33,18 @@ patch:
     required: true
     schema:
       $ref: ../../models/FB1.3/network-interface-patch.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.3/network-interface-response.yaml
-
   tags:
   - Network Interfaces
-
 delete:
   responses:
     200:
       description: OK
-
   tags:
   - Network Interfaces
-
 parameters:
 - $ref: ../../queries/FB1.0/names.query.yaml

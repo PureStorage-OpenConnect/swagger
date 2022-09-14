@@ -1,4 +1,5 @@
 get:
+  summary: List software upgrades
   description: Displays a list of software upgrades, including currently running and
     past upgrades.
   parameters:
@@ -19,10 +20,29 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.9/software-installations-get-response.yaml
-  summary: List software upgrades
+  tags:
+  - Software
+post:
+  summary: Create a software upgrade
+  description: Creates and initiates a software upgrade.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.2/software_ids-required.query.yaml
+  - name: software-installations
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.9/software-installation-post.yaml
+  responses:
+    200:
+      description: The software upgrade record was created successfully.
+      schema:
+        $ref: ../../responses/FA2.9/software-installations-response.yaml
   tags:
   - Software
 patch:
+  summary: Modify software upgrade
   description: Modifies a software upgrade by continuing, retrying, or aborting it.
     All `override_checks` are updated before the command being issued if `add_override_checks`
     is present. The `override_checks` parameter is valid when `command` is `continue`
@@ -32,8 +52,8 @@ patch:
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - $ref: ../../queries/FA2.2/software_installation_command_required.query.yaml
   - $ref: ../../queries/FA2.2/software_installation_current_step_id-required.query.yaml
-  - in: body
-    name: software-installations
+  - name: software-installations
+    in: body
     schema:
       $ref: ../../models/FA2.4/software-installation-patch.yaml
   responses:
@@ -41,25 +61,5 @@ patch:
       description: The `command` was issued and/or `override_checks` was updated.
       schema:
         $ref: ../../responses/FA2.9/software-installations-response.yaml
-  summary: Modify software upgrade
-  tags:
-  - Software
-post:
-  description: Creates and initiates a software upgrade.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.2/software_ids-required.query.yaml
-  - in: body
-    name: software-installations
-    required: true
-    schema:
-      $ref: ../../models/FA2.9/software-installation-post.yaml
-  responses:
-    200:
-      description: The software upgrade record was created successfully.
-      schema:
-        $ref: ../../responses/FA2.9/software-installations-response.yaml
-  summary: Create a software upgrade
   tags:
   - Software

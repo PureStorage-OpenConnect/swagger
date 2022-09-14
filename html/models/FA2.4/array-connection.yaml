@@ -5,20 +5,15 @@ allOf:
 - properties:
     management_address:
       description: Management IP address or FQDN of the target array.
-      example: 10.202.101.78
       type: string
+      example: 10.202.101.78
     replication_addresses:
       description: IP addresses of the target arrays when `replication_transport`
         is `ip`. WWNs of the target arrays when `replication_transport` is `fc`.
-      items:
-        example: 10.202.101.70
-        type: string
       type: array
-    replication_transport:
-      description: The protocol used to transport data betwen the local array and
-        the remote array. Valid values are `ip` and `fc`. The default is `ip`.
-      example: ip
-      type: string
+      items:
+        type: string
+        example: 10.202.101.70
     status:
       description: Status of the connection. Valid values are `connected`, `connecting`,
         `partially_connected`, and `unbalanced`. A status of `connected` indicates
@@ -28,13 +23,18 @@ allOf:
         not. A status of `unbalanced` indicates that the arrays are communicating,
         but the set of paths is either not redundant or not symmetric.
       type: string
-    throttle:
-      $ref: ../../models/FA2.4/_throttle.yaml
     type:
       description: The type of replication. Valid values are `async-replication` and
         `sync-replication`.
       type: string
+    replication_transport:
+      description: The protocol used to transport data between the local array and
+        the remote array. Valid values are `ip` and `fc`. The default is `ip`.
+      type: string
+      example: ip
     version:
       description: The version of the target array.
-      example: 5.0.0
       type: string
+      example: 5.0.0
+    throttle:
+      $ref: ../../models/FA2.4/_throttle.yaml

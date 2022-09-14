@@ -1,4 +1,5 @@
 get:
+  summary: Get subscription licenses
   description: Retrieves information about Pure1 subscription licenses.
   parameters:
   - $ref: ../../queries/Pure1-1.0/authorization.header.yaml
@@ -30,6 +31,5 @@ get:
       $ref: ../../responses/Pure1-1.0/error-429.response.yaml
     500:
       $ref: ../../responses/Pure1-1.0/error-500.response.yaml
-  summary: Get subscription licenses
   tags:
   - Subscriptions

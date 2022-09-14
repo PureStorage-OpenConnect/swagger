@@ -1,3 +1,4 @@
+type: object
 properties:
   priority_adjustment_operator:
     description: Valid values are `+`, `-`, and `=`. The values `+` and `-` may be
@@ -13,6 +14,5 @@ properties:
     description: Adjust priority by the specified amount, using the `priority_adjustment_operator`.
       Valid values are 0 and +10 for `+` and `-` operators, -10, 0, and +10 for the
       `=` operator.
-    format: int32
     type: integer
-type: object
+    format: int32

@@ -1,34 +1,36 @@
+type: object
+readOnly: true
 properties:
   continuous_bytes_per_sec:
-    allOf:
-    - $ref: ../../models/FA2.2/_replication-performance-with-total.yaml
     description: Total bytes transmitted or received per second for continuous replication.
       The continuous replication feature is used for disaster recovery on FlashArray
       and provides a recovery point objective (RPO) of significantly less than 30s.
-  pod:
     allOf:
-    - $ref: ../../models/FA2.0/_fixed-reference.yaml
-    description: Reference to a pod.
+    - $ref: ../../models/FA2.2/_replication-performance-with-total.yaml
   resync_bytes_per_sec:
+    description: Total bytes transmitted or received per second during resync replication.
+      Resync replication is the mechanism to bring two arrays into sync. This may
+      occur during an initial pod stretch, or, in case of outage, when two arrays
+      reestablish connection. After the connection is restored, the array that was
+      online starts replicating pod data to its peer array until the pod is once again
+      in sync.
     allOf:
     - $ref: ../../models/FA2.2/_replication-performance-with-total.yaml
-    description: Total bytes transmitted or received per second during resyncing.
-      Resync is the mechanism to bring two arrays into sync. This may occur during
-      an initial pod stretch or when two arrays are connected after they have raced
-      to the mediator.
   sync_bytes_per_sec:
+    description: Total bytes transmitted or received per second for synchronous replication.
     allOf:
     - $ref: ../../models/FA2.2/_replication-performance-with-total.yaml
-    description: Total bytes transmitted or received per second for synchronous replication.
-  time:
-    description: Sample time in milliseconds since the UNIX epoch.
-    format: int64
-    type: integer
   total_bytes_per_sec:
     description: Total bytes transmitted and received per second for all types of
       replication.
+    type: integer
     format: int64
     minimum: 0
+  pod:
+    description: Reference to the pod that the performance data is associated with.
+    allOf:
+    - $ref: ../../models/FA2.0/_fixed-reference.yaml
+  time:
+    description: Sample time in milliseconds since the UNIX epoch.
     type: integer
-readOnly: true
-type: object
+    format: int64

@@ -12,9 +12,9 @@ allOf:
       description: Returns a value of `true` if the policy is enabled.
       type: boolean
     pod:
+      description: A reference to the pod.
       allOf:
       - $ref: ../../models/FA2.0/_reference.yaml
-      description: A reference to the pod.
     policy_type:
       description: The type of policy. Valid values include `nfs`, `smb`, `snapshot`,
         and `quota`.
@@ -23,6 +23,6 @@ allOf:
     time_remaining:
       description: The amount of time left, measured in milliseconds, until the destroyed
         policy is permanently eradicated.
+      type: integer
       format: int64
       readOnly: true
-      type: integer

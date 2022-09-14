@@ -1,7 +1,8 @@
 allOf:
 - $ref: ../../models/FA2.2/_resource-fixed-non-unique-name.yaml
 - $ref: ../../models/FA2.2/_start_end_time.yaml
-- description: Interactive software upgrade attempt that contains information about
+- type: object
+  description: Interactive software upgrade attempt that contains information about
     the current upgrade instance, including the current step, status of the upgrade
     attempt, etc.
   properties:
@@ -20,19 +21,19 @@ allOf:
         mode, the upgrade pauses if there are any upgrade check failures, and functions
         like `one-click` mode otherwise. In `one-click` mode, the upgrade proceeds
         automatically without pausing.
-      example: interactive
       type: string
+      example: interactive
     override_checks:
       description: A list of upgrade checks whose failure is overridden during the
         upgrade. If any optional `args` are provided, they are validated later when
         the corresponding check script runs.
+      type: array
       items:
         $ref: ../../models/FA2.4/_override_check.yaml
-      type: array
     software:
+      description: Referenced `software` to which the upgrade belongs.
       allOf:
       - $ref: ../../models/FA2.0/_reference.yaml
-      description: Referenced `software` to which the upgrade belongs.
     status:
       description: Status of the upgrade. Valid values are `installing`, `paused`,
         `aborting`, `aborted`, and `finished`. A status of `installing` indicates
@@ -41,6 +42,5 @@ allOf:
         the upgrade is being aborted. A status of `aborted` indicates that the upgrade
         has stopped due to an abort. A status of `finished` indicates that the upgrade
         has finished successfully.
-      example: Installing
       type: string
-  type: object
+      example: Installing

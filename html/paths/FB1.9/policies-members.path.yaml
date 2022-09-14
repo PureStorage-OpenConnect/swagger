@@ -1,4 +1,5 @@
 get:
+  summary: GET policies-members (placeholder)
   description: GET policies-members (placeholder)
   parameters:
   - $ref: ../../queries/FB1.0/filter.query.yaml
@@ -22,6 +23,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/policy-member-with-remote-get-response.yaml
-  summary: GET policies-members (placeholder)
   tags:
   - Policies

@@ -3,10 +3,9 @@ allOf:
 - type: object
   properties:
     relay_host:
-      description: >-
-        Relay server used as a forwarding point for email sent from the array.
+      description: Relay server used as a forwarding point for email sent from the
+        array.
       type: string
     sender_domain:
-      description: >-
-        Domain name appended to alert email messages.
+      description: Domain name appended to alert email messages.
       type: string

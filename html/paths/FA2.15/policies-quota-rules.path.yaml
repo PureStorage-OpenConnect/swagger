@@ -1,19 +1,5 @@
-delete:
-  description: Deletes one or more quota policy rules. The `policy_ids` or `policy_names`
-    parameter is required, but they cannot be set together.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/names.query.yaml
-  - $ref: ../../queries/FA2.3/policy_ids.query.yaml
-  - $ref: ../../queries/FA2.3/policy_names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: Delete quota policy rules
-  tags:
-  - Policies
 get:
+  summary: List quota policy rules
   description: Displays a list of quota policy rules.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -33,32 +19,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.7/policy-rule-quota-get-response.yaml
-  summary: List quota policy rules
-  tags:
-  - Policies
-patch:
-  description: Modifies quota policy rules.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/names.query.yaml
-  - $ref: ../../queries/FA2.3/policy_ids.query.yaml
-  - $ref: ../../queries/FA2.3/policy_names.query.yaml
-  - $ref: ../../queries/FA2.7/ignore_usage.query.yaml
-  - in: body
-    name: rules
-    required: true
-    schema:
-      $ref: ../../models/FA2.15/policy-rule-quota-patch.yaml
-  responses:
-    200:
-      description: OK
-      schema:
-        $ref: ../../responses/FA2.7/policy-rule-quota-response.yaml
-  summary: Modify quota policy rules
   tags:
   - Policies
 post:
+  summary: Create quota policy rules
   description: Creates one or more quota policy rules. The `policy_ids` or `policy_names`
     parameter is required, but they cannot be set together.
   parameters:
@@ -67,8 +31,8 @@ post:
   - $ref: ../../queries/FA2.3/policy_ids.query.yaml
   - $ref: ../../queries/FA2.3/policy_names.query.yaml
   - $ref: ../../queries/FA2.7/ignore_usage.query.yaml
-  - in: body
-    name: rules
+  - name: rules
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.7/policy-rule-quota-post.yaml
@@ -77,6 +41,42 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FA2.7/policy-rule-quota-response.yaml
-  summary: Create quota policy rules
+  tags:
+  - Policies
+delete:
+  summary: Delete quota policy rules
+  description: Deletes one or more quota policy rules. The `policy_ids` or `policy_names`
+    parameter is required, but they cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.3/policy_ids.query.yaml
+  - $ref: ../../queries/FA2.3/policy_names.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Policies
+patch:
+  summary: Modify quota policy rules
+  description: Modifies quota policy rules.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.3/policy_ids.query.yaml
+  - $ref: ../../queries/FA2.3/policy_names.query.yaml
+  - $ref: ../../queries/FA2.7/ignore_usage.query.yaml
+  - name: rules
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.15/policy-rule-quota-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.7/policy-rule-quota-response.yaml
   tags:
   - Policies

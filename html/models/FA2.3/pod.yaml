@@ -2,6 +2,6 @@ allOf:
 - $ref: ../../models/FA2.2/pod.yaml
 - properties:
     array_count:
+      type: integer
       description: Number of arrays to which this pod connects.
       example: 1
-      type: integer

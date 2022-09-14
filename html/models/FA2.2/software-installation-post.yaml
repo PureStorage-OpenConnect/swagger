@@ -1,3 +1,4 @@
+type: object
 description: Software upgrade attempt.
 properties:
   mode:
@@ -6,13 +7,12 @@ properties:
       points, at which users must enter certain commands to proceed. In `one_click`
       mode, the upgrade proceeds automatically without pausing. In `check_only` mode,
       the upgrade only runs pre-upgrade checks and returns.
-    example: interactive
     type: string
+    example: interactive
   override_checks:
     description: A list of upgrade checks whose failure is overridden during the upgrade.
       If any optional `args` are provided, they are validated later when the corresponding
       check script runs.
+    type: array
     items:
       $ref: _override_check.yaml
-    type: array
-type: object

@@ -1,6 +1,6 @@
+type: object
 properties:
   items:
+    type: array
     items:
       $ref: ../../models/FA2.5/software-bundle.yaml
-    type: array
-type: object

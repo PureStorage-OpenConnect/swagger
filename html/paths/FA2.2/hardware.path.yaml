@@ -1,4 +1,5 @@
 get:
+  summary: List hardware component information
   description: Displays a list of hardware slots and bays and status of installed
     components.
   parameters:
@@ -15,18 +16,18 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/hardware-get-response.yaml
-  summary: List hardware component information
   tags:
   - Hardware
 patch:
+  summary: Modify visual identification
   description: Modifies the visual identification of a specified hardware component,
     and causing the ID LED to turn on or off.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - $ref: ../../queries/FA2.0/names.query.yaml
-  - in: body
-    name: hardware
+  - name: hardware
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.2/hardware-patch.yaml
@@ -35,6 +36,5 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/hardware-response.yaml
-  summary: Modify visual identification
   tags:
   - Hardware

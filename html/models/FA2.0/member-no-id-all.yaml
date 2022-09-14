@@ -2,12 +2,11 @@ allOf:
 - type: object
   properties:
     group:
-      description:
-        The host group in which the host is a member.
+      description: The resource in which the host, volume, or other item in the environment
+        is a member.
       allOf:
       - $ref: ../../models/FA2.0/_reference-no-id.yaml
     member:
-      description:
-        The member host of the host group.
+      description: The member of the resource.
       allOf:
       - $ref: ../../models/FA2.0/_reference-no-id.yaml

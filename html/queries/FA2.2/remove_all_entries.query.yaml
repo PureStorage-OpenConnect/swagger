@@ -1,5 +1,5 @@
-description: If set to `true`, removes all entries from the administrator cache.
-in: query
 name: remove_all_entries
-required: true
+in: query
+description: If set to `true`, removes all entries from the administrator cache.
 type: boolean
+required: true

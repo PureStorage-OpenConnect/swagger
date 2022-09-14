@@ -1,4 +1,5 @@
 get:
+  summary: List software
   description: Displays a list of software versions available for update and the installation
     status of each software version.
   parameters:
@@ -17,6 +18,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.4/software-get-response.yaml
-  summary: List software
   tags:
   - Software

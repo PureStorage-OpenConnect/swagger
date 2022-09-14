@@ -1,20 +1,5 @@
-delete:
-  description: Remove a policy from a file system replication link.
-  parameters:
-  - $ref: ../../queries/FB2.0/local_file_system_ids.query.yaml
-  - $ref: ../../queries/FB2.0/local_file_system_names.query.yaml
-  - $ref: ../../queries/FB2.0/member_ids.query.yaml
-  - $ref: ../../queries/FB2.0/policy_ids.query.yaml
-  - $ref: ../../queries/FB2.0/policy_names.query.yaml
-  - $ref: ../../queries/FB2.0/remote_ids.query.yaml
-  - $ref: ../../queries/FB2.0/remote_names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE file-system-replica-links/policies
-  tags:
-  - File System Replica Links
 get:
+  summary: GET file-system-replica-links/policies
   description: List file system replication link policies.
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
@@ -36,10 +21,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/policy-member-with-remote-get-response.yaml
-  summary: GET file-system-replica-links/policies
   tags:
   - File System Replica Links
 post:
+  summary: POST file-system-replica-links/policies
   description: Add a policy to a file system replication link.
   parameters:
   - $ref: ../../queries/FB2.0/local_file_system_ids.query.yaml
@@ -54,6 +39,21 @@ post:
       description: OK
       schema:
         $ref: ../../responses/FB2.0/policy-member-with-remote-response.yaml
-  summary: POST file-system-replica-links/policies
+  tags:
+  - File System Replica Links
+delete:
+  summary: DELETE file-system-replica-links/policies
+  description: Remove a policy from a file system replication link.
+  parameters:
+  - $ref: ../../queries/FB2.0/local_file_system_ids.query.yaml
+  - $ref: ../../queries/FB2.0/local_file_system_names.query.yaml
+  - $ref: ../../queries/FB2.0/member_ids.query.yaml
+  - $ref: ../../queries/FB2.0/policy_ids.query.yaml
+  - $ref: ../../queries/FB2.0/policy_names.query.yaml
+  - $ref: ../../queries/FB2.0/remote_ids.query.yaml
+  - $ref: ../../queries/FB2.0/remote_names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - File System Replica Links

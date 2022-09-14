@@ -1,4 +1,5 @@
 get:
+  summary: List alert events
   description: Displays a list of alert events.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -17,6 +18,5 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.2/alert-event-get-response.yaml
-  summary: List alert events
   tags:
   - Alerts

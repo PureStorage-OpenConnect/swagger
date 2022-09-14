@@ -3,85 +3,85 @@ allOf:
 - description: SSL Certificate managed by Purity.
   properties:
     certificate:
-      description: The text of the certificate.
       type: string
+      description: The text of the certificate.
     certificate_type:
+      type: string
+      readOnly: true
       description: The type of certificate. Possible values are `appliance` and `external`.
         Certificates of type `appliance` are used by the array to verify its identity
         to clients. Certificates of type `external` are used by the array to identify
         external servers to which it is configured to communicate.
-      readOnly: true
-      type: string
     common_name:
+      type: string
       description: FQDN or management IP address of the current array.
       readOnly: true
-      type: string
     country:
+      type: string
       description: The country field listed in the certificate.
       example: Canada
       readOnly: true
-      type: string
     email:
+      type: string
       description: The email field listed in the certificate.
       example: tcrisp@example.com
       readOnly: true
-      type: string
     intermediate_certificate:
-      description: Intermediate certificate chains.
       type: string
+      description: Intermediate certificate chains.
     issued_by:
+      type: string
       description: Who issued this certificate.
       example: Example Incorporated
       readOnly: true
-      type: string
     issued_to:
+      type: string
       description: Who this certificate was issued to.
       example: Pure Storage, Inc.
       readOnly: true
-      type: string
     key_size:
+      type: integer
+      format: int32
       description: The size of the private key for this certificate in bits.
       example: 2048
-      format: int32
       readOnly: true
-      type: integer
     locality:
+      type: string
       description: The locality field listed in the certificate.
       example: Toronto
       readOnly: true
-      type: string
     organization:
+      type: string
       description: The organization field listed in the certificate.
       example: Veridian Dynamics
       readOnly: true
-      type: string
     organizational_unit:
+      type: string
       description: The organizational unit field listed in the certificate.
       example: Research & Development
       readOnly: true
-      type: string
     state:
+      type: string
       description: The state/province field listed in the certificate.
       example: Ontario
       readOnly: true
-      type: string
     status:
+      type: string
       description: The type of certificate. Valid values are `self-signed` and `imported`.
       readOnly: true
-      type: string
     subject_alternative_names:
+      type: array
+      readOnly: true
+      items:
+        type: string
+        example: otherdnsname.mydomain.com
       description: The alternative names that are secured by this certificate. Alternative
         names may be IP addresses, DNS names, or URIs.
-      items:
-        example: otherdnsname.mydomain.com
-        type: string
-      readOnly: true
-      type: array
     valid_from:
+      type: string
       description: The start date of when this certificate is valid.
       readOnly: true
-      type: string
     valid_to:
+      type: string
       description: The end date of when this certificate is valid.
       readOnly: true
-      type: string

@@ -1,4 +1,4 @@
-description: If `true`, admits any `unadmitted` drives into the system.
-in: query
 name: admit
+in: query
+description: If `true`, admits any `unadmitted` drives into the system.
 type: boolean

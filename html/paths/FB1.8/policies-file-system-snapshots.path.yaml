@@ -11,34 +11,13 @@ get:
   - $ref: ../../queries/FB1.0/sort.query.yaml
   - $ref: ../../queries/FB1.0/start.query.yaml
   - $ref: ../../queries/FB1.0/token.query.yaml
-
   responses:
     200:
       description: OK
       schema:
         $ref: ../../responses/FB1.8/policy-member-get-response.yaml
-
   tags:
   - Policies
-
-post:
-  summary: POST policies-file-system-snapshots (placeholder)
-  description: POST policies-file-system-snapshots (placeholder)
-  parameters:
-  - $ref: ../../queries/FB1.8/member_ids.query.yaml
-  - $ref: ../../queries/FB1.5/member_names.query.yaml
-  - $ref: ../../queries/FB1.8/policy_ids.query.yaml
-  - $ref: ../../queries/FB1.5/policy_names.query.yaml
-
-  responses:
-    200:
-      description: OK
-      schema:
-        $ref: ../../responses/FB1.8/policy-member-response.yaml
-
-  tags:
-  - Policies
-
 delete:
   summary: DELETE policies-file-system-snapshots (placeholder)
   description: DELETE policies-file-system-snapshots (placeholder)
@@ -47,10 +26,8 @@ delete:
   - $ref: ../../queries/FB1.5/member_names.query.yaml
   - $ref: ../../queries/FB1.8/policy_ids.query.yaml
   - $ref: ../../queries/FB1.5/policy_names.query.yaml
-
   responses:
     200:
       description: OK
-
   tags:
   - Policies

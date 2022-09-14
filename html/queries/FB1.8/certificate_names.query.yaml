@@ -1,11 +1,8 @@
 name: certificate_names
 in: query
-description: >-
-  A comma-separated list of certificate names.
-  If there is not at least one resource that matches each of the
-  elements of `certificate_names`, then an error is returned.
-  This cannot be provided in conjunction with the `certificate_ids`
-  parameter.
+description: A comma-separated list of certificate names. If there is not at least
+  one resource that matches each of the elements of `certificate_names`, then an error
+  is returned. This cannot be provided in conjunction with the `certificate_ids` parameter.
 type: array
 collectionFormat: csv
 items:

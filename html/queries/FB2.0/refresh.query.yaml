@@ -1,5 +1,5 @@
+name: refresh
+in: query
 description: Whether to refresh the user info from directory service. If not specified,
   defaults to `false`.
-in: query
-name: refresh
 type: boolean

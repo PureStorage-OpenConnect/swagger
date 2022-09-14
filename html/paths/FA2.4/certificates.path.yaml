@@ -1,16 +1,5 @@
-delete:
-  description: Deletes a specific certificate object.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: Delete certificate
-  tags:
-  - Certificates
 get:
+  summary: List certificate attributes
   description: Displays certificate attributes.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -27,32 +16,10 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FA2.4/certificate-get-response.yaml
-  summary: List certificate attributes
-  tags:
-  - Certificates
-patch:
-  description: Modifies certificate attributes. When you modify the attributes of
-    a self-signed certificate, Purity//FA replaces the existing certificate with a
-    new certificate, which is generated with the specified attributes.
-  parameters:
-  - $ref: ../../queries/FA2.0/authorization.header.yaml
-  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
-  - $ref: ../../queries/FA2.0/names.query.yaml
-  - $ref: ../../queries/FA2.4/generate_new_key.query.yaml
-  - in: body
-    name: certificate
-    required: true
-    schema:
-      $ref: ../../models/FA2.4/certificate-post.yaml
-  responses:
-    200:
-      description: Returns the newly updated certificate object.
-      schema:
-        $ref: ../../responses/FA2.4/certificate-response.yaml
-  summary: Modify certificates
   tags:
   - Certificates
 post:
+  summary: Create certificate
   description: Creates a certificate object and specifies the valid time period and
     organization details of the certificate. A certificate can be imported or manually
     configured.
@@ -60,8 +27,8 @@ post:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - $ref: ../../queries/FA2.0/names.query.yaml
-  - in: body
-    name: certificate
+  - name: certificate
+    in: body
     required: true
     schema:
       $ref: ../../models/FA2.4/certificate-post.yaml
@@ -70,6 +37,39 @@ post:
       description: Returns the newly created certificate object.
       schema:
         $ref: ../../responses/FA2.4/certificate-response.yaml
-  summary: Create certificate
+  tags:
+  - Certificates
+patch:
+  summary: Modify certificates
+  description: Modifies certificate attributes. When you modify the attributes of
+    a self-signed certificate, Purity//FA replaces the existing certificate with a
+    new certificate, which is generated with the specified attributes.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.4/generate_new_key.query.yaml
+  - name: certificate
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.4/certificate-post.yaml
+  responses:
+    200:
+      description: Returns the newly updated certificate object.
+      schema:
+        $ref: ../../responses/FA2.4/certificate-response.yaml
+  tags:
+  - Certificates
+delete:
+  summary: Delete certificate
+  description: Deletes a specific certificate object.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
   tags:
   - Certificates

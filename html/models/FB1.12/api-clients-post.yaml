@@ -1,21 +1,9 @@
+type: object
+required:
+- max_role
+- public_key
 properties:
-  access_token_ttl_in_ms:
-    description: The TTL (Time To Live) duration for which the exchanged access token
-      is valid. Measured in milliseconds. If not specified, defaults to `86400000`.
-    example: 15000
-    format: int64
-    max: 86400000
-    min: 1000
-    type: integer
-  issuer:
-    description: The name of the identity provider that will be issuing ID Tokens
-      for this API client. The `iss` claim in the JWT issued must match this string.
-      If not specified, defaults to the API client name.
-    example: https://purestorage.idp.okta.com
-    type: string
   max_role:
-    allOf:
-    - $ref: ../../models/FB1.8/_reference.yaml
     description: The maximum role allowed for ID Tokens issued by this API client.
       The bearer of an access token will be authorized to perform actions within the
       intersection of this `max_role` and the role of the array user specified as
@@ -32,10 +20,19 @@ properties:
       Users with the `array_admin` (Array Admin) role can perform the same operations
       as Storage Admin users plus array-wide changes dealing with global and system
       configurations. In other words, Array Admin users can perform all operations.
+    allOf:
+    - $ref: ../../models/FB1.8/_reference.yaml
+  issuer:
+    description: The name of the identity provider that will be issuing ID Tokens
+      for this API client. The `iss` claim in the JWT issued must match this string.
+      If not specified, defaults to the API client name.
+    type: string
+    example: https://purestorage.idp.okta.com
   public_key:
     description: The API client's PEM formatted (Base64 encoded) RSA public key. It
       must include the `-----BEGIN PUBLIC KEY-----` and `-----END PUBLIC KEY-----`
       lines.
+    type: string
     example: '-----BEGIN PUBLIC KEY----- MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEArSe6chh1JzME9svOKjU0
       eKTm8S23Ok3Vr2bWuPri/YHfLrlnRwWoCt+st0/BebKSJ+fQUWOaLlqpZQKpI8oR gJ9sWmwGibVG8cTuz7XMkskx9bsm/bjIenuB4W+s3g0BCsi9930mfdKgJgFzY69O
       nLh7d7hAFcmhSJa945PryQZpvJ/U4Ue5F4d+WXgEJ0SoSRaZ6bbeMPhcbMHTzTum 2ZrPBkK5cqPYitaso6BXeAlqNQPw4Kbu4Ugm0CTogrtImkwoonWDDP34XMOq+u7q
@@ -43,8 +40,11 @@ properties:
       64zjwAL5f+dtu8PkGF7IdU2T8P2Qk9bG9pckwZHWYkBK77BAk5jbmSzsKGZgRb2R 1E+TWDKIaveFhQp251j/C5wkZwMXgjOzN+BOPo+OiLBGUl+jRybWA9f7Vq1MEdf6
       SEdLiqYrXcZERkYBMieLXAfdtaztAIb96cUu+OKMSLDk+D0GHkUfm7lEbDK3ew1+ D6z+BnxDyH6oqZzz4lS2kPLBLsc+6pdTGuKLf0S9YuLiqJe659AdwU8+X/3KtwNd
       FVJSaxdFbWx0nj3hJqFkIO8CAwEAAQ== -----END PUBLIC KEY-----'
-    type: string
-required:
-- max_role
-- public_key
-type: object
+  access_token_ttl_in_ms:
+    description: The TTL (Time To Live) duration for which the exchanged access token
+      is valid. Measured in milliseconds. If not specified, defaults to `86400000`.
+    min: 1000
+    max: 86400000
+    type: integer
+    format: int64
+    example: 15000

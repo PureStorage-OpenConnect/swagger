@@ -1,8 +1,8 @@
 allOf:
 - $ref: ../../models/FA2.0/_built-in-resource-no-id.yaml
-- properties:
+- type: object
+  properties:
     enabled:
+      type: boolean
       description: If set to `true`, email notifications will be sent to this watcher
         for alerts. If set to `false`, email notification is disabled.
-      type: boolean
-  type: object

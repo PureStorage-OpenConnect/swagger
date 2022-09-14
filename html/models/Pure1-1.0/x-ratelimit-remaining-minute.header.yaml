@@ -1,5 +1,4 @@
 X-RateLimit-Remaining-minute:
-  description: >-
-    The number of requests remaining for the organization in that minute.
+  description: The number of requests remaining for the organization in that minute.
   schema:
     type: integer

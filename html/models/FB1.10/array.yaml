@@ -3,5 +3,5 @@ allOf:
 - properties:
     banner:
       description: A string to be shown when logging in to the array.
-      example: Restricted area. Authorized personnel only.
       type: string
+      example: Restricted area. Authorized personnel only.

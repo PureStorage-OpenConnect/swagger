@@ -3,29 +3,29 @@ allOf:
 - description: Path from the local array to a remote array. The `name` parameter indicates
     the name of the remote array.
   properties:
-    local_address:
-      description: IP address or WWN of the local port.
-      example: 10.202.101.70
-      type: string
     local_port:
       description: The local port of the path.
+      type: string
       example: ct0.eth0
+    local_address:
+      description: IP address or WWN of the local port.
       type: string
-    remote_address:
-      description: IP address or WWN of the remote port.
-      example: 10.202.101.78
-      type: string
+      example: 10.202.101.70
     remote_port:
       description: The remote port of the path.
+      type: string
       example: ct1.eth0
+    remote_address:
+      description: IP address or WWN of the remote port.
       type: string
-    replication_transport:
-      description: The protocol used to transport data between the local array and
-        the remote array. Valid values are `ip` and `fc`.
-      type: string
+      example: 10.202.101.78
     status:
       description: Status of the connection. Valid values are `connected` and `connecting`.
         A status of `connected` indicates that the arrays are communicating. A status
         of `connecting` indicates that the array is trying to establish a connection.
       readOnly: true
+      type: string
+    replication_transport:
+      description: The protocol used to transport data between the local array and
+        the remote array. Valid values are `ip` and `fc`.
       type: string

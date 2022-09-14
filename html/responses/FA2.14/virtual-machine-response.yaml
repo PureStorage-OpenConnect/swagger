@@ -1,8 +1,8 @@
+type: object
 properties:
   items:
-    description: Displays a list of all items after filtering. The values are displayed
-      for each name if meaningful.
+    type: array
     items:
       $ref: ../../models/FA2.14/virtual-machine.yaml
-    type: array
-type: object
+    description: Displays a list of all items after filtering. The values are displayed
+      for each name if meaningful.

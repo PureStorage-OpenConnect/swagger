@@ -1,15 +1,5 @@
-delete:
-  description: DELETE buckets (placeholder)
-  parameters:
-  - $ref: ../../queries/FB1.8/ids.query.yaml
-  - $ref: ../../queries/FB1.0/names.query.yaml
-  responses:
-    200:
-      description: OK
-  summary: DELETE buckets (placeholder)
-  tags:
-  - Buckets
 get:
+  summary: GET buckets (placeholder)
   description: GET buckets (placeholder)
   parameters:
   - $ref: ../../queries/FB1.9/destroyed.query.yaml
@@ -26,14 +16,31 @@ get:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/bucket-get-response.yaml
-  summary: GET buckets (placeholder)
+  tags:
+  - Buckets
+post:
+  summary: POST buckets (placeholder)
+  description: POST buckets (placeholder)
+  parameters:
+  - name: bucket
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB1.8/bucket-post.yaml
+  - $ref: ../../queries/FB1.2/names_required.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB1.9/bucket-response.yaml
   tags:
   - Buckets
 patch:
+  summary: PATCH buckets (placeholder)
   description: PATCH buckets (placeholder)
   parameters:
-  - in: body
-    name: bucket
+  - name: bucket
+    in: body
     required: true
     schema:
       $ref: ../../models/FB1.9/bucket.yaml
@@ -44,23 +51,16 @@ patch:
       description: OK
       schema:
         $ref: ../../responses/FB1.9/bucket-response.yaml
-  summary: PATCH buckets (placeholder)
   tags:
   - Buckets
-post:
-  description: POST buckets (placeholder)
+delete:
+  summary: DELETE buckets (placeholder)
+  description: DELETE buckets (placeholder)
   parameters:
-  - in: body
-    name: bucket
-    required: true
-    schema:
-      $ref: ../../models/FB1.8/bucket-post.yaml
-  - $ref: ../../queries/FB1.2/names_required.query.yaml
+  - $ref: ../../queries/FB1.8/ids.query.yaml
+  - $ref: ../../queries/FB1.0/names.query.yaml
   responses:
     200:
       description: OK
-      schema:
-        $ref: ../../responses/FB1.9/bucket-response.yaml
-  summary: POST buckets (placeholder)
   tags:
   - Buckets

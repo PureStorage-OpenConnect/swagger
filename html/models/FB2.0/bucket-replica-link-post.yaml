@@ -1,5 +1,5 @@
+type: object
 properties:
   paused:
-    description: Create link in the paused state? Defaults to `false`.
     type: boolean
-type: object
+    description: Create link in the paused state? Defaults to `false`.
