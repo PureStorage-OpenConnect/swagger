@@ -1,0 +1,34 @@
+get:
+  description: 'Retrieves object store accounts.
+
+    '
+  parameters:
+  - $ref: ../../queries/Pure1-1.0/authorization.header.yaml
+  - $ref: ../../queries/Pure1-1.0/x-request-id.header.yaml
+  - $ref: ../../queries/Pure1-1.0/continuation_token.query.yaml
+  - $ref: ../../queries/Pure1-1.0/filter.query.yaml
+  - $ref: ../../queries/Pure1-1.0/ids.query.yaml
+  - $ref: ../../queries/Pure1-1.0/limit.query.yaml
+  - $ref: ../../queries/Pure1-1.0/names.query.yaml
+  - $ref: ../../queries/Pure1-1.0/offset.query.yaml
+  - $ref: ../../queries/Pure1-1.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/Pure1-1.0/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/Pure1-1.1/object-store-account-get-response.yaml
+    400:
+      $ref: ../../responses/Pure1-1.0/error-400.response.yaml
+    403:
+      $ref: ../../responses/Pure1-1.0/error-403.response.yaml
+    404:
+      $ref: ../../responses/Pure1-1.0/error-404.response.yaml
+    429:
+      $ref: ../../responses/Pure1-1.0/error-429.response.yaml
+    500:
+      $ref: ../../responses/Pure1-1.0/error-500.response.yaml
+  summary: Get object store accounts
+  tags:
+  - Object Store Accounts

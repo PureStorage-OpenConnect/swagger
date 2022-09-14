@@ -205,6 +205,94 @@ paths:
       - Authorization
   /api/logout:
     $ref: ../paths/FB1.0/logout.path.yaml
+  /oauth2_pub_priv_key_pair:
+    get:
+      description: "Returns a public and private key pair, This is not part of the\
+        \ FlashArray API, \nit's a helper endpoint making it easier to generate an\
+        \ oauth2 token_id in this Swagger UI. \nThey keys are generated in the Docker\
+        \ container running on this machine.\n\nRecommend to NOT use this API but\
+        \ to use OpenSSL instead for production use cases:\n  You can generate a public\
+        \ and private RSA key pair like this:\n\n    openssl genrsa -des3 -out private.pem\
+        \ 2048\n    \n    That generates a 2048-bit RSA key pair, encrypts them with\
+        \ a password you provide and writes them to a file. \n    You need to next\
+        \ extract the public key file. You will use this, for instance, on your web\
+        \ server to encrypt \n    content so that it can only be read with the private\
+        \ key.\n    \n    Export the RSA Public Key to a File\n    This is a command\
+        \ that is\n    \n    openssl rsa -in private.pem -outform PEM -pubout -out\
+        \ public.pem"
+      responses:
+        200:
+          description: Token Generated
+          schema:
+            properties:
+              private_key:
+                description: Private key in PEM format.
+                type: string
+              public_key:
+                description: Public key in PEM format.
+                type: string
+            type: object
+      tags:
+      - Auth Helpers
+  /oauth2_token_from_private_key:
+    post:
+      consumes:
+      - text/plain
+      description: "Authenticates to Flasharray, This returns a token_id (think session\
+        \ id), from an existing API Client, \nThis is not part of the FlashArray API,\
+        \ it's a helper endpoint making it easy to generate an \noauth2 token_id in\
+        \ this Swagger UI.  The private key is being passed into the Docker container\
+        \ in\norder to sign the JWT token.  Take a look at the Docker container output\
+        \ to see more details \nof what is happening.\n\nCopy the output value, Authorization\
+        \ header, and then click on the green Authorize button at the \ntop of the\
+        \ page.  Paste in the value into "
+      parameters:
+      - description: Issuer value displayed in the FlashArray API Registration page
+          or pureapiclient list ) by default it's the same name as API Client
+        in: header
+        name: issuer_name
+        type: string
+      - description: Client Id value displayed in the FlashArray API Registration
+          page or pureapiclient list
+        in: header
+        name: client_id
+        type: string
+      - description: Key Id value displayed in the FlashArray API Registration page
+          or pureapiclient list
+        in: header
+        name: key_id
+        type: string
+      - description: The name of a valid user on the FlashArray that will be authenticated
+          to.
+        in: header
+        name: username
+        type: string
+      - description: Private key in PEM format that was used to create the Public
+          key for this API Client specified as the issuer in this call.
+        in: body
+        name: private_key
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        200:
+          description: Token Generated
+          schema:
+            example:
+              username: pureuser
+            properties:
+              Authorization:
+                description: An OAuth bearer token to be used in the Authorization
+                  header for authorization to API endpoints.
+                type: string
+              description:
+                desciption: How to use token
+                type: string
+            type: object
+      tags:
+      - Auth Helpers
 produces:
 - application/json
 schemes:
@@ -223,6 +311,9 @@ securityDefinitions:
     type: apiKey
 swagger: '2.0'
 tags:
+- description: A set of endpoints not in the Purity API, but to make OAuth using this
+    tool simple and easy to understand.
+  name: Auth Helpers
 - name: Authorization
 - name: Administrators
 - name: Alerts

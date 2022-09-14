@@ -1,0 +1,7 @@
+properties:
+  items:
+    description: A list of object store accounts.
+    items:
+      $ref: ../../models/Pure1-1.1/object-store-account.yaml
+    type: array
+type: object

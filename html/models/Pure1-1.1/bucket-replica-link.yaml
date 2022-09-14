@@ -1,0 +1,20 @@
+allOf:
+- $ref: ../../models/Pure1-1.0/bucket-replica-link.yaml
+- properties:
+    members:
+      description: The union of source and target buckets in the replica link.
+      items:
+        $ref: ../../models/Pure1-1.1/_resource-with-location.yaml
+      type: array
+    sources:
+      description: The source buckets in the replica link.
+      items:
+        $ref: ../../models/Pure1-1.1/_resource-with-location.yaml
+      type: array
+    targets:
+      description: The target buckets in the replica link.
+      items:
+        $ref: ../../models/Pure1-1.1/_resource-with-location.yaml
+      type: array
+description: A replica link between two buckets.
+type: object

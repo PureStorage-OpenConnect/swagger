@@ -1,0 +1,7 @@
+allOf:
+- $ref: ../../models/Pure1-1.0/subscription-license.yaml
+- properties:
+    resources:
+      items:
+        $ref: ../../models/Pure1-1.1/_license_resource_reference.yaml
+      type: array

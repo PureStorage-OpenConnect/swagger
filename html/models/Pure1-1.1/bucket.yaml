@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../models/Pure1-1.0/bucket.yaml
+- $ref: ../../models/Pure1-1.1/_arrays-resource.yaml

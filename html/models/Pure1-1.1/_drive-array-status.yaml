@@ -1,0 +1,9 @@
+allOf:
+- $ref: ../../models/Pure1-1.0/_drive-array-status.yaml
+- properties:
+    fqdn:
+      description: The fully qualified domain name of the appliance when `resource_type`
+        is `arrays`, `null` otherwise.
+      example: example_name.dc1.example.com
+      readOnly: true
+      type: string

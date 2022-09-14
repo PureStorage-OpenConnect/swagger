@@ -23,16 +23,16 @@ just ctrl^c on the console docker container
 
 
 ### FlashBlade 1.x API Token
-[Flash Blade 1.x Token Auth](https://youtu.be/b5uGAvk55Yw)
+[Flash Blade 1.x Token Auth](https://youtu.be/EvtVio8s7Eg)
 
 ### FlashArray 1.x API Token
-[Flash Array 1.x Token Auth](https://youtu.be/iKcWDcDhDH8)
+[Flash Array 1.x Token Auth](https://youtu.be/fWa1VhYsWdg)
 
 ### FlashArray 2.2+ API Token
-[Flash Array 2.x Token Auth](https://youtu.be/ZN1CdXnpozU)
+[Flash Array 2.x Token Auth](https://youtu.be/OAeGKG-BkUs)
 
 ### FlashArray 2.0+ OAuth2 API Client Auth
-[Flash Array 2.x OAuth2](https://youtu.be/rqLYTLElJWA)
+[Flash Array 2.x OAuth2](https://youtu.be/LyIE3bkdQok)
 
 
 ## Screenshots

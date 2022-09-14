@@ -708,7 +708,10 @@ tags:
   name: Certificates
 - description: A connection gives hosts access to volumes on the array.
   name: Connections
-- description: Container Default Protection endpoint description (placeholder)
+- description: Default protection is a list of protection groups that are applied
+    to newly created volumes. Volumes can opt out of the default protection at creation.
+    The pod's `default_protections` defaults to the array's `default_protections`
+    at pod creation. Default protection can be configured on the array and the pod.
   name: Container Default Protections
 - description: Controller data includes the name, mode, FlashArray model, Purity//FA
     software version, and status of each controller in the array.

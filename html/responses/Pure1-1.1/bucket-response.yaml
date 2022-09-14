@@ -1,0 +1,6 @@
+properties:
+  items:
+    items:
+      $ref: ../../models/Pure1-1.1/bucket.yaml
+    type: array
+type: object

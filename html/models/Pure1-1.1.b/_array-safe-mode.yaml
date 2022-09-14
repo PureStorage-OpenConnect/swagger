@@ -1,0 +1,17 @@
+allOf:
+- properties:
+    file_system:
+      allOf:
+      - $ref: ../../models/Pure1-1.1.b/_manual-eradication-status.yaml
+      description: Safe mode configuration of file system on Flash Blade. This field
+        will be `null` if it's not a Flash Blade.
+    global:
+      allOf:
+      - $ref: ../../models/Pure1-1.1.b/_manual-eradication-status.yaml
+      description: Safe mode configuration of Flash Array. This field will be `null`
+        if it's not a flash array.
+    object_store:
+      allOf:
+      - $ref: ../../models/Pure1-1.1.b/_manual-eradication-status.yaml
+      description: Safe mode configuration of object store on Flash Blade. This field
+        will be `null` if it's not a Flash Blade.

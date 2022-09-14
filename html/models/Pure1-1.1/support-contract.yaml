@@ -1,0 +1,6 @@
+allOf:
+- $ref: ../../models/Pure1-1.0/support-contract.yaml
+- properties:
+    resource:
+      allOf:
+      - $ref: ../../models/Pure1-1.1/_fixed-reference-fqdn.yaml

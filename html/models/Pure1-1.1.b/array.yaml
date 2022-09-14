@@ -1,0 +1,7 @@
+allOf:
+- $ref: ../../models/Pure1-1.1/array.yaml
+- properties:
+    safe_mode:
+      allOf:
+      - $ref: ../../models/Pure1-1.1.b/_array-safe-mode.yaml
+      description: The safe mode status of the array.

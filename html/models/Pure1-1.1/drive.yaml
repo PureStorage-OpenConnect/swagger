@@ -1,0 +1,10 @@
+allOf:
+- $ref: ../../models/Pure1-1.0/drive.yaml
+- properties:
+    arrays:
+      description: A list of arrays that contain this drive. Each drive should only
+        exist on one array.
+      items:
+        $ref: ../../models/Pure1-1.1/_drive-array-status.yaml
+      minItems: 1
+      type: array

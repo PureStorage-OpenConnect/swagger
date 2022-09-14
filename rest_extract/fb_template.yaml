@@ -46,6 +46,103 @@ paths:
           name: api-token
           type: string
           required: true
-tags: []
+  /oauth2_pub_priv_key_pair:
+    get:
+      description: |-
+        Returns a public and private key pair, This is not part of the FlashArray API, 
+        it's a helper endpoint making it easier to generate an oauth2 token_id in this Swagger UI. 
+        They keys are generated in the Docker container running on this machine.
+        
+        Recommend to NOT use this API but to use OpenSSL instead for production use cases:
+          You can generate a public and private RSA key pair like this:
+
+            openssl genrsa -des3 -out private.pem 2048
+            
+            That generates a 2048-bit RSA key pair, encrypts them with a password you provide and writes them to a file. 
+            You need to next extract the public key file. You will use this, for instance, on your web server to encrypt 
+            content so that it can only be read with the private key.
+            
+            Export the RSA Public Key to a File
+            This is a command that is
+            
+            openssl rsa -in private.pem -outform PEM -pubout -out public.pem
+      responses:
+        200:
+          description: "Token Generated"
+          schema:
+            type: object
+            properties:
+              private_key:
+                type: string
+                description: Private key in PEM format.
+              public_key:
+                  type: string
+                  description: Public key in PEM format.
+      tags: [Auth Helpers]
+  /oauth2_token_from_private_key:
+    post:
+      consumes: 
+        - "text/plain"
+      produces:
+        - "application/json"
+      description: |-
+        Authenticates to Flasharray, This returns a token_id (think session id), from an existing API Client, 
+        This is not part of the FlashArray API, it's a helper endpoint making it easy to generate an 
+        oauth2 token_id in this Swagger UI.  The private key is being passed into the Docker container in
+        order to sign the JWT token.  Take a look at the Docker container output to see more details 
+        of what is happening.
+
+        Copy the output value, Authorization header, and then click on the green Authorize button at the 
+        top of the page.  Paste in the value into 
+      responses:
+        200:
+          description: "Token Generated"
+          schema:
+            type: object
+            properties:
+              Authorization:
+                type: string
+                description: An OAuth bearer token to be used in the Authorization header for authorization to API endpoints.
+              description:
+                type: string
+                desciption: How to use token
+
+            example: {"username":"pureuser"}
+      tags: [Auth Helpers]
+      parameters:
+        - name: issuer_name
+          in: header
+          type: string
+          description:  Issuer value displayed in the FlashArray API
+                        Registration page or pureapiclient list ) by default it's the same name as API Client
+
+        - name: client_id
+          in: header
+          type: string
+          description:  Client Id value displayed in the FlashArray API
+                        Registration page or pureapiclient list
+
+        - name: key_id
+          in: header
+          type: string
+          description:  Key Id value displayed in the FlashArray API
+                        Registration page or pureapiclient list
+      
+        - name: username
+          in: header
+          type: string
+          description:  The name of a valid user on the FlashArray that will be authenticated to.
+    
+        - name: private_key
+          required: true
+          in: body
+          schema: 
+            type: string
+          description: Private key in PEM format that was used to create the Public key for this API Client specified as the issuer in this call.
+
+
+tags:
+  - name: Auth Helpers
+    description: A set of endpoints not in the Purity API, but to make OAuth using this tool simple and easy to understand.
 
     

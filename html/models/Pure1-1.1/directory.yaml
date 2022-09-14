@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../Pure1-1.1/_arrays.yaml
+- $ref: ../Pure1-1.0/directory.yaml

@@ -15,22 +15,8 @@ def apply_template(spec_file, template, model):
     # spec_yaml['basePath'] = "/api"
 
     if model == 'fb':
-        # add api version into path
-        # need to do this so we can add non version specific endpoints like get_version & login
-        # paths = list(spec_yaml['paths'])
-        # print(paths)
-        # removing in 2020 June, I think they added up stream api version number
-
-        # make basepath /api as it's a bit cleaner
-        # Update: removing because of Oauth
-        # for path in paths:
-        #    new_path = path.replace('/api/','/')
-        #    spec_yaml['paths'][new_path] = spec_yaml['paths'][path]
-        #    del spec_yaml['paths'][path]
-
-        # spec_yaml['paths']['/api_version'] = template_yaml['paths']['/api_version']
-        # overwrite existing to add authorization param
-        spec_yaml['paths']['/api/login'] = template_yaml['paths']['/api/login']
+        for p in template_yaml['paths']:
+            spec_yaml['paths'][p] = template_yaml['paths'][p]
         spec_yaml['tags'] = template_yaml['tags'] + spec_yaml['tags']
 
     elif model == 'fa2':
@@ -41,16 +27,8 @@ def apply_template(spec_file, template, model):
         for p in template_yaml['paths']:
             spec_yaml['paths'][p] = template_yaml['paths'][p]
 
-        # make basepath /api as it's a bit cleaner
-        # Update: removing because of Oauth
-        # paths = list(spec_yaml['paths'])
-        # for path in paths:
-        #    new_path = path.replace('/api/','/')
-        #    spec_yaml['paths'][new_path] = spec_yaml['paths'][path]
-        #    del spec_yaml['paths'][path]
-
     elif model == 'pure1':
-        return yaml.dump(template_yaml)
+        pass
 
     return yaml.dump(spec_yaml)
 
@@ -65,6 +43,8 @@ def one_off_fixes(file_download_root):
             del(temp['example'])
         with open(file_full_path, "w") as f:
             f.write(yaml.dump(temp))
+
+    
 
     delete_example('/queries/FA2.0/offset.query.yaml')
     delete_example('/queries/FA2.0/limit.query.yaml')

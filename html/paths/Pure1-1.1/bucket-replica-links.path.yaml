@@ -1,0 +1,39 @@
+get:
+  description: 'Retrieves information about bucket replica links.
+
+    '
+  parameters:
+  - $ref: ../../queries/Pure1-1.0/authorization.header.yaml
+  - $ref: ../../queries/Pure1-1.0/x-request-id.header.yaml
+  - $ref: ../../queries/Pure1-1.0/continuation_token.query.yaml
+  - $ref: ../../queries/Pure1-1.0/filter.query.yaml
+  - $ref: ../../queries/Pure1-1.0/ids.query.yaml
+  - $ref: ../../queries/Pure1-1.0/limit.query.yaml
+  - $ref: ../../queries/Pure1-1.0/member_ids_plus.query.yaml
+  - $ref: ../../queries/Pure1-1.0/member_names_plus.query.yaml
+  - $ref: ../../queries/Pure1-1.0/offset.query.yaml
+  - $ref: ../../queries/Pure1-1.0/sort.query.yaml
+  - $ref: ../../queries/Pure1-1.0/source_ids_plus.query.yaml
+  - $ref: ../../queries/Pure1-1.0/source_names_plus.query.yaml
+  - $ref: ../../queries/Pure1-1.0/target_ids_plus.query.yaml
+  - $ref: ../../queries/Pure1-1.0/target_names_plus.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/Pure1-1.0/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/Pure1-1.1/bucket-replica-link-get-response.yaml
+    400:
+      $ref: ../../responses/Pure1-1.0/error-400.response.yaml
+    403:
+      $ref: ../../responses/Pure1-1.0/error-403.response.yaml
+    404:
+      $ref: ../../responses/Pure1-1.0/error-404.response.yaml
+    429:
+      $ref: ../../responses/Pure1-1.0/error-429.response.yaml
+    500:
+      $ref: ../../responses/Pure1-1.0/error-500.response.yaml
+  summary: Get bucket replica links
+  tags:
+  - Bucket Replica Links
