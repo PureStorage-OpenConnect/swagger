@@ -1,11 +1,10 @@
-name: limit
-in: query
 description: Limits the size of the response to the specified number of objects on
   each page. To return the total number of resources, set `limit=0`. The total number
   of resources is returned as a `total_item_count` value. If the page size requested
   is larger than the system maximum limit, the server returns the maximum limit, disregarding
   the requested page size.
-type: integer
 format: int32
+in: query
 minimum: 1
-example: 10
+name: limit
+type: integer
