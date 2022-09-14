@@ -44,13 +44,11 @@ def one_off_fixes(file_download_root):
         with open(file_full_path, "w") as f:
             f.write(yaml.dump(temp))
 
-    
-
     delete_example('/queries/FA2.0/offset.query.yaml')
     delete_example('/queries/FA2.0/limit.query.yaml')
     delete_example('/queries/FB1.0/start.query.yaml')
     delete_example('/queries/FB1.0/limit.query.yaml')
-    delete_example('/queries/FB2.0/start.query.yaml')
+    # delete_example('/queries/FB2.0/start.query.yaml')
     delete_example('/queries/FB2.0/limit.query.yaml')
 
     # Add a note to Authorization header for FA 2.x

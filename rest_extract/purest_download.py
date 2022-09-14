@@ -6,6 +6,7 @@ import threading
 import os
 import urllib
 import sys
+import argparse
 
 fb_max_version = { 0:0, 1:12, 2:4 }      #this is a list of major:minor_max version pairs
 pure1_max_version = { 0:-1, 1:1 }
@@ -14,6 +15,7 @@ thread_count = 8
 baseURL = 'http://purest.dev.purestorage.com'
 spec_url = baseURL + '/pure-urls.js'
 cache = {}
+overwrite_local_files = False
 
 class SpecWorker(threading.Thread):
     def __init__(self, s, q, file_download_root, io_lock, cache_lock):
@@ -59,10 +61,11 @@ class SpecWorker(threading.Thread):
         else:
             save_to_path = self.file_download_root + url_path
 
-        #print("Spec URL:{}   Local File:{}".format(spec_url,save_to_path))
-        
-        #don't used cached file for head file.
-        if not head:
+        # print("Spec URL:{}   Local File:{}".format(spec_url,save_to_path))
+        # don't used cached file for head file.
+        # also, don't use if we want to overwrite local files.
+        if not (head or overwrite_local_files):
+            # try and pull yaml file locally
             try:
                 with self.io_lock:
                     with open(save_to_path,"r") as f:
@@ -73,8 +76,8 @@ class SpecWorker(threading.Thread):
             except FileNotFoundError:
                 pass
         
-        #file not found, lets download it
-        #print("downloading spec ")
+        # file not found, lets download it
+        # print("downloading spec ")
         self.response = self.s.get(spec_url)
         spec_file = self.response.text
         path, _ = os.path.split(save_to_path)
@@ -140,6 +143,12 @@ class SpecWorker(threading.Thread):
 
 
 def main():
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--overwrite-local-files", help="overwrite local files", action="store_true")
+    args = parser.parse_args()
+    if args.overwrite_local_files:
+        overwrite_local_files = True
 
     script_path = os.path.dirname(os.path.realpath(__file__))
     

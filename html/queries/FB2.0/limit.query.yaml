@@ -4,7 +4,6 @@ description: Limit the size of the response to the specified number of resources
   asks for a page size larger than the maximum number, the request is still valid.
   In that case the server just returns the maximum number of items, disregarding the
   client's page size request.
-example: 10
 format: int32
 in: query
 minimum: 1
