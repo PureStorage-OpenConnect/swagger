@@ -50,6 +50,8 @@ def one_off_fixes(file_download_root):
     delete_example('/queries/FA2.0/limit.query.yaml')
     delete_example('/queries/FB1.0/start.query.yaml')
     delete_example('/queries/FB1.0/limit.query.yaml')
+    delete_example('/queries/FB2.0/start.query.yaml')
+    delete_example('/queries/FB2.0/limit.query.yaml')
 
     # Add a note to Authorization header for FA 2.x
     file_full_path = file_download_root + '/queries/FA2.0/authorization.header.yaml'
