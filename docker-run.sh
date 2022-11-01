@@ -9,7 +9,8 @@ oecho () {
 }
 
 #this suppresses a warning about running in developer mode
-export FLASK_ENV=development
+#export FLASK_ENV=development
+export FLASK_DEBUG=1
 python /usr/share/pureswagger/server.py &
 
 #delay for a second to make sure it's loaded.
