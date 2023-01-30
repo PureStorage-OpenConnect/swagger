@@ -1,0 +1,19 @@
+get:
+  summary: GET network-interfaces/trace
+  description: Display network interface trace result.
+  parameters:
+  - $ref: ../../queries/FB2.6/fragment_packet.query.yaml
+  - $ref: ../../queries/FB2.6/method.query.yaml
+  - $ref: ../../queries/FB2.6/mtu.query.yaml
+  - $ref: ../../queries/FB2.6/ping_trace_component.query.yaml
+  - $ref: ../../queries/FB2.6/ping_trace_destination.query.yaml
+  - $ref: ../../queries/FB2.6/ping_trace_source.query.yaml
+  - $ref: ../../queries/FB2.6/port.query.yaml
+  - $ref: ../../queries/FB2.6/resolve_hostname.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.6/network-interface-trace-get-response.yaml
+  tags:
+  - Network Interfaces

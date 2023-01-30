@@ -1,0 +1,17 @@
+type: object
+description: Configuration settings related to object lock.
+properties:
+  default_retention_mode:
+    description: The retention mode used to apply locks on new objects if none is
+      specified by the S3 client. Valid values include `compliance` and `governance`.
+      If there is no default, this value is `null`. Use "" to clear.
+    type: string
+    example: governance
+  enabled:
+    description: If set to `true`, then S3 APIs relating to object lock may be used.
+    type: boolean
+  freeze_locked_objects:
+    description: If set to `true`, a locked object will be read-only and no new versions
+      of the object may be created due to modifications. If not specified, defaults
+      to `false`.
+    type: boolean

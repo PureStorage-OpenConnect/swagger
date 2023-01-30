@@ -1,0 +1,13 @@
+allOf:
+- properties:
+    start:
+      type: integer
+      format: int64
+      description: Start time of the NLM reclamation in milliseconds since the UNIX
+        epoch.
+    end:
+      type: integer
+      format: int64
+      readOnly: true
+      description: End time of the NLM reclamation in milliseconds since the UNIX
+        epoch.

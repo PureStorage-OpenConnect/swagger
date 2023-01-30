@@ -1,0 +1,5 @@
+type: object
+properties:
+  signed_verification_key:
+    description: The text of the signed verification key.
+    type: string

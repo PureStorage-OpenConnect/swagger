@@ -1,0 +1,14 @@
+post:
+  summary: Initiate NLM reclamation.
+  description: NLM reclamation is a system-wide operation, affecting all clients,
+    and so only one may be in progress at a time. Attempting to initiate reclamation
+    while one is in progress will result in an error. When NLM reclamation is initiated,
+    all NLM locks are deleted and client applications are notified that they can reacquire
+    their locks within a grace period.
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.8/file-lock-nlm-reclamation-response.yaml
+  tags:
+  - File Systems

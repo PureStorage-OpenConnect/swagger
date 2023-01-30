@@ -1,0 +1,5 @@
+name: print_latency
+in: query
+description: Used by ping to specify whether or not to print the full user-to-user
+  latency. If not specified, defaults to false.
+type: boolean

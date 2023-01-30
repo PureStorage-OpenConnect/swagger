@@ -1,0 +1,6 @@
+name: component_name
+in: query
+description: Used by ping and trace to specify where to run the operation. Valid values
+  are controllers and blades from hardware list. If not specified, defaults to all
+  available controllers and selected blades.
+type: string

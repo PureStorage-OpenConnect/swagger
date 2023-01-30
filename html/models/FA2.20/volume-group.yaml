@@ -1,0 +1,9 @@
+allOf:
+- $ref: ../../models/FA2.10/volume-group.yaml
+- type: object
+  properties:
+    pod:
+      description: A reference to the pod.
+      allOf:
+      - $ref: ../../models/FA2.0/_reference.yaml
+      readOnly: true

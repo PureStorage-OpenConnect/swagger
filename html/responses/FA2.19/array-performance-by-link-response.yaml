@@ -1,0 +1,8 @@
+type: object
+properties:
+  items:
+    type: array
+    description: Array-level front-end I/O performance metrics grouped by link. A
+      link represents a set of arrays that an I/O operation depends on.
+    items:
+      $ref: ../../models/FA2.19/array-performance-by-link.yaml

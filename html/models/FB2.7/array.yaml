@@ -1,0 +1,12 @@
+allOf:
+- $ref: ../../models/FB2.6/array.yaml
+- properties:
+    security_update:
+      readOnly: true
+      type: string
+      description: The name of the installed security update that currently applies
+        to the system. This field will be `null` if either no security update has
+        been installed, or if the most recently installed security update is no longer
+        needed by the current FlashBlade software due to the current software fully
+        incorporating the update.
+      example: fb-2022-04-04

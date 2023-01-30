@@ -1,0 +1,14 @@
+allOf:
+- type: object
+- properties:
+    key_id:
+      description: The key id of the verification key.
+      type: integer
+      format: int64
+      example: 1
+    name:
+      description: Name of the verification key. Possible values include `access`.
+      type: string
+    verification_key:
+      description: The text of the verification key.
+      type: string

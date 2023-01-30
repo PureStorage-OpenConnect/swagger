@@ -1,0 +1,14 @@
+get:
+  summary: Get a list of clients that hold active file locks
+  description: Lists all clients that hold active file locks.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.8/file-system-clients-get-response.yaml
+  tags:
+  - File Systems

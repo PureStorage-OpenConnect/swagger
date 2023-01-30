@@ -1,0 +1,5 @@
+name: fragment_packet
+in: query
+description: Used by trace to specify whether or not to fragment packets. If not specified,
+  defaults to true.
+type: boolean

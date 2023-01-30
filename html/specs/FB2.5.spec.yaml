@@ -1,0 +1,742 @@
+consumes:
+- application/json
+definitions:
+  APIClient:
+    $ref: ../models/FB2.0/api-client.yaml
+  ActiveDirectory:
+    $ref: ../models/FB2.0/active-directory.yaml
+  Admin:
+    $ref: ../models/FB2.3/admin.yaml
+  AdminApiToken:
+    $ref: ../models/FB2.0/admin-api-token.yaml
+  AdminCache:
+    $ref: ../models/FB2.0/admin-cache.yaml
+  AdminSetting:
+    $ref: ../models/FB2.3/admin-setting.yaml
+  Alert:
+    $ref: ../models/FB2.0/alert.yaml
+  AlertWatcher:
+    $ref: ../models/FB2.0/alert-watcher.yaml
+  Array:
+    $ref: ../models/FB2.5/array.yaml
+  ArrayConnection:
+    $ref: ../models/FB2.3/array-connection.yaml
+  ArrayConnectionKey:
+    $ref: ../models/FB2.0/array-connection-key.yaml
+  ArrayConnectionPath:
+    $ref: ../models/FB2.0/array-connection-path.yaml
+  ArrayFactoryResetToken:
+    $ref: ../models/FB2.1/array-factory-reset-token.yaml
+  ArrayHttpSpecificPerformance:
+    $ref: ../models/FB2.0/array-http-specific-performance.yaml
+  ArrayNfsSpecificPerformance:
+    $ref: ../models/FB2.0/array-nfs-specific-performance.yaml
+  ArrayPerformance:
+    $ref: ../models/FB2.0/array-performance.yaml
+  ArrayS3SpecificPerformance:
+    $ref: ../models/FB2.0/array-s3-specific-performance.yaml
+  ArraySpace:
+    $ref: ../models/FB2.0/array-space.yaml
+  Audit:
+    $ref: ../models/FB2.0/audit.yaml
+  Blade:
+    $ref: ../models/FB2.0/blade.yaml
+  Bucket:
+    $ref: ../models/FB2.4/bucket.yaml
+  BucketPerformance:
+    $ref: ../models/FB2.0/bucket-performance.yaml
+  BucketReplicaLink:
+    $ref: ../models/FB2.2/bucket-replica-link.yaml
+  BucketS3SpecificPerformance:
+    $ref: ../models/FB2.0/bucket-s3-specific-performance.yaml
+  Certificate:
+    $ref: ../models/FB2.0/certificate.yaml
+  CertificateGroup:
+    $ref: ../models/FB2.0/certificate-group.yaml
+  CertificateGroupUse:
+    $ref: ../models/FB2.0/certificate-group-use.yaml
+  CertificateUse:
+    $ref: ../models/FB2.0/certificate-use.yaml
+  ClientPerformance:
+    $ref: ../models/FB2.0/client-performance.yaml
+  DNS:
+    $ref: ../models/FB2.0/dns.yaml
+  DirectoryService:
+    $ref: ../models/FB2.0/directory-service.yaml
+  DirectoryServiceRole:
+    $ref: ../models/FB2.0/directory-service-role.yaml
+  Drive:
+    $ref: ../models/FB2.4/drive.yaml
+  EULA:
+    $ref: ../models/FB2.0/eula.yaml
+  FileSystem:
+    $ref: ../models/FB2.5/file-system.yaml
+  FileSystemGroupPerformance:
+    $ref: ../models/FB2.0/file-system-group-performance.yaml
+  FileSystemPerformance:
+    $ref: ../models/FB2.0/file-system-performance.yaml
+  FileSystemReplicaLink:
+    $ref: ../models/FB2.0/file-system-replica-link.yaml
+  FileSystemSnapshot:
+    $ref: ../models/FB2.0/file-system-snapshot.yaml
+  FileSystemSnapshotTransfer:
+    $ref: ../models/FB2.0/file-system-snapshot-transfer.yaml
+  FileSystemUserPerformance:
+    $ref: ../models/FB2.0/file-system-user-performance.yaml
+  GroupQuota:
+    $ref: ../models/FB2.0/group-quota.yaml
+  Hardware:
+    $ref: ../models/FB2.4/hardware.yaml
+  HardwareConnector:
+    $ref: ../models/FB2.0/hardware-connector.yaml
+  HardwareConnectorPerformance:
+    $ref: ../models/FB2.3/hardware-connector-performance.yaml
+  Keytab:
+    $ref: ../models/FB2.0/keytab.yaml
+  KeytabFileBase64:
+    $ref: ../models/FB2.0/keytab-file-base64.yaml
+  KeytabFileBinary:
+    $ref: ../models/FB2.0/keytab-file-binary.yaml
+  KmipServer:
+    $ref: ../models/FB2.1/kmip-server.yaml
+  LifecycleRule:
+    $ref: ../models/FB2.1/lifecycle-rule.yaml
+  LinkAggregationGroup:
+    $ref: ../models/FB2.0/link-aggregation-group.yaml
+  LogsAsync:
+    $ref: ../models/FB2.4/logs-async.yaml
+  Member:
+    $ref: ../models/FB2.0/member.yaml
+  NetworkInterface:
+    $ref: ../models/FB2.0/network-interface.yaml
+  NfsExportPolicy:
+    $ref: ../models/FB2.4/nfs-export-policy.yaml
+  NfsExportPolicyRule:
+    $ref: ../models/FB2.3/nfs-export-policy-rule.yaml
+  ObjectStoreAccessKey:
+    $ref: ../models/FB2.0/object-store-access-key.yaml
+  ObjectStoreAccessPolicy:
+    $ref: ../models/FB2.4/object-store-access-policy.yaml
+  ObjectStoreAccessPolicyAction:
+    $ref: ../models/FB2.2/object-store-access-policy-action.yaml
+  ObjectStoreAccessPolicyRule:
+    $ref: ../models/FB2.2/policy-rule-object-access.yaml
+  ObjectStoreAccount:
+    $ref: ../models/FB2.0/object-store-account.yaml
+  ObjectStoreRemoteCredentials:
+    $ref: ../models/FB2.0/object-store-remote-credentials.yaml
+  ObjectStoreUser:
+    $ref: ../models/FB2.0/object-store-user.yaml
+  ObjectStoreVirtualHost:
+    $ref: ../models/FB2.0/object-store-virtual-host.yaml
+  Policy:
+    $ref: ../models/FB2.5/policy.yaml
+  PolicyBase:
+    $ref: ../models/FB2.4/policy-base.yaml
+  PolicyFileSystemSnapshot:
+    $ref: ../models/FB2.0/policy-file-system-snapshot.yaml
+  PolicyLocalMember:
+    $ref: ../models/FB2.0/policy-member.yaml
+  PolicyMember:
+    $ref: ../models/FB2.0/policy-member-with-remote.yaml
+  QuotaSetting:
+    $ref: ../models/FB2.0/quota-setting.yaml
+  RapidDataLocking:
+    $ref: ../models/FB2.1/rapid-data-locking.yaml
+  RelationshipPerformanceReplication:
+    $ref: ../models/FB2.2/relationship-performance-replication.yaml
+  ResourcePerformanceReplication:
+    $ref: ../models/FB2.2/resource-performance-replication.yaml
+  Role:
+    $ref: ../models/FB2.0/role.yaml
+  SMTP:
+    $ref: ../models/FB2.0/smtp-server.yaml
+  SNMPAgent:
+    $ref: ../models/FB2.0/snmp-agent.yaml
+  SNMPManager:
+    $ref: ../models/FB2.0/snmp-manager.yaml
+  SNMPManagerTest:
+    $ref: ../models/FB2.0/snmp-manager-test.yaml
+  Session:
+    $ref: ../models/FB2.3/session.yaml
+  Subnet:
+    $ref: ../models/FB2.0/subnet.yaml
+  Support:
+    $ref: ../models/FB2.0/support.yaml
+  SyslogServer:
+    $ref: ../models/FB2.0/syslog-server.yaml
+  SyslogServerSettings:
+    $ref: ../models/FB2.0/syslog-server-settings.yaml
+  Target:
+    $ref: ../models/FB2.0/target.yaml
+  TestResult:
+    $ref: ../models/FB2.0/test-result.yaml
+  UserQuota:
+    $ref: ../models/FB2.0/user-quota.yaml
+info:
+  description: "## Pure Swagger UI for FlashBlade\nA light weight tool to explore\
+    \ the API for FlashBlade, community supported.  \nFor help with this tool, use\
+    \ [Pure1 Community](https://community.purestorage.com/) or the [code-purestorage\
+    \ Slack](https://community.purestorage.com/discussion/9561/join-the-new-pure-code-slack-team-for-api-and-extensibility-discussions)\n\
+    \n## Authentication\nUse an api-token (header param) to start a session at /api/login,\
+    \ that returns an x-auth-token header which expires in 30 minutes by default.\
+    \ This is\ndifferent than FlashArray, which uses a cookie instead.  The x-auth-token\
+    \ is saved and added by the built in proxy server.\n\nUse \"pureadmin create --api-token\"\
+    \ on the CLI to create an API Token.  Or use \"pureadmin list --api-token --expose\"\
+    \ to show a token already created.  Note, it only shows tokens for user that is\
+    \ logged in.\n\n## Proxy\nThis Swagger tool includes a proxy server that forwards\
+    \ API calls to the array.  In the Swagger UI, you will \\\nsee curl API calls\
+    \ to IP 127.0.0.1, that is the proxy server. To see the API call details view\
+    \ the console output.\n\n## Error Codes\nUse HTTP Response codes to determine\
+    \ command results.  Error message json formats are different depending on the\
+    \ endpoint.\n\n## Official Documention\nGo to the Pure support portal for the\
+    \ [full documentation](https://support.purestorage.com/FlashBlade/Purity_FB/Purity%2F%2F%2F%2FFB_REST_API/Management_REST_API/Management_REST_API_Reference_Guides)."
+  title: FlashBlade REST API
+  version: '2.5'
+  x-logo:
+    url:
+      $ref: ../redoc/PS-LogoBase64-FA.txt
+  x-pure-description-ref: ../custom_descriptions/FB2.5-api-description.md
+paths:
+  /api/2.5/active-directory:
+    $ref: ../paths/FB2.0/active-directory.path.yaml
+  /api/2.5/active-directory/test:
+    $ref: ../paths/FB2.0/active-directory-test.path.yaml
+  /api/2.5/admins:
+    $ref: ../paths/FB2.3/admins.path.yaml
+  /api/2.5/admins/api-tokens:
+    $ref: ../paths/FB2.0/admins-api-tokens.path.yaml
+  /api/2.5/admins/cache:
+    $ref: ../paths/FB2.0/admins-cache.path.yaml
+  /api/2.5/admins/settings:
+    $ref: ../paths/FB2.3/admin-settings.path.yaml
+  /api/2.5/alert-watchers:
+    $ref: ../paths/FB2.0/alert-watchers.path.yaml
+  /api/2.5/alert-watchers/test:
+    $ref: ../paths/FB2.0/alert-watchers-test.path.yaml
+  /api/2.5/alerts:
+    $ref: ../paths/FB2.0/alerts.path.yaml
+  /api/2.5/api-clients:
+    $ref: ../paths/FB2.0/api-clients.path.yaml
+  /api/2.5/array-connections:
+    $ref: ../paths/FB2.3/array-connections.path.yaml
+  /api/2.5/array-connections/connection-key:
+    $ref: ../paths/FB2.0/array-connection-key.path.yaml
+  /api/2.5/array-connections/path:
+    $ref: ../paths/FB2.0/array-connections-path.path.yaml
+  /api/2.5/array-connections/performance/replication:
+    $ref: ../paths/FB2.2/array-connections-performance-replication.path.yaml
+  /api/2.5/arrays:
+    $ref: ../paths/FB2.5/arrays.path.yaml
+  /api/2.5/arrays/clients/performance:
+    $ref: ../paths/FB2.0/clients-performance.path.yaml
+  /api/2.5/arrays/eula:
+    $ref: ../paths/FB2.0/arrays-eula.path.yaml
+  /api/2.5/arrays/factory-reset-token:
+    $ref: ../paths/FB2.1/arrays-factory-reset-token.path.yaml
+  /api/2.5/arrays/http-specific-performance:
+    $ref: ../paths/FB2.0/arrays-http-specific-performance.path.yaml
+  /api/2.5/arrays/nfs-specific-performance:
+    $ref: ../paths/FB2.0/arrays-nfs-specific-performance.path.yaml
+  /api/2.5/arrays/performance:
+    $ref: ../paths/FB2.0/arrays-performance.path.yaml
+  /api/2.5/arrays/performance/replication:
+    $ref: ../paths/FB2.2/arrays-performance-replication.path.yaml
+  /api/2.5/arrays/s3-specific-performance:
+    $ref: ../paths/FB2.0/arrays-s3-specific-performance.path.yaml
+  /api/2.5/arrays/space:
+    $ref: ../paths/FB2.0/arrays-space.path.yaml
+  /api/2.5/arrays/supported-time-zones:
+    $ref: ../paths/FB2.0/arrays-supported-time-zones.path.yaml
+  /api/2.5/audits:
+    $ref: ../paths/FB2.0/audits.path.yaml
+  /api/2.5/blades:
+    $ref: ../paths/FB2.0/blades.path.yaml
+  /api/2.5/bucket-replica-links:
+    $ref: ../paths/FB2.2/bucket-replica-links.path.yaml
+  /api/2.5/buckets:
+    $ref: ../paths/FB2.4/buckets.path.yaml
+  /api/2.5/buckets/performance:
+    $ref: ../paths/FB2.0/buckets-performance.path.yaml
+  /api/2.5/buckets/s3-specific-performance:
+    $ref: ../paths/FB2.0/buckets-s3-specific-performance.path.yaml
+  /api/2.5/certificate-groups:
+    $ref: ../paths/FB2.0/certificate-groups.path.yaml
+  /api/2.5/certificate-groups/certificates:
+    $ref: ../paths/FB2.0/certificate-groups-certificates.path.yaml
+  /api/2.5/certificate-groups/uses:
+    $ref: ../paths/FB2.0/certificate-groups-uses.path.yaml
+  /api/2.5/certificates:
+    $ref: ../paths/FB2.0/certificates.path.yaml
+  /api/2.5/certificates/certificate-groups:
+    $ref: ../paths/FB2.0/certificates-certificate-groups.path.yaml
+  /api/2.5/certificates/uses:
+    $ref: ../paths/FB2.0/certificates-uses.path.yaml
+  /api/2.5/directory-services:
+    $ref: ../paths/FB2.0/directory-services.path.yaml
+  /api/2.5/directory-services/roles:
+    $ref: ../paths/FB2.0/directory-service-roles.path.yaml
+  /api/2.5/directory-services/test:
+    $ref: ../paths/FB2.0/directory-service-test.path.yaml
+  /api/2.5/dns:
+    $ref: ../paths/FB2.0/dns.path.yaml
+  /api/2.5/drives:
+    $ref: ../paths/FB2.4/drives.path.yaml
+  /api/2.5/file-system-replica-links:
+    $ref: ../paths/FB2.0/file-system-replica-links.path.yaml
+  /api/2.5/file-system-replica-links/policies:
+    $ref: ../paths/FB2.0/file-system-replica-links-policies.path.yaml
+  /api/2.5/file-system-replica-links/transfer:
+    $ref: ../paths/FB2.0/file-system-replica-links-transfer.path.yaml
+  /api/2.5/file-system-snapshots:
+    $ref: ../paths/FB2.0/file-system-snapshots.path.yaml
+  /api/2.5/file-system-snapshots/policies:
+    $ref: ../paths/FB2.0/file-system-snapshots-policies.path.yaml
+  /api/2.5/file-system-snapshots/transfer:
+    $ref: ../paths/FB2.0/file-system-snapshots-transfer.path.yaml
+  /api/2.5/file-systems:
+    $ref: ../paths/FB2.5/file-systems.path.yaml
+  /api/2.5/file-systems/groups/performance:
+    $ref: ../paths/FB2.0/file-systems-groups-performance.path.yaml
+  /api/2.5/file-systems/performance:
+    $ref: ../paths/FB2.0/file-systems-performance.path.yaml
+  /api/2.5/file-systems/policies:
+    $ref: ../paths/FB2.0/file-systems-policies.path.yaml
+  /api/2.5/file-systems/policies-all:
+    $ref: ../paths/FB2.3/file-systems-policies-all.path.yaml
+  /api/2.5/file-systems/users/performance:
+    $ref: ../paths/FB2.0/file-systems-users-performance.path.yaml
+  /api/2.5/hardware:
+    $ref: ../paths/FB2.4/hardware.path.yaml
+  /api/2.5/hardware-connectors:
+    $ref: ../paths/FB2.0/hardware-connectors.path.yaml
+  /api/2.5/hardware-connectors/performance:
+    $ref: ../paths/FB2.3/hardware-connectors-performance.path.yaml
+  /api/2.5/keytabs:
+    $ref: ../paths/FB2.0/keytabs.path.yaml
+  /api/2.5/keytabs/download:
+    $ref: ../paths/FB2.0/keytabs-download.path.yaml
+  /api/2.5/keytabs/upload:
+    $ref: ../paths/FB2.0/keytabs-upload.path.yaml
+  /api/2.5/kmip:
+    $ref: ../paths/FB2.1/kmip-servers.path.yaml
+  /api/2.5/kmip/test:
+    $ref: ../paths/FB2.1/kmip-servers-test.path.yaml
+  /api/2.5/lifecycle-rules:
+    $ref: ../paths/FB2.1/lifecycle-rules.path.yaml
+  /api/2.5/link-aggregation-groups:
+    $ref: ../paths/FB2.0/link-aggregation-groups.path.yaml
+  /api/2.5/logs:
+    $ref: ../paths/FB2.0/logs.path.yaml
+  /api/2.5/logs-async:
+    $ref: ../paths/FB2.4/logs-async.path.yaml
+  /api/2.5/logs-async/download:
+    $ref: ../paths/FB2.4/logs-async-download.path.yaml
+  /api/2.5/network-interfaces:
+    $ref: ../paths/FB2.0/network-interfaces.path.yaml
+  /api/2.5/nfs-export-policies:
+    $ref: ../paths/FB2.4/nfs-export-policies.path.yaml
+  /api/2.5/nfs-export-policies/rules:
+    $ref: ../paths/FB2.3/nfs-export-policies-rules.path.yaml
+  /api/2.5/object-store-access-keys:
+    $ref: ../paths/FB2.0/object-store-access-keys.path.yaml
+  /api/2.5/object-store-access-policies:
+    $ref: ../paths/FB2.4/object-store-access-policies.path.yaml
+  /api/2.5/object-store-access-policies/object-store-users:
+    $ref: ../paths/FB2.2/object-store-access-policies-object-store-users.path.yaml
+  /api/2.5/object-store-access-policies/rules:
+    $ref: ../paths/FB2.2/object-store-access-policies-rules.path.yaml
+  /api/2.5/object-store-access-policy-actions:
+    $ref: ../paths/FB2.2/object-store-access-policy-actions.path.yaml
+  /api/2.5/object-store-accounts:
+    $ref: ../paths/FB2.0/object-store-accounts.path.yaml
+  /api/2.5/object-store-remote-credentials:
+    $ref: ../paths/FB2.0/object-store-remote-credentials.path.yaml
+  /api/2.5/object-store-users:
+    $ref: ../paths/FB2.0/object-store-users.path.yaml
+  /api/2.5/object-store-users/object-store-access-policies:
+    $ref: ../paths/FB2.0/object-store-users-object-store-access-policies.path.yaml
+  /api/2.5/object-store-virtual-hosts:
+    $ref: ../paths/FB2.0/object-store-virtual-hosts.path.yaml
+  /api/2.5/policies:
+    $ref: ../paths/FB2.5/policies.path.yaml
+  /api/2.5/policies-all:
+    $ref: ../paths/FB2.4/policies-all.path.yaml
+  /api/2.5/policies-all/members:
+    $ref: ../paths/FB2.2/policies-all-members.path.yaml
+  /api/2.5/policies/file-system-replica-links:
+    $ref: ../paths/FB2.2/policies-file-system-replica-links.path.yaml
+  /api/2.5/policies/file-system-snapshots:
+    $ref: ../paths/FB2.2/policies-file-system-snapshots.path.yaml
+  /api/2.5/policies/file-systems:
+    $ref: ../paths/FB2.2/policies-file-systems.path.yaml
+  /api/2.5/policies/members:
+    $ref: ../paths/FB2.2/policies-members.path.yaml
+  /api/2.5/quotas/groups:
+    $ref: ../paths/FB2.0/quotas-groups.path.yaml
+  /api/2.5/quotas/settings:
+    $ref: ../paths/FB2.0/quotas-settings.path.yaml
+  /api/2.5/quotas/users:
+    $ref: ../paths/FB2.0/quotas-users.path.yaml
+  /api/2.5/rapid-data-locking:
+    $ref: ../paths/FB2.1/rapid-data-locking.path.yaml
+  /api/2.5/rapid-data-locking/rotate:
+    $ref: ../paths/FB2.1/rapid-data-locking-rotate.path.yaml
+  /api/2.5/rapid-data-locking/test:
+    $ref: ../paths/FB2.1/rapid-data-locking-test.path.yaml
+  /api/2.5/roles:
+    $ref: ../paths/FB2.0/roles.path.yaml
+  /api/2.5/sessions:
+    $ref: ../paths/FB2.3/sessions.path.yaml
+  /api/2.5/smtp-servers:
+    $ref: ../paths/FB2.0/smtp-server.path.yaml
+  /api/2.5/snmp-agents:
+    $ref: ../paths/FB2.0/snmp-agents.path.yaml
+  /api/2.5/snmp-agents/mib:
+    $ref: ../paths/FB2.0/snmp-agents-mib.path.yaml
+  /api/2.5/snmp-managers:
+    $ref: ../paths/FB2.0/snmp-managers.path.yaml
+  /api/2.5/snmp-managers/test:
+    $ref: ../paths/FB2.0/snmp-managers-test.path.yaml
+  /api/2.5/subnets:
+    $ref: ../paths/FB2.0/subnets.path.yaml
+  /api/2.5/support:
+    $ref: ../paths/FB2.0/support.path.yaml
+  /api/2.5/support/test:
+    $ref: ../paths/FB2.0/support-test.path.yaml
+  /api/2.5/syslog-servers:
+    $ref: ../paths/FB2.0/syslog-servers.path.yaml
+  /api/2.5/syslog-servers/settings:
+    $ref: ../paths/FB2.0/syslog-servers-settings.path.yaml
+  /api/2.5/syslog-servers/test:
+    $ref: ../paths/FB2.0/syslog-servers-test.path.yaml
+  /api/2.5/targets:
+    $ref: ../paths/FB2.0/targets.path.yaml
+  /api/2.5/targets/performance/replication:
+    $ref: ../paths/FB2.2/targets-performance-replication.path.yaml
+  /api/2.5/usage/groups:
+    $ref: ../paths/FB2.0/usage-groups.path.yaml
+  /api/2.5/usage/users:
+    $ref: ../paths/FB2.0/usage-users.path.yaml
+  /api/api_version:
+    $ref: ../paths/FB2.0/api_version.path.yaml
+  /api/login:
+    post:
+      description: Create a new session with API_KEY
+      parameters:
+      - in: header
+        name: api-token
+        required: true
+        type: string
+      responses:
+        200:
+          description: User logged in
+          headers:
+            x-auth-token:
+              description: authentication token, pass this back for future API Calls.
+              type: string
+          schema:
+            example:
+              username: pureuser
+            properties:
+              username:
+                description: The user name logged in.
+                type: string
+            type: object
+      tags:
+      - Authorization
+  /api/login-banner:
+    $ref: ../paths/FB2.0/login-banner.path.yaml
+  /api/logout:
+    $ref: ../paths/FB2.0/logout.path.yaml
+  /oauth2/1.0/token:
+    $ref: ../paths/TEx-v2/oauth-token.path.yaml
+  /oauth2_pub_priv_key_pair:
+    get:
+      description: "Returns a public and private key pair, This is not part of the\
+        \ FlashArray API, \nit's a helper endpoint making it easier to generate an\
+        \ oauth2 token_id in this Swagger UI. \nThey keys are generated in the Docker\
+        \ container running on this machine.\n\nRecommend to NOT use this API but\
+        \ to use OpenSSL instead for production use cases:\n  You can generate a public\
+        \ and private RSA key pair like this:\n\n    openssl genrsa -des3 -out private.pem\
+        \ 2048\n    \n    That generates a 2048-bit RSA key pair, encrypts them with\
+        \ a password you provide and writes them to a file. \n    You need to next\
+        \ extract the public key file. You will use this, for instance, on your web\
+        \ server to encrypt \n    content so that it can only be read with the private\
+        \ key.\n    \n    Export the RSA Public Key to a File\n    This is a command\
+        \ that is\n    \n    openssl rsa -in private.pem -outform PEM -pubout -out\
+        \ public.pem"
+      responses:
+        200:
+          description: Token Generated
+          schema:
+            properties:
+              private_key:
+                description: Private key in PEM format.
+                type: string
+              public_key:
+                description: Public key in PEM format.
+                type: string
+            type: object
+      tags:
+      - Auth Helpers
+  /oauth2_token_from_private_key:
+    post:
+      consumes:
+      - text/plain
+      description: "Authenticates to Flasharray, This returns a token_id (think session\
+        \ id), from an existing API Client, \nThis is not part of the FlashArray API,\
+        \ it's a helper endpoint making it easy to generate an \noauth2 token_id in\
+        \ this Swagger UI.  The private key is being passed into the Docker container\
+        \ in\norder to sign the JWT token.  Take a look at the Docker container output\
+        \ to see more details \nof what is happening.\n\nCopy the output value, Authorization\
+        \ header, and then click on the green Authorize button at the \ntop of the\
+        \ page.  Paste in the value into "
+      parameters:
+      - description: Issuer value displayed in the FlashArray API Registration page
+          or pureapiclient list ) by default it's the same name as API Client
+        in: header
+        name: issuer_name
+        type: string
+      - description: Client Id value displayed in the FlashArray API Registration
+          page or pureapiclient list
+        in: header
+        name: client_id
+        type: string
+      - description: Key Id value displayed in the FlashArray API Registration page
+          or pureapiclient list
+        in: header
+        name: key_id
+        type: string
+      - description: The name of a valid user on the FlashArray that will be authenticated
+          to.
+        in: header
+        name: username
+        type: string
+      - description: Private key in PEM format that was used to create the Public
+          key for this API Client specified as the issuer in this call.
+        in: body
+        name: private_key
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        200:
+          description: Token Generated
+          schema:
+            example:
+              username: pureuser
+            properties:
+              Authorization:
+                description: An OAuth bearer token to be used in the Authorization
+                  header for authorization to API endpoints.
+                type: string
+              description:
+                desciption: How to use token
+                type: string
+            type: object
+      tags:
+      - Auth Helpers
+produces:
+- application/json
+schemes:
+- http
+- https
+security:
+- AuthorizationHeader: []
+securityDefinitions:
+  ApiToken:
+    in: header
+    name: api-token
+    type: apiKey
+  AuthorizationHeader:
+    in: header
+    name: x-auth-token
+    type: apiKey
+swagger: '2.0'
+tags:
+- description: A set of endpoints not in the Purity API, but to make OAuth using this
+    tool simple and easy to understand.
+  name: Auth Helpers
+- description: Pure Storage uses the OAuth 2.0 Token Exchange authorization grant
+    and JSON Web Tokens (JWTs) to authenticate to the Pure Storage REST API. Before
+    you can exchange the ID token for an access token, create and enable the API client
+    to generate the `key_id`, `id`, and `issuer` values. These values will be used
+    as JWT claims for the `subject_token` parameter.
+  name: Authorization
+- description: Active Directory configuration joins the array to the domain and manages
+    its computer account. Authentication for NFS or SMB is performed using Kerberos.
+    This configuration is also used to authorize users by mapping identities across
+    the NFS and SMB protocols by using LDAP queries.
+  name: Active Directory
+- description: Manage administrators, including their REST API Token and public key
+    for SSH access. The array has a single default administrative account named `pureuser`.
+    Additional administrators and their administrative roles can be added by configuring
+    the `management` directory service for the array. The available administrative
+    roles are `array_admin`, `storage_admin`,`readonly`, `ops_admin`.
+  name: Administrators
+- description: Alerts indicate significant events that occur on the array, including
+    whenever a component degrades or the capacity threshold of the component is reached.
+  name: Alerts
+- description: Alert watchers receive email notifications when alerts occur on an
+    array.
+  name: Alert Watchers
+- description: An API client represents an identity type. API clients are created
+    on the array. To create an API client, register and then enable it on the array.
+    After the API client has been created, the user name (`sub`) and identity tokens
+    (`kid` and `aud` tokens) that are issued by the API client are used as claims
+    for the JSON Web Token that you create to authenticate into the REST API.
+  name: API Clients
+- description: Arrays features provide the ability to configure settings that affect
+    the array as a whole, monitor array I/O performance, and make sure that the array
+    is operating properly.
+  name: Arrays
+- description: View and manage connected arrays, including their network configurations,
+    connection keys, and replication performance.
+  name: Array Connections
+- description: View the audit trail on the array. Every request that creates, modifies,
+    or deletes a resource will be logged in the audit trail.
+  name: Audits
+- description: Displays the detailed information of each blade in the array.
+  name: Blades
+- description: Manages the creation, attributes, and deletion of buckets on the array.
+  name: Buckets
+- description: Object replication requires a replica link that connects a source bucket
+    to a remote bucket. The configuration of a replica link includes remote credentials,
+    bucket names, remote names, replication status information, and cascading state.
+  name: Bucket Replica Links
+- description: Purity//FB creates a self-signed certificate and private key when you
+    start the system for the first time. You can use the default certificate, change
+    the certificate attributes, create a new self-signed certificate, or import an
+    SSL certificate signed by a certificate authority.
+  name: Certificates
+- description: Certificate Groups can contain one or more CA certificates for verifying
+    an LDAP server identity and establish communication over TLS.
+  name: Certificate Groups
+- description: "Displays an NFS client\xE2\u20AC\u2122s performance metrics on the\
+    \ array for read, write, and meta operations."
+  name: Clients
+- description: Manages directory service configurations for integration with LDAP
+    servers (e.g. Active Directory and OpenLDAP) in order to support various array
+    services.
+  name: Directory Services
+- description: Manages the Domain Name System (DNS) attributes, including the domain
+    suffix and static name servers. The configured attributes can be listed.
+  name: DNS
+- description: Displays detailed information for each drive in the array. Drives are
+    not used in all hardware platforms, and are currently only present in the FlashBlade//S
+    product line.
+  name: Drives
+- description: Manages the creation, attributes, and deletion of file systems on the
+    array.
+  name: File Systems
+- description: File system replication requires a replica link that connects a source
+    array to a remote target. The configuration of a replica link includes policies,
+    file system names, remote names, and replication status information.
+  name: File System Replica Links
+- description: A file system snapshot is a point-in-time copy of a file system. Multiple
+    snapshots of a file system can be copied for different points in time. A snapshot
+    policy can also be applied to a file system for automatic creation and retention
+    of snapshots. Additionally, file system snapshots can also be sent from one array
+    to another.
+  name: File System Snapshots
+- description: Manages hardware components. List information about array hardware
+    components that are capable of reporting their status. The display is primarily
+    useful for diagnosing hardware-related problems.
+  name: Hardware
+- description: Manages the port connector attributes on the array. Lane speeds and
+    port count attributes can be configured.
+  name: Hardware Connectors
+- description: Keytab management functionality for Kerberos authentication.
+  name: Keytabs
+- description: Manages KMIP server configurations and performs connectivity and functionality
+    tests.
+  name: KMIP
+- description: A life cycle rule helps manage the number of copies of a specific bucket.
+    A lifecycle rule can be applied to a bucket with a rule indicating the retention
+    time before it is to be deleted.
+  name: Lifecycle Rules
+- description: Manages the link aggregation group (LAG) of Ethernet ports on the array.
+  name: Link Aggregation Groups
+- description: The array collects a log of command activities that can be used for
+    analysis when the logs are sent to Pure Technical Services.
+  name: Logs
+- description: Manages the interfaces and the network connection attributes of the
+    array.
+  name: Network Interfaces
+- description: Manages object store access keys. A maximum of two sets of keys can
+    be created for each object store user. A set of keys consists of an access key
+    ID and Secret Access Key.
+  name: Object Store Access Keys
+- description: Manages object store accounts. Accounts contain buckets and users.
+    Accounts must be created before an object store user or buckets can be created.
+  name: Object Store Accounts
+- description: Manages remote credentials for remote objects. Remote credentials contain
+    access information that can be reused for multiple objects.
+  name: Object Store Remote Credentials
+- description: Manages the object store users attributes. Each user is assigned to
+    an object store account and given an access key.
+  name: Object Store Users
+- description: Manages virtual host-style addressing for S3 requests to read or write
+    an object within a bucket on the array.
+  name: Object Store Virtual Hosts
+- description: Displays general information for all available types of policies and
+    their members.
+  name: Policies (All)
+- description: Manages NFS export policies. These policies are composed of rules which
+    govern a client's ability to access the exported filesystem.
+  name: Policies - NFS
+- description: Manages access policies for object store users. Administrators can
+    assign policies to users for managing buckets and objects.
+  name: Policies - Object Store Access
+- description: A snapshot policy manages the creation file system snapshots or it
+    can applied to file system and object replication links for replication. These
+    policies provide the user a way to control the frequency of creating snapshots
+    and objects, and the retention time for each copy. A snapshot policy can be applied
+    to one or more file systems, objects, or replication links.
+  name: Policies - Snapshot
+- description: A quota manages a set amount of space on a file system which a user
+    or group may write to. A quota can be applied to a user or group of a specified
+    file system. Once a user or group reaches their quota they will no longer be able
+    to write to that file system.
+  name: Quotas
+- description: Displays Rapid Data Locking (RDL) configuration and performs functionality
+    tests of the associated Enterprise Key Management (EKM) servers.
+  name: RDL
+- description: Displays role attributes. Each user of the array is assigned to a role
+    and each role has a set of role based access controls (RBAC). The roles (`array_admin`,
+    `storage_admin`, `ops_admin`, `readonly`, and `Invalid - multiple roles`) have
+    a specified set of permissions that allow certain actions to be performed on the
+    array. Each role includes a listing REST actions allowable for each endpoint.
+  name: Roles
+- description: Displays Purity//FB login and user session data.
+  name: Sessions
+- description: Manages Simple Mail Transfer Protocol (SMTP) settings. SMTP allows
+    the array to send email notifications and alerts to recipients.
+  name: SMTP
+- description: Manages the Simple Network Management Protocol (SNMP) agents and displays
+    the Management Information Base (MIB) file. The SNMP agent sends array component
+    status information and alerts to the SNMP manager. The MIB file lists all manageable
+    modules of the array.
+  name: SNMP Agents
+- description: Manages the Simple Network Management Protocol (SNMP) managers, including
+    performing functionality tests. The SNMP manager receives array component status
+    information and alerts from the SNMP agent.
+  name: SNMP Managers
+- description: Manages the subnets and VLANs used to organize the network interfaces.
+  name: Subnets
+- description: Manages support configurations for the array, including performing
+    functionality tests. The remote assist and phone home feature provides supplement
+    information to Pure Technical Services to assist with customer issues.
+  name: Support
+- description: Manages syslog servers connected to the array, including performing
+    functionality tests of syslog servers.
+  name: Syslog
+- description: Manages targets for replication, including viewing the performance
+    metrics of active replication operations.
+  name: Targets
+- description: Displays the data usage and hard limit quotas for all users and groups
+    on a file system.
+  name: Usage
