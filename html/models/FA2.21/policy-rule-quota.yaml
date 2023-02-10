@@ -1,0 +1,16 @@
+allOf:
+- $ref: ../../models/FA2.7/policy-rule-quota.yaml
+- properties:
+    destroyed:
+      description: Returns a value of `true` if the pod containing the quota policy
+        rule has been destroyed and is pending eradication. The `time_remaining` value
+        displays the amount of time left until the destroyed policy is permanently
+        eradicated. Once the `time_remaining` period has elapsed, the quota policy
+        rule is permanently eradicated and can no longer be recovered.
+      type: boolean
+    time_remaining:
+      description: The amount of time left, in milliseconds, until the destroyed quota
+        policy rule is permanently eradicated.
+      type: integer
+      format: int64
+      readOnly: true

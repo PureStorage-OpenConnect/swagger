@@ -1,0 +1,9 @@
+allOf:
+- $ref: ../../models/FA2.3/policy-member.yaml
+- properties:
+    time_remaining:
+      description: The amount of time left, in milliseconds, until the destroyed policy
+        member is permanently eradicated.
+      type: integer
+      format: int64
+      readOnly: true

@@ -1,0 +1,21 @@
+type: object
+properties:
+  groups:
+    description: A list of groups of which the user is a member.
+    type: array
+    items:
+      type: object
+      properties:
+        group:
+          description: Reference to a group of which the user is a member. The `id`
+            or `name` parameter is required, but cannot be set together.
+          allOf:
+          - $ref: ../../models/FA2.3/_reference-with-type.yaml
+        group_gid:
+          description: The group GID that should be mapped.
+          type: integer
+          format: int32
+  is_primary:
+    description: Determines whether memberships are primary group memberships or not.
+    default: false
+    type: boolean

@@ -1,0 +1,9 @@
+name: uids
+in: query
+description: A comma-separated list of local user IDs (UIDs). Enter multiple local
+  user IDs in comma-separated format. For example, `423,51234`.
+type: array
+collectionFormat: csv
+items:
+  type: integer
+  format: int32

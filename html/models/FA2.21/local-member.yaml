@@ -1,0 +1,25 @@
+allOf:
+- properties:
+    group:
+      description: Reference to the group to which the member belongs.
+      allOf:
+      - $ref: ../../models/FA2.3/_fixed-reference-with-type.yaml
+    group_gid:
+      description: GID of the group to which the member belongs.
+      type: integer
+      format: int32
+    is_primary_group:
+      description: When a membership of `member_type` has the value `User`, this specifies
+        whether this membership is a primary-group mapping or not. In any other case,
+        this field will be `false`.
+      type: boolean
+      readOnly: true
+    member:
+      description: Reference to the member of the group.
+      allOf:
+      - $ref: ../../models/FA2.3/_fixed-reference-with-type.yaml
+    member_id:
+      description: GID if the `member_type` is `Group` and UID if the `member_type`
+        is `User`.
+      type: integer
+      format: int32

@@ -1,0 +1,21 @@
+allOf:
+- properties:
+    built_in:
+      description: Returns a value of `true` if the local group is built in. Returns
+        a value of `false` if the group has been created manually.
+      type: boolean
+      readOnly: true
+    email:
+      description: The email address of the local group.
+      type: string
+    gid:
+      description: The POSIX user ID of this object (group ID).
+      type: integer
+      format: int32
+    name:
+      description: The local group name.
+      type: string
+    sid:
+      description: The SID (security ID) of the local group.
+      type: string
+      readOnly: true

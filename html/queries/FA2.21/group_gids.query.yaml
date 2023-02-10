@@ -1,0 +1,9 @@
+name: group_gids
+in: query
+description: Performs the operation on the specified GIDs. Enter multiple GIDs in
+  comma-separated format. For example, `4234235,9681923`.
+type: array
+collectionFormat: csv
+items:
+  type: integer
+  format: int32

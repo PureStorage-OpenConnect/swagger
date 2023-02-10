@@ -1,0 +1,17 @@
+type: object
+properties:
+  members:
+    description: A list of resources to be a member of the group.
+    type: array
+    items:
+      type: object
+      properties:
+        member:
+          description: Reference to the resource that will be a member of the group.
+            The `id` or `name` parameter is required, but cannot be set together.
+          allOf:
+          - $ref: ../../models/FA2.3/_reference-with-type.yaml
+        member_id:
+          description: The member ID that should be mapped.
+          type: integer
+          format: int32

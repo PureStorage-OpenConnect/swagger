@@ -1,0 +1,11 @@
+name: member_ids
+in: query
+description: Performs the operation on the unique local member IDs specified. Enter
+  multiple member IDs in comma-separated format. For local group IDs refer to group
+  IDs (GID). For local user IDs refer to user IDs (UID). The `member_ids` and `member_names`
+  parameters cannot be provided together.
+type: array
+collectionFormat: csv
+items:
+  type: integer
+  format: int32
