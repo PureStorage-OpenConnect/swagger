@@ -1,0 +1,13 @@
+allOf:
+- $ref: ../../models/FA2.0/_built-in.yaml
+- readOnly: true
+  properties:
+    space:
+      description: Displays size and space consumption information.
+      allOf:
+      - $ref: ../../models/FA2.23/_volume-space-common.yaml
+    time:
+      type: integer
+      format: int64
+      description: The timestamp of when the data was taken, measured in milliseconds
+        since the UNIX epoch.

@@ -1,0 +1,10 @@
+name: add_to_protection_group_names
+in: query
+description: The volumes will be added to the specified protection groups along with
+  creation or movement across pods and array. When a volume is moved, the specified
+  protection groups must be in the target pod or array. Enter multiple names in a
+  comma-separated format.
+type: array
+collectionFormat: csv
+items:
+  type: string

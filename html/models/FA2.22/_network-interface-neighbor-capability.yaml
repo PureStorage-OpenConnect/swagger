@@ -1,0 +1,11 @@
+allOf:
+- readOnly: true
+  properties:
+    supported:
+      description: If true, this capability is supported by this neighbor; false otherwise.
+      type: boolean
+      example: false
+    enabled:
+      description: If true, this capability is enabled by this neighbor; false otherwise.
+      type: boolean
+      example: false

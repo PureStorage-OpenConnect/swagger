@@ -1,0 +1,6 @@
+name: parameter
+in: query
+description: The parameter of the custom alert rule to modify. Values include `info`
+  and `warning`. Available parameter values can be found in the alert rules catalog.
+type: string
+required: true

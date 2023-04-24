@@ -1,0 +1,14 @@
+allOf:
+- $ref: ../../models/FA2.13/pod.yaml
+- properties:
+    quota_limit:
+      type: integer
+      format: int64
+      description: The logical quota limit of the pod, measured in bytes.
+      readOnly: true
+      maximum: 4503599627370496
+    space:
+      description: Displays provisioned size and physical storage consumption information
+        for the sum of all volumes connected to the specified host.
+      allOf:
+      - $ref: ../../models/FA2.23/_pod-space.yaml

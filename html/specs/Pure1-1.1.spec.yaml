@@ -51,6 +51,10 @@ definitions:
     $ref: ../models/Pure1-1.1/subscription-license.yaml
   SupportContract:
     $ref: ../models/Pure1-1.1/support-contract.yaml
+  SustainabilityArray:
+    $ref: ../models/Pure1-1.1/sustainability-array.yaml
+  SustainabilityInsightArray:
+    $ref: ../models/Pure1-1.1/sustainability-insight-array.yaml
   Tag:
     $ref: ../models/Pure1-1.0/tag.yaml
   Target:
@@ -91,6 +95,10 @@ paths:
     $ref: ../paths/Pure1-1.0/arrays-tags.path.yaml
   /api/1.1/arrays/tags/batch:
     $ref: ../paths/Pure1-1.0/arrays-tags-batch.path.yaml
+  /api/1.1/assessment/sustainability/arrays:
+    $ref: ../paths/Pure1-1.1/sustainability-arrays.path.yaml
+  /api/1.1/assessment/sustainability/insights/arrays:
+    $ref: ../paths/Pure1-1.1/sustainability-insights-arrays.path.yaml
   /api/1.1/audits:
     $ref: ../paths/Pure1-1.1/audits.path.yaml
   /api/1.1/blades:
@@ -220,6 +228,8 @@ tags:
   name: Ports
 - description: Provides information about Pure1 subscription offerings.
   name: Subscriptions
+- description: Provides information about energy consumption and sustainability.
+  name: Sustainability
 - description: Provides information about FlashBlade external replication targets.
   name: Targets
 - description: Provides information about block storage volumes on FlashArray arrays.

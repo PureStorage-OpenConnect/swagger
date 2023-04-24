@@ -1,0 +1,101 @@
+description: A FlashArray or FlashBlade Sustainability assessment information. The
+  _as_of is the time when the computation happened. Only the data from the given time
+  interval was used for the aggregation. Typically the last week of data is used for
+  the aggregation.
+allOf:
+- $ref: ../../models/Pure1-1.0/_time-aware.yaml
+- $ref: ../../models/Pure1-1.1/_time_interval.yaml
+- properties:
+    shelves:
+      description: The number of expansion shelves of the FlashArray appliance. It
+        is always zero for FlashBlade appliances.
+      type: integer
+      readOnly: true
+      example: 1
+    chassis:
+      description: The number of chassis of the appliance, always one for FlashArray
+        appliances.
+      type: integer
+      readOnly: true
+      example: 1
+    blades:
+      description: The number of blades of the FlashBlade appliance, always zero for
+        FlashArray appliances.
+      type: integer
+      readOnly: true
+      example: 15
+    rack_units:
+      description: The total number of rack units occupied by the appliance.
+      type: integer
+      readOnly: true
+      example: 4
+    capacity_utilization:
+      description: The percentage of the used capacity. Average over the assessment
+        window.
+      type: number
+      readOnly: true
+      example: 0.68
+    array_data_reduction:
+      description: The data reduction ratio of the appliance. Average over the assessment
+        window.
+      type: number
+      readOnly: true
+      example: 2.5
+    array_total_load:
+      description: The load percentage. Average over the assessment window.
+      type: number
+      readOnly: true
+      example: 0.23
+    power_typical_spec:
+      description: The typical power consumption of the appliance in Watts. The value
+        is derived from benchmark data and remains static for the model and configuration.
+      type: number
+      readOnly: true
+      example: 500
+    power_peak_spec:
+      description: The peak power consumption of the appliance in Watts. The value
+        is derived from benchmark data and remains static for the model and configuration.
+      type: number
+      readOnly: true
+      example: 600
+    power_average:
+      description: The actual average power consumption of the appliance.
+      type: number
+      readOnly: true
+      example: 524.25
+    heat_typical_spec:
+      description: The typical heat production of the appliance in BTU/hr. The value
+        is derived from benchmark data and remains static for the model and configuration.
+      type: number
+      readOnly: true
+      example: 1705
+    heat_peak_spec:
+      description: The peak heat production of the appliance in BTU/hr. The value
+        is derived from benchmark data and remains static for the model and configuration.
+      type: number
+      readOnly: true
+      example: 2046
+    heat_average:
+      description: The actual average heat production of the appliance in BTU/Hr.
+      type: number
+      readOnly: true
+      example: 1787.69
+    power_per_used_space:
+      description: The actual power consumption per TiB of used space.
+      type: number
+      readOnly: true
+      example: 22.5
+    power_per_usable_capacity:
+      description: The actual power consumption per TiB of usable capacity.
+      type: number
+      readOnly: true
+      example: 5.4
+    assessment_level:
+      description: "The assessment level of an appliance. Valid values include: good\
+        \ - The assessment level of appliance is GOOD - all green. recommendation\
+        \ - There are some actions\n  that can be done to bring appliance to a GOOD\
+        \ level.\naction_required - The lowest level of assessment.\n  Some actions\
+        \ are required to improve the assessment level."
+      type: string
+      readOnly: true
+      example: good

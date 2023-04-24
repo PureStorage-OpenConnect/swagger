@@ -1,0 +1,10 @@
+name: remove_from_protection_group_names
+in: query
+description: The volumes will be removed from the specified protection groups in the
+  source pod or array along with the move. This can only be used when moving volumes
+  across pods and arrays and must include all protection groups that the volumes are
+  members of before the move. Enter multiple names in a comma-separated format.
+type: array
+collectionFormat: csv
+items:
+  type: string

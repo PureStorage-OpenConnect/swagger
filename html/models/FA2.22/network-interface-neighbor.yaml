@@ -1,0 +1,96 @@
+allOf:
+- readOnly: true
+  properties:
+    local_port:
+      description: A reference to the local network interface the neighbor is connected
+        to.
+      allOf:
+      - $ref: ../../models/FA2.0/_fixed-reference-no-id.yaml
+    neighbor_chassis:
+      description: The neighboring physical component incorporating one or more IEEE
+        802 LAN stations and their associated application functionality.
+      properties:
+        id:
+          description: An administratively assigned identifier of the particular neighboring
+            chassis.
+          properties:
+            type:
+              description: The chassis ID subtype. Valid values are `ifname`, `ifalias`,
+                `local`, `mac`, `ip`, and `unhandled`.
+              type: string
+              example: mac
+            value:
+              description: The specific identifier for the particular chassis.
+              type: string
+              example: 00:12:ab:cd:ab:cd
+        name:
+          description: Administratively assigned name of the neighbour.
+          type: string
+          example: iscsi-sw-100-b.example.com
+        addresses:
+          description: Management IP addresses of the neighbor.
+          type: array
+          items:
+            type: string
+            example: 10.202.101.70
+        description:
+          description: The textual description of the neighbor. The description may
+            include the full name and version identification of the system hardware
+            type, software operating system, and networking software.
+          type: string
+          example: Example Switch iscsi-sw-100-b version 1.0
+        repeater:
+          description: Neighbor system's repeater capability.
+          allOf:
+          - $ref: ../../models/FA2.22/_network-interface-neighbor-capability.yaml
+        bridge:
+          description: Bridge capability of the neighbor system.
+          allOf:
+          - $ref: ../../models/FA2.22/_network-interface-neighbor-capability.yaml
+        wlan_access_point:
+          description: WLAN access point capability of the neighbor system.
+          allOf:
+          - $ref: ../../models/FA2.22/_network-interface-neighbor-capability.yaml
+        router:
+          description: IP router capability of the neighbor system.
+          allOf:
+          - $ref: ../../models/FA2.22/_network-interface-neighbor-capability.yaml
+        telephone:
+          description: Telephone capability of the neighbor system.
+          allOf:
+          - $ref: ../../models/FA2.22/_network-interface-neighbor-capability.yaml
+        docsis_cable_device:
+          description: DOCSIS cable device capability of the neighbor system.
+          allOf:
+          - $ref: ../../models/FA2.22/_network-interface-neighbor-capability.yaml
+        station_only:
+          description: Station only status of the neighbor system.
+          allOf:
+          - $ref: ../../models/FA2.22/_network-interface-neighbor-capability.yaml
+    neighbor_port:
+      description: The neighboring port connected to the FlashArray local port.
+      properties:
+        description:
+          description: A description of the neighbor port.
+          type: string
+          example: eth7
+        id:
+          description: An administratively assigned identifier of the particular neighboring
+            port.
+          properties:
+            type:
+              description: The port ID subtype. Valid values are `ifname`, `ifalias`,
+                `local`, `mac`, `ip`, and `unhandled`.
+              type: string
+              example: ifname
+            value:
+              description: The specific identifier for the particular port.
+              type: string
+              example: Ethernet7
+    initial_ttl_in_sec:
+      description: The initial time to live in seconds from when the local port received
+        notice that the neighbor information is regarded as valid. The time is not
+        measured from when this endpoint was queried.
+      type: integer
+      format: uint32
+      example: 120

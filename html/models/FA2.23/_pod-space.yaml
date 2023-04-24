@@ -1,0 +1,27 @@
+allOf:
+- $ref: ../../models/FA2.23/_space.yaml
+- properties:
+    replication:
+      description: The space consumed by unique data that has not been replicated
+        to the target pod, on source pods. The space consumed by unique data that
+        has been replicated to the target but not yet incorporated into the target
+        pod, on target pods.
+      type: integer
+      format: int64
+      minimum: 0
+    shared_effective:
+      description: The effective space contributed by data that is not unique to a
+        specific volume, managed directory, or snapshot, measured in bytes.
+      type: integer
+      format: int64
+      minimum: 0
+      readOnly: true
+    replication_effective:
+      description: The effective space consumed by unique data that has not been replicated
+        to the target pod, on source pods. The effective space consumed by unique
+        data that has been replicated to the target but not yet incorporated into
+        the target pod, on target pods.
+      type: integer
+      format: int64
+      minimum: 0
+      readOnly: true

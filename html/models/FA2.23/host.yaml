@@ -1,0 +1,10 @@
+allOf:
+- $ref: ../../models/FA2.16/host.yaml
+- type: object
+  properties:
+    space:
+      description: Displays provisioned (virtual) size and physical storage consumption
+        information for the sum of all volumes connected to the specified host.
+      readOnly: true
+      allOf:
+      - $ref: ../../models/FA2.23/_space.yaml

@@ -1,0 +1,29 @@
+allOf:
+- $ref: ../../models/FA2.0/_built-in.yaml
+- $ref: ../../models/FA2.0/_resource.yaml
+- description: Volume groups organize FlashArray volumes into logical groupings.
+  type: object
+  properties:
+    qos:
+      $ref: ../../models/FA2.0/_qos.yaml
+    priority_adjustment:
+      $ref: ../../models/FA2.10/_priority-adjustment.yaml
+    space:
+      $ref: ../../models/FA2.23/_space.yaml
+    time_remaining:
+      description: The amount of time left until the destroyed volume group is permanently
+        eradicated, measured in milliseconds.
+      type: integer
+      format: int64
+      readOnly: true
+    volume_count:
+      description: The number of volumes in the volume group.
+      type: integer
+      format: int64
+      readOnly: true
+      example: 3
+    destroyed:
+      description: If set to `true`, destroys a volume group. If set to `false`, recovers
+        a destroyed volume group. If not specified, defaults to `false`.
+      type: boolean
+      readOnly: true

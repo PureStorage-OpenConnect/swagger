@@ -1,0 +1,12 @@
+type: object
+properties:
+  latitude:
+    description: The latitude of the address.
+    readOnly: true
+    type: number
+    example: 23.234
+  longitude:
+    description: The longitude of the address.
+    readOnly: true
+    type: number
+    example: 123.9834

@@ -1,0 +1,25 @@
+description: A single FlashArray/FlashBlade appliance Sustainability assessment information.
+allOf:
+- $ref: ../../models/Pure1-1.0/_built-in-as-of.yaml
+- properties:
+    install_address:
+      description: The address where the array is installed. This address is also
+        where replacement parts will be shipped to.
+      readOnly: true
+      allOf:
+      - $ref: ../../models/Pure1-1.1/_install_address.yaml
+    reporting_status:
+      description: "Enum value that describes what is the status of the latest assessment.\
+        \ Valid values include: not_enough_data - There was not enough data\n  to\
+        \ calculate assessment level of the appliance.\nunsupported_purity_version\
+        \ - The appliance is running\n  an unsupported version of Purity operating\
+        \ system.\n  It is an old Purity version which does not provide\n  enough\
+        \ data for assessing the sustainability metrics.\nnot_phoning_home - The appliance\
+        \ has not phoned home\n  for more than 7 days so the assessment level was\
+        \ not calculated\nassessment_ready - Assessment is ready and it is available\
+        \ under `assessment` field."
+      type: string
+      readOnly: true
+      example: assessment_ready
+    assessment:
+      $ref: ../../models/Pure1-1.1/sustainability-assessment.yaml

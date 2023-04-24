@@ -1,0 +1,11 @@
+allOf:
+- $ref: ../../models/FA2.0/_built-in-resource-no-id.yaml
+- readOnly: true
+  properties:
+    space:
+      description: Displays size and space consumption information.
+      allOf:
+      - $ref: ../../models/FA2.23/_space.yaml
+    time:
+      type: integer
+      format: int64

@@ -1,0 +1,56 @@
+get:
+  summary: List offload targets
+  description: Displays a list of offload targets that are connected to the array.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.2/protocol.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  - $ref: ../../queries/FA2.0/total_only.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.23/offload-get-response.yaml
+  tags:
+  - Offloads
+post:
+  summary: Create offload target
+  description: Creates an offload target, connecting it to an array. Before you can
+    connect to, manage, and replicate to an offload target, the Purity Run app must
+    be installed. For more information about Purity//FA apps, see the Apps section
+    of this guide.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - name: offload
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.2/offload-post.yaml
+  - $ref: ../../queries/FA2.2/initialize.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.23/offload-response.yaml
+  tags:
+  - Offloads
+delete:
+  summary: Delete offload target
+  description: Deletes an offload target.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Offloads

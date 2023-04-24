@@ -1,0 +1,23 @@
+allOf:
+- $ref: ../../models/FA2.2/offload-post.yaml
+- $ref: ../../models/FA2.0/_resource-no-id.yaml
+- type: object
+  properties:
+    protocol:
+      description: Type of offload. Valid values include `azure`, `google-cloud`,
+        `nfs`, and `s3`.
+      readOnly: true
+      type: string
+    target_id:
+      description: Unique ID for the offload target. When multiple connections to
+        one offload target are created, they each have distinct IDs but share the
+        same `target_id`.
+      readOnly: true
+      type: string
+    space:
+      $ref: ../../models/FA2.23/_space.yaml
+    status:
+      description: Offload status. Valid values are `connecting`, `connected`, `disconnecting`,
+        `not connected`, and `scanning`.
+      readOnly: true
+      type: string

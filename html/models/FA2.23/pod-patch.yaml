@@ -1,0 +1,15 @@
+allOf:
+- $ref: ../../models/FA2.2/pod-patch.yaml
+- properties:
+    quota_limit:
+      type: integer
+      format: int64
+      description: The logical quota limit of the pod, measured in bytes. Must be
+        a multiple of 512.
+      minimum: 1048576
+      maximum: 4503599627370496
+    ignore_usage:
+      type: boolean
+      description: Set to `true` to set a `quota_limit` that is lower than the existing
+        usage. This ensures that no new volumes can be created until the existing
+        usage drops below the `quota_limit`. If not specified, defaults to `false`.

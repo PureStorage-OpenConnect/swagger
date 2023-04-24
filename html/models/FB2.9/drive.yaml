@@ -1,0 +1,8 @@
+allOf:
+- $ref: ../../models/FB2.4/drive.yaml
+- properties:
+    type:
+      description: The type of the module. Valid values are `DFM` and `DFMe`.
+      type: string
+      example: DFM
+      readOnly: true
