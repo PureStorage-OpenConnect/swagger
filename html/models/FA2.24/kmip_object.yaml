@@ -1,0 +1,8 @@
+type: object
+properties:
+  name:
+    description: Name of the KMIP object.
+    type: string
+  uid:
+    description: User ID of the KMIP object.
+    type: string

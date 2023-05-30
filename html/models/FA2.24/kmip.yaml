@@ -1,0 +1,38 @@
+description: 'A built-in resource. Many are singletons predefined by Purity (e.g.,
+  support settings). Some correspond to a piece of software, like an app, or hardware,
+  like a controller. Others are created by the system in response to some event (e.g.,
+  alerts, audit records).
+
+  Typically, a user can''t create, delete or rename a built-in resource. A few can
+  be created or deleted, but not renamed because the names are meaningful to Purity
+  (e.g., VIFs, file systems, file system snapshots, volume snapshot).'
+type: object
+properties:
+  name:
+    description: A locally unique, system-generated name. The name cannot be modified.
+    type: string
+    readOnly: true
+  uris:
+    description: List of URIs for the configured KMIP servers.
+    type: array
+    items:
+      type: string
+    example:
+    - 1.1.1.1:8888
+    - 2.2.2.2:9999
+  certificate:
+    description: The certificate used to verify FlashArray authenticity to the KMIP
+      servers.
+    allOf:
+    - $ref: ../../models/FA2.24/kmip_certificate.yaml
+  ca_certificate:
+    description: CA certificate text for the KMIP server.
+    type: string
+    maxLength: 3000
+    example: '-----BEGIN CERTIFICATE-----...-----END CERTIFICATE-----'
+  kmip_objects:
+    description: List of the name and UID of the KMIP objects.
+    type: array
+    items:
+      allOf:
+      - $ref: ../../models/FA2.24/kmip_object.yaml

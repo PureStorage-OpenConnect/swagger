@@ -1,0 +1,8 @@
+allOf:
+- $ref: ../../models/FA2.13/policy.yaml
+- properties:
+    policy_type:
+      description: The type of policy. Valid values include `autodir`, `nfs`, `smb`,
+        `snapshot`, and `quota`.
+      readOnly: true
+      type: string
