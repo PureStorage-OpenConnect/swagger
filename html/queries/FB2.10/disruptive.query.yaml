@@ -1,0 +1,7 @@
+name: disruptive
+in: query
+description: If set to `true`, a wide scope of sessions may be deleted in a single
+  action using a single query parameter from `user_names`, `client_names`, or `protocols`.
+  Otherwise, multiple query parameters must be specified to narrow the impact of deletion
+  and avoid potential for accidental disruption of clients.
+type: boolean

@@ -1,0 +1,8 @@
+name: recursive
+in: query
+description: Flag used to indicate that the action should be done recursively. If
+  set to `true` and used e.g. with `path` pointing to a directory, the operation will
+  delete all locks in given directory and subdirectories recursively. For more fine
+  grained control over deleted locks, use delete by name. If not specified, defaults
+  to `false`.
+type: boolean

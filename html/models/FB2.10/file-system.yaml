@@ -1,0 +1,9 @@
+allOf:
+- $ref: ../../models/FB2.3/file-system.yaml
+- properties:
+    nfs:
+      allOf:
+      - $ref: ../../models/FB2.10/_nfs.yaml
+    smb:
+      allOf:
+      - $ref: ../../models/FB2.10/_smb.yaml

@@ -1,0 +1,10 @@
+allOf:
+- $ref: ../../models/FB2.3/nfs-export-policy-rule-base.yaml
+- properties:
+    client:
+      description: Specifies the clients that will be permitted to access the export.
+        Accepted notation is a single IP address, subnet in CIDR notation, netgroup,
+        hostname (see RFC-1123 part 2.1), fully qualified domain name (see RFC-1123
+        part 2.1, RFC 2181 part 11), wildcards with fully qualified domain name or
+        hostname, or anonymous (`*`). The default is `*` if not specified.
+      type: string

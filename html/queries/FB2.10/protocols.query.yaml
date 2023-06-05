@@ -1,0 +1,8 @@
+name: protocols
+in: query
+description: A comma-separated list of file protocols. Valid values include `nfs`
+  and `smb`.
+type: array
+collectionFormat: csv
+items:
+  type: string
