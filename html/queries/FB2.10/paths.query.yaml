@@ -1,0 +1,9 @@
+name: paths
+in: query
+description: A comma-separated list of paths used for filtering file locks query by
+  paths. This may only be specified if `file_system_ids` or `file_system_names` is
+  also specified. This cannot be provided together with the `inodes` query parameter.
+type: array
+collectionFormat: csv
+items:
+  type: string

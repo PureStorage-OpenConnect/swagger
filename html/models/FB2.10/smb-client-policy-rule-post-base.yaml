@@ -1,0 +1,14 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in.yaml
+- properties:
+    client:
+      description: Specifies the clients that will be permitted to access the export.
+        Accepted notation is a single IP address, subnet in CIDR notation, or anonymous
+        (`*`). The default is `*` if not specified.
+      type: string
+      example: 1.2.3.4
+    permission:
+      description: Specifies which read-write client access permissions are allowed
+        for the export. Valid values are `rw` and `ro`. The default is `ro` if not
+        specified.
+      type: string

@@ -1,0 +1,8 @@
+type: object
+properties:
+  version:
+    description: A hash of the other properties of this resource. This can be used
+      when updating the resource to ensure there aren't any updates since the resource
+      was read.
+    type: string
+    readOnly: true

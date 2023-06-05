@@ -1,0 +1,7 @@
+name: cancel_in_progress_transfers
+in: query
+description: This parameter must be set to `true` in order to delete a file system
+  replication link (which can cancel any in-progress replication transfers). Setting
+  this parameter to `true` is acknowledgement that any in-progress replication transfers
+  on the specified links will be cancelled when this request is fulfilled.
+type: boolean

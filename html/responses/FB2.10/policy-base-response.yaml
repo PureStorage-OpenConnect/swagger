@@ -1,0 +1,7 @@
+type: object
+properties:
+  items:
+    type: array
+    items:
+      $ref: ../../models/FB2.10/policy-base.yaml
+    description: A list of basic policy objects.

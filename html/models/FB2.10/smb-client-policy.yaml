@@ -1,0 +1,11 @@
+allOf:
+- $ref: ../../models/FB2.10/policy-base-renameable.yaml
+- $ref: ../../models/FB2.10/_version.yaml
+- properties:
+    rules:
+      type: array
+      maxItems: 200
+      items:
+        $ref: ../../models/FB2.10/smb-client-policy-rule-in-policy.yaml
+      description: All of the rules that are part of this policy. The order is the
+        evaluation order.

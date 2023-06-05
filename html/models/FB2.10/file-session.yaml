@@ -1,0 +1,43 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in-no-id.yaml
+- properties:
+    authentication:
+      type: string
+      readOnly: true
+      description: Describes how was the user authenticated. Valid values include
+        `KRB` and `NTLMv2`.
+    client:
+      description: Client that holds the session.
+      readOnly: true
+      allOf:
+      - $ref: ../../models/FB2.0/_fixed-reference-name-only.yaml
+    connection_time:
+      description: Connection time in milliseconds since UNIX epoch.
+      type: integer
+      format: int64
+    idle_time:
+      description: Duration in milliseconds that indicates how long the session has
+        been idle.
+      type: integer
+      format: int64
+    opens:
+      description: Number of opens for the given session.
+      type: integer
+      format: int64
+    protocol:
+      type: string
+      readOnly: true
+      description: The protocol utilized for obtaining and managing the session. Valid
+        values include `nfs` and `smb`.
+    port:
+      description: Port number the client is connected from.
+      type: integer
+      format: int64
+    time:
+      description: Current time in milliseconds since UNIX epoch.
+      type: integer
+      format: int64
+    user:
+      description: The user who has created the session.
+      allOf:
+      - $ref: ../../models/FB2.10/_user_no_id.yaml
