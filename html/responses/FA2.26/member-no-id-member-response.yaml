@@ -1,0 +1,8 @@
+type: object
+properties:
+  items:
+    type: array
+    items:
+      $ref: ../../models/FA2.26/member-no-id-member.yaml
+    description: Returns a list of all items after filtering. The values are displayed
+      for each name, if meaningful.

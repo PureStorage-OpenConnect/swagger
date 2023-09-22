@@ -1,0 +1,8 @@
+name: vchost_ids
+in: query
+description: Performs the operation on the unique vchost IDs specified. Enter multiple
+  vchost IDs in a comma-separated format.
+type: array
+collectionFormat: csv
+items:
+  type: string

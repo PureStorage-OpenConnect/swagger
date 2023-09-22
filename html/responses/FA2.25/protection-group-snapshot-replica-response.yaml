@@ -1,0 +1,8 @@
+type: object
+properties:
+  items:
+    type: array
+    items:
+      $ref: ../../models/FA2.25/protection-group-snapshot-replica.yaml
+    description: Returns a list of all items after the operation. If applicable, the
+      values are displayed for each name.

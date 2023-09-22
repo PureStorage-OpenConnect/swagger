@@ -1,0 +1,45 @@
+allOf:
+- $ref: ../../models/FA2.0/_space.yaml
+- readOnly: true
+- properties:
+    total_provisioned:
+      description: The provisioned size of a volume for a single volume, host or host
+        group, protocol endpoint, managed directory, and containers can be infinite
+        or measured in bytes. Infinite is represented by `null`. The provisioned size
+        for a host or host group, includes all volumes that are connected to the resource.
+        The provisioned size for a protocol endpoint is `null'. The provisioned size
+        for a managed directory is the quota limit if it or its parent has a managed
+        directory configured, otherwise it defaults to `null`. The provisioned size
+        for a container is the sum of the total_provisioned of the object it contains,
+        capped by the container's quota limit (or the container's used_provisioned
+        if current usage is above the quota limit), if any. Provisioned size represents
+        the storage capacity reported to hosts.
+      type: integer
+      format: int64
+      minimum: 0
+      example: 19937690345472
+      readOnly: true
+    used_provisioned:
+      description: The amount of logical space a container has consumed. The amount
+        of logical space is compared against the quota limit if the container has
+        one configured. Used provisioned does not include destroyed objects inside
+        the container. For a destroyed container, used provisioned can include destroyed
+        objects and represents how much logical space it would take to recover the
+        container.
+      type: integer
+      format: int64
+      minimum: 0
+      example: 19937690345472
+      readOnly: true
+    total_physical:
+      description: This field has been deprecated. Please use the `total_used` field,
+        as it contains the same information.
+      type: integer
+      format: int64
+      minimum: 0
+    total_used:
+      description: The total space contributed by customer data, measured in bytes.
+      type: integer
+      format: int64
+      minimum: 0
+      readOnly: true

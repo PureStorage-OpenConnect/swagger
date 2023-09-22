@@ -1,0 +1,11 @@
+allOf:
+- $ref: ../FA2.1/page-info.yaml
+- $ref: ../../responses/FA2.26/offload-response.yaml
+- properties:
+    total:
+      type: array
+      items:
+        $ref: ../../models/FA2.26/offload.yaml
+      description: The aggregate value of all items after filtering. Where meaningful,
+        the average value is displayed instead. If applicable, the values are displayed
+        for each field.

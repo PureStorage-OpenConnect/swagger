@@ -1,0 +1,4 @@
+allOf:
+- $ref: ../../models/FA2.0/_resource.yaml
+- $ref: ../../models/FA2.26/protection-group-snapshot.yaml
+- description: Replication of specified protection snapshots.

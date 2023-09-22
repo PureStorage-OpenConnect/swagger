@@ -1,0 +1,28 @@
+type: object
+properties:
+  id:
+    description: The id of an administrative domain, a data container, and a namespace
+      for volumes and protection groups. Values can be `pod id` or `null`. `Null`
+      represents the local array id.
+    type: string
+    readOnly: true
+  name:
+    description: The name of an administrative domain, a data container, and a namespace
+      for volumes and protection groups. Values can be `pod name` or `null`. `null`
+      represents the local array name.
+    type: string
+    readOnly: true
+  type:
+    description: The type of an administrative domain, a data container, and a namespace
+      for volumes and protection groups. Values can be `pod` or `null`. `null` represents
+      the local array type.
+    type: string
+    readOnly: true
+  default_protections:
+    description: The default protection that is applied to newly created volumes.
+      Volumes can opt out of the default protection at creation. The pod's `default_protections`
+      defaults to the array's `default_protections` at pod creation. To clear the
+      list of default protections, set to an empty list `[]`.
+    type: array
+    items:
+      $ref: ../../models/FA2.26/_default_protection_reference.yaml

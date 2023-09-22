@@ -29,6 +29,8 @@ definitions:
     $ref: ../models/Pure1-1.1/hardware.yaml
   HardwareConnector:
     $ref: ../models/Pure1-1.1/hardware-connector.yaml
+  Invoice:
+    $ref: ../models/Pure1-1.1/invoice.yaml
   Metric:
     $ref: ../models/Pure1-1.0/metric.yaml
   MetricHistory:
@@ -129,6 +131,8 @@ paths:
     $ref: ../paths/Pure1-1.1/hardware.path.yaml
   /api/1.1/hardware-connectors:
     $ref: ../paths/Pure1-1.1/hardware-connectors.path.yaml
+  /api/1.1/invoices:
+    $ref: ../paths/Pure1-1.1/invoices.path.yaml
   /api/1.1/metrics:
     $ref: ../paths/Pure1-1.0/metrics.path.yaml
   /api/1.1/metrics/history:
@@ -209,6 +213,8 @@ tags:
   name: Hardware
 - description: Provides information about FlashBlade hardware connectors.
   name: Hardware Connectors
+- description: Provides information about Pure1 subscription invoices.
+  name: Invoices
 - description: Provides information about historical metrics for arrays, volumes,
     file systems and pods.
   name: Metrics

@@ -1,0 +1,9 @@
+name: 'on'
+in: query
+description: Performs the operation locally with the target names specified as the
+  destinations of the operation. Enter multiple target names in comma-separated format.
+  For example, `targetName01,targetName02`.
+type: array
+collectionFormat: csv
+items:
+  type: string

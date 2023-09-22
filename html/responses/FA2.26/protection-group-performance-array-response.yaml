@@ -1,0 +1,8 @@
+allOf:
+- $ref: ../../responses/FA2.1/page-info.yaml
+- properties:
+    items:
+      type: array
+      items:
+        $ref: ../../models/FA2.26/protection-group-performance-array.yaml
+      description: Lists performance data, broken down by array.

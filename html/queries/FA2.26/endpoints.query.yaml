@@ -1,0 +1,8 @@
+name: endpoints
+in: query
+description: Performs the operation on the unique endpoints specified. Enter multiple
+  endpoints in a comma-separated format.
+type: array
+collectionFormat: csv
+items:
+  type: string

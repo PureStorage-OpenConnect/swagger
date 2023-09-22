@@ -1,0 +1,18 @@
+type: object
+properties:
+  percentage:
+    description: The tax ratio in percentage.
+    type: number
+    format: float
+    minimum: 0.0
+    maximum: 1.0
+    example: 0.07
+  amount:
+    description: The total taxes of current invoice item, currency is specified in
+      invoice currency.
+    type: number
+    format: double
+    example: 70.0
+  exemption_statement:
+    description: The tax exemption statement.
+    type: string

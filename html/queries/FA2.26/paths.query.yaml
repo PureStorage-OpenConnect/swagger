@@ -1,0 +1,8 @@
+name: paths
+in: query
+description: Target file path relative to the target directory. Enter multiple target
+  file path in a comma-separated format. For example, `/dir1/dir2/file1,/dir3/dir4/file2`.
+type: array
+collectionFormat: csv
+items:
+  type: string

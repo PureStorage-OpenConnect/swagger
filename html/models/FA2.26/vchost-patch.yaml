@@ -1,0 +1,7 @@
+allOf:
+- type: object
+  properties:
+    name:
+      description: The new name of the vchost.
+      type: string
+      example: vchost-b

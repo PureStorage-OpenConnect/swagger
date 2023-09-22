@@ -1,0 +1,21 @@
+allOf:
+- type: object
+  properties:
+    id:
+      description: A globally unique, system-generated ID. The ID cannot be modified.
+      type: string
+      example: 3a668af2-f63a-0110-bf4a-39e911ac6f07
+    endpoint:
+      description: The IPv4 or IPv6 address of the endpoint.
+      type: string
+      example: 1.2.3.4
+    certificates:
+      description: The certificate to be presented by the vchost over the configured
+        endpoints.
+      type: array
+      items:
+        $ref: ../../models/FA2.26/_reference-no-id-with-type.yaml
+    vchost:
+      description: The vchost for which this endpoint is to be configured.
+      allOf:
+      - $ref: ../../models/FA2.3/_reference-with-type.yaml

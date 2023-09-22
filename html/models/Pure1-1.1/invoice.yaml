@@ -1,0 +1,67 @@
+type: object
+properties:
+  id:
+    description: The invoice number, a globally unique identifier for this invoice.
+    type: string
+    example: INV123456
+  date:
+    description: The issuance date. Represented as a timestamp of 00:00 on that date
+      in UTC, in milliseconds since UNIX epoch.
+    type: integer
+    format: int64
+    example: 1672531200000
+  status:
+    description: The invoice status. Values include `open` and `paid`.
+    type: string
+    example: open
+  amount:
+    description: The total invoice amount, expressed in the currency defined in `currency`.
+    type: number
+    format: double
+    example: 1070.0
+  currency:
+    description: The currency of the invoice in ISO 4217 format. This currency applies
+      to the total invoice amount as well as all amounts in line items.
+    type: string
+    example: USD
+  due_date:
+    description: The payment due date. Represented as a timestamp of 00:00 on that
+      date in UTC, in milliseconds since UNIX epoch.
+    type: integer
+    format: int64
+    example: 1672531200000
+  payment_terms:
+    description: The invoice payment terms.
+    type: string
+    example: Net 45
+  ship_date:
+    description: The invoice shipment date. Represented as a timestamp of 00:00 on
+      that date in UTC, in milliseconds since UNIX epoch.
+    type: integer
+    format: int64
+    example: 1672531200000
+  sales_representative:
+    description: The sales representative that issued the invoice.
+    type: string
+    example: John Doe
+  partner_purchase_order:
+    description: The partner purchase order number.
+    type: string
+    example: 123456-1
+  end_user_purchase_order:
+    description: The end user customer purchase order number.
+    type: string
+    example: 415Tib/400Tib/123456
+  end_user_name:
+    description: The end user customer name.
+    type: string
+    example: Pure Storage
+  lines:
+    description: A list of invoice line items.
+    type: array
+    items:
+      $ref: ../Pure1-1.1/invoice-line.yaml
+  subscription:
+    description: A reference to which subscription this invoice belongs.
+    allOf:
+    - $ref: ../../models/Pure1-1.0/_fixed-reference.yaml
