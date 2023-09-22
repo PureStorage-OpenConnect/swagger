@@ -1,0 +1,6 @@
+allOf:
+- properties:
+    rules:
+      type: array
+      items:
+        $ref: ../../models/FB2.11/policy-rule-object-access-bulk-manage.yaml

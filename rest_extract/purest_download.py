@@ -8,7 +8,7 @@ import urllib
 import sys
 import argparse
 
-fb_max_version = { 0:0, 1:12, 2:10 }      #this is a list of major:minor_max version pairs
+fb_max_version = { 0:0, 1:12, 2:11 }      #this is a list of major:minor_max version pairs
 pure1_max_version = { 0:-1, 1:1 }
 fa_2_max_version = { 2:26 }
 thread_count = 8

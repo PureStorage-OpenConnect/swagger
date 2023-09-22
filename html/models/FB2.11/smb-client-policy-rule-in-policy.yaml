@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../models/FB2.11/smb-client-policy-rule-base.yaml
+- $ref: ../../models/FB2.10/_policy-rule-index-in-policy.yaml

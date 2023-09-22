@@ -1,0 +1,7 @@
+allOf:
+- $ref: ../../models/FB2.11/object-store-access-policy-patch.yaml
+- properties:
+    description:
+      type: string
+      description: A description of the policy, optionally specified when the policy
+        is created. Cannot be modified for an existing policy.

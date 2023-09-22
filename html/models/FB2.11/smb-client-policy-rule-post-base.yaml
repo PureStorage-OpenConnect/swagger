@@ -1,0 +1,9 @@
+allOf:
+- $ref: ../../models/FB2.10/smb-client-policy-rule-post-base.yaml
+- properties:
+    encryption:
+      description: Specifies whether the remote client is required to use SMB encryption.
+        Valid values are `required`, `disabled`, and `optional`. If not specified,
+        defaults to `optional`.
+      type: string
+      example: optional
