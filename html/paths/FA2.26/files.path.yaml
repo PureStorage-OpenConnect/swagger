@@ -1,0 +1,28 @@
+post:
+  summary: Create a file copy
+  description: Creates a file copy from one path to another path. The `directory_ids`,
+    `directory_names` or `paths` value must be specified. If the `directory_ids` or
+    `directory_names` value is not specified, the file is copied to the source directory
+    specified in the body params. The `paths` value refers to the path of the target
+    file relative to the target directory. If `paths` value is not specified, the
+    file will be copied to the relative path specified in `source_path` under the
+    target directory. The `source_path` value refers to the path of the source file
+    relative to the source directory. To overwrite an existing file, set the `overwrite`
+    flag to `true`.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.3/directory_ids.query.yaml
+  - $ref: ../../queries/FA2.3/directory_names.query.yaml
+  - $ref: ../../queries/FA2.26/paths.query.yaml
+  - $ref: ../../queries/FA2.0/overwrite.query.yaml
+  - name: source-file
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.26/file-post.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Files

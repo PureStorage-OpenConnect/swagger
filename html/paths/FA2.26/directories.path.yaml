@@ -1,0 +1,93 @@
+get:
+  summary: List directories
+  description: Displays a list of directories, including those pending eradication.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/destroyed.query.yaml
+  - $ref: ../../queries/FA2.3/file_system_ids.query.yaml
+  - $ref: ../../queries/FA2.3/file_system_names.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  - $ref: ../../queries/FA2.0/total_only.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.26/directory-get-response.yaml
+  tags:
+  - Directories
+post:
+  summary: Create directory
+  description: Creates a managed directory at the specified path. The managed directory
+    name must consist of a file system name prefix and a managed directory name suffix
+    (separated with '&#58;'). The suffix must be between 1 and 63 characters (alphanumeric
+    and '-') in length and begin and end with a letter or number. The suffix must
+    include at least one letter or '-'. Set `names` to create a managed directory
+    with the specified full managed directory name, or set `file_system_names` or
+    `file_system_ids` in the query parameters and `suffix` in the body parameters
+    to create a managed directory in the specified file system with the specified
+    suffix. These two options are exclusive.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.3/file_system_names.query.yaml
+  - $ref: ../../queries/FA2.3/file_system_ids.query.yaml
+  - name: directory
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.3/directory-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.26/directory-response.yaml
+  tags:
+  - Directories
+delete:
+  summary: Delete managed directories
+  description: Deletes one or more managed directories. To be deleted, a managed directory
+    must be empty and not attached to any enabled export policies. Deleted managed
+    directories cannot be recovered. The `ids` or `names` parameter is required, but
+    cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Directories
+patch:
+  summary: Modify a managed directory
+  description: Modifies a managed directory. To rename a managed directory, set `name`
+    to the new name. The `ids` or `names` parameter is required, but cannot be set
+    together. The `name` or `directory_name` parameter is required.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - name: directory
+    in: body
+    type: string
+    required: true
+    schema:
+      $ref: ../../models/FA2.9/directory-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.26/directory-response.yaml
+  tags:
+  - Directories

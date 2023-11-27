@@ -1,0 +1,10 @@
+name: partner_purchase_orders
+in: query
+description: A comma-separated list of partner purchase order numbers. If there is
+  not at least one resource that matches each `partner_purchase_order` element, an
+  error is returned. Single quotes are required around all strings.
+x-quoted: true
+type: array
+collectionFormat: csv
+items:
+  type: string

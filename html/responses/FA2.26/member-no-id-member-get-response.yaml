@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../responses/FA2.1/page-info.yaml
+- $ref: ../FA2.26/member-no-id-member-response.yaml

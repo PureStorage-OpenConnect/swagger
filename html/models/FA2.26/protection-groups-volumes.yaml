@@ -1,0 +1,15 @@
+allOf:
+- type: object
+  properties:
+    group:
+      $ref: ../../models/FA2.0/_reference.yaml
+    member:
+      allOf:
+      - $ref: ../../models/FA2.0/_reference.yaml
+      - properties:
+          destroyed:
+            description: Returns a value of `true` if the volume has been destroyed
+              and is pending eradication. Through the `volumes` endpoint, the user
+              can see `time_remaining` of the destroyed volume, recover, or eradicate
+              the destroyed volume.
+            type: boolean

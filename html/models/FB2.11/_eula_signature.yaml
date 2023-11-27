@@ -1,0 +1,23 @@
+type: object
+properties:
+  accepted:
+    description: Accepted time in milliseconds since the UNIX epoch.
+    type: integer
+    format: int64
+    readOnly: true
+    example: 1577880000000
+  name:
+    type: string
+    description: Name of the person who accepted the End User Agreement. This field
+      is deprecated and the response will be `null`. Modification to this field will
+      be ignored.
+  title:
+    type: string
+    description: Title of the person who accepted the End User Agreement. This field
+      is deprecated and the response will be `null`. Modification to this field will
+      be ignored.
+  company:
+    type: string
+    description: Company of the person who accepted the End User Agreement. This field
+      is deprecated and the response will be `null`. Modification to this field will
+      be ignored.

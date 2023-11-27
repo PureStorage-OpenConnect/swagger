@@ -1,0 +1,16 @@
+allOf:
+- $ref: ../../models/FA2.24/policy-nfs.yaml
+- properties:
+    nfs_version:
+      description: 'NFS protocol version allowed for the export. If NFS version is
+        allowed for all rules of the policy it is cascaded exactly as: `nfsv3`, `nfsv4`.
+        If the NFS version is supported partially by the rules of the policy it will
+        be cascaded as: `nfsv3-partial`, `nfsv4-partial`. If the NFS version is not
+        supported by any rules or there are no rules of the policy then it will not
+        be in the result array. If there are no rules in the policy the array will
+        be empty. If there are two rules, one supporting `nfsv3` and the other supporting
+        `nfsv3` and `nfsv4` then the array would contain `nfsv3` and `nfsv4-partial`.'
+      type: array
+      items:
+        type: string
+        example: nfsv3-partial

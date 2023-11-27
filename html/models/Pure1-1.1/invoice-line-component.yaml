@@ -1,0 +1,15 @@
+type: object
+properties:
+  item:
+    description: The name of invoice component.
+    type: string
+    example: 08-0144
+  quantity:
+    description: The quantity of current invoice component.
+    type: integer
+    format: int64
+    minimum: 0
+    example: 1
+  description:
+    type: string
+    example: 24/7 support

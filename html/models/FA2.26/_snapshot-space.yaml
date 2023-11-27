@@ -1,0 +1,12 @@
+allOf:
+- $ref: ../../models/FA2.26/_space.yaml
+- properties:
+    snapshots_effective:
+      description: This field has been deprecated. The effective space contributed
+        by data unique to one or more snapshots, measured in bytes. Please use the
+        `snapshots` field in the future, as it contains the same information for Evergreen//One
+        arrays.
+      type: integer
+      format: int64
+      minimum: 0
+      readOnly: true

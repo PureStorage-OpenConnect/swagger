@@ -1,0 +1,15 @@
+allOf:
+- type: object
+  properties:
+    certificate:
+      description: The certificate to be presented by the vchost over the configured
+        endpoints.
+      allOf:
+      - $ref: ../../models/FA2.26/_reference-no-id-with-type.yaml
+    endpoints:
+      description: The IPv4 or IPv6 addresses of the endpoints to configure for the
+        vchost, over which the configured certificate will be presented.
+      type: array
+      items:
+        type: string
+        example: 1.2.3.4

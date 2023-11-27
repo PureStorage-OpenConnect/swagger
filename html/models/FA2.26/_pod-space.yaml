@@ -1,0 +1,34 @@
+allOf:
+- $ref: ../../models/FA2.26/_space.yaml
+- properties:
+    replication:
+      description: The space consumed by unique data that has not been replicated
+        to the target pod, on source pods. The space consumed by unique data that
+        has been replicated to the target, but not yet incorporated into the target
+        pod, on target pods. On Evergreen//One arrays, this is the effective space
+        consumed by unique data that has not been replicated to the target pod, on
+        source pods. The effective space consumed by unique data that has been replicated
+        to the target, but not yet incorporated into the target pod, on target pods.
+      type: integer
+      format: int64
+      minimum: 0
+    shared_effective:
+      description: This field has been deprecated. The effective space contributed
+        by data that is not unique to a specific volume, managed directory, or snapshot,
+        measured in bytes. Please use the `shared` field in the future, as it contains
+        the same information for Evergreen//One arrays.
+      type: integer
+      format: int64
+      minimum: 0
+      readOnly: true
+    replication_effective:
+      description: This field has been deprecated. The effective space consumed by
+        unique data that has not been replicated to the target pod, on source pods.
+        The effective space consumed by unique data that has been replicated to the
+        target but not yet incorporated into the target pod, on target pods. Please
+        use the `replication` field in the future, as it contains the same information
+        for Evergreen//One arrays.
+      type: integer
+      format: int64
+      minimum: 0
+      readOnly: true

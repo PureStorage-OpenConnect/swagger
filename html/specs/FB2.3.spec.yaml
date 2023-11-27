@@ -192,7 +192,7 @@ info:
   x-logo:
     url:
       $ref: ../redoc/PS-LogoBase64-FA.txt
-  x-pure-description-ref: ../custom_descriptions/FB2.3-api-description.md
+  x-pure-description-ref: ../custom_descriptions/FB-api-introduction.md
 paths:
   /api/2.3/active-directory:
     $ref: ../paths/FB2.0/active-directory.path.yaml
@@ -605,8 +605,8 @@ tags:
 - description: Certificate Groups can contain one or more CA certificates for verifying
     an LDAP server identity and establish communication over TLS.
   name: Certificate Groups
-- description: "Displays an NFS client\xE2\u20AC\u2122s performance metrics on the\
-    \ array for read, write, and meta operations."
+- description: "Displays an NFS client\u2019s performance metrics on the array for\
+    \ read, write, and meta operations."
   name: Clients
 - description: Manages directory service configurations for integration with LDAP
     servers (e.g. Active Directory and OpenLDAP) in order to support various array

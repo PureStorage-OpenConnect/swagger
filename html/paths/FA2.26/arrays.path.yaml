@@ -1,0 +1,59 @@
+get:
+  summary: List arrays
+  description: Displays general array properties including the array name, login banner,
+    idle timeout for management sessions, and NTP servers.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.26/array-get-response.yaml
+  tags:
+  - Arrays
+patch:
+  summary: Modify an array
+  description: Modifies general array properties such as the array name, login banner,
+    idle timeout for management sessions, and NTP servers.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - name: array
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.26/arrays.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.26/array-response.yaml
+  tags:
+  - Arrays
+delete:
+  summary: Delete an array
+  description: Deletes an array. For physical appliances, deleting an array restores
+    the hardware to factory settings. This entails deleting all data, metadata, configuration,
+    and logs. The array returns to the state it was in prior to any configuration
+    changes being made. If the hardware is reused, it must be as a different array
+    with a new ID. For virtual appliances, deleting an array puts it into an unusable
+    state. Virtual resources (e.g., virtual machines) can later be freed, which deletes
+    any remaining data, metadata, configuration, and logs. Prior to factory reset,
+    an array must be manually prepared (e.g., all volumes and snapshots must be eradicated)
+    and a factory reset token must be created.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.4/eradicate_all_data.query.yaml
+  - $ref: ../../queries/FA2.4/factory_reset_token.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Arrays

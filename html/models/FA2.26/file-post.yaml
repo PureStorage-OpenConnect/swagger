@@ -1,0 +1,10 @@
+type: object
+properties:
+  source_path:
+    description: The source file path relative to the source directory.
+    type: string
+  source:
+    description: The source information of a file copy.
+    required: true
+    allOf:
+    - $ref: ../../models/FA2.3/_reference-with-type.yaml
