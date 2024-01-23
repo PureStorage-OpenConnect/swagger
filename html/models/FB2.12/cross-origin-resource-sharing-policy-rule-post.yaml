@@ -1,0 +1,33 @@
+type: object
+properties:
+  allowed_headers:
+    description: A list of headers that are permitted to be included in cross-origin
+      requests to access a bucket. The only currently supported allowed header is
+      `*`.
+    type: array
+    items:
+      type: string
+    example:
+    - '*'
+  allowed_methods:
+    description: A list of HTTP methods that are permitted for cross-origin requests
+      to access a bucket. The only currently supported combination of allowed methods
+      is all methods `["GET", "PUT", "HEAD", "POST", "DELETE"]`.
+    type: array
+    items:
+      type: string
+    example:
+    - GET
+    - PUT
+    - HEAD
+    - POST
+    - DELETE
+  allowed_origins:
+    description: A list of origins (domains) that are permitted to make cross-origin
+      requests to access a bucket. The only currently supported allowed origin is
+      `*`.
+    type: array
+    items:
+      type: string
+    example:
+    - '*'

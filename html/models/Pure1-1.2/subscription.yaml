@@ -1,0 +1,28 @@
+allOf:
+- $ref: ../Pure1-1.0/subscription.yaml
+- properties:
+    initial_name:
+      description: A non-modifiable, locally unique name that the subscription was
+        started with, never changes.
+      type: string
+      readOnly: true
+      example: example_name
+    organization:
+      description: The Pure1 organization for the subscription.
+      allOf:
+      - $ref: ../Pure1-1.0/_fixed-reference.yaml
+    partner_name:
+      description: The partner who invoices for the subscription.
+      type: string
+      readOnly: true
+      example: Pure Storage Partner
+    last_updated_date:
+      description: The date of the last amendment to the current subscription. Represented
+        as a timestamp of 00:00 on that date in UTC, in milliseconds since UNIX epoch.
+      type: integer
+      format: int64
+      example: 1604702243000
+    subscription_term:
+      description: Length of the subscription in months.
+      type: integer
+      example: 24

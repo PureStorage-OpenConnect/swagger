@@ -1,5 +1,5 @@
 import os
-from flask import Flask, request, redirect, send_from_directory, Response, send_file, abort
+from flask import Flask, request, redirect, send_from_directory, Response, abort
 import requests
 import urllib3
 from urllib import parse
@@ -178,7 +178,8 @@ def get_specs(req_path):
 
     # Check if path is a file and serve
     if os.path.isfile(abs_path):
-        return send_file(abs_path, as_attachment=True)
+        # changing to send_from_directory to avoid path traversal attacks
+        return send_from_directory(ROOT_DIR, req_path, as_attachment=True)
 
     # List Directroy
     if req_path == "specs" or req_path == "specs/":

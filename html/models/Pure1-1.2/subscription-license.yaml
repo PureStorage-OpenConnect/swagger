@@ -1,0 +1,27 @@
+allOf:
+- $ref: ../Pure1-1.1/subscription-license.yaml
+- properties:
+    site_address:
+      description: The license site address.
+      allOf:
+      - $ref: ../Pure1-1.2/_base_address.yaml
+    last_updated_date:
+      description: The date of the last amendment to the current license. Represented
+        as a timestamp of 00:00 on that date in UTC, in milliseconds since UNIX epoch.
+      type: integer
+      format: int64
+      example: 1604702243000
+    pre_ratio:
+      description: The pre-reduced & encrypted ratio calculated at license level.
+      allOf:
+      - $ref: ../../models/Pure1-1.0/_current_metric.yaml
+      - type: object
+        properties:
+          data:
+            format: float
+            example: 3.3
+    quarter_on_demand:
+      description: Estimated total on-demand usage of the license of the current calendar
+        quarter to date.
+      allOf:
+      - $ref: ../../models/Pure1-1.0/_current_metric.yaml

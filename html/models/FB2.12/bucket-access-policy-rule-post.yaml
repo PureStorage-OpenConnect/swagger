@@ -1,0 +1,31 @@
+type: object
+properties:
+  actions:
+    description: The list of actions granted by this rule. Each included action may
+      restrict other properties of the rule. The only currently supported action is
+      `s3:GetObject`.
+    type: array
+    items:
+      type: string
+    example:
+    - s3:GetObject
+  effect:
+    description: Effect of this rule. When `allow`, the rule allows the given actions
+      to be performed on the given resources, subject to the given conditions. The
+      only currently supported effect is `allow`.
+    type: string
+    readOnly: true
+    example: allow
+  principals:
+    description: The principals to which this rule applies. Currently, only all principals
+      are supported.
+    allOf:
+    - $ref: ../../models/FB2.12/bucket-access-policy-rule-principal.yaml
+  resources:
+    description: The list of resources which this rule applies to. The only currently
+      supported resource is all objects in a bucket to which the parent policy belongs.
+    type: array
+    items:
+      type: string
+    example:
+    - mybucket/*

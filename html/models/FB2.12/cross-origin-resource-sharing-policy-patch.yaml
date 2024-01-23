@@ -1,0 +1,6 @@
+allOf:
+- properties:
+    rules:
+      type: array
+      items:
+        $ref: ../../models/FB2.12/cross-origin-resource-sharing-policy-rule-bulk-manage.yaml

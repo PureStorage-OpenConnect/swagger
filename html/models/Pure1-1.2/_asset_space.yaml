@@ -1,0 +1,22 @@
+type: object
+properties:
+  total_used:
+    description: The total space contributed by customer data.
+    allOf:
+    - $ref: ../../models/Pure1-1.0/_current_metric.yaml
+  total_used_ratio:
+    description: The ratio of `total_used` to the `capacity`. This represents how
+      full the appliance is.
+    allOf:
+    - $ref: ../../models/Pure1-1.0/_current_metric.yaml
+    - type: object
+      properties:
+        data:
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+          example: 0.5
+  capacity:
+    description: The usable capacity of the appliance.
+    allOf:
+    - $ref: ../../models/Pure1-1.0/_current_metric.yaml

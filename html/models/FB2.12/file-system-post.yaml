@@ -1,0 +1,9 @@
+allOf:
+- $ref: ../../models/FB2.11/file-system-post.yaml
+- properties:
+    nfs:
+      allOf:
+      - $ref: ../../models/FB2.11/_nfs.yaml
+    smb:
+      allOf:
+      - $ref: ../../models/FB2.12/_smb-post.yaml

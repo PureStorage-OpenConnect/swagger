@@ -1,0 +1,6 @@
+allOf:
+- $ref: ../../models/FB2.8/object-store-account-patch.yaml
+- properties:
+    public_access_config:
+      allOf:
+      - $ref: ../../models/FB2.12/_public-access-config.yaml

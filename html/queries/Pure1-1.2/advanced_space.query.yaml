@@ -1,0 +1,6 @@
+name: advanced_space
+in: query
+description: If `true`, returns the `advanced_space` field containing physical and
+  effective space information.
+type: boolean
+readOnly: true

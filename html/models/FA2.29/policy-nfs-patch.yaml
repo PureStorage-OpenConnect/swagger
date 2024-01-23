@@ -1,0 +1,20 @@
+allOf:
+- $ref: ../../models/FA2.26/policy-nfs-patch.yaml
+- properties:
+    security:
+      description: The security flavors to use for accessing files on this mount point.
+        Values include `auth_sys`, `krb5`, `krb5i`, and `krb5p`. If the server does
+        not support the requested flavor, the mount operation fails. This operation
+        updates all rules of the specified policy. If `auth_sys`, the client is trusted
+        to specify the identity of the user. If `krb5`, cryptographic proof of the
+        identity of the user is provided in each RPC request. This provides strong
+        verification of the identity of users accessing data on the server. Note that
+        additional configuration besides adding this mount option is required to enable
+        Kerberos security. If `krb5i`, integrity checking is added to krb5. This ensures
+        the data has not been tampered with. If `krb5p`, integrity checking and encryption
+        is added to `krb5`. This is the most secure setting, but it also involves
+        the most performance overhead.
+      type: array
+      items:
+        type: string
+        example: auth_sys

@@ -412,3 +412,9 @@
   url: specs/Pure1-1.1.spec.yaml
   version: '1.1'
   version_sort: 1001
+- filename: Pure1-1.2.spec.yaml
+  model: Pure1
+  name: Pure1 v1.2
+  url: specs/Pure1-1.2.spec.yaml
+  version: '1.2'
+  version_sort: 1002

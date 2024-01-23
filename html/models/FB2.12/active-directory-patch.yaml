@@ -1,0 +1,4 @@
+allOf:
+- $ref: ../../models/FB2.0/active-directory-patch.yaml
+- $ref: ../../models/FB2.12/active-directory-directory-servers.yaml
+- type: object
