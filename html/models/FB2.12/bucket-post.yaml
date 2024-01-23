@@ -1,0 +1,7 @@
+allOf:
+- $ref: ../../models/FB2.8/bucket-post.yaml
+- properties:
+    bucket_type:
+      description: The bucket type for the bucket. Valid values are `classic`, and
+        `multi-site-writable`. Default value is `multi-site-writable`.
+      type: string

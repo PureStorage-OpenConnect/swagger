@@ -1,0 +1,9 @@
+name: names
+in: query
+description: Performs the operation on the unique names specified. For example, `GroupRoleMappingName`.
+  Enter multiple names in comma-separated format.
+type: array
+required: true
+collectionFormat: csv
+items:
+  type: string

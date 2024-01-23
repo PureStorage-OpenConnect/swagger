@@ -1,0 +1,11 @@
+type: object
+description: Configuration settings related to public access.
+properties:
+  block_new_public_policies:
+    description: If set to `true`, adding bucket policies that grant public access
+      to a bucket is not allowed.
+    type: boolean
+  block_public_access:
+    description: If set to `true`, access to a bucket with a public policy is restricted
+      to only authenticated users within the account that bucket belongs to.
+    type: boolean

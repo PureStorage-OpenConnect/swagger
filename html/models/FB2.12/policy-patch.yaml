@@ -1,0 +1,11 @@
+allOf:
+- $ref: ../../models/FB2.12/policy.yaml
+- properties:
+    add_rules:
+      type: array
+      items:
+        $ref: ../../models/FB2.0/_policy_rule.yaml
+    remove_rules:
+      type: array
+      items:
+        $ref: ../../models/FB2.0/_policy_rule.yaml

@@ -1,0 +1,14 @@
+allOf:
+- $ref: ../../models/FB2.12/policy-base.yaml
+- properties:
+    rules:
+      type: array
+      items:
+        $ref: ../../models/FB2.0/_policy_rule.yaml
+    retention_lock:
+      type: string
+      readOnly: true
+      description: If retention lock is locked, then the the policy can not be removed
+        from the associated file systems and the rules may not be changed. Valid values
+        are `locked` and `unlocked`. Contact Pure Technical Services to change `locked`
+        to `unlocked`.

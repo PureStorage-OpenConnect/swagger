@@ -1,0 +1,6 @@
+type: object
+properties:
+  items:
+    type: array
+    items:
+      $ref: ../../models/Pure1-1.2/subscription-asset.yaml

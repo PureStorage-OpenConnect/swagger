@@ -1,0 +1,67 @@
+type: object
+allOf:
+- $ref: ../Pure1-1.0/_built-in-as-of.yaml
+- properties:
+    install_address:
+      description: The address where the appliance is installed. This address is also
+        where replacement parts will be shipped to.
+      allOf:
+      - $ref: ../Pure1-1.2/_base_address.yaml
+    activation_date:
+      description: The date when the appliance is activated under the license. Represented
+        as a timestamp of 00:00 on that date in UTC, in milliseconds since UNIX epoch.
+      type: integer
+      format: int64
+      example: 1604702243000
+    end_of_life_date:
+      description: The date when the appliance hardware reach end of life and Pure
+        no longer provide support. Represented as a timestamp of 00:00 on that date
+        in UTC, in milliseconds since UNIX epoch.
+      type: integer
+      format: int64
+      example: 1636588800000
+    array:
+      description: The specific fields for assets that are arrays.
+      type: object
+      properties:
+        version:
+          description: The Purity version of the appliance.
+          type: string
+          readOnly: true
+          example: 5.0.0
+        model:
+          description: The model of the appliance.
+          type: string
+          readOnly: true
+          example: FA-X50R2
+        chassis_serial_number:
+          description: The chassis serial number of the appliance.
+          type: string
+          readOnly: true
+        space:
+          description: Displays size and space consumption information. For Evergreen//One
+            and Evergreen//Flex this is the effective space information. For Evergreen//Forever
+            and Evergreen//Foundation this is the physical space information.
+          allOf:
+          - $ref: ../Pure1-1.2/_asset_space.yaml
+        advanced_space:
+          description: The physical and effective space information. Only visible
+            when the query parameter `advanced_space` is set to `true`.
+          type: object
+          properties:
+            physical:
+              description: The physical space information of the appliance.
+              allOf:
+              - $ref: ../Pure1-1.2/_asset_space.yaml
+            effective:
+              description: The effective space information of the appliance.
+              allOf:
+              - $ref: ../Pure1-1.2/_asset_space.yaml
+    subscription:
+      description: A reference to which subscription this appliance belongs.
+      allOf:
+      - $ref: ../../models/Pure1-1.0/_fixed-reference.yaml
+    license:
+      description: A reference to which license this appliance belongs.
+      allOf:
+      - $ref: ../../models/Pure1-1.0/_fixed-reference.yaml

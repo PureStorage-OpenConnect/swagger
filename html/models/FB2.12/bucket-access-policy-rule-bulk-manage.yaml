@@ -1,0 +1,6 @@
+allOf:
+- $ref: ../../models/FB2.12/bucket-access-policy-rule-post.yaml
+- properties:
+    name:
+      type: string
+      description: Name of the object (e.g., a file system or snapshot).

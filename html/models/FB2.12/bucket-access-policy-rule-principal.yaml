@@ -1,0 +1,6 @@
+type: object
+properties:
+  all:
+    description: If `true`, the rule will apply to all object store users regardless
+      of their origin or principal.
+    type: boolean

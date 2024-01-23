@@ -1,0 +1,25 @@
+properties:
+  directory_servers:
+    description: A list of directory servers that will be used for lookups related
+      to user authorization. Accepted server formats are IP address and DNS name with
+      optional @domain suffix. If the suffix is ommited, the joined domain is assumed.
+      All specified servers must be registered to the domain appropriately in the
+      array's configured DNS and will only be communicated with over the secure LDAP
+      (LDAPS) protocol. The specified list can have a maximum length of 50.
+    type: array
+    maxItems: 50
+    items:
+      type: string
+      example: ldap.my-corporation.com
+  global_catalog_servers:
+    description: A list of global catalog servers that will be used for lookups related
+      to user authorization. Accepted server formats are IP address and DNS name with
+      optional @domain suffix. If the suffix is ommited, the joined domain is assumed.
+      All specified servers must be registered to the domain appropriately in the
+      array's configured DNS and will only be communicated with over the secure LDAP
+      (LDAPS) protocol. The specified list can have a maximum length of 50.
+    type: array
+    maxItems: 50
+    items:
+      type: string
+      example: gc.my-corporation.com

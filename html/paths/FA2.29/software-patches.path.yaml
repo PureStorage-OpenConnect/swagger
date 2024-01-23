@@ -1,0 +1,45 @@
+get:
+  summary: List software patches
+  description: Displays a list of software patches.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.29/software-patches-get-response.yaml
+  tags:
+  - Software
+post:
+  summary: Create a software patch
+  description: Creates software patch download and installation.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - name: name
+    in: query
+    required: true
+    type: string
+    description: Name of software patch to install
+  - name: allow_ha_reduction
+    in: query
+    required: false
+    type: boolean
+    description: If Software Patch has ha_reduction_required set to true, `allow_ha_reduction`
+      must be set to `true` for Software Patch installation.
+  responses:
+    200:
+      description: The software patch download was initiated. The download and installation
+        will start soon.
+      schema:
+        $ref: ../../responses/FA2.29/software-patches-response.yaml
+  tags:
+  - Software

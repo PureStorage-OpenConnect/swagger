@@ -1,0 +1,8 @@
+allOf:
+- $ref: ../../models/FB2.11/_smb.yaml
+- properties:
+    continuous_availability_enabled:
+      type: boolean
+      description: If set to `true`, the file system will be continuously available
+        during disruptive scenarios such as network disruption, blades failover, etc.
+        If not specified, defaults to `true`.

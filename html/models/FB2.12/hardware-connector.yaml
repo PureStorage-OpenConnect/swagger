@@ -1,0 +1,8 @@
+allOf:
+- $ref: ../../models/FB2.0/hardware-connector.yaml
+- properties:
+    port_count:
+      description: Configured number of ports in the connector (1/2/4 for QSFP).
+      type: integer
+      format: int64
+      example: 1
