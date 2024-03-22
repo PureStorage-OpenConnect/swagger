@@ -1,0 +1,4 @@
+name: allow_throttle
+in: query
+description: If set to `true`, allows operation to fail if array health is not optimal.
+type: boolean
