@@ -1,0 +1,33 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in.yaml
+- properties:
+    effect:
+      description: If set to `allow`, the specified client will be permitted to access
+        the specified interfaces. If set to `deny`, the specified client will be denied
+        access to them. Valid values include `allow` and `deny`.
+      type: string
+    client:
+      description: Specifies the clients that will be permitted or denied access to
+        the interface. Accepted notations include a single IP address, subnet in CIDR
+        notation, or all clients (specified as `*`). The default value is `*` if not
+        specified.
+      type: string
+      example: 1.2.3.4
+    interfaces:
+      type: array
+      maxItems: 5
+      items:
+        type: string
+      description: Specifies which product interfaces this rule applies to, whether
+        it is permitting or denying access. Valid values include `management-ssh`,
+        `management-rest-api`, `management-web-ui`, `snmp`, and `local-network-superuser-password-access`.
+    policy:
+      description: The policy to which this rule belongs.
+      readOnly: true
+      allOf:
+      - $ref: ../../models/FB2.0/_fixed-reference.yaml
+    policy_version:
+      description: The policy's version. This can be used when updating the resource
+        to ensure there aren't any updates to the policy since the resource was read.
+      type: string
+      readOnly: true

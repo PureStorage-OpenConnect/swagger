@@ -1,0 +1,17 @@
+allOf:
+- $ref: ../../models/FB2.12/file-system-post.yaml
+- properties:
+    group_ownership:
+      type: string
+      description: 'The group ownership for new files and directories in a file system.
+        Possible values are `creator` and `parent-directory`. If `creator` is selected,
+        the owning group of new files and directories is the primary group of the
+        user who creates them. If `parent-directory` is selected, the owning group
+        is the parent directory group. Note: Existing files and directories are unaffected
+        by this change. If not specified, defaults to `creator`.'
+    nfs:
+      allOf:
+      - $ref: ../../models/FB2.11/_nfs.yaml
+    smb:
+      allOf:
+      - $ref: ../../models/FB2.12/_smb-post.yaml
