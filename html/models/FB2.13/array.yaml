@@ -1,0 +1,10 @@
+allOf:
+- $ref: ../../models/FB2.8/array.yaml
+- properties:
+    network_access_policy:
+      description: The network access policy governing which clients are allowed or
+        denied access to different array interfaces.
+      readOnly: true
+      allOf:
+      - $ref: ../../models/FB2.0/_fixed-reference.yaml
+      type: null

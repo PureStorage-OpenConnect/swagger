@@ -1,0 +1,65 @@
+get:
+  summary: GET object-store-access-policies
+  description: List access policies and their attributes.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.4/exclude_rules.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.13/object-store-access-policy-get-response.yaml
+  tags:
+  - Policies - Object Store Access
+post:
+  summary: POST object-store-access-policies
+  description: Create a new access policy.
+  parameters:
+  - $ref: ../../queries/FB2.2/enforce_action_restrictions.query.yaml
+  - $ref: ../../queries/FB2.0/names_required.query.yaml
+  - name: policy
+    in: body
+    schema:
+      $ref: ../../models/FB2.11/object-store-access-policy-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.13/object-store-access-policy-response.yaml
+  tags:
+  - Policies - Object Store Access
+patch:
+  summary: PATCH object-store-access-policies
+  description: Modify the rules of an object store access policy.
+  parameters:
+  - $ref: ../../queries/FB2.2/enforce_action_restrictions.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - name: policy
+    in: body
+    schema:
+      $ref: ../../models/FB2.11/object-store-access-policy-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.13/object-store-access-policy-response.yaml
+  tags:
+  - Policies - Object Store Access
+delete:
+  summary: DELETE object-store-access-policies
+  description: Delete one or more access policies.
+  parameters:
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Policies - Object Store Access

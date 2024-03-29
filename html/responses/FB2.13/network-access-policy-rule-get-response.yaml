@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../responses/FB2.0/page-info.yaml
+- $ref: ../../responses/FB2.13/network-access-policy-rule-response.yaml

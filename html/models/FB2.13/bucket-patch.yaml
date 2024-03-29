@@ -1,0 +1,6 @@
+allOf:
+- $ref: ../../models/FB2.12/bucket-patch.yaml
+- properties:
+    eradication_config:
+      allOf:
+      - $ref: ../../models/FB2.13/bucket-eradication-config.yaml

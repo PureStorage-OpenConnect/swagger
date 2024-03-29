@@ -1,0 +1,12 @@
+allOf:
+- $ref: ../../models/FB2.12/bucket.yaml
+- properties:
+    eradication_config:
+      allOf:
+      - $ref: ../../models/FB2.13/bucket-eradication-config.yaml
+    time_remaining:
+      type: integer
+      format: int64
+      readOnly: true
+      description: Time in milliseconds before the bucket is eradicated. `null` if
+        not destroyed or remaning time until eradication is not known yet.

@@ -1,0 +1,7 @@
+type: object
+properties:
+  items:
+    type: array
+    items:
+      $ref: ../../models/FB2.13/network-access-policy-rule.yaml
+    description: Displays a list of all items after filtering.
