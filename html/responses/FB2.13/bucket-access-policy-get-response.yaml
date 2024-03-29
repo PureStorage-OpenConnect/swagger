@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../responses/FB2.0/page-info.yaml
+- $ref: ../../responses/FB2.13/bucket-access-policy-response.yaml
