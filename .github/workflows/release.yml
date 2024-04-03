@@ -32,12 +32,8 @@ jobs:
         env:
           DOCKER_BUILDKIT: 1
         run: |
-          tox -e podman -- --tag=swagger:${{ github.event.release.tag_name }}
+          tox -e podman -- ${{ github.event.release.tag_name }}
           
-      - name: Retag image
-        run: |
-         podman tag swagger:${{ github.event.release.tag_name }} swagger:latest
-
       - name: Push swagger
         uses: redhat-actions/push-to-registry@v2.1.1
         with:
