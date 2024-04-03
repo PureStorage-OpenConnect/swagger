@@ -1,4 +1,4 @@
-FROM amd64/python:3.8-slim-buster
+FROM amd64/python:alpine
 
 LABEL maintainer="sile16"
 
@@ -15,9 +15,9 @@ ENV SWAGGER_JSON "/app/swagger.json"
 ENV BASE_URL ""
 ENV DEBIAN_FRONTEND "noninteractive"
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends git \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apk update && \
+    apk add --upgrade git \
+    && rm -rf /var/cache/apk/*
 
 RUN mkdir -p /usr/share/pureswagger
 ADD server/requirements.txt /usr/share/pureswagger/
