@@ -120,7 +120,7 @@ definitions:
   MemberNoIdGroup:
     $ref: ../models/FA2.1/member-no-id-group.yaml
   NetworkInterface:
-    $ref: ../models/FA2.4/network-interface.yaml
+    $ref: ../models/FA2.30/network-interface.yaml
   NetworkInterfaceNeighbor:
     $ref: ../models/FA2.22/network-interface-neighbor.yaml
   NetworkInterfacePerformance:
@@ -434,7 +434,7 @@ paths:
   /api/2.30/maintenance-windows:
     $ref: ../paths/FA2.2/maintenance-windows.path.yaml
   /api/2.30/network-interfaces:
-    $ref: ../paths/FA2.7/network-interfaces.path.yaml
+    $ref: ../paths/FA2.30/network-interfaces.path.yaml
   /api/2.30/network-interfaces/neighbors:
     $ref: ../paths/FA2.22/network-interfaces-neighbors.path.yaml
   /api/2.30/network-interfaces/performance:

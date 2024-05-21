@@ -1,0 +1,7 @@
+type: object
+properties:
+  mapping:
+    type: string
+    required: true
+    description: The mapping to set on this policy mapping. Valid values are `connected`
+      and `disconnected`.

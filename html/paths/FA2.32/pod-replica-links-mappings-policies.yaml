@@ -1,0 +1,60 @@
+get:
+  summary: List policy mappings
+  description: Displays a list of policy mappings.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.2/local_pod_ids.query.yaml
+  - $ref: ../../queries/FA2.2/local_pod_names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.32/pod_replica_link_ids.query.yaml
+  - $ref: ../../queries/FA2.2/remote_ids.query.yaml
+  - $ref: ../../queries/FA2.2/remote_names.query.yaml
+  - $ref: ../../queries/FA2.2/remote_pod_ids.query.yaml
+  - $ref: ../../queries/FA2.2/remote_pod_names.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.32/pod-replica-link-mapping-policy-get-response.yaml
+  tags:
+  - Pod Replica Links
+patch:
+  summary: Modify policy mappings
+  description: Modifies policy mappings of a replica link. Valid `mapping` values
+    are `connected` and `disconnected`. `connected` indicates that the source policy
+    and its attachments will be mirrored on the target pod. `disconnected` indicates
+    that the associated policy and its attachments are independent from any policy
+    on the remote. This operation can only be performed on the target side of a pod
+    replica link.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.2/local_pod_ids.query.yaml
+  - $ref: ../../queries/FA2.2/local_pod_names.query.yaml
+  - $ref: ../../queries/FA2.32/pod_replica_link_ids.query.yaml
+  - $ref: ../../queries/FA2.2/remote_ids.query.yaml
+  - $ref: ../../queries/FA2.2/remote_names.query.yaml
+  - $ref: ../../queries/FA2.2/remote_pod_ids.query.yaml
+  - $ref: ../../queries/FA2.2/remote_pod_names.query.yaml
+  - $ref: ../../queries/FA2.32/remote_policy_ids.query.yaml
+  - $ref: ../../queries/FA2.32/remote_policy_names.query.yaml
+  - name: mapping
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.32/mapping-policy-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.32/pod-replica-link-mapping-policy-response.yaml
+  tags:
+  - Pod Replica Links

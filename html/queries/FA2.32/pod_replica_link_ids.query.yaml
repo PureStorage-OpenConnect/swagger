@@ -1,0 +1,9 @@
+name: pod_replica_link_ids
+in: query
+description: A comma-separated list of pod replica link IDs. If, after filtering,
+  there is not at least one resource that matches each of the elements, then an error
+  is returned.
+type: array
+collectionFormat: csv
+items:
+  type: string

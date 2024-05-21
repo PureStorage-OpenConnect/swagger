@@ -1,0 +1,17 @@
+allOf:
+- $ref: ../../models/FA2.2/_built-in-relationship.yaml
+- properties:
+    local_pod:
+      description: Reference to a local pod.
+      allOf:
+      - $ref: ../../models/FA2.0/_fixed-reference.yaml
+    remotes:
+      description: Reference to remote arrays.
+      type: array
+      items:
+        allOf:
+        - $ref: ../../models/FA2.0/_fixed-reference.yaml
+    remote_pod:
+      description: Reference to a remote pod.
+      allOf:
+      - $ref: ../../models/FA2.0/_fixed-reference.yaml

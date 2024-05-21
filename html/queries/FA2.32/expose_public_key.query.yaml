@@ -1,0 +1,4 @@
+name: expose_public_key
+in: query
+description: If `true`, exposes the public key of the current user.
+type: boolean

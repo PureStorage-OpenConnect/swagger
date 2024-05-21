@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../responses/FA2.1/page-info.yaml
+- $ref: ../../responses/FA2.32/pod-replica-link-mapping-policy-response.yaml

@@ -1,0 +1,8 @@
+type: object
+properties:
+  items:
+    type: array
+    items:
+      $ref: ../../models/FA2.32/policy-smb.yaml
+    description: Returns a list of all items after filtering. If applicable, the values
+      are displayed for each name.

@@ -1,0 +1,6 @@
+allOf:
+- $ref: ../../models/FA2.0/_built-in-resource-no-id.yaml
+- $ref: ../../models/FA2.2/directory-service.yaml
+- properties:
+    management:
+      $ref: ../../models/FA2.32/_directory-service-management.yaml
