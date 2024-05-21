@@ -1,0 +1,25 @@
+post:
+  summary: Create or copy volumes and upsert tags
+  description: Creates or copies virtual storage volumes of different sizes in different
+    vgroups and upserts tags.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.31/allow_throttle_operation.query.yaml
+  - $ref: ../../queries/FA2.0/overwrite.query.yaml
+  - $ref: ../../queries/FA2.16/with_default_protection.query.yaml
+  - name: volume
+    in: body
+    description: A list of volumes to be created or copied.
+    required: true
+    schema:
+      type: array
+      items:
+        $ref: ../../models/FA2.32/volume-batch-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.32/volumes-batch-response.yaml
+  tags:
+  - Volumes

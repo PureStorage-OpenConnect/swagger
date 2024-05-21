@@ -1,0 +1,24 @@
+type: object
+properties:
+  policies:
+    description: A list of export policies to apply to the directory. The `id` and
+      `name` fields in each `policy` parameter are required, but cannot be set together.
+    type: array
+    items:
+      type: object
+      properties:
+        policy:
+          description: Reference to the export policy to apply to the directory.
+          required: true
+          allOf:
+          - $ref: ../../models/FA2.0/_reference.yaml
+        export_enabled:
+          description: If set to `true`, the export is enabled. If not specified,
+            defaults to `true`.
+          type: boolean
+          example: false
+        export_name:
+          description: The name of the export to create when applying the export policy
+            to the directory.
+          type: string
+          required: true

@@ -1,0 +1,8 @@
+allOf:
+- $ref: ../../models/FA2.3/directory-export-post.yaml
+- properties:
+    export_enabled:
+      description: If set to `true`, the export is enabled. If not specified, defaults
+        to `true`.
+      type: boolean
+      example: false

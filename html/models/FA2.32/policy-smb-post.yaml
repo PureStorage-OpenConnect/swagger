@@ -1,0 +1,13 @@
+allOf:
+- $ref: ../../models/FA2.4/policy-smb-post.yaml
+- properties:
+    policy_mapping:
+      type: object
+      properties:
+        mapping:
+          description: The mapping of this policy. Valid values are `connected` and
+            `disconnected`.
+          type: string
+      description: If set specifies the initial mapping of the policy upon its creation
+        across a pod replica link. Policy being created must be in a source pod of
+        a replica-link.

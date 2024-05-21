@@ -1,0 +1,70 @@
+get:
+  summary: List network interfaces
+  description: Displays all network interfaces for all controllers on the array.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.30/network-interface-get-response.yaml
+  tags:
+  - Network Interfaces
+post:
+  summary: Create network interface
+  description: Creates a network interface on a controller on the array.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - name: network
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.30/network-interface-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.30/network-interface-response.yaml
+  tags:
+  - Network Interfaces
+delete:
+  summary: Delete network interface
+  description: Deletes a network interface on a controller.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Network Interfaces
+patch:
+  summary: Modify network interface
+  description: Modifies a network interface on a controller.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - name: network
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.30/network-interface-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.30/network-interface-response.yaml
+  tags:
+  - Network Interfaces

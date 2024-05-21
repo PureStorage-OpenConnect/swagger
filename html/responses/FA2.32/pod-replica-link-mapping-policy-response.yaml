@@ -1,0 +1,7 @@
+type: object
+properties:
+  items:
+    type: array
+    items:
+      $ref: ../../models/FA2.32/mapping-policy.yaml
+    description: A list of policy mappings.

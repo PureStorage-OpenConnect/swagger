@@ -1,0 +1,28 @@
+allOf:
+- $ref: ../../models/FA2.2/_built-in-relationship.yaml
+- properties:
+    local_policy:
+      description: Reference to a local policy.
+      allOf:
+      - $ref: ../../models/FA2.3/_reference-with-type.yaml
+    remote_policy:
+      description: Reference to a remote policy.
+      allOf:
+      - $ref: ../../models/FA2.3/_reference-with-type.yaml
+    mapping:
+      type: string
+      required: true
+      description: The mapping for this policy mapping. Valid values are `connected`
+        and `disconnected`.
+    policy_type:
+      type: string
+      required: true
+      description: The type of policies involved in this policy mapping.
+    pod_replica_link:
+      description: Reference to a pod replica link.
+      allOf:
+      - $ref: ../../models/FA2.32/_pod-replica-link-reference.yaml
+    direction:
+      type: string
+      description: The direction of replication. Valid values include `inbound` and
+        `outbound`.

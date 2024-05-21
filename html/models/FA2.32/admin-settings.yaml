@@ -1,0 +1,36 @@
+allOf:
+- $ref: ../../models/FA2.2/admin-settings.yaml
+- properties:
+    required_authentication_methods:
+      description: Authentication methods that are required for the array on specific
+        user interfaces.
+      type: object
+      properties:
+        ssh:
+          description: List of authentication methods that are required for SSH. Possible
+            values include `password`, `key`, and `default`. `securid-am` is a possible
+            value, but it cannot be changed through PATCH. If not specified, defaults
+            to `default`. Specify `password` and `key` authentication methods to set
+            up local multi-factor authentication for SSH.
+          type: array
+          example:
+          - password
+          - key
+          items:
+            description: Authentication method required for SSH.
+            type: string
+        web_ui:
+          description: List of authentication methods that are required for the web
+            UI. Possible values include `password`, `webauthn`, and `default`. Other
+            possible values include `saml2` and `securid-am` but these cannot be changed
+            through PATCH. If not specified, defaults to `default`. Specify `password`
+            and `webauthn` authentication methods to set up local multi-factor authentication
+            for web UI. External multi-factor authentication is configured through
+            SAML2 SSO endpoints.
+          type: array
+          example:
+          - password
+          - webauthn
+          items:
+            description: Authentication method required for the web UI.
+            type: string

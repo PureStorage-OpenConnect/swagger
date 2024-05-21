@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../models/FA2.21/policy-member.yaml
+- $ref: ../../models/FA2.32/export-policy-attachment-mixin.yaml
