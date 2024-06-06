@@ -1,0 +1,14 @@
+allOf:
+- $ref: ../../models/FA2.4/array-connection-path.yaml
+- properties:
+    encryption:
+      description: If `encrypted`, all traffic over this array connection will be
+        encrypted. If `unencrypted`, all traffic over this array connection will be
+        unencrypted.
+      type: string
+      example: encrypted
+    encryption_mode:
+      description: Cryptographic protocol, trust model, and encryption algorithm information.
+        Will be `null` if `encrypted` is `false`.
+      type: string
+      example: TLS-PSK-AES-256

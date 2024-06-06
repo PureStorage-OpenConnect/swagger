@@ -1,0 +1,9 @@
+allOf:
+- $ref: ../../models/FA2.10/volume-post.yaml
+- type: object
+  properties:
+    protocol_endpoint:
+      description: Sets the properties that are specific to protocol endpoints. This
+        can only be used in conjunction to `subtype=protocol_endpoint`.
+      allOf:
+      - $ref: ../../models/FA2.33/_protocol_endpoint.yaml

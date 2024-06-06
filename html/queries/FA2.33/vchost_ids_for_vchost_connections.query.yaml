@@ -1,0 +1,10 @@
+name: vchost_ids
+in: query
+description: A comma-separated list of vchost IDs. Performs the operation on the vchosts
+  specified. For example, `vchostid01,vchostid02`. Cannot be used in conjunction with
+  `vchost_names`. If the list contains more than one value, then `protocol_endpoint_ids`
+  or `protocol_endpoint_names` must have exactly one value.
+type: array
+collectionFormat: csv
+items:
+  type: string

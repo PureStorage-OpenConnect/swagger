@@ -1,0 +1,40 @@
+get:
+  summary: List SMTP server attributes
+  description: Displays SMTP server attributes. Values include `user_name`, `password`,
+    `relay_host`, `sender_domain`, `sender_username`, `subject_prefix`, `body_prefix`,
+    `encryption_mode`, and `name`.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.33/smtp-server-get-response.yaml
+  tags:
+  - SMTP
+patch:
+  summary: Modify SMTP server attributes
+  description: Modifies SMTP server attributes. Values include `user_name`, `password`,
+    `relay_host`, `sender_domain`, `sender_username`, `subject_prefix`, `body_prefix`,
+    `encryption_mode`, and `name`.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - name: smtp
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.33/smtp-server.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.33/smtp-server-response.yaml
+  tags:
+  - SMTP
