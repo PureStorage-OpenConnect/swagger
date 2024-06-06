@@ -1,0 +1,7 @@
+name: refresh
+in: query
+description: If set to `true`, the array will attempt to communicate with the connection
+  peer in order to update the connection attributes on both arrays with any changes
+  that have occurred. If set to `true`, other array connection attributes may not
+  be modified in requests. Default value is `false`.
+type: boolean

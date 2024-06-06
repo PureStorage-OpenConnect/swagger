@@ -1,0 +1,71 @@
+get:
+  summary: List the vchost-connections between protocol endpoint and vchost.
+  description: Displays a list of vchost-connections between the protocol endpoint
+    and vchost.
+  parameters:
+  - $ref: ../../queries/FA2.33/all_vchosts.query.yaml
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.33/protocol_endpoint_ids_for_vchost_connections.query.yaml
+  - $ref: ../../queries/FA2.33/protocol_endpoint_names_for_vchost_connections.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  - $ref: ../../queries/FA2.33/vchost_ids_for_vchost_connections.query.yaml
+  - $ref: ../../queries/FA2.33/vchost_names_for_vchost_connections.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.33/vchost-connection-get-response.yaml
+  tags:
+  - Vchost Connections
+post:
+  summary: Create a vchost-connection between protocol endpoint and vchost.
+  description: Creates a vchost-connection between protocol endpoint and vchost. Each
+    vchost is associated with a vCenter. Each protocol endpoint is associated with
+    a storage container. A vchost-connection makes the storage container accessible
+    to the vCenter when the vCenter attempts to mount the container. One of `protocol_endpoint_names`
+    or `protocol_endpoint_ids` query parameters and one of `vchost_names` or `vchost_ids`
+    query parameters are required. But if `all_vchosts` is set to `true`, `vchost_names`
+    and `vchost_ids` should not be specified.
+  parameters:
+  - $ref: ../../queries/FA2.33/all_vchosts.query.yaml
+  - $ref: ../../queries/FA2.33/allow_stretched_multi_vchost.yaml
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.33/protocol_endpoint_names_for_vchost_connections.query.yaml
+  - $ref: ../../queries/FA2.33/protocol_endpoint_ids_for_vchost_connections.query.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.33/vchost_ids_for_vchost_connections.query.yaml
+  - $ref: ../../queries/FA2.33/vchost_names_for_vchost_connections.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.33/vchost-connection-response.yaml
+  tags:
+  - Vchost Connections
+delete:
+  summary: Delete the vchost-connection between a protocol endpoint and its vchost
+  description: Deletes the vchost-connection between a protocol endpoint and its vchost.
+    The storage container represented by the protocol endpoint will no longer be visible
+    to the vCenter represented by the vchost. One of the `protocol_endpoint_names`
+    or `protocol_endpoint_ids` query parameters, and one of the `vchost_names` or
+    `vchost_ids` query parameters are required. But if `all_vchosts` is set to `true`,
+    `vchost_names` and `vchost_ids` should not be specified.
+  parameters:
+  - $ref: ../../queries/FA2.33/all_vchosts.query.yaml
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.33/protocol_endpoint_ids_for_vchost_connections.query.yaml
+  - $ref: ../../queries/FA2.33/protocol_endpoint_names_for_vchost_connections.query.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.33/vchost_ids_for_vchost_connections.query.yaml
+  - $ref: ../../queries/FA2.33/vchost_names_for_vchost_connections.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Vchost Connections

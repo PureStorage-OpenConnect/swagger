@@ -1,0 +1,86 @@
+get:
+  summary: List vchost certificates
+  description: Displays certificates that are attached to configured vchosts on at
+    least one endpoint.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.26/vchost_names.query.yaml
+  - $ref: ../../queries/FA2.26/vchost_ids.query.yaml
+  - $ref: ../../queries/FA2.26/certificate_names.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.33/vchost-certificate-get-response.yaml
+  tags:
+  - Vchosts
+post:
+  summary: Create a vchost certificate
+  description: Creates an association between a certificate and vchost on one or more
+    endpoints. The `vchost_names` or `vchost_ids` query parameter is required.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.26/vchost_names.query.yaml
+  - $ref: ../../queries/FA2.26/vchost_ids.query.yaml
+  - name: certificate
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.26/vchost-certificate-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.33/vchost-certificate-response.yaml
+  tags:
+  - Vchosts
+delete:
+  summary: Delete a vchost certificate
+  description: Deletes an existing vchost certificate. The `ids` query parameter alone,
+    or the `certificate_names` query parameter together with one of `vchost_names`
+    or `vchost_ids`, is required.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.26/vchost_names.query.yaml
+  - $ref: ../../queries/FA2.26/vchost_ids.query.yaml
+  - $ref: ../../queries/FA2.26/certificate_names.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Vchosts
+patch:
+  summary: Modify a vchost certificate
+  description: Modifies an existing vchost certificate. The `ids` query parameter
+    alone, or the `certificate_names` query parameter together with one of `vchost_names`
+    or `vchost_ids`, is required.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.26/vchost_names.query.yaml
+  - $ref: ../../queries/FA2.26/vchost_ids.query.yaml
+  - $ref: ../../queries/FA2.26/certificate_names.query.yaml
+  - name: certificate
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.26/vchost-certificate-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.33/vchost-certificate-response.yaml
+  tags:
+  - Vchosts

@@ -1,0 +1,7 @@
+type: object
+properties:
+  rules:
+    description: A list of alert-watcher policy rules to create.
+    type: array
+    items:
+      $ref: ../../models/FA2.33/_policyrulealertwatcherpost-rules.yaml

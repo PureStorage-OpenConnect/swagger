@@ -1,0 +1,20 @@
+type: object
+properties:
+  default_limit:
+    description: Deprecated. Default maximum bandwidth threshold for outbound traffic
+      in bytes. Once exceeded, bandwidth throttling occurs.
+    type: integer
+    format: int64
+    example: 1073741824
+  window:
+    description: Deprecated. The time during which the `window_limit` threshold is
+      in effect.
+    allOf:
+    - $ref: ../../models/FA2.1/_time_window.yaml
+  window_limit:
+    description: Deprecated. Maximum bandwidth threshold for outbound traffic during
+      the specified `window_limit` time range in bytes. Once exceeded, bandwidth throttling
+      occurs.
+    type: integer
+    format: int64
+    example: 2097152

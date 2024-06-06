@@ -1,0 +1,10 @@
+name: protocol_endpoint_ids
+in: query
+description: A comma-separated list of protocol endpoint IDs. Performs the operation
+  on the protocol endpoints specified. For example, `peid01,peid02`. Cannot be used
+  in conjunction with `protocol_endpoint_names`. If the list contains more than one
+  value, then `vchost_ids` or `vchost_names` must have exactly one value.
+type: array
+collectionFormat: csv
+items:
+  type: string

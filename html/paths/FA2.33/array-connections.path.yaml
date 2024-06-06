@@ -1,0 +1,70 @@
+get:
+  summary: List the connected arrays
+  description: Displays a list of connected arrays.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.33/array-connection-get-response.yaml
+  tags:
+  - Array Connections
+patch:
+  summary: Modify an array connection
+  description: Modifies attributes for an array connection.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.33/refresh.query.yaml
+  - $ref: ../../queries/FA2.33/renew_encryption_key.query.yaml
+  - name: array-connection
+    in: body
+    schema:
+      $ref: ../../models/FA2.33/array-connection-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.33/array-connection-response.yaml
+  tags:
+  - Array Connections
+post:
+  summary: Create an array connection
+  description: Creates a connection between this array and the specified array.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - name: array-connection
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.33/array-connection-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.33/array-connection-response.yaml
+  tags:
+  - Array Connections
+delete:
+  summary: Delete an array connection
+  description: Deletes the connection between this array and the specified array.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Array Connections

@@ -1,0 +1,9 @@
+type: object
+properties:
+  rules:
+    description: Updates an alert-watcher rule in a policy. Only one update object
+      will be accepted.
+    type: array
+    maxItems: 1
+    items:
+      $ref: ../../models/FA2.33/_policyrulealertwatcherpatch-rules.yaml
