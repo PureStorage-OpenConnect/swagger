@@ -1,0 +1,11 @@
+allOf:
+- $ref: ../../models/FB2.0/directory-service-role.yaml
+- properties:
+    name:
+      type: string
+      description: Name of the role mapping object.
+      readOnly: true
+    role:
+      description: A reference to the role; can be any role that exists on the system.
+      allOf:
+      - $ref: ../../models/FB2.0/_reference-writable.yaml

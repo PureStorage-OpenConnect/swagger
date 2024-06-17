@@ -1,0 +1,7 @@
+type: object
+properties:
+  items:
+    type: array
+    items:
+      $ref: ../../models/FB2.14/bucket-access-policy.yaml
+    description: A list of bucket policy objects.

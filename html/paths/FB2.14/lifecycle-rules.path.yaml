@@ -1,0 +1,92 @@
+get:
+  summary: GET lifecycle-rules
+  description: Returns a list of lifecycle rules. If `names` is specified, list the
+    individual rules. If `ids` is specified, `bucket_names` or `bucket_ids` is also
+    required. If `bucket_names` or `bucket_ids` are specified without `ids`, list
+    all the rules for the bucket.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/bucket_ids.query.yaml
+  - $ref: ../../queries/FB2.0/bucket_names.query.yaml
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.1/lifecycle-rule-get-response.yaml
+  tags:
+  - Lifecycle Rules
+post:
+  summary: POST lifecycle-rules
+  description: Creates a lifecycle rule. `bucket` and `keep_previous_version_for`
+    are required. If `rule_id` is not specified, it will be automatically generated
+    in the format "fbRuleIdX".
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.1/confirm_date.query.yaml
+  - name: rule
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.1/lifecycle-rule-post.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.1/lifecycle-rule-response.yaml
+  tags:
+  - Lifecycle Rules
+patch:
+  summary: PATCH lifecycle-rules
+  description: Modify an existing lifecycle rule by name or id. If `ids` is specified,
+    `bucket_names` or `bucket_ids` is also required.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/bucket_ids.query.yaml
+  - $ref: ../../queries/FB2.0/bucket_names.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.1/confirm_date.query.yaml
+  - name: lifecycle
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.1/lifecycle-rule-patch.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.1/lifecycle-rule-response.yaml
+  tags:
+  - Lifecycle Rules
+delete:
+  summary: DELETE lifecycle-rules
+  description: Deletes individual lifecycle rules by name or id, or deletes all rules
+    for a bucket. If `ids` is specified, `bucket_names` or `bucket_ids` is also required.
+    If `bucket_names` or `bucket_ids` are specified without `ids`, delete all the
+    rules for the bucket.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/bucket_ids.query.yaml
+  - $ref: ../../queries/FB2.0/bucket_names.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+  tags:
+  - Lifecycle Rules

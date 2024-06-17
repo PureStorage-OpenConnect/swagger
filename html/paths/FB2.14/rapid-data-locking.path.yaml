@@ -1,0 +1,35 @@
+get:
+  summary: Get the status of the Rapid Data Locking feature.
+  description: Displays the status of the Rapid Data Locking feature.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.1/rapid-data-locking-response.yaml
+  tags:
+  - RDL
+patch:
+  summary: Modifies the Rapid Data Locking feature.
+  description: Modifies the Rapid Data Locking feature. Note that the feature can
+    only be enabled if there are no file systems nor buckets created on the array.
+    Once enabled, the feature cannot be modified.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - name: rapid-data-locking
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.1/rapid-data-locking.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.1/rapid-data-locking-response.yaml
+  tags:
+  - RDL

@@ -1,0 +1,90 @@
+get:
+  summary: GET link-aggregation-groups
+  description: List the status and attributes of the Ethernet ports in the configured
+    link aggregation groups.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.0/link-aggregation-group-get-response.yaml
+  tags:
+  - Link Aggregation Groups
+post:
+  summary: POST link-aggregation-groups
+  description: Create a link aggregation group of Ethernet ports on the array.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - name: link-aggregation-group
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/link-aggregation-group.yaml
+  - $ref: ../../queries/FB2.0/names_required.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.0/link-aggregation-group-response.yaml
+  tags:
+  - Link Aggregation Groups
+patch:
+  summary: PATCH link-aggregation-groups
+  description: Modify link aggregation groups by adding and removing Ethernet ports.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - name: link-aggregation-group
+    in: body
+    required: true
+    schema:
+      type: object
+      properties:
+        ports:
+          type: array
+          items:
+            $ref: ../../models/FB2.0/_fixed-reference.yaml
+        add_ports:
+          type: array
+          items:
+            $ref: ../../models/FB2.0/_fixed-reference.yaml
+        remove_ports:
+          type: array
+          items:
+            $ref: ../../models/FB2.0/_fixed-reference.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.0/link-aggregation-group-response.yaml
+  tags:
+  - Link Aggregation Groups
+delete:
+  summary: DELETE link-aggregation-groups
+  description: Remove a link aggregation group to unbind the ports.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+  tags:
+  - Link Aggregation Groups

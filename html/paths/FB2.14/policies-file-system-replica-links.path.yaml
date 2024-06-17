@@ -1,0 +1,63 @@
+get:
+  summary: GET policies/file-system-replica-links
+  description: List snapshot scheduling policies for file system replica links.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/local_file_system_ids.query.yaml
+  - $ref: ../../queries/FB2.0/local_file_system_names.query.yaml
+  - $ref: ../../queries/FB2.0/member_ids.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/policy_ids.query.yaml
+  - $ref: ../../queries/FB2.0/policy_names.query.yaml
+  - $ref: ../../queries/FB2.0/remote_ids.query.yaml
+  - $ref: ../../queries/FB2.0/remote_file_system_ids.query.yaml
+  - $ref: ../../queries/FB2.0/remote_file_system_names.query.yaml
+  - $ref: ../../queries/FB2.0/remote_names.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/policy-member-with-remote-get-response.yaml
+  tags:
+  - Policies - Snapshot
+post:
+  summary: POST policies/file-system-replica-links
+  description: Add a snapshot scheduling policy to a file system replica link.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/local_file_system_ids.query.yaml
+  - $ref: ../../queries/FB2.0/local_file_system_names.query.yaml
+  - $ref: ../../queries/FB2.0/member_ids.query.yaml
+  - $ref: ../../queries/FB2.0/policy_ids.query.yaml
+  - $ref: ../../queries/FB2.0/policy_names.query.yaml
+  - $ref: ../../queries/FB2.0/remote_ids.query.yaml
+  - $ref: ../../queries/FB2.0/remote_names.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/policy-member-with-remote-response.yaml
+  tags:
+  - Policies - Snapshot
+delete:
+  summary: DELETE policies/file-system-replica-links
+  description: Remove a snapshot scheduling policy mapped to a file system replica
+    link.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/local_file_system_ids.query.yaml
+  - $ref: ../../queries/FB2.0/local_file_system_names.query.yaml
+  - $ref: ../../queries/FB2.0/member_ids.query.yaml
+  - $ref: ../../queries/FB2.0/policy_ids.query.yaml
+  - $ref: ../../queries/FB2.0/policy_names.query.yaml
+  - $ref: ../../queries/FB2.0/remote_ids.query.yaml
+  - $ref: ../../queries/FB2.0/remote_names.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Policies - Snapshot

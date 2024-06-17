@@ -1,0 +1,13 @@
+name: role_ids
+description: A comma-separated list of role_ids. If after filtering, there is not
+  at least one resource that matches each of the elements of `role_ids`, then an error
+  is returned. This cannot be provided together with the `ids`, `names` or `role_names`
+  query parameters. This query parameter is deprecated for use with directory service
+  roles. If this parameter is used to query or modify directory service roles, but
+  more than 1 configuration exists with a given role id, an error will be returned
+  in order to avoid ambiguous operation.
+in: query
+type: array
+collectionFormat: csv
+items:
+  type: string

@@ -1,0 +1,17 @@
+get:
+  summary: GET arrays/http-specific-performance
+  description: List the HTTP performance metrics of the array.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/end_time.query.yaml
+  - $ref: ../../queries/FB2.0/resolution.query.yaml
+  - $ref: ../../queries/FB2.0/start_time.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.0/array-http-specific-performance-get.yaml
+  tags:
+  - Arrays

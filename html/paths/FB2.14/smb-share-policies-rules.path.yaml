@@ -1,0 +1,88 @@
+get:
+  summary: GET smb-share-policies/rules
+  description: Displays a list of SMB Share policy rules.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/policy_ids.query.yaml
+  - $ref: ../../queries/FB2.0/policy_names.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.10/smb-share-policy-rule-get-response.yaml
+  tags:
+  - Policies - SMB Share
+post:
+  summary: POST smb-share-policies/rules
+  description: Add an SMB Share policy rule. The `policy_ids` or `policy_names` parameter
+    is required, but they cannot be set together.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/policy_ids.query.yaml
+  - $ref: ../../queries/FB2.0/policy_names.query.yaml
+  - name: rule
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.10/smb-share-policy-rule-post.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.10/smb-share-policy-rule-response.yaml
+  tags:
+  - Policies - SMB Share
+patch:
+  summary: PATCH smb-share-policies/rules
+  description: 'Modify an existing SMB Share policy rule. One of the following is
+    required: `ids` or `names`. If `names` is provided, the `policy_ids` or `policy_names`
+    parameter is also required.'
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/policy_ids.query.yaml
+  - $ref: ../../queries/FB2.0/policy_names.query.yaml
+  - name: rule
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.10/smb-share-policy-rule.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.10/smb-share-policy-rule-response.yaml
+  tags:
+  - Policies - SMB Share
+delete:
+  summary: DELETE smb-share-policies/rules
+  description: 'Delete one or more SMB Share policy rules. One of the following is
+    required: `ids` or `names`. If `names` is provided, the `policy_ids` or `policy_names`
+    parameter is also required.'
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/policy_ids.query.yaml
+  - $ref: ../../queries/FB2.0/policy_names.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+  tags:
+  - Policies - SMB Share

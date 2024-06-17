@@ -1,0 +1,59 @@
+get:
+  summary: GET certificate-groups/certificates
+  description: List membership associations between groups and certificates on the
+    array.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/certificate_ids.query.yaml
+  - $ref: ../../queries/FB2.0/certificate_group_ids.query.yaml
+  - $ref: ../../queries/FB2.0/certificate_group_names.query.yaml
+  - $ref: ../../queries/FB2.0/certificate_names.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.0/certificate-group-certificate-get-resp.yaml
+  tags:
+  - Certificate Groups
+post:
+  summary: POST certificate-groups/certificates
+  description: Add one or more certificates to one or more certificate groups on the
+    array.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/certificate_ids.query.yaml
+  - $ref: ../../queries/FB2.0/certificate_group_ids.query.yaml
+  - $ref: ../../queries/FB2.0/certificate_group_names.query.yaml
+  - $ref: ../../queries/FB2.0/certificate_names.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.0/certificate-group-certificate-response.yaml
+  tags:
+  - Certificate Groups
+delete:
+  summary: DELETE certificate-groups/certificates
+  description: Delete one or more certificate groups.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/certificate_ids.query.yaml
+  - $ref: ../../queries/FB2.0/certificate_group_ids.query.yaml
+  - $ref: ../../queries/FB2.0/certificate_group_names.query.yaml
+  - $ref: ../../queries/FB2.0/certificate_names.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+  tags:
+  - Certificate Groups

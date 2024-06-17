@@ -1,0 +1,76 @@
+get:
+  summary: GET syslog-servers
+  description: Return a list of configured syslog servers.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names_for_syslog.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.14/syslog-server-get-response.yaml
+  tags:
+  - Syslog
+post:
+  summary: POST syslog-servers
+  description: Configure a new syslog server.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/names_for_syslog.query.yaml
+  - name: syslog-server
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.14/syslog-server-post.yaml
+  responses:
+    200:
+      description: Returns the newly configured syslog server.
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.14/syslog-server-response.yaml
+  tags:
+  - Syslog
+patch:
+  summary: PATCH syslog-servers
+  description: Modify the URI or services of a configured syslog server.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names_for_syslog.query.yaml
+  - name: syslog-server
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.14/syslog-server-patch.yaml
+  responses:
+    200:
+      description: Returns the newly updated syslog server.
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.14/syslog-server-response.yaml
+  tags:
+  - Syslog
+delete:
+  summary: DELETE syslog-servers
+  description: Delete a configured syslog server and stop forwarding syslog messages.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names_for_syslog.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+  tags:
+  - Syslog

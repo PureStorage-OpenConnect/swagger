@@ -1,7 +1,7 @@
 consumes:
 - application/json
 definitions:
-  APIClient:
+  ApiClient:
     $ref: ../models/FA2.1/api-client.yaml
   Connection:
     $ref: ../models/FA2.1/connection.yaml

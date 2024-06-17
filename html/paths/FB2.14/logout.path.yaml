@@ -1,0 +1,14 @@
+post:
+  summary: POST logout
+  description: 'Invalidate a REST session token.
+
+    '
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+  tags:
+  - Authorization

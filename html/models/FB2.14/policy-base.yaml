@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../models/FB2.14/policy-base-renameable.yaml
+- $ref: ../../models/FB2.0/_built-in.yaml
