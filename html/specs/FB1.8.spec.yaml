@@ -39,12 +39,12 @@ definitions:
     $ref: ../models/FB1.8/certificate-use.yaml
   ClientPerformance:
     $ref: ../models/FB1.4/client-performance.yaml
-  DNS:
-    $ref: ../models/FB1.2/dns.yaml
   DirectoryService:
     $ref: ../models/FB1.8/directory-service.yaml
   DirectoryServiceRole:
     $ref: ../models/FB1.8/directory-service-role.yaml
+  Dns:
+    $ref: ../models/FB1.2/dns.yaml
   FileSystem:
     $ref: ../models/FB1.8/file-system.yaml
   FileSystemPerformance:
@@ -73,7 +73,7 @@ definitions:
     $ref: ../models/FB1.8/policy.yaml
   QuotaSetting:
     $ref: ../models/FB1.8/quota-setting.yaml
-  SMTP:
+  Smtp:
     $ref: ../models/FB1.3/smtp.yaml
   Subnet:
     $ref: ../models/FB1.8/subnet.yaml

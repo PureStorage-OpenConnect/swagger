@@ -1,0 +1,44 @@
+get:
+  summary: GET syslog-servers/settings
+  description: List the certificate or certificate group associated with the syslog
+    servers.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.0/syslog-server-settings-get-response.yaml
+  tags:
+  - Syslog
+patch:
+  summary: PATCH syslog-servers/settings
+  description: Modify the certificate or certificate group associated with the syslog
+    servers.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - name: syslog-server-settings
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/syslog-server-settings.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.0/syslog-server-settings-response.yaml
+  tags:
+  - Syslog

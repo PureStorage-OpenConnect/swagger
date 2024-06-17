@@ -1,0 +1,7 @@
+allOf:
+- $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+- x-auth-token:
+    schema:
+      type: string
+    description: REST session token for a user.
+    example: 3be3d489-55c6-4643-90ac-a476dbc98812

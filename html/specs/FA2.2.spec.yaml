@@ -1,8 +1,6 @@
 consumes:
 - application/json
 definitions:
-  APIClient:
-    $ref: ../models/FA2.1/api-client.yaml
   Admin:
     $ref: ../models/FA2.2/admin.yaml
   AdminApiToken:
@@ -15,6 +13,8 @@ definitions:
     $ref: ../models/FA2.2/alert.yaml
   AlertEvent:
     $ref: ../models/FA2.2/alert-event.yaml
+  ApiClient:
+    $ref: ../models/FA2.1/api-client.yaml
   App:
     $ref: ../models/FA2.2/app.yaml
   AppNode:
@@ -31,12 +31,12 @@ definitions:
     $ref: ../models/FA2.1/connection.yaml
   Controllers:
     $ref: ../models/FA2.2/controller.yaml
-  DNS:
-    $ref: ../models/FA2.2/dns.yaml
   DirectoryService:
     $ref: ../models/FA2.2/directory-service.yaml
   DirectoryServiceRole:
     $ref: ../models/FA2.2/directory-service-role.yaml
+  Dns:
+    $ref: ../models/FA2.2/dns.yaml
   Hardware:
     $ref: ../models/FA2.2/hardware.yaml
   Host:
@@ -55,9 +55,9 @@ definitions:
     $ref: ../models/FA2.0/resource-performance-by-array.yaml
   HostSpace:
     $ref: ../models/FA2.0/resource-space-no-id.yaml
-  KMIP:
+  Kmip:
     $ref: ../models/FA2.2/kmip.yaml
-  KMIPTestResult:
+  KmipTestResult:
     $ref: ../models/FA2.2/kmip-test-result.yaml
   MaintenanceWindow:
     $ref: ../models/FA2.2/maintenance-window.yaml
@@ -113,7 +113,7 @@ definitions:
     $ref: ../models/FA2.1/remote-volume-snapshot.yaml
   RemoteVolumeSnapshotTransfer:
     $ref: ../models/FA2.1/remote-volume-snapshot-transfer.yaml
-  SMI-S:
+  Smis:
     $ref: ../models/FA2.2/smis.yaml
   Software:
     $ref: ../models/FA2.2/software.yaml

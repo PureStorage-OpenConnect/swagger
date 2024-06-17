@@ -1,8 +1,6 @@
 consumes:
 - application/json
 definitions:
-  APIClient:
-    $ref: ../models/FA2.1/api-client.yaml
   ActiveDirectory:
     $ref: ../models/FA2.15/active-directory.yaml
   Admin:
@@ -19,6 +17,8 @@ definitions:
     $ref: ../models/FA2.2/alert-event.yaml
   AlertWatcher:
     $ref: ../models/FA2.4/alert-watcher.yaml
+  ApiClient:
+    $ref: ../models/FA2.1/api-client.yaml
   App:
     $ref: ../models/FA2.2/app.yaml
   AppNode:
@@ -51,8 +51,6 @@ definitions:
     $ref: ../models/FA2.16/container-default-protection.yaml
   Controllers:
     $ref: ../models/FA2.2/controller.yaml
-  DNS:
-    $ref: ../models/FA2.15/dns.yaml
   Directory:
     $ref: ../models/FA2.7/directory.yaml
   DirectoryExport:
@@ -71,6 +69,8 @@ definitions:
     $ref: ../models/FA2.9/directory-snapshot.yaml
   DirectorySpace:
     $ref: ../models/FA2.0/resource-space.yaml
+  Dns:
+    $ref: ../models/FA2.15/dns.yaml
   Drive:
     $ref: ../models/FA2.4/drive.yaml
   FileSystem:
@@ -95,9 +95,9 @@ definitions:
     $ref: ../models/FA2.4/resource-performance-by-array.yaml
   HostSpace:
     $ref: ../models/FA2.0/resource-space-no-id.yaml
-  KMIP:
+  Kmip:
     $ref: ../models/FA2.2/kmip.yaml
-  KMIPTestResult:
+  KmipTestResult:
     $ref: ../models/FA2.2/kmip-test-result.yaml
   LocalGroup:
     $ref: ../models/FA2.21/local-group.yaml
@@ -185,16 +185,16 @@ definitions:
     $ref: ../models/FA2.1/remote-volume-snapshot-transfer.yaml
   SAML2-SSO:
     $ref: ../models/FA2.11/saml2-sso.yaml
-  SMI-S:
-    $ref: ../models/FA2.2/smis.yaml
-  SMTP:
-    $ref: ../models/FA2.4/smtp-server.yaml
-  SNMPAgent:
-    $ref: ../models/FA2.4/snmp-agent.yaml
-  SNMPManagers:
-    $ref: ../models/FA2.4/snmp-manager.yaml
   Session:
     $ref: ../models/FA2.4/session.yaml
+  Smis:
+    $ref: ../models/FA2.2/smis.yaml
+  Smtp:
+    $ref: ../models/FA2.4/smtp-server.yaml
+  SnmpAgent:
+    $ref: ../models/FA2.4/snmp-agent.yaml
+  SnmpManagers:
+    $ref: ../models/FA2.4/snmp-manager.yaml
   Software:
     $ref: ../models/FA2.9/software.yaml
   SoftwareBundle:

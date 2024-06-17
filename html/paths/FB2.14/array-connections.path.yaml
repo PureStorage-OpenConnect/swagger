@@ -1,0 +1,79 @@
+get:
+  summary: GET array-connections
+  description: List connected arrays for replication.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/remote_ids.query.yaml
+  - $ref: ../../queries/FB2.0/remote_names.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.3/array-connection-get-response.yaml
+  tags:
+  - Array Connections
+patch:
+  summary: PATCH array-connections
+  description: Modify the configuration of a connected array.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/remote_ids.query.yaml
+  - $ref: ../../queries/FB2.0/remote_names.query.yaml
+  - name: array-connection
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.3/array-connection.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.3/array-connection-response.yaml
+  tags:
+  - Array Connections
+post:
+  summary: POST array-connections
+  description: Create a connection to an array for replication and configure network
+    settings.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - name: array-connection
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.3/array-connection-post.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.3/array-connection-response.yaml
+  tags:
+  - Array Connections
+delete:
+  summary: DELETE array-connections
+  description: Delete a connection to an array.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/remote_ids.query.yaml
+  - $ref: ../../queries/FB2.0/remote_names.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+  tags:
+  - Array Connections

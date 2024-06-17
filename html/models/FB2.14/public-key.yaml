@@ -1,0 +1,16 @@
+allOf:
+- $ref: ../../models/FB2.0/_resource.yaml
+- $ref: ../../models/FB2.14/public-key-post.yaml
+- properties:
+    algorithm:
+      type: string
+      description: The cryptographic algorithm used by the key. Valid values include
+        `rsa`, `rsassa-pss`, `dsa`, `ec`, and `ed25519`.
+      example: rsa
+      readOnly: true
+    key_size:
+      type: integer
+      format: int32
+      description: The size of the public key in bits.
+      example: 2048
+      readOnly: true

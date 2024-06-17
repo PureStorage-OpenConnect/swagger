@@ -1,8 +1,6 @@
 consumes:
 - application/json
 definitions:
-  APIClient:
-    $ref: ../models/FB2.0/api-client.yaml
   ActiveDirectory:
     $ref: ../models/FB2.0/active-directory.yaml
   Admin:
@@ -17,6 +15,8 @@ definitions:
     $ref: ../models/FB2.0/alert.yaml
   AlertWatcher:
     $ref: ../models/FB2.0/alert-watcher.yaml
+  ApiClient:
+    $ref: ../models/FB2.0/api-client.yaml
   Array:
     $ref: ../models/FB2.2/array.yaml
   ArrayConnection:
@@ -59,12 +59,12 @@ definitions:
     $ref: ../models/FB2.0/certificate-use.yaml
   ClientPerformance:
     $ref: ../models/FB2.0/client-performance.yaml
-  DNS:
-    $ref: ../models/FB2.0/dns.yaml
   DirectoryService:
     $ref: ../models/FB2.0/directory-service.yaml
   DirectoryServiceRole:
     $ref: ../models/FB2.0/directory-service-role.yaml
+  Dns:
+    $ref: ../models/FB2.0/dns.yaml
   EULA:
     $ref: ../models/FB2.0/eula.yaml
   FileSystem:
@@ -145,16 +145,16 @@ definitions:
     $ref: ../models/FB2.2/resource-performance-replication.yaml
   Role:
     $ref: ../models/FB2.0/role.yaml
-  SMTP:
-    $ref: ../models/FB2.0/smtp-server.yaml
-  SNMPAgent:
-    $ref: ../models/FB2.0/snmp-agent.yaml
   SNMPManager:
     $ref: ../models/FB2.0/snmp-manager.yaml
   SNMPManagerTest:
     $ref: ../models/FB2.0/snmp-manager-test.yaml
   Session:
     $ref: ../models/FB2.3/session.yaml
+  Smtp:
+    $ref: ../models/FB2.0/smtp-server.yaml
+  SnmpAgent:
+    $ref: ../models/FB2.0/snmp-agent.yaml
   Subnet:
     $ref: ../models/FB2.0/subnet.yaml
   Support:

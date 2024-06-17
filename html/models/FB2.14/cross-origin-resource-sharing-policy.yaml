@@ -1,0 +1,13 @@
+allOf:
+- $ref: ../../models/FB2.14/policy-base.yaml
+- properties:
+    rules:
+      type: array
+      maxItems: 100
+      items:
+        $ref: ../../models/FB2.12/cross-origin-resource-sharing-policy-rule.yaml
+    bucket:
+      description: The bucket to which this policy belongs.
+      readOnly: true
+      allOf:
+      - $ref: ../../models/FB2.0/_fixed-reference.yaml

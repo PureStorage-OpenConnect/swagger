@@ -1,0 +1,16 @@
+allOf:
+- $ref: ../../models/FB2.3/session.yaml
+- properties:
+    method:
+      description: Method by which the user attempted to log in. Valid values include
+        `API token`, `password`, `ssh certificate`, and `public key`.
+      type: string
+      example: public key
+    identifying_details:
+      type: string
+      description: Additional details, depending on the authentication method used,
+        which are necessary to uniquely identify who authenticated as a user. `null`
+        if no additional details are needed.
+      example: '''principal="john",serial=0001,key_id="arbitrary CA key id text",ssh_session_id=3233,
+        ca_key_fingerprint=UWRGBqyUXxTc5FKhUCw+/0tlwDXYPY1yLZk20zSCoDI'''
+      readOnly: true

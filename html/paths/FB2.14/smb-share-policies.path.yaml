@@ -1,0 +1,75 @@
+get:
+  summary: GET smb-share-policies
+  description: Display SMB Share policies and their attributes.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.14/smb-share-policy-get-response.yaml
+  tags:
+  - Policies - SMB Share
+post:
+  summary: POST smb-share-policies
+  description: Create a new SMB Share policy.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/names_required.query.yaml
+  - name: policy
+    in: body
+    schema:
+      $ref: ../../models/FB2.14/smb-share-policy-post.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.14/smb-share-policy-response.yaml
+  tags:
+  - Policies - SMB Share
+patch:
+  summary: PATCH smb-share-policies
+  description: Modify an existing SMB Share policy's attributes.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - name: policy
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.14/smb-share-policy.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.14/smb-share-policy-response.yaml
+  tags:
+  - Policies - SMB Share
+delete:
+  summary: DELETE smb-share-policies
+  description: Delete one or more SMB Share policies.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+  tags:
+  - Policies - SMB Share

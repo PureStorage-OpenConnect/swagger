@@ -51,12 +51,12 @@ definitions:
     $ref: ../models/FB1.9/certificate-use.yaml
   ClientPerformance:
     $ref: ../models/FB1.4/client-performance.yaml
-  DNS:
-    $ref: ../models/FB1.2/dns.yaml
   DirectoryService:
     $ref: ../models/FB1.9/directory-service.yaml
   DirectoryServiceRole:
     $ref: ../models/FB1.8/directory-service-role.yaml
+  Dns:
+    $ref: ../models/FB1.2/dns.yaml
   FileSystem:
     $ref: ../models/FB1.9/file-system.yaml
   FileSystemPerformance:
@@ -107,14 +107,14 @@ definitions:
     $ref: ../models/FB1.9/relationship-performance-replication.yaml
   ResourcePerformanceReplication:
     $ref: ../models/FB1.9/resource-performance-replication.yaml
-  SMTP:
-    $ref: ../models/FB1.3/smtp.yaml
-  SNMPAgent:
-    $ref: ../models/FB1.9/snmp-agent.yaml
   SNMPManager:
     $ref: ../models/FB1.9/snmp-manager.yaml
   SNMPManagerTest:
     $ref: ../models/FB1.9/snmp-manager-test.yaml
+  Smtp:
+    $ref: ../models/FB1.3/smtp.yaml
+  SnmpAgent:
+    $ref: ../models/FB1.9/snmp-agent.yaml
   Subnet:
     $ref: ../models/FB1.9/subnet.yaml
   Support:

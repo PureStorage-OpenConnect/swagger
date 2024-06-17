@@ -1,0 +1,18 @@
+get:
+  summary: GET api_version
+  description: 'Get available API versions. No authentication is required to access
+    this endpoint.
+
+    '
+  security: []
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.0/api_version.response.yaml
+  tags:
+  - Authorization

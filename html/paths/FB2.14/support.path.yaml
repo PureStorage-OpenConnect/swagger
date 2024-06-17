@@ -1,0 +1,35 @@
+get:
+  summary: GET support
+  description: List Phone Home and Remote Assistance settings.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.14/support-get-response.yaml
+  tags:
+  - Support
+patch:
+  summary: PATCH support
+  description: Modify Phone Home and Remote Assistance settings.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - name: support
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.14/support.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.14/support-response.yaml
+  tags:
+  - Support
