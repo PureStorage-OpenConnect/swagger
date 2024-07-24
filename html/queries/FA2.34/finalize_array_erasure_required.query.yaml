@@ -1,0 +1,5 @@
+name: finalize
+in: query
+description: Must be `true` to finalize factory reset.
+type: boolean
+required: true

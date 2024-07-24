@@ -1,0 +1,100 @@
+get:
+  summary: List volumes
+  description: Displays a list of volumes, including those pending eradication.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/destroyed.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  - $ref: ../../queries/FA2.0/total_only.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.34/volume-get-response.yaml
+  tags:
+  - Volumes
+post:
+  summary: Create a volume
+  description: Creates one or more virtual storage volumes of the specified size.
+    If `provisioned` is not specified, the size of the new volume defaults to 1 MB.
+    The `names` query parameter is required. The `add_to_protection_group_names` query
+    parameter specifies a list of protection group names that will compose the initial
+    protection for the volume. The `with_default_protection` query parameter specifies
+    whether to use the container default protection configuration for the volume.
+    The `add_to_protection_group_names` and `with_default_protection` query parameters
+    cannot be provided when `overwrite` is `true`.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.26/add_to_protection_group_ids.query.yaml
+  - $ref: ../../queries/FA2.23/add_to_protection_group_names.query.yaml
+  - $ref: ../../queries/FA2.31/allow_throttle_operation.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/overwrite.query.yaml
+  - $ref: ../../queries/FA2.16/with_default_protection.query.yaml
+  - name: volume
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.33/volume-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.34/volume-response.yaml
+  tags:
+  - Volumes
+delete:
+  summary: Delete a volume
+  description: Deletes a volume that has been destroyed and is pending eradication.
+    Eradicated volumes cannot be recovered. Volumes are destroyed using the `PATCH`
+    method. The `ids` or `names` parameter is required, but they cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Volumes
+patch:
+  summary: Modify a volume
+  description: Modifies a volume by renaming, destroying, or resizing it. To rename
+    a volume, set `name` to the new name. To destroy a volume, set `destroyed=true`.
+    To recover a volume that has been destroyed and is pending eradication, set `destroyed=false`.
+    Set the bandwidth and IOPs limits of a volume through the respective `bandwidth_limit`
+    and `iops_limit` parameter. This moves the volume into a pod or volume group through
+    the respective `pod` or `volume_group` parameter. The `ids` or `names` parameter
+    is required, but they cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.26/add_to_protection_group_ids.query.yaml
+  - $ref: ../../queries/FA2.23/add_to_protection_group_names.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.26/remove_from_protection_group_ids.query.yaml
+  - $ref: ../../queries/FA2.23/remove_from_protection_group_names.query.yaml
+  - $ref: ../../queries/FA2.0/truncate.query.yaml
+  - name: volume
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.33/volume-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.34/volume-response.yaml
+  tags:
+  - Volumes

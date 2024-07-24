@@ -1,0 +1,11 @@
+allOf:
+- $ref: ../../responses/FA2.1/page-info.yaml
+- $ref: ../../responses/FA2.34/directory-snapshot-response.yaml
+- properties:
+    total:
+      type: array
+      items:
+        $ref: ../../models/FA2.34/directory-snapshot.yaml
+      description: The aggregate value of all items after filtering. When applicable,
+        the average value is displayed instead. If applicable, the values are displayed
+        for each field.

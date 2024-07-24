@@ -1,0 +1,43 @@
+allOf:
+- $ref: ../../models/FA2.0/_resource.yaml
+- description: Status and detailed information of the factory reset process.
+  type: object
+  properties:
+    status:
+      description: The status of the factory reset process. Valid values include `resetting`,
+        `reset_failed`, `reimage_failed`, `waiting_for_finalize`, `downloading`, `downloaded`,
+        and `download_failed`. A status of `resetting` indicates that the factory
+        reset is running. A status of `reset_failed` indicates that the factory reset
+        encountered a failure. A status of `reimage_failed` indicates that the factory
+        reset failed to reimage the array. A status of `waiting_for_finalize` indicates
+        that the factory reset has finished sanitizing drives, and is waiting to be
+        finalized. A status of `downloading` indicates that the factory reset is downloading
+        ISO image. A status of `downloaded` indicates that the factory reset completed
+        ISO image download. A status of `download_failed` indicates that the factory
+        reset failed to download ISO image.
+      type: string
+      example: resetting
+    image_source:
+      description: Source of the ISO image to download. Valid values include `auto`
+        and URLs. `auto` means download the image from Pure1 cloud, and a URL means
+        download the image from the specified URL.
+      type: string
+      example: auto
+    image_version:
+      description: Version of the image to download and install.
+      type: string
+      example: 6.6.6
+    image_download_progress:
+      description: The progress of the ISO image download, displayed in decimal format.
+      min: 0.0
+      max: 1.0
+      type: number
+      format: float
+      example: 0.32
+    details:
+      description: The detailed reason of the `status`.
+      type: string
+    sanitization_certificate:
+      description: The sanitization certificate of the factory reset, which complies
+        with the standard described in NIST SP800-88R1 section 4.8.
+      type: string

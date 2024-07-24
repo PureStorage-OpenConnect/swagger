@@ -1,0 +1,6 @@
+allOf:
+- $ref: ../../models/FA2.26/volume-group-patch.yaml
+- type: object
+  properties:
+    space:
+      $ref: ../../models/FA2.34/_space.yaml

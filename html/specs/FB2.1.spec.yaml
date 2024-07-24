@@ -131,12 +131,12 @@ definitions:
     $ref: ../models/FB2.1/resource-performance-replication.yaml
   Role:
     $ref: ../models/FB2.0/role.yaml
+  SMTP:
+    $ref: ../models/FB2.0/smtp-server.yaml
   SNMPManager:
     $ref: ../models/FB2.0/snmp-manager.yaml
   SNMPManagerTest:
     $ref: ../models/FB2.0/snmp-manager-test.yaml
-  Smtp:
-    $ref: ../models/FB2.0/smtp-server.yaml
   SnmpAgent:
     $ref: ../models/FB2.0/snmp-agent.yaml
   Subnet:

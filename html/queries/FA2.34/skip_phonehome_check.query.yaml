@@ -1,0 +1,8 @@
+name: skip_phonehome_check
+in: query
+required: false
+type: boolean
+description: A flag to skip phonehome connectivity check. If `skip_phonehome_check`
+  is not set, the factory reset will fail if phonehome connectivity check fails. Arrays
+  that intentionally disable phonehome or do not permit connectivity to Pure Storage's
+  cloud servers must set this flag to `true` in order to start factory reset.

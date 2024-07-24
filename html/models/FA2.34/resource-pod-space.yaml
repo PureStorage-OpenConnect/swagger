@@ -1,0 +1,8 @@
+allOf:
+- $ref: ../../models/FA2.26/resource-pod-space.yaml
+- readOnly: true
+  properties:
+    space:
+      description: Displays size and space consumption information.
+      allOf:
+      - $ref: ../../models/FA2.34/_pod-space.yaml

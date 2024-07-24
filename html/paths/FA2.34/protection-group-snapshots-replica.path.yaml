@@ -1,0 +1,19 @@
+post:
+  summary: Create an action to send protection group snapshots
+  description: Creates an action to send protection group snapshots to protection
+    pgroup targets. When the `on` option is used, only specified targets will recieve
+    the protection group snapshots.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.4/convert_source_to_baseline.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.25/on_as_target.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.34/protection-group-snapshot-replica-response.yaml
+  tags:
+  - Protection Group Snapshots

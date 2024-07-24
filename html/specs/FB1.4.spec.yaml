@@ -29,12 +29,12 @@ definitions:
     $ref: ../models/FB1.2/certificate.yaml
   ClientPerformance:
     $ref: ../models/FB1.4/client-performance.yaml
+  DNS:
+    $ref: ../models/FB1.2/dns.yaml
   DirectoryService:
     $ref: ../models/FB1.4/directory-service.yaml
   DirectoryServiceRole:
     $ref: ../models/FB1.4/directory-service-role.yaml
-  Dns:
-    $ref: ../models/FB1.2/dns.yaml
   FileSystem:
     $ref: ../models/FB1.4/file-system.yaml
   FileSystemSnapshot:
@@ -53,7 +53,7 @@ definitions:
     $ref: ../models/FB1.4/object-store-account.yaml
   ObjectStoreUser:
     $ref: ../models/FB1.3/object-store-user.yaml
-  Smtp:
+  SMTP:
     $ref: ../models/FB1.3/smtp.yaml
   Subnet:
     $ref: ../models/FB1.3/subnet.yaml

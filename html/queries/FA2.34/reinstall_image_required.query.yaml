@@ -1,0 +1,5 @@
+name: reinstall_image
+in: query
+description: Set to `true` to reinstall image, or `false` to skip reinstalling image.
+type: boolean
+required: true
