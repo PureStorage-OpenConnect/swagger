@@ -1,0 +1,66 @@
+get:
+  summary: List factory reset details
+  description: Displays a list of factory reset processes.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.34/array-erasure-get-response.yaml
+  tags:
+  - Arrays
+delete:
+  summary: Delete factory reset
+  description: Deletes the factory reset process when it is `failed`.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Arrays
+post:
+  summary: Create a process for factory reset
+  description: Creates the initiation of the factory reset process
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.34/eradicate_all_data_required.query.yaml
+  - $ref: ../../queries/FA2.34/preserve_configuration_data_required.query.yaml
+  - $ref: ../../queries/FA2.34/skip_phonehome_check.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.34/array-erasure-response.yaml
+  tags:
+  - Arrays
+patch:
+  summary: Update factory reset
+  description: Modifies the factory reset process to finalize.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.34/delete_sanitization_certificate_required.query.yaml
+  - $ref: ../../queries/FA2.34/eradicate_all_data_required.query.yaml
+  - $ref: ../../queries/FA2.34/finalize_array_erasure_required.query.yaml
+  - $ref: ../../queries/FA2.34/reinstall_image_required.query.yaml
+  - name: erasure_patch
+    in: body
+    schema:
+      $ref: ../../models/FA2.34/array-erasure-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.34/array-erasure-response.yaml
+  tags:
+  - Arrays

@@ -1,0 +1,6 @@
+allOf:
+- $ref: ../../models/FA2.26/array-space.yaml
+- readOnly: true
+  properties:
+    space:
+      $ref: ../../models/FA2.34/space.yaml

@@ -256,6 +256,12 @@
   url: specs/FA2.33.spec.yaml
   version: '2.33'
   version_sort: 2033
+- filename: FA2.34.spec.yaml
+  model: FlashArray
+  name: FlashArray v2.34
+  url: specs/FA2.34.spec.yaml
+  version: '2.34'
+  version_sort: 2034
 - filename: FB1.0.spec.yaml
   model: FlashBlade
   name: FlashBlade v1.0

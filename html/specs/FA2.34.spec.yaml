@@ -1,0 +1,1006 @@
+consumes:
+- application/json
+definitions:
+  ActiveDirectory:
+    $ref: ../models/FA2.15/active-directory.yaml
+  Admin:
+    $ref: ../models/FA2.32/admin.yaml
+  AdminApiToken:
+    $ref: ../models/FA2.2/admin-api-token.yaml
+  AdminCache:
+    $ref: ../models/FA2.2/admin-cache.yaml
+  AdminSettings:
+    $ref: ../models/FA2.32/admin-settings.yaml
+  Alert:
+    $ref: ../models/FA2.2/alert.yaml
+  AlertEvent:
+    $ref: ../models/FA2.2/alert-event.yaml
+  AlertRules:
+    $ref: ../models/FA2.23/alert-rules.yaml
+  AlertWatcher:
+    $ref: ../models/FA2.4/alert-watcher.yaml
+  ApiClient:
+    $ref: ../models/FA2.1/api-client.yaml
+  App:
+    $ref: ../models/FA2.2/app.yaml
+  AppNode:
+    $ref: ../models/FA2.2/app-node.yaml
+  Array:
+    $ref: ../models/FA2.34/arrays.yaml
+  ArrayConnection:
+    $ref: ../models/FA2.33/array-connection.yaml
+  ArrayConnectionKey:
+    $ref: ../models/FA2.4/array-connection-key.yaml
+  ArrayConnectionPath:
+    $ref: ../models/FA2.33/array-connection-path.yaml
+  ArrayErasures:
+    $ref: ../models/FA2.34/array-erasure.yaml
+  ArrayFactoryResetToken:
+    $ref: ../models/FA2.4/array-factory-reset-token.yaml
+  ArrayPerformance:
+    $ref: ../models/FA2.4/array-performance.yaml
+  ArrayPerformanceByLink:
+    $ref: ../models/FA2.19/array-performance-by-link.yaml
+  ArraySpace:
+    $ref: ../models/FA2.34/space.yaml
+  Audit:
+    $ref: ../models/FA2.2/audit.yaml
+  Certificate:
+    $ref: ../models/FA2.4/certificate.yaml
+  CloudCapacityStatus:
+    $ref: ../models/FA2.29/cloud-capacity-status.yaml
+  CloudCapacityStep:
+    $ref: ../models/FA2.29/cloud-capacity-step.yaml
+  CloudProviderTag:
+    $ref: ../models/FA2.6/cloud-provider-tag.yaml
+  Connection:
+    $ref: ../models/FA2.27/connection.yaml
+  ContainerDefaultProtection:
+    $ref: ../models/FA2.26/container-default-protection.yaml
+  Controllers:
+    $ref: ../models/FA2.30/controller.yaml
+  Directory:
+    $ref: ../models/FA2.34/directory.yaml
+  DirectoryExport:
+    $ref: ../models/FA2.32/directory-export.yaml
+  DirectoryLockNLMReclamation:
+    $ref: ../models/FA2.21/directory-lock-nlm-reclamation.yaml
+  DirectoryPerformance:
+    $ref: ../models/FA2.3/directory-performance.yaml
+  DirectoryQuota:
+    $ref: ../models/FA2.7/directory-quota.yaml
+  DirectoryService:
+    $ref: ../models/FA2.32/directory-service.yaml
+  DirectoryServiceRole:
+    $ref: ../models/FA2.30/directory-service-role.yaml
+  DirectorySnapshot:
+    $ref: ../models/FA2.34/directory-snapshot.yaml
+  DirectorySpace:
+    $ref: ../models/FA2.34/resource-directory-space.yaml
+  Dns:
+    $ref: ../models/FA2.15/dns.yaml
+  Drive:
+    $ref: ../models/FA2.4/drive.yaml
+  FileSystem:
+    $ref: ../models/FA2.13/file-system.yaml
+  Hardware:
+    $ref: ../models/FA2.2/hardware.yaml
+  Host:
+    $ref: ../models/FA2.34/host.yaml
+  HostGroup:
+    $ref: ../models/FA2.34/host-group.yaml
+  HostGroupPerformance:
+    $ref: ../models/FA2.4/resource-performance.yaml
+  HostGroupPerformanceByArray:
+    $ref: ../models/FA2.4/resource-performance-by-array.yaml
+  HostGroupSpace:
+    $ref: ../models/FA2.34/resource-space-no-id.yaml
+  HostPerformance:
+    $ref: ../models/FA2.4/resource-performance.yaml
+  HostPerformanceBalance:
+    $ref: ../models/FA2.4/host-performance-balance.yaml
+  HostPerformanceByArray:
+    $ref: ../models/FA2.4/resource-performance-by-array.yaml
+  HostSpace:
+    $ref: ../models/FA2.34/resource-space-no-id.yaml
+  Kmip:
+    $ref: ../models/FA2.24/kmip.yaml
+  KmipTestResult:
+    $ref: ../models/FA2.2/kmip-test-result.yaml
+  LocalGroup:
+    $ref: ../models/FA2.21/local-group.yaml
+  LocalMember:
+    $ref: ../models/FA2.21/local-member.yaml
+  LocalUser:
+    $ref: ../models/FA2.21/local-user.yaml
+  MaintenanceWindow:
+    $ref: ../models/FA2.2/maintenance-window.yaml
+  Member:
+    $ref: ../models/FA2.0/member.yaml
+  MemberNoIdAll:
+    $ref: ../models/FA2.0/member-no-id-all.yaml
+  MemberNoIdGroup:
+    $ref: ../models/FA2.1/member-no-id-group.yaml
+  NetworkInterface:
+    $ref: ../models/FA2.30/network-interface.yaml
+  NetworkInterfaceNeighbor:
+    $ref: ../models/FA2.22/network-interface-neighbor.yaml
+  NetworkInterfacePerformance:
+    $ref: ../models/FA2.4/network-interface-performance.yaml
+  NetworkInterfacePortDetails:
+    $ref: ../models/FA2.16/network-interfaces-port-details.yaml
+  Offload:
+    $ref: ../models/FA2.34/offload.yaml
+  Pod:
+    $ref: ../models/FA2.34/pod.yaml
+  PodPerformance:
+    $ref: ../models/FA2.13/pod-performance.yaml
+  PodPerformanceByArray:
+    $ref: ../models/FA2.13/pod-performance-by-array.yaml
+  PodPerformanceReplication:
+    $ref: ../models/FA2.4/pod-performance-replication.yaml
+  PodPerformanceReplicationByArray:
+    $ref: ../models/FA2.4/pod-performance-replication-by-array.yaml
+  PodReplicaLink:
+    $ref: ../models/FA2.2/pod-replica-link.yaml
+  PodReplicaLinkLag:
+    $ref: ../models/FA2.2/pod-replica-link-lag.yaml
+  PodReplicaLinkMappingPolicy:
+    $ref: ../models/FA2.32/mapping-policy.yaml
+  PodReplicaLinkPerformance:
+    $ref: ../models/FA2.2/pod-replica-link-performance-replication.yaml
+  PodSpace:
+    $ref: ../models/FA2.34/resource-pod-space.yaml
+  Policy:
+    $ref: ../models/FA2.24/policy.yaml
+  PolicyMember:
+    $ref: ../models/FA2.21/policy-member.yaml
+  PolicyMemberExport:
+    $ref: ../models/FA2.32/policy-member-export.yaml
+  PolicyNfs:
+    $ref: ../models/FA2.32/policy-nfs.yaml
+  PolicyPassword:
+    $ref: ../models/FA2.34/policy-password.yaml
+  PolicyRuleNfsClient:
+    $ref: ../models/FA2.29/policy-rule-nfs-client.yaml
+  PolicyRuleQuota:
+    $ref: ../models/FA2.21/policy-rule-quota.yaml
+  PolicyRuleSmbClient:
+    $ref: ../models/FA2.21/policy-rule-smb-client.yaml
+  PolicyRuleSnapshot:
+    $ref: ../models/FA2.21/policy-rule-snapshot.yaml
+  PolicySmb:
+    $ref: ../models/FA2.32/policy-smb.yaml
+  Port:
+    $ref: ../models/FA2.2/port.yaml
+  PortInitiator:
+    $ref: ../models/FA2.2/port-initiator.yaml
+  ProtectionGroup:
+    $ref: ../models/FA2.34/protection-group.yaml
+  ProtectionGroupPerformance:
+    $ref: ../models/FA2.26/protection-group-performance.yaml
+  ProtectionGroupPerformanceByArray:
+    $ref: ../models/FA2.26/protection-group-performance-array.yaml
+  ProtectionGroupSnapshot:
+    $ref: ../models/FA2.34/protection-group-snapshot.yaml
+  ProtectionGroupSpace:
+    $ref: ../models/FA2.34/resource-space-no-id.yaml
+  ProtectionGroupTarget:
+    $ref: ../models/FA2.1/protection-group-target.yaml
+  RemoteProtectionGroup:
+    $ref: ../models/FA2.1/remote-protection-group.yaml
+  RemoteProtectionGroupSnapshot:
+    $ref: ../models/FA2.26/remote-protection-group-snapshot.yaml
+  RemoteProtectionGroupSnapshotTransfer:
+    $ref: ../models/FA2.26/remote-protection-group-snapshot-transfer.yaml
+  RemoteVolumeSnapshot:
+    $ref: ../models/FA2.1/remote-volume-snapshot.yaml
+  RemoteVolumeSnapshotTransfer:
+    $ref: ../models/FA2.1/remote-volume-snapshot-transfer.yaml
+  SAML2-SSO:
+    $ref: ../models/FA2.11/saml2-sso.yaml
+  Session:
+    $ref: ../models/FA2.4/session.yaml
+  Smis:
+    $ref: ../models/FA2.2/smis.yaml
+  Smtp:
+    $ref: ../models/FA2.33/smtp-server.yaml
+  SnmpAgent:
+    $ref: ../models/FA2.4/snmp-agent.yaml
+  SnmpManagers:
+    $ref: ../models/FA2.4/snmp-manager.yaml
+  Software:
+    $ref: ../models/FA2.9/software.yaml
+  SoftwareBundle:
+    $ref: ../models/FA2.5/software-bundle.yaml
+  SoftwareChecks:
+    $ref: ../models/FA2.9/software-check.yaml
+  SoftwareInstallationSteps:
+    $ref: ../models/FA2.2/software-installation-step.yaml
+  SoftwareInstallations:
+    $ref: ../models/FA2.9/software-installation.yaml
+  SoftwarePatches:
+    $ref: ../models/FA2.29/software-patch.yaml
+  SoftwareVersions:
+    $ref: ../models/FA2.9/software-version.yaml
+  Subnet:
+    $ref: ../models/FA2.2/subnet.yaml
+  Subscription:
+    $ref: ../models/FA2.26/subscription.yaml
+  SubscriptionAsset:
+    $ref: ../models/FA2.26/subscription-asset.yaml
+  Support:
+    $ref: ../models/FA2.2/support.yaml
+  SyslogServer:
+    $ref: ../models/FA2.4/syslog-server.yaml
+  SyslogServerSettings:
+    $ref: ../models/FA2.9/syslog-server-settings.yaml
+  Tag:
+    $ref: ../models/FA2.2/tag.yaml
+  TestResult:
+    $ref: ../models/FA2.2/test-result.yaml
+  TestResultWithResource:
+    $ref: ../models/FA2.2/test-result-with-resource.yaml
+  Username:
+    $ref: ../models/FA2.0/username.yaml
+  Vchost:
+    $ref: ../models/FA2.26/vchost.yaml
+  VchostCertificate:
+    $ref: ../models/FA2.33/vchost-certificate.yaml
+  VchostConnection:
+    $ref: ../models/FA2.33/vchost-connection.yaml
+  VchostEndpoint:
+    $ref: ../models/FA2.33/vchost-endpoint.yaml
+  Volume:
+    $ref: ../models/FA2.34/volume.yaml
+  VolumeDiff:
+    $ref: ../models/FA2.9/volume-diff.yaml
+  VolumeGroup:
+    $ref: ../models/FA2.34/volume-group.yaml
+  VolumeGroupPerformance:
+    $ref: ../models/FA2.4/volume-group-performance.yaml
+  VolumeGroupSpace:
+    $ref: ../models/FA2.34/resource-space.yaml
+  VolumePerformance:
+    $ref: ../models/FA2.4/volume-performance.yaml
+  VolumePerformanceByArray:
+    $ref: ../models/FA2.4/resource-performance-by-array.yaml
+  VolumeSnapshot:
+    $ref: ../models/FA2.34/volume-snapshot.yaml
+  VolumeSnapshotTransfer:
+    $ref: ../models/FA2.1/volume-snapshot-transfer.yaml
+  VolumeSpace:
+    $ref: ../models/FA2.34/volume-space.yaml
+info:
+  description: "## Pure Swagger UI for FlashArray\nA light weight tool to explore\
+    \ the API for FlashArray, community supported. \nFor  help with this tool, use\
+    \ [Pure1 Community](https://community.purestorage.com/) or the [code-purestorage\
+    \ Slack](https://community.purestorage.com/discussion/9561/join-the-new-pure-code-slack-team-for-api-and-extensibility-discussions)\n\
+    \n## Authenticate using API Token\nTo get an API Key, you can do POST /auth/apitoken\
+    \ with your user/pass using the 1.x API, then use your API key with POST /login.\
+    \  The array returns \na header  with the name \"x-auth-token\".  This swagger\
+    \ UI tool, translates that into a cookie so the webbrowser will send on subsequent\
+    \ calls.  This Swagger UI tool then\ntranslates that cookie back into a header\
+    \ when making the API request to the array.\n\n## Authenticate using OAuth\n###\
+    \ Manually generate an id_token \n\n### \n\nIntro to how OAuth2 works with the\
+    \ 2.0 version: [Intro](https://support.purestorage.com/FlashArray/PurityFA/Purity_FA_REST_API/Reference/REST_API_2.0_Authentication_Guide)"
+  title: FlashArray REST API
+  version: '2.34'
+paths:
+  /api/2.34/active-directory:
+    $ref: ../paths/FA2.15/active-directory.path.yaml
+  /api/2.34/admins:
+    $ref: ../paths/FA2.32/admins.path.yaml
+  /api/2.34/admins/api-tokens:
+    $ref: ../paths/FA2.2/admins-api-tokens.path.yaml
+  /api/2.34/admins/cache:
+    $ref: ../paths/FA2.2/admins-cache.path.yaml
+  /api/2.34/admins/settings:
+    $ref: ../paths/FA2.32/admin-settings.path.yaml
+  /api/2.34/alert-watchers:
+    $ref: ../paths/FA2.4/alert-watchers.path.yaml
+  /api/2.34/alert-watchers/test:
+    $ref: ../paths/FA2.4/alert-watchers-test.path.yaml
+  /api/2.34/alerts:
+    $ref: ../paths/FA2.2/alerts.path.yaml
+  /api/2.34/alerts/events:
+    $ref: ../paths/FA2.2/alerts-events.yaml
+  /api/2.34/alerts/rules:
+    $ref: ../paths/FA2.23/alert-rules.path.yaml
+  /api/2.34/alerts/rules/catalog:
+    $ref: ../paths/FA2.23/alert-rules-catalog.path.yaml
+  /api/2.34/api-clients:
+    $ref: ../paths/FA2.1/api-clients.path.yaml
+  /api/2.34/apps:
+    $ref: ../paths/FA2.2/apps.path.yaml
+  /api/2.34/apps/nodes:
+    $ref: ../paths/FA2.2/apps-nodes.path.yaml
+  /api/2.34/array-connections:
+    $ref: ../paths/FA2.33/array-connections.path.yaml
+  /api/2.34/array-connections/connection-key:
+    $ref: ../paths/FA2.33/array-connection-key.path.yaml
+  /api/2.34/array-connections/path:
+    $ref: ../paths/FA2.33/array-connections-path.path.yaml
+  /api/2.34/arrays:
+    $ref: ../paths/FA2.34/arrays.path.yaml
+  /api/2.34/arrays/cloud-capacity:
+    $ref: ../paths/FA2.29/arrays-cloud-capacity.path.yaml
+  /api/2.34/arrays/cloud-capacity/supported-steps:
+    $ref: ../paths/FA2.29/arrays-cloud-capacity-steps.path.yaml
+  /api/2.34/arrays/cloud-provider-tags:
+    $ref: ../paths/FA2.6/arrays-cloud-provider-tags.path.yaml
+  /api/2.34/arrays/cloud-provider-tags/batch:
+    $ref: ../paths/FA2.6/arrays-cloud-provider-tags-batch.path.yaml
+  /api/2.34/arrays/erasures:
+    $ref: ../paths/FA2.34/arrays-erasures.path.yaml
+  /api/2.34/arrays/eula:
+    $ref: ../paths/FA2.30/arrays-eula.path.yaml
+  /api/2.34/arrays/factory-reset-token:
+    $ref: ../paths/FA2.4/arrays-factory-reset-token.path.yaml
+  /api/2.34/arrays/ntp-test:
+    $ref: ../paths/FA2.2/arrays-ntp-test.path.yaml
+  /api/2.34/arrays/performance:
+    $ref: ../paths/FA2.4/arrays-performance.path.yaml
+  /api/2.34/arrays/performance/by-link:
+    $ref: ../paths/FA2.19/array-performance-by-link.path.yaml
+  /api/2.34/arrays/space:
+    $ref: ../paths/FA2.34/arrays-space.path.yaml
+  /api/2.34/arrays/tags:
+    $ref: ../paths/FA2.34/arrays-tags.path.yaml
+  /api/2.34/arrays/tags/batch:
+    $ref: ../paths/FA2.34/arrays-tags-batch.path.yaml
+  /api/2.34/audits:
+    $ref: ../paths/FA2.2/audits.path.yaml
+  /api/2.34/certificates:
+    $ref: ../paths/FA2.4/certificates.path.yaml
+  /api/2.34/certificates/certificate-signing-requests:
+    $ref: ../paths/FA2.4/certificate-signing-requests.path.yaml
+  /api/2.34/connections:
+    $ref: ../paths/FA2.27/connections.path.yaml
+  /api/2.34/container-default-protections:
+    $ref: ../paths/FA2.26/container-default-protections.path.yaml
+  /api/2.34/controllers:
+    $ref: ../paths/FA2.30/controllers.path.yaml
+  /api/2.34/directories:
+    $ref: ../paths/FA2.34/directories.path.yaml
+  /api/2.34/directories/locks/nlm-reclamations:
+    $ref: ../paths/FA2.21/directories-locks-nlm-reclamations.path.yaml
+  /api/2.34/directories/performance:
+    $ref: ../paths/FA2.3/directories-performance.path.yaml
+  /api/2.34/directories/policies:
+    $ref: ../paths/FA2.21/directories-policies.path.yaml
+  /api/2.34/directories/policies/autodir:
+    $ref: ../paths/FA2.24/directories-policies-autodir.path.yaml
+  /api/2.34/directories/policies/nfs:
+    $ref: ../paths/FA2.32/directories-policies-nfs.path.yaml
+  /api/2.34/directories/policies/quota:
+    $ref: ../paths/FA2.21/directories-policies-quota.path.yaml
+  /api/2.34/directories/policies/smb:
+    $ref: ../paths/FA2.32/directories-policies-smb.path.yaml
+  /api/2.34/directories/policies/snapshot:
+    $ref: ../paths/FA2.21/directories-policies-snapshot.path.yaml
+  /api/2.34/directories/space:
+    $ref: ../paths/FA2.34/directories-space.path.yaml
+  /api/2.34/directory-exports:
+    $ref: ../paths/FA2.32/directory-exports.path.yaml
+  /api/2.34/directory-quotas:
+    $ref: ../paths/FA2.7/directory-quotas.path.yaml
+  /api/2.34/directory-services:
+    $ref: ../paths/FA2.32/directory-services.path.yaml
+  /api/2.34/directory-services/local/groups:
+    $ref: ../paths/FA2.21/local-groups.path.yaml
+  /api/2.34/directory-services/local/groups/members:
+    $ref: ../paths/FA2.21/local-groups-members.path.yaml
+  /api/2.34/directory-services/local/users:
+    $ref: ../paths/FA2.21/local-users.path.yaml
+  /api/2.34/directory-services/local/users/members:
+    $ref: ../paths/FA2.21/local-users-members.path.yaml
+  /api/2.34/directory-services/roles:
+    $ref: ../paths/FA2.30/directory-services-roles.path.yaml
+  /api/2.34/directory-services/test:
+    $ref: ../paths/FA2.2/directory-services-test.path.yaml
+  /api/2.34/directory-snapshots:
+    $ref: ../paths/FA2.34/directory-snapshots.path.yaml
+  /api/2.34/dns:
+    $ref: ../paths/FA2.15/dns.path.yaml
+  /api/2.34/drives:
+    $ref: ../paths/FA2.4/drives.path.yaml
+  /api/2.34/file-systems:
+    $ref: ../paths/FA2.13/file-systems.path.yaml
+  /api/2.34/files:
+    $ref: ../paths/FA2.26/files.path.yaml
+  /api/2.34/hardware:
+    $ref: ../paths/FA2.2/hardware.path.yaml
+  /api/2.34/host-groups:
+    $ref: ../paths/FA2.34/host-groups.path.yaml
+  /api/2.34/host-groups/hosts:
+    $ref: ../paths/FA2.1/host-groups-hosts-members.path.yaml
+  /api/2.34/host-groups/performance:
+    $ref: ../paths/FA2.16/host-groups-performance.path.yaml
+  /api/2.34/host-groups/performance/by-array:
+    $ref: ../paths/FA2.16/host-groups-performance-by-array.path.yaml
+  /api/2.34/host-groups/protection-groups:
+    $ref: ../paths/FA2.26/host-groups-protection-groups-members.path.yaml
+  /api/2.34/host-groups/space:
+    $ref: ../paths/FA2.34/host-groups-space.path.yaml
+  /api/2.34/host-groups/tags:
+    $ref: ../paths/FA2.34/host-groups-tags.path.yaml
+  /api/2.34/host-groups/tags/batch:
+    $ref: ../paths/FA2.34/host-groups-tags-batch.path.yaml
+  /api/2.34/hosts:
+    $ref: ../paths/FA2.34/hosts.path.yaml
+  /api/2.34/hosts/host-groups:
+    $ref: ../paths/FA2.1/hosts-host-groups-members.path.yaml
+  /api/2.34/hosts/performance:
+    $ref: ../paths/FA2.16/hosts-performance.path.yaml
+  /api/2.34/hosts/performance/balance:
+    $ref: ../paths/FA2.4/hosts-performance-balance.path.yaml
+  /api/2.34/hosts/performance/by-array:
+    $ref: ../paths/FA2.16/hosts-performance-by-array.path.yaml
+  /api/2.34/hosts/protection-groups:
+    $ref: ../paths/FA2.26/hosts-protection-groups-members.path.yaml
+  /api/2.34/hosts/space:
+    $ref: ../paths/FA2.34/hosts-space.path.yaml
+  /api/2.34/hosts/tags:
+    $ref: ../paths/FA2.34/hosts-tags.path.yaml
+  /api/2.34/hosts/tags/batch:
+    $ref: ../paths/FA2.34/hosts-tags-batch.path.yaml
+  /api/2.34/kmip:
+    $ref: ../paths/FA2.24/kmip.path.yaml
+  /api/2.34/kmip/test:
+    $ref: ../paths/FA2.2/kmip-test.path.yaml
+  /api/2.34/login:
+    $ref: ../paths/FA2.0/login.path.yaml
+  /api/2.34/logout:
+    $ref: ../paths/FA2.0/logout.path.yaml
+  /api/2.34/maintenance-windows:
+    $ref: ../paths/FA2.2/maintenance-windows.path.yaml
+  /api/2.34/network-interfaces:
+    $ref: ../paths/FA2.30/network-interfaces.path.yaml
+  /api/2.34/network-interfaces/neighbors:
+    $ref: ../paths/FA2.22/network-interfaces-neighbors.path.yaml
+  /api/2.34/network-interfaces/performance:
+    $ref: ../paths/FA2.4/network-interfaces-performance.path.yaml
+  /api/2.34/network-interfaces/port-details:
+    $ref: ../paths/FA2.16/network-interfaces-port-details.path.yaml
+  /api/2.34/offloads:
+    $ref: ../paths/FA2.34/offloads.path.yaml
+  /api/2.34/pod-replica-links:
+    $ref: ../paths/FA2.2/pod-replica-links.path.yaml
+  /api/2.34/pod-replica-links/lag:
+    $ref: ../paths/FA2.2/pod-replica-links-lag.path.yaml
+  /api/2.34/pod-replica-links/mappings/policies:
+    $ref: ../paths/FA2.32/pod-replica-links-mappings-policies.yaml
+  /api/2.34/pod-replica-links/performance/replication:
+    $ref: ../paths/FA2.4/pod-replica-links-performance-replication.path.yaml
+  /api/2.34/pods:
+    $ref: ../paths/FA2.34/pods.path.yaml
+  /api/2.34/pods/arrays:
+    $ref: ../paths/FA2.1/pods-arrays-members.path.yaml
+  /api/2.34/pods/performance:
+    $ref: ../paths/FA2.13/pods-performance.path.yaml
+  /api/2.34/pods/performance/by-array:
+    $ref: ../paths/FA2.13/pods-performance-by-array.path.yaml
+  /api/2.34/pods/performance/replication:
+    $ref: ../paths/FA2.4/pods-performance-replication.path.yaml
+  /api/2.34/pods/performance/replication/by-array:
+    $ref: ../paths/FA2.4/pods-performance-replication-by-array.path.yaml
+  /api/2.34/pods/space:
+    $ref: ../paths/FA2.34/pods-space.path.yaml
+  /api/2.34/pods/test:
+    $ref: ../paths/FA2.31/pods-test.path.yaml
+  /api/2.34/policies:
+    $ref: ../paths/FA2.24/policies.path.yaml
+  /api/2.34/policies/alert-watcher:
+    $ref: ../paths/FA2.33/policies-alert-watcher.path.yaml
+  /api/2.34/policies/alert-watcher/members:
+    $ref: ../paths/FA2.33/policies-alert-watcher-members.path.yaml
+  /api/2.34/policies/alert-watcher/rules:
+    $ref: ../paths/FA2.33/policies-alert-watcher-rules.path.yaml
+  /api/2.34/policies/alert-watcher/rules/test:
+    $ref: ../paths/FA2.33/policy-alert-watcher-rule-test.path.yaml
+  /api/2.34/policies/autodir:
+    $ref: ../paths/FA2.24/policies-autodir.path.yaml
+  /api/2.34/policies/autodir/members:
+    $ref: ../paths/FA2.24/policies-autodir-members.path.yaml
+  /api/2.34/policies/members:
+    $ref: ../paths/FA2.21/policies-members.path.yaml
+  /api/2.34/policies/nfs:
+    $ref: ../paths/FA2.32/policies-nfs.path.yaml
+  /api/2.34/policies/nfs/client-rules:
+    $ref: ../paths/FA2.29/policies-nfs-client-rules.path.yaml
+  /api/2.34/policies/nfs/members:
+    $ref: ../paths/FA2.32/policies-nfs-members.path.yaml
+  /api/2.34/policies/password:
+    $ref: ../paths/FA2.34/policies-password.path.yaml
+  /api/2.34/policies/quota:
+    $ref: ../paths/FA2.24/policies-quota.path.yaml
+  /api/2.34/policies/quota/members:
+    $ref: ../paths/FA2.21/policies-quota-members.path.yaml
+  /api/2.34/policies/quota/rules:
+    $ref: ../paths/FA2.21/policies-quota-rules.path.yaml
+  /api/2.34/policies/smb:
+    $ref: ../paths/FA2.32/policies-smb.path.yaml
+  /api/2.34/policies/smb/client-rules:
+    $ref: ../paths/FA2.21/policies-smb-client-rules.path.yaml
+  /api/2.34/policies/smb/members:
+    $ref: ../paths/FA2.32/policies-smb-members.path.yaml
+  /api/2.34/policies/snapshot:
+    $ref: ../paths/FA2.24/policies-snapshot.path.yaml
+  /api/2.34/policies/snapshot/members:
+    $ref: ../paths/FA2.21/policies-snapshot-members.path.yaml
+  /api/2.34/policies/snapshot/rules:
+    $ref: ../paths/FA2.21/policies-snapshot-rules.path.yaml
+  /api/2.34/ports:
+    $ref: ../paths/FA2.2/ports.path.yaml
+  /api/2.34/ports/initiators:
+    $ref: ../paths/FA2.2/port-initiators.path.yaml
+  /api/2.34/protection-group-snapshots:
+    $ref: ../paths/FA2.34/protection-group-snapshots.path.yaml
+  /api/2.34/protection-group-snapshots/replica:
+    $ref: ../paths/FA2.34/protection-group-snapshots-replica.path.yaml
+  /api/2.34/protection-group-snapshots/test:
+    $ref: ../paths/FA2.34/protection-group-snapshots-test.path.yaml
+  /api/2.34/protection-group-snapshots/transfer:
+    $ref: ../paths/FA2.29/protection-group-snapshots-transfer.path.yaml
+  /api/2.34/protection-groups:
+    $ref: ../paths/FA2.34/protection-groups.path.yaml
+  /api/2.34/protection-groups/host-groups:
+    $ref: ../paths/FA2.26/protection-groups-host-groups-members.path.yaml
+  /api/2.34/protection-groups/hosts:
+    $ref: ../paths/FA2.26/protection-groups-hosts-members.path.yaml
+  /api/2.34/protection-groups/performance/replication:
+    $ref: ../paths/FA2.26/protection-groups-performance-replication.path.yaml
+  /api/2.34/protection-groups/performance/replication/by-array:
+    $ref: ../paths/FA2.26/protection-groups-performance-replication-by-array.path.yaml
+  /api/2.34/protection-groups/space:
+    $ref: ../paths/FA2.34/protection-groups-space.path.yaml
+  /api/2.34/protection-groups/targets:
+    $ref: ../paths/FA2.26/protection-groups-targets.path.yaml
+  /api/2.34/protection-groups/volumes:
+    $ref: ../paths/FA2.26/protection-groups-volumes-members.path.yaml
+  /api/2.34/remote-pods:
+    $ref: ../paths/FA2.1/remote-pods.path.yaml
+  /api/2.34/remote-protection-group-snapshots:
+    $ref: ../paths/FA2.26/remote-protection-group-snapshots.path.yaml
+  /api/2.34/remote-protection-group-snapshots/test:
+    $ref: ../paths/FA2.26/remote-protection-group-snapshots-test.path.yaml
+  /api/2.34/remote-protection-group-snapshots/transfer:
+    $ref: ../paths/FA2.26/remote-protection-group-snapshots-transfer.path.yaml
+  /api/2.34/remote-protection-groups:
+    $ref: ../paths/FA2.1/remote-protection-groups.path.yaml
+  /api/2.34/remote-volume-snapshots:
+    $ref: ../paths/FA2.28/remote-volume-snapshots.path.yaml
+  /api/2.34/remote-volume-snapshots/transfer:
+    $ref: ../paths/FA2.1/remote-volume-snapshots-transfer.path.yaml
+  /api/2.34/sessions:
+    $ref: ../paths/FA2.4/sessions.path.yaml
+  /api/2.34/smi-s:
+    $ref: ../paths/FA2.2/smis.path.yaml
+  /api/2.34/smtp-servers:
+    $ref: ../paths/FA2.33/smtp-server.path.yaml
+  /api/2.34/snmp-agents:
+    $ref: ../paths/FA2.4/snmp-agent.path.yaml
+  /api/2.34/snmp-agents/mib:
+    $ref: ../paths/FA2.4/snmp-agent-mib.path.yaml
+  /api/2.34/snmp-managers:
+    $ref: ../paths/FA2.4/snmp-manager.path.yaml
+  /api/2.34/snmp-managers/test:
+    $ref: ../paths/FA2.4/snmp-manager-test.path.yaml
+  /api/2.34/software:
+    $ref: ../paths/FA2.11/software.path.yaml
+  /api/2.34/software-bundle:
+    $ref: ../paths/FA2.5/software-bundle.path.yaml
+  /api/2.34/software-check:
+    $ref: ../paths/FA2.9/software-checks.path.yaml
+  /api/2.34/software-installation-steps:
+    $ref: ../paths/FA2.4/software-installation-steps.path.yaml
+  /api/2.34/software-installations:
+    $ref: ../paths/FA2.9/software-installations.path.yaml
+  /api/2.34/software-patches:
+    $ref: ../paths/FA2.29/software-patches.path.yaml
+  /api/2.34/software-patches/catalog:
+    $ref: ../paths/FA2.29/software-patches-catalog.path.yaml
+  /api/2.34/software-versions:
+    $ref: ../paths/FA2.9/software-versions.path.yaml
+  /api/2.34/sso/saml2/idps:
+    $ref: ../paths/FA2.11/saml2-sso.path.yaml
+  /api/2.34/sso/saml2/idps/test:
+    $ref: ../paths/FA2.11/saml2-sso-test.path.yaml
+  /api/2.34/subnets:
+    $ref: ../paths/FA2.2/subnets.path.yaml
+  /api/2.34/subscription-assets:
+    $ref: ../paths/FA2.26/subscription-assets.path.yaml
+  /api/2.34/subscriptions:
+    $ref: ../paths/FA2.26/subscriptions.path.yaml
+  /api/2.34/support:
+    $ref: ../paths/FA2.2/support.path.yaml
+  /api/2.34/support/test:
+    $ref: ../paths/FA2.2/support-test.path.yaml
+  /api/2.34/syslog-servers:
+    $ref: ../paths/FA2.4/syslog-servers.path.yaml
+  /api/2.34/syslog-servers/settings:
+    $ref: ../paths/FA2.9/syslog-servers-settings.path.yaml
+  /api/2.34/syslog-servers/test:
+    $ref: ../paths/FA2.4/syslog-servers-test.path.yaml
+  /api/2.34/vchost-connections:
+    $ref: ../paths/FA2.33/vchost-connections.path.yaml
+  /api/2.34/vchosts:
+    $ref: ../paths/FA2.26/vchosts.path.yaml
+  /api/2.34/vchosts/certificates:
+    $ref: ../paths/FA2.33/vchost-certificate.path.yaml
+  /api/2.34/vchosts/endpoints:
+    $ref: ../paths/FA2.33/vchost-endpoint.path.yaml
+  /api/2.34/virtual-machine-snapshots:
+    $ref: ../paths/FA2.14/virtual-machine-snapshots.path.yaml
+  /api/2.34/virtual-machines:
+    $ref: ../paths/FA2.14/virtual-machines.path.yaml
+  /api/2.34/volume-groups:
+    $ref: ../paths/FA2.34/volume-groups.path.yaml
+  /api/2.34/volume-groups/performance:
+    $ref: ../paths/FA2.4/volume-groups-performance.path.yaml
+  /api/2.34/volume-groups/space:
+    $ref: ../paths/FA2.34/volume-groups-space.path.yaml
+  /api/2.34/volume-groups/volumes:
+    $ref: ../paths/FA2.1/volume-groups-volumes-members.path.yaml
+  /api/2.34/volume-snapshots:
+    $ref: ../paths/FA2.34/volume-snapshots.path.yaml
+  /api/2.34/volume-snapshots/tags:
+    $ref: ../paths/FA2.9/volume-snapshots-tags.path.yaml
+  /api/2.34/volume-snapshots/tags/batch:
+    $ref: ../paths/FA2.2/volume-snapshots-tags-batch.path.yaml
+  /api/2.34/volume-snapshots/test:
+    $ref: ../paths/FA2.25/volume-snapshots-test.path.yaml
+  /api/2.34/volume-snapshots/transfer:
+    $ref: ../paths/FA2.29/volume-snapshots-transfer.path.yaml
+  /api/2.34/volumes:
+    $ref: ../paths/FA2.34/volumes.path.yaml
+  /api/2.34/volumes/batch:
+    $ref: ../paths/FA2.34/volumes-batch.path.yaml
+  /api/2.34/volumes/batch/test:
+    $ref: ../paths/FA2.33/volumes-batch-test.path.yaml
+  /api/2.34/volumes/diff:
+    $ref: ../paths/FA2.9/volumes-diff.path.yaml
+  /api/2.34/volumes/performance:
+    $ref: ../paths/FA2.4/volumes-performance.path.yaml
+  /api/2.34/volumes/performance/by-array:
+    $ref: ../paths/FA2.4/volumes-performance-by-array.path.yaml
+  /api/2.34/volumes/protection-groups:
+    $ref: ../paths/FA2.26/volumes-protection-groups-members.path.yaml
+  /api/2.34/volumes/space:
+    $ref: ../paths/FA2.34/volumes-space.path.yaml
+  /api/2.34/volumes/tags:
+    $ref: ../paths/FA2.9/volumes-tags.path.yaml
+  /api/2.34/volumes/tags/batch:
+    $ref: ../paths/FA2.2/volumes-tags-batch.path.yaml
+  /api/2.34/volumes/test:
+    $ref: ../paths/FA2.33/volumes-test.path.yaml
+  /api/2.34/volumes/volume-groups:
+    $ref: ../paths/FA2.1/volumes-volume-groups-members.path.yaml
+  /api/api_version:
+    $ref: ../paths/FA2.0/api_version.path.yaml
+  /oauth2/1.0/token:
+    $ref: ../paths/TEx-v2/oauth-token.path.yaml
+  /oauth2_pub_priv_key_pair:
+    get:
+      description: "Returns a public and private key pair, This is not part of the\
+        \ FlashArray API, \nit's a helper endpoint making it easier to generate an\
+        \ oauth2 token_id in this Swagger UI. \nThey keys are generated in the Docker\
+        \ container running on this machine.\n\nRecommend to NOT use this API but\
+        \ to use OpenSSL instead for production use cases:\n  You can generate a public\
+        \ and private RSA key pair like this:\n\n    openssl genrsa -des3 -out private.pem\
+        \ 2048\n    \n    That generates a 2048-bit RSA key pair, encrypts them with\
+        \ a password you provide and writes them to a file. \n    You need to next\
+        \ extract the public key file. You will use this, for instance, on your web\
+        \ server to encrypt \n    content so that it can only be read with the private\
+        \ key.\n    \n    Export the RSA Public Key to a File\n    This is a command\
+        \ that is\n    \n    openssl rsa -in private.pem -outform PEM -pubout -out\
+        \ public.pem"
+      responses:
+        200:
+          description: Token Generated
+          schema:
+            properties:
+              private_key:
+                description: Private key in PEM format.
+                type: string
+              public_key:
+                description: Public key in PEM format.
+                type: string
+            type: object
+      tags:
+      - Auth Helpers
+  /oauth2_token_from_private_key:
+    post:
+      consumes:
+      - text/plain
+      description: "Authenticates to Flasharray, This returns a token_id (think session\
+        \ id), from an existing API Client, \nThis is not part of the FlashArray API,\
+        \ it's a helper endpoint making it easy to generate an \noauth2 token_id in\
+        \ this Swagger UI.  The private key is being passed into the Docker container\
+        \ in\norder to sign the JWT token.  Take a look at the Docker container output\
+        \ to see more details \nof what is happening.\n\nCopy the output value, Authorization\
+        \ header, and then click on the green Authorize button at the \ntop of the\
+        \ page.  Paste in the value into "
+      parameters:
+      - description: Issuer value displayed in the FlashArray API Registration page
+          or pureapiclient list ) by default it's the same name as API Client
+        in: header
+        name: issuer_name
+        type: string
+      - description: Client Id value displayed in the FlashArray API Registration
+          page or pureapiclient list
+        in: header
+        name: client_id
+        type: string
+      - description: Key Id value displayed in the FlashArray API Registration page
+          or pureapiclient list
+        in: header
+        name: key_id
+        type: string
+      - description: The name of a valid user on the FlashArray that will be authenticated
+          to.
+        in: header
+        name: username
+        type: string
+      - description: Private key in PEM format that was used to create the Public
+          key for this API Client specified as the issuer in this call.
+        in: body
+        name: private_key
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        200:
+          description: Token Generated
+          schema:
+            example:
+              username: pureuser
+            properties:
+              Authorization:
+                description: An OAuth bearer token to be used in the Authorization
+                  header for authorization to API endpoints.
+                type: string
+              description:
+                desciption: How to use token
+                type: string
+            type: object
+      tags:
+      - Auth Helpers
+produces:
+- application/json
+security:
+- OAuth2-Bearer-Token: []
+- X-Auth-Token: []
+securityDefinitions:
+  OAuth2-Bearer-Token:
+    in: header
+    name: Authorization
+    type: apiKey
+  X-Auth-Token:
+    in: header
+    name: x-auth-token
+    type: apiKey
+swagger: '2.0'
+tags:
+- description: A set of endpoints not in the Purity API, but to make OAuth using this
+    tool simple and easy to understand.
+  name: Auth Helpers
+- description: Pure Storage uses the OAuth 2.0 Token Exchange authorization grant
+    and JSON Web Tokens (JWTs) to authenticate to the Pure Storage REST API. Before
+    you can exchange the ID token for an access token, create and enable the API client
+    to generate the `key_id`, `id`, and `issuer` values. These values will be used
+    as JWT claims for the `subject_token` parameter.
+  name: Authorization
+- description: Active Directory configuration authenticates users for NFS using Kerberos
+    or SMB using Kerberos or New Technology LAN Manager (NTLM). Active Directory is
+    also used to authorize users by mapping identities across the NFS and SMB protocols
+    by using LDAP queries.
+  name: Active Directory
+- description: The FlashArray has a single default administrative account named pureuser.
+    The administrator can add, delete, and modify administrators on the array. Administrator
+    roles may be assigned to user accounts including `array_admin`, `storage_admin`,
+    and `readonly`.
+  name: Administrators
+- description: Alerts indicate significant events that occur on an array, including
+    whenever a component degrades or the capacity threshold of the component is reached.
+  name: Alerts
+- description: Alert watchers receive email notifications when alerts occur on an
+    array.
+  name: Alert Watchers
+- description: An API client represents an identity type. API clients are created
+    on the array. To create an API client, register and then enable it on the array.
+    After the API client has been created, the user name (`sub`) and identity tokens
+    (`kid` and `aud` tokens) that are issued by the API client are used as claims
+    for the JSON Web Token that you create to authenticate into the REST API.
+  name: API Clients
+- description: Apps that extend array functionality can be integrated into the Purity//FA
+    operating system.
+  name: Apps
+- description: Array features provide the ability to configure settings that affect
+    the operation of the array as a whole and monitor array I/O performance.
+  name: Arrays
+- description: Manages connections between arrays.
+  name: Array Connections
+- description: Audit trail records describe administrative actions performed by a
+    user to modify the configuration of an array.
+  name: Audits
+- description: Purity//FA creates a self-signed certificate and private key when you
+    start the system for the first time. You can use the default certificate, change
+    the certificate attributes, create a new self-signed certificate, or import an
+    SSL certificate signed by a certificate authority.
+  name: Certificates
+- description: A connection gives hosts access to volumes on the array.
+  name: Connections
+- description: Default protection is a list of protection groups that are applied
+    to newly created volumes. Volumes can opt out of the default protection at creation.
+    The pod's `default_protections` defaults to the array's `default_protections`
+    at pod creation. Default protection can be configured on the array and the pod.
+  name: Container Default Protections
+- description: Controller data includes the name, mode, FlashArray model, Purity//FA
+    software version, and status of each controller in the array.
+  name: Controllers
+- description: Important file system directories should be set up as managed directories.
+    Managed directories can have policies attached to them. Managed directories differ
+    from standard directories in that they provide space reporting and metrics.
+  name: Directories
+- description: Managed directory exports are created by adding NFS or SMB export policies
+    to managed directories.
+  name: Directory Exports
+- description: Directory quotas provide the ability to set capacity limits on managed
+    directories.
+  name: Directory Quotas
+- description: Manages directory service configurations for integration with LDAP
+    servers (e.g. Active Directory and OpenLDAP) in order to support various array
+    services.
+  name: Directory Services
+- description: Directory snapshots are created manually or by adding snapshot policies
+    to managed directories. Each snapshot policy can be re-used for multiple directories.
+  name: Directory Snapshots
+- description: DNS attributes include the domain suffix, static name servers, mode
+    (static or DHCP), and search domain. The configured attributes can be listed.
+  name: DNS
+- description: Drive data includes the name, type, status, capacity, protocol and
+    other information for all flash, NVRAM, and cache modules in an array.
+  name: Drives
+- description: A FlashArray can contain up to 24 separate file systems, each with
+    a number of directories that can be exported via supported protocols. Clients,
+    using Active Directory or LDAP, can connect and access these exports using SMB
+    or NFS.
+  name: File Systems
+- description: Operational status is reported by most of the hardware components in
+    an array, including the chassis, controller, and storage shelf.
+  name: Hardware
+- description: Host groups implement consistent connections between a set of hosts
+    and one or more volumes. Connections are consistent in the sense that all hosts
+    associated with a host group address a volume connected to the group by the same
+    LUN. Host groups are typically used to provide a common view of storage volumes
+    to the hosts in a clustered application.
+  name: Host Groups
+- description: Hosts organize the storage network addresses (iSCSI Qualified Names,
+    NVMe qualified names, or Fibre Channel world wide names) of client computers to
+    identify the host's intiators. Hosts also control communications between clients
+    and volumes. After a volume has been created, establish a host-volume connection
+    so that the host can read data from and write data to the volume.
+  name: Hosts
+- description: The Key Management Interoperability Protocol (KMIP) server is used
+    in combination with the Pure Storage Rapid Data Locking (RDL) feature and EncryptReduce
+    feature to further secure the encrypted data on a FlashArray.
+  name: KMIP
+- description: During a maintenance window, alerts are suppressed that are related
+    to connections, paths, ports, and other resources that are down during maintenance.
+  name: Maintenance Windows
+- description: Manages the interfaces and the network connection attributes of the
+    array.
+  name: Network Interfaces
+- description: The offload feature enables system administrators to replicate point-in-time
+    volume snapshots from the array to an external storage system for long-term retention.
+    Each offload target represents an external storage system, such as an Azure Blob
+    container, NFS device, or S3 bucket, to where Purity//FA volume snapshots can
+    be replicated.
+  name: Offloads
+- description: Synchronous replication is managed through pods. A pod representing
+    a collection of protection groups and volumes is created on one array and stretched
+    to another array, resulting in fully synchronized writes between the two arrays.
+    A pod can contain a mix of volumes, and protection groups with member volumes.
+    Writes to the pod coming into either array are immediately synchronized and seen
+    on both arrays.
+  name: Pods
+- description: Pod replica links are created by associating a source pod with a demoted
+    pod, making the demoted pod the target pod of the source pod. The direction of
+    the replica link is from the promoted source pod to the demoted target pod. Replica
+    links can be created in either direction between the same two FlashArrays. The
+    target pod of a replica link cannot be on the same FlashArray as the source pod.
+  name: Pod Replica Links
+- description: Policies are used to create exports (i.e., shares) and schedule snapshots.
+    NFS and SMB policies can be created and have one or more rules applied to them.
+    Each policy can be reused, creating exports for a number of managed directories.
+  name: Policies
+- description: The ports on a FlashArray are assigned iSCSI Qualified Names (IQNs),
+    NVMe Qualified Names (NQNs), and Fibre Channel World Wide Names (WWNs).
+  name: Ports
+- description: A protection group defines a set of volumes, hosts, or host groups
+    (called members) that are protected together through snapshots with point-in-time
+    consistency across the member volumes. The members within the protection group
+    have common data protection requirements and the same snapshot, replication, and
+    retention schedules.
+  name: Protection Groups
+- description: Protection group snapshots capture the content of all volumes on the
+    source array for the specified protection group at a single point in time.
+  name: Protection Group Snapshots
+- description: A remote pod represents a pod that is on a connected array but not
+    stretched to this array.
+  name: Remote Pods
+- description: A remote protection group represents a protection group that resides
+    on an offload target with the source side of the remote protection group being
+    another array that is connected to the local array. The local array can only see
+    the remote protection groups of other arrays if the two arrays are connected.
+  name: Remote Protection Groups
+- description: A remote protection group snapshot represents a protection group snapshot
+    that resides on an offload target with the source side of the remote protection
+    group snapshot being another array that is connected to the local array. The local
+    array can only see the remote protection group snapshots of other arrays if the
+    two arrays are connected.
+  name: Remote Protection Group Snapshots
+- description: A remote volume snapshot represents a volume snapshot that resides
+    on an offload target with the source side of the remote volume snapshot being
+    another array that is connected to the local array. The local array can only see
+    the remote volume snapshots of other arrays if the two arrays are connected.
+  name: Remote Volume Snapshots
+- description: SAML2 SSO allows customers to configure settings of SAML2 service provider
+    and identity provider. It provides a multi-factor authentication (MFA) mechanism
+    for customers to log in to FlashArray.
+  name: SAML2 SSO
+- description: Manages Purity//FA login and user session data.
+  name: Sessions
+- description: Manages the Pure Storage Storage Management Initiative Specification
+    (SMI-S).
+  name: SMI-S
+- description: Manages connections to Simple Network Management Protocol (SMTP) managers.
+  name: SMTP
+- description: Manages connections to Simple Network Management Protocol (SNMP) agents.
+  name: SNMP Agents
+- description: Manages connections to Simple Network Management Protocol (SNMP) managers.
+  name: SNMP Managers
+- description: Software to be installed on the array.
+  name: Software
+- description: Manages the subnets and VLANs used to organize the network interfaces.
+  name: Subnets
+- description: Provides information about subscription offerings.
+  name: Subscriptions
+- description: Provides information about subscription assets.
+  name: Subscription Assets
+- description: Enables Support to fix bugs and help customers solve problems. Support
+    tools include proxy, phonehome, and remote assist.
+  name: Support
+- description: Manages connections to syslog servers.
+  name: Syslog
+- description: A vchost connection is between a protocol endpoint and vchost. In the
+    context of vchost-connection, the vchost represents a vCenter, and the protocol
+    endpoint is used to represent a storage container. Creating a vchost connection
+    gives the vCenter access to the storage container. If `all_vchosts` is set to
+    `true`, the container will be accessible to all vchosts.
+  name: Vchost Connections
+- description: A volume represents a container that manages the storage space on the
+    array. After a volume has been created, host-volume connections must be established
+    so that the host can read data from and write data to the volume. Volume data
+    should be protected using asynchronous replication to a remote array, synchronous
+    replication between remote arrays, and replication to external storage systems.
+  name: Volumes
+- description: Volume groups organize volumes into logical groupings. If virtual volumes
+    are configured, each volume group on the FlashArray array represents its associated
+    virtual machine, and inside each of those volumes groups are the FlashArray volumes
+    that are assigned to the virtual machine. Volume groups that are associated with
+    virtual machines have names that begin with `vvol-` and end with the virtual machine
+    name.
+  name: Volume Groups
+- description: Volume snapshots are immutable, point-in-time images of the contents
+    of one or more volumes. There are two types of volume snapshots&#58; volume snapshots
+    and protection group volume snapshots. A volume snapshot is a snapshot that captures
+    the contents of a single volume. A protection group volume snapshot is a volume
+    snapshot that is created from a group of volumes that are part of the same protection
+    group. All of the volume snapshots created from a protection group snapshot are
+    point-in-time consistent with each other.
+  name: Volume Snapshots

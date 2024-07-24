@@ -167,6 +167,8 @@ definitions:
     $ref: ../models/FB2.2/resource-performance-replication.yaml
   Role:
     $ref: ../models/FB2.0/role.yaml
+  SMTP:
+    $ref: ../models/FB2.0/smtp-server.yaml
   SNMPManager:
     $ref: ../models/FB2.0/snmp-manager.yaml
   SNMPManagerTest:
@@ -181,8 +183,6 @@ definitions:
     $ref: ../models/FB2.12/smb-share-policy.yaml
   SmbSharePolicyRule:
     $ref: ../models/FB2.10/smb-share-policy-rule.yaml
-  Smtp:
-    $ref: ../models/FB2.0/smtp-server.yaml
   SnmpAgent:
     $ref: ../models/FB2.0/snmp-agent.yaml
   Subnet:
