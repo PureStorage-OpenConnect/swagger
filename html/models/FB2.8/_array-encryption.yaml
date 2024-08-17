@@ -1,0 +1,6 @@
+type: object
+readOnly: true
+properties:
+  data_at_rest:
+    allOf:
+    - $ref: ../../models/FB2.8/_array-encryption-data-at-rest.yaml
