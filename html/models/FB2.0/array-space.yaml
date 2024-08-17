@@ -13,7 +13,7 @@ allOf:
       format: float
       example: 0.99
     space:
-      $ref: ../FB2.0/_space.yaml
+      $ref: ../../models/FB2.0/_space.yaml
     time:
       description: Sample time in milliseconds since UNIX epoch.
       type: integer

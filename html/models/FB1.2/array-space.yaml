@@ -11,7 +11,7 @@ allOf:
       format: float
       example: 0.99
     space:
-      $ref: ../FB1.0/_space.yaml
+      $ref: ../../models/FB1.0/_space.yaml
     time:
       type: integer
       format: int64

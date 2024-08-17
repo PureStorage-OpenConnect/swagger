@@ -6,12 +6,15 @@ allOf:
       type: string
       example: Restricted area. Authorized personnel only.
     capacity:
-      description: Usable capacity in bytes.
+      description: Usable capacity in bytes. If the user does not have sufficient
+        access, this field will return `null`.
       readOnly: true
       type: integer
       format: int64
       example: 10995116277760
     console_lock_enabled:
+      description: If `true`, console lock is enabled for the array. If the user does
+        not have sufficient access, this field will return `null`.
       type: boolean
       example: false
     idle_timeout:
@@ -22,6 +25,8 @@ allOf:
       format: int32
       example: 300000
     ntp_servers:
+      description: NTP Servers. If the user does not have sufficient access, this
+        field will return `null`.
       type: array
       items:
         type: string
@@ -33,13 +38,15 @@ allOf:
       example: Purity//FA
     parity:
       description: A representation of data redundancy on the array. Data redundancy
-        is rebuilt automatically by the system whenever parity is less than 1.0.
+        is rebuilt automatically by the system whenever parity is less than 1.0. If
+        the user does not have sufficient access, this field will return `null`.
       readOnly: true
       type: number
       format: float
       example: 0.99
     scsi_timeout:
       description: The SCSI timeout. This value defaults to 60s if it is not specified.
+        If the user does not have sufficient access, this field will return `null`.
       type: integer
       format: int32
       example: 60000

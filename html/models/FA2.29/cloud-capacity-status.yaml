@@ -9,8 +9,8 @@ allOf:
       example: 10995116277760
     details:
       description: Details about the capacity update. This field can contain error
-        details when status is `failed` or progress information when status is `expanding`.  For
-        status `idle` the value is null.
+        details when status is `failed` or progress information when status is `expanding`.
+        For status `idle` the value is null.
       type: string
       readOnly: true
       example: null

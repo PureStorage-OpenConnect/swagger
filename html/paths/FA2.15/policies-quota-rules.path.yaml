@@ -5,7 +5,6 @@ get:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - $ref: ../../queries/FA2.1/continuation_token.query.yaml
-  - $ref: ../../queries/FA2.0/destroyed.query.yaml
   - $ref: ../../queries/FA2.0/filter.query.yaml
   - $ref: ../../queries/FA2.0/limit.query.yaml
   - $ref: ../../queries/FA2.0/names.query.yaml

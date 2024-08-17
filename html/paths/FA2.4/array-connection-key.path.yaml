@@ -1,6 +1,9 @@
 get:
   summary: List connection key
   description: Displays the connection key for the array.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   responses:
     200:
       description: OK

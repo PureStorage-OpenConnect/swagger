@@ -1,6 +1,11 @@
 get:
   summary: Get metrics history
-  description: 'Retrieves historical metric data for resources.
+  description: 'Retrieves historical metric data for resources. This endpoint supports
+    batching: Up to 32 time series can be retrieved in one call. It can be multiple
+    metrics for one resource, (e.g., load and bandwidth for one array - 2 time series),
+    one metric for multiple resource (e.g., load for arrayA and arrayB - 2 time series),
+    or a combination of both, multiple metrics for multiple resources, (e.g., load
+    and bandwidth for arrayA and arrayB - 4 time series).
 
     '
   parameters:

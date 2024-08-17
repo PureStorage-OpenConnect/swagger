@@ -4,9 +4,11 @@ allOf:
     id:
       type: integer
       format: int64
+      readOnly: true
       description: The numeric group id that represents the group's identity in a
         POSIX system.
     name:
       type: string
+      readOnly: true
       description: The group name that represents the group's identity, and which
         resolves to the group's id in a configured directory service.

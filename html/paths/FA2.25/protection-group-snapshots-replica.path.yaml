@@ -1,8 +1,8 @@
 post:
-  summary: Send protection group snapshots
-  description: Send protection group snapshots to protection pgroup targets. When
-    then `on` option is used, only specified targets will recieve the protection group
-    snapshots.
+  summary: Create protection group snapshots
+  description: Creates protection group snapshots to send to protection pgroup targets.
+    When the `on` option is used, only specified targets will recieve the protection
+    group snapshots.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml

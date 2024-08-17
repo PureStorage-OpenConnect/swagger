@@ -13,7 +13,7 @@ get:
     200:
       description: OK
       schema:
-        $ref: ../../responses/FB2.12/active-directory-response.yaml
+        $ref: ../../responses/FB2.12/active-directory-get-response.yaml
   tags:
   - Active Directory
 delete:

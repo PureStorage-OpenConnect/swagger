@@ -1,0 +1,6 @@
+allOf:
+- $ref: ../../models/FB1.5/_reference-writable.yaml
+- properties:
+    id:
+      type: string
+      description: A non-modifiable, globally unique ID chosen by the system.

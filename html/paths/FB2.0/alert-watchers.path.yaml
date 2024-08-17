@@ -34,9 +34,9 @@ post:
   - Alert Watchers
 patch:
   summary: PATCH alert-watchers
-  description: "Modify an alert watcher\xE2\u20AC\u2122s configuration. Enable or\
-    \ disable an alert watcher privilege and select the level of alert notification\
-    \ of an alert watcher. Alert notification levels are `info`, `warning`, or `critical`."
+  description: "Modify an alert watcher\u2019s configuration. Enable or disable an\
+    \ alert watcher privilege and select the level of alert notification of an alert\
+    \ watcher. Alert notification levels are `info`, `warning`, or `critical`."
   parameters:
   - $ref: ../../queries/FB2.0/ids.query.yaml
   - $ref: ../../queries/FB2.0/names.query.yaml

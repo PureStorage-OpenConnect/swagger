@@ -21,7 +21,7 @@ properties:
       as Storage Admin users plus array-wide changes dealing with global and system
       configurations. In other words, Array Admin users can perform all operations.
     allOf:
-    - $ref: ../../models/FB2.0/_reference.yaml
+    - $ref: ../../models/FB2.0/_reference-writable.yaml
   issuer:
     description: The name of the identity provider that will be issuing ID Tokens
       for this API client. The `iss` claim in the JWT issued must match this string.

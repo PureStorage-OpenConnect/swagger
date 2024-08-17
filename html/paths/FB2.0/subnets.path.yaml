@@ -1,6 +1,6 @@
 get:
   summary: GET subnets
-  description: "List the array\xE2\u20AC\u2122s subnets."
+  description: "List the array\u2019s subnets."
   parameters:
   - $ref: ../../queries/FB2.0/continuation_token.query.yaml
   - $ref: ../../queries/FB2.0/filter.query.yaml

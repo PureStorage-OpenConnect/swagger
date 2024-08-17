@@ -4,6 +4,7 @@ post:
 
     '
   parameters:
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - name: api-token
     in: header
     description: API token for a user.

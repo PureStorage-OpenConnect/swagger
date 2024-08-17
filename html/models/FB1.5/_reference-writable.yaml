@@ -1,0 +1,13 @@
+description: An ordinary (as opposed to built-in) resource that can be created, named,
+  renamed or deleted by the user. This might be a virtual resource (e.g., a volume),
+  or correspond to something in the environment, like a host or a server.
+type: object
+properties:
+  name:
+    description: A name chosen by the user. Can be changed. Must be locally unique.
+    type: string
+  resource_type:
+    type: string
+    description: Type of the object (full name of the endpoint). Valid values are
+      the unique part of the resource's REST endpoint. For example, a reference to
+      a file system would have a `resource_type` of `file-systems`.

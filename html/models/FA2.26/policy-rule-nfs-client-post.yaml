@@ -8,14 +8,14 @@ properties:
       properties:
         access:
           description: Specifies access control for the export. Valid values are `root-squash`,
-            `all-squash`, and `no-squash`. The value `root-squash` prevents client
+            `all-squash`, and `no-root-squash`. The value `root-squash` prevents client
             users and groups with root privilege from mapping their root privilege
             to a file system. All users with UID 0 will have their UID mapped to `anonuid`.
             All users with GID 0 will have their GID mapped to `anongid`. The value
             `all-squash` maps all UIDs (including root) to `anonuid` and all GIDs
-            (including root) to `anongid`. The value `no-squash` allows users and
-            groups to access the file system with their UIDs and GIDs. If not specified,
-            the default value is `root-squash`.
+            (including root) to `anongid`. The value `no-root-squash` allows users
+            and groups to access the file system with their UIDs and GIDs. If not
+            specified, the default value is `root-squash`.
           type: string
         anongid:
           description: Any user whose GID is affected by an `access` of `root_squash`

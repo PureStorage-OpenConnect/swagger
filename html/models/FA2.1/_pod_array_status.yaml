@@ -48,18 +48,22 @@ allOf:
       example: 0.66
     status:
       description: The status of the array within the stretched pod. Valid values
-        are `offline`, `online`, `resyncing`, and `unknown`. If set to `offline`,
-        the array is experiencing problems and may not have the latest pod data. The
-        array cannot handle I/O to the pod and cannot take over during a high availability
-        event. If set to `online`, the array is online and has the latest pod data.
-        The array can handle I/O to the pod and take over during a high availability
-        event. If set to `resyncing`, the array is actively getting the latest pod
-        data so that it becomes fully synchronized with its peer array. During the
-        resyncing process, the array cannot handle I/O to the pod. Once the arrays
-        are fully synchronized, the array changes to `online` status. If set to `unknown`,
-        the status of the peer array is unknown because this array is offline and
-        cannot determine the state of the pod on the peer array. Only the peer array
-        can ever be in unknown status; this unknown status is unique to the local
-        array and will differ when viewed from its peer array.
+        are `offline`, `online`, `resyncing`, `suspended`, and `unknown`. If set to
+        `offline`, the array is experiencing problems and may not have the latest
+        pod data. The array cannot handle I/O to the pod and cannot take over during
+        a high availability event. If set to `online`, the array is online and has
+        the latest pod data. The array can handle I/O to the pod and take over during
+        a high availability event. If set to `suspended`, the array is experiencing
+        a short connection glitch of the pod. This is a temporary status and would
+        transition to either `online` or `offline` soon. `suspended` is a new status
+        that is exposed, starting from version 6.6.0. If set to `resyncing`, the array
+        is actively getting the latest pod data so that it becomes fully synchronized
+        with its peer array. During the resyncing process, the array cannot handle
+        I/O to the pod. Once the arrays are fully synchronized, the array changes
+        to `online` status. If set to `unknown`, the status of the peer array is unknown
+        because this array is offline and cannot determine the state of the pod on
+        the peer array. Only the peer array can ever be in unknown status; this unknown
+        status is unique to the local array and will differ when viewed from its peer
+        array.
       type: string
       example: resyncing

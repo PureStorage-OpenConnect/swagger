@@ -20,6 +20,9 @@ delete:
   summary: Delete a factory reset token
   description: Deletes an existing token that could be used to perform a factory reset
     on the array.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   responses:
     200:
       description: OK

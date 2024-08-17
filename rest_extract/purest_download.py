@@ -8,9 +8,9 @@ import urllib
 import sys
 import argparse
 
-fb_max_version = { 0:0, 1:12, 2:14 }      #this is a list of major:minor_max version pairs
+fb_max_version = { 0:0, 1:12, 2:15 }      #this is a list of major:minor_max version pairs
 pure1_max_version = { 0:-1, 1:2 }
-fa_2_max_version = { 2:34 }
+fa_2_max_version = { 2:35 }
 thread_count = 8
 baseURL = 'http://purest.dev.purestorage.com'
 spec_url = baseURL + '/pure-urls.js'
@@ -19,7 +19,7 @@ overwrite_local_files = False
 
 class SpecWorker(threading.Thread):
     def __init__(self, s, q, file_download_root, io_lock, cache_lock):
-        threading.Thread.__init__(self)
+        threading.Thread.__init__(self, daemon=True)
         self.s = s
         self.q = q
         self.file_download_root = file_download_root
@@ -78,7 +78,13 @@ class SpecWorker(threading.Thread):
         
         # file not found, lets download it
         # print("downloading spec ")
-        self.response = self.s.get(spec_url)
+        try:
+            self.response = self.s.get(spec_url)
+        except:
+            print(f"Unexpected error: getting URL: {spec_url}")
+            raise
+
+        
         spec_file = self.response.text
         path, _ = os.path.split(save_to_path)
         os.makedirs(path, exist_ok=True)
@@ -169,7 +175,12 @@ def main():
     json_compat = json_compat.replace(',,',',')
     #print(json_compat)
 
-    spec_list = json.loads(json_compat)
+    try: 
+        spec_list = json.loads(json_compat)
+    except:
+        print("Error Loading speclist")
+        print(json_compat)
+        raise
 
     with open("fb_template.yaml") as f:
         fb_template_yaml = yaml.safe_load(f)
@@ -219,7 +230,6 @@ def main():
     cache_lock = threading.Lock()
     for _ in range(thread_count):
         t = SpecWorker(s,q,file_download_root,io_lock,cache_lock)
-        t.setDaemon(True)
         t.start()
     
     # wait till all threads finish    

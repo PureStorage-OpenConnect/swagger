@@ -1,3 +1,4 @@
+description: If the user does not have sufficient access, all fields will return `null`.
 allOf:
 - $ref: ../../models/FA2.0/_space.yaml
 - properties:
@@ -8,30 +9,32 @@ allOf:
       minimum: 0
       readOnly: true
     shared_effective:
-      description: The effective space contributed by data that is not unique to a
-        specific volume or snapshot, measured in bytes.
+      description: Deprecated. This will always return `null`. Please use the `shared`
+        field in the future, as it contains the same information for Evergreen//One
+        arrays.
       type: integer
       format: int64
       minimum: 0
       readOnly: true
     snapshots_effective:
-      description: The effective space contributed by data unique to one or more snapshots,
-        measured in bytes.
+      description: Deprecated. This will always return `null`. Please use the `snapshots`
+        field in the future, as it contains the same information for Evergreen//One
+        arrays.
       type: integer
       format: int64
       minimum: 0
       readOnly: true
     unique_effective:
-      description: The effective space contributed by unique customer data, measured
-        in bytes. Unique data does not include shared space, snapshots, and internal
-        array metadata.
+      description: Deprecated. This will always return `null`. Please use the `unique`
+        field in the future, as it contains the same information for Evergreen//One
+        arrays.
       type: integer
       format: int64
       minimum: 0
       readOnly: true
     total_effective:
-      description: The total effective space contributed by customer data, measured
-        in bytes.
+      description: Deprecated. This will always return `null`. Please use the `total_physical`
+        field instead, as it contains the same information for Evergreen//One arrays.
       type: integer
       format: int64
       minimum: 0

@@ -47,8 +47,8 @@ delete:
   - Policies - Snapshot
 patch:
   summary: PATCH policies
-  description: "Modify a snapshot scheduling policy\xE2\u20AC\u2122s attributes for\
-    \ when and how often snapshots are created and how long they are retained."
+  description: "Modify a snapshot scheduling policy\u2019s attributes for when and\
+    \ how often snapshots are created and how long they are retained."
   parameters:
   - $ref: ../../queries/FB2.0/ids.query.yaml
   - $ref: ../../queries/FB2.0/destroy_snapshots.query.yaml

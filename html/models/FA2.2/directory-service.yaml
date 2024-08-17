@@ -50,20 +50,4 @@ allOf:
         pattern: ^(ldap|ldaps)
         example: ldaps://ad1.mycompany.com
     management:
-      description: Properties specific to the management service.
-      type: object
-      properties:
-        user_login_attribute:
-          description: User login attribute in the structure of the configured LDAP
-            servers. Typically the attribute field that holds the user's unique login
-            name. Default value is `sAMAccountName` for Active Directory or `uid`
-            for all other directory services.
-          type: string
-          example: email
-        user_object_class:
-          description: Value of the object class for a management LDAP user. Defaults
-            to `User` for Active Directory servers, `posixAccount` or `shadowAccount`
-            for OpenLDAP servers dependent on the group type of the server, or `person`
-            for all other directory servers.
-          type: string
-          example: inetOrgPerson
+      $ref: ../../models/FA2.2/_directory-service-management.yaml

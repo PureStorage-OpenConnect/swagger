@@ -1,7 +1,9 @@
 type: object
 properties:
   nfs:
-    description: NFS settings.
+    description: 'NFS settings.
+
+      Deprecated from version 6.6.0 onwards - Contact support for additional information.'
     allOf:
     - $ref: ../../models/FA2.1/_offload_nfs.yaml
   s3:

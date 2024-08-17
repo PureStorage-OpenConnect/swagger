@@ -1,11 +1,11 @@
 post:
-  summary: Test the volume snapshot path
-  description: Test the volume snapshot path without actually taking a volume snapshot.
+  summary: Create the volume snapshot path
+  description: Creates the volume snapshot path without actually taking a volume snapshot.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - $ref: ../../queries/FA2.0/on-single.query.yaml
-  - $ref: ../../queries/FA2.25/allow_throttle.query.yaml
+  - $ref: ../../queries/FA2.25/allow_throttle_snapshot.query.yaml
   - $ref: ../../queries/FA2.0/source_ids.query.yaml
   - $ref: ../../queries/FA2.0/source_names.query.yaml
   - name: volume-snapshot

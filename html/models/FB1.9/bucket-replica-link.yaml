@@ -29,7 +29,7 @@ allOf:
     remote_credentials:
       description: Reference to a remote-credentials object to access the remote bucket.
       allOf:
-      - $ref: ../../models/FB1.8/_reference.yaml
+      - $ref: ../../models/FB1.8/_reference-writable.yaml
     status:
       type: string
       description: Status of the replica link. Values include `replicating`, `paused`,

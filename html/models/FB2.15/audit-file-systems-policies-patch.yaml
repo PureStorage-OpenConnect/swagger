@@ -1,0 +1,18 @@
+allOf:
+- $ref: ../../models/FB2.15/audit-file-systems-policy.yaml
+- properties:
+    add_log_targets:
+      description: The log targets which will be added to the existing `log_targets`
+        list for the audit policy. These new log targets will be appended to the end
+        of the existing list. The `add_log_targets` field can not be used with `log_targets`
+        field.
+      type: array
+      items:
+        $ref: ../../models/FB2.0/_reference.yaml
+    remove_log_targets:
+      description: The log targets which will be removed from the existing `log_targets`
+        list for the audit policy. The `remove_log_targets` field can not be used
+        with `log_targets` field.
+      type: array
+      items:
+        $ref: ../../models/FB2.0/_reference.yaml

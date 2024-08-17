@@ -1,4 +1,7 @@
 get:
+  summary: List pod replica real-time and historical performance
+  description: Displays pod replica real-time and historical performance data, including
+    lag and bandwidth.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml

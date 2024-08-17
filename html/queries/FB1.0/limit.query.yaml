@@ -1,11 +1,12 @@
+name: limit
+in: query
 description: Limit the size of the response to the specified number of resources.
   A `limit` of `0` can be used to get the number of resources without getting all
   of the resources. It will be returned in the `total_item_count` field. If a client
   asks for a page size larger than the maximum number, the request is still valid.
   In that case the server just returns the maximum number of items, disregarding the
   client's page size request.
-format: int32
-in: query
-minimum: 1
-name: limit
 type: integer
+format: int32
+minimum: 1
+example: 10

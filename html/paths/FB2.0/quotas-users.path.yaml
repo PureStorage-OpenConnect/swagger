@@ -55,9 +55,9 @@ delete:
 patch:
   summary: PATCH quotas/users
   description: "Modify the attributes of a hard limit file system quota. Note that\
-    \ if you modify a user's quota to a lower value and that user\xE2\u20AC\u2122\
-    s usage has already exceeded the new value, writes will automatically halt until\
-    \ usage decreases below the new quota setting."
+    \ if you modify a user's quota to a lower value and that user\u2019s usage has\
+    \ already exceeded the new value, writes will automatically halt until usage decreases\
+    \ below the new quota setting."
   tags:
   - Quotas
   parameters:

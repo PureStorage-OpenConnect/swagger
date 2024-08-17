@@ -3,6 +3,7 @@ properties:
   eradication_delay:
     type: integer
     format: int64
+    readOnly: true
     description: The file eradication delay is in milliseconds. Automatically eradicate
       destroyed filesystems and snapshots after the delay time. Valid values are `86400000`
       and any multiple of `86400000` in the range of `86400000` and `2592000000`.
@@ -10,6 +11,7 @@ properties:
     example: 86400000
   manual_eradication:
     type: string
+    readOnly: true
     description: Manual eradication status is applied on the array level. If status
       is all-disabled, you cannot eradicate buckets and file systems. If status is
       file-disabled then you can not eradicate files systems. If status is object-disabled

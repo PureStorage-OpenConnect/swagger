@@ -1,3 +1,4 @@
+description: If the user does not have sufficient access, all fields will return `null`.
 allOf:
 - $ref: ../../models/FA2.9/space.yaml
 - $ref: ../../models/FA2.23/_space.yaml

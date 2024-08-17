@@ -1,6 +1,6 @@
 get:
   summary: GET file-systems/groups/performance
-  description: "List a group\xE2\u20AC\u2122s I/O performance metrics on a file system."
+  description: "List a group\u2019s I/O performance metrics on a file system."
   parameters:
   - $ref: ../../queries/FB2.0/file_system_ids.query.yaml
   - $ref: ../../queries/FB2.0/file_system_names.query.yaml

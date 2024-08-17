@@ -48,6 +48,6 @@ patch:
     200:
       description: OK
       schema:
-        $ref: ../../responses/FB1.1/file-system-snapshot-response.yaml
+        $ref: ../../responses/FB1.5/file-system-snapshot-response.yaml
   tags:
   - File System Snapshots

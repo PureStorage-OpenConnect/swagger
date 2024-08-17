@@ -26,12 +26,4 @@ allOf:
       type: array
       readOnly: true
       items:
-        properties:
-          component_name:
-            description: The name of the FM.
-            type: string
-          status:
-            description: The status of the remote-assist session on the local FM.
-              Valid values are `reconnecting`, `connected`, `disconnected`, and `unknown`.
-            type: string
-            example: connected
+        $ref: ../../models/FB2.0/_support_remote_assist_paths.yaml

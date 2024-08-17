@@ -9,6 +9,3 @@ allOf:
       description: SMB configuration.
       allOf:
       - $ref: ../../models/FB2.11/_smb.yaml
-    space:
-      allOf:
-      - $ref: ../../models/FB2.11/_space.yaml

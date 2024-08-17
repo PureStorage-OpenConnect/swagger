@@ -1,0 +1,7 @@
+allOf:
+- $ref: ../../models/FB2.12/active-directory.yaml
+- properties:
+    server:
+      description: The server containing this active directory account.
+      allOf:
+      - $ref: ../../models/FB2.0/_fixed-reference.yaml

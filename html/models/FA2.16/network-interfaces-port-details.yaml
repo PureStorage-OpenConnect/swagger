@@ -16,8 +16,7 @@ allOf:
         properties:
           channel:
             description: The channel number if the diagnostic has an associated channel
-              number. If not specified, defaults to `null`. Valid values are `0`,
-              `1`, `2`, and `3`.
+              number. If not specified, defaults to `null`.
             type: integer
             example: 0
           measurement:
@@ -41,8 +40,7 @@ allOf:
         properties:
           channel:
             description: The channel number if the diagnostic has an associated channel
-              number. If not specified, defaults to `null`. Valid values are `0`,
-              `1`, `2`, and `3`.
+              number. If not specified, defaults to `null`.
             type: integer
             example: 0
           measurement:
@@ -67,8 +65,7 @@ allOf:
         properties:
           channel:
             description: The channel number if the transceiver is a multilane transceiver.
-              If not specified, defaults to `null`. Valid values are `0`, `1`, `2`,
-              and `3`.
+              If not specified, defaults to `null`.
             type: integer
             example: 0
           measurement:
@@ -93,8 +90,7 @@ allOf:
         properties:
           channel:
             description: The channel number if the transceiver is a multilane transceiver.
-              If not specified, defaults to `null`. Valid values are `0`, `1`, `2`,
-              and `3`.
+              If not specified, defaults to `null`.
             type: integer
             example: 0
           measurement:
@@ -119,8 +115,7 @@ allOf:
         properties:
           channel:
             description: The channel number if the transceiver is a multilane transceiver.
-              If not specified, defaults to `null`. Valid values are `0`, `1`, `2`,
-              and `3`.
+              If not specified, defaults to `null`.
             type: integer
             example: 0
           measurement:
@@ -145,8 +140,7 @@ allOf:
         properties:
           channel:
             description: The channel number if the transceiver is a multilane transceiver.
-              If not specified, defaults to `null`. Valid values are `0`, `1`, `2`,
-              and `3`.
+              If not specified, defaults to `null`.
             type: integer
             example: 0
           flag:
@@ -163,8 +157,7 @@ allOf:
         properties:
           channel:
             description: The channel number if the transceiver is a multilane transceiver.
-              If not specified, defaults to `null`. Valid values are `0`, `1`, `2`,
-              and `3`.
+              If not specified, defaults to `null`.
             type: integer
             example: 0
           flag:

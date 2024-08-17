@@ -1,6 +1,7 @@
-description: The offset of the first resource to return from a collection.
-format: int32
-in: query
-minimum: 0
 name: start
+in: query
+description: The offset of the first resource to return from a collection.
 type: integer
+format: int32
+minimum: 0
+example: 10

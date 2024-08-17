@@ -1,0 +1,21 @@
+allOf:
+- description: Properties specific to the service provider.
+- type: object
+  properties:
+    entity_id:
+      description: A globally unique name for the service provider.
+      type: string
+      example: https://myarray.mycompany.com/saml2/service-provider-metadata/myidp
+      readOnly: true
+    assertion_consumer_url:
+      description: The URL where the identity provider will send its SAML response
+        after authenticating a user.
+      type: string
+      example: https://myarray.mycompany.com/login/saml2/sso/myidp
+      readOnly: true
+    metadata_url:
+      description: The URL of the service provider metadata.
+      type: string
+      example: https://myarray.mycompany.com/saml2/service-provider-metadata/myidp
+      readOnly: true
+- $ref: ../../models/FB2.15/_saml2-sso-sp-credential.yaml

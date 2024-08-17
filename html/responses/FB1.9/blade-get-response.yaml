@@ -1,5 +1,5 @@
 allOf:
-- $ref: ../FB1.0/page-info.yaml
+- $ref: ../../responses/FB1.0/page-info.yaml
 - properties:
     total:
       allOf:

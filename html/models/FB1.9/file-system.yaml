@@ -17,7 +17,7 @@ allOf:
     source:
       description: A reference to the source file system.
       allOf:
-      - $ref: ../../models/FB1.9/_location-reference.yaml
+      - $ref: ../../models/FB1.9/_fixed-location-reference.yaml
     writable:
       type: boolean
       description: Whether the file system is writable or not. If `false`, this overrides

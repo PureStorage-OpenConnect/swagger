@@ -20,9 +20,11 @@ allOf:
       type: string
       example: 10.202.101.78
     status:
-      description: Status of the connection. Valid values are `connected` and `connecting`.
-        A status of `connected` indicates that the arrays are communicating. A status
-        of `connecting` indicates that the array is trying to establish a connection.
+      description: Status of the connection. Valid values are `connected`, `connecting`,
+        and `quarantined`. A status of `connected` indicates that the arrays are communicating.
+        A status of `connecting` indicates that the array is trying to establish a
+        connection. A status of `quarantined` indicates that the path is unstable
+        and has been temporarily embargoed for synchronous replication connections.
       readOnly: true
       type: string
     replication_transport:

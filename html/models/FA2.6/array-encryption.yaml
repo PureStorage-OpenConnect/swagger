@@ -1,5 +1,6 @@
 type: object
 readOnly: true
+description: If the user does not have sufficient access, all fields will return `null`.
 properties:
   data_at_rest:
     description: Data at rest encryption properties.

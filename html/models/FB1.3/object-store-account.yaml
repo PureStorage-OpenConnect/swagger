@@ -10,4 +10,4 @@ allOf:
     space:
       readOnly: true
       allOf:
-      - $ref: ../FB1.0/_space.yaml
+      - $ref: ../../models/FB1.0/_space.yaml

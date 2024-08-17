@@ -6,10 +6,6 @@ allOf:
       description: Total bytes transmitted or received per second for periodic replication.
       allOf:
       - $ref: ../../models/FB2.0/_replication_performance.yaml
-    remote:
-      description: Reference to a remote array.
-      allOf:
-      - $ref: ../../models/FB2.0/_fixed-reference-no-resource-type.yaml
     time:
       description: Sample time in milliseconds since UNIX epoch.
       type: integer

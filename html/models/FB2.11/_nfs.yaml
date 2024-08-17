@@ -7,7 +7,7 @@ allOf:
         If this is set, then the `rules` field will be cleared. Both `export_policy`
         and `rules` can not be set in the same request.
       allOf:
-      - $ref: ../../models/FB2.0/_reference.yaml
+      - $ref: ../../models/FB2.0/_reference-writable.yaml
     rules:
       type: string
       description: The NFS export rules for the system. Either the `export_policy`

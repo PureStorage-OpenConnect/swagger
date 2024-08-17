@@ -12,6 +12,7 @@ get:
   - $ref: ../../queries/FA2.0/sort.query.yaml
   - $ref: ../../queries/FA2.0/total_item_count.query.yaml
   - $ref: ../../queries/FA2.0/total_only.query.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   responses:
     200:
       description: OK
@@ -28,6 +29,7 @@ post:
     to another (connected) array.
   parameters:
   - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - name: pod
     in: body
     required: true
@@ -49,6 +51,7 @@ delete:
   - $ref: ../../queries/FA2.0/ids.query.yaml
   - $ref: ../../queries/FA2.0/names.query.yaml
   - $ref: ../../queries/FA2.3/eradicate_contents.query.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   responses:
     200:
       description: OK
@@ -65,6 +68,7 @@ patch:
   - $ref: ../../queries/FA2.2/skip_quiesce.query.yaml
   - $ref: ../../queries/FA2.2/promote_from.query.yaml
   - $ref: ../../queries/FA2.3/destroy_contents.query.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - name: pod
     in: body
     required: true
