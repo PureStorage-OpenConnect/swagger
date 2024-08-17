@@ -1,0 +1,77 @@
+get:
+  summary: GET certificates
+  description: List array certificates and their attributes.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.0/certificate-get-response.yaml
+  tags:
+  - Certificates
+post:
+  summary: POST certificates
+  description: Upload a CA certificate to the array.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - name: certificate
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.15/certificate-post.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.0/certificate-response.yaml
+  tags:
+  - Certificates
+patch:
+  summary: PATCH certificates
+  description: Modify SSL certificate attributes such as passphrases and intermediate
+    certificates.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - name: certificate
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.0/certificate-patch.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.0/certificate-response.yaml
+  tags:
+  - Certificates
+delete:
+  summary: DELETE certificates
+  description: Delete a CA certificate from the array.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+  tags:
+  - Certificates

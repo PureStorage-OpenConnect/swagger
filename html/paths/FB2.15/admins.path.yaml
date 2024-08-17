@@ -1,0 +1,78 @@
+get:
+  summary: GET admins
+  description: List the administrator's attributes, including the API token and public
+    key.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/expose_api_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.3/admin-get-response.yaml
+  tags:
+  - Administrators
+post:
+  summary: POST admins
+  description: Create a new local administrator.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - name: admin
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.15/admin-post.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.3/admin-response.yaml
+  tags:
+  - Administrators
+patch:
+  summary: PATCH admins
+  description: Modify the attributes of an administrator.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - name: admin
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.15/admin-patch.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.3/admin-response.yaml
+  tags:
+  - Administrators
+delete:
+  summary: DELETE admins
+  description: Delete a local administrator..
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      description: OK
+  tags:
+  - Administrators

@@ -1,0 +1,26 @@
+type: object
+properties:
+  mode:
+    type: string
+    description: The type of the retention lock. Valid values is `compliance`.
+  min_retention:
+    type: integer
+    format: int64
+    description: Minimum retention period, in milliseconds.
+  max_retention:
+    type: integer
+    format: int64
+    description: Maximum retention period, in milliseconds.
+  default_retention:
+    type: integer
+    format: int64
+    description: Default retention period, in milliseconds. If the access time is
+      not specified when committing a file, then the default retention period is applied.
+  retention_lock:
+    type: string
+    description: If set to `locked`, then the value of retention attributes or policy
+      attributes are not allowed to change. If set to `unlocked`, then the value of
+      the retention attributes and policy attributes are allowed to change. Valid
+      values are `unlocked` and `locked`. It is always allowed to change from `unlocked`
+      to `locked`. Contact Pure Technical Services to change from `locked` to `unlocked`.
+    example: unlocked

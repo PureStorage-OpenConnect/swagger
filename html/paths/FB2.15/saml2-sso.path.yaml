@@ -1,0 +1,77 @@
+get:
+  summary: List SAML2 SSO configurations
+  description: Displays the SAML2 SSO service provider and identity provider configuration
+    settings in the array.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.15/saml2-sso-get-response.yaml
+  tags:
+  - SAML2 SSO
+post:
+  summary: Create SAML2 SSO configurations
+  description: Creates SAML2 SSO configurations.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/names_required.query.yaml
+  - name: idp
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.15/saml2-sso-post.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.15/saml2-sso-response.yaml
+  tags:
+  - SAML2 SSO
+delete:
+  summary: Delete SAML2 SSO configurations
+  description: Deletes SAML2 SSO configurations.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+  tags:
+  - SAML2 SSO
+patch:
+  summary: Modify SAML2 SSO configurations
+  description: Modifies one or more attributes of SAML2 SSO configurations.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - name: idp
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.15/saml2-sso.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.15/saml2-sso-response.yaml
+  tags:
+  - SAML2 SSO

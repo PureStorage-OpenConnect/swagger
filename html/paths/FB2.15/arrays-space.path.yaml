@@ -1,0 +1,15 @@
+get:
+  summary: GET arrays/space
+  description: List available and used storage space on the array.
+  parameters:
+  - $ref: ../../queries/FB2.0/end_time.query.yaml
+  - $ref: ../../queries/FB2.0/resolution.query.yaml
+  - $ref: ../../queries/FB2.0/start_time.query.yaml
+  - $ref: ../../queries/FB2.0/type.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.15/array-space-get-response.yaml
+  tags:
+  - Arrays

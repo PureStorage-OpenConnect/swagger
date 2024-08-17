@@ -1,0 +1,28 @@
+description: Properties specific to the identity provider.
+type: object
+properties:
+  entity_id:
+    description: A globally unique name for the identity provider.
+    type: string
+    example: https://myidp.mycompany.com/adfs/services/trust
+  url:
+    description: The URL of the identity provider.
+    type: string
+    example: https://myidp.mycompany.com/adfs/ls
+  metadata_url:
+    description: The URL of the identity provider metadata.
+    type: string
+    example: https://myidp.mycompany.com/federationmetadata/2007-06/federationmetadata.xml
+  sign_request_enabled:
+    description: If set to `true`, SAML requests will be signed by the service provider.
+    type: boolean
+  encrypt_assertion_enabled:
+    description: If set to `true`, SAML assertions will be encrypted by the identity
+      provider.
+    type: boolean
+  verification_certificate:
+    description: The certificate used by the service provider to verify the SAML response
+      signature from the identity provider. The credential is managed by the `certificates`
+      endpoint and `purecert` CLI commands.
+    allOf:
+    - $ref: ../../models/FB2.0/_reference-writable.yaml

@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../models/FB2.15/audit-file-systems-policy.yaml
+- $ref: ../../models/FB2.0/_built-in.yaml

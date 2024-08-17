@@ -1,0 +1,10 @@
+allOf:
+- $ref: ../../models/FB2.15/policy-base-renameable.yaml
+- $ref: ../../models/FB2.0/_resource.yaml
+- properties:
+    log_targets:
+      description: List of targets which will be utilized for audit log storage. These
+        may either be file system targets or remote syslog server targets.
+      type: array
+      items:
+        $ref: ../../models/FB2.0/_reference.yaml

@@ -1,0 +1,38 @@
+allOf:
+- $ref: ../../models/FB2.0/_built-in.yaml
+- properties:
+    enabled:
+      description: Returns a value of `true` if and only if the export policy that
+        manages this export is enabled AND the protocol is enabled on the file system.
+      type: boolean
+      readOnly: true
+    export_name:
+      description: The name of the export used by clients to mount the file system.
+        Export names must be unique within the same protocol/server combination.
+      type: string
+      required: true
+    member:
+      description: Reference to the file system the policy is applied to.
+      allOf:
+      - $ref: ../../models/FB2.0/_fixed-reference.yaml
+    policy:
+      description: Reference to the NFS export policy or SMB client policy.
+      allOf:
+      - $ref: ../../models/FB2.0/_reference.yaml
+    server:
+      description: Reference to the server the export will be visible on.
+      allOf:
+      - $ref: ../../models/FB2.0/_fixed-reference.yaml
+    share_policy:
+      description: Reference to the SMB share policy (only used for SMB).
+      allOf:
+      - $ref: ../../models/FB2.0/_reference.yaml
+    status:
+      description: Explains why `enabled` is `false`. Valid values include `policy_disabled`
+        and `protocol_disabled`.
+      type: string
+      readOnly: true
+    policy_type:
+      description: Policy type attached to the export. It is either SMB or NFS.
+      type: string
+      readOnly: true

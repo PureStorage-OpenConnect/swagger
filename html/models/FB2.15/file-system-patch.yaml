@@ -1,0 +1,16 @@
+properties:
+  name:
+    description: A name chosen by the user. Can be changed. Must be locally unique.
+    type: string
+    readOnly: false
+allOf:
+- $ref: ../../models/FB2.13/file-system-patch.yaml
+- properties:
+    nfs:
+      description: NFS configuration.
+      allOf:
+      - $ref: ../../models/FB2.15/_nfs-patch.yaml
+    smb:
+      description: SMB configuration.
+      allOf:
+      - $ref: ../../models/FB2.15/_smb.yaml

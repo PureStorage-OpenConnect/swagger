@@ -1,0 +1,10 @@
+name: cascade_delete
+in: query
+description: The resource types to delete when deleting this object. It will fail
+  if the resources are referenced by other objects. Valid values include `directory-services`.
+type: array
+required: true
+collectionFormat: csv
+items:
+  type: string
+example: directory-services

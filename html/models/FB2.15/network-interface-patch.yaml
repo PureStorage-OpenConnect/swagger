@@ -1,0 +1,9 @@
+allOf:
+- $ref: ../../models/FB2.0/network-interface-patch.yaml
+- properties:
+    server:
+      description: The server that is using this interface for data ingress. Will
+        be null if `services` does not include `data`. Defaults to _array_server when
+        `services` does include `data`.
+      allOf:
+      - $ref: ../../models/FB2.0/_reference.yaml
