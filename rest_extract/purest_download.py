@@ -19,7 +19,7 @@ overwrite_local_files = False
 
 class SpecWorker(threading.Thread):
     def __init__(self, s, q, file_download_root, io_lock, cache_lock):
-        threading.Thread.__init__(self)
+        threading.Thread.__init__(self, daemon=True)
         self.s = s
         self.q = q
         self.file_download_root = file_download_root
@@ -230,7 +230,6 @@ def main():
     cache_lock = threading.Lock()
     for _ in range(thread_count):
         t = SpecWorker(s,q,file_download_root,io_lock,cache_lock)
-        t.setDaemon(True)
         t.start()
     
     # wait till all threads finish    

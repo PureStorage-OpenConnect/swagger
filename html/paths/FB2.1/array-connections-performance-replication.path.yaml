@@ -20,6 +20,6 @@ get:
     200:
       description: OK
       schema:
-        $ref: ../../responses/FB2.1/relationship-performance-replication-get-resp.yaml
+        $ref: ../../responses/FB2.1/connection-relationship-performance-replication-get-resp.yaml
   tags:
   - Array Connections

@@ -1,7 +1,7 @@
 get:
   summary: List SMI-S settings
-  description: Displays the SMI-S settings, including the name of the array and whether
-    SLP and WBEM-HTTPS are enabled.
+  description: Displays the SMI-S settings, including whether SLP and WBEM-HTTPS are
+    enabled.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml

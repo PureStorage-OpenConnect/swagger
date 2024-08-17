@@ -4,9 +4,11 @@ allOf:
     id:
       type: integer
       format: int64
+      readOnly: true
       description: The numeric user id that represents the user's identity in a POSIX
         system.
     name:
       type: string
+      readOnly: true
       description: The user name that represents the user's identity, and which resolves
         to the user's id in a configured directory service.

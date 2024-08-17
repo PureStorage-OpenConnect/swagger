@@ -1,14 +1,8 @@
 allOf:
 - $ref: ../../models/FA2.2/_offload-google-cloud.yaml
 - properties:
-    auth_region:
-      type: string
-      description: The region that will be used for initial authentication request.
-        This parameter is optional and should be used only when region autodetection
-        fails.
-      Example: us-east-1
     profile:
       type: string
-      description: The Offload target profile that will be selected for this target.
+      description: The offload target profile that will be selected for this target.
         This option allows more granular configuration for the target on top of the
         `protocol` parameter. Values include `gcp`.

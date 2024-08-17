@@ -14,8 +14,9 @@ allOf:
       type: object
       properties:
         other_errors_per_sec:
-          description: The sum of unspecified reception and transmission errors per
-            second.
+          description: This field has been deprecated. Since Purity version 6.6.8,
+            this will always return `null`. The sum of unspecified reception and transmission
+            errors per second.
           type: integer
           format: int64
           minimum: 0

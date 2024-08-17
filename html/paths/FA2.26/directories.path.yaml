@@ -80,7 +80,6 @@ patch:
   - $ref: ../../queries/FA2.0/names.query.yaml
   - name: directory
     in: body
-    type: string
     required: true
     schema:
       $ref: ../../models/FA2.9/directory-patch.yaml

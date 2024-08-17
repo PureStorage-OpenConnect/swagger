@@ -3,4 +3,4 @@ properties:
   account:
     description: The account for bucket creation.
     allOf:
-    - $ref: ../../models/FB1.5/_reference.yaml
+    - $ref: ../../models/FB1.5/_reference-writable.yaml

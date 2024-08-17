@@ -5,6 +5,8 @@ get:
 
     '
   security: []
+  parameters:
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   responses:
     200:
       description: OK

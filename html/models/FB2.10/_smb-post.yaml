@@ -7,11 +7,11 @@ allOf:
         via SMB on a per-client basis. Defaults to a pre-defined full access policy
         if none is specified.
       allOf:
-      - $ref: ../../models/FB2.0/_reference.yaml
+      - $ref: ../../models/FB2.0/_reference-writable.yaml
     share_policy:
       description: The SMB Share policy for the file system. Setting a policy here
         grants access permissions (e.g. allow or deny Full Control, Change, and/or
         Read) to the file system via SMB on a per-user / per-group basis. Defaults
         to a pre-defined full access policy if none is specified.
       allOf:
-      - $ref: ../../models/FB2.0/_reference.yaml
+      - $ref: ../../models/FB2.0/_reference-writable.yaml

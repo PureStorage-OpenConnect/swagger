@@ -1,6 +1,6 @@
 post:
-  summary: Test the remote protection group snapshot path
-  description: Test the remote protection group snapshot path without actually taking
+  summary: Create the remote protection group snapshot path
+  description: Create the remote protection group snapshot path without actually taking
     a remote protection group snapshot.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
@@ -11,7 +11,7 @@ post:
   - $ref: ../../queries/FA2.0/names.query.yaml
   - $ref: ../../queries/FA2.2/replicate.query.yaml
   - $ref: ../../queries/FA2.2/replicate_now.query.yaml
-  - $ref: ../../queries/FA2.25/allow_throttle.query.yaml
+  - $ref: ../../queries/FA2.25/allow_throttle_snapshot.query.yaml
   - $ref: ../../queries/FA2.0/source_names.query.yaml
   - $ref: ../../queries/FA2.0/on-single.query.yaml
   - name: remote-protection-group-snapshot

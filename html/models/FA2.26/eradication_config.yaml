@@ -40,7 +40,8 @@ properties:
       `all-disabled`, you cannot eradicate objects, files, and directories. If at
       least one local object has `manual_eradication` disabled, then the status will
       be `partially-disabled`. Values include `all-disabled`, `partially-disabled`,
-      and `all-enabled`.
+      and `all-enabled`. If the user does not have sufficient access, this field will
+      return `null`.
     type: string
     readOnly: true
     example: all-disabled

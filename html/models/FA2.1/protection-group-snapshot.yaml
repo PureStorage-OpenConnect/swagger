@@ -32,6 +32,8 @@ allOf:
       - $ref: ../../models/FA2.0/_space.yaml
     source:
       description: The original protection group from which this snapshot was taken.
+        For a replicated protection group snapshot being viewed on the target side,
+        the `source` is the replica protection group.
       allOf:
       - $ref: ../../models/FA2.0/_fixed-reference.yaml
     suffix:

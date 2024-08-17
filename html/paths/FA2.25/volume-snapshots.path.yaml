@@ -31,7 +31,7 @@ post:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - $ref: ../../queries/FA2.0/on-single.query.yaml
-  - $ref: ../../queries/FA2.25/allow_throttle.query.yaml
+  - $ref: ../../queries/FA2.25/allow_throttle_snapshot.query.yaml
   - $ref: ../../queries/FA2.0/source_ids.query.yaml
   - $ref: ../../queries/FA2.0/source_names.query.yaml
   - name: volume-snapshot

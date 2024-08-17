@@ -59,7 +59,8 @@ allOf:
       readOnly: true
       example: 600
     power_average:
-      description: The actual average power consumption of the appliance.
+      description: The average of power consumption of the appliance. Average over
+        the assessment window.
       type: number
       readOnly: true
       example: 524.25
@@ -76,17 +77,18 @@ allOf:
       readOnly: true
       example: 2046
     heat_average:
-      description: The actual average heat production of the appliance in BTU/Hr.
+      description: The average of heat production of the appliance in BTU/Hr. Average
+        over the assessment window.
       type: number
       readOnly: true
       example: 1787.69
     power_per_used_space:
-      description: The actual power consumption per TiB of used space.
+      description: The average of power consumption per TiB of used space.
       type: number
       readOnly: true
       example: 22.5
     power_per_usable_capacity:
-      description: The actual power consumption per TiB of usable capacity.
+      description: The average of power consumption per TiB of usable capacity.
       type: number
       readOnly: true
       example: 5.4

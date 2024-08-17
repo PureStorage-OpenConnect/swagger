@@ -78,7 +78,7 @@ allOf:
     source:
       description: A reference to the source file system.
       allOf:
-      - $ref: ../../models/FB2.0/_location-reference.yaml
+      - $ref: ../../models/FB2.0/_fixed-location-reference.yaml
     space:
       description: The space usage of the file system.
       allOf:

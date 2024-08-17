@@ -42,7 +42,7 @@ allOf:
       allOf:
       - $ref: ../../models/FA2.1/_snapshot_schedule.yaml
     source:
-      description: The array on which the protection group was created.
+      description: The array or pod on which the protection group was created.
       allOf:
       - $ref: ../../models/FA2.0/_fixed-reference.yaml
     source_retention:

@@ -23,8 +23,7 @@ post:
   summary: Create offload target
   description: Creates an offload target, connecting it to an array. Before you can
     connect to, manage, and replicate to an offload target, the Purity Run app must
-    be installed. For more information about Purity//FA apps, see the Apps section
-    of this guide.
+    be installed.
   parameters:
   - $ref: ../../queries/FA2.0/authorization.header.yaml
   - $ref: ../../queries/FA2.0/x-request-id.header.yaml

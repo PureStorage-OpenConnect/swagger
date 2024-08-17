@@ -17,4 +17,4 @@ get:
     200:
       description: OK
       schema:
-        $ref: ../../responses/FB1.6/group-quota-get-response.yaml
+        $ref: ../../responses/FB1.8/group-quota-get-response.yaml

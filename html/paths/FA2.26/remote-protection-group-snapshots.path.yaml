@@ -35,7 +35,7 @@ post:
   - $ref: ../../queries/FA2.0/names.query.yaml
   - $ref: ../../queries/FA2.2/replicate.query.yaml
   - $ref: ../../queries/FA2.2/replicate_now.query.yaml
-  - $ref: ../../queries/FA2.25/allow_throttle.query.yaml
+  - $ref: ../../queries/FA2.25/allow_throttle_snapshot.query.yaml
   - $ref: ../../queries/FA2.0/source_names.query.yaml
   - $ref: ../../queries/FA2.0/source_ids.query.yaml
   - $ref: ../../queries/FA2.0/on-single.query.yaml

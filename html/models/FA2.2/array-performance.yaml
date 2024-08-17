@@ -12,15 +12,16 @@ allOf:
       format: int64
       minimum: 0
     local_queue_usec_per_op:
-      description: Average local queue time for both read and write operations. Measured
-        in microseconds.
+      description: Deprecated. The number reported here may not be accurate and in
+        later versions of the product this field will always report `null`. Instead,
+        use `queue_usec_per_mirrored_write_op`, `queue_usec_per_read_op`, and `queue_usec_per_write_op`
+        fields to measure IO queuing.
       type: integer
       format: int64
       minimum: 0
     usec_per_other_op:
-      description: The average time it takes the array to process an I/O other request.
-        Measured in microseconds. The average time does not include SAN time, queue
-        time, or QoS rate limit time.
+      description: The average time it takes the array to process an I/O other request,
+        measured in microseconds.
       type: integer
       format: int64
       minimum: 0

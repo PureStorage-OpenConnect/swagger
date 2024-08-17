@@ -3,6 +3,6 @@ allOf:
 - properties:
     profile:
       type: string
-      description: The Offload target profile that will be selected for this target.
+      description: The offload target profile that will be selected for this target.
         This option allows more granular configuration for the target on top of the
         `protocol` parameter. Values include `nfs`, and `nfs-flashblade`.

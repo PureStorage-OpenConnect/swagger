@@ -9,10 +9,10 @@ allOf:
       format: int64
       example: 1636238104000
     service:
-      description: The service type of the subscription. Values include `Pure as-a-Service`,
-        `FlashStack as a Service`, `Storage as a Service`, `PaaS (Block Storage Service)`,
-        `PaaS (File and Object Storage Service)`, `PaaS (Data Protection Service)`,
-        and `Pure1 Subscription`.
+      description: The service type of the subscription. Values include `Evergreen//One`,
+        `Evergreen//Flex`, `FlashStack as a Service`, `Storage as a Service`, `PaaS
+        (Block Storage Service)`, `PaaS (File and Object Storage Service)`, `PaaS
+        (Data Protection Service)`, and `Pure1 Subscription`.
       type: string
       example: PaaS (Block Storage Service)
     start_date:

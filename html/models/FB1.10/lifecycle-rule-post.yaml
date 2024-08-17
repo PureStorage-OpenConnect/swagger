@@ -3,7 +3,7 @@ allOf:
     bucket:
       description: The bucket name for lifecycle rule creation.
       allOf:
-      - $ref: ../../models/FB1.8/_reference.yaml
+      - $ref: ../../models/FB1.8/_reference-writable.yaml
     rule_id:
       type: string
       description: Identifier for the rule that is unique to the bucket that it applies

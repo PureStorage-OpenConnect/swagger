@@ -9,6 +9,7 @@ post:
   - $ref: ../../queries/TEx-v1/oauth-grant-type.query.yaml
   - $ref: ../../queries/TEx-v1/oauth-subject-token.query.yaml
   - $ref: ../../queries/TEx-v1/oauth-subject-token-type.query.yaml
+  - $ref: ../../queries/TEx-v1/x-request-id.header.yaml
   responses:
     200:
       $ref: ../../responses/TEx-v1/oauth-token-200.response.yaml

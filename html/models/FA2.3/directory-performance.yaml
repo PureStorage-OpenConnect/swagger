@@ -39,22 +39,19 @@ allOf:
       format: int64
     usec_per_other_op:
       description: The average time it takes the array to process an I/O other request,
-        measured in microseconds. The average time does not include SAN time, queue
-        time, or QoS rate limit time.
+        measured in microseconds.
       type: integer
       format: int64
       minimum: 0
     usec_per_read_op:
       description: The average time it takes the array to process an I/O read request,
-        measured in microseconds. The average time does not include SAN time, queue
-        time, or QoS rate limit time.
+        measured in microseconds.
       type: integer
       format: int64
       minimum: 0
     usec_per_write_op:
       description: The average time it takes the array to process an I/O write request,
-        measured in microseconds. The average time does not include SAN time, queue
-        time, or QoS rate limit time.
+        measured in microseconds.
       type: integer
       format: int64
       minimum: 0

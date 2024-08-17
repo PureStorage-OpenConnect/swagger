@@ -37,6 +37,7 @@ allOf:
       type: integer
       format: int64
       minimum: 0
+      readOnly: true
     total_used:
       description: The total space contributed by customer data, measured in bytes.
       type: integer

@@ -35,7 +35,7 @@ post:
   - Object Store Users
 delete:
   summary: DELETE object-store-users/object-store-access-policies
-  description: "Revoke an object store user\xE2\u20AC\u2122s access policy."
+  description: "Revoke an object store user\u2019s access policy."
   parameters:
   - $ref: ../../queries/FB2.0/member_ids.query.yaml
   - $ref: ../../queries/FB2.0/member_names.query.yaml

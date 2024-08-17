@@ -53,7 +53,7 @@ allOf:
       description: Displays provisioned size and physical storage consumption information
         for the sum of all volumes connected to the specified host.
       allOf:
-      - $ref: ../../models/FA2.1/_pod_space.yaml
+      - $ref: ../../models/FA2.0/_space.yaml
     time_remaining:
       description: The amount of time left until the destroyed pod is permanently
         eradicated. Measured in milliseconds. Before the `time_remaining` period has

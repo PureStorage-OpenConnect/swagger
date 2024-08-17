@@ -40,6 +40,7 @@ allOf:
       example: '""'
     requested_promotion_state:
       type: string
+      readOnly: true
       description: Possible values are `promoted` and `demoted`. The `demoted` state
         is used for replication targets and is only allowed to be set if the file
         system is in a replica-link relationship. The additional query param `discard-non-snapshotted-data`

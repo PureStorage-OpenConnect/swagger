@@ -3,25 +3,5 @@ allOf:
 - properties:
     encryption:
       readOnly: true
-      type: object
-      properties:
-        data_at_rest:
-          description: Data at Rest Encryption properties.
-          type: object
-          properties:
-            algorithms:
-              description: The algorithms used to encrypt data at rest on the array.
-              type: array
-              items:
-                type: string
-              example:
-              - AES-256-GCM
-            enabled:
-              description: Returns a value of `true` if Data at Rest Encryption is
-                enabled.
-              type: boolean
-            entropy_source:
-              description: The entropy source used to generate the Data at Rest Encryption
-                key on the array.
-              type: string
-              example: rdseed
+      allOf:
+      - $ref: ../../models/FB2.8/_array-encryption.yaml

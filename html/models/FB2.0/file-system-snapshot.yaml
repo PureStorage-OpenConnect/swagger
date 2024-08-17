@@ -6,10 +6,6 @@ allOf:
       readOnly: true
       format: int64
       description: Creation timestamp of the object.
-    copyable:
-      description: Can this snapshot be used as a source for copy operations?
-      type: boolean
-      readOnly: true
     destroyed:
       description: Is the file system snapshot destroyed? If not specified, defaults
         to `false`.

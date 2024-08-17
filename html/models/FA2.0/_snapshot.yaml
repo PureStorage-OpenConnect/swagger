@@ -25,7 +25,8 @@ properties:
     format: int64
     readOnly: true
   source:
-    description: The volume from which this snapshot was taken.
+    description: The volume from which this snapshot was taken. For a replicated snapshot
+      being viewed on the target side, the `source` is the replica volume.
     readOnly: true
     allOf:
     - $ref: ../../models/FA2.0/_fixed-reference.yaml

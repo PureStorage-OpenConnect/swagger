@@ -13,4 +13,4 @@ properties:
     type: integer
     format: int64
     minimum: 100
-    maximum: 104857600
+    maximum: 100000000

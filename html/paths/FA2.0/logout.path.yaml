@@ -4,6 +4,7 @@ post:
 
     '
   parameters:
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
   - name: x-auth-token
     in: header
     description: Session token for a user.

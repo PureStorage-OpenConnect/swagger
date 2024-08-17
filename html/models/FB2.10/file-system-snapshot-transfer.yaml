@@ -4,4 +4,4 @@ allOf:
     local_snapshot:
       description: A reference to the associated local file system snapshot.
       allOf:
-      - $ref: ../../models/FB2.0/_fixed-reference.yaml
+      - $ref: ../../models/FB2.0/_fixed-reference-no-resource-type.yaml

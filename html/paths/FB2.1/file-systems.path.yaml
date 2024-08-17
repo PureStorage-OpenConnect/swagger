@@ -52,8 +52,8 @@ delete:
   - File Systems
 patch:
   summary: PATCH file-systems
-  description: "Modify a file system\xE2\u20AC\u2122s attributes including its export\
-    \ protocols and limits."
+  description: "Modify a file system\u2019s attributes including its export protocols\
+    \ and limits."
   parameters:
   - $ref: ../../queries/FB2.0/delete_link_on_eradication.query.yaml
   - $ref: ../../queries/FB2.0/discard_detailed_permissions.query.yaml

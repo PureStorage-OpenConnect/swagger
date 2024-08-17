@@ -12,14 +12,17 @@ properties:
   shared:
     description: The physical space occupied by deduplicated data, meaning that the
       space is shared with other volumes and snapshots as a result of data deduplication.
-      Measured in bytes.
+      Measured in bytes. On Evergreen//One arrays, this is the effective space contributed
+      by data that is not unique to a specific volume, managed directory, or snapshot,
+      measured in bytes.
     type: integer
     format: int64
     minimum: 0
     example: 111863360624
   snapshots:
     description: The physical space occupied by data unique to one or more snapshots.
-      Measured in bytes.
+      Measured in bytes. On Evergreen//One arrays, this is the effective space contributed
+      by data unique to one or more snapshots, measured in bytes.
     type: integer
     format: int64
     minimum: 0
@@ -64,7 +67,9 @@ properties:
   unique:
     description: The unique physical space occupied by customer data. Unique physical
       space does not include shared space, snapshots, and internal array metadata.
-      Measured in bytes.
+      Measured in bytes. On Evergreen//One arrays, this is the effective space contributed
+      by unique customer data, measured in bytes. Unique data does not include shared
+      space, snapshots, and internal array metadata.
     type: integer
     format: int64
     minimum: 0

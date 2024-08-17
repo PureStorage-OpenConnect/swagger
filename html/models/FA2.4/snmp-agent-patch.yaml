@@ -1,5 +1,5 @@
 allOf:
-- $ref: ../../models/FA2.0/_resource-no-id.yaml
+- $ref: ../../models/FA2.0/_built-in-resource-no-id.yaml
 - type: object
   properties:
     engine_id:
