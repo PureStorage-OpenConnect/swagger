@@ -21,6 +21,5 @@ allOf:
       example: Range 0-100 (must be equal to or lower than Warning Threshold)
     default_value:
       description: The system default values for the alert code and parameter.
-      type: integer
-      format: int32
-      example: 80
+      type: string
+      example: 80%

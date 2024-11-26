@@ -3,24 +3,22 @@ type: object
 properties:
   all_for_sec:
     description: The length of time to keep the specified snapshots. Measured in seconds.
+      Prior to 6.8.2 the range of 60 to 34560000 is accepted. In 6.8.2 and onwards
+      the range of 60 to 2147483647 is accepted.
     type: integer
     format: int32
-    min: 60
-    max: 34560000
     example: 86400
   days:
     description: The number of days to keep the snapshots after the `all_for_sec`
-      period has passed.
+      period has passed. Prior to 6.6.4 the range of 0 to 4000 is accepted. In 6.6.4
+      and onwards the range of 0 to 2147483647 is accepted.
     type: integer
     format: int32
-    min: 0
-    max: 4000
     example: 7
   per_day:
     description: The number of snapshots to keep per day after the `all_for_sec` period
-      has passed.
+      has passed. Prior to 6.8.2 the range of 0 to 1440 is accepted. In 6.8.2 and
+      onwards the range of 0 to 2147483647 is accepted.
     type: integer
     format: int32
-    min: 0
-    max: 1440
     example: 3

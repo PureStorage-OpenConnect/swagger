@@ -3,14 +3,14 @@ type: object
 properties:
   at:
     description: The time of day the snapshot is scheduled to be taken and retained
-      on the local array or immediately replicated to the target(s). Measured in milliseconds
+      on the local array or immediately replicated to the target(s). Measured in seconds
       since midnight. The `at` value is only used if the `frequency` parameter is
       in days (e.g., `259200000`, which is equal to 3 days).
     type: integer
     format: int64
     min: 0
-    max: 86399000
-    example: 7200000
+    max: 86399
+    example: 7200
   enabled:
     description: If set to `true`, the policy is enabled.
     type: boolean

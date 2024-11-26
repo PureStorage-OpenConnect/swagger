@@ -3,10 +3,10 @@ allOf:
 - properties:
     nfs:
       allOf:
-      - $ref: ../../models/FB2.15/_nfs.yaml
+      - $ref: ../../models/FB2.11/_nfs.yaml
     smb:
       allOf:
-      - $ref: ../../models/FB2.15/_smb-post.yaml
+      - $ref: ../../models/FB2.12/_smb-post.yaml
     eradication_config:
       allOf:
       - $ref: ../../models/FB2.15/_file-system-eradication-config.yaml

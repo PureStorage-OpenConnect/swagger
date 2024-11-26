@@ -201,8 +201,8 @@ tags:
   name: Hardware
 - description: Provides information about FlashBlade hardware connectors.
   name: Hardware Connectors
-- description: Provides information about historical metrics for arrays, volumes,
-    file systems and pods.
+- description: Provides information about historical metrics for arrays, buckets,
+    directories, file systems, pods, subscription licenses, and volumes.
   name: Metrics
 - description: Provides information about network interfaces available on arrays.
   name: Network Interfaces

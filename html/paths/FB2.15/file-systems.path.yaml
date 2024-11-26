@@ -26,7 +26,6 @@ post:
   description: Create a file system on the current array.
   parameters:
   - $ref: ../../queries/FB2.14/x-request-id.header.yaml
-  - $ref: ../../queries/FB2.15/default_exports.query.yaml
   - $ref: ../../queries/FB2.0/discard_non_snapshotted_data.query.yaml
   - $ref: ../../queries/FB2.0/names_required.query.yaml
   - $ref: ../../queries/FB2.0/overwrite.query.yaml
@@ -78,7 +77,7 @@ patch:
     in: body
     required: true
     schema:
-      $ref: ../../models/FB2.15/file-system-patch.yaml
+      $ref: ../../models/FB2.13/file-system-patch.yaml
   responses:
     200:
       description: OK
