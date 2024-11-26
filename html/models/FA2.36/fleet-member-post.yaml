@@ -1,0 +1,25 @@
+type: object
+properties:
+  members:
+    description: Details about the members being added to fleet.
+    type: array
+    items:
+      type: object
+      properties:
+        member:
+          type: object
+          properties:
+            id:
+              type: string
+              description: A globally unique, system-generated ID. The ID cannot be
+                modified.
+            name:
+              type: string
+              description: The resource name.
+            resource_type:
+              type: string
+              description: Type of the object (e.g. remote-arrays)
+        key:
+          description: Provide the `fleet key` generated from any array in the fleet.
+          required: true
+          type: string

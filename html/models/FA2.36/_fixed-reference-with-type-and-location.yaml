@@ -1,0 +1,9 @@
+allOf:
+- $ref: ../../models/FA2.0/_fixed-reference.yaml
+- $ref: ../../models/FA2.36/_location-reference.yaml
+- properties:
+    resource_type:
+      type: string
+      description: "Type of the object (full name of the endpoint).\n  Valid values\
+        \ are the unique part of the resource's REST endpoint.\n  For example, a reference\
+        \ to a fleet would have a\n  `resource_type` of `fleets`."

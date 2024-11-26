@@ -165,17 +165,17 @@ definitions:
     $ref: ../models/FA2.1/remote-volume-snapshot.yaml
   RemoteVolumeSnapshotTransfer:
     $ref: ../models/FA2.1/remote-volume-snapshot-transfer.yaml
-  SAML2-SSO:
+  Saml2-sso:
     $ref: ../models/FA2.11/saml2-sso.yaml
   Session:
     $ref: ../models/FA2.4/session.yaml
   Smis:
     $ref: ../models/FA2.2/smis.yaml
-  Smtp:
+  SmtpServer:
     $ref: ../models/FA2.4/smtp-server.yaml
   SnmpAgent:
     $ref: ../models/FA2.4/snmp-agent.yaml
-  SnmpManagers:
+  SnmpManager:
     $ref: ../models/FA2.4/snmp-manager.yaml
   Software:
     $ref: ../models/FA2.9/software.yaml

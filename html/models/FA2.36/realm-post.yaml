@@ -1,0 +1,14 @@
+allOf:
+- type: object
+  properties:
+    quota_limit:
+      type: integer
+      format: int64
+      description: The logical quota limit of the realm, measured in bytes. Must be
+        a multiple of 512.
+      minimum: 1048576
+      maximum: 4503599627370496
+    qos:
+      description: Sets QoS limits.
+      allOf:
+      - $ref: ../../models/FA2.36/_container-qos.yaml

@@ -2,15 +2,7 @@ allOf:
 - $ref: ../../models/FA2.24/policy-smb.yaml
 - properties:
     policy_mapping:
-      type: object
-      properties:
-        mapping:
-          description: The mapping of this policy. Valid values are `connected` and
-            `disconnected`.
-          type: string
-        remote_policy:
-          description: The policy on the remote pod of the pod replica link for this
-            policy mapping.
-          type: string
       description: Specifies the mapping of this policy across a pod replica link.
         If this policy is not inside a pod of a pod replica link, mapping is `null`.
+      allOf:
+      - $ref: ../../models/FA2.32/policy-nfs-policy-mapping.yaml

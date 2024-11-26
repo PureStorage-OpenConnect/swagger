@@ -2,7 +2,7 @@ consumes:
 - application/json
 definitions:
   ActiveDirectory:
-    $ref: ../models/FB2.15/active-directory.yaml
+    $ref: ../models/FB2.12/active-directory.yaml
   Admin:
     $ref: ../models/FB2.3/admin.yaml
   AdminApiToken:
@@ -44,7 +44,7 @@ definitions:
   Blade:
     $ref: ../models/FB2.0/blade.yaml
   Bucket:
-    $ref: ../models/FB2.14/bucket.yaml
+    $ref: ../models/FB2.15/bucket.yaml
   BucketAccessPolicy:
     $ref: ../models/FB2.15/bucket-access-policy.yaml
   BucketAccessPolicyRule:
@@ -74,7 +74,7 @@ definitions:
   DirectoryServiceRole:
     $ref: ../models/FB2.14/directory-service-role.yaml
   Dns:
-    $ref: ../models/FB2.15/dns.yaml
+    $ref: ../models/FB2.0/dns.yaml
   Drive:
     $ref: ../models/FB2.9/drive.yaml
   EULA:
@@ -85,8 +85,6 @@ definitions:
     $ref: ../models/FB2.10/file-session.yaml
   FileSystem:
     $ref: ../models/FB2.15/file-system.yaml
-  FileSystemExport:
-    $ref: ../models/FB2.15/file-system-export.yaml
   FileSystemGroupPerformance:
     $ref: ../models/FB2.0/file-system-group-performance.yaml
   FileSystemLockNLMReclamation:
@@ -110,7 +108,7 @@ definitions:
   HardwareConnectorPerformance:
     $ref: ../models/FB2.3/hardware-connector-performance.yaml
   Keytab:
-    $ref: ../models/FB2.15/keytab.yaml
+    $ref: ../models/FB2.0/keytab.yaml
   KeytabFileBase64:
     $ref: ../models/FB2.0/keytab-file-base64.yaml
   KeytabFileBinary:
@@ -130,7 +128,7 @@ definitions:
   NetworkAccessPolicyRule:
     $ref: ../models/FB2.13/network-access-policy-rule.yaml
   NetworkInterface:
-    $ref: ../models/FB2.15/network-interface.yaml
+    $ref: ../models/FB2.0/network-interface.yaml
   NetworkInterfacePing:
     $ref: ../models/FB2.6/network-interface-ping.yaml
   NetworkInterfaceTrace:
@@ -148,7 +146,7 @@ definitions:
   ObjectStoreAccessPolicyRule:
     $ref: ../models/FB2.11/policy-rule-object-access.yaml
   ObjectStoreAccount:
-    $ref: ../models/FB2.12/object-store-account.yaml
+    $ref: ../models/FB2.15/object-store-account.yaml
   ObjectStoreRemoteCredentials:
     $ref: ../models/FB2.0/object-store-remote-credentials.yaml
   ObjectStoreUser:
@@ -189,8 +187,6 @@ definitions:
     $ref: ../models/FB2.15/ssh-certificate-authority-policy.yaml
   Saml2Sso:
     $ref: ../models/FB2.15/saml2-sso.yaml
-  Server:
-    $ref: ../models/FB2.15/server.yaml
   Session:
     $ref: ../models/FB2.14/session.yaml
   SmbClientPolicy:
@@ -247,7 +243,7 @@ info:
   x-pure-description-ref: ../custom_descriptions/FB-api-introduction.md
 paths:
   /api/2.15/active-directory:
-    $ref: ../paths/FB2.15/active-directory.path.yaml
+    $ref: ../paths/FB2.14/active-directory.path.yaml
   /api/2.15/active-directory/test:
     $ref: ../paths/FB2.14/active-directory-test.path.yaml
   /api/2.15/admins:
@@ -311,7 +307,7 @@ paths:
   /api/2.15/bucket-replica-links:
     $ref: ../paths/FB2.14/bucket-replica-links.path.yaml
   /api/2.15/buckets:
-    $ref: ../paths/FB2.14/buckets.path.yaml
+    $ref: ../paths/FB2.15/buckets.path.yaml
   /api/2.15/buckets/bucket-access-policies:
     $ref: ../paths/FB2.15/bucket-access-policies.path.yaml
   /api/2.15/buckets/bucket-access-policies/rules:
@@ -343,11 +339,9 @@ paths:
   /api/2.15/directory-services/test:
     $ref: ../paths/FB2.14/directory-service-test.path.yaml
   /api/2.15/dns:
-    $ref: ../paths/FB2.15/dns.path.yaml
+    $ref: ../paths/FB2.14/dns.path.yaml
   /api/2.15/drives:
     $ref: ../paths/FB2.14/drives.path.yaml
-  /api/2.15/file-system-exports:
-    $ref: ../paths/FB2.15/file-system-exports.path.yaml
   /api/2.15/file-system-replica-links:
     $ref: ../paths/FB2.14/file-system-replica-links.path.yaml
   /api/2.15/file-system-replica-links/policies:
@@ -391,7 +385,7 @@ paths:
   /api/2.15/hardware-connectors/performance:
     $ref: ../paths/FB2.14/hardware-connectors-performance.path.yaml
   /api/2.15/keytabs:
-    $ref: ../paths/FB2.15/keytabs.path.yaml
+    $ref: ../paths/FB2.14/keytabs.path.yaml
   /api/2.15/keytabs/download:
     $ref: ../paths/FB2.14/keytabs-download.path.yaml
   /api/2.15/keytabs/upload:
@@ -417,7 +411,7 @@ paths:
   /api/2.15/network-access-policies/rules:
     $ref: ../paths/FB2.14/network-access-policies-rules.path.yaml
   /api/2.15/network-interfaces:
-    $ref: ../paths/FB2.15/network-interfaces.path.yaml
+    $ref: ../paths/FB2.14/network-interfaces.path.yaml
   /api/2.15/network-interfaces/ping:
     $ref: ../paths/FB2.14/network-interfaces-ping.path.yaml
   /api/2.15/network-interfaces/trace:
@@ -437,7 +431,7 @@ paths:
   /api/2.15/object-store-access-policy-actions:
     $ref: ../paths/FB2.14/object-store-access-policy-actions.path.yaml
   /api/2.15/object-store-accounts:
-    $ref: ../paths/FB2.14/object-store-accounts.path.yaml
+    $ref: ../paths/FB2.15/object-store-accounts.path.yaml
   /api/2.15/object-store-remote-credentials:
     $ref: ../paths/FB2.14/object-store-remote-credentials.path.yaml
   /api/2.15/object-store-users:
@@ -478,8 +472,6 @@ paths:
     $ref: ../paths/FB2.14/rapid-data-locking-test.path.yaml
   /api/2.15/roles:
     $ref: ../paths/FB2.14/roles.path.yaml
-  /api/2.15/servers:
-    $ref: ../paths/FB2.15/servers.path.yaml
   /api/2.15/sessions:
     $ref: ../paths/FB2.14/sessions.path.yaml
   /api/2.15/smb-client-policies:
@@ -684,7 +676,7 @@ tags:
     to generate the `key_id`, `id`, and `issuer` values. These values will be used
     as JWT claims for the `subject_token` parameter.
   name: Authorization
-- description: Active Directory configuration joins a server to the domain and manages
+- description: Active Directory configuration joins the array to the domain and manages
     its computer account. Authentication for NFS or SMB is performed using Kerberos.
     This configuration is also used to authorize users by mapping identities across
     the NFS and SMB protocols by using LDAP queries.
@@ -751,10 +743,6 @@ tags:
 - description: Manages the creation, attributes, and deletion of file systems on the
     array.
   name: File Systems
-- description: Manages the creation, attributes, and deletion of file system exports.
-    Exports link either an NFS Export Policy or a SMB Client Policy, a file system,
-    and a server.
-  name: File System Exports
 - description: File system replication requires a replica link that connects a source
     array to a remote target. The configuration of a replica link includes policies,
     file system names, remote names, and replication status information.
@@ -837,6 +825,9 @@ tags:
     that they require be encoded in certificates to authenticate. These policies can
     be applied to one or more users, or as a default for all users.
   name: Policies - SSH Certificate Authority
+- description: Manages WORM data for file systems. These policies are composed of
+    retention periods, lock type, and auto-commit status.
+  name: Policies - WORM Data
 - description: Public Keys can be configured for reference in other configurations
     as signing keys are used to verify cryptographic signatures.
   name: Public Keys
@@ -858,9 +849,6 @@ tags:
     and identity provider. It provides a multi-factor authentication (MFA) mechanism
     for customers to log in to FlashBlade.
   name: SAML2 SSO
-- description: Manages the properties of servers. Servers are network and identity
-    management access points for data.
-  name: Servers
 - description: Displays Purity//FB login and user session data.
   name: Sessions
 - description: Manages Simple Mail Transfer Protocol (SMTP) settings. SMTP allows

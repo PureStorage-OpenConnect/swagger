@@ -1,0 +1,3 @@
+allOf:
+- description: This field has been deprecated. Predecessor to management access policies.
+- $ref: ../../models/FA2.0/_reference-no-id.yaml

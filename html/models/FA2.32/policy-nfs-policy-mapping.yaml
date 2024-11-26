@@ -1,0 +1,9 @@
+type: object
+properties:
+  mapping:
+    description: The mapping of this policy. Valid values are `connected` and `disconnected`.
+    type: string
+  remote_policy:
+    description: The policy on the remote pod of the pod replica link for this policy
+      mapping.
+    type: string

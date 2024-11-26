@@ -1,0 +1,7 @@
+allOf:
+- $ref: ../../models/FA2.36/admin.yaml
+- type: object
+  properties:
+    old_password:
+      description: The current password.
+      type: string

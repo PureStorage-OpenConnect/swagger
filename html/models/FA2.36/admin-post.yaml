@@ -1,0 +1,14 @@
+type: object
+properties:
+  password:
+    description: Password associated with the account.
+    type: string
+  role:
+    $ref: ../../models/FA2.36/_admin-role.yaml
+  management_access_policies:
+    description: List of management access policies to associate with the administrator.
+      Policies can be specified by the `name` or `ID` parameter, but they cannot be
+      set together.
+    type: array
+    items:
+      $ref: ../../models/FA2.3/_reference-with-type.yaml

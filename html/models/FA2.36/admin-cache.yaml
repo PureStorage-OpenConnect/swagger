@@ -1,0 +1,18 @@
+allOf:
+- $ref: ../../models/FA2.2/_fixed-name-resource-no-id.yaml
+- description: A cache entry for the admin cache to quickly look up admin roles.
+- type: object
+  readOnly: true
+  properties:
+    cached_at:
+      description: Time when the entry was added to the cache, in milliseconds since
+        the UNIX epoch.
+      type: integer
+      format: int64
+    role:
+      $ref: ../../models/FA2.36/_admin-role.yaml
+    management_access_policies:
+      description: List of management access policies associated with the administrator.
+      type: array
+      items:
+        $ref: ../../models/FA2.3/_fixed-reference-with-type.yaml

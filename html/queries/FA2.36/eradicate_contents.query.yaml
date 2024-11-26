@@ -1,0 +1,6 @@
+name: eradicate_contents
+in: query
+description: Set to `true` to eradicate contents (e.g., volumes, protection groups,
+  snapshots) and containers (e.g., realms, pods, volume groups). This enables you
+  to eradicate containers with contents.
+type: boolean

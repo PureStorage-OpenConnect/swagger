@@ -1,0 +1,64 @@
+get:
+  summary: List audit policies attached to a directory
+  description: Displays a list of audit policies that are attached to directories.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/destroyed.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/member_ids.query.yaml
+  - $ref: ../../queries/FA2.0/member_names.query.yaml
+  - $ref: ../../queries/FA2.3/policy_ids.query.yaml
+  - $ref: ../../queries/FA2.3/policy_names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.21/policy-member-get-response.yaml
+  tags:
+  - Directories
+post:
+  summary: Create a membership between a directory and one or more audit policies
+  description: Creates a membership between a directory and one or more audit policies.
+    Either the `member_ids` or `member_names` parameter is required, but they cannot
+    be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/member_ids.query.yaml
+  - $ref: ../../queries/FA2.0/member_names.query.yaml
+  - name: policies
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.3/directory-policy-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.21/policy-member-response.yaml
+  tags:
+  - Directories
+delete:
+  summary: Delete a membership between a directory and one or more audit policies
+  description: Deletes a membership between a directory and one or more audit policies.
+    Either the `policy_ids` or `policy_names` parameter is required, but they cannot
+    be set together. Either the `member_ids` or `member_names` parameter is required,
+    but they cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/member_ids.query.yaml
+  - $ref: ../../queries/FA2.0/member_names.query.yaml
+  - $ref: ../../queries/FA2.3/policy_ids.query.yaml
+  - $ref: ../../queries/FA2.3/policy_names.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Directories

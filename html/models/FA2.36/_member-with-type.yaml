@@ -1,0 +1,7 @@
+allOf:
+- type: object
+  properties:
+    group:
+      $ref: ../../models/FA2.3/_reference-with-type.yaml
+    member:
+      $ref: ../../models/FA2.3/_reference-with-type.yaml

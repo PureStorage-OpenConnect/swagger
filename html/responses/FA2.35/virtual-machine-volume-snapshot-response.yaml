@@ -1,0 +1,9 @@
+allOf:
+- $ref: ../../responses/FA2.1/page-info.yaml
+- properties:
+    items:
+      type: array
+      items:
+        $ref: ../../models/FA2.35/virtual-machine-volume-snapshot.yaml
+      description: Displays a list of all items after filtering. The values are displayed
+        for each name if meaningful.

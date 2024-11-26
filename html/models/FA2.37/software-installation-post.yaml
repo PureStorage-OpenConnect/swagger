@@ -1,0 +1,15 @@
+allOf:
+- $ref: ../../models/FA2.9/software-installation-post.yaml
+- properties:
+    upgrade_parameters:
+      description: A list of parameters to be sent to the upgrade process. These parameters
+        can be used to change the behavior of the upgrade process in specific ways
+        such as enabling or disabling features in the target version or changing the
+        attributes of the appliance at upgrade time. When there is a need or option
+        to set an upgrade parameter, Pure Storage will provide documentation for the
+        specific parameter. If you have been provided documentation related to a specific
+        upgrade parameter, follow the instructions in the documentation. Otherwise,
+        do not set any upgrade parameters.
+      type: array
+      items:
+        $ref: _upgrade_parameters.yaml

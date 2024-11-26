@@ -215,8 +215,8 @@ tags:
   name: Hardware Connectors
 - description: Provides information about Pure1 subscription invoices.
   name: Invoices
-- description: Provides information about historical metrics for arrays, volumes,
-    file systems and pods.
+- description: Provides information about historical metrics for arrays, buckets,
+    directories, file systems, pods, subscription licenses, and volumes.
   name: Metrics
 - description: Provides information about network interfaces available on arrays.
   name: Network Interfaces

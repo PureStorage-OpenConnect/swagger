@@ -1,0 +1,33 @@
+get:
+  summary: List diagnostics tools version and last updated date
+  description: Displays diagnostics tools version and last updated date.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.36/support-diagnostics-get-response.yaml
+  tags:
+  - Support
+patch:
+  summary: Update diagnostics tools
+  description: Update diagnostics tools from downloaded bundle.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.36/purity-default.query.yaml
+  responses:
+    200:
+      description: The diagnostics tools were updated successfully.
+      schema:
+        $ref: ../../responses/FA2.36/support-diagnostics-response.yaml
+  tags:
+  - Support

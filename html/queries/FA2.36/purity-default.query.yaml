@@ -1,0 +1,5 @@
+name: purity_default
+in: query
+description: Set diagnostics tool to default version.
+type: boolean
+required: false

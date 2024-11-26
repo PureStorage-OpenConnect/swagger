@@ -165,11 +165,11 @@ definitions:
     $ref: ../models/FA2.4/session.yaml
   Smis:
     $ref: ../models/FA2.2/smis.yaml
-  Smtp:
+  SmtpServer:
     $ref: ../models/FA2.4/smtp-server.yaml
   SnmpAgent:
     $ref: ../models/FA2.4/snmp-agent.yaml
-  SnmpManagers:
+  SnmpManager:
     $ref: ../models/FA2.4/snmp-manager.yaml
   Software:
     $ref: ../models/FA2.4/software.yaml

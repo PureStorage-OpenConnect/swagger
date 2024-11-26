@@ -1,0 +1,18 @@
+type: object
+readOnly: true
+properties:
+  fleet_key:
+    description: Fleet key, used for fleet connections. After creation, listing will
+      only show ****.
+    type: string
+    example: CAUSJDljMGM3MGY3LWFhZDEtNDRkZC05ZDQ2LTZlOTA3YzY3Yzg1YxokOWMwYzcwZjctYWFkMS00NGRkLTlkND
+  created:
+    description: Creation time in milliseconds since UNIX epoch.
+    type: integer
+    format: int64
+    example: 1706850977
+  expires:
+    description: Expiration time in milliseconds since UNIX epoch.
+    type: integer
+    format: int64
+    example: 1706854577

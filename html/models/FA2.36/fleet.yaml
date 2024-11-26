@@ -1,0 +1,6 @@
+allOf:
+- $ref: ../../models/FA2.0/_resource.yaml
+- properties:
+    is_local:
+      type: boolean
+      description: If set to `true`, the current array is a member of the fleet.

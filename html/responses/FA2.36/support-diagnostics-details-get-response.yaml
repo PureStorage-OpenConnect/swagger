@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../FA2.1/page-info.yaml
+- $ref: support-diagnostics-details-response.yaml

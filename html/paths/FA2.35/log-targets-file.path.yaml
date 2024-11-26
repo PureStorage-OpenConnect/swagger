@@ -1,0 +1,71 @@
+get:
+  summary: List file log targets
+  description: Displays a list of configured file log targets.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.35/log-target-file-get-response.yaml
+  tags:
+  - Log Targets
+post:
+  summary: Create a file log target
+  description: Creates a new file log target.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - name: log-target-file
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.35/log-target-file.yaml
+  responses:
+    200:
+      description: Displays the newly configured file log target.
+      schema:
+        $ref: ../../responses/FA2.35/log-target-file-response.yaml
+  tags:
+  - Log Targets
+delete:
+  summary: Delete a file log target
+  description: Deletes a configured file log target.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Log Targets
+patch:
+  summary: Modify a file log target
+  description: Modifies the managed directory and retention of a configured file log
+    target.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - name: log-target-file
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.35/log-target-file.yaml
+  responses:
+    200:
+      description: Displays the newly updated file log target.
+      schema:
+        $ref: ../../responses/FA2.35/log-target-file-response.yaml
+  tags:
+  - Log Targets

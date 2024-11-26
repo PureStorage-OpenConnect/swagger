@@ -1,0 +1,9 @@
+allOf:
+- $ref: ../../models/FA2.24/policy.yaml
+- properties:
+    log_targets:
+      description: A list of targets to which audit logs will be sent.
+      type: array
+      required: true
+      items:
+        $ref: ../../models/FA2.26/_reference-no-id-with-type.yaml
