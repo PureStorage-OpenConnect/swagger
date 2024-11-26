@@ -1,0 +1,64 @@
+get:
+  summary: List fleet members
+  description: Displays the members in the current fleet.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.36/fleet_ids.query.yaml
+  - $ref: ../../queries/FA2.36/fleet_names.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/member_ids.query.yaml
+  - $ref: ../../queries/FA2.0/member_names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.36/fleet-member-get-response.yaml
+  tags:
+  - Fleets
+post:
+  summary: Add members to a fleet
+  description: 'Adds arrays to an existing fleet. This API needs to be run from the
+    array that''s joining the fleet.
+
+    To add the current array to the fleet, specify its own array `id` or `name`, as
+    well as the `fleet key` generated on any array already in the fleet. `resource_type`
+    is `remote-arrays`. The array''s `ID` and `name` can be retrieved with a call
+    to `GET /arrays` on the array.'
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.36/fleet_ids.query.yaml
+  - $ref: ../../queries/FA2.36/fleet_names.query.yaml
+  - name: members
+    in: body
+    description: Info about the members being added to fleet.
+    schema:
+      $ref: ../../models/FA2.36/fleet-member-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.36/fleet-member-response.yaml
+  tags:
+  - Fleets
+delete:
+  summary: Delete fleet members
+  description: Deletes the specified array(s) from the fleet. Note that this will
+    only succeed if the array(s) to be removed are not making use of any fleet resources.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/member_ids.query.yaml
+  - $ref: ../../queries/FA2.0/member_names.query.yaml
+  - $ref: ../../queries/FA2.36/unreachable.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Fleets

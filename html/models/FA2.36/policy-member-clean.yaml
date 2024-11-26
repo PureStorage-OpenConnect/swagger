@@ -1,0 +1,12 @@
+type: object
+properties:
+  member:
+    description: Reference to the resource that the policy is applied to.
+    readOnly: true
+    allOf:
+    - $ref: ../../models/FA2.3/_fixed-reference-with-type.yaml
+  policy:
+    description: Reference to the policy.
+    readOnly: true
+    allOf:
+    - $ref: ../../models/FA2.3/_fixed-reference-with-type.yaml

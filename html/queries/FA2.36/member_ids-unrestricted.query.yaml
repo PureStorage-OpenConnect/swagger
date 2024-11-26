@@ -1,0 +1,8 @@
+name: member_ids
+in: query
+description: Performs the operation on the unique member IDs specified. Enter multiple
+  member IDs in a comma-separated format.
+type: array
+collectionFormat: csv
+items:
+  type: string

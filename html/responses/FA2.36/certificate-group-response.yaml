@@ -1,0 +1,7 @@
+type: object
+properties:
+  items:
+    type: array
+    items:
+      $ref: ../../models/FA2.36/certificate-group.yaml
+    description: A list of certificate group objects.

@@ -1,0 +1,8 @@
+name: pod_names
+in: query
+description: Performs the operation on the unique pod name specified. Enter multiple
+  names in comma-separated format. For example, `pod01,pod02`.
+type: array
+collectionFormat: csv
+items:
+  type: string

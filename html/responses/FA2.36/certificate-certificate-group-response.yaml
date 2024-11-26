@@ -1,0 +1,7 @@
+type: object
+properties:
+  items:
+    type: array
+    items:
+      $ref: ../../models/FA2.36/_member-with-type.yaml
+    description: A list of certificate and certificate group relationships.

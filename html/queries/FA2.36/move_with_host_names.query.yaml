@@ -1,0 +1,8 @@
+name: move_with_host_names
+in: query
+description: The hosts to be moved together with the pods to the specified local member
+  realm or array. Enter multiple names in a comma-separated format.
+type: array
+collectionFormat: csv
+items:
+  type: string

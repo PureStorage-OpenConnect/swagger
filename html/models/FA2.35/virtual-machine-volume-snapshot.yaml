@@ -1,0 +1,54 @@
+allOf:
+- properties:
+    vm_id:
+      description: The ID of the virtual machine, as assigned by the external system.
+      type: string
+      readOnly: true
+    vm_type:
+      description: The type of virtual machine. The only valid value is `vvol`.
+      type: string
+      example: vvol
+      readOnly: true
+    vvol_type:
+      description: The type of virtual machine volume. Values include `config` and
+        `data`.
+      type: string
+      example: config
+      readOnly: true
+    vvol_name:
+      description: The name of the virtual machine volume.
+      type: string
+      readOnly: true
+    id:
+      description: A globally unique, system-generated ID. The ID cannot be modified.
+      type: string
+      readOnly: true
+    name:
+      description: The name of the virtual machine volume snapshot.
+      type: string
+      readOnly: true
+    created:
+      description: The virtual machine volume snapshot creation time measured in milliseconds
+        since the UNIX epoch.
+      type: integer
+      format: int64
+      readOnly: true
+    destroyed:
+      description: Returns a value of `true` if the virtual machine volume snapshot
+        has been destroyed and is pending eradication.
+      type: boolean
+      readOnly: true
+    time_remaining:
+      description: Specifies the amount of time left until the destroyed volume snapshot
+        is permanently eradicated, measured in milliseconds. Once the `time_remaining`
+        period has elapsed, the volume snapshot is permanently eradicated and can
+        no longer be recovered.
+      type: integer
+      format: int64
+      readOnly: true
+    recover_context:
+      description: A reference to any additional entities needed to recover this virtual
+        machine.
+      readOnly: true
+      allOf:
+      - $ref: ../../models/FA2.0/_fixed-reference.yaml

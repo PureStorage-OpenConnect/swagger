@@ -1,0 +1,9 @@
+name: move_with_host_group_names
+in: query
+description: The host groups to be moved together with the pods to the specified local
+  member realm or array. All the hosts in the host groups will also be moved. Enter
+  multiple names in a comma-separated format.
+type: array
+collectionFormat: csv
+items:
+  type: string

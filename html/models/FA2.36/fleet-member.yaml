@@ -1,0 +1,18 @@
+type: object
+properties:
+  member:
+    allOf:
+    - $ref: ../FA2.36/_fixed-reference-with-type-and-location.yaml
+  status:
+    type: string
+    description: 'Current fleet membership status Valid values are one of: `joining`,
+      `joined`, or `removing` A status of `joining` indicates that the member is attempting
+      to join the fleet. A status of `joined` indicates that the member has joined
+      the fleet. A status of `removing` indicates that the member is being removed
+      from the fleet.'
+  status_details:
+    type: string
+    description: Describes the error, if any.
+    example: cannot reach array
+  fleet:
+    $ref: ../FA2.36/_fixed-reference-with-type-and-location.yaml

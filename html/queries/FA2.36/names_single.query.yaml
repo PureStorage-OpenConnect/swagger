@@ -1,0 +1,8 @@
+name: names
+in: query
+description: Performs the operation on the unique resource names specified. Only one
+  value is supported.
+type: array
+collectionFormat: csv
+items:
+  type: string

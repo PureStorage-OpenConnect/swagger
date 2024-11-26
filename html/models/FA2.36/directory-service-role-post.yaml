@@ -1,0 +1,23 @@
+type: object
+properties:
+  role:
+    description: This field has been deprecated. Predecessor to management access
+      policies. Can be set to the premade policy of the same name. Cannot be set with
+      management_access_policies.
+    allOf:
+    - $ref: ../../models/FA2.0/_reference-no-id.yaml
+  management_access_policies:
+    description: List of management access policies to associate with the group.
+    type: array
+    items:
+      $ref: ../../models/FA2.3/_reference-with-type.yaml
+  group:
+    description: Group name that contains users with the abilities granted by the
+      associated policies.
+    type: string
+    example: groupOfUsers
+  group_base:
+    description: Specifies where the configured group is located in the directory
+      tree.
+    type: string
+    example: OU=PureGroups,OU=SANManagers

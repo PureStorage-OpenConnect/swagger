@@ -1,30 +1,35 @@
-import requests
 import yaml
 import json
 import queue
 import threading
 import os
-import urllib
 import sys
 import argparse
 
 fb_max_version = { 0:0, 1:12, 2:15 }      #this is a list of major:minor_max version pairs
 pure1_max_version = { 0:-1, 1:2 }
-fa_2_max_version = { 2:35 }
+fa_2_max_version = { 2:37 }
 thread_count = 8
-baseURL = 'http://purest.dev.purestorage.com'
-spec_url = baseURL + '/pure-urls.js'
+baseURL = ''
+#spec_url = baseURL + '/pure-urls.js'
+script_path = os.path.dirname(os.path.realpath(__file__))
+file_download_root = os.path.abspath(os.path.join(script_path,"../html"))
+
+source_dir_root = os.path.abspath(os.path.join(script_path, "../../purest"))
+source_spec_file = os.path.abspath(os.path.join(source_dir_root, "doc_server", "custom_files", "pure-urls.js"))
+
 cache = {}
 overwrite_local_files = False
 
 class SpecWorker(threading.Thread):
-    def __init__(self, s, q, file_download_root, io_lock, cache_lock):
+    def __init__(self, q, io_lock, cache_lock):
         threading.Thread.__init__(self, daemon=True)
-        self.s = s
         self.q = q
-        self.file_download_root = file_download_root
         self.io_lock = io_lock
         self.cache_lock = cache_lock
+
+    # Description:
+    #   This function is a generator that will search a dictionary for a key and return the value.
 
     def find(self, key, dictionary):
         for k, v in dictionary.items():
@@ -46,20 +51,27 @@ class SpecWorker(threading.Thread):
 
 
     #Dowload and return the file
-    def get_spec_file(self, spec_url, head, model):
+    def get_spec_file(self, spec_url, head):
+        #global file_download_root, source_dir_root
       
 
         # figure out local path
-        url_parse_result = urllib.parse.urlparse(spec_url)
-        url_path = url_parse_result.path
-        url_path = url_path.replace("/purest","")  #pull out the purest
-        #print(self.file_download_root)
+        #url_parse_result = spec_url
+        url_path = spec_url.replace("/purest", "") #pull out the purest
+        if url_path.startswith('/'):
+            url_path = url_path[1:]
+        print(url_path )
+   
         #print(url_path)
 
+        source_path = os.path.join(source_dir_root, url_path)
         if head:
-            save_to_path = self.file_download_root + '/original_spec' + url_path
+            save_to_path = os.path.join(file_download_root, 'original_spec', url_path)
         else:
-            save_to_path = self.file_download_root + url_path
+            save_to_path = os.path.join(file_download_root, url_path)
+
+        # print(f"source: {source_path}")
+        # print(f"saveto: {save_to_path}")
 
         # print("Spec URL:{}   Local File:{}".format(spec_url,save_to_path))
         # don't used cached file for head file.
@@ -68,7 +80,7 @@ class SpecWorker(threading.Thread):
             # try and pull yaml file locally
             try:
                 with self.io_lock:
-                    with open(save_to_path,"r") as f:
+                    with open(save_to_path, "r", encoding='utf-8') as f:
                         spec_file = f.read()
                 #print("Returning Local file")
                 return spec_file
@@ -79,13 +91,14 @@ class SpecWorker(threading.Thread):
         # file not found, lets download it
         # print("downloading spec ")
         try:
-            self.response = self.s.get(spec_url)
+            with self.io_lock:
+                with open(source_path, encoding='utf-8') as f:
+                    spec_file = f.read()
+            #return spec_file
         except:
-            print(f"Unexpected error: getting URL: {spec_url}")
+            print(f"Unexpected error: getting URL: {source_path}")
             raise
 
-        
-        spec_file = self.response.text
         path, _ = os.path.split(save_to_path)
         os.makedirs(path, exist_ok=True)
 
@@ -99,14 +112,13 @@ class SpecWorker(threading.Thread):
             spec_file = yaml.dump(spec_yaml, sort_keys=False)
 
         with self.io_lock:
-            with open(save_to_path,"w") as f:
+            with open(save_to_path,"w", encoding='utf-8') as f:
                 f.write(spec_file)
         
         return spec_file
 
 
     def run(self):
-        global cache
 
         while True:
             item = self.q.get()
@@ -121,10 +133,9 @@ class SpecWorker(threading.Thread):
                     cache[spec_url] = 'working'
 
             head = item['head']
-            model = item['model']
 
             try:
-                 spec_file = self.get_spec_file(spec_url, head, model)
+                spec_file = self.get_spec_file(spec_url, head)
             except:
                 print("Unexpected error:", sys.exc_info()[0])
                 self.q.task_done()
@@ -136,10 +147,13 @@ class SpecWorker(threading.Thread):
                 #There is at least one file with .yaml extension, but is not yaml...
                 if isinstance(spec_dict, dict):
                     for rel_path in self.parse_spec(spec_dict):
-                        new_abs_path = urllib.parse.urljoin(spec_url,rel_path)
-
+                        # we will pretend we on url paths like /purest/model/...
+                        
+                        full_path = os.path.join(os.path.dirname(spec_url), rel_path)
+                        new_abs_path = os.path.abspath(full_path)
+                
                         #print("source: {}  rel: {}  abs: {}".format(spec_url,rel_path,new_abs_path))
-                        self.q.put({'url':new_abs_path,'head':False, 'model':model })
+                        self.q.put({'url':new_abs_path, 'head':False })
                 else:
                     print("Yaml file: {} does not appear to be yaml !".format(spec_url))
 
@@ -155,16 +169,20 @@ def main():
     parser.add_argument("--overwrite-local-files", help="overwrite local files", action="store_true")
     args = parser.parse_args()
 
+    #print(file_download_root)
+    #print(source_dir_root)
+    #print(source_spec_file)
+    #return
+
     if args.overwrite_local_files:
         
         overwrite_local_files = True
 
-    script_path = os.path.dirname(os.path.realpath(__file__))
-    
-    file_download_root = os.path.abspath(os.path.join(script_path,"../html"))
-    s = requests.Session()
     q = queue.Queue()
-    resp = s.get(spec_url).text
+    
+    #resp = s.get(spec_url).text
+    with open(source_spec_file, encoding='utf-8') as f:
+        resp = f.read()
 
     #need to convert it from javascript to valid json
     #strip just the list:
@@ -182,11 +200,11 @@ def main():
         print(json_compat)
         raise
 
-    with open("fb_template.yaml") as f:
+    with open(os.path.join(script_path,"fb_template.yaml"), encoding='utf-8') as f:
         fb_template_yaml = yaml.safe_load(f)
-    with open("fa2_template.yaml") as f:
+    with open(os.path.join(script_path,"fa2_template.yaml"), encoding='utf-8') as f:
         fa_template_yaml = yaml.safe_load(f)
-    with open("pure1_template.yaml") as f:
+    with open(os.path.join(script_path,"pure1_template.yaml"), encoding='utf-8') as f:
         pure1_template_yaml = yaml.safe_load(f)
 
     for spec in spec_list:
@@ -229,7 +247,7 @@ def main():
     io_lock = threading.Lock()
     cache_lock = threading.Lock()
     for _ in range(thread_count):
-        t = SpecWorker(s,q,file_download_root,io_lock,cache_lock)
+        t = SpecWorker(q, io_lock, cache_lock)
         t.start()
     
     # wait till all threads finish    

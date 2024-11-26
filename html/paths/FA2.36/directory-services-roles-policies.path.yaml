@@ -1,0 +1,67 @@
+get:
+  summary: List management access policies attached to a group to management access
+    policy mapping
+  description: Displays a list of management access policies that are attached to
+    group to management access policy mappings.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/member_ids.query.yaml
+  - $ref: ../../queries/FA2.0/member_names.query.yaml
+  - $ref: ../../queries/FA2.3/policy_ids.query.yaml
+  - $ref: ../../queries/FA2.3/policy_names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.36/policy-member-clean-get-response.yaml
+  tags:
+  - Directory Services
+post:
+  summary: Create a membership between a group to management access policy mapping
+    with one or more management access policies
+  description: Creates a membership between a group to management access policy mapping
+    with one or more management access policies. The `member_ids` or `member_names`
+    parameter is required, but they cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/member_ids.query.yaml
+  - $ref: ../../queries/FA2.0/member_names.query.yaml
+  - name: policies
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.36/policy-assignment-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.36/policy-member-clean-response.yaml
+  tags:
+  - Directory Services
+delete:
+  summary: Delete a membership between a group to management access policy mapping
+    and one or more management access policies
+  description: Deletes a membership between a group to management access policy mapping
+    with one or more management access policies. The `policy_ids` or `policy_names`
+    is required, but they cannot be set together. Also, `member_ids` or `member_names`
+    is required, but they cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/member_ids.query.yaml
+  - $ref: ../../queries/FA2.0/member_names.query.yaml
+  - $ref: ../../queries/FA2.3/policy_ids.query.yaml
+  - $ref: ../../queries/FA2.3/policy_names.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Directory Services

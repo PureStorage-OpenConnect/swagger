@@ -1,0 +1,10 @@
+type: object
+properties:
+  details:
+    description: Additional details about policy resolution.
+    type: string
+  rules:
+    description: List the rules that defines the scoped roles.
+    type: array
+    items:
+      $ref: ../../models/FA2.36/_policyrulemanagementaccess-rules.yaml

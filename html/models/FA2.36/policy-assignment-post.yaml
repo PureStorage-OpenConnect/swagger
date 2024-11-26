@@ -1,0 +1,8 @@
+type: object
+properties:
+  policies:
+    description: A list of policies to apply to the resource. One of `id` or `name`
+      is required in each `policy`.
+    type: array
+    items:
+      $ref: ../../models/FA2.36/policy-assignment-post-policy.yaml

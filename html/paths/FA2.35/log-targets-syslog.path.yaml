@@ -1,0 +1,70 @@
+get:
+  summary: List syslog servers
+  description: Displays a list of configured syslog servers.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.35/syslog-server-get-response.yaml
+  tags:
+  - Log Targets
+post:
+  summary: Create syslog server
+  description: Creates a new syslog server.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - name: syslog-server
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.35/syslog-server.yaml
+  responses:
+    200:
+      description: Displays the newly configured syslog server.
+      schema:
+        $ref: ../../responses/FA2.35/syslog-server-response.yaml
+  tags:
+  - Log Targets
+delete:
+  summary: Delete syslog server
+  description: Deletes a configured syslog server and stop forwarding syslog messages.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Log Targets
+patch:
+  summary: Modify syslog server
+  description: Modifies the URI and services of a configured syslog server.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - name: syslog-server
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.35/syslog-server.yaml
+  responses:
+    200:
+      description: Displays the newly updated syslog server.
+      schema:
+        $ref: ../../responses/FA2.35/syslog-server-response.yaml
+  tags:
+  - Log Targets

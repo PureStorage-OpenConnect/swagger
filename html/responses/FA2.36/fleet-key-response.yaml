@@ -1,0 +1,7 @@
+type: object
+properties:
+  items:
+    type: array
+    items:
+      allOf:
+      - $ref: ../../models/FA2.36/fleet-key.yaml

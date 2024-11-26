@@ -1,0 +1,8 @@
+allOf:
+- $ref: ../../models/FA2.1/_pod_array_status.yaml
+- type: object
+- properties:
+    member:
+      description: A reference to the member associated with the pod's array status.
+      allOf:
+      - $ref: ../../models/FA2.3/_reference-with-type.yaml
