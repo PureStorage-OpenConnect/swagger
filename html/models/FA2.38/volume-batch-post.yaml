@@ -1,0 +1,17 @@
+allOf:
+- $ref: ../../models/FA2.33/volume-post.yaml
+- type: object
+  properties:
+    add_to_protection_groups:
+      description: Specifies a list of protection groups that will protect the volume.
+      type: array
+      items:
+        $ref: ../../models/FA2.0/_reference.yaml
+    name:
+      description: Specifies the name of the volume.
+      type: string
+    tags:
+      description: Specifies the list of tags to be upserted on this volume.
+      type: array
+      items:
+        $ref: ../../models/FA2.38/tag.yaml

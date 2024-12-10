@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../models/FA2.21/policy-rule-smb-client.yaml
+- $ref: ../../models/FA2.38/_context.yaml

@@ -1,0 +1,29 @@
+get:
+  summary: List volume diffs
+  description: Displays block differences for the specified volumes.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.38/allow_errors.query.yaml
+  - $ref: ../../queries/FA2.38/context_names_get.query.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.9/base_name.query.yaml
+  - $ref: ../../queries/FA2.9/base_id.query.yaml
+  - $ref: ../../queries/FA2.9/segment_offset.query.yaml
+  - $ref: ../../queries/FA2.9/segment_length.query.yaml
+  - $ref: ../../queries/FA2.9/block_size.query.yaml
+  - $ref: ../../queries/FA2.9/next_allocated_block_hint.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.38/volumes-diff-get-response.yaml
+  tags:
+  - Volumes

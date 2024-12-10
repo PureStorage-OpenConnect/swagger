@@ -1,0 +1,27 @@
+allOf:
+- $ref: ../../models/FA2.9/policy-rule-snapshot.yaml
+- $ref: ../../models/FA2.38/_context.yaml
+- properties:
+    destroyed:
+      description: Returns a value of `true` if the pod containing the snapshot policy
+        rule has been destroyed and is pending eradication. The `time_remaining` value
+        displays the amount of time left until the destroyed policy is permanently
+        eradicated. Once the `time_remaining` period has elapsed, the snapshot policy
+        rule is permanently eradicated and can no longer be recovered.
+      type: boolean
+    keep_for:
+      description: Specifies the period that snapshots are retained before they are
+        eradicated, in milliseconds. The `keep_for` value cannot be less than the
+        `every` value of the rule. The `keep_for` value must be unique for each rule
+        in the same policy. The `keep_for` value must be between 5 minutes and 5 years.
+        The `keep_for` value cannot be less than the `keep_for` value of any rule
+        in the same policy with a smaller `every` value.
+      type: integer
+      format: int64
+      readOnly: true
+    time_remaining:
+      description: The amount of time left, in milliseconds, until the destroyed snapshot
+        policy rule is permanently eradicated.
+      type: integer
+      format: int64
+      readOnly: true

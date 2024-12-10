@@ -1,0 +1,4 @@
+allOf:
+- $ref: ../../responses/FA2.1/page-info.yaml
+- $ref: ../../responses/FA2.38/pod-performance-replication-by-array-response.yaml
+- $ref: ../../responses/FA2.38/_error-context-response.yaml

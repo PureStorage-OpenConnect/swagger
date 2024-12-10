@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../models/FA2.36/host.yaml
+- $ref: ../../models/FA2.38/_context.yaml

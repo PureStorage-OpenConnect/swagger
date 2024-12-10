@@ -1,0 +1,62 @@
+get:
+  summary: List hosts that are associated with host groups
+  description: Displays a list of hosts that are associated with host groups.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.38/allow_errors.query.yaml
+  - $ref: ../../queries/FA2.38/context_names_get.query.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/group_names.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/member_names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.38/member-no-id-all-get-response.yaml
+  tags:
+  - Hosts
+post:
+  summary: Create a membership to a host group
+  description: Creates a membership to a host group. Creating a membership to a host
+    group automatically connects the host to all volumes associated with the group.
+    Multiple hosts can be belong to a host group, but a host can only belong to one
+    host group. Hosts can be added to host groups at any time. The `group_names` and
+    `member_names` parameters are required and must be set together, and only one
+    host group can be specified at a time.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.38/context_names.query.yaml
+  - $ref: ../../queries/FA2.0/group_names.query.yaml
+  - $ref: ../../queries/FA2.0/member_names.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.38/member-no-id-all-response.yaml
+  tags:
+  - Hosts
+delete:
+  summary: Delete a membership from a host group
+  description: Deletes a membership from a host group. Deleting a membership from
+    a host group automatically disconnects the host from all volumes associated with
+    the group. Hosts can be deleted from host groups at any time. The `group_names`
+    and `member_names` parameters are required and must be set together, and only
+    one host group can be specified at a time.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.38/context_names.query.yaml
+  - $ref: ../../queries/FA2.0/group_names.query.yaml
+  - $ref: ../../queries/FA2.0/member_names.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Hosts

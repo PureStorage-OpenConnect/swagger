@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../models/FA2.29/policy-rule-nfs-client.yaml
+- $ref: ../../models/FA2.38/_context.yaml

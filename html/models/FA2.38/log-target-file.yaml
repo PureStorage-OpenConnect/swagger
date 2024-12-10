@@ -1,0 +1,27 @@
+allOf:
+- $ref: ../../models/FA2.38/log-target.yaml
+- description: A file log target
+  type: object
+  properties:
+    directory:
+      description: Directory name to be used as log target.
+      allOf:
+      - $ref: ../../models/FA2.3/_reference-with-type.yaml
+    keep_for:
+      description: Specifies the period that audit logs are retained before they are
+        deleted, in milliseconds. Default value is `null` which means size based retention
+        does not apply. Use 0 to reset the value to `null`. At least one of the `keep_for`
+        or `keep_size` parameters is required, and they can be set together.
+      type: integer
+      format: int64
+      minimum: 86400000
+      example: 86400000
+    keep_size:
+      description: Specifies the maximum size of audit logs to be retained. Measured
+        in bytes. When exceeded, older logs will be deleted. Default value is `null`
+        which means size-based retention does not apply. Use 0 to reset the value
+        to `null`.
+      type: integer
+      format: int64
+      minimum: 1000000
+      example: 1000000

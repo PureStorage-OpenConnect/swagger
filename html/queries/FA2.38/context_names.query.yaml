@@ -1,0 +1,13 @@
+name: context_names
+in: query
+description: 'Performs the operation on the context specified. If specified, the context
+  names must be an array of size 1, and the single element must be the name of an
+  array in the same fleet. If not specified, the context will default to the array
+  that received this request.
+
+  Other parameters provided with the request, such as names of volumes or snapshots,
+  are resolved relative to the provided `context`.'
+type: array
+collectionFormat: csv
+items:
+  type: string

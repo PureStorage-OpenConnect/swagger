@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../models/FA2.35/policy-audit-file.yaml
+- $ref: ../../models/FA2.38/_context.yaml

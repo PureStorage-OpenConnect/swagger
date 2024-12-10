@@ -1,0 +1,31 @@
+get:
+  summary: List host group performance data by array
+  description: Displays real-time and historical performance data, real-time latency
+    data, and average I/O size data. The data is displayed by total size across all
+    host groups on each array and by individual host group on each array. The displayed
+    data represents the volumes that are connected to a host group on the current
+    array and the volumes that are connected to a host group on any remote arrays
+    that are visible to the current array.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.38/allow_errors.query.yaml
+  - $ref: ../../queries/FA2.38/context_names_get.query.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/history_end_time.query.yaml
+  - $ref: ../../queries/FA2.0/history_resolution.query.yaml
+  - $ref: ../../queries/FA2.0/history_start_time.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  - $ref: ../../queries/FA2.0/total_only.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.38/resource-performance-no-id-by-array-get-response.yaml
+  tags:
+  - Host Groups

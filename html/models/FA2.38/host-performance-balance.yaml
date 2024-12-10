@@ -1,0 +1,28 @@
+allOf:
+- $ref: ../../models/FA2.0/_resource-no-id.yaml
+- $ref: ../../models/FA2.38/_context.yaml
+- readOnly: true
+  properties:
+    op_count:
+      description: Count of I/O operations for the host path, over the specified resolution.
+      type: integer
+      format: int64
+    fraction_relative_to_max:
+      description: The path with the highest number of operation counts is displayed
+        with a fraction_relative_to_max of 1.0. The fraction values of all other paths
+        in the host are then calculated relative to the path with the highest number
+        of operation counts.
+      type: number
+      format: float
+      min: 0.0
+      max: 1.0
+      example: 0.14
+    initiator:
+      $ref: ../../models/FA2.2/_port-common.yaml
+    target:
+      allOf:
+      - $ref: ../../models/FA2.38/port-initiator-target.yaml
+    time:
+      description: Sample time in milliseconds since UNIX epoch.
+      type: integer
+      format: int64

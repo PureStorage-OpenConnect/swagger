@@ -1,0 +1,2 @@
+allOf:
+- $ref: ../../models/FA2.38/_base-port.yaml

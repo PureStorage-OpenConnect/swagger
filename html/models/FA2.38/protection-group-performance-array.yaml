@@ -1,0 +1,4 @@
+allOf:
+- $ref: ../../models/FA2.0/_built-in.yaml
+- $ref: ../../models/FA2.26/protection-group-performance-array.yaml
+- $ref: ../../models/FA2.38/_context.yaml
