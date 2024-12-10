@@ -28,7 +28,7 @@ jobs:
           tox -e podman -- ${{ github.event.release.tag_name }}
           
       - name: Push swagger
-        uses: redhat-actions/push-to-registry@latest
+        uses: redhat-actions/push-to-registry@v2
         with:
           image: swagger
           tags: ${{ github.event.release.tag_name }} latest
