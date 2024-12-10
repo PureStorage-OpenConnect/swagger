@@ -1,0 +1,83 @@
+get:
+  summary: List management access policies
+  description: Displays a list of management access policies.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.38/allow_errors.query.yaml
+  - $ref: ../../queries/FA2.38/context_names_get.query.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.38/policy-management-access-get-response.yaml
+  tags:
+  - Policies
+post:
+  summary: Create management access policies
+  description: Creates one or more management access policies. To copy a policy, one
+    of `source_names` or `source_ids` is required. To create a policy from scratch,
+    policy body is required.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.38/context_names.query.yaml
+  - $ref: ../../queries/FA2.0/names_required.query.yaml
+  - $ref: ../../queries/FA2.0/source_ids.query.yaml
+  - $ref: ../../queries/FA2.0/source_names.query.yaml
+  - name: policy
+    in: body
+    schema:
+      $ref: ../../models/FA2.36/policy-management-access-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.38/policy-management-access-response.yaml
+  tags:
+  - Policies
+delete:
+  summary: Delete management access policies
+  description: Deletes one or more management access policies. One of `ids` or `names`
+    is required.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.38/context_names.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Policies
+patch:
+  summary: Modify management access policies
+  description: Modifies one or more management access policies. One of `ids` or `names`
+    is required. For renames, can only specify one old policy in `ids` or `names`.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.38/context_names.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - name: policy
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.36/policy-management-access-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.38/policy-management-access-response.yaml
+  tags:
+  - Policies

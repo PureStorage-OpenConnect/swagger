@@ -1,0 +1,7 @@
+name: allow_errors
+in: query
+description: If set to `true`, the API will allow the operation to continue even if
+  there are errors. Any errors will be returned in the `errors` field of the response.
+  If set to `false`, the operation will fail if there are any errors.
+type: boolean
+default: false

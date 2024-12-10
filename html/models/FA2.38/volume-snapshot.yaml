@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../models/FA2.34/volume-snapshot.yaml
+- $ref: ../../models/FA2.38/_context.yaml

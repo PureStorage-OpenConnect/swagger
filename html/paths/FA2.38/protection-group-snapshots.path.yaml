@@ -1,0 +1,97 @@
+get:
+  summary: List protection group snapshots
+  description: Displays a list of protection group snapshots, including those pending
+    eradication.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.38/allow_errors.query.yaml
+  - $ref: ../../queries/FA2.38/context_names_get.query.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/destroyed.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/source_names.query.yaml
+  - $ref: ../../queries/FA2.0/source_ids.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  - $ref: ../../queries/FA2.0/total_only.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.38/protection-group-snapshot-get-response.yaml
+  tags:
+  - Protection Group Snapshots
+post:
+  summary: Create a protection group snapshot
+  description: Creates a point-in-time snapshot of the contents of a protection group.
+    The `source_ids` or `source_names` parameter is required, but they cannot be set
+    together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.1/apply_retention.query.yaml
+  - $ref: ../../queries/FA2.38/context_names.query.yaml
+  - $ref: ../../queries/FA2.2/for_replication.query.yaml
+  - $ref: ../../queries/FA2.2/replicate.query.yaml
+  - $ref: ../../queries/FA2.2/replicate_now.query.yaml
+  - $ref: ../../queries/FA2.25/allow_throttle_snapshot.query.yaml
+  - $ref: ../../queries/FA2.0/source_ids.query.yaml
+  - $ref: ../../queries/FA2.0/source_names.query.yaml
+  - name: protection-group-snapshot
+    in: body
+    schema:
+      $ref: ../../models/FA2.38/protection-group-snapshot-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.38/protection-group-snapshot-response.yaml
+  tags:
+  - Protection Group Snapshots
+delete:
+  summary: Delete a protection group snapshot
+  description: Deletes a protection group snapshot that has been destroyed and is
+    pending eradication. Eradicating a protection group snapshot eradicates all of
+    its protection group snapshots and cannot be recovered. Protection group snapshots
+    are destroyed through the `PATCH` method. The `names` or `ids` parameter is required,
+    but they cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.38/context_names.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Protection Group Snapshots
+patch:
+  summary: Modify a protection group snapshot
+  description: Modifies a protection group snapshot so that it can be destroyed. To
+    destroy a volume, set `destroyed=true`. To recover a volume that has been destroyed
+    and is pending eradication, set `destroyed=false`. The `names` or `ids` parameter
+    is required, but they cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.38/context_names.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - name: protection-group-snapshot
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.38/protection-group-snapshot-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.38/protection-group-snapshot-response.yaml
+  tags:
+  - Protection Group Snapshots

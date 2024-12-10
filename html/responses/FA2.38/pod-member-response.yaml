@@ -1,0 +1,9 @@
+type: object
+properties:
+  items:
+    type: array
+    items:
+      $ref: ../../models/FA2.38/pod-member.yaml
+    description: Displays a list of all items after filtering. The values are displayed
+      for each name where meaningful. If `total_only=true`, the `items` list will
+      be empty.

@@ -1,0 +1,33 @@
+type: object
+properties:
+  errors:
+    description: The list of errors encountered when attempting to perform an operation.
+    type: array
+    readOnly: true
+    items:
+      type: object
+      properties:
+        context:
+          type: string
+          description: Contains information relating to the cause of this error, or
+            the name of the object that was being processed when the error was encountered.
+            This may be `null` for more general errors.
+          example: vol1
+        message:
+          type: string
+          description: A description of the error which occurred.
+          example: Volume does not exist.
+        location_context:
+          description: Contains information relating to the context in which the request
+            was executing when the error occurred. For example, this may be the name
+            of an array in the same fleet. This may be `null` for more general errors,
+            or if no explicit `context` parameter was provided with the request.
+          allOf:
+          - $ref: ../../models/FA2.0/_fixed-reference.yaml
+            properties:
+              resource_type:
+                type: string
+                description: "Type of the object (full name of the endpoint).\n  Valid\
+                  \ values are the unique part of the resource's REST endpoint.\n\
+                  \  For example, a reference to a fleet would have a\n  `resource_type`\
+                  \ of `fleets`."

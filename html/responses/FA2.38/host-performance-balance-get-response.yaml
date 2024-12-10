@@ -1,0 +1,11 @@
+allOf:
+- $ref: ../../responses/FA2.1/page-info.yaml
+- $ref: ../../responses/FA2.38/_error-context-response.yaml
+- type: object
+  properties:
+    items:
+      type: array
+      items:
+        $ref: ../../models/FA2.38/host-performance-balance.yaml
+      description: A list of entries indicating count and percentage of I/O operations
+        across various data paths between the host and the array.

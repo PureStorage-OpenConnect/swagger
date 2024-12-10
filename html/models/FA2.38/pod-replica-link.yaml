@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../models/FA2.2/pod-replica-link.yaml
+- $ref: ../../models/FA2.38/_context.yaml

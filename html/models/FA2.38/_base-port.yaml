@@ -1,0 +1,12 @@
+allOf:
+- $ref: ../../models/FA2.0/_built-in-resource-no-id.yaml
+- $ref: ../../models/FA2.2/_port-common.yaml
+- description: A target port on the array enabling access to block storage (Fibre
+    Channel or iSCSI).
+  type: object
+  properties:
+    failover:
+      description: If the array port has failed over, returns the name of the port
+        to which this port has failed over.
+      type: string
+      example: CT0.ETH2

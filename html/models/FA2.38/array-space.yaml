@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../FA2.34/array-space.yaml
+- $ref: ../FA2.38/_context.yaml

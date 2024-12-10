@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../models/FA2.4/resource-performance-no-id.yaml
+- $ref: ../../models/FA2.38/_context.yaml

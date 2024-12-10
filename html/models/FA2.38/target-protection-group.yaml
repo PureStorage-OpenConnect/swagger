@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../models/FA2.37/target-protection-group.yaml
+- $ref: ../../models/FA2.38/_context.yaml

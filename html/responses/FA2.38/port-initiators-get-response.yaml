@@ -1,0 +1,9 @@
+allOf:
+- $ref: ../FA2.1/page-info.yaml
+- $ref: ../../responses/FA2.38/_error-context-response.yaml
+- type: object
+  properties:
+    items:
+      type: array
+      items:
+        $ref: ../../models/FA2.38/port-initiator.yaml

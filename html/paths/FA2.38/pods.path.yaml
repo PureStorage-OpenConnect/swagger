@@ -1,0 +1,99 @@
+get:
+  summary: List pods
+  description: Displays a list of pods that are stretched to this array.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.38/allow_errors.query.yaml
+  - $ref: ../../queries/FA2.38/context_names_get.query.yaml
+  - $ref: ../../queries/FA2.1/continuation_token.query.yaml
+  - $ref: ../../queries/FA2.0/destroyed.query.yaml
+  - $ref: ../../queries/FA2.0/filter.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/limit.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.0/offset.query.yaml
+  - $ref: ../../queries/FA2.0/sort.query.yaml
+  - $ref: ../../queries/FA2.0/total_item_count.query.yaml
+  - $ref: ../../queries/FA2.0/total_only.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.38/pod-get-response.yaml
+  tags:
+  - Pods
+post:
+  summary: Create a pod
+  description: Creates a pod on the local array. Each pod must be given a unique name
+    across the arrays to which they are stretched. A pod cannot be stretched to an
+    array that already contains a pod with the same name. After a pod has been created,
+    add volumes and protection groups, and then stretch the pod to another connected
+    array.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.38/context_names.query.yaml
+  - $ref: ../../queries/FA2.31/allow_throttle_operation.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - name: pod
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.23/pod-post.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.38/pod-response.yaml
+  tags:
+  - Pods
+delete:
+  summary: Delete a pod
+  description: Deletes a pod that has been destroyed and is pending eradication. Eradicated
+    pods cannot be recovered. Pods are destroyed using the PATCH method. The `ids`
+    or `names` parameter is required, but they cannot be set together.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.38/context_names.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.36/eradicate_contents.query.yaml
+  responses:
+    200:
+      description: OK
+  tags:
+  - Pods
+patch:
+  summary: Modify a pod
+  description: Modifies pod details.
+  parameters:
+  - $ref: ../../queries/FA2.0/authorization.header.yaml
+  - $ref: ../../queries/FA2.0/x-request-id.header.yaml
+  - $ref: ../../queries/FA2.38/context_names.query.yaml
+  - $ref: ../../queries/FA2.0/ids.query.yaml
+  - $ref: ../../queries/FA2.0/names.query.yaml
+  - $ref: ../../queries/FA2.2/abort_quiesce.query.yaml
+  - $ref: ../../queries/FA2.2/quiesce.query.yaml
+  - $ref: ../../queries/FA2.2/skip_quiesce.query.yaml
+  - $ref: ../../queries/FA2.2/promote_from.query.yaml
+  - $ref: ../../queries/FA2.36/destroy_contents.query.yaml
+  - $ref: ../../queries/FA2.36/from_member_ids.query.yaml
+  - $ref: ../../queries/FA2.36/from_member_names.query.yaml
+  - $ref: ../../queries/FA2.36/to_member_ids.query.yaml
+  - $ref: ../../queries/FA2.36/to_member_names.query.yaml
+  - $ref: ../../queries/FA2.36/move_with_host_names.query.yaml
+  - $ref: ../../queries/FA2.36/move_with_host_group_names.query.yaml
+  - name: pod
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FA2.23/pod-patch.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FA2.38/pod-response.yaml
+  tags:
+  - Pods

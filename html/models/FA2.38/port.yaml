@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../models/FA2.38/_base-port.yaml
+- $ref: ../../models/FA2.38/_context.yaml

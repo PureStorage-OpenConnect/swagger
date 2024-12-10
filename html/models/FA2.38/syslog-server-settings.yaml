@@ -1,0 +1,20 @@
+description: Global settings for syslog servers.
+type: object
+allOf:
+- $ref: ../../models/FA2.38/_context.yaml
+- properties:
+    ca_certificate:
+      description: The certificate of the certificate authority (CA) that signed the
+        directory servers' certificate(s), which is used to validate the authenticity
+        of the configured servers.
+      type: string
+    tls_audit_enabled:
+      description: Returns a value of `true` if messages that are necessary in order
+        to audit TLS negotiations performed by the array are forwarded to the configured
+        syslog servers.
+      type: boolean
+    logging_severity:
+      description: Returns the configured logging severity threshold for which events
+        will be forwarded to the configured syslog servers. Default configuration
+        is info level severity. Valid values are `debug`, `info`, and `notice`.
+      type: string
