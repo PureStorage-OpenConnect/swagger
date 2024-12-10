@@ -1,0 +1,10 @@
+allOf:
+- type: object
+  properties:
+    timeout:
+      description: Duration of a maintenance window measured in milliseconds. The
+        `names` and `timeout` parameters must be set together, and the `names` parameter
+        must be set to `array`.
+      type: integer
+      format: int32
+      example: 14400000

@@ -1,5 +1,4 @@
 description: OK
-type: object
 schema:
   type: object
   title: oauth_token_response

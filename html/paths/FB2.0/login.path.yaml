@@ -10,10 +10,9 @@ post:
       description: OK
       headers:
         x-auth-token:
-          schema:
-            type: string
+          type: string
           description: REST session token for a user.
-          example: 3be3d489-55c6-4643-90ac-a476dbc98812
+          x-example: 3be3d489-55c6-4643-90ac-a476dbc98812
       schema:
         $ref: ../../responses/FB2.0/login.response.yaml
   tags:

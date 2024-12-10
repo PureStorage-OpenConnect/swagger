@@ -1,0 +1,75 @@
+get:
+  summary: GET worm-data-policies
+  description: List WORM data policies.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.16/worm-data-policies-get-response.yaml
+  tags:
+  - Policies - WORM Data
+post:
+  summary: POST worm-data-policies
+  description: Create a WORM data policy.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/names_required.query.yaml
+  - name: policy
+    in: body
+    schema:
+      $ref: ../../models/FB2.16/worm-data-policy.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.16/worm-data-policies-response.yaml
+  tags:
+  - Policies - WORM Data
+patch:
+  summary: PATCH worm-data-policies
+  description: Modify a WORM data policy.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - name: policy
+    in: body
+    schema:
+      $ref: ../../models/FB2.16/worm-data-policy.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.16/worm-data-policies-response.yaml
+  tags:
+  - Policies - WORM Data
+delete:
+  summary: DELETE worm-data-policies
+  description: -> Delete a WORM data policy. Deletion is not allowed if the policy
+    is attached to one or more file systems.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+  tags:
+  - Policies - WORM Data

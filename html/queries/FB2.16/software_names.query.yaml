@@ -1,0 +1,7 @@
+name: software_names
+in: query
+description: A comma-separated list of software names.
+type: array
+collectionFormat: csv
+items:
+  type: string

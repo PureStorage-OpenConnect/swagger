@@ -1,0 +1,12 @@
+allOf:
+- $ref: ../../models/FB2.16/policy-base-renameable.yaml
+- $ref: ../../models/FB2.10/_version.yaml
+- properties:
+    rules:
+      type: array
+      maxItems: 200
+      items:
+        $ref: ../../models/FB2.13/network-access-policy-rule-in-policy.yaml
+      description: All of the rules that are part of this policy. The order is the
+        evaluation order. If a client does not match any rule in the policy for the
+        interface that they are attempting to access, the default is to deny access.

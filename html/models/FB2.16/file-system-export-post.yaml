@@ -1,0 +1,15 @@
+type: object
+properties:
+  export_name:
+    description: The name of the export to create. Export names must be unique within
+      the same protocol and server.
+    type: string
+    required: true
+  server:
+    description: Reference to the server the export will be visible on.
+    allOf:
+    - $ref: ../../models/FB2.0/_reference.yaml
+  share_policy:
+    description: Reference to the SMB share policy (only used for SMB).
+    allOf:
+    - $ref: ../../models/FB2.0/_reference.yaml

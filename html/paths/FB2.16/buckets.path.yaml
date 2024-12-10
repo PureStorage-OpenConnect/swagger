@@ -1,0 +1,80 @@
+get:
+  summary: GET buckets
+  description: List object store bucket attributes such as creation time and space
+    usage.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/destroyed.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  - $ref: ../../queries/FB2.0/total_only.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.16/bucket-get-response.yaml
+  tags:
+  - Buckets
+post:
+  summary: POST buckets
+  description: Create a new object store bucket.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/names_required.query.yaml
+  - name: bucket
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.13/bucket-post.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.16/bucket-response.yaml
+  tags:
+  - Buckets
+patch:
+  summary: PATCH buckets
+  description: Modify object store bucket attributes such as destroyed and versioning.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.16/ignore_usage.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - name: bucket
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.13/bucket-patch.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.16/bucket-response.yaml
+  tags:
+  - Buckets
+delete:
+  summary: DELETE buckets
+  description: Delete object store buckets.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+  tags:
+  - Buckets

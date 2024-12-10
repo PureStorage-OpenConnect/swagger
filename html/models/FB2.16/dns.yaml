@@ -1,0 +1,31 @@
+allOf:
+- $ref: ../../models/FB2.0/_resource.yaml
+- properties:
+    domain:
+      description: Domain suffix to be appended by the appliance when performing DNS
+        lookups.
+      type: string
+      example: example.com
+    nameservers:
+      description: List of DNS server IP addresses.
+      type: array
+      maxItems: 3
+      items:
+        type: string
+        example:
+        - 192.168.0.125
+    services:
+      description: The list of services utilizing the DNS configuration.
+      type: array
+      items:
+        description: Valid values include `management` and `data`.
+        type: string
+    sources:
+      type: array
+      maxItems: 1
+      description: The network interfaces used for communication with the DNS server.
+        The network interfaces must have the `services` value of `data`. Clear this
+        by setting an empty list.
+      items:
+        allOf:
+        - $ref: ../../models/FB2.0/_reference.yaml

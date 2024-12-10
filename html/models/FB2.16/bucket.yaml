@@ -1,0 +1,8 @@
+allOf:
+- $ref: ../../models/FB2.14/bucket.yaml
+- properties:
+    space:
+      description: The space specification of the bucket.
+      readOnly: true
+      allOf:
+      - $ref: ../../models/FB2.16/_space.yaml

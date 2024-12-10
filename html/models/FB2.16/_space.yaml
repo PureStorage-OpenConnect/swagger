@@ -1,0 +1,16 @@
+allOf:
+- $ref: ../../models/FB2.15/_space.yaml
+- properties:
+    total_physical:
+      description: Deprecated. See total_used for the newer functionality. The total
+        physical space consumed by the file system, measured in bytes.
+      type: integer
+      readOnly: true
+      format: int64
+      minimum: 0
+    total_used:
+      description: The total space consumed by customer data, measured in bytes.
+      type: integer
+      readOnly: true
+      format: int64
+      minimum: 0

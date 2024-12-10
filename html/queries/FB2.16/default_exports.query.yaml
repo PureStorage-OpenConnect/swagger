@@ -1,0 +1,18 @@
+name: default_exports
+in: query
+description: A comma-separated list of export types to be created using default access.
+  Creating a file system with an explicit `nfs.rules` or `nfs.export_policy` value
+  will always create a NFS export to the default server regardless of this flag. If
+  these are not set and `default_exports` includes `nfs`, then `nfs.rules` will be
+  set to "*(rw,no_root_squash)" and a NFS export to the default server will be created.
+  Otherwise `nfs.rules` will be set to "" and no NFS export will be created. Creating
+  a file system with an explicit `smb.client_policy` or `smb.share_policy` value will
+  always create a SMB export to the default server regardless of this flag. If these
+  are not set and `default_exports` includes `smb`, then a SMB export to the default
+  server will be created with default policies. Otherwise no SMB export will be created.
+  Use empty string ("") to not create these default exports. Default is `nfs,smb`.
+type: array
+collectionFormat: csv
+items:
+  type: string
+example: nfs,smb

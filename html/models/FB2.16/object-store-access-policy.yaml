@@ -1,0 +1,40 @@
+allOf:
+- $ref: ../../models/FB2.16/policy-base.yaml
+- properties:
+    account:
+      description: Reference of the associated account. If the policy is not associated
+        with an account, all fields in the reference possess `null` values.
+      readOnly: true
+      allOf:
+      - $ref: ../../models/FB2.0/_fixed-reference.yaml
+    arn:
+      type: string
+      readOnly: true
+      description: Amazon Resource Name of the policy. Used when referencing the policy
+        via S3 APIs.
+      example: arn:aws:iam::myaccount:policy/mypolicy
+    created:
+      type: integer
+      format: int64
+      description: Creation timestamp of the object.
+      readOnly: true
+    description:
+      type: string
+      readOnly: true
+      description: A description of the policy, optionally specified when the policy
+        is created. Cannot be modified for an existing policy.
+      example: This policy allows users to list objects in production buckets.
+    enabled:
+      type: boolean
+      description: If `true`, the policy is enabled. If not specified, defaults to
+        `true`.
+      readOnly: true
+    rules:
+      type: array
+      items:
+        $ref: ../../models/FB2.11/policy-rule-object-access.yaml
+    updated:
+      type: integer
+      format: int64
+      description: The last updated timestamp of the object.
+      readOnly: true

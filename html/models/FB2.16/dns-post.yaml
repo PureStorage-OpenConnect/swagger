@@ -1,0 +1,5 @@
+allOf:
+- $ref: ../../models/FB2.16/dns.yaml
+- properties:
+    name:
+      readOnly: true

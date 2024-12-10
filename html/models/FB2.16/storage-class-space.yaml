@@ -1,0 +1,14 @@
+allOf:
+- $ref: ../../models/FB2.0/_fixed-reference-name-only.yaml
+- properties:
+    capacity:
+      description: Usable capacity in bytes.
+      type: integer
+      format: int64
+      example: 10995116277760
+    space:
+      $ref: ../../models/FB2.16/_space.yaml
+    time:
+      description: Sample time in milliseconds since UNIX epoch.
+      type: integer
+      format: int64
