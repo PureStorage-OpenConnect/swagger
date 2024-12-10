@@ -26,10 +26,18 @@ jobs:
           DOCKER_BUILDKIT: 1
         run: |
           tox -e podman -- ${{ github.event.release.tag_name }}
+
+      - name: Debug image storage
+        run: |
+          echo "Docker Images:"
+          docker images
+          echo "Podman Images:"
+          podman images
           
       - name: Push swagger
         uses: redhat-actions/push-to-registry@v2
         with:
+          tool: docker
           image: swagger
           tags: ${{ github.event.release.tag_name }} latest
           registry: quay.io/purestorage/
