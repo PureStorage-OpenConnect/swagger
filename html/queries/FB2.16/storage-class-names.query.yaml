@@ -1,0 +1,8 @@
+name: storage_class_names
+description: A comma-separated list of storage class names. Valid values include 'S500X-S'
+  and 'S500X-A'.
+in: query
+type: array
+collectionFormat: csv
+items:
+  type: string

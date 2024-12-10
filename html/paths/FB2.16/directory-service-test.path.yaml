@@ -1,0 +1,44 @@
+get:
+  summary: GET directory-services/test
+  description: Test the configured directory services on the array.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.0/test-result-get-response.yaml
+  tags:
+  - Directory Services
+patch:
+  summary: PATCH directory-service/test
+  description: Test the configured directory services on the array. Optionally, provide
+    modifications which will be used to perform the tests, but will not be applied
+    to the current configuration.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  - name: directory-service
+    in: body
+    description: An optional directory service configuration that, if provided, will
+      be used to overwrite aspects of the existing directory service objects when
+      performing tests.
+    schema:
+      $ref: ../../models/FB2.16/directory-service.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.0/test-result-response.yaml
+  tags:
+  - Directory Services

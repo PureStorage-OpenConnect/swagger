@@ -1,0 +1,7 @@
+name: analysis_period_end_time
+in: query
+description: When the analysis time window ends (in milliseconds since epoch).
+type: integer
+format: int64
+minimum: 0
+example: 1514764800000

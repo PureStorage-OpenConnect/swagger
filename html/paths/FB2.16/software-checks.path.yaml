@@ -1,0 +1,37 @@
+get:
+  summary: List software check tasks
+  description: Displays a list of software check tasks.
+  parameters:
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.16/software_versions.query.yaml
+  - $ref: ../../queries/FB2.16/software_names.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  - $ref: ../../queries/FB2.16/total_item_count.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.16/software-checks-get-response.yaml
+  tags:
+  - Software
+post:
+  summary: Create a software check task
+  description: Creates a software check task. To create a task, use a software name
+    and version. If a task is already running, an error is returned.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.16/software_versions.query.yaml
+  - $ref: ../../queries/FB2.16/software_names.query.yaml
+  responses:
+    200:
+      description: The software check record was created successfully.
+      schema:
+        $ref: ../../responses/FB2.16/software-checks-response.yaml
+    403:
+      description: Another instance is already running
+  tags:
+  - Software

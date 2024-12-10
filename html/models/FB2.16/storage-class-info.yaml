@@ -1,0 +1,14 @@
+allOf:
+- $ref: ../../models/FB2.16/_reference-name-only.yaml
+- properties:
+    status:
+      readOnly: true
+      description: The status of the transition from the policy to the requested policy.
+        If there is an ongoing transition, the status will be one of `In-Progress`
+        or `Queued`. If there is no transition ongoing, this field will be null.
+      type: string
+    status_details:
+      readOnly: true
+      description: Additional details about the status of the transition. If there
+        is no transition ongoing, this field will be null.
+      type: string

@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../FB2.0/page-info.yaml
+- $ref: software-checks-response.yaml

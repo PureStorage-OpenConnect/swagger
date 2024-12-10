@@ -1,0 +1,9 @@
+allOf:
+- $ref: ../../responses/FB2.0/page-info.yaml
+- type: object
+  properties:
+    items:
+      type: array
+      items:
+        $ref: ../../models/FB2.16/array-space.yaml
+      description: A list of array space metrics objects.

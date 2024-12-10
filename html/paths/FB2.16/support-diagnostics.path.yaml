@@ -1,0 +1,38 @@
+get:
+  summary: GET diagnostics list
+  description: -> Lists the support diagnostics tasks.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.16/support-diagnostics-get-response.yaml
+  tags:
+  - Support Diagnostics
+post:
+  summary: Start a diagnostic task
+  description: -> Creates a diagnostics task for a given time interval. If `start_time`
+    is not provided, defaults to Current System Time - 1 hour. If `end_time` is not
+    provided, defaults to Current System Time. If a task is already running, an error
+    is returned.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.16/analysis_period_start_time.query.yaml
+  - $ref: ../../queries/FB2.16/analysis_period_end_time.query.yaml
+  responses:
+    200:
+      description: OK
+      schema:
+        $ref: ../../responses/FB2.16/support-diagnostics-get-response.yaml
+    403:
+      description: Another instance is already running
+  tags:
+  - Support Diagnostics

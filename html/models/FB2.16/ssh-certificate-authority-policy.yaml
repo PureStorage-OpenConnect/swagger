@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../models/FB2.16/ssh-certificate-authority-policy-post.yaml
+- $ref: ../../models/FB2.16/policy-base-renameable.yaml

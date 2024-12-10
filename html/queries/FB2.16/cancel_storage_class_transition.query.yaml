@@ -1,0 +1,8 @@
+name: cancel_in_progress_storage_class_transition
+in: query
+description: If set to `true`, the storage class policy of this file system will be
+  set to the requested storage class policy, even if a transition to a different storage
+  class is in-progress. Setting this parameter to `true` is acknowledgement that any
+  in-progress transition on this file system will be cancelled. If not specified,
+  the default value is `false`.
+type: boolean

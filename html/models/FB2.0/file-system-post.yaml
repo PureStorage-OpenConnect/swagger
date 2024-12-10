@@ -37,7 +37,6 @@ allOf:
       description: The provisioned size of the file system, displayed in bytes. If
         set to an empty string (`""`), the file system is unlimited in size. If not
         specified, defaults to unlimited.
-      example: '""'
     requested_promotion_state:
       type: string
       readOnly: true

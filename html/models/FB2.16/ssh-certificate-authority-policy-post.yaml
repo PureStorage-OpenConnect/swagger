@@ -1,0 +1,26 @@
+allOf:
+- $ref: ../../models/FB2.16/policy-base.yaml
+- properties:
+    signing_authority:
+      allOf:
+      - $ref: ../../models/FB2.0/_reference-writable.yaml
+      description: A reference to the authority that will digitally sign user SSH
+        certificates that will be used to access the system. This may be either a
+        certificate or a public key. If a certificate is used as the signer, then
+        its expiry period will be honored and user SSH certificates signed by the
+        certificate will no longer be accepted after the certificate has expired.
+    static_authorized_principals:
+      type: array
+      maxItems: 16
+      description: If not specified - users affected by this policy can only log into
+        the system when they present an SSH certificate containing their own username
+        as a principle. If specified - users affected by this policy can only log
+        into the system when they present an SSH certificate containing at least one
+        username from this list as a principle.
+      items:
+        type: string
+        maxLength: 128
+        description: 'A specific principal that can be used to permit login to user
+          accounts to whom this policy applies. Principals must be comprised of UTF-8
+          encoded characters and may not contain any of the following: `"`, `,`, `/`,
+          newline character, or other similar escape characters.'

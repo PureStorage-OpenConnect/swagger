@@ -1,0 +1,42 @@
+get:
+  summary: GET hardware
+  description: List hardware slots and bays and the status of installed components.
+  parameters:
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.16/hardware-get-response.yaml
+  tags:
+  - Hardware
+patch:
+  summary: PATCH hardware
+  description: Controls the visual identification light of the specified hardware
+    component.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - name: hardware
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.16/hardware.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.16/hardware-response.yaml
+  tags:
+  - Hardware
+parameters:
+- $ref: ../../queries/FB2.0/ids.query.yaml
+- $ref: ../../queries/FB2.0/names.query.yaml

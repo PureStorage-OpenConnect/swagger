@@ -1,0 +1,3 @@
+allOf:
+- $ref: ../../models/FB2.10/_nfs-patch.yaml
+- $ref: ../../models/FB2.16/_nfs.yaml

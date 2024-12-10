@@ -1,5 +1,4 @@
 description: UNAUTHORIZED
-type: object
 schema:
   type: object
   properties:

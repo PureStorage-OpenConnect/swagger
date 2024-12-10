@@ -1,0 +1,79 @@
+get:
+  summary: GET file-system-exports
+  description: List one or more file system exports.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/continuation_token.query.yaml
+  - $ref: ../../queries/FB2.0/filter.query.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/limit.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - $ref: ../../queries/FB2.0/offset.query.yaml
+  - $ref: ../../queries/FB2.0/sort.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.16/file-system-export-get-response.yaml
+  tags:
+  - File System Exports
+post:
+  summary: POST file-system-exports
+  description: Create a file system export.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/member_ids.query.yaml
+  - $ref: ../../queries/FB2.0/member_names.query.yaml
+  - $ref: ../../queries/FB2.0/policy_ids.query.yaml
+  - $ref: ../../queries/FB2.0/policy_names.query.yaml
+  - name: file-system-export
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.16/file-system-export-post.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.16/file-system-export-response.yaml
+  tags:
+  - File System Exports
+patch:
+  summary: PATCH file-system-exports
+  description: "Modify a file system export\u2019s attributes."
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  - name: file-system-export
+    in: body
+    required: true
+    schema:
+      $ref: ../../models/FB2.16/file-system-export.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+      schema:
+        $ref: ../../responses/FB2.16/file-system-export-response.yaml
+  tags:
+  - File System Exports
+delete:
+  summary: DELETE file-system-exports
+  description: Deletes a file system export.
+  parameters:
+  - $ref: ../../queries/FB2.14/x-request-id.header.yaml
+  - $ref: ../../queries/FB2.0/ids.query.yaml
+  - $ref: ../../queries/FB2.0/names.query.yaml
+  responses:
+    200:
+      description: OK
+      headers:
+        $ref: ../../responses/FB2.14/headers-all-default.response.yaml
+  tags:
+  - File System Exports
