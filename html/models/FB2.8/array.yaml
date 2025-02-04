@@ -1,7 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.7/array.yaml
-- properties:
-    encryption:
-      readOnly: true
-      allOf:
-      - $ref: ../../models/FB2.8/_array-encryption.yaml

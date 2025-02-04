@@ -1,3 +1,0 @@
-allOf:
-- $ref: ../FA2.1/page-info.yaml
-- $ref: array-erasure-response.yaml

@@ -1,9 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.0/_resource.yaml
-- $ref: ../../models/FA2.1/_transfer.yaml
-- description: The transfer statistics for snapshot replication.
-- properties:
-    source:
-      description: The original protection group from which this snapshot was taken.
-      allOf:
-      - $ref: ../../models/FA2.0/_reference.yaml

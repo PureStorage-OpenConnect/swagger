@@ -1,9 +1,0 @@
-type: object
-properties:
-  name:
-    description: The name of the upgrade parameter to be sent to the upgrade process.
-    type: string
-  value:
-    description: The value of the upgrade parameter to be sent to the upgrade process.
-    type: string
-    maxLength: 1024

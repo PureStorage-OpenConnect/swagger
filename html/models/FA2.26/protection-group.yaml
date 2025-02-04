@@ -1,9 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.13/protection-group.yaml
-- $ref: ../../models/FA2.0/_resource.yaml
-- properties:
-    space:
-      description: Displays provisioned size and physical storage consumption data
-        for each protection group.
-      allOf:
-      - $ref: ../../models/FA2.26/_space.yaml

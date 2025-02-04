@@ -1,5 +1,0 @@
-name: eradicate_all_data
-in: query
-description: Set to `true` to perform a factory reset.
-type: boolean
-required: true

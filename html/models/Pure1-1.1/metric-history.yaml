@@ -1,7 +1,0 @@
-allOf:
-- $ref: ../../models/Pure1-1.0/metric-history.yaml
-- properties:
-    resources:
-      type: array
-      items:
-        $ref: ../../models/Pure1-1.1/_fixed-reference-fqdn.yaml

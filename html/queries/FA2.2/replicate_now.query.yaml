@@ -1,5 +1,0 @@
-name: replicate_now
-in: query
-description: If set to `true`, replicates the snapshots to each allowed target. The
-  `replicate` and `replicate_now` parameters cannot be used together.
-type: boolean

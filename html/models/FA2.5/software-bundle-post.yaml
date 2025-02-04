@@ -1,8 +1,0 @@
-type: object
-description: The source of the software bundle.
-properties:
-  source:
-    type: string
-    description: The source of the software bundle. Accepts HTTP, HTTPS or FTP, and
-      paths.
-    example: ftp://local/upgrade_bundle.sh

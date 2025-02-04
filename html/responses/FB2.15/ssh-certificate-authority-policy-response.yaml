@@ -1,7 +1,0 @@
-type: object
-properties:
-  items:
-    type: array
-    items:
-      $ref: ../../models/FB2.15/ssh-certificate-authority-policy.yaml
-    description: A list of SSH certificate authority policy objects.

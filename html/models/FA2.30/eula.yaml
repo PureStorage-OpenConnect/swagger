@@ -1,8 +1,0 @@
-type: object
-properties:
-  agreement:
-    description: The End User Agreement text.
-    type: string
-    readOnly: true
-  signature:
-    $ref: ../../models/FA2.30/_eula_signature.yaml

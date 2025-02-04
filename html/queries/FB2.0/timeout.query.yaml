@@ -1,5 +1,0 @@
-name: timeout
-in: query
-description: The duration of API token validity, in milliseconds.
-type: integer
-format: int64

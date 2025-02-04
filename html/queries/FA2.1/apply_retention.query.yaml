@@ -1,4 +1,0 @@
-name: apply_retention
-in: query
-description: If `true`, applies the local and remote retention policy to the snapshots.
-type: boolean

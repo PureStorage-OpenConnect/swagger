@@ -1,4 +1,0 @@
-name: allow_throttle
-in: query
-description: If set to `true`, allows snapshot to fail if array health is not optimal.
-type: boolean

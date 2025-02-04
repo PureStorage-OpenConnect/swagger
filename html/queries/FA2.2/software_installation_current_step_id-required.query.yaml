@@ -1,5 +1,0 @@
-name: current_step_id
-in: query
-description: The current step `id` of the installation.
-type: string
-required: true

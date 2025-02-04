@@ -1,8 +1,0 @@
-name: member_sids
-in: query
-description: Performs the operation on the specified member SID. Enter multiple member
-  SIDs in comma-separated format. For example, `S-1-2-532-582374278-329482934,S-1-2-532-234235245-423425234`.
-type: array
-collectionFormat: csv
-items:
-  type: string

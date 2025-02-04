@@ -1,7 +1,0 @@
-name: software_installation_ids
-in: query
-description: A comma-separated list of software installation IDs.
-type: array
-collectionFormat: csv
-items:
-  type: string

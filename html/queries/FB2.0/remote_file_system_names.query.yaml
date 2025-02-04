@@ -1,9 +1,0 @@
-name: remote_file_system_names
-in: query
-description: A comma-separated list of remote file system names. If there is not at
-  least one resource that matches each of the elements, then an error is returned.
-  This cannot be provided together with the `remote_file_system_ids` query parameter.
-type: array
-collectionFormat: csv
-items:
-  type: string

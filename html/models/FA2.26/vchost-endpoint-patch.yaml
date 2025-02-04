@@ -1,9 +1,0 @@
-allOf:
-- type: object
-  properties:
-    certificates:
-      description: The certificate to be presented by the vchost over the configured
-        endpoints.
-      type: array
-      items:
-        $ref: ../../models/FA2.26/_reference-no-id-with-type.yaml

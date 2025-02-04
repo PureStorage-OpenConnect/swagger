@@ -1,8 +1,0 @@
-name: app_names
-in: query
-description: The name of the installed app. Enter multiple names in comma-separated
-  format.
-type: array
-collectionFormat: csv
-items:
-  type: string

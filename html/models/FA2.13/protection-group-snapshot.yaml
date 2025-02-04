@@ -1,5 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.1/protection-group-snapshot.yaml
-- properties:
-    eradication_config:
-      $ref: ../../models/FA2.13/protection-group-eradication-config.yaml

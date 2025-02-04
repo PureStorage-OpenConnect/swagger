@@ -1,7 +1,0 @@
-name: pod_ids
-in: query
-description: A comma-separated list of pod IDs.
-type: array
-collectionFormat: csv
-items:
-  type: string

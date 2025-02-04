@@ -1,8 +1,0 @@
-name: fleet_ids
-in: query
-description: Performs the operation on the unique Fleet IDs specified. This query
-  currently accepts only 1 ID.
-type: array
-collectionFormat: csv
-items:
-  type: string

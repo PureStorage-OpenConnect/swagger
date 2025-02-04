@@ -1,5 +1,0 @@
-name: type
-in: query
-description: Display the metric of a specified object type. Valid values are `array`,
-  `file-system`, and `object-store`. If not specified, defaults to `array`.
-type: string

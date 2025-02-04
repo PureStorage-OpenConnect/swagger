@@ -1,9 +1,0 @@
-name: ignore_usage
-in: query
-description: Allow update operations that lead to a `hard_limit_enabled` object store
-  account, bucket, or file system with usage over its limiting value. For object store
-  accounts and buckets, the limiting value is that of `quota_limit`, and for file
-  systems it is that of `provisioned`. The operation can be either setting `hard_limit_enabled`
-  when usage is higher than the limiting value, or modifying the limiting value to
-  a value under usage when `hard_limit_enabled` is `true`.
-type: boolean

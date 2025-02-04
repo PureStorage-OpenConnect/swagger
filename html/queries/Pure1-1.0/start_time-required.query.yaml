@@ -1,7 +1,0 @@
-name: start_time
-in: query
-description: Timestamp of when the time window starts. Measured in milliseconds since
-  the UNIX epoch.
-type: integer
-format: int64
-required: true

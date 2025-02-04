@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.1/_offload_azure.yaml
-- properties:
-    profile:
-      type: string
-      description: The offload target profile that will be selected for this target.
-        This option allows more granular configuration for the target on top of the
-        `protocol` parameter. Values include `azure`.

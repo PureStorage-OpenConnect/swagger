@@ -1,9 +1,0 @@
-name: keys
-in: query
-description: A comma-separated list of tag keys. Single quotes are required around
-  all strings.
-x-quoted: true
-type: array
-collectionFormat: csv
-items:
-  type: string

@@ -1,7 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.2/array.yaml
-- properties:
-    eradication_config:
-      readOnly: true
-      allOf:
-      - $ref: ../../models/FB2.5/_array-eradication-config.yaml

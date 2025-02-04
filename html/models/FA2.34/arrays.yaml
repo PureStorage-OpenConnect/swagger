@@ -1,6 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.26/arrays.yaml
-- type: object
-  properties:
-    space:
-      $ref: ../../models/FA2.34/space.yaml

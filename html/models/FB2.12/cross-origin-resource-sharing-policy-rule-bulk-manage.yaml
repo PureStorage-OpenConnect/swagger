@@ -1,6 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.12/cross-origin-resource-sharing-policy-rule-post.yaml
-- properties:
-    name:
-      type: string
-      description: Name of the object (e.g., a file system or snapshot).

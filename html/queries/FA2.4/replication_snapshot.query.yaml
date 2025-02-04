@@ -1,6 +1,0 @@
-name: replication_snapshot
-in: query
-description: If set to `true`, allow destruction/eradication of snapshots in use by
-  replication. If set to `false`, allow destruction/eradication of snapshots not in
-  use by replication. If not specified, defaults to `false`.
-type: boolean

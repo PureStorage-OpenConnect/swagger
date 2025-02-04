@@ -1,5 +1,0 @@
-name: factory_reset_token
-in: query
-description: A token required to perform a factory reset.
-type: integer
-format: int64

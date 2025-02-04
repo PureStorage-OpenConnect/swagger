@@ -1,7 +1,0 @@
-type: object
-properties:
-  items:
-    type: array
-    items:
-      $ref: ../../models/FB2.0/policy-member-with-remote.yaml
-    description: A list of members for policies.

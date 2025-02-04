@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.26/_volume-common.yaml
-- type: object
-  properties:
-    space:
-      description: Displays size and space consumption information.
-      allOf:
-      - $ref: ../../models/FA2.34/_volume-space-common.yaml

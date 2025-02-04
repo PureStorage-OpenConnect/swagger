@@ -1,5 +1,0 @@
-name: method
-in: query
-description: Used by trace to specify which method to use for trace operations. Valid
-  values are `icmp`, `tcp`, and `udp`. If not specified, defaults to 'udp'.
-type: string

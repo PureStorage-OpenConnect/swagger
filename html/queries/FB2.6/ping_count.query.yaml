@@ -1,6 +1,0 @@
-name: count
-in: query
-description: Used by ping to specify the number of packets to send. If not specified,
-  defaults to 1.
-type: integer
-format: int32

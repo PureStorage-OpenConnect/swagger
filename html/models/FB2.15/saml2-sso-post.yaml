@@ -1,5 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.15/saml2-sso.yaml
-- properties:
-    name:
-      readOnly: true

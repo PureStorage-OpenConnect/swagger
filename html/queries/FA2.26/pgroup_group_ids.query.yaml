@@ -1,9 +1,0 @@
-name: group_ids
-in: query
-description: Performs the operation on the unique group id specified. Provide multiple
-  resource IDs in comma-separated format. The group_ids or names parameter is required,
-  but they cannot be set together.
-type: array
-collectionFormat: csv
-items:
-  type: string

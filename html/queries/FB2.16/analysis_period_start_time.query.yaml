@@ -1,7 +1,0 @@
-name: analysis_period_start_time
-in: query
-description: When the analysis time window starts (in milliseconds since epoch).
-type: integer
-format: int64
-minimum: 0
-example: 1514764800000

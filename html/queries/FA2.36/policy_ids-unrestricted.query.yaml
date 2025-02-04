@@ -1,8 +1,0 @@
-name: policy_ids
-in: query
-description: Performs the operation on the unique policy IDs specified. Enter multiple
-  policy IDs in a comma-separated format.
-type: array
-collectionFormat: csv
-items:
-  type: string

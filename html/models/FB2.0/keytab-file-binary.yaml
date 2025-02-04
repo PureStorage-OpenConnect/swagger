@@ -1,6 +1,0 @@
-allOf:
-- type: string
-- format: binary
-- description: A binary keytab file. On creation, multiple keytab entries may be provided
-    as one file, and they will be split to create multiple keytab objects. Each object
-    will represent a single entry from the file.

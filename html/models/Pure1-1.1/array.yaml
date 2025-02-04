@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../../models/Pure1-1.0/array.yaml
-- properties:
-    fqdn:
-      description: The fully qualified domain name of the array.
-      readOnly: true
-      type: string
-      example: https://array01.dc1.example.com

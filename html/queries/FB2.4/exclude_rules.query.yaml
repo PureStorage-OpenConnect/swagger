@@ -1,6 +1,0 @@
-name: exclude_rules
-description: If true, the rules field in each policy will be null. If false, each
-  returned policy will include its list of rules in the response. If not specified,
-  defaults to `false`.
-in: query
-type: boolean

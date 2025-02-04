@@ -1,7 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.11/saml2-sso-post.yaml
-- type: object
-  properties:
-    enabled:
-      description: If set to `true`, the SAML2 SSO configuration is enabled.
-      type: boolean

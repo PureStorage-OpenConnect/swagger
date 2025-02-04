@@ -1,7 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.26/vchost-endpoint.yaml
-- properties:
-    is_local:
-      description: Returns true if the vchost endpoint is local to the array, and
-        false otherwise.
-      type: boolean

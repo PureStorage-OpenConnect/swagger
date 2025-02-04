@@ -1,4 +1,0 @@
-name: protocol
-in: query
-description: Protocol type. Valid values are `nfs`, `smb`, and `all`.
-type: string

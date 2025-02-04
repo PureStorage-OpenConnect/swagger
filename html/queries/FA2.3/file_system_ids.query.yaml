@@ -1,9 +1,0 @@
-name: file_system_ids
-in: query
-description: Performs the operation on the file system ID specified. Enter multiple
-  file system IDs in comma-separated format. The `file_system_ids` or `file_system_names`
-  parameter is required, but they cannot be set together.
-type: array
-collectionFormat: csv
-items:
-  type: string

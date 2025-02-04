@@ -1,9 +1,0 @@
-name: client_names
-in: query
-description: A comma-separated list of ip addresses of clients that hold file locks.
-  For IPv6 both the extended format (x:x:x:x:x:x:x:x) and the shortened format are
-  supported.
-type: array
-collectionFormat: csv
-items:
-  type: string

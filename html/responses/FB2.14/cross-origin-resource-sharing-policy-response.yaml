@@ -1,7 +1,0 @@
-type: object
-properties:
-  items:
-    type: array
-    items:
-      $ref: ../../models/FB2.14/cross-origin-resource-sharing-policy.yaml
-    description: A list of cross origin resource sharing policy objects.

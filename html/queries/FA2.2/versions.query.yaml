@@ -1,7 +1,0 @@
-name: versions
-in: query
-description: A comma-separated list of versions.
-type: array
-collectionFormat: csv
-items:
-  type: string

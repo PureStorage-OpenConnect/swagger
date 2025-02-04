@@ -1,6 +1,0 @@
-name: destroy_contents
-in: query
-description: Set to `true` to destroy contents (e.g., volumes, protection groups,
-  snapshots) and containers (e.g., pods, volume groups). This enables you to destroy
-  containers with contents.
-type: boolean

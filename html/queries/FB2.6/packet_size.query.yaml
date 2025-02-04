@@ -1,7 +1,0 @@
-name: packet_size
-in: query
-description: Used by ping to specify the number of data bytes to be sent per packet.
-  If not specified, defaults to 56.
-type: integer
-format: int32
-example: 56

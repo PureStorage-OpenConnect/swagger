@@ -1,6 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.14/bucket.yaml
-- properties:
-    space:
-      allOf:
-      - $ref: ../../models/FB2.15/_space.yaml

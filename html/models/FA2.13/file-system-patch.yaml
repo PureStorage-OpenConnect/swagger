@@ -1,9 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.0/_destroyed-patch-post.yaml
-- $ref: ../../models/FA2.0/_new-name.yaml
-- type: object
-  properties:
-    pod:
-      description: The pod to move existing file systems into.
-      allOf:
-      - $ref: ../../models/FA2.0/_reference.yaml

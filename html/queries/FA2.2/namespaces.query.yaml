@@ -1,7 +1,0 @@
-name: namespaces
-in: query
-description: A comma-separated list of namespaces.
-type: array
-items:
-  type: string
-collectionFormat: csv

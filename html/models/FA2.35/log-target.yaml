@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.2/_fixed-name-resource-no-id.yaml
-- properties:
-    target_type:
-      description: The type of log target. Valid values include `file`, and `syslog`.
-      readOnly: true
-      type: string
-      example: syslog

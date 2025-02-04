@@ -1,9 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.11/_space.yaml
-- properties:
-    shared:
-      type: integer
-      readOnly: true
-      format: int64
-      description: The space contributed by data that is not unique to a managed directory,
-        or snapshot, measured in bytes.

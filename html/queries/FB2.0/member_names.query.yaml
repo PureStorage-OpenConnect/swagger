@@ -1,7 +1,0 @@
-name: member_names
-description: A comma-separated list of member names.
-in: query
-type: array
-collectionFormat: csv
-items:
-  type: string

@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.26/resource-space.yaml
-- readOnly: true
-  properties:
-    space:
-      description: Displays size and space consumption information.
-      allOf:
-      - $ref: ../../models/FA2.34/_space.yaml

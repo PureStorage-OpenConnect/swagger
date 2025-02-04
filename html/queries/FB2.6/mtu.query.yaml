@@ -1,5 +1,0 @@
-name: discover_mtu
-in: query
-description: Used by trace to specify whether or not to discover the MTU along the
-  path being traced. If not specified, defaults to false.
-type: boolean

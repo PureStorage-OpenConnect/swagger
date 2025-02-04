@@ -1,8 +1,0 @@
-name: allow_stretched_multi_vchost
-in: query
-description: If set to `true`, users are allowed to create a new vchost-connection
-  to a stretched container that already has a vchost-connection. In principle, a stretched
-  container can only have one vchost-connection at a time.
-type: boolean
-required: false
-default: false

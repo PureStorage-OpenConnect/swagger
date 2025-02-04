@@ -1,8 +1,0 @@
-name: local_port_names
-in: query
-description: Performs the operation on the unique local port name specified. Enter
-  multiple names in comma-separated format. For example, `ct0.eth0,ct1.eth0`.
-type: array
-collectionFormat: csv
-items:
-  type: string

@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.26/volume-group.yaml
-- type: object
-  properties:
-    space:
-      allOf:
-      - $ref: ../../models/FA2.34/_space.yaml
-      readOnly: true

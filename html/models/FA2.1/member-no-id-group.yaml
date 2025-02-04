@@ -1,7 +1,0 @@
-allOf:
-- type: object
-  properties:
-    group:
-      $ref: ../../models/FA2.0/_reference-no-id.yaml
-    member:
-      $ref: ../../models/FA2.0/_reference.yaml

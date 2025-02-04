@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.0/syslog-server-post-or-patch.yaml
-- properties:
-    services:
-      description: Valid values are `data-audit` and `management`.
-      type: array
-      items:
-        type: string

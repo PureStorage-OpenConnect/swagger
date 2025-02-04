@@ -1,8 +1,0 @@
-name: to_member_names
-in: query
-description: The resource will be moved to the specified local member realm or array.
-  Enter multiple names in a comma-separated format.
-type: array
-collectionFormat: csv
-items:
-  type: string

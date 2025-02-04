@@ -1,7 +1,0 @@
-name: software_versions
-in: query
-description: A comma-separated list of target software versions.
-type: array
-collectionFormat: csv
-items:
-  type: string

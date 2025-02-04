@@ -1,8 +1,0 @@
-name: group_names
-in: query
-description: Performs the operation on the group names specified. Enter multiple group
-  names in comma-separated format. For example, `group1,group2`.
-type: array
-collectionFormat: csv
-items:
-  type: string

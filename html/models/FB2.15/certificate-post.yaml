@@ -1,9 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.0/certificate-post.yaml
-- properties:
-    passphrase:
-      type: string
-      description: The passphrase used to encrypt `private_key`.
-    private_key:
-      type: string
-      description: The private key used to sign the certificate.

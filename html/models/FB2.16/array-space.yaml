@@ -1,6 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.0/array-space.yaml
-- properties:
-    space:
-      allOf:
-      - $ref: ../../models/FB2.16/_space.yaml

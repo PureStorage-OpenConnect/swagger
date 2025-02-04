@@ -1,9 +1,0 @@
-name: uids
-in: query
-description: A comma-separated list of user IDs. This cannot be provided together
-  with `user_names` query parameter.
-type: array
-collectionFormat: csv
-items:
-  type: integer
-  format: int32

@@ -1,7 +1,0 @@
-name: policy_names
-description: A comma-separated list of policy names.
-in: query
-type: array
-collectionFormat: csv
-items:
-  type: string

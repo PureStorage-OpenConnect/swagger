@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../../responses/FA2.1/page-info.yaml
-- type: object
-  properties:
-    items:
-      type: array
-      items:
-        $ref: ../../models/FA2.2/test-result-with-resource.yaml

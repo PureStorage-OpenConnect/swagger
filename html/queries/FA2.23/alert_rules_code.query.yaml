@@ -1,7 +1,0 @@
-name: code
-in: query
-description: The alert code that the rule applies to. Available alert codes for customization
-  can be found in the alert rules catalog.
-type: integer
-format: int32
-required: true

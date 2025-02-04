@@ -1,6 +1,0 @@
-allOf:
-- $ref: ../../responses/FB2.0/page-info.yaml
-- $ref: ../../responses/FB2.3/file-system-response.yaml
-- properties:
-    total:
-      $ref: ../../models/FB2.3/file-system.yaml

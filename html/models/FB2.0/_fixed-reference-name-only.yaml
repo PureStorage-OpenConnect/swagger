@@ -1,5 +1,0 @@
-type: object
-readOnly: true
-properties:
-  name:
-    type: string

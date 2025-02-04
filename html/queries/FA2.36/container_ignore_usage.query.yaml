@@ -1,6 +1,0 @@
-name: ignore_usage
-in: query
-description: Set to `true` to set a `quota_limit` that is lower than the existing
-  usage. This ensures that no new volumes can be created until the existing usage
-  drops below the `quota_limit`. If not specified, defaults to `false`.
-type: boolean

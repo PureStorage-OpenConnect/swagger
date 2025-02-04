@@ -1,4 +1,0 @@
-allOf:
-- $ref: ../../responses/FA2.1/page-info.yaml
-- $ref: ../../responses/FA2.38/syslog-server-settings-response.yaml
-- $ref: ../../responses/FA2.38/_error-context-response.yaml

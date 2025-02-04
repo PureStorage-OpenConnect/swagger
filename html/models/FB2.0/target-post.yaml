@@ -1,5 +1,0 @@
-type: object
-properties:
-  address:
-    type: string
-    description: IP address or FQDN of the target system.

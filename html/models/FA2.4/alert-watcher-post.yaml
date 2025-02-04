@@ -1,7 +1,0 @@
-type: object
-properties:
-  enabled:
-    type: boolean
-    description: If set to `true`, email notifications will be sent to this watcher
-      for alerts. If set to `false`, email notifications are disabled. If not specified,
-      defaults to `true`.

@@ -1,2 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.0/_built-in.yaml

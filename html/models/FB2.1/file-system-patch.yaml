@@ -1,6 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.0/file-system-patch.yaml
-- properties:
-    nfs:
-      allOf:
-      - $ref: ../../models/FB2.1/_nfs-patch.yaml

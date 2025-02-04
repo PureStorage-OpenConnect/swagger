@@ -1,7 +1,0 @@
-name: software_ids
-in: query
-description: A comma-separated list of software IDs.
-type: array
-collectionFormat: csv
-items:
-  type: string

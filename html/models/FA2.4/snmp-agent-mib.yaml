@@ -1,7 +1,0 @@
-allOf:
-- type: object
-  properties:
-    mib:
-      description: MIB text.
-      type: string
-      readOnly: true

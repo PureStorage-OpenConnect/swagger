@@ -1,6 +1,0 @@
-name: local_only
-in: query
-description: If specified as `true`, only delete the Active Directory configuration
-  on the local array, without deleting the computer account created in the Active
-  Directory domain. If not specified, defaults to `false`.
-type: boolean

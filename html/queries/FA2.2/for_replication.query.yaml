@@ -1,4 +1,0 @@
-name: for_replication
-in: query
-description: If `true`, destroys and eradicates the snapshot after 1 hour.
-type: boolean

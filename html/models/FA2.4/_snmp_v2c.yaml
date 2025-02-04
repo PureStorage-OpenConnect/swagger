@@ -1,9 +1,0 @@
-description: The v2c configurations of SNMP.
-type: object
-properties:
-  community:
-    description: Manager community ID under which Purity//FA is to communicate with
-      the specified managers.
-    type: string
-    maxLength: 32
-    example: '****'

@@ -1,8 +1,0 @@
-name: resource_destroyed
-in: query
-description: If set to `true`, returns only objects from destroyed resources. Returns
-  an error if the name of a live resource is specified in the `resource_names` query
-  parameter. If set to `false`, returns only objects from live resources. Returns
-  an error if the name of a destroyed resource is specified in the `resource_names`
-  query parameter.
-type: boolean

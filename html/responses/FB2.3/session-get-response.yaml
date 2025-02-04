@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../../responses/FB2.0/page-info.yaml
-- type: object
-  properties:
-    items:
-      type: array
-      items:
-        $ref: ../../models/FB2.3/session.yaml

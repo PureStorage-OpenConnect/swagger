@@ -1,6 +1,0 @@
-name: delete_sanitization_certificate
-in: query
-description: Set to `true` to finalize factory reset and acknowledge the deletion
-  of sanitization certificate.
-type: boolean
-required: true

@@ -1,8 +1,0 @@
-name: ids
-in: query
-description: Performs the operation on the unique resource IDs specified. Supports
-  exactly one value.
-type: array
-collectionFormat: csv
-items:
-  type: string

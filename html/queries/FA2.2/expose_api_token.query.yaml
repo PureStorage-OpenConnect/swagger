@@ -1,4 +1,0 @@
-name: expose_api_token
-in: query
-description: If `true`, exposes the API token of the current user.
-type: boolean

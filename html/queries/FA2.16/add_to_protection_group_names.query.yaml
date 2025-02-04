@@ -1,8 +1,0 @@
-name: add_to_protection_group_names
-in: query
-description: The volume will be added to the specified protection groups on creation.
-  Enter multiple names in comma-separated format.
-type: array
-collectionFormat: csv
-items:
-  type: string

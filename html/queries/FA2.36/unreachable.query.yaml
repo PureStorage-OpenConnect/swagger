@@ -1,7 +1,0 @@
-name: unreachable
-in: query
-description: If set to `true`, allows a one-sided disconnect when the connection status
-  is `connecting` instead of `connected` or `partially connected`. If set to `false`,
-  it works just like normal coordinated disconnect. If not specified, defaults to
-  `false`.
-type: boolean

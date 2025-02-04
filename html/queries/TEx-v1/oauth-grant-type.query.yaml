@@ -1,8 +1,0 @@
-name: grant_type
-in: formData
-description: The method by which the access token will be obtained. The Pure Storage
-  REST API supports the OAuth 2.0 "token exchange" grant type, which indicates that
-  a token exchange is being performed. Set `grant_type` to `urn:ietf:params:oauth:grant-type:token-exchange`.
-type: string
-required: true
-default: urn:ietf:params:oauth:grant-type:token-exchange

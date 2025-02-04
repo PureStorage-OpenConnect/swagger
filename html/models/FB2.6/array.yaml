@@ -1,9 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.5/array.yaml
-- properties:
-    product_type:
-      readOnly: true
-      type: string
-      description: For `FlashBlade//S` arrays, the value is determined by the blades
-        in the system. The value will be `FlashBlade` for all older arrays. Valid
-        values are `FlashBlade`, `FlashBlade//S`, `FlashBlade//S200`, and `FlashBladeS500`.

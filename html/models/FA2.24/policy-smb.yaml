@@ -1,9 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.24/policy.yaml
-- properties:
-    access_based_enumeration_enabled:
-      description: Returns a value of `true` if access based enumeration is enabled
-        on the policy. When access based enumeration is enabled on a policy, files
-        and folders within exports that are attached to the policy will be hidden
-        from users who do not have permission to view them.
-      type: boolean

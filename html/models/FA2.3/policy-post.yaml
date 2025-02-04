@@ -1,7 +1,0 @@
-type: object
-properties:
-  enabled:
-    description: If set to `true`, enables the policy. If set to `false`, disables
-      the policy.
-    type: boolean
-    required: true

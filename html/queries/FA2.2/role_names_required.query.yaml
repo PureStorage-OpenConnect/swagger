@@ -1,9 +1,0 @@
-name: role_names
-in: query
-description: Performs the operation on the unique roles specified. For example, `array_admin`.
-  Enter multiple roles in comma-separated format.
-type: array
-required: true
-collectionFormat: csv
-items:
-  type: string

@@ -1,5 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.16/server.yaml
-- properties:
-    name:
-      readOnly: true

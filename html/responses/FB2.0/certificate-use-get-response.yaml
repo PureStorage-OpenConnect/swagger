@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../../responses/FB2.0/page-info.yaml
-- properties:
-    items:
-      type: array
-      items:
-        $ref: ../../models/FB2.0/certificate-use.yaml
-      description: A list of certificate use objects.

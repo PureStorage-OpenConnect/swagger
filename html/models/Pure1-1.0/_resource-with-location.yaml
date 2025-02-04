@@ -1,6 +1,0 @@
-description: An ordinary resource that exists in one location.
-allOf:
-- $ref: ../../models/Pure1-1.0/_fixed-reference.yaml
-- properties:
-    location:
-      $ref: ../../models/Pure1-1.0/_fixed-reference.yaml

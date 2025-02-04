@@ -1,7 +1,0 @@
-description: A syslog server
-type: object
-properties:
-  uri:
-    description: The URI of the syslog server in the format PROTOCOL://HOSTNAME:PORT.
-    type: string
-    example: tcp://my.syslogserver.com

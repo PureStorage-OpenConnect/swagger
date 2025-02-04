@@ -1,9 +1,0 @@
-name: role_names
-description: A comma-separated list of role_names. If there is not at least one resource
-  that matches each of the elements of `role_names`, then an error is returned. This
-  cannot be provided together with the `ids` or `role_ids` query parameters.
-in: query
-type: array
-collectionFormat: csv
-items:
-  type: string

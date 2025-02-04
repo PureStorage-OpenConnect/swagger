@@ -1,7 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.0/keytab.yaml
-- properties:
-    server:
-      description: The server where the keytab is used.
-      allOf:
-      - $ref: ../../models/FB2.0/_fixed-reference.yaml

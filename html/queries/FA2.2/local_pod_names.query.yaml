@@ -1,9 +1,0 @@
-name: local_pod_names
-in: query
-description: A comma-separated list of local pod names. If, after filtering, there
-  is not at least one resource that matches each of the elements, then an error is
-  returned. This cannot be provided together with the `local_pod_ids` query parameter.
-type: array
-items:
-  type: string
-collectionFormat: csv

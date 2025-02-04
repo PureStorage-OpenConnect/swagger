@@ -1,6 +1,0 @@
-name: replicate
-in: query
-description: If set to `true`, queues up and begins replicating to each allowed target
-  after all earlier replication sessions for the same protection group have been completed
-  to that target. The `replicate` and `replicate_now` parameters cannot be used together.
-type: boolean
