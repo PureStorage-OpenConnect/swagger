@@ -1,7 +1,0 @@
-type: object
-properties:
-  items:
-    type: array
-    items:
-      $ref: ../../models/FA2.9/volume-diff.yaml
-    description: A list of different chunks between specified volumes.

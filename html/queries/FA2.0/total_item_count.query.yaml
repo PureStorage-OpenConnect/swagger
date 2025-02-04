@@ -1,7 +1,0 @@
-name: total_item_count
-in: query
-description: If set to `true`, the `total_item_count` matching the specified query
-  parameters is calculated and returned in the response. If set to `false`, the `total_item_count`
-  is `null` in the response. This may speed up queries where the `total_item_count`
-  is large. If not specified, defaults to `false`.
-type: boolean

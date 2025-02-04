@@ -1,6 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.3/pod.yaml
-- properties:
-    eradication_config:
-      readOnly: true
-      $ref: ../../models/FA2.13/pod-eradication-config.yaml

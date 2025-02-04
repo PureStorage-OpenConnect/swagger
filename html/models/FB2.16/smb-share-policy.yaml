@@ -1,9 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.16/policy-base-renameable.yaml
-- properties:
-    rules:
-      type: array
-      maxItems: 200
-      items:
-        $ref: ../../models/FB2.10/smb-share-policy-rule.yaml
-      description: All of the rules that are part of this policy.

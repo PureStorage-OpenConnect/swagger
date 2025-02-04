@@ -1,4 +1,0 @@
-description: A built-in resource that exists on one or multiple arrays.
-allOf:
-- $ref: ../../models/Pure1-1.0/_resource.yaml
-- $ref: ../../models/Pure1-1.1/_arrays.yaml

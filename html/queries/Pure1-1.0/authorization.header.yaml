@@ -1,5 +1,0 @@
-name: Authorization
-in: header
-description: Access token (in JWT format) required to use any API endpoint (except
-  `/oauth2`)
-type: string

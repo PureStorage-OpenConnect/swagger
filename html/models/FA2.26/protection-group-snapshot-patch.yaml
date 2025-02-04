@@ -1,7 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.26/protection-group-snapshot.yaml
-- type: object
-  properties:
-    suffix:
-      type: string
-      readOnly: true

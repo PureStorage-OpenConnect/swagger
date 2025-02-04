@@ -1,7 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.0/file-system-snapshot-transfer.yaml
-- properties:
-    local_snapshot:
-      description: A reference to the associated local file system snapshot.
-      allOf:
-      - $ref: ../../models/FB2.0/_fixed-reference-no-resource-type.yaml

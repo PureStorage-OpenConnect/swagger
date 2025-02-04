@@ -1,4 +1,0 @@
-name: port
-in: query
-description: Used by trace to specify a destination port.
-type: string

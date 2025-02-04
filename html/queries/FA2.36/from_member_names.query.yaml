@@ -1,9 +1,0 @@
-name: from_member_names
-in: query
-description: Move the resource from the specified local member realm or array. This
-  should be a union of all local realms and arrays to be removed from the specified
-  resource. Enter multiple names in a comma-separated format.
-type: array
-collectionFormat: csv
-items:
-  type: string

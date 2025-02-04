@@ -1,9 +1,0 @@
-type: object
-properties:
-  total_item_count:
-    type: integer
-    format: int32
-    description: The total number of records after applying all filter query parameters.
-      The `total_item_count` will be calculated if and only if the corresponding query
-      parameter `total_item_count` is set to `true`. If this query parameter is not
-      set or set to `false`, a value of `null` will be returned.

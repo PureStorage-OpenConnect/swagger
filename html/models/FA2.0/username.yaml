@@ -1,6 +1,0 @@
-type: object
-properties:
-  username:
-    description: The username of the user.
-    type: string
-    example: pureuser

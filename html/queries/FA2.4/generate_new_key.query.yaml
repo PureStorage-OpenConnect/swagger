@@ -1,8 +1,0 @@
-name: generate_new_key
-in: query
-description: If set to `true`, a new private key is generated when generating a new
-  certificate with the specified attributes. This may not be set to `true` when importing
-  a certificate and private key, and may not be set to `false` when generating a new
-  self-signed certificate to replace a certificate that was imported. Default setting
-  is `false`.
-type: boolean

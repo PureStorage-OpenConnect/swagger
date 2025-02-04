@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.0/admin-patch.yaml
-- properties:
-    locked:
-      description: If set to `false`, the specified user is unlocked. Setting to `true`
-        is not allowed.
-      type: boolean
-      example: false

@@ -1,9 +1,0 @@
-name: member_ids
-in: query
-description: Performs the operation on the unique member IDs specified. Enter multiple
-  member IDs in comma-separated format. The `member_ids` or `member_names` parameter
-  is required, but they cannot be set together.
-type: array
-collectionFormat: csv
-items:
-  type: string

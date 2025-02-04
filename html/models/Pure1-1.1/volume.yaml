@@ -1,3 +1,0 @@
-allOf:
-- $ref: ../../models/Pure1-1.0/volume.yaml
-- $ref: ../../models/Pure1-1.1/_arrays.yaml

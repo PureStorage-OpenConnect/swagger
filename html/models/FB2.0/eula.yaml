@@ -1,8 +1,0 @@
-type: object
-properties:
-  agreement:
-    description: End User Agreement text.
-    type: string
-    readOnly: true
-  signature:
-    $ref: ../../models/FB2.0/_eula_signature.yaml

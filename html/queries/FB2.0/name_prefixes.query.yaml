@@ -1,5 +1,0 @@
-name: name_prefixes
-in: query
-description: The prefix to use for the names of all Kerberos keytab objects that are
-  being created.
-type: string

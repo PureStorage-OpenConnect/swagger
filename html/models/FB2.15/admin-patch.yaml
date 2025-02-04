@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.3/admin-patch.yaml
-- properties:
-    role:
-      description: A reference to this administrator's management role. This may only
-        be modified for non-built-in users for whom `is_local` is `true`.
-      allOf:
-      - $ref: ../../models/FB2.0/_reference-writable.yaml

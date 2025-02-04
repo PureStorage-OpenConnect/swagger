@@ -1,7 +1,0 @@
-allOf:
-- $ref: ../../models/Pure1-1.0/volume-snapshot.yaml
-- $ref: ../../models/Pure1-1.1/_arrays.yaml
-- properties:
-    true:
-      allOf:
-      - $ref: ../../models/Pure1-1.1/_fixed-reference-fqdn.yaml

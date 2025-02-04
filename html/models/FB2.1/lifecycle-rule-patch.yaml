@@ -1,3 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.0/lifecycle-rule-patch.yaml
-- $ref: ../../models/FB2.1/_lifecycle-rule-config-extension.yaml

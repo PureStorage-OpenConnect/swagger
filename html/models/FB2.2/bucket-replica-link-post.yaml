@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.0/bucket-replica-link-post.yaml
-- properties:
-    cascading_enabled:
-      type: boolean
-      description: If set to `true`, objects replicated to this bucket via a replica
-        link from another array will also be replicated by this link to the remote
-        bucket. Defaults to `false`.

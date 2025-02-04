@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.2/admin.yaml
-- type: object
-  properties:
-    public_key:
-      description: Public key for SSH access. Multiple public keys can be specified,
-        separated by newlines.
-      type: string

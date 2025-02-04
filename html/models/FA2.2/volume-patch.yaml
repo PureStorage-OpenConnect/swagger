@@ -1,9 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.0/volume-patch.yaml
-- properties:
-    requested_promotion_state:
-      description: Valid values are `promoted` and `demoted`. Patch `requested_promotion_state`
-        to `demoted` to demote the volume so that the volume stops accepting write
-        requests. Patch `requested_promotion_state` to `promoted` to promote the volume
-        so that the volume starts accepting write requests.
-      type: string

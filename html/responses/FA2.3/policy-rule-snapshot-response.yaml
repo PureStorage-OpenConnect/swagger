@@ -1,8 +1,0 @@
-type: object
-properties:
-  items:
-    type: array
-    items:
-      $ref: ../../models/FA2.3/policy-rule-snapshot.yaml
-    description: Returns a list of all items after filtering. The values are displayed
-      for each name where meaningful.

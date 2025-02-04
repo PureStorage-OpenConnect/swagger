@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.4/hardware.yaml
-- properties:
-    part_number:
-      description: Part number of the hardware component.
-      type: string
-      example: 83-0139-01
-      readOnly: true

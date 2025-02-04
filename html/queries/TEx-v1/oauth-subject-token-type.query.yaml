@@ -1,9 +1,0 @@
-name: subject_token_type
-in: formData
-description: An identifier that indicates the type of security token specifed in the
-  `subject_token` parameter. The Pure Storage REST API supports the JSON Web Token
-  (JWT) as the means for requesting the access token. Set `subject_token_type` to
-  `urn:ietf:params:oauth:token-type:jwt`.
-type: string
-required: true
-default: urn:ietf:params:oauth:token-type:jwt

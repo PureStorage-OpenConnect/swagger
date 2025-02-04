@@ -1,7 +1,0 @@
-name: role_names
-in: query
-description: This field has been deprecated.
-type: array
-collectionFormat: csv
-items:
-  type: string

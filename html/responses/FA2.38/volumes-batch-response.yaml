@@ -1,8 +1,0 @@
-type: object
-properties:
-  items:
-    type: array
-    items:
-      $ref: ../../models/FA2.38/volume.yaml
-    description: Displays a list of all items. If applicable, the values are displayed
-      for each name.

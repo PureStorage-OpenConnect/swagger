@@ -1,9 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.0/_built-in-no-id.yaml
-- $ref: ../../models/FB2.12/cross-origin-resource-sharing-policy-rule-post.yaml
-- properties:
-    policy:
-      description: The policy to which this rule belongs.
-      readOnly: true
-      allOf:
-      - $ref: ../../models/FB2.0/_fixed-reference.yaml

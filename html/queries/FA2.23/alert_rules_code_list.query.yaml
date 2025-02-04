@@ -1,5 +1,0 @@
-name: code
-in: query
-description: The alert code to display.
-type: integer
-format: int32

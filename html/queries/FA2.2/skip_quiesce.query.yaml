@@ -1,6 +1,0 @@
-name: skip_quiesce
-in: query
-description: Set to `true` to demote the pod without quiescing the `pod-replica-link`
-  and allow the pod to become a target of the remote pod. This stops all pending replication
-  to the remote pod.
-type: boolean

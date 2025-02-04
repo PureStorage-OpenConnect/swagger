@@ -1,7 +1,0 @@
-name: next_allocated_block_hint
-in: query
-description: If set to `true`, appends offset of the next allocated block in bytes
-  for the volume specified in `names` or `ids` to the output `items`. `base_name`
-  or `base_id` must not be specified if this is set to `true`. If not specified, defaults
-  to `false`.
-type: boolean

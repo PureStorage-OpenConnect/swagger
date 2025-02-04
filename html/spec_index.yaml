@@ -1,492 +1,498 @@
-- filename: FlashArray REST v1.7.yaml
-  model: FlashArray
-  name: FlashArray v1.7
-  url: specs/FlashArray REST v1.7.yaml
-  version: '1.7'
-  version_sort: 1007
-- filename: FlashArray REST v1.8.yaml
-  model: FlashArray
-  name: FlashArray v1.8
-  url: specs/FlashArray REST v1.8.yaml
-  version: '1.8'
-  version_sort: 1008
-- filename: FlashArray REST v1.9.yaml
-  model: FlashArray
-  name: FlashArray v1.9
-  url: specs/FlashArray REST v1.9.yaml
-  version: '1.9'
-  version_sort: 1009
-- filename: FlashArray REST v1.11.yaml
-  model: FlashArray
-  name: FlashArray v1.11
-  url: specs/FlashArray REST v1.11.yaml
-  version: '1.11'
-  version_sort: 1011
-- filename: FlashArray REST v1.12.yaml
-  model: FlashArray
-  name: FlashArray v1.12
-  url: specs/FlashArray REST v1.12.yaml
-  version: '1.12'
-  version_sort: 1012
-- filename: FlashArray REST v1.13.yaml
-  model: FlashArray
-  name: FlashArray v1.13
-  url: specs/FlashArray REST v1.13.yaml
-  version: '1.13'
-  version_sort: 1013
-- filename: FlashArray REST v1.14.yaml
-  model: FlashArray
-  name: FlashArray v1.14
-  url: specs/FlashArray REST v1.14.yaml
-  version: '1.14'
-  version_sort: 1014
-- filename: FlashArray REST v1.15.yaml
-  model: FlashArray
-  name: FlashArray v1.15
-  url: specs/FlashArray REST v1.15.yaml
-  version: '1.15'
-  version_sort: 1015
-- filename: FlashArray REST v1.16.yaml
-  model: FlashArray
-  name: FlashArray v1.16
-  url: specs/FlashArray REST v1.16.yaml
-  version: '1.16'
-  version_sort: 1016
-- filename: FlashArray REST v1.17.yaml
-  model: FlashArray
-  name: FlashArray v1.17
-  url: specs/FlashArray REST v1.17.yaml
-  version: '1.17'
-  version_sort: 1017
-- filename: FlashArray REST v1.19.yaml
-  model: FlashArray
-  name: FlashArray v1.19
-  url: specs/FlashArray REST v1.19.yaml
-  version: '1.19'
-  version_sort: 1019
 - filename: FA2.0.spec.yaml
   model: FlashArray
   name: FlashArray v2.0
   url: specs/FA2.0.spec.yaml
   version: '2.0'
-  version_sort: 2000
+  version_sort: 201
 - filename: FA2.1.spec.yaml
   model: FlashArray
   name: FlashArray v2.1
   url: specs/FA2.1.spec.yaml
   version: '2.1'
-  version_sort: 2001
+  version_sort: 202
 - filename: FA2.2.spec.yaml
   model: FlashArray
   name: FlashArray v2.2
   url: specs/FA2.2.spec.yaml
   version: '2.2'
-  version_sort: 2002
+  version_sort: 203
 - filename: FA2.3.spec.yaml
   model: FlashArray
   name: FlashArray v2.3
   url: specs/FA2.3.spec.yaml
   version: '2.3'
-  version_sort: 2003
+  version_sort: 204
 - filename: FA2.4.spec.yaml
   model: FlashArray
   name: FlashArray v2.4
   url: specs/FA2.4.spec.yaml
   version: '2.4'
-  version_sort: 2004
+  version_sort: 205
 - filename: FA2.5.spec.yaml
   model: FlashArray
   name: FlashArray v2.5
   url: specs/FA2.5.spec.yaml
   version: '2.5'
-  version_sort: 2005
+  version_sort: 206
 - filename: FA2.6.spec.yaml
   model: FlashArray
   name: FlashArray v2.6
   url: specs/FA2.6.spec.yaml
   version: '2.6'
-  version_sort: 2006
+  version_sort: 207
 - filename: FA2.7.spec.yaml
   model: FlashArray
   name: FlashArray v2.7
   url: specs/FA2.7.spec.yaml
   version: '2.7'
-  version_sort: 2007
+  version_sort: 208
 - filename: FA2.8.spec.yaml
   model: FlashArray
   name: FlashArray v2.8
   url: specs/FA2.8.spec.yaml
   version: '2.8'
-  version_sort: 2008
+  version_sort: 209
 - filename: FA2.9.spec.yaml
   model: FlashArray
   name: FlashArray v2.9
   url: specs/FA2.9.spec.yaml
   version: '2.9'
-  version_sort: 2009
+  version_sort: 210
 - filename: FA2.10.spec.yaml
   model: FlashArray
   name: FlashArray v2.10
   url: specs/FA2.10.spec.yaml
   version: '2.10'
-  version_sort: 2010
+  version_sort: 211
 - filename: FA2.11.spec.yaml
   model: FlashArray
   name: FlashArray v2.11
   url: specs/FA2.11.spec.yaml
   version: '2.11'
-  version_sort: 2011
+  version_sort: 212
 - filename: FA2.13.spec.yaml
   model: FlashArray
   name: FlashArray v2.13
   url: specs/FA2.13.spec.yaml
   version: '2.13'
-  version_sort: 2013
+  version_sort: 214
 - filename: FA2.14.spec.yaml
   model: FlashArray
   name: FlashArray v2.14
   url: specs/FA2.14.spec.yaml
   version: '2.14'
-  version_sort: 2014
+  version_sort: 215
 - filename: FA2.15.spec.yaml
   model: FlashArray
   name: FlashArray v2.15
   url: specs/FA2.15.spec.yaml
   version: '2.15'
-  version_sort: 2015
+  version_sort: 216
 - filename: FA2.16.spec.yaml
   model: FlashArray
   name: FlashArray v2.16
   url: specs/FA2.16.spec.yaml
   version: '2.16'
-  version_sort: 2016
+  version_sort: 217
 - filename: FA2.17.spec.yaml
   model: FlashArray
   name: FlashArray v2.17
   url: specs/FA2.17.spec.yaml
   version: '2.17'
-  version_sort: 2017
+  version_sort: 218
 - filename: FA2.19.spec.yaml
   model: FlashArray
   name: FlashArray v2.19
   url: specs/FA2.19.spec.yaml
   version: '2.19'
-  version_sort: 2019
+  version_sort: 220
 - filename: FA2.20.spec.yaml
   model: FlashArray
   name: FlashArray v2.20
   url: specs/FA2.20.spec.yaml
   version: '2.20'
-  version_sort: 2020
+  version_sort: 221
 - filename: FA2.21.spec.yaml
   model: FlashArray
   name: FlashArray v2.21
   url: specs/FA2.21.spec.yaml
   version: '2.21'
-  version_sort: 2021
+  version_sort: 222
 - filename: FA2.22.spec.yaml
   model: FlashArray
   name: FlashArray v2.22
   url: specs/FA2.22.spec.yaml
   version: '2.22'
-  version_sort: 2022
+  version_sort: 223
 - filename: FA2.23.spec.yaml
   model: FlashArray
   name: FlashArray v2.23
   url: specs/FA2.23.spec.yaml
   version: '2.23'
-  version_sort: 2023
+  version_sort: 224
 - filename: FA2.24.spec.yaml
   model: FlashArray
   name: FlashArray v2.24
   url: specs/FA2.24.spec.yaml
   version: '2.24'
-  version_sort: 2024
+  version_sort: 225
 - filename: FA2.25.spec.yaml
   model: FlashArray
   name: FlashArray v2.25
   url: specs/FA2.25.spec.yaml
   version: '2.25'
-  version_sort: 2025
+  version_sort: 226
 - filename: FA2.26.spec.yaml
   model: FlashArray
   name: FlashArray v2.26
   url: specs/FA2.26.spec.yaml
   version: '2.26'
-  version_sort: 2026
+  version_sort: 227
 - filename: FA2.27.spec.yaml
   model: FlashArray
   name: FlashArray v2.27
   url: specs/FA2.27.spec.yaml
   version: '2.27'
-  version_sort: 2027
+  version_sort: 228
 - filename: FA2.28.spec.yaml
   model: FlashArray
   name: FlashArray v2.28
   url: specs/FA2.28.spec.yaml
   version: '2.28'
-  version_sort: 2028
+  version_sort: 229
 - filename: FA2.29.spec.yaml
   model: FlashArray
   name: FlashArray v2.29
   url: specs/FA2.29.spec.yaml
   version: '2.29'
-  version_sort: 2029
+  version_sort: 230
 - filename: FA2.30.spec.yaml
   model: FlashArray
   name: FlashArray v2.30
   url: specs/FA2.30.spec.yaml
   version: '2.30'
-  version_sort: 2030
+  version_sort: 231
 - filename: FA2.31.spec.yaml
   model: FlashArray
   name: FlashArray v2.31
   url: specs/FA2.31.spec.yaml
   version: '2.31'
-  version_sort: 2031
+  version_sort: 232
 - filename: FA2.32.spec.yaml
   model: FlashArray
   name: FlashArray v2.32
   url: specs/FA2.32.spec.yaml
   version: '2.32'
-  version_sort: 2032
+  version_sort: 233
 - filename: FA2.33.spec.yaml
   model: FlashArray
   name: FlashArray v2.33
   url: specs/FA2.33.spec.yaml
   version: '2.33'
-  version_sort: 2033
+  version_sort: 234
 - filename: FA2.34.spec.yaml
   model: FlashArray
   name: FlashArray v2.34
   url: specs/FA2.34.spec.yaml
   version: '2.34'
-  version_sort: 2034
+  version_sort: 235
 - filename: FA2.35.spec.yaml
   model: FlashArray
   name: FlashArray v2.35
   url: specs/FA2.35.spec.yaml
   version: '2.35'
-  version_sort: 2035
+  version_sort: 236
 - filename: FA2.36.spec.yaml
   model: FlashArray
   name: FlashArray v2.36
   url: specs/FA2.36.spec.yaml
   version: '2.36'
-  version_sort: 2036
+  version_sort: 237
 - filename: FA2.37.spec.yaml
   model: FlashArray
   name: FlashArray v2.37
   url: specs/FA2.37.spec.yaml
   version: '2.37'
-  version_sort: 2037
+  version_sort: 238
 - filename: FA2.38.spec.yaml
   model: FlashArray
   name: FlashArray v2.38
   url: specs/FA2.38.spec.yaml
   version: '2.38'
-  version_sort: 2038
+  version_sort: 239
+- filename: FA2.39.spec.yaml
+  model: FlashArray
+  name: FlashArray v2.39
+  url: specs/FA2.39.spec.yaml
+  version: '2.39'
+  version_sort: 240
 - filename: FB1.0.spec.yaml
   model: FlashBlade
   name: FlashBlade v1.0
   url: specs/FB1.0.spec.yaml
   version: '1.0'
-  version_sort: 1000
+  version_sort: 2100
 - filename: FB1.1.spec.yaml
   model: FlashBlade
   name: FlashBlade v1.1
   url: specs/FB1.1.spec.yaml
   version: '1.1'
-  version_sort: 1001
-- filename: FB1.10.spec.yaml
-  model: FlashBlade
-  name: FlashBlade v1.1
-  url: specs/FB1.10.spec.yaml
-  version: '1.1'
-  version_sort: 1001
+  version_sort: 2101
 - filename: FB1.2.spec.yaml
   model: FlashBlade
   name: FlashBlade v1.2
   url: specs/FB1.2.spec.yaml
   version: '1.2'
-  version_sort: 1002
+  version_sort: 2102
 - filename: FB1.3.spec.yaml
   model: FlashBlade
   name: FlashBlade v1.3
   url: specs/FB1.3.spec.yaml
   version: '1.3'
-  version_sort: 1003
+  version_sort: 2103
 - filename: FB1.4.spec.yaml
   model: FlashBlade
   name: FlashBlade v1.4
   url: specs/FB1.4.spec.yaml
   version: '1.4'
-  version_sort: 1004
+  version_sort: 2104
 - filename: FB1.5.spec.yaml
   model: FlashBlade
   name: FlashBlade v1.5
   url: specs/FB1.5.spec.yaml
   version: '1.5'
-  version_sort: 1005
+  version_sort: 2105
 - filename: FB1.6.spec.yaml
   model: FlashBlade
   name: FlashBlade v1.6
   url: specs/FB1.6.spec.yaml
   version: '1.6'
-  version_sort: 1006
+  version_sort: 2106
 - filename: FB1.7.spec.yaml
   model: FlashBlade
   name: FlashBlade v1.7
   url: specs/FB1.7.spec.yaml
   version: '1.7'
-  version_sort: 1007
+  version_sort: 2107
 - filename: FB1.8.spec.yaml
   model: FlashBlade
   name: FlashBlade v1.8
   url: specs/FB1.8.spec.yaml
   version: '1.8'
-  version_sort: 1008
+  version_sort: 2108
 - filename: FB1.9.spec.yaml
   model: FlashBlade
   name: FlashBlade v1.9
   url: specs/FB1.9.spec.yaml
   version: '1.9'
-  version_sort: 1009
+  version_sort: 2109
+- filename: FB1.10.spec.yaml
+  model: FlashBlade
+  name: FlashBlade v1.10
+  url: specs/FB1.10.spec.yaml
+  version: '1.10'
+  version_sort: 2110
 - filename: FB1.11.spec.yaml
   model: FlashBlade
   name: FlashBlade v1.11
   url: specs/FB1.11.spec.yaml
   version: '1.11'
-  version_sort: 1011
+  version_sort: 2111
 - filename: FB1.12.spec.yaml
   model: FlashBlade
   name: FlashBlade v1.12
   url: specs/FB1.12.spec.yaml
   version: '1.12'
-  version_sort: 1012
+  version_sort: 2112
 - filename: FB2.0.spec.yaml
   model: FlashBlade
   name: FlashBlade v2.0
   url: specs/FB2.0.spec.yaml
   version: '2.0'
-  version_sort: 2000
+  version_sort: 2200
 - filename: FB2.1.spec.yaml
   model: FlashBlade
   name: FlashBlade v2.1
   url: specs/FB2.1.spec.yaml
   version: '2.1'
-  version_sort: 2001
+  version_sort: 2201
 - filename: FB2.2.spec.yaml
   model: FlashBlade
   name: FlashBlade v2.2
   url: specs/FB2.2.spec.yaml
   version: '2.2'
-  version_sort: 2002
+  version_sort: 2202
 - filename: FB2.3.spec.yaml
   model: FlashBlade
   name: FlashBlade v2.3
   url: specs/FB2.3.spec.yaml
   version: '2.3'
-  version_sort: 2003
+  version_sort: 2203
 - filename: FB2.4.spec.yaml
   model: FlashBlade
   name: FlashBlade v2.4
   url: specs/FB2.4.spec.yaml
   version: '2.4'
-  version_sort: 2004
+  version_sort: 2204
 - filename: FB2.5.spec.yaml
   model: FlashBlade
   name: FlashBlade v2.5
   url: specs/FB2.5.spec.yaml
   version: '2.5'
-  version_sort: 2005
+  version_sort: 2205
 - filename: FB2.6.spec.yaml
   model: FlashBlade
   name: FlashBlade v2.6
   url: specs/FB2.6.spec.yaml
   version: '2.6'
-  version_sort: 2006
+  version_sort: 2206
 - filename: FB2.7.spec.yaml
   model: FlashBlade
   name: FlashBlade v2.7
   url: specs/FB2.7.spec.yaml
   version: '2.7'
-  version_sort: 2007
+  version_sort: 2207
 - filename: FB2.8.spec.yaml
   model: FlashBlade
   name: FlashBlade v2.8
   url: specs/FB2.8.spec.yaml
   version: '2.8'
-  version_sort: 2008
+  version_sort: 2208
 - filename: FB2.9.spec.yaml
   model: FlashBlade
   name: FlashBlade v2.9
   url: specs/FB2.9.spec.yaml
   version: '2.9'
-  version_sort: 2009
+  version_sort: 2209
 - filename: FB2.10.spec.yaml
   model: FlashBlade
   name: FlashBlade v2.10
   url: specs/FB2.10.spec.yaml
   version: '2.10'
-  version_sort: 2010
+  version_sort: 2210
 - filename: FB2.11.spec.yaml
   model: FlashBlade
   name: FlashBlade v2.11
   url: specs/FB2.11.spec.yaml
   version: '2.11'
-  version_sort: 2011
+  version_sort: 2211
 - filename: FB2.12.spec.yaml
   model: FlashBlade
   name: FlashBlade v2.12
   url: specs/FB2.12.spec.yaml
   version: '2.12'
-  version_sort: 2012
+  version_sort: 2212
 - filename: FB2.13.spec.yaml
   model: FlashBlade
   name: FlashBlade v2.13
   url: specs/FB2.13.spec.yaml
   version: '2.13'
-  version_sort: 2013
+  version_sort: 2213
 - filename: FB2.14.spec.yaml
   model: FlashBlade
   name: FlashBlade v2.14
   url: specs/FB2.14.spec.yaml
   version: '2.14'
-  version_sort: 2014
+  version_sort: 2214
 - filename: FB2.15.spec.yaml
   model: FlashBlade
   name: FlashBlade v2.15
   url: specs/FB2.15.spec.yaml
   version: '2.15'
-  version_sort: 2015
+  version_sort: 2215
 - filename: FB2.16.spec.yaml
   model: FlashBlade
   name: FlashBlade v2.16
   url: specs/FB2.16.spec.yaml
   version: '2.16'
-  version_sort: 2016
+  version_sort: 2216
 - filename: Pure1-1.0.spec.yaml
   model: Pure1
   name: Pure1 v1.0
   url: specs/Pure1-1.0.spec.yaml
   version: '1.0'
-  version_sort: 1000
-- filename: Pure1-1.1.b.spec.yaml
-  model: Pure1
-  name: Pure1 v1.1.b
-  url: specs/Pure1-1.1.b.spec.yaml
-  version: 1.1.b
-  version_sort: 1001
+  version_sort: 3100
 - filename: Pure1-1.1.spec.yaml
   model: Pure1
   name: Pure1 v1.1
   url: specs/Pure1-1.1.spec.yaml
   version: '1.1'
-  version_sort: 1001
+  version_sort: 3101
 - filename: Pure1-1.2.spec.yaml
   model: Pure1
   name: Pure1 v1.2
   url: specs/Pure1-1.2.spec.yaml
   version: '1.2'
-  version_sort: 1002
+  version_sort: 3102
+- filename: Pure1-1.3.spec.yaml
+  model: Pure1
+  name: Pure1 v1.3
+  url: specs/Pure1-1.3.spec.yaml
+  version: '1.3'
+  version_sort: 3103
+- filename: FlashArray REST v1.7.yaml
+  model: FlashArray
+  name: FlashArray v1.7
+  url: specs/FlashArray REST v1.7.yaml
+  version: '1.7'
+  version_sort: 4107
+- filename: FlashArray REST v1.8.yaml
+  model: FlashArray
+  name: FlashArray v1.8
+  url: specs/FlashArray REST v1.8.yaml
+  version: '1.8'
+  version_sort: 4108
+- filename: FlashArray REST v1.9.yaml
+  model: FlashArray
+  name: FlashArray v1.9
+  url: specs/FlashArray REST v1.9.yaml
+  version: '1.9'
+  version_sort: 4109
+- filename: FlashArray REST v1.11.yaml
+  model: FlashArray
+  name: FlashArray v1.11
+  url: specs/FlashArray REST v1.11.yaml
+  version: '1.11'
+  version_sort: 4111
+- filename: FlashArray REST v1.12.yaml
+  model: FlashArray
+  name: FlashArray v1.12
+  url: specs/FlashArray REST v1.12.yaml
+  version: '1.12'
+  version_sort: 4112
+- filename: FlashArray REST v1.13.yaml
+  model: FlashArray
+  name: FlashArray v1.13
+  url: specs/FlashArray REST v1.13.yaml
+  version: '1.13'
+  version_sort: 4113
+- filename: FlashArray REST v1.14.yaml
+  model: FlashArray
+  name: FlashArray v1.14
+  url: specs/FlashArray REST v1.14.yaml
+  version: '1.14'
+  version_sort: 4114
+- filename: FlashArray REST v1.15.yaml
+  model: FlashArray
+  name: FlashArray v1.15
+  url: specs/FlashArray REST v1.15.yaml
+  version: '1.15'
+  version_sort: 4115
+- filename: FlashArray REST v1.16.yaml
+  model: FlashArray
+  name: FlashArray v1.16
+  url: specs/FlashArray REST v1.16.yaml
+  version: '1.16'
+  version_sort: 4116
+- filename: FlashArray REST v1.17.yaml
+  model: FlashArray
+  name: FlashArray v1.17
+  url: specs/FlashArray REST v1.17.yaml
+  version: '1.17'
+  version_sort: 4117
+- filename: FlashArray REST v1.19.yaml
+  model: FlashArray
+  name: FlashArray v1.19
+  url: specs/FlashArray REST v1.19.yaml
+  version: '1.19'
+  version_sort: 4119

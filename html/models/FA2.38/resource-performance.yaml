@@ -1,3 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.4/resource-performance.yaml
-- $ref: ../../models/FA2.38/_context.yaml

@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.29/policy-nfs.yaml
-- properties:
-    policy_mapping:
-      description: Specifies the mapping of this policy across a pod replica link.
-        If this policy is not inside a pod of a pod replica link, mapping is `null`.
-      allOf:
-      - $ref: ../../models/FA2.32/policy-nfs-policy-mapping.yaml

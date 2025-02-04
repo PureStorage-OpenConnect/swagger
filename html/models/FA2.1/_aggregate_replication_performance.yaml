@@ -1,9 +1,0 @@
-type: object
-readOnly: true
-properties:
-  bytes_per_sec:
-    description: The total number of bytes of replication data transmitted and received
-      per second.
-    type: integer
-    format: int64
-    minimum: 0

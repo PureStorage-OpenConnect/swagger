@@ -1,6 +1,0 @@
-name: keep_open_sessions
-in: query
-description: If set to `true`, the session does not expire. If set to `false`, when
-  the user is disabled or password is changed, the session expires. If not specified,
-  defaults to `false`.
-type: boolean

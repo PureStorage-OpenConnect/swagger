@@ -1,3 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.11/_smb-post.yaml
-- $ref: ../../models/FB2.12/_smb.yaml

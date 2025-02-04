@@ -1,8 +1,0 @@
-name: tag
-in: body
-description: A list of tags to be upserted.
-required: true
-schema:
-  type: array
-  items:
-    $ref: ../../models/Pure1-1.0/tag-put.yaml

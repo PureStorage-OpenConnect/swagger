@@ -1,7 +1,0 @@
-allOf:
-- type: object
-  properties:
-    items:
-      type: array
-      items:
-        $ref: ../../models/FA2.38/test-result-with-resource-with-id.yaml

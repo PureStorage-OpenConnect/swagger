@@ -1,7 +1,0 @@
-name: destination
-in: query
-required: true
-description: A destination specified by user to run the network diagnosis against.
-  Can be a hostname or an IP.
-type: string
-example: www.test.com

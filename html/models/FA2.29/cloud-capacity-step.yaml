@@ -1,7 +1,0 @@
-type: object
-properties:
-  supported_capacity:
-    description: A possible supported raw capacity of the CBS array in bytes.
-    type: integer
-    format: int64
-    example: 10995116277760

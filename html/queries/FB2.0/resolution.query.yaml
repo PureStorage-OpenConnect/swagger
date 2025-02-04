@@ -1,9 +1,0 @@
-name: resolution
-in: query
-description: The desired ms between samples. Available resolutions may depend on data
-  type, `start_time` and `end_time`. In general `1000`, `30000`, `300000`, `1800000`,
-  `7200000`, and `86400000` are possible values.
-type: integer
-format: int64
-minimum: 0
-example: 30000

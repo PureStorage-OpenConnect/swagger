@@ -1,8 +1,0 @@
-name: resource_names
-in: query
-description: A comma-separated list of resource names. The `resource_ids` or `resource_names`
-  parameter is required, but they cannot be set together.
-type: array
-items:
-  type: string
-collectionFormat: csv

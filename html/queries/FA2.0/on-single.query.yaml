@@ -1,4 +1,0 @@
-name: 'on'
-in: query
-description: Performs the operation on the target name specified. For example, `targetName01`.
-type: string

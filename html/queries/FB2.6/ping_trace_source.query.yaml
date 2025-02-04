@@ -1,5 +1,0 @@
-name: source
-in: query
-description: Used by ping and trace to specify the property where to start to run
-  the specified operation. The property can be subnet or IP.
-type: string

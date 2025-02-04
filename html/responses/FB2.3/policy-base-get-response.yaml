@@ -1,3 +1,0 @@
-allOf:
-- $ref: ../../responses/FB2.0/page-info.yaml
-- $ref: ../../responses/FB2.3/policy-base-response.yaml

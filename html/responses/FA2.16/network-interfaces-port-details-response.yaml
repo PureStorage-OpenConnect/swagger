@@ -1,7 +1,0 @@
-type: object
-properties:
-  items:
-    type: array
-    items:
-      $ref: ../../models/FA2.16/network-interfaces-port-details.yaml
-    description: A list of port details objects.

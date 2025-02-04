@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.0/smtp-server.yaml
-- properties:
-    encryption_mode:
-      description: Enforces an encryption mode when sending alert email messages.
-        Valid values include `starttls`. Use "" to clear.
-      type: string
-      example: starttls

@@ -1,9 +1,0 @@
-allOf:
-- $ref: ../../responses/FB2.0/page-info.yaml
-- type: object
-  properties:
-    items:
-      type: array
-      items:
-        $ref: ../../models/FB2.0/admin-cache.yaml
-      description: A list of admin cache entries.

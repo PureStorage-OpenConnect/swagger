@@ -1,5 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.0/array-connection.yaml
-- properties:
-    throttle:
-      $ref: ../../models/FB2.3/_throttle.yaml

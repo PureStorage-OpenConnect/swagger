@@ -1,7 +1,0 @@
-type: object
-properties:
-  items:
-    type: array
-    items:
-      $ref: ../../models/FA2.4/alert-watcher.yaml
-    description: A list of alert watcher objects.

@@ -1,9 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.13/policy-base-renameable.yaml
-- properties:
-    policy_type:
-      description: Type of the policy. Valid values are `audit`, `bucket-access`,
-        `cross-origin-resource-sharing`, `network-access`, `nfs`, `object-access`,
-        `smb-client`, `smb-share`, and `snapshot`.
-      readOnly: true
-      type: string

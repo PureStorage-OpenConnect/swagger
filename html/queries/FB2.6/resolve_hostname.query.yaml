@@ -1,5 +1,0 @@
-name: resolve_hostname
-in: query
-description: Used by ping and trace to specify whether or not to map IP addresses
-  to host names. If not specified, defaults to true.
-type: boolean

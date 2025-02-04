@@ -1,6 +1,0 @@
-name: renew_encryption_key
-in: query
-description: If set to `true`, update array connection with a new encryption key.
-  If set to `true`, other array connection attributes may not be modified in requests.
-  Defaults to `false`.
-type: boolean

@@ -1,3 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.16/policy-base.yaml
-- $ref: ../../models/FB2.15/_worm-data-policy-retention-config.yaml

@@ -1,7 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.7/directory.yaml
-- properties:
-    space:
-      description: Displays size and space consumption information.
-      allOf:
-      - $ref: ../../models/FA2.26/_space.yaml

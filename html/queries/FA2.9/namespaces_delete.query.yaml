@@ -1,8 +1,0 @@
-name: namespaces
-in: query
-description: A comma-separated list of namespaces. Only one namespace is allowed per
-  delete request.
-type: array
-items:
-  type: string
-collectionFormat: csv

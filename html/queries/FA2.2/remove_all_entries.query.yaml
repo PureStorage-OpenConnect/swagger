@@ -1,5 +1,0 @@
-name: remove_all_entries
-in: query
-description: If set to `true`, removes all entries from the administrator cache.
-type: boolean
-required: true

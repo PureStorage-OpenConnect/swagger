@@ -1,5 +1,0 @@
-name: before_rule_id
-description: The id of the rule to insert or move a rule before. This cannot be provided
-  together with the `before_rule_name` query parameter.
-in: query
-type: string

@@ -1,2 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.0/_new-name.yaml

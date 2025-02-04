@@ -1,8 +1,0 @@
-type: object
-properties:
-  index:
-    description: The index within the policy. The `index` indicates the order the
-      rules are evaluated.
-    type: integer
-    readOnly: true
-    format: int32

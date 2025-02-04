@@ -1,3 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.3/directory-export.yaml
-- $ref: ../../models/FA2.32/export-policy-attachment-mixin.yaml

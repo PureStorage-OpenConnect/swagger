@@ -1,8 +1,0 @@
-name: vchost_names
-in: query
-description: Performs the operation on the unique vchost name specified. Enter multiple
-  names in a comma-separated format. For example, `vchost01,vchost02`.
-type: array
-collectionFormat: csv
-items:
-  type: string

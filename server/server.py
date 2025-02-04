@@ -9,6 +9,7 @@ import pprint
 from Crypto.PublicKey import RSA
 from time import time
 import jwt
+import time
 
 
 import logging
@@ -373,6 +374,19 @@ def add_header(r):
     r.headers["Expires"] = "0"
     return r
 
+def oecho(text):
+    # ANSI escape code for orange and reset
+    O = "\033[38;5;208m"
+    NC = "\033[0m"
+    print(f"{O}{text}{NC}")
 
 if __name__ == "__main__":
+    os.environ["FLASK_DEBUG"] = "1"
+
+    # Delay to ensure everything is loaded as before
+    time.sleep(1)
+
+    # Display the message
+    oecho("Open your browser to http://127.0.0.1, use Ctrl+C to end close PureSwagger")
+    
     app.run(host='0.0.0.0')

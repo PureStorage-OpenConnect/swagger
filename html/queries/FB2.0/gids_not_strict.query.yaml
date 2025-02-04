@@ -1,8 +1,0 @@
-name: gids
-description: A comma-separated list of group IDs. This cannot be provided together
-  with `group_names` query parameter.
-in: query
-type: array
-collectionFormat: csv
-items:
-  type: string

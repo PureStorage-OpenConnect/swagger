@@ -1,8 +1,0 @@
-name: names
-description: Performs the operation on the unique name specified. Enter multiple names
-  in comma-separated format. For example, `name01,name02`.
-in: query
-type: array
-collectionFormat: csv
-items:
-  type: string

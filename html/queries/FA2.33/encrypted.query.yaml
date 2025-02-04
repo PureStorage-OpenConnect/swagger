@@ -1,7 +1,0 @@
-name: encrypted
-in: query
-description: If `true`, the returned array connection key will encode an encryption
-  key used to establish trust and secure replication traffic. If `false`, the returned
-  array connection key will not encode an encryption key. If not specified, defaults
-  to `false`.
-type: boolean

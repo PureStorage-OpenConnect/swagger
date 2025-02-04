@@ -1,7 +1,0 @@
-name: total_only
-in: query
-description: If set to `true`, returns the aggregate value of all items after filtering.
-  Where it makes more sense, the average value is displayed instead. The values are
-  displayed for each name where meaningful. If `total_only=true`, the `items` list
-  will be empty.
-type: boolean

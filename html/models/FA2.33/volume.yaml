@@ -1,7 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.26/volume.yaml
-- properties:
-    protocol_endpoint:
-      description: Properties specific to volumes of `subtype=protocol_endpoint`.
-      allOf:
-      - $ref: ../../models/FA2.33/_protocol_endpoint.yaml

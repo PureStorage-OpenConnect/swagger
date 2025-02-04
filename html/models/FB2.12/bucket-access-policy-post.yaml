@@ -1,6 +1,0 @@
-allOf:
-- properties:
-    rules:
-      type: array
-      items:
-        $ref: ../../models/FB2.12/bucket-access-policy-rule-bulk-manage.yaml

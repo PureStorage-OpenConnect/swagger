@@ -1,7 +1,0 @@
-name: create_ds
-in: query
-description: The name of the directory service object to create used for NFS access
-  to this server. The name must be the server `name` followed by _nfs.
-type: string
-required: true
-example: server1_nfs

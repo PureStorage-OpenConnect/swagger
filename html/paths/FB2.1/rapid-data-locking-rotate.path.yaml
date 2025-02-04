@@ -1,8 +1,0 @@
-post:
-  summary: Rotates the external keys on the associated EKM appliance.
-  description: Rotates the external keys on the associated EKM appliance.
-  responses:
-    200:
-      description: OK
-  tags:
-  - RDL

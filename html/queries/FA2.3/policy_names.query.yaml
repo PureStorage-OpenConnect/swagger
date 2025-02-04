@@ -1,8 +1,0 @@
-name: policy_names
-in: query
-description: Performs the operation on the policy names specified. Enter multiple
-  policy names in comma-separated format. For example, `name01,name02`.
-type: array
-collectionFormat: csv
-items:
-  type: string

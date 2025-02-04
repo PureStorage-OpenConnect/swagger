@@ -1,5 +1,0 @@
-type: object
-properties:
-  name:
-    description: The new name for the resource.
-    type: string

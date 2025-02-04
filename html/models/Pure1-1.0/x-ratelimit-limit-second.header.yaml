@@ -1,4 +1,0 @@
-X-RateLimit-Limit-second:
-  description: The number of requests available per second.
-  schema:
-    type: integer

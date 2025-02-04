@@ -1,6 +1,0 @@
-type: object
-properties:
-  account:
-    description: The account name for bucket creation.
-    allOf:
-    - $ref: ../../models/FB2.0/_reference-writable.yaml

@@ -1,9 +1,0 @@
-description: A public key configuration, defining a key used for cryptographic signature
-  verification.
-type: object
-properties:
-  public_key:
-    type: string
-    maxLength: 5400
-    description: The text of the public key. May be PEM-formatted or OpenSSH-formatted
-      at the time of input.

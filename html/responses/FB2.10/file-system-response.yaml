@@ -1,7 +1,0 @@
-type: object
-properties:
-  items:
-    type: array
-    items:
-      $ref: ../../models/FB2.10/file-system.yaml
-    description: A list of file system objects.

@@ -1,9 +1,0 @@
-type: object
-properties:
-  email:
-    description: Optional field to set the email address of the local group.
-    type: string
-  gid:
-    description: Optional field to set the GID of the local group.
-    type: integer
-    format: int32

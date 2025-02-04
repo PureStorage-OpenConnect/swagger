@@ -1,9 +1,0 @@
-name: preserve_configuration_data
-in: query
-description: A comma-separated list of configuration data types to preserve. A value
-  of `all` will preserve all configuration data types. Valid values include `all`.
-type: array
-collectionFormat: csv
-items:
-  type: string
-required: true

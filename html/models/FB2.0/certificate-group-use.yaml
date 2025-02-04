@@ -1,7 +1,0 @@
-allOf:
-- $ref: ../../models/FB2.0/_built-in.yaml
-- properties:
-    use:
-      description: A reference to an object using this certificate group.
-      allOf:
-      - $ref: ../../models/FB2.0/_fixed-reference-with-remote.yaml

@@ -1,7 +1,0 @@
-description: An ordinary (as opposed to built-in) resource that exists on one or multiple
-  arrays and can be created, named, renamed or deleted by the user. This might be
-  a virtual resource (e.g., a volume), or correspond to something in the environment,
-  like a host or a server.
-allOf:
-- $ref: ../../models/Pure1-1.0/_resource.yaml
-- $ref: ../../models/Pure1-1.0/_arrays.yaml

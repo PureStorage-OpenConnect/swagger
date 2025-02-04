@@ -1,8 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.3/file-system.yaml
-- properties:
-    pod:
-      description: The reference to the pod this file systems belongs to, or `null`
-        if it is not in a pod.
-      allOf:
-      - $ref: ../../models/FA2.0/_reference.yaml

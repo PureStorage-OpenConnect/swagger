@@ -1,7 +1,0 @@
-allOf:
-- $ref: ../../models/FA2.0/_resource.yaml
-- properties:
-    vcuuid:
-      description: The vCenter Server uuid of the vchost.
-      type: string
-      example: ddf43502-4e00-405e-b341-e87e7eaa13f6

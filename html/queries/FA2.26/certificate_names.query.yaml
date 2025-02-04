@@ -1,8 +1,0 @@
-name: certificate_names
-in: query
-description: The names of one or more certificates. Enter multiple names in comma-separated
-  format. For example, `cert01,cert02`.
-type: array
-collectionFormat: csv
-items:
-  type: string

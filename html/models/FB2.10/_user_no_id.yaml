@@ -1,7 +1,0 @@
-allOf:
-- type: object
-- properties:
-    name:
-      type: string
-      description: The user name that represents the user's identity, and which resolves
-        to the user's id in a configured directory service.

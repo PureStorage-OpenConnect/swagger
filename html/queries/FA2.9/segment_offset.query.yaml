@@ -1,6 +1,0 @@
-name: segment_offset
-in: query
-description: Absolute offset, in bytes, of the segment to compare. Must be a multiple
-  of block_size.
-type: integer
-format: int64

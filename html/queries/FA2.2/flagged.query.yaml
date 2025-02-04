@@ -1,6 +1,0 @@
-name: flagged
-in: query
-description: If set to `true`, lists only flagged messages. If set to `false`, lists
-  only unflagged messages. if not specified, lists all messages.
-type: boolean
-readOnly: true
