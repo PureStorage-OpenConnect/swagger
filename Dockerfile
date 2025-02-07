@@ -2,19 +2,6 @@ FROM python:3.12-alpine
 
 LABEL maintainer="sile16"
 
-ENV VERSION="v2.2.10"
-ENV FOLDER="swagger-ui-2.2.10"
-ENV API_URLS=""
-ENV API_KEY="**None**"
-ENV OAUTH_CLIENT_ID="**None**"
-ENV OAUTH_CLIENT_SECRET="**None**"
-ENV OAUTH_REALM="**None**"
-ENV OAUTH_APP_NAME="**None**"
-ENV OAUTH_ADDITIONAL_PARAMS="**None**"
-ENV SWAGGER_JSON="/app/swagger.json"
-ENV BASE_URL=""
-ENV DEBIAN_FRONTEND="noninteractive"
-
 RUN apk update && \
     apk add --upgrade git \
     && rm -rf /var/cache/apk/*

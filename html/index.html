@@ -112,6 +112,16 @@
 
       var urls = GetJSON("/specs");
 
+      const CaseInsensitiveFilterPlugin = function (system) {
+          return {
+              fn: {
+                  opsFilter: (taggedOps, phrase) => {
+                      return taggedOps.filter((tagObj, tag) => tag.toLowerCase().indexOf(phrase.toLowerCase()) !== -1);
+                  }
+              }
+          }
+      };
+
       // Build a system
       const ui = SwaggerUIBundle({
         urls: urls,
@@ -125,7 +135,8 @@
           SwaggerUIStandalonePreset
         ],
         plugins: [
-          SwaggerUIBundle.plugins.DownloadUrl
+          SwaggerUIBundle.plugins.DownloadUrl,
+          CaseInsensitiveFilterPlugin
         ],
         layout: "StandaloneLayout"
       })
