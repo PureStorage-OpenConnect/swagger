@@ -1,19 +1,26 @@
 import os
 from os import listdir
 from os.path import isfile
-import yaml
 import argparse
+
+import yaml
+try:
+    from yaml import CDumper as Dumper
+except ImportError:
+    from yaml import Dumper
 
 
 
 def apply_template(spec_file, template, model):
     template_yaml = template
     spec_yaml = yaml.safe_load(spec_file)
+
+
+    # Overwrite the description
     spec_yaml['info']['description'] = template_yaml['info']['description']
 
-
-
-    if model == 'fb':
+    if model == 'fb2':
+        # Add template paths and tags to file
         for p in template_yaml['paths']:
             spec_yaml['paths'][p] = template_yaml['paths'][p]
         spec_yaml['tags'] = template_yaml['tags'] + spec_yaml['tags']
@@ -26,17 +33,42 @@ def apply_template(spec_file, template, model):
         for p in template_yaml['paths']:
             spec_yaml['paths'][p] = template_yaml['paths'][p]
         
-    elif model == 'pure1':
+    elif model == 'pure1-1':
+        #nothing specific, already set Info above.
         pass
 
-    #delete the example offset of 10
-    # todo: Open Jira for this one
+    # delete the example offset of 10
+    # todo: Open Jira for this one to fix in upstream template
     try:
         del spec_yaml['parameters']['Offset']['x-example']
     except KeyError:
         pass
 
-    return yaml.dump(spec_yaml)
+    # some templates have host set to [array]
+    if 'host' in spec_yaml:
+        del spec_yaml['host']
+
+    # some templates list http & https some list https
+    # we want just http, which it will use by default when not there
+    if 'schemes' in spec_yaml:
+        del spec_yaml['schemes']
+
+    # Sort spec_yaml dict so the output text puts consistent information at the top
+    sort_order = [
+        'swagger', 'info', 'host', 'basePath', 'schemes', 'securityDefinitions', 'security',
+        'consumes', 'produces', 'paths', 'definitions', 'parameters', 'responses', 'tags', 'externalDocs'
+    ]
+    
+    sorted_spec_yaml = {key: spec_yaml[key] for key in sort_order if key in spec_yaml}
+    
+    # Add any other fields not in the sort order to the end
+    for key in spec_yaml:
+        if key not in sort_order:
+            sorted_spec_yaml[key] = spec_yaml[key]
+            
+    # does the default yaml dump preserve the sort order? 
+
+    return yaml.dump(sorted_spec_yaml, Dumper=Dumper, sort_keys=False)
 
 
 def main():
@@ -80,13 +112,13 @@ def main():
                 template = fa_template_yaml
                 model = 'fa2'
 
-            elif lower_name.startswith('fb'):
+            elif lower_name.startswith('fb2'):
                 template = fb_template_yaml
-                model = 'fb'
+                model = 'fb2'
 
-            elif lower_name.startswith('pure1'):
+            elif lower_name.startswith('pure1-1'):
                 template = pure1_template_yaml
-                model = 'pure1'
+                model = 'pure1-1'
 
             else:
                 # don't need to apply template to fa as that is done during initial creation from the pdf
