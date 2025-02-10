@@ -83,7 +83,7 @@ def main():
 
 
     spec_directory = os.path.join(project_dir, "html", "specs")
-    original_spec_directory = os.path.join(project_dir, "definitions", "oas2")
+    original_spec_directory = os.path.join(project_dir, "definitions", "oas2.0")
 
     with open(os.path.join(script_path, "fb_template.yaml"), encoding='utf-8') as f:
         fb_template_yaml = yaml.safe_load(f)
@@ -94,6 +94,9 @@ def main():
 
     spec_list = listdir(original_spec_directory)
     for spec in spec_list:
+        if spec == ".DS_Store":
+            continue
+
         fullpath = os.path.join(original_spec_directory, spec)
         new_fullpath = os.path.join(spec_directory, spec)
 

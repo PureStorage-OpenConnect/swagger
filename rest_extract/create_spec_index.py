@@ -39,6 +39,9 @@ def main():
             item['model'] = model
             item['version'] = version
             version_split = item["version"].split('.')
+            if version_split[1] == 'X':
+                version_split[1] = 99
+            
             item['version_sort'] = priority + int(version_split[0])*100 + int(version_split[1])
             item['filename'] = file_name
             item['url'] = 'specs/'+file_name
