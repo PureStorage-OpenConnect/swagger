@@ -1,0 +1,4979 @@
+swagger: '2.0'
+
+info:
+  title: Pure1 Public REST API
+  version: "1.0"
+  x-logo:
+    url:
+      $ref: ../redoc/PS-LogoBase64-P1.txt
+    backgroundColor: "#fff"
+    altText: "Pure Storage logo"
+  description: "Pure1 Public REST API, developed by [Pure Storage, Inc.](https://www.purestorage.com)\n\nThe Pure1 REST API 2.0 offers one single form of authentication: OAuth 2.0 via
+    the [Token Exchange protocol](https://datatracker.ietf.org/doc/draft-ietf-oauth-token-exchange).\n\nOAuth 2.0 is an open protocol to allow secure authorization in a simple and standard
+    method from web, mobile, desktop and background applications.\n\nNote that the [Authentication](#section/Authentication) section below mentions 'API Key' as the security scheme type.
+    This is solely for the purpose of allowing testing this API with [Swagger UI](https://static.pure1.purestorage.com/api-swagger/index.html).\n\n[Knowledge base reference documentation](https://support.purestorage.com/Pure1/Pure1_Manage/Pure1_Manage_-_REST_API/Pure1_Manage_-_REST_API__Reference)"
+host: api-staging.pure1.purestorage.com
+schemes:
+- https
+
+consumes:
+- application/json
+
+produces:
+- application/json
+
+securityDefinitions:
+  AuthorizationHeader:
+    type: apiKey
+    in: header
+    name: Authorization
+
+security:
+- AuthorizationHeader: []
+
+tags:
+- name: Authorization
+  description: |
+    Handles authorization access to other API endpoints through OAuth 2.0 Token Exchange.
+- name: Alerts
+  description: |
+    Provides access to capacity, health, and hardware related array alerts.
+- name: Arrays
+  description: |
+    Provides information about FlashArray and FlashBlade appliances.
+- name: Audits
+  description: |
+    Provides access to CLI audit logs from FlashArray and FlashBlade appliances.
+- name: Blades
+  description: |
+    Provides information about FlashBlade blades.
+- name: Buckets
+  description: |
+    Provides information about FlashBlade buckets.
+- name: Bucket Replica Links
+  description: |
+    Provides information about replica links between buckets.
+- name: Controllers
+  description: |
+    Provides information about FlashArray controllers.
+- name: Drives
+  description: |
+    Provides information about FlashArray drives.
+- name: Directories
+  description: |
+    Provides information about FlashArray directories.
+- name: File Systems
+  description: |
+    Provides information about FlashArray and FlashBlade file systems.
+- name: File System Replica Links
+  description: |
+    Provides information about replica links between FlashBlade file systems.
+- name: File System Snapshots
+  description: |
+    Provides information about FlashBlade file system snapshots.
+- name: Hardware
+  description: |
+    Provides information about hardware components.
+- name: Hardware Connectors
+  description: |
+    Provides information about FlashBlade hardware connectors.
+- name: Metrics
+  description: |
+    Provides information about historical metrics for arrays, buckets, directories,
+    file systems, pods, subscription licenses, and volumes.
+- name: Network Interfaces
+  description: |
+    Provides information about network interfaces available on arrays.
+- name: Object Store Accounts
+  description: |
+    Provides information about object store accounts.
+- name: Pods
+  description: |
+    Provides information about FlashArray pods. A pod is the pairing
+    of two arrays that replicate some volumes with each other.
+- name: Pod Replica Links
+  description: |
+    Provides information about replica links between FlashArray pods.
+- name: Policies
+  description: |
+    Provides information about FlashBlade policies and the members
+    they apply to.
+- name: Ports
+  description: |
+    Provides information about FlashArray ports.
+- name: Targets
+  description: |
+    Provides information about FlashBlade external replication targets.
+- name: Subscriptions
+  description: |
+    Provides information about Pure1 subscription offerings.
+- name: Volumes
+  description: |
+    Provides information about block storage volumes on FlashArray arrays.
+- name: Volume Snapshots
+  description: |+
+    Provides information about snapshots of block storage volumes
+    on FlashArray arrays.
+
+paths:
+  /oauth2/1.0/token:
+    x-sourced-from: paths/TEx-v2/oauth-token.path.yaml
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+
+      summary: Get access token
+      description: >
+        Exchanges an ID Token for an OAuth 2.0 access token.
+
+      parameters:
+      - $ref: '#/parameters/OauthGrantType'
+      - $ref: '#/parameters/OauthSubjectToken'
+      - $ref: '#/parameters/OauthSubjectTokenType'
+      - $ref: '#/parameters/XRequestId.TEx-v1'
+
+      responses:
+        200:
+          $ref: '#/responses/OauthToken200'
+        400:
+          $ref: '#/responses/OauthToken400'
+        401:
+          $ref: '#/responses/OauthToken401'
+
+      security: []
+
+      tags:
+      - Authorization
+  /api/1.0/alerts:
+    x-sourced-from: paths/Pure1-1.0/alerts.path.yaml
+    get:
+      summary: Get alerts
+      description: >
+        Retrieves information about alerts generated by Pure1-monitored appliances.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+          schema:
+            $ref: '#/definitions/AlertsGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+      tags:
+      - Alerts
+  /api/1.0/arrays:
+    x-sourced-from: paths/Pure1-1.0/arrays.path.yaml
+    get:
+      summary: Get arrays
+      description: >
+        Retrieves information about FlashArray and FlashBlade storage appliances.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/ArrayGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Arrays
+  /api/1.0/arrays/support-contracts:
+    x-sourced-from: paths/Pure1-1.0/arrays-support-contracts.path.yaml
+    get:
+      summary: Get array support contracts
+      description: >
+        Retrieves the support contracts associated with arrays.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Resource_ids'
+      - $ref: '#/parameters/Resource_names'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/SupportContractGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Arrays
+  /api/1.0/arrays/tags:
+    x-sourced-from: paths/Pure1-1.0/arrays-tags.path.yaml
+    get:
+      summary: Get array tags
+      description: >
+        Retrieves the tags associated with specified arrays.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Keys'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Namespaces'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Resource_ids'
+      - $ref: '#/parameters/Resource_names'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/TagGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Arrays
+
+    delete:
+      summary: Delete array tags
+      description: >
+        Deletes array tags from Pure1.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Keys'
+      - $ref: '#/parameters/Namespaces'
+      - $ref: '#/parameters/Resource_idsRequired'
+      - $ref: '#/parameters/Resource_namesRequired'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Arrays
+  /api/1.0/arrays/tags/batch:
+    x-sourced-from: paths/Pure1-1.0/arrays-tags-batch.path.yaml
+    put:
+      summary: >
+        Create or update array tags
+      description: >
+        Creates or updates array tags contextual to Pure1 only.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Namespaces'
+      - $ref: '#/parameters/Resource_idsRequired'
+      - $ref: '#/parameters/Resource_namesRequired'
+      - $ref: '#/parameters/TagBatchRequired'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/TagResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Arrays
+  /api/1.0/audits:
+    x-sourced-from: paths/Pure1-1.0/audits.path.yaml
+    get:
+      summary: Get audits
+      description: >
+        Retrieves audit objects.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/AuditsGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Audits
+  /api/1.0/blades:
+    x-sourced-from: paths/Pure1-1.0/blades.path.yaml
+    get:
+      summary: Get blades
+      description: |
+        Retrieves information about FlashBlade blades.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/BladeGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Blades
+  /api/1.0/buckets:
+    x-sourced-from: paths/Pure1-1.0/buckets.path.yaml
+    get:
+      summary: Get buckets
+      description: >
+        Retrieves buckets.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/BucketGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Buckets
+  /api/1.0/bucket-replica-links:
+    x-sourced-from: paths/Pure1-1.0/bucket-replica-links.path.yaml
+    get:
+      summary: Get bucket replica links
+      description: >
+        Retrieves information about bucket replica links.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Member_ids_plus'
+      - $ref: '#/parameters/Member_names_plus'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      - $ref: '#/parameters/Source_ids_plus'
+      - $ref: '#/parameters/Source_names_plus'
+      - $ref: '#/parameters/Target_ids_plus'
+      - $ref: '#/parameters/Target_names_plus'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/BucketReplicaLinkGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Bucket Replica Links
+  /api/1.0/controllers:
+    x-sourced-from: paths/Pure1-1.0/controllers.path.yaml
+    get:
+      summary: Get controllers
+      description: >
+        Retrieves information about controllers.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/ControllerGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Controllers
+  /api/1.0/directories:
+    x-sourced-from: paths/Pure1-1.0/directories.path.yaml
+    get:
+      summary: Get managed directories
+      description: |
+        Retrieves information about FlashArray managed directory objects.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/File_system_ids'
+      - $ref: '#/parameters/File_system_names'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/DirectoryGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Directories
+  /api/1.0/drives:
+    x-sourced-from: paths/Pure1-1.0/drives.path.yaml
+    get:
+      summary: Get drives
+      description: |
+        Retrieves information about FlashArray drives.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/DriveGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Drives
+  /api/1.0/file-systems:
+    x-sourced-from: paths/Pure1-1.0/file-systems.path.yaml
+    get:
+      summary: Get FlashArray and FlashBlade file systems
+      description: >
+        Retrieves information about FlashArray and FlashBlade file system objects.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/FileSystemGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - File Systems
+  /api/1.0/file-systems/policies:
+    x-sourced-from: paths/Pure1-1.0/file-systems-policies.path.yaml
+    get:
+      summary: Get FlashBlade file system / policy pairs
+      description: >
+        Retrieves pairs of FlashBlade file system members and their policies.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Member_ids'
+      - $ref: '#/parameters/Member_names'
+      - $ref: '#/parameters/Policy_ids'
+      - $ref: '#/parameters/Policy_names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/PolicyMembersGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - File Systems
+  /api/1.0/file-system-replica-links:
+    x-sourced-from: paths/Pure1-1.0/file-system-replica-links.path.yaml
+    get:
+      summary: Get FlashBlade file system replica links
+      description: >
+        Retrieves information about FlashBlade file system replica links.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Member_ids_plus'
+      - $ref: '#/parameters/Member_names_plus'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      - $ref: '#/parameters/Source_ids_plus'
+      - $ref: '#/parameters/Source_names_plus'
+      - $ref: '#/parameters/Target_ids_plus'
+      - $ref: '#/parameters/Target_names_plus'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/FileSystemReplicaLinkGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - File System Replica Links
+  /api/1.0/file-system-replica-links/policies:
+    x-sourced-from: paths/Pure1-1.0/file-system-replica-links-policies.path.yaml
+    get:
+      summary: Get FlashBlade file system replica link / policy pairs
+      description: >
+        Retrieves pairs of FlashBlade file system replica link members and their policies.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Member_ids'
+      - $ref: '#/parameters/Member_names'
+      - $ref: '#/parameters/Policy_ids'
+      - $ref: '#/parameters/Policy_names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/PolicyMembersGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - File System Replica Links
+  /api/1.0/file-system-snapshots:
+    x-sourced-from: paths/Pure1-1.0/file-system-snapshots.path.yaml
+    get:
+      summary: Get FlashBlade file system snapshots
+      description: >
+        Retrieves snapshots of FlashBlade file systems.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      - $ref: '#/parameters/Source_ids'
+      - $ref: '#/parameters/Source_names'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/FileSystemSnapshotGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - File System Snapshots
+  /api/1.0/file-system-snapshots/policies:
+    x-sourced-from: paths/Pure1-1.0/file-system-snapshots-policies.path.yaml
+    get:
+      summary: Get FlashBlade file system snapshot / policy pairs
+      description: >
+        Retrieves pairs of FlashBlade file system snapshot members and their policies.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Member_ids'
+      - $ref: '#/parameters/Member_names'
+      - $ref: '#/parameters/Policy_ids'
+      - $ref: '#/parameters/Policy_names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/PolicyMembersGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - File System Snapshots
+  /api/1.0/hardware:
+    x-sourced-from: paths/Pure1-1.0/hardware.path.yaml
+    get:
+      summary: Get hardware
+      description: >
+        Retrieves information about hardware components.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/HardwareGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Hardware
+  /api/1.0/hardware-connectors:
+    x-sourced-from: paths/Pure1-1.0/hardware-connectors.path.yaml
+    get:
+      summary: Get hardware connectors
+      description: |
+        Retrieves information about FlashBlade hardware connectors.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/HardwareConnectorGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Hardware Connectors
+  /api/1.0/metrics:
+    x-sourced-from: paths/Pure1-1.0/metrics.path.yaml
+    get:
+      summary: Get metrics
+      description: >
+        Retrieves information about metrics that can be queried for.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Resource_types'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/MetricGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Metrics
+  /api/1.0/metrics/history:
+    x-sourced-from: paths/Pure1-1.0/metrics-history.path.yaml
+    get:
+      summary: Get metrics history
+      description: >
+        Retrieves historical metric data for resources.
+        This endpoint supports batching: Up to 32 time series can be retrieved in one call.
+        It can be multiple metrics for one resource,
+        (e.g., load and bandwidth for one array - 2 time series),
+        one metric for multiple resource (e.g., load for arrayA and arrayB - 2 time series),
+        or a combination of both, multiple metrics for multiple resources,
+        (e.g., load and bandwidth for arrayA and arrayB - 4 time series).
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/AggregationRequired'
+      - $ref: '#/parameters/End_timeRequired'
+      - $ref: '#/parameters/IdsRequired'
+      - $ref: '#/parameters/NamesRequired'
+      - $ref: '#/parameters/ResolutionRequired'
+      - $ref: '#/parameters/Resource_idsRequired'
+      - $ref: '#/parameters/Resource_namesRequired'
+      - $ref: '#/parameters/Start_timeRequired'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/MetricHistoryGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Metrics
+  /api/1.0/network-interfaces:
+    x-sourced-from: paths/Pure1-1.0/network-interfaces.path.yaml
+    get:
+      summary: Get network interfaces
+      description: >
+        Retrieves information about physical and virtual network interface objects.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/NetworkInterfaceGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Network Interfaces
+  /api/1.0/object-store-accounts:
+    x-sourced-from: paths/Pure1-1.0/object-store-accounts.path.yaml
+    get:
+      summary: Get object store accounts
+      description: >
+        Retrieves object store accounts.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/ObjectStoreAccountGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Object Store Accounts
+  /api/1.0/pods:
+    x-sourced-from: paths/Pure1-1.0/pods.path.yaml
+    get:
+      summary: Get pods
+      description: >
+        Retrieves information about pod objects.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/PodGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Pods
+  /api/1.0/pod-replica-links:
+    x-sourced-from: paths/Pure1-1.0/pod-replica-links.path.yaml
+    get:
+      summary: Get pod replica links
+      description: >
+        Retrieves information about pod replica links.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Member_ids_plus'
+      - $ref: '#/parameters/Member_names_plus'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      - $ref: '#/parameters/Source_ids_plus'
+      - $ref: '#/parameters/Source_names_plus'
+      - $ref: '#/parameters/Target_ids_plus'
+      - $ref: '#/parameters/Target_names_plus'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/PodReplicaLinkGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Pod Replica Links
+  /api/1.0/policies:
+    x-sourced-from: paths/Pure1-1.0/policies.path.yaml
+    get:
+      summary: Get policies
+      description: >
+        Retrieves policies and their rules.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/PolicyGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Policies
+  /api/1.0/policies/file-systems:
+    x-sourced-from: paths/Pure1-1.0/policies-file-systems.path.yaml
+    get:
+      summary: Get policy / FlashBlade file system pairs
+      description: >
+        Retrieves pairs of policy references and their FlashBlade file system members.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Member_ids'
+      - $ref: '#/parameters/Member_names'
+      - $ref: '#/parameters/Policy_ids'
+      - $ref: '#/parameters/Policy_names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/PolicyMembersGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Policies
+  /api/1.0/policies/file-system-replica-links:
+    x-sourced-from: paths/Pure1-1.0/policies-file-system-replica-links.path.yaml
+    get:
+      summary: Get policy / FlashBlade file system replica link pairs
+      description: >
+        Retrieves pairs of policy references and their FlashBlade file system
+        replica link members.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Member_ids'
+      - $ref: '#/parameters/Member_names'
+      - $ref: '#/parameters/Policy_ids'
+      - $ref: '#/parameters/Policy_names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/PolicyMembersGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Policies
+  /api/1.0/policies/file-system-snapshots:
+    x-sourced-from: paths/Pure1-1.0/policies-file-system-snapshots.path.yaml
+    get:
+      summary: Get policy / FlashBlade file system snapshot pairs
+      description: >
+        Retrieves pairs of policy references and their FlashBlade file system
+        snapshot members.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Member_ids'
+      - $ref: '#/parameters/Member_names'
+      - $ref: '#/parameters/Policy_ids'
+      - $ref: '#/parameters/Policy_names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/PolicyMembersGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Policies
+  /api/1.0/policies/members:
+    x-sourced-from: paths/Pure1-1.0/policies-members.path.yaml
+    get:
+      summary: Get policy / member pairs
+      description: >
+        Retrieves pairs of policy references and their members.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Member_ids'
+      - $ref: '#/parameters/Member_names'
+      - $ref: '#/parameters/Policy_ids'
+      - $ref: '#/parameters/Policy_names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/PolicyMembersGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Policies
+  /api/1.0/ports:
+    x-sourced-from: paths/Pure1-1.0/ports.path.yaml
+    get:
+      summary: Get ports
+      description: |
+        Retrieves information about FlashArray ports.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/PortGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Ports
+  /api/1.0/subscriptions:
+    x-sourced-from: paths/Pure1-1.0/subscriptions.path.yaml
+    get:
+      summary: Get subscriptions
+      description: |
+        Retrieves information about Pure1 subscriptions.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/SubscriptionGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Subscriptions
+  /api/1.0/subscription-licenses:
+    x-sourced-from: paths/Pure1-1.0/subscription-licenses.path.yaml
+    get:
+      summary: Get subscription licenses
+      description: |
+        Retrieves information about Pure1 subscription licenses.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Marketplace_partner_reference_ids'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      - $ref: '#/parameters/Subscription_ids'
+      - $ref: '#/parameters/Subscription_names'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/SubscriptionLicenseGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Subscriptions
+  /api/1.0/targets:
+    x-sourced-from: paths/Pure1-1.0/targets.path.yaml
+    get:
+      summary: Get targets
+      description: >
+        Retrieves information about targets.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/TargetGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Targets
+  /api/1.0/volumes:
+    x-sourced-from: paths/Pure1-1.0/volumes.path.yaml
+    get:
+      summary: Get volumes
+      description: >
+        Retrieves information about volume objects.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/VolumeGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Volumes
+  /api/1.0/volume-snapshots:
+    x-sourced-from: paths/Pure1-1.0/volume-snapshots.path.yaml
+    get:
+      summary: Get volume snapshots
+      description: >
+        Retrieves information about snapshots of volumes.
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      - $ref: '#/parameters/Source_ids'
+      - $ref: '#/parameters/Source_names'
+
+      responses:
+        200:
+          description: OK
+          headers:
+            X-RateLimit-Remaining-second:
+              description: |
+                The number of requests remaining for the organization in that second.
+              type: integer
+            X-RateLimit-Remaining-minute:
+              description: |
+                The number of requests remaining for the organization in that minute.
+              type: integer
+            X-RateLimit-Limit-second:
+              description: The number of requests available per second.
+              type: integer
+            X-RateLimit-Limit-minute:
+              description: The number of requests available per minute.
+              type: integer
+            X-Request-ID:
+              description: Supplied by client during request or generated by server.
+              type: string
+          schema:
+            $ref: '#/definitions/VolumeSnapshotGetResponse'
+        400:
+          $ref: '#/responses/Error400'
+        403:
+          $ref: '#/responses/Error403'
+        404:
+          $ref: '#/responses/Error404'
+        429:
+          $ref: '#/responses/Error429'
+        500:
+          $ref: '#/responses/Error500'
+
+      tags:
+      - Volume Snapshots
+definitions:
+  Alert:
+    description: |
+      An alert from an array.
+    allOf:
+    - $ref: '#/definitions/_arraysResource'
+    - properties:
+        actual:
+          description: Actual condition at the time of the alert.
+          type: string
+          example: empty
+        category:
+          description: |
+            Category of the alert. Valid values are `array`, `hardware`, and
+            `software`.
+          type: string
+          example: array
+        closed:
+          description: |
+            Time when the alert was closed, in milliseconds since UNIX epoch.
+          type: integer
+          format: int64
+          example: 1502729489760
+        code:
+          description: Code associated with the alert.
+          type: integer
+          example: 100
+        component_name:
+          description: Name of the component alerted about.
+          type: string
+          example: drive1
+        component_type:
+          description: Type of the component alerted about.
+          type: string
+          example: drive
+        created:
+          description: |
+            Time when the alert was created, in milliseconds since UNIX epoch.
+          type: integer
+          format: int64
+          example: 1502729489760
+        description:
+          description: Short description of the alert.
+          type: string
+          example: Some sort of failure.
+        expected:
+          description: Expected state/threshold under normal conditions.
+          type: string
+          example: healthy
+        knowledge_base_url:
+          description: URL of the relevant Knowledge Base page.
+          type: string
+          example: https://support.purestorage.com/
+        notified:
+          description: |
+            Time when the user was notified of the alert, in milliseconds since
+            UNIX epoch.
+          type: integer
+          format: int64
+          example: 1502729489760
+        origin:
+          description: Origin of the alert. Valid values are `array` and `Pure1`.
+          type: string
+          example: array
+        severity:
+          description: |
+            Current severity level. Valid values are `info`, `warning`, `critical`,
+            and `hidden`.
+          type: string
+          example: critical
+        state:
+          description: |
+            Current state of the alert. Valid values are `open`, `closing`,
+            and `closed`.
+          type: string
+          example: open
+        summary:
+          description: Summary of the alert.
+          type: string
+          example: Test alert.
+        updated:
+          description: |
+            Time when the alert was last updated, in milliseconds since UNIX epoch.
+          type: integer
+          format: int64
+          example: 1502729489760
+    x-sourced-from: models/Pure1-1.0/alert.yaml
+  Array:
+    description: |
+      A FlashArray or FlashBlade storage appliance.
+    allOf:
+    - $ref: '#/definitions/_builtInAsOf'
+    - properties:
+        model:
+          description: Model of the array.
+          readOnly: true
+          type: string
+          example: FA-m70r2
+        os:
+          description: |
+            Valid values are `Elasticity`, `Purity`, `Purity//FA` and `Purity//FB`.
+          type: string
+          readOnly: true
+          example: Purity//FA
+        version:
+          type: string
+          readOnly: true
+          example: 5.0.0
+    x-sourced-from: models/Pure1-1.0/array.yaml
+  Audit:
+    description: |
+      An audit of an action executed on an array or in Pure1.
+    allOf:
+    - $ref: '#/definitions/_arraysResource'
+    - properties:
+        arguments:
+          description: Arguments provided to the command.
+          type: string
+          example: --args
+        command:
+          description: The command that was executed.
+          type: string
+          example: purevol
+        origin:
+          description: Origin of the action. Valid values are `array` and `Pure1`.
+          type: string
+          example: array
+        subcommand:
+          description: The subcommand that was executed.
+          type: string
+          example: snap
+        time:
+          description: |
+            Time at which the command was run in milliseconds since UNIX epoch.
+          type: integer
+          format: int64
+          example: 1502729489760
+        user:
+          description: The user who ran the command.
+          type: string
+          example: pureuser
+    x-sourced-from: models/Pure1-1.0/audit.yaml
+  Blade:
+    description: |
+      A FlashBlade blade.
+    allOf:
+    - $ref: '#/definitions/_builtInAsOf'
+    - properties:
+        arrays:
+          description: |
+            A list of arrays that contain this blade.
+            Each blade should only exist on one array.
+          type: array
+          items:
+            $ref: '#/definitions/_bladeArrayStatus'
+          minItems: 1
+        details:
+          type: string
+          readOnly: true
+          description: |
+            Extra details about the blade. Will be `null` if none exist.
+        raw_capacity:
+          type: number
+          format: int64
+          readOnly: true
+          description: |
+            The raw storage capacity of the blade.
+        status:
+          description: |
+            Valid values are `critical`, `evacuated`, `evacuating`, `healthy`,
+            `identifying`, `unclaimed`, `unhealthy`, `unknown`, `unrecognized`.
+          type: string
+          readOnly: true
+          example: healthy
+    x-sourced-from: models/Pure1-1.0/blade.yaml
+  Bucket:
+    allOf:
+    - $ref: '#/definitions/_arraysResource'
+    - properties:
+        account:
+          $ref: '#/definitions/_fixedReference'
+        created:
+          type: integer
+          readOnly: true
+          format: int64
+          description: Creation time of the bucket, in milliseconds since Unix epoch.
+          example: 1502729489760
+        destroyed:
+          type: boolean
+          description: |
+            Returns a value of `true` if the bucket is destroyed, but not yet eradicated.
+        object_count:
+          type: integer
+          readOnly: true
+          format: int64
+          description: The number of objects contained within the bucket.
+          example: 15
+        versioning:
+          type: string
+          description: |
+            The versioning state for objects within the bucket.
+            Valid values are `none`, `enabled`, and `suspended`.
+    x-sourced-from: models/Pure1-1.0/bucket.yaml
+  BucketReplicaLink:
+    description: A replica link between two buckets.
+    type: object
+    allOf:
+    - $ref: '#/definitions/_replicaLink'
+    - properties:
+        recovery_point:
+          type: integer
+          format: int64
+          readOnly: true
+          example: 1565034592494
+          description: |
+            Time when the last piece of data was replicated, in milliseconds since
+            the UNIX epoch, and the recovery point of the bucket.
+        status_details:
+          type: string
+          example: null
+          description: |
+            Detailed information about the status of the replica link when it is
+            `unhealthy`.
+        members:
+          type: array
+          description: The union of source and target buckets in the replica link.
+          items:
+            $ref: '#/definitions/_resourceWithLocation'
+        sources:
+          type: array
+          description: The source buckets in the replica link.
+          items:
+            $ref: '#/definitions/_resourceWithLocation'
+        targets:
+          type: array
+          description: The target buckets in the replica link.
+          items:
+            $ref: '#/definitions/_resourceWithLocation'
+    x-sourced-from: models/Pure1-1.0/bucket-replica-link.yaml
+  Controller:
+    description: |
+      A platform that runs the Purity//FA Operating Environment.
+    allOf:
+    - $ref: '#/definitions/_arraysBuiltIn'
+    - properties:
+        mode:
+          type: string
+          description: |
+            Mode of the controller.
+            Values include `not present`, `offline`, `primary`, and `secondary`.
+          example: primary
+        model:
+          type: string
+          description: Model of the controller.
+          example: FA-m50
+        status:
+          type: string
+          description: |
+            Status of the controller. Values include `not ready`, `ready`, `unknown`, and `updating`.
+          example: ready
+        type:
+          type: string
+          description: |
+            Type of the controller. Values include `array_controller` and `shelf_controller`.
+          example: array_controller
+        version:
+          type: string
+          description: Version of the controller.
+          example: 5.0.0
+    x-sourced-from: models/Pure1-1.0/controller.yaml
+  Directory:
+    description: |
+      A managed directory on an array.
+    allOf:
+    - $ref: '#/definitions/_arraysBuiltIn'
+    - properties:
+        created:
+          description: Creation time in milliseconds since UNIX epoch.
+          type: integer
+          format: int64
+          readOnly: true
+          example: 1502729489760
+        destroyed:
+          description: |
+            Is the managed directory destroyed?
+          type: boolean
+          example: false
+        directory_name:
+          description: |
+            The managed directory name without the file system name prefix.
+            A managed directory full name is constructed in the form of `FILE_SYSTEM:DIR` where
+            `FILE_SYSTEM` is the file system name and `DIR` is the value of this field.
+            On FlashArray versions below `6.0.2`, the value is always `null`.
+          type: string
+          readOnly: true
+        file_system:
+          description: |
+            The file system that this managed directory is in.
+          readOnly: true
+          allOf:
+          - $ref: '#/definitions/_fixedReference'
+        path:
+          description: |
+            Absolute path of the managed directory in the file system.
+          type: string
+          readOnly: true
+    x-sourced-from: models/Pure1-1.0/directory.yaml
+  Drive:
+    description: |
+      Information about a flash, NVRAM, or cache module.
+    allOf:
+    - $ref: '#/definitions/_builtInAsOf'
+    - properties:
+        arrays:
+          description: |
+            A list of arrays that contain this drive.
+            Each drive should only exist on one array.
+          type: array
+          items:
+            $ref: '#/definitions/_driveArrayStatus'
+          minItems: 1
+        capacity:
+          type: number
+          readOnly: true
+          format: int64
+          description: |
+            Physical storage capacity of the module (in bytes).
+          example: 494927872
+        details:
+          type: string
+          readOnly: true
+          description: |
+            Details about the status of the module if status is not `healthy`.
+          example: Slow link speed.
+        protocol:
+          type: string
+          readOnly: true
+          description: |
+            Storage protocol of the module. Values include `NVMe` and `SAS`.
+          example: SAS
+        status:
+          type: string
+          readOnly: true
+          description: |
+            Current status of the module. Values include `empty`, `failed`,
+            `healthy`, `identifying`, `missing`, `recovering`, `unadmitted`,
+            `unhealthy`, `unrecognized`, and `updating`.
+          example: healthy
+        type:
+          type: string
+          readOnly: true
+          description: |
+            The type of the module. Values include `cache`, `NVRAM`, `SSD`,
+            and `virtual`.
+          example: SSD
+    x-sourced-from: models/Pure1-1.0/drive.yaml
+  FileSystem:
+    description: |
+      A file system on an array, including both FlashArray and FlashBlade file systems.
+    allOf:
+    - $ref: '#/definitions/_arraysBuiltIn'
+    - properties:
+        created:
+          description: Creation time in milliseconds since UNIX epoch.
+          type: integer
+          format: int64
+          readOnly: true
+          example: 1502729489760
+        destroyed:
+          description: |
+            Is the file system destroyed?
+          type: boolean
+          example: false
+        fast_remove_directory_enabled:
+          description: |
+            On a FlashBlade file system, returns the value of `true` if fast remove directory
+            is enabled and `false` if it is not.
+            On a FlashArray file system, the value is always `null`.
+          type: boolean
+          example: false
+        hard_limit_enabled:
+          description: |
+            On a FlashBlade file system, returns the value of `true` if the file system's size
+            is a hard limit quota and `false` if it is not.
+            On a FlashArray file system, the value is always `null`.
+          type: boolean
+          example: false
+        http:
+          description: HTTP configuration. On a FlashArray file system, the value is always `null`.
+          allOf:
+          - $ref: '#/definitions/_http'
+        nfs:
+          description: NFS configuration. On a FlashArray file system, the value is always `null`.
+          allOf:
+          - $ref: '#/definitions/_nfs'
+        provisioned:
+          description: |
+            The provisioned size of the file system in bytes. A value of 0 means
+            unlimited. On a FlashArray file system, the value is always `null`.
+          type: integer
+          format: int64
+          example: 1099511627776
+        smb:
+          description: SMB configuration. On a FlashArray file system, the value is always `null`.
+          allOf:
+          - $ref: '#/definitions/_smb'
+        snapshot_directory_enabled:
+          type: boolean
+          description: |
+            On a FlashBlade file system, returns the value of `true` if snapshot directory is enabled
+            and `false` if it is not.
+            On a FlashArray file system, the value is always `null`.
+          example: false
+    x-sourced-from: models/Pure1-1.0/file-system.yaml
+  FileSystemReplicaLink:
+    description: A replica link between two FlashBlade file systems.
+    type: object
+    allOf:
+    - $ref: '#/definitions/_replicaLink'
+    - properties:
+        recovery_point:
+          type: integer
+          format: int64
+          readOnly: true
+          example: 1565034592494
+          description: |
+            Time when the last replicated snapshot was created, in milliseconds
+            since the UNIX epoch. (i.e. the recovery point if the file system is
+            promoted.)
+        status_details:
+          type: string
+          example: null
+          description: |
+            Detailed information about the status of the replica link when it is
+            `unhealthy`.
+        members:
+          type: array
+          description: |
+            The union of source and target file systems in the replica link.
+          items:
+            $ref: '#/definitions/_resourceWithLocation'
+        sources:
+          type: array
+          description: The source file systems in the replica link.
+          items:
+            $ref: '#/definitions/_resourceWithLocation'
+        targets:
+          type: array
+          description: The target file systems in the replica link.
+          items:
+            $ref: '#/definitions/_resourceWithLocation'
+    x-sourced-from: models/Pure1-1.0/file-system-replica-link.yaml
+  FileSystemSnapshot:
+    description: |
+      A point-in-time image of the contents of a FlashBlade file system.
+    allOf:
+    - $ref: '#/definitions/_arraysBuiltIn'
+    - properties:
+        created:
+          description: Creation time in milliseconds since UNIX epoch.
+          type: integer
+          format: int64
+          example: 1502729489760
+        destroyed:
+          description: |
+            Indicates if this snapshot has been destroyed and is pending
+            eradication.
+          type: boolean
+          example: false
+        'on':
+          description: |
+            A reference to the array where the snapshot is stored.
+          allOf:
+          - $ref: '#/definitions/_fixedReference'
+        source:
+          description: |
+            A reference to the file system that the snapshot was taken from.
+          allOf:
+          - $ref: '#/definitions/_fixedReference'
+        suffix:
+          description: Indicates the suffix of the snapshot.
+          type: string
+          example: checkpoint_2018_01_01
+    x-sourced-from: models/Pure1-1.0/file-system-snapshot.yaml
+  Hardware:
+    description: |
+      A hardware component.
+    allOf:
+    - $ref: '#/definitions/_arraysBuiltIn'
+    - properties:
+        details:
+          type: string
+          description: |
+            Details about the component if `status` is not `healthy`.
+          example: Temperature too high
+        identify_enabled:
+          type: boolean
+          description: If true, the ID light is lit to visually identify the component.
+          example: true
+        model:
+          type: string
+          description: |
+            Model number of the hardware component.
+          example: DFSC1
+        serial:
+          type: string
+          description: |
+            Serial number of the hardware component.
+          example: PSMFL1717009B
+        slot:
+          type: integer
+          format: int32
+          description: |
+            Slot number occupied by the PCI Express card that hosts the component.
+          example: 16
+        speed:
+          type: integer
+          format: int64
+          description: |
+            Speed (in bytes per second) at which the component is operating.
+          example: 24000000000
+        status:
+          type: string
+          description: |
+            Component status. Values include `critical`, `healthy`, `identifying`,
+            `unhealthy`, `unclaimed`, `unknown`, `unrecognized`, and `unused`.
+          example: critical
+        temperature:
+          type: integer
+          format: int32
+          description: |
+            Temperature (in degrees Celsius) reported by the component.
+          example: 25
+        type:
+          type: string
+          description: |
+            Type of the hardware component. Values include `am`, `chassis`, `controller`, `cooling`,
+            `drive_bay`, `eth_port`, `fan`, `fc_port`, `flash_blade`, `ib_port`, `mgmt_port`,
+            `nvram_bay`, `power_supply`, `sas_module`, `sas_port`, `storage_shelf`, and `temp_sensor`.
+          example: controller
+        voltage:
+          type: integer
+          format: int32
+          description: |
+            Voltage (in Volts) reported by the component.
+          example: 206
+    x-sourced-from: models/Pure1-1.0/hardware.yaml
+  HardwareConnector:
+    description: |
+      Details about the array's connection ports.
+    allOf:
+    - $ref: '#/definitions/_arraysBuiltIn'
+    - properties:
+        connector_type:
+          type: string
+          description: Form-factor of the interface. Values include `QSFP` and `RJ-45`.
+          example: QSFP
+        lane_speed:
+          type: number
+          format: int64
+          description: Configured speed of each lane in the connector in bits per second.
+          example: 10000000000
+        port_count:
+          type: number
+          format: int64
+          description: Configured number of ports in the connector.
+          example: 1
+        transceiver_type:
+          type: string
+          description: |
+            Type of transceiver plugged into the connector port.
+            If the type cannot be auto-detected and the internal user has not
+            specified a type, the value will be `Unknown`.
+            If nothing is plugged into the QSFP port, the value will be `Unused`.
+            Transceiver type is not applicable for RJ-45 connectors.
+          example: 40GBASE-LR4
+    x-sourced-from: models/Pure1-1.0/hardware-connector.yaml
+  Metric:
+    description: |
+      A type of measurement recorded on a resource.
+    allOf:
+    - $ref: '#/definitions/_builtInAsOf'
+    - type: object
+      properties:
+        availabilities:
+          description: |
+            The available resolutions, aggregations and retentions of this metric.
+          type: array
+          items:
+            $ref: '#/definitions/_metricAvailability'
+          readOnly: true
+        description:
+          description: The additional description for the the metric.
+          type: string
+          readOnly: true
+        resource_types:
+          description: |
+            The type of resource (as described by their endpoints) that this metric
+            is available at. NOTE that a metric could be available for a combination
+            of resource types, e.g. mirrored writes from "arrays" to "pods".
+          type: array
+          items:
+            description: |
+              Valid values are `arrays`, `pods`, and `volumes`.
+            type: string
+            example: example_resource_type
+          readOnly: true
+        unit:
+          description: The unit of the metric.
+          type: string
+          example: B/s
+          readOnly: true
+      x-readOnly: true
+    x-sourced-from: models/Pure1-1.0/metric.yaml
+  MetricHistory:
+    description: |
+      Historical time-series data of a given metric on a resource.
+    allOf:
+    - $ref: '#/definitions/_builtInAsOf'
+    - type: object
+      properties:
+        aggregation:
+          description: The aggregation of the metric data.
+          type: string
+          example: avg
+          readOnly: true
+        data:
+          description: |
+            The data points of the metric corresponding to the time window,
+            resolution and aggregation. The points are returned in a nested array
+            of 2-element arrays. For each of the 2-element array, the 1st element
+            is the UTC millisecond epoch, and the 2nd element is the value,
+            e.g. [[1519362000000, 11], [1519362030000, 21], ...].
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              minItems: 2
+              maxItems: 2
+            example: [1502729489760, 123]
+          readOnly: true
+        resolution:
+          description: The resolution of the metric data in milliseconds.
+          type: integer
+          format: int64
+          example: 30000
+          readOnly: true
+        resources:
+          type: array
+          description: |
+            The references to the resources that the metric data is for.
+            For example, write-iops metric for an array will have one element in
+            this list referencing the array entity. the write-iops from an array to
+            a pod will contain two elements in this list - first element pointing
+            to the array, and second element pointing to the pod.
+          items:
+            $ref: '#/definitions/_fixedReference'
+          readOnly: true
+        unit:
+          description: The unit of the metric data.
+          type: string
+          example: B/s
+          readOnly: true
+      x-readOnly: true
+    x-sourced-from: models/Pure1-1.0/metric-history.yaml
+  NetworkInterface:
+    description: |
+      A point of interconnection between the appliance and a private or public
+      network. May be associated with a physical device or a representation of
+      a virtual interface.
+    allOf:
+    - $ref: '#/definitions/_arraysBuiltIn'
+    - properties:
+        address:
+          type: string
+          description: IP address of this network interface.
+          example: 10.11.12.13
+        enabled:
+          type: boolean
+          example: true
+        gateway:
+          type: string
+          example: 10.20.30.40
+        hwaddr:
+          type: string
+          description: Hardware address.
+          example: 90:ef:ba:80:70:dc
+        mtu:
+          type: integer
+          format: int32
+          description: Maximum transmission unit.
+          example: 9000
+        netmask:
+          type: string
+          example: 255.255.255.0
+        services:
+          type: array
+          description: Services and protocols that are enabled on the interface.
+          items:
+            description: |
+              Valid values are `iscsi`, `management`, `nvme/fc`, `nvme/roce`,
+                and `replication`.
+            type: string
+            example: iscsi
+        speed:
+          type: integer
+          format: int64
+          description: Speed in bytes per second.
+          example: 10000000000
+        subinterfaces:
+          type: array
+          items:
+            type: string
+            example: ct0.eth0
+    x-sourced-from: models/Pure1-1.0/network-interface.yaml
+  Pod:
+    description: |
+      An administrative domain, a data container, and a namespace for
+      volumes and protection groups.
+    allOf:
+    - $ref: '#/definitions/_resource'
+    - properties:
+        arrays:
+          description: |
+            A list of arrays that share this pod. If two or more arrays are
+            specified, all data in the pod is synchronously mirrored between
+            them.
+          type: array
+          items:
+            $ref: '#/definitions/_podArrayStatus'
+          minItems: 1
+        mediator:
+          description: The URL of the mediator for this pod.
+          type: string
+          example: purestorage
+        source:
+          description: A reference to the source pod of a pod clone.
+          allOf:
+          - $ref: '#/definitions/_fixedReference'
+    x-sourced-from: models/Pure1-1.0/pod.yaml
+  PodReplicaLink:
+    description: A replica link between two pods.
+    type: object
+    allOf:
+    - $ref: '#/definitions/_replicaLink'
+    - properties:
+        members:
+          type: array
+          description: The union of source and target pods in the replica link.
+          items:
+            $ref: '#/definitions/_resourceWithLocations'
+        recovery_point:
+          type: integer
+          description: |
+            Time when the last piece of data was replicated, in milliseconds since
+            the UNIX epoch, and the recovery point if the target pod is promoted.
+            If the pod is currently baselining then the value is `null`.
+        sources:
+          type: array
+          description: The source pods in the replica link.
+          items:
+            $ref: '#/definitions/_resourceWithLocations'
+        status:
+          type: string
+          example: replicating
+          description: |
+            Status of the replica link. Values include `replicating`, `idle`,
+            `baselining`, `paused`, `quiescing`, `quiesced`, and `unhealthy`.
+        targets:
+          type: array
+          description: The target pods in the replica link.
+          items:
+            $ref: '#/definitions/_resourceWithLocations'
+    x-sourced-from: models/Pure1-1.0/pod-replica-link.yaml
+  Policy:
+    description: |
+      A set of rules that can be applied to resources.
+    allOf:
+    - $ref: '#/definitions/_arraysBuiltIn'
+    - properties:
+        enabled:
+          description: Returns `true` if this policy is enabled.
+          type: boolean
+          example: true
+        rules:
+          type: array
+          items:
+            $ref: '#/definitions/_policy_rule'
+    x-sourced-from: models/Pure1-1.0/policy.yaml
+  PolicyMember:
+    description: An association between a policy and a member.
+    type: object
+    allOf:
+    - $ref: '#/definitions/_timeAware'
+    - properties:
+        policy:
+          $ref: '#/definitions/_fixedReference'
+        member:
+          $ref: '#/definitions/_fixedReference'
+    x-sourced-from: models/Pure1-1.0/policy-member.yaml
+  Port:
+    description: A Purity//FA port.
+    type: object
+    allOf:
+    - $ref: '#/definitions/_arraysBuiltIn'
+    - properties:
+        iqn:
+          type: string
+          description: The iSCSI Qualified Name if the port is iSCSI, `null` otherwise.
+          example: iqn.2010-06.com.purestorage:flasharray.393d930077be2977
+        nqn:
+          type: string
+          description: The NVMe Qualified Name if the port is NVMe-oF, `null` otherwise.
+          example: nqn.2010-06.com.purestorage:flasharray.512f7bb185978505
+        wwn:
+          type: string
+          description: The Fibre Channel World Wide Name if the port is Fibre Channel, `null` otherwise.
+          example: 52:4A:93:70:4E:E5:68:00
+        portal:
+          type: string
+          description: The IP and port number if the port is iSCSI or NVMe-oF, `null` otherwise.
+          example: 10.16.200.27:3260
+        failover:
+          type: string
+          description: |
+            If the array port has failed over, returns the
+            name of the port to which this port has failed over.
+          example: CT0.ETH2
+    x-sourced-from: models/Pure1-1.0/port.yaml
+  Subscription:
+    description: |
+      A Pure1 subscription.
+    allOf:
+    - $ref: '#/definitions/_builtInAsOf'
+    - properties:
+        expiration_date:
+          description: |
+            Date when the subscription expires.
+            Represented as a timestamp of 00:00 on that date in UTC, in
+            milliseconds since UNIX epoch.
+          type: integer
+          format: int64
+          example: 1636238104000
+        service:
+          description: |
+            The service type of the subscription. Values include
+            `Evergreen//One`,
+            `Evergreen//Flex`,
+            `FlashStack as a Service`,
+            `Storage as a Service`,
+            `PaaS (Block Storage Service)`,
+            `PaaS (File and Object Storage Service)`,
+            `PaaS (Data Protection Service)`,
+            and
+            `Pure1 Subscription`.
+          type: string
+          example: PaaS (Block Storage Service)
+        start_date:
+          description: |
+            Date when the subscription starts.
+            Represented as a timestamp of 00:00 on that date in UTC, in
+            milliseconds since UNIX epoch.
+          type: integer
+          format: int64
+          example: 1604702243000
+        status:
+          description: |
+            Current status of the subscription. Values include `active`,
+            `terminated`, `poc-expired`, and `signed`.
+          type: string
+          example: active
+    x-sourced-from: models/Pure1-1.0/subscription.yaml
+  SubscriptionLicense:
+    description: |
+      A license belonging to a Pure1 subscription.
+    type: object
+    allOf:
+    - $ref: '#/definitions/_builtInAsOf'
+    - properties:
+        average_on_demand:
+          description: |
+            Estimated daily on-demand usage of the license from the current calendar
+            quarter to date.
+          allOf:
+          - $ref: '#/definitions/_current_metric'
+        expiration_date:
+          description: |
+            Date when the license expires.
+            Represented as a timestamp of 00:00 on that date in UTC, in
+            milliseconds since UNIX epoch.
+          type: integer
+          format: int64
+          example: 1636238104000
+        marketplace_partner:
+          description: |
+            Reference information about the marketplace partner of this license.
+          allOf:
+          - $ref: '#/definitions/_marketplace_partner'
+        reservation:
+          description: |
+            Current reservation amount of the license.
+          allOf:
+          - $ref: '#/definitions/_current_metric'
+        resources:
+          description: |
+            References to the resources that operate under this license.
+          type: array
+          items:
+            $ref: '#/definitions/_license_resource_reference'
+        service_tier:
+          description: |
+            The tier of the service for the license.
+          type: string
+          example: //Block - Ultra
+        start_date:
+          description: |
+            Date when the license starts.
+            Represented as a timestamp of 00:00 on that date in UTC, in
+            milliseconds since UNIX epoch.
+          type: integer
+          format: int64
+          example: 1604702243000
+        subscription:
+          description: |
+            A reference to which subscription this license belongs.
+          allOf:
+          - $ref: '#/definitions/_fixedReference'
+        usage:
+          description: |
+            Usage of the license, averaged over the last day.
+          allOf:
+          - $ref: '#/definitions/_current_metric'
+    x-sourced-from: models/Pure1-1.0/subscription-license.yaml
+  SupportContract:
+    type: object
+    properties:
+      start_date:
+        description: |
+          Date when the support contract started.
+          Represented as a timestamp of 00:00 on that date in UTC, in milliseconds since UNIX epoch.
+        type: integer
+        format: int64
+        example: 1550966400000
+      end_date:
+        description: |
+          Date when the support contract ended.
+          Represented as a timestamp of 00:00 on that date in UTC, in milliseconds since UNIX epoch.
+        type: integer
+        format: int64
+        example: 1582502400000
+      resource:
+        $ref: '#/definitions/_fixedReference'
+    x-sourced-from: models/Pure1-1.0/support-contract.yaml
+  Tag:
+    type: object
+    properties:
+      key:
+        description: Key of the tag.
+        type: string
+        example: example_key
+      namespace:
+        description: |
+          Namespace of the tag.
+          Namespace identifies the category of the tag.
+        type: string
+        example: pure1
+      resource:
+        $ref: '#/definitions/_fixedReference'
+      tag_organization_id:
+        description: Org id of the tag.
+        type: integer
+        format: int64
+        example: 101
+      value:
+        description: Value of the tag.
+        type: string
+        example: value123
+    x-sourced-from: models/Pure1-1.0/tag.yaml
+  Target:
+    description: |
+      An external target system.
+    allOf:
+    - $ref: '#/definitions/_arraysBuiltIn'
+    - properties:
+        address:
+          type: string
+          description: IP address or FQDN of the target system.
+          example: example_name.dc1.example.com
+        status:
+          description: |
+            Status of the connection. Values include `connected` and `connecting`.
+          readOnly: true
+          type: string
+          example: connected
+        status_details:
+          description: |
+            Additional information describing any issues encountered when
+            connecting, or `null` if the `status` is `connected`.
+          readOnly: true
+          type: string
+          example: null
+    x-sourced-from: models/Pure1-1.0/target.yaml
+  Volume:
+    description: |
+      A disk-like random access virtual storage device that a FlashArray
+      system exports to hosts via a logical unit number (LUN). For a host,
+      a volume contains a number of 512-byte sectors in which data can be
+      written and from which it can be read.
+    allOf:
+    - $ref: '#/definitions/_arraysResource'
+    - properties:
+        created:
+          description: Creation time in milliseconds since UNIX epoch.
+          type: integer
+          format: int64
+          readOnly: true
+          example: 1502729489760
+        destroyed:
+          description: Whether this volume has been destroyed or not.
+          type: boolean
+          readOnly: true
+          example: false
+        eradicated:
+          description: Whether this volume has been eradicated or not.
+          type: boolean
+          readOnly: true
+          example: false
+        pod:
+          description: |
+            A reference to the pod this volume belongs to, if applicable.
+          allOf:
+          - $ref: '#/definitions/_fixedReference'
+        provisioned:
+          description: Provisioned size of the volume in bytes.
+          type: integer
+          format: int64
+          minimum: 1048576
+          maximum: 4503599627370496
+          example: 2048576
+        serial:
+          description: |
+            Serial number generated by Purity when the volume was created.
+          type: string
+          readOnly: true
+          example: C68B5DCF2C1A4C9400012F92
+        source:
+          description: |
+            A reference to the volume this volume was cloned from, if applicable.
+          allOf:
+          - $ref: '#/definitions/_fixedReference'
+    x-sourced-from: models/Pure1-1.0/volume.yaml
+  VolumeSnapshot:
+    description: |
+      A point-in-time image of the contents of a volume.
+    allOf:
+    - $ref: '#/definitions/_arraysBuiltIn'
+    - properties:
+        created:
+          description: Creation time in milliseconds since UNIX epoch.
+          type: integer
+          format: int64
+          example: 1502729489760
+        destroyed:
+          description: |
+            Indicates if this snapshot has been destroyed and is pending
+            eradication.
+          type: boolean
+          example: false
+        'on':
+          description: |
+            A reference to the array or the offload where the snapshot is stored.
+          allOf:
+          - $ref: '#/definitions/_fixedReference'
+        pod:
+          description: |
+            A reference to the pod the source volume belongs to, if applicable.
+          allOf:
+          - $ref: '#/definitions/_fixedReference'
+        provisioned:
+          description: |
+            Indicates the size (in bytes) of the volume when the snapshot was taken.
+          type: integer
+          format: int64
+          example: 2048576
+        serial:
+          description: |
+            Serial number generated by Purity when the snapshot was created.
+          type: string
+          example: C68B5DCF2C1A4C9400012F92
+        snapshot_group:
+          description: |
+            A reference to a consistency group snapshot that this snapshot is
+            part of.
+          allOf:
+          - $ref: '#/definitions/_fixedReference'
+        source:
+          description: |
+            A reference to the volume that the snapshot was taken from.
+          allOf:
+          - $ref: '#/definitions/_fixedReference'
+        suffix:
+          description: |
+            Suffix added to the source volume name used to generate the
+            volume snapshot name.
+          type: string
+          example: checkpoint_2018_01_01
+    x-sourced-from: models/Pure1-1.0/volume-snapshot.yaml
+  AlertsGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/AlertsResponse'
+    x-sourced-from: responses/Pure1-1.0/alerts-get-response.yaml
+  ArrayGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/ArrayResponse'
+    x-sourced-from: responses/Pure1-1.0/array-get-response.yaml
+  SupportContractGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/SupportContractResponse'
+    x-sourced-from: responses/Pure1-1.0/support-contract-get-response.yaml
+  TagGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/TagResponse'
+    x-sourced-from: responses/Pure1-1.0/tag-get-response.yaml
+  TagResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Tag'
+    x-sourced-from: responses/Pure1-1.0/tag-response.yaml
+  AuditsGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/AuditsResponse'
+    x-sourced-from: responses/Pure1-1.0/audits-get-response.yaml
+  BladeGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/BladeResponse'
+    x-sourced-from: responses/Pure1-1.0/blade-get-response.yaml
+  BucketGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/BucketResponse'
+    x-sourced-from: responses/Pure1-1.0/bucket-get-response.yaml
+  BucketReplicaLinkGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/BucketReplicaLinkResponse'
+    x-sourced-from: responses/Pure1-1.0/bucket-replica-link-get-response.yaml
+  ControllerGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/ControllerResponse'
+    x-sourced-from: responses/Pure1-1.0/controller-get-response.yaml
+  DirectoryGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/DirectoryResponse'
+    x-sourced-from: responses/Pure1-1.0/directory-get-response.yaml
+  DriveGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/DriveResponse'
+    x-sourced-from: responses/Pure1-1.0/drive-get-response.yaml
+  FileSystemGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/FileSystemResponse'
+    x-sourced-from: responses/Pure1-1.0/file-system-get-response.yaml
+  PolicyMembersGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/PolicyMembersResponse'
+    x-sourced-from: responses/Pure1-1.0/policy-members-get-response.yaml
+  FileSystemReplicaLinkGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/FileSystemReplicaLinkResponse'
+    x-sourced-from: responses/Pure1-1.0/file-system-replica-link-get-response.yaml
+  FileSystemSnapshotGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/FileSystemSnapshotResponse'
+    x-sourced-from: responses/Pure1-1.0/file-system-snapshot-get-response.yaml
+  HardwareGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/HardwareResponse'
+    x-sourced-from: responses/Pure1-1.0/hardware-get-response.yaml
+  HardwareConnectorGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/HardwareConnectorResponse'
+    x-sourced-from: responses/Pure1-1.0/hardware-connector-get-response.yaml
+  MetricGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/MetricResponse'
+    x-sourced-from: responses/Pure1-1.0/metric-get-response.yaml
+  MetricHistoryGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/MetricHistoryResponse'
+    x-sourced-from: responses/Pure1-1.0/metric-history-get-response.yaml
+  NetworkInterfaceGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/NetworkInterfaceResponse'
+    x-sourced-from: responses/Pure1-1.0/network-interface-get-response.yaml
+  ObjectStoreAccountGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/ObjectStoreAccountResponse'
+    x-sourced-from: responses/Pure1-1.0/object-store-account-get-response.yaml
+  PodGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/PodResponse'
+    x-sourced-from: responses/Pure1-1.0/pod-get-response.yaml
+  PodReplicaLinkGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/PodReplicaLinkResponse'
+    x-sourced-from: responses/Pure1-1.0/pod-replica-link-get-response.yaml
+  PolicyGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/PolicyResponse'
+    x-sourced-from: responses/Pure1-1.0/policy-get-response.yaml
+  PortGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/PortResponse'
+    x-sourced-from: responses/Pure1-1.0/port-get-response.yaml
+  SubscriptionGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/SubscriptionResponse'
+    x-sourced-from: responses/Pure1-1.0/subscription-get-response.yaml
+  SubscriptionLicenseGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/SubscriptionLicenseResponse'
+    x-sourced-from: responses/Pure1-1.0/subscription-license-get-response.yaml
+  TargetGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/TargetResponse'
+    x-sourced-from: responses/Pure1-1.0/target-get-response.yaml
+  VolumeGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/VolumeResponse'
+    x-sourced-from: responses/Pure1-1.0/volume-get-response.yaml
+  VolumeSnapshotGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/VolumeSnapshotResponse'
+    x-sourced-from: responses/Pure1-1.0/volume-snapshot-get-response.yaml
+  _arraysResource:
+    description: |
+      An ordinary (as opposed to built-in) resource that exists on one or
+      multiple arrays and can be created, named, renamed or deleted by the
+      user. This might be a virtual resource (e.g., a volume), or correspond
+      to something in the environment, like a host or a server.
+    allOf:
+    - $ref: '#/definitions/_resource'
+    - $ref: '#/definitions/_arrays'
+    x-sourced-from: models/Pure1-1.0/_arrays-resource.yaml
+  _builtInAsOf:
+    description: |+
+      A built-in resource. Many are singletons predefined by Purity (e.g., support
+      settings). Some correspond to a piece of software, like an app, or hardware,
+      like a controller. Others are created by the system in response to some event
+      (e.g., alerts, audit records).
+
+      Typically, a user can't create, delete or rename a built-in resource. A few
+      can be created or deleted, but not renamed because the names are meaningful
+      to Purity (e.g., VIFs).
+
+    allOf:
+    - $ref: '#/definitions/_timeAware'
+    - readOnly: true
+      properties:
+        id:
+          description: A non-modifiable, globally unique ID chosen by the system.
+          type: string
+          readOnly: true
+          example: 01c2889a-4124-49ff-8cbd-c33405ede123
+        name:
+          description: A non-modifiable, locally unique name chosen by the system.
+          type: string
+          readOnly: true
+          example: example_name
+    x-sourced-from: models/Pure1-1.0/_built-in-as-of.yaml
+  _bladeArrayStatus:
+    allOf:
+    - $ref: '#/definitions/_fixedReference'
+    - type: object
+      readOnly: true
+      properties:
+        used_blades:
+          description: |
+            Count of used blade slots in the array.
+          type: integer
+          format: int64
+          example: 10
+        total_blades:
+          description: |
+            Count of total blade slots in the array.
+          type: integer
+          format: int64
+          example: 15
+    x-sourced-from: models/Pure1-1.0/_blade-array-status.yaml
+  _fixedReference:
+    type: object
+    properties:
+      id:
+        description: The opaque and unique id of this resource.
+        type: string
+        example: 2a989a09-c851-4d52-9ec6-ab728b1c04db
+        readOnly: true
+      name:
+        description: The name of this resource.
+        type: string
+        example: example_name
+        readOnly: true
+      resource_type:
+        description: |
+          The type of this resource represented by the name of its REST endpoint.
+          For example, "arrays", "network-interfaces", and "metrics".
+          The value may be `null` if the resource is not represented.
+        type: string
+        example: example_resource_type
+        readOnly: true
+    x-readOnly: true
+    x-sourced-from: models/Pure1-1.0/_fixed-reference.yaml
+  _replicaLink:
+    allOf:
+    - $ref: '#/definitions/_resourceNoName'
+    - properties:
+        lag:
+          type: integer
+          format: int64
+          readOnly: true
+          example: 1560
+          description: |
+            Duration, in milliseconds, which represents how far behind the
+            replication `target` is from the `source`.
+        paused:
+          type: boolean
+          example: false
+          description: |
+            Returns `true` if the replica link is paused.
+        recovery_point:
+          type: integer
+          format: int64
+          readOnly: true
+          example: 1565034592494
+          description: |
+            Time when the last piece of data was replicated, measured in
+            milliseconds since the UNIX epoch, and the recovery point of the
+            resource.
+        status:
+          type: string
+          example: replicating
+          description: |
+            Status of the replica link. Values include `replicating`, `idle`,
+            and `unhealthy`.
+    x-sourced-from: models/Pure1-1.0/_replica-link.yaml
+  _resourceWithLocation:
+    description: |
+      An ordinary resource that exists in one location.
+    allOf:
+    - $ref: '#/definitions/_fixedReference'
+    - properties:
+        location:
+          $ref: '#/definitions/_fixedReference'
+    x-sourced-from: models/Pure1-1.0/_resource-with-location.yaml
+  _arraysBuiltIn:
+    description: |
+      A built-in resource that exists on one or multiple arrays.
+    allOf:
+    - $ref: '#/definitions/_builtInAsOf'
+    - $ref: '#/definitions/_arrays'
+    x-sourced-from: models/Pure1-1.0/_arrays-built-in.yaml
+  _driveArrayStatus:
+    allOf:
+    - $ref: '#/definitions/_fixedReference'
+    - type: object
+      readOnly: true
+      properties:
+        drive_count:
+          description: |
+            Count of drives in the array.
+          type: integer
+          format: int64
+          example: 24
+        total_capacity:
+          description: |
+            The total capacity of all drives in the array.
+          type: integer
+          format: int64
+          example: 7625244672
+    x-sourced-from: models/Pure1-1.0/_drive-array-status.yaml
+  _http:
+    type: object
+    properties:
+      enabled:
+        type: boolean
+        description: Is the protocol enabled?
+        example: false
+    x-sourced-from: models/Pure1-1.0/_http.yaml
+  _nfs:
+    properties:
+      enabled:
+        type: boolean
+        description: Is the protocol enabled?
+        example: false
+      rules:
+        type: string
+        description: NFS rules.
+        example: 10.0.0.1(ro)
+    x-sourced-from: models/Pure1-1.0/_nfs.yaml
+  _smb:
+    type: object
+    properties:
+      enabled:
+        type: boolean
+        description: |
+          Is the protocol enabled?
+    x-sourced-from: models/Pure1-1.0/_smb.yaml
+  _metricAvailability:
+    type: object
+    properties:
+      aggregations:
+        description: Available aggregations for this metric at the given resolution, e.g. 'avg', 'max'.
+        type: array
+        items:
+          description: |
+            Valid values are `avg` and `max`.
+          type: string
+          example: avg
+        readOnly: true
+      resolution:
+        description: An available resolution of this metric in milliseconds.
+        type: integer
+        format: int64
+        example: 30000
+        readOnly: true
+      retention:
+        description: The retention at this given resolution in milliseconds.
+        type: integer
+        format: int64
+        example: 2592000000
+        readOnly: true
+    x-readOnly: true
+    x-sourced-from: models/Pure1-1.0/_metric-availability.yaml
+  _resource:
+    description: |
+      An ordinary (as opposed to built-in) resource that can be created, named,
+      renamed, or deleted by the user. This might be a virtual resource (e.g.,
+      a volume), or correspond to something in the physical environment, like a
+      host or a server.
+    allOf:
+    - $ref: '#/definitions/_timeAware'
+    - properties:
+        id:
+          description: A non-modifiable, globally unique ID chosen by the system.
+          type: string
+          readOnly: true
+          example: 2a989a09-c851-4d52-9ec6-ab728b1c04db
+        name:
+          description: A modifiable, locally unique name chosen by the user.
+          type: string
+          example: example_name
+    x-sourced-from: models/Pure1-1.0/_resource.yaml
+  _podArrayStatus:
+    allOf:
+    - $ref: '#/definitions/_fixedReference'
+    - type: object
+      readOnly: true
+      properties:
+        frozen_at:
+          description: |
+            The Unix timestamp of when the array was last in sync with the pod (or
+            null if the array is currently in sync).
+          type: integer
+          format: int64
+          example: 1502729489760
+        mediator_status:
+          description: |
+            The status of the mediator as assessed by this array.
+            Valid values are `flummoxed`, `online`, `unknown`, and `unreachable`.
+            `flummoxed` - The array has the wrong UUID for the mediator. This means
+            that the array can reach a mediator, but is talking to the wrong one.
+            Typically, this would be due to a misconfiguration in the customer
+            environment (e.g. DNS misconfiguration).
+            UUIDs also have a TTL. If a pod goes offline on one array, and stays
+            like that for weeks (such that the TTL expires), it may also show this
+            status until the peer array is reachable again.
+            `online` - The array is successfully communicating with the mediator.
+            `unreachable` - The array cannot reach the mediator. This could be due
+            to a network issue or the mediator is down.
+          type: string
+          example: online
+        status:
+          description: |
+            Status of an array in the pod.
+            Valid values are `offline`, `online`, `resyncing`, and `unknown`.
+            `offline` - There is a problem.
+            This array cannot confirm it has the latest data for this pod.
+            This array can not handle IO to the pod nor could it take over during an
+            HA event.
+            `online` - Everything is fine.
+            This array has the latest data for this pod.
+            This array can handle IO to the pod and can take over during an HA
+            event.
+            `resyncing` - There was a problem.
+            This array is actively catching up to get the latest data for this
+            pod. This array can handle IO to this pod's volumes, however it could
+            not take over during an HA event.
+            `unknown` - The state of the pod on this array cannot be determined.
+            This state is only seen on disconnected arrays.
+            The disconnected array cannot determine if the pod on another array is
+            online or offline.
+          type: string
+          readOnly: true
+          example: resyncing
+    x-sourced-from: models/Pure1-1.0/_pod-array-status.yaml
+  _resourceWithLocations:
+    description: |
+      A resource that may relate to multiple locations.
+    allOf:
+    - $ref: '#/definitions/_fixedReference'
+    - properties:
+        locations:
+          type: array
+          items:
+            $ref: '#/definitions/_fixedReference'
+    x-sourced-from: models/Pure1-1.0/_resource-with-locations.yaml
+  _policy_rule:
+    description: A rule that can be added to a policy.
+    type: object
+    properties:
+      at:
+        type: integer
+        format: int64
+        description: |
+          Time of day to take the snapshot, in milliseconds since 00:00 in the
+          specified `time_zone`. Only valid if `every` is set as whole days.
+        example: 32400000
+      every:
+        type: integer
+        format: int64
+        description: How often to take snapshots, in milliseconds.
+        example: 86400000
+      keep_for:
+        type: integer
+        format: int64
+        description: How long to keep snapshots, in milliseconds.
+        example: 86400000
+      time_zone:
+        type: string
+        description: The time zone in which the `at` rule is applied.
+        example: America/Los_Angeles
+    x-sourced-from: models/Pure1-1.0/_policy_rule.yaml
+  _timeAware:
+    type: object
+    properties:
+      _as_of:
+        description: The freshness of the data (timestamp in millis since epoch).
+        type: integer
+        readOnly: true
+        format: int64
+        example: 1502729489760
+    x-sourced-from: models/Pure1-1.0/_time-aware.yaml
+  _current_metric:
+    type: object
+    properties:
+      data:
+        description: |
+          The data value.
+        type: number
+        example: 123
+      metric:
+        description: |
+          A reference to the metric this data measures.
+        allOf:
+        - $ref: '#/definitions/_fixedReference'
+      unit:
+        description: The unit of the metric.
+        type: string
+        example: B
+    x-sourced-from: models/Pure1-1.0/_current_metric.yaml
+  _marketplace_partner:
+    type: object
+    properties:
+      name:
+        description: |
+          Name or identifier of the marketplace parter who owns the
+          reference ID.
+        type: string
+        example: pure1
+      reference_id:
+        description: |
+          External ID the marketplace partner knows to refer to this license.
+        type: string
+    x-sourced-from: models/Pure1-1.0/_marketplace_partner.yaml
+  _license_resource_reference:
+    type: object
+    allOf:
+    - $ref: '#/definitions/_fixedReference'
+    - properties:
+        activation_time:
+          description: |
+            Time when the resource is activated under the license, in
+            milliseconds since UNIX epoch.
+          type: integer
+          format: int64
+          example: 1604702243000
+        usage:
+          description: |
+            Current usage of the resource under the license.
+          allOf:
+          - $ref: '#/definitions/_current_metric'
+    x-sourced-from: models/Pure1-1.0/_license_resource_reference.yaml
+  Error:
+    type: object
+    properties:
+      errors:
+        description: The list of errors encountered.
+        type: array
+        items:
+          $ref: '#/definitions/_errorErrors'
+    x-sourced-from: models/Pure1-1.0/error.yaml
+  ErrorNoContext:
+    type: object
+    properties:
+      message:
+        type: string
+        example: "Something was wrong"
+    x-sourced-from: models/Pure1-1.0/error-no-context.yaml
+  PageInfo:
+    type: object
+    properties:
+      continuation_token:
+        type: string
+        description: |
+          Continuation token that can be provided in the continuation_token
+          query param to get the next page of data.
+          If you use the continuation token to page through data you
+          are guaranteed to get all items exactly once regardless of
+          how items are modified. If an item is added or deleted during
+          the pagination then it may or may not be returned.
+          The continuation token is generated if the limit is less
+          than the remaining number of items, and the default sort is used
+          (no sort is specified).
+        example: MThkMzJmYWUtZDI3OS00ODEzLWIzODYtMmM3NmFhMTMwM2My
+      total_item_count:
+        type: integer
+        format: int32
+        description: Total number of items after applying filter params.
+        example: 1
+    x-sourced-from: responses/Pure1-1.0/page-info.yaml
+  AlertsResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Alert'
+    x-sourced-from: responses/Pure1-1.0/alerts-response.yaml
+  ArrayResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Array'
+    x-sourced-from: responses/Pure1-1.0/array-response.yaml
+  SupportContractResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/SupportContract'
+    x-sourced-from: responses/Pure1-1.0/support-contract-response.yaml
+  TagPut:
+    type: object
+    properties:
+      key:
+        description: Key of the tag.
+        type: string
+        example: example_key
+      value:
+        description: Value of the tag.
+        type: string
+        example: value123
+    x-sourced-from: models/Pure1-1.0/tag-put.yaml
+  AuditsResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Audit'
+    x-sourced-from: responses/Pure1-1.0/audits-response.yaml
+  BladeResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Blade'
+    x-sourced-from: responses/Pure1-1.0/blade-response.yaml
+  BucketResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Bucket'
+    x-sourced-from: responses/Pure1-1.0/bucket-response.yaml
+  BucketReplicaLinkResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/BucketReplicaLink'
+    x-sourced-from: responses/Pure1-1.0/bucket-replica-link-response.yaml
+  ControllerResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Controller'
+    x-sourced-from: responses/Pure1-1.0/controller-response.yaml
+  DirectoryResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Directory'
+    x-sourced-from: responses/Pure1-1.0/directory-response.yaml
+  DriveResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Drive'
+    x-sourced-from: responses/Pure1-1.0/drive-response.yaml
+  FileSystemResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/FileSystem'
+    x-sourced-from: responses/Pure1-1.0/file-system-response.yaml
+  PolicyMembersResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/PolicyMember'
+    x-sourced-from: responses/Pure1-1.0/policy-members-response.yaml
+  FileSystemReplicaLinkResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/FileSystemReplicaLink'
+    x-sourced-from: responses/Pure1-1.0/file-system-replica-link-response.yaml
+  FileSystemSnapshotResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/FileSystemSnapshot'
+    x-sourced-from: responses/Pure1-1.0/file-system-snapshot-response.yaml
+  HardwareResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Hardware'
+    x-sourced-from: responses/Pure1-1.0/hardware-response.yaml
+  HardwareConnectorResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/HardwareConnector'
+    x-sourced-from: responses/Pure1-1.0/hardware-connector-response.yaml
+  MetricResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Metric'
+    x-sourced-from: responses/Pure1-1.0/metric-response.yaml
+  MetricHistoryResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/MetricHistory'
+    x-sourced-from: responses/Pure1-1.0/metric-history-response.yaml
+  NetworkInterfaceResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/NetworkInterface'
+        description: A list of network interface objects.
+    x-sourced-from: responses/Pure1-1.0/network-interface-response.yaml
+  ObjectStoreAccountResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/ObjectStoreAccount'
+        description: A list of object store accounts.
+    x-sourced-from: responses/Pure1-1.0/object-store-account-response.yaml
+  PodResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Pod'
+    x-sourced-from: responses/Pure1-1.0/pod-response.yaml
+  PodReplicaLinkResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/PodReplicaLink'
+    x-sourced-from: responses/Pure1-1.0/pod-replica-link-response.yaml
+  PolicyResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Policy'
+    x-sourced-from: responses/Pure1-1.0/policy-response.yaml
+  PortResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Port'
+    x-sourced-from: responses/Pure1-1.0/port-response.yaml
+  SubscriptionResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Subscription'
+    x-sourced-from: responses/Pure1-1.0/subscription-response.yaml
+  SubscriptionLicenseResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/SubscriptionLicense'
+    x-sourced-from: responses/Pure1-1.0/subscription-license-response.yaml
+  TargetResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Target'
+    x-sourced-from: responses/Pure1-1.0/target-response.yaml
+  VolumeResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Volume'
+    x-sourced-from: responses/Pure1-1.0/volume-response.yaml
+  VolumeSnapshotResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/VolumeSnapshot'
+    x-sourced-from: responses/Pure1-1.0/volume-snapshot-response.yaml
+  _arrays:
+    type: object
+    properties:
+      arrays:
+        description: |
+          The list of arrays where this resource exists. Many resources are on a single array, but
+          some resources, such as pods, can be shared across multiple arrays.
+        type: array
+        items:
+          $ref: '#/definitions/_fixedReference'
+        readOnly: true
+    x-readOnly: true
+    x-sourced-from: models/Pure1-1.0/_arrays.yaml
+  _resourceNoName:
+    description: |
+      An ordinary (as opposed to built-in) resource that can be created or deleted
+      by the user. This might be a virtual resource (e.g., a volume), or correspond
+      to something in the physical environment, like a host or a server.
+    allOf:
+    - $ref: '#/definitions/_timeAware'
+    - properties:
+        id:
+          description: A non-modifiable, globally unique ID chosen by the system.
+          type: string
+          readOnly: true
+          example: 2a989a09-c851-4d52-9ec6-ab728b1c04db
+    x-sourced-from: models/Pure1-1.0/_resource-no-name.yaml
+  _errorErrors:
+    type: object
+    properties:
+      context:
+        type: string
+        example: "Error with ..."
+      message:
+        type: string
+        example: "Something was wrong"
+    x-sourced-from: models/Pure1-1.0/_error-errors.yaml
+  ObjectStoreAccount:
+    allOf:
+    - $ref: '#/definitions/_arraysResource'
+    - properties:
+        created:
+          type: integer
+          readOnly: true
+          format: int64
+          description: Creation timestamp of the object, in milliseconds since Unix epoch.
+          example: 1502729489760
+        object_count:
+          type: integer
+          readOnly: true
+          format: int64
+          description: The number of objects within the account.
+          example: 15
+    x-sourced-from: models/Pure1-1.0/object-store-account.yaml
+parameters:
+  OauthGrantType:
+    name: grant_type
+    in: formData
+    description: |
+      The method by which the access token will be obtained.
+      The Pure Storage REST API supports the OAuth 2.0 "token exchange" grant type,
+      which indicates that a token exchange is being performed.
+      Set `grant_type` to `urn:ietf:params:oauth:grant-type:token-exchange`.
+    type: string
+    required: true
+# default is useful here since this is the only possible value so having it as
+# default means sdk users do not have to enter this value every time they make
+# this call. However, in the general case we strongly discourage using default
+# and it should never ever be used if the resource can be updated (i.e. it has
+# a patch endpoint) as that can cause the user to update fields they didn't
+# intend to.
+    default: urn:ietf:params:oauth:grant-type:token-exchange
+    x-sourced-from: queries/TEx-v1/oauth-grant-type.query.yaml
+  OauthSubjectToken:
+    name: subject_token
+    in: formData
+    type: string
+    description: |+
+      An encoded security ID Token representing the identity of the party on behalf of
+      whom the request is being made. The token must be issued by a trusted
+      identity provider which must be either a registered application in Pure1
+      or an enabled API client on the array. The token must be a JSON Web Token
+      and must contain the following claims:
+
+      > | JWT claim | Location | API Client Field | Description | Required By |
+
+      > |-|-|-|-|-|
+
+      > | kid | Header | key_id | Key ID of the API client that issues the identity token. | FlashArray
+      and FlashBlade only. |
+
+      > | aud | Payload | id | Client ID of the API client that issues the identity token. | FlashArray
+      and FlashBlade only. |
+
+      > | sub | Payload | | Login name of the array user for whom the token should be issued.
+      This must be a valid user in the system. | FlashArray and FlashBlade only. |
+
+      > | iss | Payload | issuer | Application ID for the Pure1 or API client's trusted identity
+      issuer on the array. | All products. |
+
+      > | iat | Payload | | Timestamp of when the identity token was issued.
+      Measured in milliseconds since the UNIX epoch. | All products. |
+
+      > | exp | Payload | | Timestamp of when the identity token will expire.
+      Measured in milliseconds since the UNIX epoch. | All products. |
+
+
+      Each token must also be signed with the private key that is paired with the
+      API client's public key.
+
+    required: true
+    x-sourced-from: queries/TEx-v1/oauth-subject-token.query.yaml
+  OauthSubjectTokenType:
+    name: subject_token_type
+    in: formData
+    description: |
+      An identifier that indicates the type of security token specifed in the `subject_token` parameter.
+      The Pure Storage REST API supports the JSON Web Token (JWT)
+      as the means for requesting the access token.
+      Set `subject_token_type` to `urn:ietf:params:oauth:token-type:jwt`.
+    type: string
+    required: true
+# default is useful here since this is the only possible value so having it as
+# default means sdk users do not have to enter this value every time they make
+# this call. However, in the general case we strongly discourage using default
+# and it should never ever be used if the resource can be updated (i.e. it has
+# a patch endpoint) as that can cause the user to update fields they didn't
+# intend to.
+    default: urn:ietf:params:oauth:token-type:jwt
+    x-sourced-from: queries/TEx-v1/oauth-subject-token-type.query.yaml
+  XRequestId.TEx-v1:
+    name: X-Request-ID
+    in: header
+    description: |
+      Supplied by client during request or generated by server.
+    type: string
+    x-sourced-from: queries/TEx-v1/x-request-id.header.yaml
+  XRequestId:
+    name: X-Request-ID
+    in: header
+    description: |
+      Supplied by client during request or generated by server.
+    type: string
+    x-sourced-from: queries/Pure1-1.0/x-request-id.header.yaml
+  Authorization:
+    name: Authorization
+    in: header
+    description: |
+      Access token (in JWT format) required to use any API endpoint (except `/oauth2`)
+    type: string
+    x-sourced-from: queries/Pure1-1.0/authorization.header.yaml
+  Continuation_token:
+    name: continuation_token
+    in: query
+    description: |
+      An opaque token used to iterate over a collection.
+      The token to use on the next request is returned in the
+      `continuation_token` field of the result.
+      Single quotes are required around all strings.
+    x-quoted: true
+    type: string
+    x-sourced-from: queries/Pure1-1.0/continuation_token.query.yaml
+  Filter:
+    name: filter
+    in: query
+    description: |
+      Exclude resources that don't match the specified criteria.
+      Single quotes are required around all strings inside the filters.
+    type: string
+    x-sourced-from: queries/Pure1-1.0/filter.query.yaml
+  Ids:
+    name: ids
+    in: query
+    description: |
+      A comma-separated list of resource IDs.
+      If there is not at least one resource that matches each `id` element,
+      an error is returned.
+      Single quotes are required around all strings.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/ids.query.yaml
+  Limit:
+    name: limit
+    in: query
+    description: |
+      Limit the size of the response to the specified number of resources.
+      A limit of 0 can be used to get the number of resources without getting
+      all of the resources. It will be returned in the total_item_count field.
+      If a client asks for a page size larger than the maximum number, the request
+      is still valid. In that case the server just returns the maximum number of
+      items, disregarding the client's page size request. If not specified, defaults
+      to 1000.
+    type: integer
+    format: int32
+    x-sourced-from: queries/Pure1-1.0/limit.query.yaml
+  Names:
+    name: names
+    in: query
+    description: |
+      A comma-separated list of resource names.
+      If there is not at least one resource that matches each `name` element,
+      an error is returned.
+      Single quotes are required around all strings.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/names.query.yaml
+  Offset:
+    name: offset
+    in: query
+    description: |
+      The offset of the first resource to return from a collection.
+    type: integer
+    format: int32
+    minimum: 0
+    x-sourced-from: queries/Pure1-1.0/offset.query.yaml
+  Sort:
+    name: sort
+    in: query
+    description: |
+      Sort the response by the specified fields (in descending order if '-'
+      is appended to the field name).
+      If you provide a sort you will not get a continuation token in
+      the response.
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+      pattern: '^[a-z]+(_[a-z]+)*-?'
+    x-sourced-from: queries/Pure1-1.0/sort.query.yaml
+  Resource_ids:
+    name: resource_ids
+    in: query
+    description: |
+      A comma-separated list of resource IDs.
+      If there is not at least one resource that matches each `resource_id` element,
+      an error is returned.
+      Single quotes are required around all strings.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/resource_ids.query.yaml
+  Resource_names:
+    name: resource_names
+    in: query
+    description: |
+      A comma-separated list of resource names.
+      If there is not at least one resource that matches each `resource_name`
+      element, an error is returned.
+      Single quotes are required around all strings.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/resource_names.query.yaml
+  Keys:
+    name: keys
+    in: query
+    description: |
+      A comma-separated list of tag keys.
+      Single quotes are required around all strings.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/keys.query.yaml
+  Namespaces:
+    name: namespaces
+    in: query
+    description: |
+      A comma-separated list of namespaces.
+      Single quotes are required around all strings.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/namespaces.query.yaml
+  Resource_idsRequired:
+    name: resource_ids
+    in: query
+    description: |
+      REQUIRED: either `resource_ids` or `resource_names`.
+      A comma-separated list of resource IDs.
+      If there is not at least one resource that matches each `resource_id` element,
+      an error is returned.
+      Single quotes are required around all strings.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/resource_ids-required.query.yaml
+  Resource_namesRequired:
+    name: resource_names
+    in: query
+    description: |
+      REQUIRED: either `resource_ids` or `resource_names`.
+      A comma-separated list of resource names.
+      If there is not at least one resource that matches each `resource_name`
+      element, an error is returned.
+      Single quotes are required around all strings.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/resource_names-required.query.yaml
+  TagBatchRequired:
+    x-codegen-request-body-name: tag
+    name: tag
+    in: body
+    description: |
+      A list of tags to be upserted.
+    required: true
+    schema:
+      type: array
+      items:
+        $ref: '#/definitions/TagPut'
+    x-sourced-from: queries/Pure1-1.0/tag-batch-required.query.yaml
+  Member_ids_plus:
+    name: member_ids
+    in: query
+    description: |
+      A list of member IDs. Member IDs separated by a `+` indicate that both
+      members must be present in each element. Member IDs separated by a `,`
+      indicate that at least one member must be present in each element.
+      If there is not at least one resource that matches each `member_id` element,
+      an error is returned.
+      Single quotes are required around all strings.
+      When using Try it Out in Swagger, a list of member IDs separated by a `+`
+      must be entered in the same item cell.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/member_ids_plus.query.yaml
+  Member_names_plus:
+    name: member_names
+    in: query
+    description: |
+      A list of member names. Member names separated by a `+` indicate that both
+      members must be present in each element. Member names separated by a `,`
+      indicate that at least one member must be present in each element.
+      If there is not at least one resource that matches each `member_name` element,
+      an error is returned.
+      Single quotes are required around all strings.
+      When using Try it Out in Swagger, a list of member names separated by a `+`
+      must be entered in the same item cell.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/member_names_plus.query.yaml
+  Source_ids_plus:
+    name: source_ids
+    in: query
+    description: |
+      A list of source IDs. Source IDs separated by a `+` indicate that both
+      sources must be present in each element. Source IDs separated by a `,`
+      indicate that at least one source must be present in each element.
+      If there is not at least one resource that matches each `source_id` element,
+      an error is returned.
+      Single quotes are required around all strings.
+      When using Try it Out in Swagger, a list of source IDs separated by a `+`
+      must be entered in the same item cell.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/source_ids_plus.query.yaml
+  Source_names_plus:
+    name: source_names
+    in: query
+    description: |
+      A list of source names. Source names separated by a `+` indicate that both
+      sources must be present in each element. Source names separated by a `,`
+      indicate that at least one source must be present in each element.
+      If there is not at least one resource that matches each `source_name` element,
+      an error is returned.
+      Single quotes are required around all strings.
+      When using Try it Out in Swagger, a list of source names separated by a `+`
+      must be entered in the same item cell.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/source_names_plus.query.yaml
+  Target_ids_plus:
+    name: target_ids
+    in: query
+    description: |
+      A list of target IDs. Target IDs separated by a `+` indicate that both
+      targets must be present in each element. Target IDs separated by a `,`
+      indicate that at least one target must be present in each element.
+      If there is not at least one resource that matches each `target_id` element,
+      an error is returned.
+      Single quotes are required around all strings.
+      When using Try it Out in Swagger, a list of target IDs separated by a `+`
+      must be entered in the same item cell.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/target_ids_plus.query.yaml
+  Target_names_plus:
+    name: target_names
+    in: query
+    description: |
+      A list of target names. Target names separated by a `+` indicate that both
+      targets must be present in each element. Target names separated by a `,`
+      indicate that at least one target must be present in each element.
+      If there is not at least one resource that matches each `target_name` element,
+      an error is returned.
+      Single quotes are required around all strings.
+      When using Try it Out in Swagger, a list of target names separated by a `+`
+      must be entered in the same item cell.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/target_names_plus.query.yaml
+  File_system_ids:
+    name: file_system_ids
+    in: query
+    description: |
+      Performs the operation on the file system ID specified.
+      Enter multiple file system IDs in comma-separated format.
+      The `file_system_ids` and `file_system_names` parameters cannot be provided together.
+      Single quotes are required around all strings.
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/file_system_ids.query.yaml
+  File_system_names:
+    name: file_system_names
+    in: query
+    description: |
+      Performs the operation on the file system name specified.
+      Enter multiple file system names in comma-separated format.
+      For example, `filesystem1,filesystem2`.
+      The `file_system_ids` and `file_system_names` parameters cannot be provided together.
+      Single quotes are required around all strings.
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/file_system_names.query.yaml
+  Member_ids:
+    name: member_ids
+    in: query
+    description: |
+      A comma-separated list of member IDs.
+      If there is not at least one resource that matches each `member_id` element,
+      an error is returned.
+      Single quotes are required around all strings.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/member_ids.query.yaml
+  Member_names:
+    name: member_names
+    in: query
+    description: |
+      A comma-separated list of member names.
+      If there is not at least one resource that matches each `member_name` element,
+      an error is returned.
+      Single quotes are required around all strings.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/member_names.query.yaml
+  Policy_ids:
+    name: policy_ids
+    in: query
+    description: |
+      A comma-separated list of policy IDs.
+      If there is not at least one resource that matches each `policy_id` element,
+      an error is returned.
+      Single quotes are required around all strings.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/policy_ids.query.yaml
+  Policy_names:
+    name: policy_names
+    in: query
+    description: |
+      A comma-separated list of policy names.
+      If there is not at least one resource that matches each `policy_name` element,
+      an error is returned.
+      Single quotes are required around all strings.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/policy_names.query.yaml
+  Source_ids:
+    name: source_ids
+    in: query
+    description: |
+      A comma-separated list of ids for the source of the object.
+      If there is not at least one resource that matches each `source_id` element,
+      an error is returned.
+      Single quotes are required around all strings.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/source_ids.yaml
+  Source_names:
+    name: source_names
+    in: query
+    description: |
+      A comma-separated list of names for the source of the object.
+      If there is not at least one resource that matches each `source_name` element,
+      an error is returned.
+      Single quotes are required around all strings.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/source_names.yaml
+  Resource_types:
+    name: resource_types
+    in: query
+    description: |
+      The resource types to list the available metrics.
+      Valid values are `arrays`, `buckets`, `directories`,
+      `file-systems`, `pods`, `subscription-licenses` and
+      `volumes`.
+      A metric can belong to a combination of resources,
+      e.g., write-iops from array to pod. In that case, query by
+      ['arrays', 'pods'].
+      Single quotes are required around all strings.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/resource_types.query.yaml
+  AggregationRequired:
+    name: aggregation
+    in: query
+    description: |
+      Aggregation needed on the metric data.
+      Valid values are `avg` and `max`.
+      Single quotes are required around all strings.
+      Latency metrics averages are weighted by the IOPS.
+    x-quoted: true
+    type: string
+    required: true
+    x-sourced-from: queries/Pure1-1.0/aggregation-required.query.yaml
+  End_timeRequired:
+    name: end_time
+    in: query
+    description: |
+      Timestamp of when the time window ends. Measured in milliseconds since the UNIX epoch.
+    type: integer
+    format: int64
+    required: true
+    x-sourced-from: queries/Pure1-1.0/end_time-required.query.yaml
+  IdsRequired:
+    name: ids
+    in: query
+    description: |
+      REQUIRED: either `ids` or `names`.
+      A comma-separated list of object IDs.
+      If there is not at least one resource that matches each `id` element,
+      an error is returned.
+      Single quotes are required around all strings.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+# NOTE: it is not possible to specify that between two parameters, only one
+#       or the other is required
+    x-sourced-from: queries/Pure1-1.0/ids-required.query.yaml
+  NamesRequired:
+    name: names
+    in: query
+    description: |
+      REQUIRED: either `names` or `ids`.
+      A comma-separated list of resource names.
+      If there is not at least one resource that matches each `name` element,
+      an error is returned.
+      Single quotes are required around all strings.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+# NOTE: it is not possible to specify that between two parameters, only one
+#       or the other is required
+    x-sourced-from: queries/Pure1-1.0/names-required.query.yaml
+  ResolutionRequired:
+    name: resolution
+    in: query
+    description: |
+      The duration of time between individual data points, in milliseconds.
+    type: integer
+    format: int64
+    required: true
+    x-sourced-from: queries/Pure1-1.0/resolution-required.query.yaml
+  Start_timeRequired:
+    name: start_time
+    in: query
+    description: |
+      Timestamp of when the time window starts. Measured in milliseconds since the UNIX epoch.
+    type: integer
+    format: int64
+    required: true
+    x-sourced-from: queries/Pure1-1.0/start_time-required.query.yaml
+  Marketplace_partner_reference_ids:
+    name: marketplace_partner_reference_ids
+    in: query
+    description: |
+      A comma-separated list of marketplace partner reference IDs.
+      If there is not at least one resource that matches each
+      `marketplace_partner.reference_id` element, an error is returned.
+      Single quotes are required around all strings.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/marketplace_partner_reference_ids.query.yaml
+  Subscription_ids:
+    name: subscription_ids
+    in: query
+    description: |
+      A comma-separated list of subscription IDs.
+      If there is not at least one resource that matches each `subscription.id`
+      element, an error is returned.
+      Single quotes are required around all strings.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/subscription_ids.query.yaml
+  Subscription_names:
+    name: subscription_names
+    in: query
+    description: |
+      A comma-separated list of subscription names.
+      If there is not at least one resource that matches each `subscription.name`
+      element, an error is returned.
+      Single quotes are required around all strings.
+    x-quoted: true
+    type: array
+    collectionFormat: csv
+    items:
+      type: string
+    x-sourced-from: queries/Pure1-1.0/subscription_names.query.yaml
+responses:
+  OauthToken200:
+    description: OK
+    schema:
+      type: object
+      title: "oauth_token_response"
+      properties:
+        access_token:
+          description: |
+            The serialized OAuth 2.0 Bearer token used to perform authenticated requests.
+            The access token must be added to the Authorization header of all API calls.
+          type: string
+          example: "eyJraWQiOiJqTlBzL1Ria2c4U2Vua3F3ZmkvbnI4bWxxQ3NPIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiI5NDcyMTkwOC1mNzkyLTcxMmUtYTYzOS0wODM5ZmE4MzA5MjIiLCJzdWIiOiJqb2UiLCJyb2xlIjoic3RvcmFnZV9hZG1pbiIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6OTAwMCIsImlhdCI6MTU0NDAzNjA1MiwiZXhwIjoxNTQ0MDcyMDUyLCJqdGkiOiJjOTg0MjgyNS1mNGM3LTRiNGUtODdkNy03OWFiZmIxYTUzNDgifQ.pnuYAx0CkmkIG0LDrMAQGRr5Ci4-t5yMto3A7BkmyKnAVHBXG5ZIWwvNkWDLhqbA4YjmG7LZmWHrCVehLy2zy2vRLahFURsd3GTnOaWSyWFIyrwpoO81jQRtOQATtseweuMT_-C8o3oa4MgBNBsuKrhwKQS3oDDpeRPaCRTGev1_xRDxh_K6CWJBTAeOP2pcR4LW6zIJkCLzzkMuyL4aTJWWUjSbl04mcFbyw8r8W1GURrmaDVOvvpT634Hk9-GGh9OMIRlS6OOq7cJKc-RRWn18IK2Gs53V_KYshXTBbnRr990Y_qOX8MaTWOJTqgzsojY02MSVuJ9XDJWoIU3TQytr4K1vM2EvwDZDgl7LuUYUn7vWhbKktFzpeZyyhOjq3eX-ViugYKpIjBcG2f_-fcTPceEWGV82rd6TyVNB5A-v9u2kxCdW198t_kesgVQfuupDeS02cZe0ABLCzEHPiVF17JfiVr6sjkciioxN7Wj_j18ga4U0mdSukauT8yhbgCW1ijTVTFu1VwWebW0s8z3BWMtXdTtZ3BhcZVAdKRF8bOq7nfEbUQGhTn9g7dK-yF050winjtp-VTL2oUtkF5j1v_N8vPNiN9ZdkGJZr7VVZ-qeOJZcjdaRbxL6YB__yT1wkTcKPh8RHz6GUq7Jbyw8VIlcBE2nvJ63d0tH9C4"
+        issued_token_type:
+          description: |
+            The type of token that is issued.
+            The Pure Storage REST API supports OAuth 2.0 access tokens.
+          type: string
+          example: urn:ietf:params:oauth:token-type:access_token
+        token_type:
+          description: |
+            Indicates how the API client can use the access token issued.
+            The Pure Storage REST API supports the `Bearer` token.
+          type: string
+          example: Bearer
+        expires_in:
+          description: |
+            The duration after which the access token will expire.
+            Measured in seconds. This differs from other duration
+            fields that are expressed in milliseconds.
+          type: integer
+          format: uint32
+          example: 35999
+    x-sourced-from: responses/TEx-v1/oauth-token-200.response.yaml
+  OauthToken400:
+    description: BAD REQUEST
+    schema:
+      type: object
+      properties:
+        error:
+          type: string
+          example: invalid_request
+        error_description:
+          type: string
+          example: "Unsupported subject_token_type: urn:ietf:params:oauth:token-"
+    x-sourced-from: responses/TEx-v2/oauth-token-400.response.yaml
+  OauthToken401:
+    description: UNAUTHORIZED
+    schema:
+      type: object
+      properties:
+        error:
+          type: string
+          example: invalid_client
+        error_description:
+          type: string
+          example: "Invalid identity: JWT validation failed."
+    x-sourced-from: responses/TEx-v1/oauth-token-401.response.yaml
+  Error400:
+    description: BAD REQUEST
+    schema:
+      $ref: '#/definitions/Error'
+    headers:
+      X-Request-ID:
+        description: Supplied by client during request or generated by server.
+        schema:
+          type: string
+      X-RateLimit-Limit-minute:
+        description: The number of requests available per minute.
+        schema:
+          type: integer
+      X-RateLimit-Limit-second:
+        description: The number of requests available per second.
+        schema:
+          type: integer
+      X-RateLimit-Remaining-minute:
+        description: |
+          The number of requests remaining for the organization in that minute.
+        schema:
+          type: integer
+      X-RateLimit-Remaining-second:
+        description: |
+          The number of requests remaining for the organization in that second.
+        schema:
+          type: integer
+    x-sourced-from: responses/Pure1-1.0/error-400.response.yaml
+  Error403:
+    description: FORBIDDEN
+    headers:
+      X-Request-ID:
+        description: Supplied by client during request or generated by server.
+        schema:
+          type: string
+    schema:
+      $ref: '#/definitions/ErrorNoContext'
+    x-sourced-from: responses/Pure1-1.0/error-403.response.yaml
+  Error404:
+    description: NOT FOUND
+    schema:
+      $ref: '#/definitions/Error'
+    headers:
+      X-Request-ID:
+        description: Supplied by client during request or generated by server.
+        schema:
+          type: string
+      X-RateLimit-Limit-minute:
+        description: The number of requests available per minute.
+        schema:
+          type: integer
+      X-RateLimit-Limit-second:
+        description: The number of requests available per second.
+        schema:
+          type: integer
+      X-RateLimit-Remaining-minute:
+        description: |
+          The number of requests remaining for the organization in that minute.
+        schema:
+          type: integer
+      X-RateLimit-Remaining-second:
+        description: |
+          The number of requests remaining for the organization in that second.
+        schema:
+          type: integer
+    x-sourced-from: responses/Pure1-1.0/error-404.response.yaml
+  Error429:
+    description: TOO MANY REQUESTS
+    schema:
+      $ref: '#/definitions/ErrorNoContext'
+    headers:
+      X-Request-ID:
+        description: Supplied by client during request or generated by server.
+        schema:
+          type: string
+      X-RateLimit-Limit-minute:
+        description: The number of requests available per minute.
+        schema:
+          type: integer
+      X-RateLimit-Limit-second:
+        description: The number of requests available per second.
+        schema:
+          type: integer
+      X-RateLimit-Remaining-minute:
+        description: |
+          The number of requests remaining for the organization in that minute.
+        schema:
+          type: integer
+      X-RateLimit-Remaining-second:
+        description: |
+          The number of requests remaining for the organization in that second.
+        schema:
+          type: integer
+    x-sourced-from: responses/Pure1-1.0/error-429.response.yaml
+  Error500:
+    description: INTERNAL SERVER ERROR
+    schema:
+      $ref: '#/definitions/Error'
+    headers:
+      X-Request-ID:
+        description: Supplied by client during request or generated by server.
+        schema:
+          type: string
+      X-RateLimit-Limit-minute:
+        description: The number of requests available per minute.
+        schema:
+          type: integer
+      X-RateLimit-Limit-second:
+        description: The number of requests available per second.
+        schema:
+          type: integer
+      X-RateLimit-Remaining-minute:
+        description: |
+          The number of requests remaining for the organization in that minute.
+        schema:
+          type: integer
+      X-RateLimit-Remaining-second:
+        description: |
+          The number of requests remaining for the organization in that second.
+        schema:
+          type: integer
+    x-sourced-from: responses/Pure1-1.0/error-500.response.yaml
