@@ -1,0 +1,6335 @@
+swagger: '2.0'
+info:
+  description: '## Pure Swagger UI for Pure1
+
+    Please visit [Pure1 Swagger](https://static.pure1.purestorage.com/api-swagger/index.html)
+    for the official available swagger.
+
+    For help try the [code-purestorage Slack](https://community.purestorage.com/discussion/9561/join-the-new-pure-code-slack-team-for-api-and-extensibility-discussions)
+
+
+    ## Getting Started Blog
+
+    [https://blog.purestorage.com/introducing-the-pure1-rest-api/](https://blog.purestorage.com/introducing-the-pure1-rest-api/)
+
+    A walkthrough on getting started with the Pure1 API written'
+  version: '1.4'
+  title: Pure1 Public REST API
+  x-logo:
+    url:
+      $ref: ../redoc/PS-LogoBase64-P1.txt
+    backgroundColor: '#fff'
+    altText: Pure Storage logo
+securityDefinitions:
+  AuthorizationHeader:
+    type: apiKey
+    name: Authorization
+    in: header
+security:
+- AuthorizationHeader: []
+consumes:
+- application/x-www-form-urlencoded
+- application/json
+produces:
+- application/json
+paths:
+  /api/1.4/file-systems/policies:
+    get:
+      tags:
+      - File Systems
+      summary: Get FlashBlade file system / policy pairs
+      description: 'Retrieves pairs of FlashBlade file system members and their policies.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Member_ids'
+      - $ref: '#/parameters/Member_names'
+      - $ref: '#/parameters/Policy_ids'
+      - $ref: '#/parameters/Policy_names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/PolicyMembersGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/hardware:
+    get:
+      tags:
+      - Hardware
+      summary: Get hardware
+      description: 'Retrieves information about hardware components.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/HardwareGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/blades:
+    get:
+      tags:
+      - Blades
+      summary: Get blades
+      description: 'Retrieves information about FlashBlade blades.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/BladeGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/assessment/sustainability/insights/arrays:
+    get:
+      tags:
+      - Sustainability
+      summary: Get appliance sustainability insights information.
+      description: 'Retrieves information about FlashArray and FlashBlade insights
+
+        connected to sustainability assessment.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/SustainabilityInsightArrayGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/file-system-replica-links/policies:
+    get:
+      tags:
+      - File System Replica Links
+      summary: Get FlashBlade file system replica link / policy pairs
+      description: 'Retrieves pairs of FlashBlade file system replica link members
+        and their policies.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Member_ids'
+      - $ref: '#/parameters/Member_names'
+      - $ref: '#/parameters/Policy_ids'
+      - $ref: '#/parameters/Policy_names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/PolicyMembersGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/arrays:
+    get:
+      tags:
+      - Arrays
+      summary: Get arrays
+      description: 'Retrieves information about FlashArray and FlashBlade storage
+        appliances.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Fqdns'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/ArrayGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/policies:
+    get:
+      tags:
+      - Policies
+      summary: Get policies
+      description: 'Retrieves policies and their rules.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/PolicyGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/volumes:
+    get:
+      tags:
+      - Volumes
+      summary: Get volumes
+      description: 'Retrieves information about FlashArray volume objects.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/VolumeGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/arrays/tags/batch:
+    put:
+      tags:
+      - Arrays
+      summary: 'Create or update array tags
+
+        '
+      description: 'Creates or updates array tags contextual to Pure1 only.
+
+        '
+      parameters:
+      - in: body
+        required: true
+        schema:
+          $ref: '#/definitions/TagBatchRequired'
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Namespaces'
+      - $ref: '#/parameters/Resource_idsRequired'
+      - $ref: '#/parameters/Resource_namesRequired'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/TagResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/arrays/tags:
+    get:
+      tags:
+      - Arrays
+      summary: Get array tags
+      description: 'Retrieves the tags associated with specified arrays.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Keys'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Namespaces'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Resource_ids'
+      - $ref: '#/parameters/Resource_names'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/TagGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+    delete:
+      tags:
+      - Arrays
+      summary: Delete array tags
+      description: 'Deletes array tags from Pure1.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Keys'
+      - $ref: '#/parameters/Namespaces'
+      - $ref: '#/parameters/Resource_idsRequired'
+      - $ref: '#/parameters/Resource_namesRequired'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/pod-replica-links:
+    get:
+      tags:
+      - Pod Replica Links
+      summary: Get pod replica links
+      description: 'Retrieves information about pod replica links.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Member_ids_plus'
+      - $ref: '#/parameters/Member_names_plus'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      - $ref: '#/parameters/Source_ids_plus'
+      - $ref: '#/parameters/Source_names_plus'
+      - $ref: '#/parameters/Target_ids_plus'
+      - $ref: '#/parameters/Target_names_plus'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/PodReplicaLinkGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/policies/file-system-replica-links:
+    get:
+      tags:
+      - Policies
+      summary: Get policy / FlashBlade file system replica link pairs
+      description: 'Retrieves pairs of policy references and their FlashBlade file
+        system replica link members.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Member_ids'
+      - $ref: '#/parameters/Member_names'
+      - $ref: '#/parameters/Policy_ids'
+      - $ref: '#/parameters/Policy_names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/PolicyMembersGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/audits:
+    get:
+      tags:
+      - Audits
+      summary: Get audits
+      description: 'Retrieves audit objects.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/AuditsGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/controllers:
+    get:
+      tags:
+      - Controllers
+      summary: Get controllers
+      description: 'Retrieves information about controllers.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/ControllerGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/policies/members:
+    get:
+      tags:
+      - Policies
+      summary: Get policy / member pairs
+      description: 'Retrieves pairs of policy references and their members.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Member_ids'
+      - $ref: '#/parameters/Member_names'
+      - $ref: '#/parameters/Policy_ids'
+      - $ref: '#/parameters/Policy_names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/PolicyMembersGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/subscription-licenses:
+    get:
+      tags:
+      - Subscriptions
+      summary: Get subscription licenses
+      description: 'Retrieves information about Pure1 subscription licenses.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Marketplace_partner_reference_ids'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      - $ref: '#/parameters/Subscription_ids'
+      - $ref: '#/parameters/Subscription_names'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/SubscriptionLicenseGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/file-system-replica-links:
+    get:
+      tags:
+      - File System Replica Links
+      summary: Get FlashBlade file system replica links
+      description: 'Retrieves information about FlashBlade file system replica links.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Member_ids_plus'
+      - $ref: '#/parameters/Member_names_plus'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      - $ref: '#/parameters/Source_ids_plus'
+      - $ref: '#/parameters/Source_names_plus'
+      - $ref: '#/parameters/Target_ids_plus'
+      - $ref: '#/parameters/Target_names_plus'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/FileSystemReplicaLinkGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/policies/file-system-snapshots:
+    get:
+      tags:
+      - Policies
+      summary: Get policy / FlashBlade file system snapshot pairs
+      description: 'Retrieves pairs of policy references and their FlashBlade file
+        system snapshot members.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Member_ids'
+      - $ref: '#/parameters/Member_names'
+      - $ref: '#/parameters/Policy_ids'
+      - $ref: '#/parameters/Policy_names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/PolicyMembersGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/bucket-replica-links:
+    get:
+      tags:
+      - Bucket Replica Links
+      summary: Get bucket replica links
+      description: 'Retrieves information about bucket replica links.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Member_ids_plus'
+      - $ref: '#/parameters/Member_names_plus'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      - $ref: '#/parameters/Source_ids_plus'
+      - $ref: '#/parameters/Source_names_plus'
+      - $ref: '#/parameters/Target_ids_plus'
+      - $ref: '#/parameters/Target_names_plus'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/BucketReplicaLinkGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/metrics:
+    get:
+      tags:
+      - Metrics
+      summary: Get metrics
+      description: 'Retrieves information about metrics that can be queried for.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Resource_types'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/MetricGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/arrays/support-contracts:
+    get:
+      tags:
+      - Arrays
+      summary: Get array support contracts
+      description: 'Retrieves the support contracts associated with arrays.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Resource_ids'
+      - $ref: '#/parameters/Resource_fqdns'
+      - $ref: '#/parameters/Resource_names'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/SupportContractGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /oauth2/1.0/token:
+    post:
+      tags:
+      - Authorization
+      summary: Get access token
+      description: 'Exchanges an ID Token for an OAuth 2.0 access token.
+
+        '
+      parameters:
+      - $ref: '#/parameters/OauthSubjectTokenType'
+      - $ref: '#/parameters/OauthGrantType'
+      - $ref: '#/parameters/OauthSubjectToken'
+      - $ref: '#/parameters/XRequestId'
+      responses:
+        '200':
+          $ref: '#/responses/OauthToken200'
+        '400':
+          $ref: '#/responses/OauthToken400'
+        '401':
+          $ref: '#/responses/OauthToken401'
+  /api/1.4/directories:
+    get:
+      tags:
+      - Directories
+      summary: Get managed directories
+      description: 'Retrieves information about FlashArray managed directory objects.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/File_system_ids'
+      - $ref: '#/parameters/File_system_names'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/DirectoryGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/assessment/sustainability/arrays:
+    get:
+      tags:
+      - Sustainability
+      summary: Get appliance sustainability information.
+      description: 'Retrieves information about FlashArray and FlashBlade size,
+
+        power consumption, heat generation and its sustainability assessment.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Fqdns'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/SustainabilityArrayGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/buckets:
+    get:
+      tags:
+      - Buckets
+      summary: Get buckets
+      description: 'Retrieves buckets.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/BucketGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/volume-snapshots:
+    get:
+      tags:
+      - Volume Snapshots
+      summary: Get volume snapshots
+      description: 'Retrieves information about snapshots of volumes.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      - $ref: '#/parameters/Source_ids'
+      - $ref: '#/parameters/Source_names'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/VolumeSnapshotGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/network-interfaces:
+    get:
+      tags:
+      - Network Interfaces
+      summary: Get network interfaces
+      description: 'Retrieves information about physical and virtual network interface
+        objects.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/NetworkInterfaceGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/subscriptions:
+    get:
+      tags:
+      - Subscriptions
+      summary: Get subscriptions
+      description: 'Retrieves information about Pure1 subscriptions.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/SubscriptionGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/file-systems:
+    get:
+      tags:
+      - File Systems
+      summary: Get FlashArray and FlashBlade file systems
+      description: 'Retrieves information about FlashArray and FlashBlade file system
+        objects.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/FileSystemGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/hardware-connectors:
+    get:
+      tags:
+      - Hardware Connectors
+      summary: Get hardware connectors
+      description: 'Retrieves information about FlashBlade hardware connectors.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/HardwareConnectorGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/pods:
+    get:
+      tags:
+      - Pods
+      summary: Get pods
+      description: 'Retrieves information about pod objects.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/PodGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/alerts:
+    get:
+      tags:
+      - Alerts
+      summary: Get alerts
+      description: 'Retrieves information about alerts generated by Pure1-monitored
+        appliances.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/AlertsGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/drives:
+    get:
+      tags:
+      - Drives
+      summary: Get drives
+      description: 'Retrieves information about FlashArray drives.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/DriveGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/policies/file-systems:
+    get:
+      tags:
+      - Policies
+      summary: Get policy / FlashBlade file system pairs
+      description: 'Retrieves pairs of policy references and their FlashBlade file
+        system members.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Member_ids'
+      - $ref: '#/parameters/Member_names'
+      - $ref: '#/parameters/Policy_ids'
+      - $ref: '#/parameters/Policy_names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/PolicyMembersGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/ports:
+    get:
+      tags:
+      - Ports
+      summary: Get ports
+      description: 'Retrieves information about FlashArray ports.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/PortGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/targets:
+    get:
+      tags:
+      - Targets
+      summary: Get targets
+      description: 'Retrieves information about targets.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/TargetGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/file-system-snapshots/policies:
+    get:
+      tags:
+      - File System Snapshots
+      summary: Get FlashBlade file system snapshot / policy pairs
+      description: 'Retrieves pairs of FlashBlade file system snapshot members and
+        their policies.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Member_ids'
+      - $ref: '#/parameters/Member_names'
+      - $ref: '#/parameters/Policy_ids'
+      - $ref: '#/parameters/Policy_names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/PolicyMembersGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/file-system-snapshots:
+    get:
+      tags:
+      - File System Snapshots
+      summary: Get FlashBlade file system snapshots
+      description: 'Retrieves snapshots of FlashBlade file systems.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      - $ref: '#/parameters/Source_ids'
+      - $ref: '#/parameters/Source_names'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/FileSystemSnapshotGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/subscription-assets:
+    get:
+      tags:
+      - Subscriptions
+      summary: Get subscription assets
+      description: 'Retrieves information about Pure1 subscription assets.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      - $ref: '#/parameters/Advanced_space'
+      - $ref: '#/parameters/Subscription_ids'
+      - $ref: '#/parameters/Subscription_names'
+      - $ref: '#/parameters/License_ids'
+      - $ref: '#/parameters/License_names'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/SubscriptionAssetGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/object-store-accounts:
+    get:
+      tags:
+      - Object Store Accounts
+      summary: Get object store accounts
+      description: 'Retrieves object store accounts.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Names'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/ObjectStoreAccountGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/metrics/history:
+    get:
+      tags:
+      - Metrics
+      summary: Get metrics history
+      description: 'Retrieves historical metric data for resources.
+
+        This endpoint supports batching: Up to 32 time series can be retrieved in
+        one call.
+
+        It can be multiple metrics for one resource,
+
+        (e.g., load and bandwidth for one array - 2 time series),
+
+        one metric for multiple resource (e.g., load for arrayA and arrayB - 2 time
+        series),
+
+        or a combination of both, multiple metrics for multiple resources,
+
+        (e.g., load and bandwidth for arrayA and arrayB - 4 time series).
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/AggregationRequired'
+      - $ref: '#/parameters/End_timeRequired'
+      - $ref: '#/parameters/IdsRequired'
+      - $ref: '#/parameters/NamesRequired'
+      - $ref: '#/parameters/ResolutionRequired'
+      - $ref: '#/parameters/Resource_idsRequired'
+      - $ref: '#/parameters/Resource_namesRequired'
+      - $ref: '#/parameters/Start_timeRequired'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/MetricHistoryGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+  /api/1.4/invoices:
+    get:
+      tags:
+      - Invoices
+      summary: Get invoices
+      description: 'Retrieves information about Pure1 subscription invoices.
+
+        '
+      parameters:
+      - $ref: '#/parameters/Authorization'
+      - $ref: '#/parameters/XRequestId'
+      - $ref: '#/parameters/Continuation_token'
+      - $ref: '#/parameters/Filter'
+      - $ref: '#/parameters/Ids'
+      - $ref: '#/parameters/Limit'
+      - $ref: '#/parameters/Offset'
+      - $ref: '#/parameters/Sort'
+      - $ref: '#/parameters/Partner_purchase_orders'
+      - $ref: '#/parameters/Subscription_ids'
+      - $ref: '#/parameters/Subscription_names'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+            X-RateLimit-Remaining-second:
+              type: integer
+              format: int32
+            X-RateLimit-Remaining-minute:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-second:
+              type: integer
+              format: int32
+            X-RateLimit-Limit-minute:
+              type: integer
+              format: int32
+          schema:
+            $ref: '#/definitions/InvoiceGetResponse'
+        '400':
+          $ref: '#/responses/Error400'
+        '500':
+          $ref: '#/responses/Error500'
+        '403':
+          $ref: '#/responses/Error403'
+        '404':
+          $ref: '#/responses/Error404'
+        '429':
+          $ref: '#/responses/Error429'
+definitions:
+  Invoice:
+    type: object
+    properties:
+      date:
+        type: integer
+        format: int64
+        example: 1672531200000
+        description: 'The issuance date.
+
+          Represented as a timestamp of 00:00 on that date in UTC, in milliseconds
+          since UNIX epoch.
+
+          '
+      amount:
+        type: number
+        format: double
+        example: 1070.0
+        description: The total invoice amount, expressed in the currency defined in
+          `currency`.
+      due_date:
+        type: integer
+        format: int64
+        example: 1672531200000
+        description: 'The payment due date.
+
+          Represented as a timestamp of 00:00 on that date in UTC, in milliseconds
+          since UNIX epoch.
+
+          '
+      end_user_purchase_order:
+        type: string
+        example: 415Tib/400Tib/123456
+        description: The end user customer purchase order number.
+      subscription:
+        type: object
+        description: A reference to which subscription this invoice belongs.
+        title: FixedReference
+        allOf:
+        - $ref: '#/definitions/_fixedReference'
+      end_user_name:
+        type: string
+        example: Pure Storage
+        description: The end user customer name.
+      payment_terms:
+        type: string
+        example: Net 45
+        description: The invoice payment terms.
+      partner_purchase_order:
+        type: string
+        example: 123456-1
+        description: The partner purchase order number.
+      sales_representative:
+        type: string
+        example: John Doe
+        description: The sales representative that issued the invoice.
+      currency:
+        type: string
+        example: USD
+        description: 'The currency of the invoice in ISO 4217 format.
+
+          This currency applies to the total invoice amount as well as all amounts
+          in line items.
+
+          '
+      id:
+        type: string
+        example: INV123456
+        description: The invoice number, a globally unique identifier for this invoice.
+      lines:
+        type: array
+        description: A list of invoice line items.
+        items:
+          $ref: '#/definitions/InvoiceLine'
+      ship_date:
+        type: integer
+        format: int64
+        example: 1672531200000
+        description: 'The invoice shipment date.
+
+          Represented as a timestamp of 00:00 on that date in UTC, in milliseconds
+          since UNIX epoch.
+
+          '
+      status:
+        type: string
+        example: open
+        description: The invoice status. Values include `open` and `paid`.
+  AlertsResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Alert'
+  VolumeResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Volume'
+  VolumeGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/VolumeResponse'
+  _asset_address:
+    allOf:
+    - $ref: '#/definitions/_base_address'
+    - type: object
+      properties:
+        street_address:
+          type: string
+          example: 2555 Augustine Dr, Santa Clara, CA 95054, United States
+          readOnly: true
+  _base_address:
+    type: object
+    properties:
+      country:
+        type: string
+        example: United States
+        readOnly: true
+      city:
+        type: string
+        example: Mountain View
+        readOnly: true
+      state:
+        type: string
+        example: CA
+        description: The state or province.
+        readOnly: true
+  ControllerGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/ControllerResponse'
+  TargetResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Target'
+  _arraysResource:
+    allOf:
+    - $ref: '#/definitions/_resource'
+    - $ref: '#/definitions/_arrays'
+    description: 'A built-in resource that exists on one or multiple arrays.
+
+      '
+  SubscriptionAssetGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/SubscriptionAssetResponse'
+  _http:
+    type: object
+    properties:
+      enabled:
+        type: boolean
+        example: false
+        description: Is the protocol enabled?
+  TagBatchRequired:
+    type: array
+    description: 'A list of tags to be upserted.
+
+      '
+    items:
+      $ref: '#/definitions/TagPut'
+    x-codegen-request-body-name: tag
+  HardwareConnectorResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/HardwareConnector'
+  DirectoryGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/DirectoryResponse'
+  DriveGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/DriveResponse'
+  PolicyMembersResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/PolicyMember'
+  HardwareConnectorGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/HardwareConnectorResponse'
+  PodResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Pod'
+  Subscription:
+    allOf:
+    - $ref: '#/definitions/_builtInAsOf'
+    - type: object
+      properties:
+        service_details:
+          type: object
+          description: 'Additional details for the given service.
+
+            '
+          allOf: []
+        initial_name:
+          type: string
+          example: example_name
+          description: 'A non-modifiable, locally unique name that the subscription
+            was started with, never changes.
+
+            '
+          readOnly: true
+        partner_name:
+          type: string
+          example: Pure Storage Partner
+          description: The partner who invoices for the subscription.
+          readOnly: true
+        service:
+          type: string
+          example: PaaS (Block Storage Service)
+          description: 'The service type of the subscription. Values include
+
+            `Evergreen//One`,
+
+            `Evergreen//Flex`,
+
+            `FlashStack as a Service`,
+
+            `Storage as a Service`,
+
+            `PaaS (Block Storage Service)`,
+
+            `PaaS (File and Object Storage Service)`,
+
+            `PaaS (Data Protection Service)`,
+
+            and
+
+            `Pure1 Subscription`.
+
+            '
+        organization:
+          type: object
+          description: The Pure1 organization for the subscription.
+          title: FixedReference
+          allOf:
+          - $ref: '#/definitions/_fixedReference'
+        subscription_term:
+          type: integer
+          format: int32
+          example: 24
+          description: Length of the subscription in months.
+        expiration_date:
+          type: integer
+          format: int64
+          example: 1636238104000
+          description: 'Date when the subscription expires.
+
+            Represented as a timestamp of 00:00 on that date in UTC, in
+
+            milliseconds since UNIX epoch.
+
+            '
+        last_updated_date:
+          type: integer
+          format: int64
+          example: 1604702243000
+          description: 'The date of the last amendment to the current subscription.
+
+            Represented as a timestamp of 00:00 on that date in UTC, in
+
+            milliseconds since UNIX epoch.
+
+            '
+        start_date:
+          type: integer
+          format: int64
+          example: 1604702243000
+          description: 'Date when the subscription starts.
+
+            Represented as a timestamp of 00:00 on that date in UTC, in
+
+            milliseconds since UNIX epoch.
+
+            '
+        status:
+          type: string
+          example: active
+          description: 'Current status of the subscription. Values include `active`,
+
+            `terminated`, `poc-expired`, and `signed`.
+
+            '
+      description: 'A Pure1 subscription.
+
+        '
+  SubscriptionAssetArray:
+    type: object
+    properties:
+      chassis_serial_number:
+        type: string
+        description: The chassis serial number of the appliance.
+        readOnly: true
+      model:
+        type: string
+        example: FA-X50R2
+        description: The model of the appliance.
+        readOnly: true
+      advanced_space:
+        type: object
+        description: 'The physical and effective space information.
+
+          Only visible when the query parameter `advanced_space` is set to `true`.
+
+          '
+        title: SubscriptionAssetArrayAdvancedSpace
+        allOf:
+        - $ref: '#/definitions/SubscriptionAssetArrayAdvancedSpace'
+      version:
+        type: string
+        example: 5.0.0
+        description: The Purity version of the appliance.
+        readOnly: true
+      space:
+        type: object
+        description: 'Displays size and space consumption information.
+
+          For Evergreen//One and Evergreen//Flex this is the effective space information.
+
+          For Evergreen//Forever and Evergreen//Foundation this is the physical space
+          information.
+
+          '
+        title: AssetSpace
+        allOf:
+        - $ref: '#/definitions/_asset_space'
+  TagResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Tag'
+  ErrorNoContext:
+    type: object
+    properties:
+      message:
+        type: string
+        example: Something was wrong
+  Pod:
+    allOf:
+    - $ref: '#/definitions/_arraysResource'
+    - type: object
+      properties:
+        source:
+          type: object
+          description: A reference to the source pod of a pod clone.
+          title: FixedReference
+          allOf:
+          - $ref: '#/definitions/_fixedReference'
+        mediator:
+          type: string
+          example: purestorage
+          description: The URL of the mediator for this pod.
+    description: 'An administrative domain, a data container, and a namespace for
+
+      volumes and protection groups.
+
+      '
+  _asset_space:
+    type: object
+    properties:
+      total_used_ratio:
+        $ref: '#/definitions/_assetSpaceTotalUsedRatio'
+      total_used:
+        type: object
+        description: The total space contributed by customer data.
+        title: CurrentMetric
+        allOf:
+        - $ref: '#/definitions/_current_metric'
+      capacity:
+        type: object
+        description: The usable capacity of the appliance.
+        title: CurrentMetric
+        allOf:
+        - $ref: '#/definitions/_current_metric'
+  _arrays:
+    type: object
+    properties:
+      arrays:
+        type: array
+        description: 'The list of arrays where this resource exists. Many resources
+          are on a single array, but
+
+          some resources, such as pods, can be shared across multiple arrays.
+
+          '
+        readOnly: true
+        items:
+          $ref: '#/definitions/_fixedReferenceFqdn'
+  _policy_rule:
+    type: object
+    properties:
+      at:
+        type: integer
+        format: int64
+        example: 32400000
+        description: 'Time of day to take the snapshot, in milliseconds since 00:00
+          in the
+
+          specified `time_zone`. Only valid if `every` is set as whole days.
+
+          '
+      keep_for:
+        type: integer
+        format: int64
+        example: 86400000
+        description: How long to keep snapshots, in milliseconds.
+      time_zone:
+        type: string
+        example: America/Los_Angeles
+        description: The time zone in which the `at` rule is applied.
+      every:
+        type: integer
+        format: int64
+        example: 86400000
+        description: How often to take snapshots, in milliseconds.
+    description: A rule that can be added to a policy.
+  Blade:
+    allOf:
+    - $ref: '#/definitions/_builtInAsOf'
+    - type: object
+      properties:
+        raw_capacity:
+          type: number
+          format: int64
+          description: 'The raw storage capacity of the blade.
+
+            '
+          readOnly: true
+        details:
+          type: string
+          description: 'Extra details about the blade. Will be `null` if none exist.
+
+            '
+          readOnly: true
+        arrays:
+          type: array
+          description: 'A list of arrays that contain this blade.
+
+            Each blade should only exist on one array.
+
+            '
+          items:
+            $ref: '#/definitions/_bladeArrayStatus'
+          minItems: 1
+        status:
+          type: string
+          example: healthy
+          description: 'Valid values are `critical`, `evacuated`, `evacuating`, `healthy`,
+
+            `identifying`, `unclaimed`, `unhealthy`, `unknown`, `unrecognized`.
+
+            '
+          readOnly: true
+      description: 'A FlashBlade blade.
+
+        '
+  PodGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/PodResponse'
+  FileSystemSnapshot:
+    allOf:
+    - $ref: '#/definitions/_arraysBuiltIn'
+    - type: object
+      properties:
+        destroyed:
+          type: boolean
+          example: false
+          description: 'Indicates if this snapshot has been destroyed and is pending
+
+            eradication.
+
+            '
+        created:
+          type: integer
+          format: int64
+          example: 1502729489760
+          description: Creation time in milliseconds since UNIX epoch.
+        source:
+          type: object
+          description: 'A reference to the file system that the snapshot was taken
+            from.
+
+            '
+          title: FixedReference
+          allOf:
+          - $ref: '#/definitions/_fixedReference'
+        suffix:
+          type: string
+          example: checkpoint_2018_01_01
+          description: Indicates the suffix of the snapshot.
+        'on':
+          $ref: '#/definitions/_fixedReferenceFqdn'
+    description: 'A point-in-time image of the contents of a FlashBlade file system.
+
+      '
+  InvoiceLineComponent:
+    type: object
+    properties:
+      item:
+        type: string
+        example: 08-0144
+        description: The name of invoice component.
+      quantity:
+        type: integer
+        format: int64
+        example: 1
+        description: The quantity of current invoice component.
+        minimum: 0
+      description:
+        type: string
+        example: 24/7 support
+  PodReplicaLinkResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/PodReplicaLink'
+  Bucket:
+    allOf:
+    - $ref: '#/definitions/_arraysResource'
+    - type: object
+      properties:
+        destroyed:
+          type: boolean
+          description: 'Returns a value of `true` if the bucket is destroyed, but
+            not yet eradicated.
+
+            '
+        versioning:
+          type: string
+          description: 'The versioning state for objects within the bucket.
+
+            Valid values are `none`, `enabled`, and `suspended`.
+
+            '
+        created:
+          type: integer
+          format: int64
+          example: 1502729489760
+          description: Creation time of the bucket, in milliseconds since Unix epoch.
+          readOnly: true
+        object_count:
+          type: integer
+          format: int64
+          example: 15
+          description: The number of objects contained within the bucket.
+          readOnly: true
+        account:
+          $ref: '#/definitions/_fixedReference'
+  Volume:
+    allOf:
+    - $ref: '#/definitions/_arraysResource'
+    - type: object
+      properties:
+        destroyed:
+          type: boolean
+          example: false
+          description: Whether this volume has been destroyed or not.
+          readOnly: true
+        pod:
+          type: object
+          description: 'A reference to the pod this volume belongs to, if applicable.
+
+            '
+          title: FixedReference
+          allOf:
+          - $ref: '#/definitions/_fixedReference'
+        provisioned:
+          type: integer
+          format: int64
+          example: 2048576
+          description: Provisioned size of the volume in bytes.
+          minimum: 1048576
+          maximum: 4503599627370496
+        serial:
+          type: string
+          example: C68B5DCF2C1A4C9400012F92
+          description: 'Serial number generated by Purity when the volume was created.
+
+            '
+          readOnly: true
+        created:
+          type: integer
+          format: int64
+          example: 1502729489760
+          description: Creation time in milliseconds since UNIX epoch.
+          readOnly: true
+        source:
+          type: object
+          description: 'A reference to the volume this volume was cloned from, if
+            applicable.
+
+            '
+          title: FixedReference
+          allOf:
+          - $ref: '#/definitions/_fixedReference'
+        eradicated:
+          type: boolean
+          example: false
+          description: Whether this volume has been eradicated or not.
+          readOnly: true
+      description: 'A disk-like random access virtual storage device that a FlashArray
+
+        system exports to hosts via a logical unit number (LUN). For a host,
+
+        a volume contains a number of 512-byte sectors in which data can be
+
+        written and from which it can be read.
+
+        '
+  PolicyMembersGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/PolicyMembersResponse'
+  SupportContractResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/SupportContract'
+  _marketplace_partner:
+    type: object
+    properties:
+      reference_id:
+        type: string
+        description: 'External ID the marketplace partner knows to refer to this license.
+
+          '
+      name:
+        type: string
+        example: pure1
+        description: 'Name or identifier of the marketplace parter who owns the
+
+          reference ID.
+
+          '
+  SupportContractGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/SupportContractResponse'
+  TagGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/TagResponse'
+  _asset_org:
+    type: object
+    properties:
+      name:
+        type: string
+        example: Pure Storage
+        description: The organization name for the asset.
+        readOnly: true
+  NetworkInterfaceGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/NetworkInterfaceResponse'
+  VolumeSnapshotGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/VolumeSnapshotResponse'
+  PolicyMember:
+    allOf:
+    - $ref: '#/definitions/_timeAware'
+    - type: object
+      properties:
+        member:
+          $ref: '#/definitions/_fixedReference'
+        policy:
+          $ref: '#/definitions/_fixedReference'
+    description: An association between a policy and a member.
+  SustainabilityArrayResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/SustainabilityArray'
+  SustainabilityAssessment:
+    allOf:
+    - $ref: '#/definitions/_timeAware'
+    - $ref: '#/definitions/_time_interval'
+    - type: object
+      properties:
+        blades:
+          type: integer
+          format: int32
+          example: 15
+          description: 'The number of blades of the FlashBlade appliance, always zero
+            for FlashArray appliances.
+
+            '
+          readOnly: true
+        capacity_utilization:
+          type: number
+          example: 0.68
+          description: 'The percentage of the used capacity.
+
+            Average over the assessment window.
+
+            '
+          readOnly: true
+        heat_peak_spec:
+          type: number
+          example: 2046.0
+          description: 'The peak heat production of the appliance in BTU/hr.
+
+            The value is derived from benchmark data and remains static for the model
+            and configuration.
+
+            '
+          readOnly: true
+        heat_average:
+          type: number
+          example: 1787.69
+          description: 'The average of heat production of the appliance in BTU/Hr.
+
+            Average over the assessment window.
+
+            '
+          readOnly: true
+        array_data_reduction:
+          type: number
+          example: 2.5
+          description: 'The data reduction ratio of the appliance.
+
+            Average over the assessment window.
+
+            '
+          readOnly: true
+        chassis:
+          type: integer
+          format: int32
+          example: 1
+          description: 'The number of chassis of the appliance, always one for FlashArray
+            appliances.
+
+            '
+          readOnly: true
+        power_average:
+          type: number
+          example: 524.25
+          description: 'The average of power consumption of the appliance.
+
+            Average over the assessment window.
+
+            '
+          readOnly: true
+        power_peak_spec:
+          type: number
+          example: 600.0
+          description: 'The peak power consumption of the appliance in Watts.
+
+            The value is derived from benchmark data and remains static for the model
+            and configuration.
+
+            '
+          readOnly: true
+        power_per_usable_capacity:
+          type: number
+          example: 5.4
+          description: The average of power consumption per TiB of usable capacity.
+          readOnly: true
+        array_total_load:
+          type: number
+          example: 0.23
+          description: 'The load percentage.
+
+            Average over the assessment window.
+
+            '
+          readOnly: true
+        assessment_level:
+          type: string
+          example: good
+          description: "The assessment level of an appliance. Valid values include:\ngood
+            - The assessment level of appliance is GOOD - all green.\nrecommendation
+            - There are some actions\n  that can be done to bring appliance to a GOOD
+            level.\naction_required - The lowest level of assessment.\n  Some actions
+            are required to improve the assessment level.\n"
+          readOnly: true
+        shelves:
+          type: integer
+          format: int32
+          example: 1
+          description: 'The number of expansion shelves of the FlashArray appliance.
+
+            It is always zero for FlashBlade appliances.
+
+            '
+          readOnly: true
+        heat_typical_spec:
+          type: number
+          example: 1705.0
+          description: 'The typical heat production of the appliance in BTU/hr.
+
+            The value is derived from benchmark data and remains static for the model
+            and configuration.
+
+            '
+          readOnly: true
+        power_per_used_space:
+          type: number
+          example: 22.5
+          description: The average of power consumption per TiB of used space.
+          readOnly: true
+        rack_units:
+          type: integer
+          format: int32
+          example: 4
+          description: The total number of rack units occupied by the appliance.
+          readOnly: true
+        power_typical_spec:
+          type: number
+          example: 500.0
+          description: 'The typical power consumption of the appliance in Watts.
+
+            The value is derived from benchmark data and remains static for the model
+            and configuration.
+
+            '
+          readOnly: true
+    description: 'A FlashArray or FlashBlade Sustainability assessment information.
+
+      The _as_of is the time when the computation happened.
+
+      Only the data from the given time interval was used for the aggregation.
+
+      Typically the last week of data is used for the aggregation.
+
+      '
+  _fixedReference:
+    type: object
+    properties:
+      name:
+        type: string
+        example: example_name
+        description: The name of this resource.
+        readOnly: true
+      resource_type:
+        type: string
+        example: example_resource_type
+        description: 'The type of this resource represented by the name of its REST
+          endpoint.
+
+          For example, "arrays", "network-interfaces", and "metrics".
+
+          The value may be `null` if the resource is not represented.
+
+          '
+        readOnly: true
+      id:
+        type: string
+        example: 2a989a09-c851-4d52-9ec6-ab728b1c04db
+        description: The opaque and unique id of this resource.
+        readOnly: true
+  Target:
+    allOf:
+    - $ref: '#/definitions/_arraysBuiltIn'
+    - type: object
+      properties:
+        address:
+          type: string
+          example: example_name.dc1.example.com
+          description: IP address or FQDN of the target system.
+        status_details:
+          type: string
+          description: 'Additional information describing any issues encountered when
+
+            connecting, or `null` if the `status` is `connected`.
+
+            '
+          readOnly: true
+        status:
+          type: string
+          example: connected
+          description: 'Status of the connection. Values include `connected` and `connecting`.
+
+            '
+          readOnly: true
+      description: 'An external target system.
+
+        '
+  SustainabilityArray:
+    allOf:
+    - $ref: '#/definitions/_builtInAsOf'
+    - type: object
+      properties:
+        assessment:
+          $ref: '#/definitions/SustainabilityAssessment'
+        reporting_status:
+          type: string
+          example: assessment_ready
+          description: "Enum value that describes what is the status of the latest
+            assessment. Valid values include:\nnot_enough_data - There was not enough
+            data\n  to calculate assessment level of the appliance.\nunsupported_purity_version
+            - The appliance is running\n  an unsupported version of Purity operating
+            system.\n  It is an old Purity version which does not provide\n  enough
+            data for assessing the sustainability metrics.\nnot_phoning_home - The
+            appliance has not phoned home\n  for more than 7 days so the assessment
+            level was not calculated\nassessment_ready - Assessment is ready and it
+            is available under `assessment` field.\n"
+          readOnly: true
+        install_address:
+          type: object
+          description: 'The address where the array is installed. This address is
+            also where
+
+            replacement parts will be shipped to.
+
+            '
+          title: InstallAddress
+          allOf:
+          - $ref: '#/definitions/_install_address'
+    description: 'A single FlashArray/FlashBlade appliance Sustainability assessment
+      information.
+
+
+      '
+  TargetGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/TargetResponse'
+  BucketReplicaLinkResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/BucketReplicaLink'
+  BucketReplicaLink:
+    allOf:
+    - $ref: '#/definitions/_replicaLink'
+    - type: object
+      properties:
+        sources:
+          type: array
+          description: The source buckets in the replica link.
+          items:
+            $ref: '#/definitions/_resourceWithLocation'
+        members:
+          type: array
+          description: The union of source and target buckets in the replica link.
+          items:
+            $ref: '#/definitions/_resourceWithLocation'
+        recovery_point:
+          type: integer
+          format: int64
+          example: 1565034592494
+          description: 'Time when the last piece of data was replicated, in milliseconds
+            since
+
+            the UNIX epoch, and the recovery point of the bucket.
+
+            '
+          readOnly: true
+        status_details:
+          type: string
+          description: 'Detailed information about the status of the replica link
+            when it is
+
+            `unhealthy`.
+
+            '
+        targets:
+          type: array
+          description: The target buckets in the replica link.
+          items:
+            $ref: '#/definitions/_resourceWithLocation'
+      description: A replica link between two buckets.
+    description: A replica link between two buckets.
+  Directory:
+    allOf:
+    - $ref: '#/definitions/_arraysBuiltIn'
+    - type: object
+      properties:
+        path:
+          type: string
+          description: 'Absolute path of the managed directory in the file system.
+
+            '
+          readOnly: true
+        destroyed:
+          type: boolean
+          example: false
+          description: 'Is the managed directory destroyed?
+
+            '
+        file_system:
+          type: object
+          description: 'The file system that this managed directory is in.
+
+            '
+          title: FixedReference
+          allOf:
+          - $ref: '#/definitions/_fixedReference'
+        created:
+          type: integer
+          format: int64
+          example: 1502729489760
+          description: Creation time in milliseconds since UNIX epoch.
+          readOnly: true
+        directory_name:
+          type: string
+          description: 'The managed directory name without the file system name prefix.
+
+            A managed directory full name is constructed in the form of `FILE_SYSTEM:DIR`
+            where
+
+            `FILE_SYSTEM` is the file system name and `DIR` is the value of this field.
+
+            On FlashArray versions below `6.0.2`, the value is always `null`.
+
+            '
+          readOnly: true
+      description: 'A managed directory on an array.
+
+        '
+  InvoiceResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Invoice'
+  _install_address:
+    type: object
+    properties:
+      street_address:
+        type: string
+        example: 599 Castro St, Mountain View, CA 94041 United States
+        description: The 1-line format street address of the array install address.
+        readOnly: true
+      updated:
+        type: integer
+        format: int32
+        example: 1548080949
+        description: 'The epoch timestamp, in milliseconds, that denotes when the
+          address was updated.
+
+          '
+        readOnly: true
+      geolocation:
+        type: object
+        description: 'The geolocation that contains the latitude and the longitude
+          of the address.
+
+          '
+        title: Geolocation
+        allOf:
+        - $ref: '#/definitions/_geolocation'
+  _metricAvailability:
+    type: object
+    properties:
+      aggregations:
+        type: array
+        description: Available aggregations for this metric at the given resolution,
+          e.g. 'avg', 'max'.
+        readOnly: true
+        items:
+          type: string
+          example: avg
+          description: 'Valid values are `avg` and `max`.
+
+            '
+      resolution:
+        type: integer
+        format: int64
+        example: 30000
+        description: An available resolution of this metric in milliseconds.
+        readOnly: true
+      retention:
+        type: integer
+        format: int64
+        example: 2592000000
+        description: The retention at this given resolution in milliseconds.
+        readOnly: true
+  BucketGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/BucketResponse'
+  _errorErrors:
+    type: object
+    properties:
+      context:
+        type: string
+        example: Error with ...
+      message:
+        type: string
+        example: Something was wrong
+  SustainabilityInsightArrayGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/SustainabilityInsightArrayResponse'
+  SubscriptionAssetArrayAdvancedSpace:
+    type: object
+    properties:
+      effective:
+        type: object
+        description: The effective space information of the appliance.
+        title: AssetSpace
+        allOf:
+        - $ref: '#/definitions/_asset_space'
+      physical:
+        type: object
+        description: The physical space information of the appliance.
+        title: AssetSpace
+        allOf:
+        - $ref: '#/definitions/_asset_space'
+  SubscriptionLicenseGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/SubscriptionLicenseResponse'
+  Controller:
+    allOf:
+    - $ref: '#/definitions/_arraysBuiltIn'
+    - type: object
+      properties:
+        mode:
+          type: string
+          example: primary
+          description: 'Mode of the controller.
+
+            Values include `not present`, `offline`, `primary`, and `secondary`.
+
+            '
+        model:
+          type: string
+          example: FA-m50
+          description: Model of the controller.
+        type:
+          type: string
+          example: array_controller
+          description: 'Type of the controller. Values include `array_controller`
+            and `shelf_controller`.
+
+            '
+        version:
+          type: string
+          example: 5.0.0
+          description: Version of the controller.
+        status:
+          type: string
+          example: ready
+          description: 'Status of the controller. Values include `not ready`, `ready`,
+            `unknown`, and `updating`.
+
+            '
+      description: 'A platform that runs the Purity//FA Operating Environment.
+
+        '
+  MetricHistoryGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/MetricHistoryResponse'
+  ArrayResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Array'
+  Audit:
+    allOf:
+    - $ref: '#/definitions/_arraysResource'
+    - type: object
+      properties:
+        subcommand:
+          type: string
+          example: snap
+          description: The subcommand that was executed.
+        origin:
+          type: string
+          example: array
+          description: Origin of the action. Valid values are `array` and `Pure1`.
+        arguments:
+          type: string
+          example: --args
+          description: Arguments provided to the command.
+        time:
+          type: integer
+          format: int64
+          example: 1502729489760
+          description: 'Time at which the command was run in milliseconds since UNIX
+            epoch.
+
+            '
+        user:
+          type: string
+          example: pureuser
+          description: The user who ran the command.
+        command:
+          type: string
+          example: purevol
+          description: The command that was executed.
+      description: 'An audit of an action executed on an array or in Pure1.
+
+        '
+  FileSystemSnapshotGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/FileSystemSnapshotResponse'
+  SubscriptionGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/SubscriptionResponse'
+  DefaultDetails:
+    type: object
+  SubscriptionAsset:
+    allOf:
+    - $ref: '#/definitions/_builtInAsOf'
+    - type: object
+      properties:
+        license:
+          type: object
+          description: A reference to which license this appliance belongs.
+          title: FixedReference
+          allOf:
+          - $ref: '#/definitions/_fixedReference'
+        activation_date:
+          type: integer
+          format: int64
+          example: 1604702243000
+          description: 'The date when the appliance is activated under the license.
+
+            Represented as a timestamp of 00:00 on that date in UTC, in
+
+            milliseconds since UNIX epoch.
+
+            '
+        array:
+          type: object
+          description: The specific fields for assets that are arrays.
+          title: SubscriptionAssetArray
+          allOf:
+          - $ref: '#/definitions/SubscriptionAssetArray'
+        organization:
+          type: object
+          description: The Pure1 organization for the asset.
+          title: AssetOrg
+          allOf:
+          - $ref: '#/definitions/_asset_org'
+        end_of_life_date:
+          type: integer
+          format: int64
+          example: 1636588800000
+          description: 'The date when the appliance hardware reach end of life and
+            Pure no longer provide support.
+
+            Represented as a timestamp of 00:00 on that date in UTC, in
+
+            milliseconds since UNIX epoch.
+
+            '
+        subscription:
+          type: object
+          description: A reference to which subscription this appliance belongs.
+          title: FixedReference
+          allOf:
+          - $ref: '#/definitions/_fixedReference'
+        upgrade_details:
+          type: object
+          description: 'The address where the appliance is installed. This address
+            is also where
+
+            replacement parts will be shipped to.
+
+            '
+          title: AssetUpgradeDetails
+          allOf:
+          - $ref: '#/definitions/AssetUpgradeDetails'
+        install_address:
+          type: object
+          description: 'The address where the appliance is installed. This address
+            is also where
+
+            replacement parts will be shipped to.
+
+            '
+          title: AssetAddress
+          allOf:
+          - $ref: '#/definitions/_asset_address'
+  Tag:
+    type: object
+    properties:
+      resource:
+        $ref: '#/definitions/_fixedReference'
+      tag_organization_id:
+        type: integer
+        format: int64
+        example: 101
+        description: Org id of the tag.
+      namespace:
+        type: string
+        example: pure1
+        description: 'Namespace of the tag.
+
+          Namespace identifies the category of the tag.
+
+          '
+      value:
+        type: string
+        example: value123
+        description: Value of the tag.
+      key:
+        type: string
+        example: example_key
+        description: Key of the tag.
+  PodReplicaLinkGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/PodReplicaLinkResponse'
+  HardwareConnector:
+    allOf:
+    - $ref: '#/definitions/_arraysBuiltIn'
+    - type: object
+      properties:
+        lane_speed:
+          type: number
+          format: int64
+          example: 10000000000
+          description: Configured speed of each lane in the connector in bits per
+            second.
+        transceiver_type:
+          type: string
+          example: 40GBASE-LR4
+          description: 'Type of transceiver plugged into the connector port.
+
+            If the type cannot be auto-detected and the internal user has not
+
+            specified a type, the value will be `Unknown`.
+
+            If nothing is plugged into the QSFP port, the value will be `Unused`.
+
+            Transceiver type is not applicable for RJ-45 connectors.
+
+            '
+        connector_type:
+          type: string
+          example: QSFP
+          description: Form-factor of the interface. Values include `QSFP` and `RJ-45`.
+        port_count:
+          type: number
+          format: int64
+          example: 1.0
+          description: Configured number of ports in the connector.
+      description: 'Details about the array''s connection ports.
+
+        '
+  _resource:
+    allOf:
+    - $ref: '#/definitions/_timeAware'
+    - type: object
+      properties:
+        name:
+          type: string
+          example: example_name
+          description: A modifiable, locally unique name chosen by the user.
+        id:
+          type: string
+          example: 2a989a09-c851-4d52-9ec6-ab728b1c04db
+          description: A non-modifiable, globally unique ID chosen by the system.
+          readOnly: true
+    description: 'An ordinary (as opposed to built-in) resource that can be created,
+      named,
+
+      renamed, or deleted by the user. This might be a virtual resource (e.g.,
+
+      a volume), or correspond to something in the physical environment, like a
+
+      host or a server.
+
+      '
+  PolicyGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/PolicyResponse'
+  Policy:
+    allOf:
+    - $ref: '#/definitions/_arraysBuiltIn'
+    - type: object
+      properties:
+        rules:
+          type: array
+          items:
+            $ref: '#/definitions/_policy_rule'
+        enabled:
+          type: boolean
+          example: true
+          description: Returns `true` if this policy is enabled.
+      description: 'A set of rules that can be applied to resources.
+
+        '
+  SustainabilityInsightArray:
+    allOf:
+    - $ref: '#/definitions/_timeAware'
+    - $ref: '#/definitions/_time_interval'
+    - type: object
+      properties:
+        severity:
+          type: string
+          example: medium
+          description: 'The severity of the insight.
+
+            Should be one of medium, high.
+
+            '
+          readOnly: true
+        additional_data:
+          type: object
+          example:
+            required_version: 6.3.0
+          description: 'The arbitrary data associated with the insight.
+
+            '
+          readOnly: true
+        resource:
+          $ref: '#/definitions/_fixedReferenceFqdn'
+        type:
+          type: string
+          example: upgrade_purity_version_for_array_wide
+          description: 'The type of the insight.
+
+            '
+          readOnly: true
+    description: 'A single FlashArray/FlashBlade appliance Sustainability assessment
+      insights information.
+
+      The _as_of is the time when the computation happened.
+
+      Only the data from the given time interval was used for the computation of insight.
+
+      Typically the last week of data is used for the computation of insights.
+
+      '
+  AuditsResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Audit'
+  SubscriptionLicenseResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/SubscriptionLicense'
+  Port:
+    allOf:
+    - $ref: '#/definitions/_arraysBuiltIn'
+    - type: object
+      properties:
+        failover:
+          type: string
+          example: CT0.ETH2
+          description: 'If the array port has failed over, returns the
+
+            name of the port to which this port has failed over.
+
+            '
+        iqn:
+          type: string
+          example: iqn.2010-06.com.purestorage:flasharray.393d930077be2977
+          description: The iSCSI Qualified Name if the port is iSCSI, `null` otherwise.
+        nqn:
+          type: string
+          example: nqn.2010-06.com.purestorage:flasharray.512f7bb185978505
+          description: The NVMe Qualified Name if the port is NVMe-oF, `null` otherwise.
+        portal:
+          type: string
+          example: 10.16.200.27:3260
+          description: The IP and port number if the port is iSCSI or NVMe-oF, `null`
+            otherwise.
+        wwn:
+          type: string
+          example: 52:4A:93:70:4E:E5:68:00
+          description: The Fibre Channel World Wide Name if the port is Fibre Channel,
+            `null` otherwise.
+      description: A Purity//FA port.
+  _bladeArrayStatus:
+    allOf:
+    - $ref: '#/definitions/_fixedReference'
+    - type: object
+      properties:
+        total_blades:
+          type: integer
+          format: int64
+          example: 15
+          description: 'Count of total blade slots in the array.
+
+            '
+        fqdn:
+          type: string
+          example: example_name.dc1.example.com
+          description: 'The fully qualified domain name of the appliance when `resource_type`
+            is `arrays`,
+
+            `null` otherwise.
+
+            '
+          readOnly: true
+        used_blades:
+          type: integer
+          format: int64
+          example: 10
+          description: 'Count of used blade slots in the array.
+
+            '
+  BucketResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Bucket'
+  _resourceWithLocations:
+    allOf:
+    - $ref: '#/definitions/_fixedReference'
+    - type: object
+      properties:
+        locations:
+          type: array
+          items:
+            $ref: '#/definitions/_fixedReferenceFqdn'
+    description: 'A resource that may relate to multiple locations.
+
+      '
+  _fixedReferenceFqdn:
+    allOf:
+    - $ref: '#/definitions/_fixedReference'
+    - type: object
+      properties:
+        fqdn:
+          type: string
+          example: example_name.dc1.example.com
+          description: 'The fully qualified domain name of the appliance when `resource_type`
+            is `arrays`,
+
+            `null` otherwise.
+
+            '
+          readOnly: true
+  _replicaLink:
+    allOf:
+    - $ref: '#/definitions/_resourceNoName'
+    - type: object
+      properties:
+        paused:
+          type: boolean
+          example: false
+          description: 'Returns `true` if the replica link is paused.
+
+            '
+        lag:
+          type: integer
+          format: int64
+          example: 1560
+          description: 'Duration, in milliseconds, which represents how far behind
+            the
+
+            replication `target` is from the `source`.
+
+            '
+          readOnly: true
+        recovery_point:
+          type: integer
+          format: int64
+          example: 1565034592494
+          description: 'Time when the last piece of data was replicated, measured
+            in
+
+            milliseconds since the UNIX epoch, and the recovery point of the
+
+            resource.
+
+            '
+          readOnly: true
+        status:
+          type: string
+          example: replicating
+          description: 'Status of the replica link. Values include `replicating`,
+            `idle`,
+
+            and `unhealthy`.
+
+            '
+  FileSystem:
+    allOf:
+    - $ref: '#/definitions/_arraysBuiltIn'
+    - type: object
+      properties:
+        destroyed:
+          type: boolean
+          example: false
+          description: 'Is the file system destroyed?
+
+            '
+        hard_limit_enabled:
+          type: boolean
+          example: false
+          description: 'On a FlashBlade file system, returns the value of `true` if
+            the file system''s size
+
+            is a hard limit quota and `false` if it is not.
+
+            On a FlashArray file system, the value is always `null`.
+
+            '
+        provisioned:
+          type: integer
+          format: int64
+          example: 1099511627776
+          description: 'The provisioned size of the file system in bytes. A value
+            of 0 means
+
+            unlimited. On a FlashArray file system, the value is always `null`.
+
+            '
+        created:
+          type: integer
+          format: int64
+          example: 1502729489760
+          description: Creation time in milliseconds since UNIX epoch.
+          readOnly: true
+        http:
+          type: object
+          description: HTTP configuration. On a FlashArray file system, the value
+            is always `null`.
+          title: Http
+          allOf:
+          - $ref: '#/definitions/_http'
+        smb:
+          type: object
+          description: SMB configuration. On a FlashArray file system, the value is
+            always `null`.
+          title: Smb
+          allOf:
+          - $ref: '#/definitions/_smb'
+        nfs:
+          type: object
+          description: NFS configuration. On a FlashArray file system, the value is
+            always `null`.
+          title: Nfs
+          allOf:
+          - $ref: '#/definitions/_nfs'
+        snapshot_directory_enabled:
+          type: boolean
+          example: false
+          description: 'On a FlashBlade file system, returns the value of `true` if
+            snapshot directory is enabled
+
+            and `false` if it is not.
+
+            On a FlashArray file system, the value is always `null`.
+
+            '
+        fast_remove_directory_enabled:
+          type: boolean
+          example: false
+          description: 'On a FlashBlade file system, returns the value of `true` if
+            fast remove directory
+
+            is enabled and `false` if it is not.
+
+            On a FlashArray file system, the value is always `null`.
+
+            '
+      description: 'A file system on an array, including both FlashArray and FlashBlade
+        file systems.
+
+        '
+  Drive:
+    allOf:
+    - $ref: '#/definitions/_builtInAsOf'
+    - type: object
+      properties:
+        protocol:
+          type: string
+          example: SAS
+          description: 'Storage protocol of the module. Values include `NVMe` and
+            `SAS`.
+
+            '
+          readOnly: true
+        details:
+          type: string
+          example: Slow link speed.
+          description: 'Details about the status of the module if status is not `healthy`.
+
+            '
+          readOnly: true
+        arrays:
+          type: array
+          description: 'A list of arrays that contain this drive.
+
+            Each drive should only exist on one array.
+
+            '
+          items:
+            $ref: '#/definitions/_driveArrayStatus'
+          minItems: 1
+        type:
+          type: string
+          example: SSD
+          description: 'The type of the module. Values include `cache`, `NVRAM`, `SSD`,
+
+            and `virtual`.
+
+            '
+          readOnly: true
+        capacity:
+          type: number
+          format: int64
+          example: 494927872
+          description: 'Physical storage capacity of the module (in bytes).
+
+            '
+          readOnly: true
+        status:
+          type: string
+          example: healthy
+          description: 'Current status of the module. Values include `empty`, `failed`,
+
+            `healthy`, `identifying`, `missing`, `recovering`, `unadmitted`,
+
+            `unhealthy`, `unrecognized`, and `updating`.
+
+            '
+          readOnly: true
+      description: 'Information about a flash, NVRAM, or cache module.
+
+        '
+  SupportContract:
+    type: object
+    properties:
+      end_date:
+        type: integer
+        format: int64
+        example: 1582502400000
+        description: 'Date when the support contract ended.
+
+          Represented as a timestamp of 00:00 on that date in UTC, in milliseconds
+          since UNIX epoch.
+
+          '
+      resource:
+        $ref: '#/definitions/_fixedReferenceFqdn'
+      start_date:
+        type: integer
+        format: int64
+        example: 1550966400000
+        description: 'Date when the support contract started.
+
+          Represented as a timestamp of 00:00 on that date in UTC, in milliseconds
+          since UNIX epoch.
+
+          '
+  SubscriptionResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Subscription'
+  _arraysBuiltIn:
+    allOf:
+    - $ref: '#/definitions/_builtInAsOf'
+    - $ref: '#/definitions/_arrays'
+    description: 'A built-in resource that exists on one or multiple arrays.
+
+      '
+  PolicyResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Policy'
+  _resourceNoName:
+    allOf:
+    - $ref: '#/definitions/_timeAware'
+    - type: object
+      properties:
+        id:
+          type: string
+          example: 2a989a09-c851-4d52-9ec6-ab728b1c04db
+          description: A non-modifiable, globally unique ID chosen by the system.
+          readOnly: true
+    description: 'An ordinary (as opposed to built-in) resource that can be created
+      or deleted
+
+      by the user. This might be a virtual resource (e.g., a volume), or correspond
+
+      to something in the physical environment, like a host or a server.
+
+      '
+  EvergreenForeverAndFoundationDetails:
+    type: object
+    properties:
+      service_sla:
+        type: string
+        example: NBD
+        description: The associated Service Level Agreements (SLAs) for the service
+          tier.
+        readOnly: true
+      service_tier:
+        type: string
+        example: Silver
+        description: 'A non-modifiable, locally unique name that the subscription
+          was started with, never changes.
+
+          '
+        readOnly: true
+  ObjectStoreAccount:
+    allOf:
+    - $ref: '#/definitions/_arraysResource'
+    - type: object
+      properties:
+        created:
+          type: integer
+          format: int64
+          example: 1502729489760
+          description: Creation timestamp of the object, in milliseconds since Unix
+            epoch.
+          readOnly: true
+        object_count:
+          type: integer
+          format: int64
+          example: 15
+          description: The number of objects within the account.
+          readOnly: true
+  BucketReplicaLinkGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/BucketReplicaLinkResponse'
+  NetworkInterfaceResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        description: A list of network interface objects.
+        items:
+          $ref: '#/definitions/NetworkInterface'
+  _geolocation:
+    type: object
+    properties:
+      latitude:
+        type: number
+        example: 23.234
+        description: The latitude of the address.
+        readOnly: true
+      longitude:
+        type: number
+        example: 123.9834
+        description: The longitude of the address.
+        readOnly: true
+  ArrayGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/ArrayResponse'
+  AssetUpgradeDetails:
+    type: object
+    properties:
+      upgrade_eligibility_date:
+        type: integer
+        format: int64
+        example: 1604702243000
+        description: 'The date on which controllers/blades will be eligible for an
+          Ever Modern Upgrade if you renew your `Evergreen//Forever` subscription
+          to the required Forever (FVR) Commitment date.
+
+          '
+        readOnly: true
+      commitment_date:
+        type: integer
+        format: int64
+        example: 1604702243000
+        description: 'The date until which you need to commit to an `Evergreen//Forever`
+          subscription to be eligible for the next Ever Modern Upgrade.
+
+          '
+        readOnly: true
+      action_needed:
+        type: string
+        example: Your Ever Modern Upgrade has been booked.
+        description: 'The action required to obtain the next free upgrade under your
+          `Evergreen//Forever` subscription.
+
+          '
+        readOnly: true
+  InvoiceLine:
+    type: object
+    properties:
+      end_date:
+        type: integer
+        format: int64
+        example: 1672531200000
+        description: 'The invoice item end date.
+
+          Represented as a timestamp of 00:00 on that date in UTC, in milliseconds
+          since UNIX epoch.
+
+          '
+      amount:
+        type: number
+        format: double
+        example: 1000.0
+        description: The total price of current invoice item, currency is specified
+          in invoice currency.
+      components:
+        type: array
+        description: The sub-components of current invoice item.
+        items:
+          $ref: '#/definitions/InvoiceLineComponent'
+      item:
+        type: string
+        example: SS-DFM-15TB 1MO,ADV,GOLD
+        description: The name of invoice item.
+      quantity:
+        type: integer
+        format: int64
+        example: 2
+        description: The quantity of current invoice item.
+        minimum: 0
+      description:
+        type: string
+        example: SS-DFM-15TB 1 Month Evergreen Forever Subscription, NBD Delivery,
+          24/7 Support
+      tax:
+        $ref: '#/definitions/_tax'
+      unit_price:
+        type: number
+        format: double
+        example: 500.0
+        description: The unit price of current invoice item, currency is specified
+          in invoice currency.
+      start_date:
+        type: integer
+        format: int64
+        example: 1672531200000
+        description: 'The invoice item start date.
+
+          Represented as a timestamp of 00:00 on that date in UTC, in milliseconds
+          since UNIX epoch.
+
+          '
+  _smb:
+    type: object
+    properties:
+      enabled:
+        type: boolean
+        description: 'Is the protocol enabled?
+
+          '
+  SubscriptionLicense:
+    allOf:
+    - $ref: '#/definitions/_builtInAsOf'
+    - type: object
+      properties:
+        average_on_demand:
+          type: object
+          description: 'Estimated daily on-demand usage of the license from the current
+            calendar
+
+            quarter to date.
+
+            '
+          title: CurrentMetric
+          allOf:
+          - $ref: '#/definitions/_current_metric'
+        quarter_on_demand:
+          type: object
+          description: 'Estimated total on-demand usage of the license of the current
+            calendar quarter to date.
+
+            '
+          title: CurrentMetric
+          allOf:
+          - $ref: '#/definitions/_current_metric'
+        usage:
+          type: object
+          description: 'Usage of the license, averaged over the last day.
+
+            '
+          title: CurrentMetric
+          allOf:
+          - $ref: '#/definitions/_current_metric'
+        resources:
+          type: array
+          description: 'References to the resources that operate under this license.
+
+            '
+          items:
+            $ref: '#/definitions/_license_resource_reference'
+        marketplace_partner:
+          type: object
+          description: 'Reference information about the marketplace partner of this
+            license.
+
+            '
+          title: MarketplacePartner
+          allOf:
+          - $ref: '#/definitions/_marketplace_partner'
+        subscription:
+          type: object
+          description: 'A reference to which subscription this license belongs.
+
+            '
+          title: FixedReference
+          allOf:
+          - $ref: '#/definitions/_fixedReference'
+        expiration_date:
+          type: integer
+          format: int64
+          example: 1636238104000
+          description: 'Date when the license expires.
+
+            Represented as a timestamp of 00:00 on that date in UTC, in
+
+            milliseconds since UNIX epoch.
+
+            '
+        add_on_slas:
+          type: array
+          description: Add-on SLAs.
+          items:
+            $ref: '#/definitions/SubscriptionLicenseAddOnSla'
+        pre_ratio:
+          $ref: '#/definitions/_subscriptionLicensePreRatio'
+        site_address:
+          type: object
+          description: The license site address.
+          title: BaseAddress
+          allOf:
+          - $ref: '#/definitions/_base_address'
+        reservation:
+          type: object
+          description: 'Current reservation amount of the license.
+
+            '
+          title: CurrentMetric
+          allOf:
+          - $ref: '#/definitions/_current_metric'
+        service_tier:
+          type: string
+          example: //Block - Ultra
+          description: 'The tier of the service for the license.
+
+            '
+        last_updated_date:
+          type: integer
+          format: int64
+          example: 1604702243000
+          description: 'The date of the last amendment to the current license.
+
+            Represented as a timestamp of 00:00 on that date in UTC, in
+
+            milliseconds since UNIX epoch.
+
+            '
+        start_date:
+          type: integer
+          format: int64
+          example: 1604702243000
+          description: 'Date when the license starts.
+
+            Represented as a timestamp of 00:00 on that date in UTC, in
+
+            milliseconds since UNIX epoch.
+
+            '
+      description: 'A license belonging to a Pure1 subscription.
+
+        '
+  AlertsGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/AlertsResponse'
+  NetworkInterface:
+    allOf:
+    - $ref: '#/definitions/_arraysBuiltIn'
+    - type: object
+      properties:
+        hwaddr:
+          type: string
+          example: 90:ef:ba:80:70:dc
+          description: Hardware address.
+        address:
+          type: string
+          example: 10.11.12.13
+          description: IP address of this network interface.
+        netmask:
+          type: string
+          example: 255.255.255.0
+        services:
+          type: array
+          description: Services and protocols that are enabled on the interface.
+          items:
+            type: string
+            example: iscsi
+            description: "Valid values are `iscsi`, `management`, `nvme/fc`, `nvme/roce`,\n
+              \ and `replication`.\n"
+        subinterfaces:
+          type: array
+          items:
+            type: string
+            example: ct0.eth0
+        enabled:
+          type: boolean
+          example: true
+        gateway:
+          type: string
+          example: 10.20.30.40
+        speed:
+          type: integer
+          format: int64
+          example: 10000000000
+          description: Speed in bytes per second.
+        mtu:
+          type: integer
+          format: int32
+          example: 9000
+          description: Maximum transmission unit.
+      description: 'A point of interconnection between the appliance and a private
+        or public
+
+        network. May be associated with a physical device or a representation of
+
+        a virtual interface.
+
+        '
+  _time_interval:
+    type: object
+    properties:
+      _interval_end:
+        type: integer
+        format: int64
+        example: 1502729489760
+        description: The timestamp of the end of the time interval.
+        readOnly: true
+      _interval_start:
+        type: integer
+        format: int64
+        example: 1501519889760
+        description: The timestamp of the start of the time interval.
+        readOnly: true
+  DirectoryResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Directory'
+  ObjectStoreAccountGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/ObjectStoreAccountResponse'
+  InvoiceGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/InvoiceResponse'
+  _tax:
+    type: object
+    properties:
+      exemption_statement:
+        type: string
+        description: The tax exemption statement.
+      amount:
+        type: number
+        format: double
+        example: 70.0
+        description: The total taxes of current invoice item, currency is specified
+          in invoice currency.
+      percentage:
+        type: number
+        format: float
+        example: 0.07
+        description: The tax ratio in percentage.
+        minimum: 0
+        maximum: 1
+  FileSystemGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/FileSystemResponse'
+  FileSystemSnapshotResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/FileSystemSnapshot'
+  HardwareGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/HardwareResponse'
+  _nfs:
+    type: object
+    properties:
+      rules:
+        type: string
+        example: 10.0.0.1(ro)
+        description: NFS rules.
+      enabled:
+        type: boolean
+        example: false
+        description: Is the protocol enabled?
+  SubscriptionLicenseAddOnSla:
+    type: object
+    required:
+    - name
+    properties:
+      name:
+        type: string
+  SustainabilityArrayGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/SustainabilityArrayResponse'
+  FileSystemResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/FileSystem'
+  ObjectStoreAccountResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        description: A list of object store accounts.
+        items:
+          $ref: '#/definitions/ObjectStoreAccount'
+  _license_resource_reference:
+    allOf:
+    - $ref: '#/definitions/_fixedReferenceFqdn'
+    - type: object
+      properties:
+        usage:
+          type: object
+          description: 'Current usage of the resource under the license.
+
+            '
+          title: CurrentMetric
+          allOf:
+          - $ref: '#/definitions/_current_metric'
+        activation_time:
+          type: integer
+          format: int64
+          example: 1604702243000
+          description: 'Time when the resource is activated under the license, in
+
+            milliseconds since UNIX epoch.
+
+            '
+  MetricResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Metric'
+  MetricHistory:
+    allOf:
+    - $ref: '#/definitions/_builtInAsOf'
+    - type: object
+      properties:
+        unit:
+          type: string
+          example: B/s
+          description: The unit of the metric data.
+          readOnly: true
+        data:
+          type: array
+          description: 'The data points of the metric corresponding to the time window,
+
+            resolution and aggregation. The points are returned in a nested array
+
+            of 2-element arrays. For each of the 2-element array, the 1st element
+
+            is the UTC millisecond epoch, and the 2nd element is the value,
+
+            e.g. [[1519362000000, 11], [1519362030000, 21], ...].
+
+            '
+          readOnly: true
+          items:
+            type: array
+            items:
+              type: number
+        resources:
+          type: array
+          description: 'The references to the resources that the metric data is for.
+
+            For example, write-iops metric for an array will have one element in
+
+            this list referencing the array entity. the write-iops from an array to
+
+            a pod will contain two elements in this list - first element pointing
+
+            to the array, and second element pointing to the pod.
+
+            '
+          readOnly: true
+          items:
+            $ref: '#/definitions/_fixedReferenceFqdn'
+        aggregation:
+          type: string
+          example: avg
+          description: The aggregation of the metric data.
+          readOnly: true
+        resolution:
+          type: integer
+          format: int64
+          example: 30000
+          description: The resolution of the metric data in milliseconds.
+          readOnly: true
+      description: 'Historical time-series data of a given metric on a resource.
+
+        '
+  _resourceWithLocation:
+    allOf:
+    - $ref: '#/definitions/_fixedReference'
+    - type: object
+      properties:
+        location:
+          $ref: '#/definitions/_fixedReferenceFqdn'
+    description: 'An ordinary resource that exists in one location.
+
+      '
+  PortGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/PortResponse'
+  _timeAware:
+    type: object
+    properties:
+      _as_of:
+        type: integer
+        format: int64
+        example: 1502729489760
+        description: The freshness of the data (timestamp in millis since epoch).
+        readOnly: true
+  Hardware:
+    allOf:
+    - $ref: '#/definitions/_arraysBuiltIn'
+    - type: object
+      properties:
+        identify_enabled:
+          type: boolean
+          example: true
+          description: If true, the ID light is lit to visually identify the component.
+        serial:
+          type: string
+          example: PSMFL1717009B
+          description: 'Serial number of the hardware component.
+
+            '
+        temperature:
+          type: integer
+          format: int32
+          example: 25
+          description: 'Temperature (in degrees Celsius) reported by the component.
+
+            '
+        details:
+          type: string
+          example: Temperature too high
+          description: 'Details about the component if `status` is not `healthy`.
+
+            '
+        model:
+          type: string
+          example: DFSC1
+          description: 'Model number of the hardware component.
+
+            '
+        slot:
+          type: integer
+          format: int32
+          example: 16
+          description: 'Slot number occupied by the PCI Express card that hosts the
+            component.
+
+            '
+        type:
+          type: string
+          example: controller
+          description: 'Type of the hardware component. Values include `am`, `chassis`,
+            `controller`, `cooling`,
+
+            `drive_bay`, `eth_port`, `fan`, `fc_port`, `flash_blade`, `ib_port`, `mgmt_port`,
+
+            `nvram_bay`, `power_supply`, `sas_module`, `sas_port`, `storage_shelf`,
+            and `temp_sensor`.
+
+            '
+        speed:
+          type: integer
+          format: int64
+          example: 24000000000
+          description: 'Speed (in bytes per second) at which the component is operating.
+
+            '
+        status:
+          type: string
+          example: critical
+          description: 'Component status. Values include `critical`, `healthy`, `identifying`,
+
+            `unhealthy`, `unclaimed`, `unknown`, `unrecognized`, and `unused`.
+
+            '
+        voltage:
+          type: integer
+          format: int32
+          example: 206
+          description: 'Voltage (in Volts) reported by the component.
+
+            '
+      description: 'A hardware component.
+
+        '
+  _subscriptionLicensePreRatio:
+    allOf:
+    - $ref: '#/definitions/_current_metric'
+    - type: object
+      properties:
+        data:
+          type: number
+          format: float
+          example: 3.3
+    description: 'The pre-reduced & encrypted ratio calculated at license level.
+
+      '
+  AuditsGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/AuditsResponse'
+  SubscriptionAssetResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/SubscriptionAsset'
+  _driveArrayStatus:
+    allOf:
+    - $ref: '#/definitions/_fixedReference'
+    - type: object
+      properties:
+        drive_count:
+          type: integer
+          format: int64
+          example: 24
+          description: 'Count of drives in the array.
+
+            '
+        fqdn:
+          type: string
+          example: example_name.dc1.example.com
+          description: 'The fully qualified domain name of the appliance when `resource_type`
+            is `arrays`,
+
+            `null` otherwise.
+
+            '
+          readOnly: true
+        total_capacity:
+          type: integer
+          format: int64
+          example: 7625244672
+          description: 'The total capacity of all drives in the array.
+
+            '
+  _builtInAsOf:
+    allOf:
+    - $ref: '#/definitions/_timeAware'
+    - type: object
+      properties:
+        name:
+          type: string
+          example: example_name
+          description: A non-modifiable, locally unique name chosen by the system.
+          readOnly: true
+        id:
+          type: string
+          example: 01c2889a-4124-49ff-8cbd-c33405ede123
+          description: A non-modifiable, globally unique ID chosen by the system.
+          readOnly: true
+    description: 'A built-in resource. Many are singletons predefined by Purity (e.g.,
+      support
+
+      settings). Some correspond to a piece of software, like an app, or hardware,
+
+      like a controller. Others are created by the system in response to some event
+
+      (e.g., alerts, audit records).
+
+
+      Typically, a user can''t create, delete or rename a built-in resource. A few
+
+      can be created or deleted, but not renamed because the names are meaningful
+
+      to Purity (e.g., VIFs).
+
+
+      '
+  _assetSpaceTotalUsedRatio:
+    allOf:
+    - $ref: '#/definitions/_current_metric'
+    - type: object
+      properties:
+        data:
+          type: number
+          format: float
+          example: 0.5
+          minimum: 0
+          maximum: 1
+    description: 'The ratio of `total_used` to the `capacity`.
+
+      This represents how full the appliance is.
+
+      '
+  Error:
+    type: object
+    properties:
+      errors:
+        type: array
+        description: The list of errors encountered.
+        items:
+          $ref: '#/definitions/_errorErrors'
+  ControllerResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Controller'
+  DriveResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Drive'
+  VolumeSnapshotResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/VolumeSnapshot'
+  BladeGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/BladeResponse'
+  PodReplicaLink:
+    allOf:
+    - $ref: '#/definitions/_replicaLink'
+    - type: object
+      properties:
+        sources:
+          type: array
+          description: The source pods in the replica link.
+          items:
+            $ref: '#/definitions/_resourceWithLocations'
+        members:
+          type: array
+          description: The union of source and target pods in the replica link.
+          items:
+            $ref: '#/definitions/_resourceWithLocations'
+        recovery_point:
+          type: integer
+          format: int32
+          description: 'Time when the last piece of data was replicated, in milliseconds
+            since
+
+            the UNIX epoch, and the recovery point if the target pod is promoted.
+
+            If the pod is currently baselining then the value is `null`.
+
+            '
+        targets:
+          type: array
+          description: The target pods in the replica link.
+          items:
+            $ref: '#/definitions/_resourceWithLocations'
+        status:
+          type: string
+          example: replicating
+          description: 'Status of the replica link. Values include `replicating`,
+            `idle`,
+
+            `baselining`, `paused`, `quiescing`, `quiesced`, and `unhealthy`.
+
+            '
+      description: A replica link between two pods.
+    description: A replica link between two pods.
+  TagPut:
+    type: object
+    properties:
+      value:
+        type: string
+        example: value123
+        description: Value of the tag.
+      key:
+        type: string
+        example: example_key
+        description: Key of the tag.
+  MetricHistoryResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/MetricHistory'
+  SustainabilityInsightArrayResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/SustainabilityInsightArray'
+  Array:
+    allOf:
+    - $ref: '#/definitions/_builtInAsOf'
+    - type: object
+      properties:
+        os:
+          type: string
+          example: Purity//FA
+          description: 'Valid values are `Elasticity`, `Purity`, `Purity//FA` and
+            `Purity//FB`.
+
+            '
+          readOnly: true
+        fqdn:
+          type: string
+          example: https://array01.dc1.example.com
+          description: The fully qualified domain name of the array.
+          readOnly: true
+        model:
+          type: string
+          example: FA-m70r2
+          description: Model of the array.
+          readOnly: true
+        version:
+          type: string
+          example: 5.0.0
+          readOnly: true
+      description: 'A FlashArray or FlashBlade storage appliance.
+
+        '
+  PageInfo:
+    type: object
+    properties:
+      continuation_token:
+        type: string
+        example: MThkMzJmYWUtZDI3OS00ODEzLWIzODYtMmM3NmFhMTMwM2My
+        description: 'Continuation token that can be provided in the continuation_token
+
+          query param to get the next page of data.
+
+          If you use the continuation token to page through data you
+
+          are guaranteed to get all items exactly once regardless of
+
+          how items are modified. If an item is added or deleted during
+
+          the pagination then it may or may not be returned.
+
+          The continuation token is generated if the limit is less
+
+          than the remaining number of items, and the default sort is used
+
+          (no sort is specified).
+
+          '
+      total_item_count:
+        type: integer
+        format: int32
+        example: 1
+        description: Total number of items after applying filter params.
+  _current_metric:
+    type: object
+    properties:
+      unit:
+        type: string
+        example: B
+        description: The unit of the metric.
+      data:
+        type: number
+        example: 123.0
+        description: 'The data value.
+
+          '
+      metric:
+        type: object
+        description: 'A reference to the metric this data measures.
+
+          '
+        title: FixedReference
+        allOf:
+        - $ref: '#/definitions/_fixedReference'
+  HardwareResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Hardware'
+  FileSystemReplicaLink:
+    allOf:
+    - $ref: '#/definitions/_replicaLink'
+    - type: object
+      properties:
+        sources:
+          type: array
+          description: The source file systems in the replica link.
+          items:
+            $ref: '#/definitions/_resourceWithLocation'
+        members:
+          type: array
+          description: 'The union of source and target file systems in the replica
+            link.
+
+            '
+          items:
+            $ref: '#/definitions/_resourceWithLocation'
+        recovery_point:
+          type: integer
+          format: int64
+          example: 1565034592494
+          description: 'Time when the last replicated snapshot was created, in milliseconds
+
+            since the UNIX epoch. (i.e. the recovery point if the file system is
+
+            promoted.)
+
+            '
+          readOnly: true
+        status_details:
+          type: string
+          description: 'Detailed information about the status of the replica link
+            when it is
+
+            `unhealthy`.
+
+            '
+        targets:
+          type: array
+          description: The target file systems in the replica link.
+          items:
+            $ref: '#/definitions/_resourceWithLocation'
+      description: A replica link between two FlashBlade file systems.
+    description: A replica link between two FlashBlade file systems.
+  PortResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Port'
+  MetricGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/MetricResponse'
+  Alert:
+    allOf:
+    - $ref: '#/definitions/_arraysResource'
+    - type: object
+      properties:
+        severity:
+          type: string
+          example: critical
+          description: 'Current severity level. Valid values are `info`, `warning`,
+            `critical`,
+
+            and `hidden`.
+
+            '
+        summary:
+          type: string
+          example: Test alert.
+          description: Summary of the alert.
+        actual:
+          type: string
+          example: empty
+          description: Actual condition at the time of the alert.
+        code:
+          type: integer
+          format: int32
+          example: 100
+          description: Code associated with the alert.
+        knowledge_base_url:
+          type: string
+          example: https://support.purestorage.com/
+          description: URL of the relevant Knowledge Base page.
+        created:
+          type: integer
+          format: int64
+          example: 1502729489760
+          description: 'Time when the alert was created, in milliseconds since UNIX
+            epoch.
+
+            '
+        notified:
+          type: integer
+          format: int64
+          example: 1502729489760
+          description: 'Time when the user was notified of the alert, in milliseconds
+            since
+
+            UNIX epoch.
+
+            '
+        component_name:
+          type: string
+          example: drive1
+          description: Name of the component alerted about.
+        expected:
+          type: string
+          example: healthy
+          description: Expected state/threshold under normal conditions.
+        origin:
+          type: string
+          example: array
+          description: Origin of the alert. Valid values are `array` and `Pure1`.
+        description:
+          type: string
+          example: Some sort of failure.
+          description: Short description of the alert.
+        component_type:
+          type: string
+          example: drive
+          description: Type of the component alerted about.
+        closed:
+          type: integer
+          format: int64
+          example: 1502729489760
+          description: 'Time when the alert was closed, in milliseconds since UNIX
+            epoch.
+
+            '
+        state:
+          type: string
+          example: open
+          description: 'Current state of the alert. Valid values are `open`, `closing`,
+
+            and `closed`.
+
+            '
+        category:
+          type: string
+          example: array
+          description: 'Category of the alert. Valid values are `array`, `hardware`,
+            and
+
+            `software`.
+
+            '
+        updated:
+          type: integer
+          format: int64
+          example: 1502729489760
+          description: 'Time when the alert was last updated, in milliseconds since
+            UNIX epoch.
+
+            '
+      description: 'An alert from an array.
+
+        '
+  Metric:
+    allOf:
+    - $ref: '#/definitions/_builtInAsOf'
+    - type: object
+      properties:
+        unit:
+          type: string
+          example: B/s
+          description: The unit of the metric.
+          readOnly: true
+        availabilities:
+          type: array
+          description: 'The available resolutions, aggregations and retentions of
+            this metric.
+
+            '
+          readOnly: true
+          items:
+            $ref: '#/definitions/_metricAvailability'
+        description:
+          type: string
+          description: The additional description for the the metric.
+          readOnly: true
+        resource_types:
+          type: array
+          description: 'The type of resource (as described by their endpoints) that
+            this metric
+
+            is available at. NOTE that a metric could be available for a combination
+
+            of resource types, e.g. mirrored writes from "arrays" to "pods".
+
+            '
+          readOnly: true
+          items:
+            type: string
+            example: example_resource_type
+            description: 'Valid values are `arrays`, `pods`, and `volumes`.
+
+              '
+    description: 'A type of measurement recorded on a resource.
+
+      '
+  FileSystemReplicaLinkGetResponse:
+    allOf:
+    - $ref: '#/definitions/PageInfo'
+    - $ref: '#/definitions/FileSystemReplicaLinkResponse'
+  BladeResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/Blade'
+  VolumeSnapshot:
+    allOf:
+    - $ref: '#/definitions/_arraysBuiltIn'
+    - type: object
+      properties:
+        destroyed:
+          type: boolean
+          example: false
+          description: 'Indicates if this snapshot has been destroyed and is pending
+
+            eradication.
+
+            '
+        pod:
+          type: object
+          description: 'A reference to the pod the source volume belongs to, if applicable.
+
+            '
+          title: FixedReference
+          allOf:
+          - $ref: '#/definitions/_fixedReference'
+        provisioned:
+          type: integer
+          format: int64
+          example: 2048576
+          description: 'Indicates the size (in bytes) of the volume when the snapshot
+            was taken.
+
+            '
+        serial:
+          type: string
+          example: C68B5DCF2C1A4C9400012F92
+          description: 'Serial number generated by Purity when the snapshot was created.
+
+            '
+        created:
+          type: integer
+          format: int64
+          example: 1502729489760
+          description: Creation time in milliseconds since UNIX epoch.
+        source:
+          type: object
+          description: 'A reference to the volume that the snapshot was taken from.
+
+            '
+          title: FixedReference
+          allOf:
+          - $ref: '#/definitions/_fixedReference'
+        suffix:
+          type: string
+          example: checkpoint_2018_01_01
+          description: 'Suffix added to the source volume name used to generate the
+
+            volume snapshot name.
+
+            '
+        snapshot_group:
+          type: object
+          description: 'A reference to a consistency group snapshot that this snapshot
+            is
+
+            part of.
+
+            '
+          title: FixedReference
+          allOf:
+          - $ref: '#/definitions/_fixedReference'
+        'on':
+          type: object
+          description: 'A reference to the array or the offload where the snapshot
+            is stored.
+
+            '
+          title: FixedReferenceFqdn
+          allOf:
+          - $ref: '#/definitions/_fixedReferenceFqdn'
+    description: 'A point-in-time image of the contents of a volume.
+
+      '
+  FileSystemReplicaLinkResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/FileSystemReplicaLink'
+parameters:
+  Resource_ids:
+    name: resource_ids
+    in: query
+    description: 'A comma-separated list of resource IDs.
+
+      If there is not at least one resource that matches each `resource_id` element,
+
+      an error is returned.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  Namespaces:
+    name: namespaces
+    in: query
+    description: 'A comma-separated list of namespaces.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  License_names:
+    name: license_names
+    in: query
+    description: 'A comma-separated list of subscriptionLicense names.
+
+      If there is not at least one resource that matches each `license.name`
+
+      element, an error is returned.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  OauthGrantType:
+    name: grant_type
+    in: formData
+    description: 'The method by which the access token will be obtained.
+
+      The Pure Storage REST API supports the OAuth 2.0 "token exchange" grant type,
+
+      which indicates that a token exchange is being performed.
+
+      Set `grant_type` to `urn:ietf:params:oauth:grant-type:token-exchange`.
+
+      '
+    required: true
+    type: string
+    default: urn:ietf:params:oauth:grant-type:token-exchange
+  End_timeRequired:
+    name: end_time
+    in: query
+    description: 'Timestamp of when the time window ends. Measured in milliseconds
+      since the UNIX epoch.
+
+      '
+    required: true
+    type: integer
+    format: int64
+  IdsRequired:
+    name: ids
+    in: query
+    description: 'REQUIRED: either `ids` or `names`.
+
+      A comma-separated list of object IDs.
+
+      If there is not at least one resource that matches each `id` element,
+
+      an error is returned.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  Resource_names:
+    name: resource_names
+    in: query
+    description: 'A comma-separated list of resource names.
+
+      If there is not at least one resource that matches each `resource_name`
+
+      element, an error is returned.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  Source_names:
+    name: source_names
+    in: query
+    description: 'A comma-separated list of names for the source of the object.
+
+      If there is not at least one resource that matches each `source_name` element,
+
+      an error is returned.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  Marketplace_partner_reference_ids:
+    name: marketplace_partner_reference_ids
+    in: query
+    description: 'A comma-separated list of marketplace partner reference IDs.
+
+      If there is not at least one resource that matches each
+
+      `marketplace_partner.reference_id` element, an error is returned.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  Resource_namesRequired:
+    name: resource_names
+    in: query
+    description: 'REQUIRED: either `resource_ids` or `resource_names`.
+
+      A comma-separated list of resource names.
+
+      If there is not at least one resource that matches each `resource_name`
+
+      element, an error is returned.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  Resource_idsRequired:
+    name: resource_ids
+    in: query
+    description: 'REQUIRED: either `resource_ids` or `resource_names`.
+
+      A comma-separated list of resource IDs.
+
+      If there is not at least one resource that matches each `resource_id` element,
+
+      an error is returned.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  Authorization:
+    name: Authorization
+    in: header
+    description: 'Access token (in JWT format) required to use any API endpoint (except
+      `/oauth2`)
+
+      '
+    required: false
+    type: string
+  Names:
+    name: names
+    in: query
+    description: 'A comma-separated list of resource names.
+
+      If there is not at least one resource that matches each `name` element,
+
+      an error is returned.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  Fqdns:
+    name: fqdns
+    in: query
+    description: 'A comma-separated list of resource FQDNs.
+
+      If there is not at least one resource that matches each `fqdn` element,
+
+      an error is returned.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  Member_names_plus:
+    name: member_names
+    in: query
+    description: 'A list of member names. Member names separated by a `+` indicate
+      that both
+
+      members must be present in each element. Member names separated by a `,`
+
+      indicate that at least one member must be present in each element.
+
+      If there is not at least one resource that matches each `member_name` element,
+
+      an error is returned.
+
+      Single quotes are required around all strings.
+
+      When using Try it Out in Swagger, a list of member names separated by a `+`
+
+      must be entered in the same item cell.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  Member_ids:
+    name: member_ids
+    in: query
+    description: 'A comma-separated list of member IDs.
+
+      If there is not at least one resource that matches each `member_id` element,
+
+      an error is returned.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  Member_names:
+    name: member_names
+    in: query
+    description: 'A comma-separated list of member names.
+
+      If there is not at least one resource that matches each `member_name` element,
+
+      an error is returned.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  Source_ids_plus:
+    name: source_ids
+    in: query
+    description: 'A list of source IDs. Source IDs separated by a `+` indicate that
+      both
+
+      sources must be present in each element. Source IDs separated by a `,`
+
+      indicate that at least one source must be present in each element.
+
+      If there is not at least one resource that matches each `source_id` element,
+
+      an error is returned.
+
+      Single quotes are required around all strings.
+
+      When using Try it Out in Swagger, a list of source IDs separated by a `+`
+
+      must be entered in the same item cell.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  ResolutionRequired:
+    name: resolution
+    in: query
+    description: 'The duration of time between individual data points, in milliseconds.
+
+      '
+    required: true
+    type: integer
+    format: int64
+  Ids:
+    name: ids
+    in: query
+    description: 'A comma-separated list of resource IDs.
+
+      If there is not at least one resource that matches each `id` element,
+
+      an error is returned.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  Sort:
+    name: sort
+    in: query
+    description: 'Sort the response by the specified fields (in descending order if
+      ''-''
+
+      is appended to the field name).
+
+      If you provide a sort you will not get a continuation token in
+
+      the response.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+      pattern: ^[a-z]+(_[a-z]+)*-?
+    collectionFormat: csv
+  Policy_ids:
+    name: policy_ids
+    in: query
+    description: 'A comma-separated list of policy IDs.
+
+      If there is not at least one resource that matches each `policy_id` element,
+
+      an error is returned.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  NamesRequired:
+    name: names
+    in: query
+    description: 'REQUIRED: either `names` or `ids`.
+
+      A comma-separated list of resource names.
+
+      If there is not at least one resource that matches each `name` element,
+
+      an error is returned.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  XRequestId:
+    name: X-Request-ID
+    in: header
+    description: 'Supplied by client during request or generated by server.
+
+      '
+    required: false
+    type: string
+  Target_names_plus:
+    name: target_names
+    in: query
+    description: 'A list of target names. Target names separated by a `+` indicate
+      that both
+
+      targets must be present in each element. Target names separated by a `,`
+
+      indicate that at least one target must be present in each element.
+
+      If there is not at least one resource that matches each `target_name` element,
+
+      an error is returned.
+
+      Single quotes are required around all strings.
+
+      When using Try it Out in Swagger, a list of target names separated by a `+`
+
+      must be entered in the same item cell.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  Policy_names:
+    name: policy_names
+    in: query
+    description: 'A comma-separated list of policy names.
+
+      If there is not at least one resource that matches each `policy_name` element,
+
+      an error is returned.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  License_ids:
+    name: license_ids
+    in: query
+    description: 'A comma-separated list of subscriptionLicense IDs.
+
+      If there is not at least one resource that matches each `license.id`
+
+      element, an error is returned.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  File_system_ids:
+    name: file_system_ids
+    in: query
+    description: 'Performs the operation on the file system ID specified.
+
+      Enter multiple file system IDs in comma-separated format.
+
+      The `file_system_ids` and `file_system_names` parameters cannot be provided
+      together.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+  Source_ids:
+    name: source_ids
+    in: query
+    description: 'A comma-separated list of ids for the source of the object.
+
+      If there is not at least one resource that matches each `source_id` element,
+
+      an error is returned.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  Subscription_names:
+    name: subscription_names
+    in: query
+    description: 'A comma-separated list of subscription names.
+
+      If there is not at least one resource that matches each `subscription.name`
+
+      element, an error is returned.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  File_system_names:
+    name: file_system_names
+    in: query
+    description: 'Performs the operation on the file system name specified.
+
+      Enter multiple file system names in comma-separated format.
+
+      For example, `filesystem1,filesystem2`.
+
+      The `file_system_ids` and `file_system_names` parameters cannot be provided
+      together.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+  Source_names_plus:
+    name: source_names
+    in: query
+    description: 'A list of source names. Source names separated by a `+` indicate
+      that both
+
+      sources must be present in each element. Source names separated by a `,`
+
+      indicate that at least one source must be present in each element.
+
+      If there is not at least one resource that matches each `source_name` element,
+
+      an error is returned.
+
+      Single quotes are required around all strings.
+
+      When using Try it Out in Swagger, a list of source names separated by a `+`
+
+      must be entered in the same item cell.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  AggregationRequired:
+    name: aggregation
+    in: query
+    description: 'Aggregation needed on the metric data.
+
+      Valid values are `avg` and `max`.
+
+      Single quotes are required around all strings.
+
+      Latency metrics averages are weighted by the IOPS.
+
+      '
+    required: true
+    type: string
+    x-quoted: true
+  OauthSubjectToken:
+    name: subject_token
+    in: formData
+    description: 'An encoded security ID Token representing the identity of the party
+      on behalf of
+
+      whom the request is being made. The token must be issued by a trusted
+
+      identity provider which must be either a registered application in Pure1
+
+      or an enabled API client on the array. The token must be a JSON Web Token
+
+      and must contain the following claims:
+
+
+      > | JWT claim | Location | API Client Field | Description | Required By |
+
+
+      > |-|-|-|-|-|
+
+
+      > | kid | Header | key_id | Key ID of the API client that issues the identity
+      token. | FlashArray
+
+      and FlashBlade only. |
+
+
+      > | aud | Payload | id | Client ID of the API client that issues the identity
+      token. | FlashArray
+
+      and FlashBlade only. |
+
+
+      > | sub | Payload | | Login name of the array user for whom the token should
+      be issued.
+
+      This must be a valid user in the system. | FlashArray and FlashBlade only. |
+
+
+      > | iss | Payload | issuer | Application ID for the Pure1 or API client''s trusted
+      identity
+
+      issuer on the array. | All products. |
+
+
+      > | iat | Payload | | Timestamp of when the identity token was issued.
+
+      Measured in milliseconds since the UNIX epoch. | All products. |
+
+
+      > | exp | Payload | | Timestamp of when the identity token will expire.
+
+      Measured in milliseconds since the UNIX epoch. | All products. |
+
+
+
+      Each token must also be signed with the private key that is paired with the
+
+      API client''s public key.
+
+
+      '
+    required: true
+    type: string
+  Offset:
+    name: offset
+    in: query
+    description: 'The offset of the first resource to return from a collection.
+
+      '
+    required: false
+    type: integer
+    minimum: 0
+    format: int32
+  Advanced_space:
+    name: advanced_space
+    in: query
+    description: 'If `true`, returns the `advanced_space` field containing physical
+      and effective space information.
+
+      '
+    required: false
+    type: boolean
+  Member_ids_plus:
+    name: member_ids
+    in: query
+    description: 'A list of member IDs. Member IDs separated by a `+` indicate that
+      both
+
+      members must be present in each element. Member IDs separated by a `,`
+
+      indicate that at least one member must be present in each element.
+
+      If there is not at least one resource that matches each `member_id` element,
+
+      an error is returned.
+
+      Single quotes are required around all strings.
+
+      When using Try it Out in Swagger, a list of member IDs separated by a `+`
+
+      must be entered in the same item cell.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  Start_timeRequired:
+    name: start_time
+    in: query
+    description: 'Timestamp of when the time window starts. Measured in milliseconds
+      since the UNIX epoch.
+
+      '
+    required: true
+    type: integer
+    format: int64
+  Filter:
+    name: filter
+    in: query
+    description: 'Exclude resources that don''t match the specified criteria.
+
+      Single quotes are required around all strings inside the filters.
+
+      '
+    required: false
+    type: string
+  OauthSubjectTokenType:
+    name: subject_token_type
+    in: formData
+    description: 'An identifier that indicates the type of security token specifed
+      in the `subject_token` parameter.
+
+      The Pure Storage REST API supports the JSON Web Token (JWT)
+
+      as the means for requesting the access token.
+
+      Set `subject_token_type` to `urn:ietf:params:oauth:token-type:jwt`.
+
+      '
+    required: true
+    type: string
+    default: urn:ietf:params:oauth:token-type:jwt
+  Continuation_token:
+    name: continuation_token
+    in: query
+    description: 'An opaque token used to iterate over a collection.
+
+      The token to use on the next request is returned in the
+
+      `continuation_token` field of the result.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: string
+    x-quoted: true
+  Resource_types:
+    name: resource_types
+    in: query
+    description: 'The resource types to list the available metrics.
+
+      Valid values are `arrays`, `buckets`, `directories`,
+
+      `file-systems`, `pods`, `subscription-licenses` and
+
+      `volumes`.
+
+      A metric can belong to a combination of resources,
+
+      e.g., write-iops from array to pod. In that case, query by
+
+      [''arrays'', ''pods''].
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  Keys:
+    name: keys
+    in: query
+    description: 'A comma-separated list of tag keys.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  Target_ids_plus:
+    name: target_ids
+    in: query
+    description: 'A list of target IDs. Target IDs separated by a `+` indicate that
+      both
+
+      targets must be present in each element. Target IDs separated by a `,`
+
+      indicate that at least one target must be present in each element.
+
+      If there is not at least one resource that matches each `target_id` element,
+
+      an error is returned.
+
+      Single quotes are required around all strings.
+
+      When using Try it Out in Swagger, a list of target IDs separated by a `+`
+
+      must be entered in the same item cell.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  Resource_fqdns:
+    name: resource_fqdns
+    in: query
+    description: 'A comma-separated list of resource FQDNs.
+
+      If there is not at least one resource that matches each `resource_fqdn`
+
+      element, an error is returned.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  Limit:
+    name: limit
+    in: query
+    description: 'Limit the size of the response to the specified number of resources.
+
+      A limit of 0 can be used to get the number of resources without getting
+
+      all of the resources. It will be returned in the total_item_count field.
+
+      If a client asks for a page size larger than the maximum number, the request
+
+      is still valid. In that case the server just returns the maximum number of
+
+      items, disregarding the client''s page size request. If not specified, defaults
+
+      to 1000.
+
+      '
+    required: false
+    type: integer
+    format: int32
+  Partner_purchase_orders:
+    name: partner_purchase_orders
+    in: query
+    description: 'A comma-separated list of partner purchase order numbers.
+
+      If there is not at least one resource that matches each `partner_purchase_order`
+      element,
+
+      an error is returned.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+  Subscription_ids:
+    name: subscription_ids
+    in: query
+    description: 'A comma-separated list of subscription IDs.
+
+      If there is not at least one resource that matches each `subscription.id`
+
+      element, an error is returned.
+
+      Single quotes are required around all strings.
+
+      '
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-quoted: true
+responses:
+  Error404:
+    description: NOT FOUND
+    headers:
+      X-Request-ID:
+        type: object
+      X-RateLimit-Remaining-minute:
+        type: object
+      X-RateLimit-Remaining-second:
+        type: object
+      X-RateLimit-Limit-minute:
+        type: object
+      X-RateLimit-Limit-second:
+        type: object
+    schema:
+      $ref: '#/definitions/Error'
+  Error429:
+    description: TOO MANY REQUESTS
+    headers:
+      X-Request-ID:
+        type: object
+      X-RateLimit-Remaining-minute:
+        type: object
+      X-RateLimit-Remaining-second:
+        type: object
+      X-RateLimit-Limit-minute:
+        type: object
+      X-RateLimit-Limit-second:
+        type: object
+    schema:
+      $ref: '#/definitions/ErrorNoContext'
+  OauthToken401:
+    description: UNAUTHORIZED
+    schema:
+      type: object
+      properties:
+        error_description:
+          type: string
+          example: 'Invalid identity: JWT validation failed.'
+        error:
+          type: string
+          example: invalid_client
+  OauthToken400:
+    description: BAD REQUEST
+    schema:
+      type: object
+      properties:
+        error_description:
+          type: string
+          example: 'Unsupported subject_token_type: urn:ietf:params:oauth:token-'
+        error:
+          type: string
+          example: invalid_request
+  OauthToken200:
+    description: OK
+    schema:
+      type: object
+      properties:
+        access_token:
+          type: string
+          example: eyJraWQiOiJqTlBzL1Ria2c4U2Vua3F3ZmkvbnI4bWxxQ3NPIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiI5NDcyMTkwOC1mNzkyLTcxMmUtYTYzOS0wODM5ZmE4MzA5MjIiLCJzdWIiOiJqb2UiLCJyb2xlIjoic3RvcmFnZV9hZG1pbiIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6OTAwMCIsImlhdCI6MTU0NDAzNjA1MiwiZXhwIjoxNTQ0MDcyMDUyLCJqdGkiOiJjOTg0MjgyNS1mNGM3LTRiNGUtODdkNy03OWFiZmIxYTUzNDgifQ.pnuYAx0CkmkIG0LDrMAQGRr5Ci4-t5yMto3A7BkmyKnAVHBXG5ZIWwvNkWDLhqbA4YjmG7LZmWHrCVehLy2zy2vRLahFURsd3GTnOaWSyWFIyrwpoO81jQRtOQATtseweuMT_-C8o3oa4MgBNBsuKrhwKQS3oDDpeRPaCRTGev1_xRDxh_K6CWJBTAeOP2pcR4LW6zIJkCLzzkMuyL4aTJWWUjSbl04mcFbyw8r8W1GURrmaDVOvvpT634Hk9-GGh9OMIRlS6OOq7cJKc-RRWn18IK2Gs53V_KYshXTBbnRr990Y_qOX8MaTWOJTqgzsojY02MSVuJ9XDJWoIU3TQytr4K1vM2EvwDZDgl7LuUYUn7vWhbKktFzpeZyyhOjq3eX-ViugYKpIjBcG2f_-fcTPceEWGV82rd6TyVNB5A-v9u2kxCdW198t_kesgVQfuupDeS02cZe0ABLCzEHPiVF17JfiVr6sjkciioxN7Wj_j18ga4U0mdSukauT8yhbgCW1ijTVTFu1VwWebW0s8z3BWMtXdTtZ3BhcZVAdKRF8bOq7nfEbUQGhTn9g7dK-yF050winjtp-VTL2oUtkF5j1v_N8vPNiN9ZdkGJZr7VVZ-qeOJZcjdaRbxL6YB__yT1wkTcKPh8RHz6GUq7Jbyw8VIlcBE2nvJ63d0tH9C4
+          description: 'The serialized OAuth 2.0 Bearer token used to perform authenticated
+            requests.
+
+            The access token must be added to the Authorization header of all API
+            calls.
+
+            '
+        issued_token_type:
+          type: string
+          example: urn:ietf:params:oauth:token-type:access_token
+          description: 'The type of token that is issued.
+
+            The Pure Storage REST API supports OAuth 2.0 access tokens.
+
+            '
+        token_type:
+          type: string
+          example: Bearer
+          description: 'Indicates how the API client can use the access token issued.
+
+            The Pure Storage REST API supports the `Bearer` token.
+
+            '
+        expires_in:
+          type: integer
+          format: uint32
+          example: 35999
+          description: 'The duration after which the access token will expire.
+
+            Measured in seconds. This differs from other duration
+
+            fields that are expressed in milliseconds.
+
+            '
+      title: oauth_token_response
+  Error400:
+    description: BAD REQUEST
+    headers:
+      X-Request-ID:
+        type: object
+      X-RateLimit-Remaining-minute:
+        type: object
+      X-RateLimit-Remaining-second:
+        type: object
+      X-RateLimit-Limit-minute:
+        type: object
+      X-RateLimit-Limit-second:
+        type: object
+    schema:
+      $ref: '#/definitions/Error'
+  Error500:
+    description: INTERNAL SERVER ERROR
+    headers:
+      X-Request-ID:
+        type: object
+      X-RateLimit-Remaining-minute:
+        type: object
+      X-RateLimit-Remaining-second:
+        type: object
+      X-RateLimit-Limit-minute:
+        type: object
+      X-RateLimit-Limit-second:
+        type: object
+    schema:
+      $ref: '#/definitions/Error'
+  Error403:
+    description: FORBIDDEN
+    headers:
+      X-Request-ID:
+        type: object
+    schema:
+      $ref: '#/definitions/ErrorNoContext'
+tags:
+- name: Authorization
+  description: 'Handles authorization access to other API endpoints through OAuth
+    2.0 Token Exchange.
+
+    '
+- name: Alerts
+  description: 'Provides access to capacity, health, and hardware related array alerts.
+
+    '
+- name: Arrays
+  description: 'Provides information about FlashArray and FlashBlade appliances.
+
+    '
+- name: Audits
+  description: 'Provides access to CLI audit logs from FlashArray and FlashBlade appliances.
+
+    '
+- name: Blades
+  description: 'Provides information about FlashBlade blades.
+
+    '
+- name: Buckets
+  description: 'Provides information about FlashBlade buckets.
+
+    '
+- name: Bucket Replica Links
+  description: 'Provides information about replica links between buckets.
+
+    '
+- name: Controllers
+  description: 'Provides information about FlashArray controllers.
+
+    '
+- name: Directories
+  description: 'Provides information about FlashArray directories.
+
+    '
+- name: Drives
+  description: 'Provides information about FlashArray drives.
+
+    '
+- name: File Systems
+  description: 'Provides information about FlashArray and FlashBlade file systems.
+
+    '
+- name: File System Replica Links
+  description: 'Provides information about replica links between FlashBlade file systems.
+
+    '
+- name: File System Snapshots
+  description: 'Provides information about FlashBlade file system snapshots.
+
+    '
+- name: Hardware
+  description: 'Provides information about hardware components.
+
+    '
+- name: Hardware Connectors
+  description: 'Provides information about FlashBlade hardware connectors.
+
+    '
+- name: Invoices
+  description: 'Provides information about Pure1 subscription invoices.
+
+    '
+- name: Metrics
+  description: 'Provides information about historical metrics for arrays, buckets,
+    directories,
+
+    file systems, pods, subscription licenses, and volumes.
+
+    '
+- name: Network Interfaces
+  description: 'Provides information about network interfaces available on arrays.
+
+    '
+- name: Object Store Accounts
+  description: 'Provides information about object store accounts.
+
+    '
+- name: Pods
+  description: 'Provides information about FlashArray pods. A pod is the pairing
+
+    of two arrays that replicate some volumes with each other.
+
+    '
+- name: Pod Replica Links
+  description: 'Provides information about replica links between FlashArray pods.
+
+    '
+- name: Policies
+  description: 'Provides information about FlashBlade policies and the members
+
+    they apply to.
+
+    '
+- name: Ports
+  description: 'Provides information about FlashArray ports.
+
+    '
+- name: Subscriptions
+  description: 'Provides information about Pure1 subscription offerings.
+
+    '
+- name: Sustainability
+  description: 'Provides information about energy consumption and sustainability.
+
+    '
+- name: Targets
+  description: 'Provides information about FlashBlade external replication targets.
+
+    '
+- name: Volumes
+  description: 'Provides information about block storage volumes on FlashArray arrays.
+
+    '
+- name: Volume Snapshots
+  description: 'Provides information about snapshots of block storage volumes
+
+    on FlashArray arrays.
+
+
+    '
