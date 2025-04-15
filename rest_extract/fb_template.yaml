@@ -1,5 +1,8 @@
 ---
+openapi: 3.0.1
 info:
+  title: Pure FlashBlade API 2.0
+  version: "1.0"
   description: |- 
     ## Pure Swagger UI for FlashBlade
     A light weight tool to explore the API for FlashBlade, community supported.  
@@ -18,7 +21,7 @@ info:
     ## Error Codes
     Use HTTP Response codes to determine command results.  Error message json formats are different depending on the endpoint.
 
-    ## Official Documention
+    ## Official Documentation
     Go to the Pure support portal for the [full documentation](https://support.purestorage.com/FlashBlade/Purity_FB/Purity%2F%2F%2F%2FFB_REST_API/Management_REST_API/Management_REST_API_Reference_Guides).
 
 paths:
@@ -26,26 +29,29 @@ paths:
     post:
       description: Create a new session with API_KEY
       responses:
-        200:
-          description: "User logged in"
+        "200":
+          description: User logged in
           headers:
             x-auth-token:
-              type: string
-              description: authentication token, pass this back for future API Calls.
-          schema:
-            type: object
-            properties:
-              username:
+              description: "authentication token, pass this back for future API Calls."
+              schema:
                 type: string
-                description: The user name logged in.
-
-            example: {"username":"pureuser"}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  username:
+                    type: string
+                    description: The user name logged in.
+                example: {"username":"pureuser"}
       tags: [Authorization]
       parameters:
         - in: header
           name: api-token
-          type: string
           required: true
+          schema:
+            type: string
   /oauth2_pub_priv_key_pair:
     get:
       description: |-
@@ -67,24 +73,22 @@ paths:
             
             openssl rsa -in private.pem -outform PEM -pubout -out public.pem
       responses:
-        200:
-          description: "Token Generated"
-          schema:
-            type: object
-            properties:
-              private_key:
-                type: string
-                description: Private key in PEM format.
-              public_key:
-                  type: string
-                  description: Public key in PEM format.
-      tags: [Auth Helpers]
+        "200":
+          description: Token Generated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  private_key:
+                    type: string
+                    description: Private key in PEM format.
+                  public_key:
+                    type: string
+                    description: Public key in PEM format.
+      tags: [ Auth Helpers ]
   /oauth2_token_from_private_key:
     post:
-      consumes: 
-        - "text/plain"
-      produces:
-        - "application/json"
       description: |-
         Authenticates to Flasharray, This returns a token_id (think session id), from an existing API Client, 
         This is not part of the FlashArray API, it's a helper endpoint making it easy to generate an 
@@ -93,53 +97,58 @@ paths:
         of what is happening.
 
         Copy the output value, Authorization header, and then click on the green Authorize button at the 
-        top of the page.  Paste in the value into 
+        top of the page.  Paste in the value into
       responses:
-        200:
-          description: "Token Generated"
-          schema:
-            type: object
-            properties:
-              Authorization:
-                type: string
-                description: An OAuth bearer token to be used in the Authorization header for authorization to API endpoints.
-              description:
-                type: string
-                desciption: How to use token
-
-            example: {"username":"pureuser"}
-      tags: [Auth Helpers]
+        "200":
+          description: Token Generated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Authorization:
+                    type: string
+                    description: An OAuth bearer token to be used in the Authorization header for authorization to API endpoints.
+                  description:
+                    type: string
+                    description: How to use token
+                example: { "username": "pureuser" }
+      x-codegen-request-body-name: private_key
+      tags: [ Auth Helpers ]
       parameters:
         - name: issuer_name
           in: header
-          type: string
+          schema:
+            type: string
           description:  Issuer value displayed in the FlashArray API
                         Registration page or pureapiclient list ) by default it's the same name as API Client
 
         - name: client_id
           in: header
-          type: string
+          schema:
+            type: string
           description:  Client Id value displayed in the FlashArray API
                         Registration page or pureapiclient list
 
         - name: key_id
           in: header
-          type: string
+          schema:
+            type: string
           description:  Key Id value displayed in the FlashArray API
                         Registration page or pureapiclient list
       
         - name: username
           in: header
-          type: string
-          description:  The name of a valid user on the FlashArray that will be authenticated to.
-    
-        - name: private_key
-          required: true
-          in: body
-          schema: 
+          schema:
             type: string
-          description: Private key in PEM format that was used to create the Public key for this API Client specified as the issuer in this call.
-
+          description:  The name of a valid user on the FlashArray that will be authenticated to.
+      requestBody:
+        description: Private key in PEM format that was used to create the Public key for this API Client specified as the issuer in this call.
+        content:
+          text/plain:
+            schema:
+              type: string
+        required: true
 
 tags:
   - name: Auth Helpers

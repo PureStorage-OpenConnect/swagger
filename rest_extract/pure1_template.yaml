@@ -1,7 +1,7 @@
 ---
-openapi: 3.0.1
+openapi: "3.0.1"
 info:
-  version: 1.0
+  version: "1.0"
   title: Pure1 API
   description: |- 
     ## Pure Swagger UI for Pure1
@@ -15,8 +15,7 @@ info:
 servers:
 - url: /api
   description: Local host, PureSwagger Proxy, set array IP at top of page.  API calls are proxied to array.
-tags:
+paths: {}
 components: 
   schemas: {}
-  
-  
+tags: []
