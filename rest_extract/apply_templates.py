@@ -27,7 +27,7 @@ def apply_template(spec_file, template, model):
 
     elif model == 'fa2':
 
-        spec_yaml['securityDefinitions'] = template_yaml['securityDefinitions']
+        spec_yaml['components']['securitySchemes'] = template_yaml['components']['securitySchemes']
         spec_yaml['security'] = template_yaml['security']
         spec_yaml['tags'] = template_yaml['tags'] + spec_yaml['tags']
         for p in template_yaml['paths']:
@@ -37,26 +37,14 @@ def apply_template(spec_file, template, model):
         #nothing specific, already set Info above.
         pass
 
-    # delete the example offset of 10
-    # todo: Open Jira for this one to fix in upstream template
-    try:
-        del spec_yaml['parameters']['Offset']['x-example']
-    except KeyError:
-        pass
-
-    # some templates have host set to [array]
-    if 'host' in spec_yaml:
-        del spec_yaml['host']
-
-    # some templates list http & https some list https
-    # we want just http, which it will use by default when not there
-    if 'schemes' in spec_yaml:
-        del spec_yaml['schemes']
+    # some templates have servers set to "https://[array]/" and "http://[array]/"
+    # we want just http, which it will use by default when not there, and we don't want the [array]
+    if 'servers' in spec_yaml:
+        del spec_yaml['servers']
 
     # Sort spec_yaml dict so the output text puts consistent information at the top
     sort_order = [
-        'swagger', 'info', 'host', 'basePath', 'schemes', 'securityDefinitions', 'security',
-        'consumes', 'produces', 'paths', 'definitions', 'parameters', 'responses', 'tags', 'externalDocs'
+        'openapi', 'info', 'servers', 'security', 'paths', 'components', 'tags'
     ]
     
     sorted_spec_yaml = {key: spec_yaml[key] for key in sort_order if key in spec_yaml}
@@ -83,7 +71,7 @@ def main():
 
 
     spec_directory = os.path.join(project_dir, "html", "specs")
-    original_spec_directory = os.path.join(project_dir, "definitions", "oas2.0")
+    original_spec_directory = os.path.join(project_dir, "definitions", "oas3.x")
 
     with open(os.path.join(script_path, "fb_template.yaml"), encoding='utf-8') as f:
         fb_template_yaml = yaml.safe_load(f)
