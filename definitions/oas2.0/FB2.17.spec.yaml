@@ -10867,14 +10867,14 @@ definitions:
       expires:
         type: "integer"
         format: "int64"
-        example: 1706854577
-        description: "Expiration time in milliseconds since UNIX epoch.\n"
+        example: 1719868253357
+        description: "Expiration time in milliseconds since UNIX epoch."
         readOnly: true
       created:
         type: "integer"
         format: "int64"
-        example: 1706850977
-        description: "Creation time in milliseconds since UNIX epoch.\n"
+        example: 1719868253357
+        description: "Creation time in milliseconds since UNIX epoch."
         readOnly: true
       fleet_key:
         type: "string"
@@ -11523,13 +11523,13 @@ definitions:
       properties:
         public_key:
           type: "string"
-          example: "-----BEGIN PUBLIC KEY----- MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEArSe6chh1JzME9svOKjU0\
-            \ eKTm8S23Ok3Vr2bWuPri/YHfLrlnRwWoCt+st0/BebKSJ+fQUWOaLlqpZQKpI8oR gJ9sWmwGibVG8cTuz7XMkskx9bsm/bjIenuB4W+s3g0BCsi9930mfdKgJgFzY69O\
-            \ nLh7d7hAFcmhSJa945PryQZpvJ/U4Ue5F4d+WXgEJ0SoSRaZ6bbeMPhcbMHTzTum 2ZrPBkK5cqPYitaso6BXeAlqNQPw4Kbu4Ugm0CTogrtImkwoonWDDP34XMOq+u7q\
-            \ sNTbJSvDKMTM1RPPrTWCaLiuZkdLVEVesZ9/8+XUMIgBTElwQJDCAQer03MJzqRr 1eCZGgLfDuYqwMG2MFaAX7kgqBwwyqRTd6MxaQxt2nkdfwiXSY71llzEQ23g3T+1\
-            \ 64zjwAL5f+dtu8PkGF7IdU2T8P2Qk9bG9pckwZHWYkBK77BAk5jbmSzsKGZgRb2R 1E+TWDKIaveFhQp251j/C5wkZwMXgjOzN+BOPo+OiLBGUl+jRybWA9f7Vq1MEdf6\
-            \ SEdLiqYrXcZERkYBMieLXAfdtaztAIb96cUu+OKMSLDk+D0GHkUfm7lEbDK3ew1+ D6z+BnxDyH6oqZzz4lS2kPLBLsc+6pdTGuKLf0S9YuLiqJe659AdwU8+X/3KtwNd\
-            \ FVJSaxdFbWx0nj3hJqFkIO8CAwEAAQ== -----END PUBLIC KEY-----"
+          example: "-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEArSe6chh1JzME9svOKjU0\n\
+            eKTm8S23Ok3Vr2bWuPri/YHfLrlnRwWoCt+st0/BebKSJ+fQUWOaLlqpZQKpI8oR\ngJ9sWmwGibVG8cTuz7XMkskx9bsm/bjIenuB4W+s3g0BCsi9930mfdKgJgFzY69O\n\
+            nLh7d7hAFcmhSJa945PryQZpvJ/U4Ue5F4d+WXgEJ0SoSRaZ6bbeMPhcbMHTzTum\n2ZrPBkK5cqPYitaso6BXeAlqNQPw4Kbu4Ugm0CTogrtImkwoonWDDP34XMOq+u7q\n\
+            sNTbJSvDKMTM1RPPrTWCaLiuZkdLVEVesZ9/8+XUMIgBTElwQJDCAQer03MJzqRr\n1eCZGgLfDuYqwMG2MFaAX7kgqBwwyqRTd6MxaQxt2nkdfwiXSY71llzEQ23g3T+1\n\
+            64zjwAL5f+dtu8PkGF7IdU2T8P2Qk9bG9pckwZHWYkBK77BAk5jbmSzsKGZgRb2R\n1E+TWDKIaveFhQp251j/C5wkZwMXgjOzN+BOPo+OiLBGUl+jRybWA9f7Vq1MEdf6\n\
+            SEdLiqYrXcZERkYBMieLXAfdtaztAIb96cUu+OKMSLDk+D0GHkUfm7lEbDK3ew1+\nD6z+BnxDyH6oqZzz4lS2kPLBLsc+6pdTGuKLf0S9YuLiqJe659AdwU8+X/3KtwNd\n\
+            FVJSaxdFbWx0nj3hJqFkIO8CAwEAAQ==\n-----END PUBLIC KEY-----\n"
           description: "The API client's PEM formatted (Base64 encoded) RSA public\
             \ key.\n"
           readOnly: true
@@ -12390,13 +12390,13 @@ definitions:
     properties:
       public_key:
         type: "string"
-        example: "-----BEGIN PUBLIC KEY----- MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEArSe6chh1JzME9svOKjU0\
-          \ eKTm8S23Ok3Vr2bWuPri/YHfLrlnRwWoCt+st0/BebKSJ+fQUWOaLlqpZQKpI8oR gJ9sWmwGibVG8cTuz7XMkskx9bsm/bjIenuB4W+s3g0BCsi9930mfdKgJgFzY69O\
-          \ nLh7d7hAFcmhSJa945PryQZpvJ/U4Ue5F4d+WXgEJ0SoSRaZ6bbeMPhcbMHTzTum 2ZrPBkK5cqPYitaso6BXeAlqNQPw4Kbu4Ugm0CTogrtImkwoonWDDP34XMOq+u7q\
-          \ sNTbJSvDKMTM1RPPrTWCaLiuZkdLVEVesZ9/8+XUMIgBTElwQJDCAQer03MJzqRr 1eCZGgLfDuYqwMG2MFaAX7kgqBwwyqRTd6MxaQxt2nkdfwiXSY71llzEQ23g3T+1\
-          \ 64zjwAL5f+dtu8PkGF7IdU2T8P2Qk9bG9pckwZHWYkBK77BAk5jbmSzsKGZgRb2R 1E+TWDKIaveFhQp251j/C5wkZwMXgjOzN+BOPo+OiLBGUl+jRybWA9f7Vq1MEdf6\
-          \ SEdLiqYrXcZERkYBMieLXAfdtaztAIb96cUu+OKMSLDk+D0GHkUfm7lEbDK3ew1+ D6z+BnxDyH6oqZzz4lS2kPLBLsc+6pdTGuKLf0S9YuLiqJe659AdwU8+X/3KtwNd\
-          \ FVJSaxdFbWx0nj3hJqFkIO8CAwEAAQ== -----END PUBLIC KEY-----"
+        example: "-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEArSe6chh1JzME9svOKjU0\n\
+          eKTm8S23Ok3Vr2bWuPri/YHfLrlnRwWoCt+st0/BebKSJ+fQUWOaLlqpZQKpI8oR\ngJ9sWmwGibVG8cTuz7XMkskx9bsm/bjIenuB4W+s3g0BCsi9930mfdKgJgFzY69O\n\
+          nLh7d7hAFcmhSJa945PryQZpvJ/U4Ue5F4d+WXgEJ0SoSRaZ6bbeMPhcbMHTzTum\n2ZrPBkK5cqPYitaso6BXeAlqNQPw4Kbu4Ugm0CTogrtImkwoonWDDP34XMOq+u7q\n\
+          sNTbJSvDKMTM1RPPrTWCaLiuZkdLVEVesZ9/8+XUMIgBTElwQJDCAQer03MJzqRr\n1eCZGgLfDuYqwMG2MFaAX7kgqBwwyqRTd6MxaQxt2nkdfwiXSY71llzEQ23g3T+1\n\
+          64zjwAL5f+dtu8PkGF7IdU2T8P2Qk9bG9pckwZHWYkBK77BAk5jbmSzsKGZgRb2R\n1E+TWDKIaveFhQp251j/C5wkZwMXgjOzN+BOPo+OiLBGUl+jRybWA9f7Vq1MEdf6\n\
+          SEdLiqYrXcZERkYBMieLXAfdtaztAIb96cUu+OKMSLDk+D0GHkUfm7lEbDK3ew1+\nD6z+BnxDyH6oqZzz4lS2kPLBLsc+6pdTGuKLf0S9YuLiqJe659AdwU8+X/3KtwNd\n\
+          FVJSaxdFbWx0nj3hJqFkIO8CAwEAAQ==\n-----END PUBLIC KEY-----\n"
         description: "The API client's PEM formatted (Base64 encoded) RSA public key.\n\
           It must include the `-----BEGIN PUBLIC KEY-----` and `-----END PUBLIC KEY-----`\
           \ lines.\n"
@@ -13661,7 +13661,7 @@ definitions:
     description: "Data at Rest Encryption properties."
   FileSystemPatch:
     allOf:
-    - $ref: "#/definitions/_builtIn"
+    - $ref: "#/definitions/_resource"
     - type: "object"
       properties:
         promotion_status:
@@ -13744,10 +13744,6 @@ definitions:
           description: "The provisioned size of the file system, displayed in bytes.\
             \ If set to an\nempty string (`\"\"`), the file system is unlimited in\
             \ size.\n"
-        name:
-          type: "string"
-          description: "A name chosen by the user. Can be changed. Must be locally\
-            \ unique.\n"
         requested_promotion_state:
           type: "string"
           description: "Possible values are `promoted` and `demoted`.\nThe `demoted`\
@@ -15492,7 +15488,7 @@ definitions:
     properties:
       agreement:
         type: "string"
-        description: "The End User Agreement text."
+        description: "End User Agreement text."
         readOnly: true
       signature:
         $ref: "#/definitions/_eula_signature"
@@ -15889,10 +15885,9 @@ definitions:
     properties:
       name:
         type: "string"
-        example: "John Doe"
-        description: "The name of the person who accepted the End User Agreement.\n\
-          This field is deprecated and the response will be `null`. Modification to\
-          \ this field\nwill be ignored.\n"
+        description: "Name of the person who accepted the End User Agreement.\nThis\
+          \ field is deprecated and the response will be `null`. Modification to this\
+          \ field\nwill be ignored.\n"
       accepted:
         type: "integer"
         format: "int64"
@@ -15901,16 +15896,14 @@ definitions:
         readOnly: true
       company:
         type: "string"
-        example: "Example Inc."
-        description: "The company of the person who accepted the End User Agreement.\n\
+        description: "Company of the person who accepted the End User Agreement.\n\
           This field is deprecated and the response will be `null`. Modification to\
           \ this field\nwill be ignored.\n"
       title:
         type: "string"
-        example: "Admin"
-        description: "The title of the person who accepted the End User Agreement.\n\
-          This field is deprecated and the response will be `null`. Modification to\
-          \ this field\nwill be ignored.\n"
+        description: "Title of the person who accepted the End User Agreement.\nThis\
+          \ field is deprecated and the response will be `null`. Modification to this\
+          \ field\nwill be ignored.\n"
   LegalHold:
     allOf:
     - $ref: "#/definitions/_builtIn"
@@ -17652,6 +17645,11 @@ definitions:
         readOnly: true
       token:
         type: "string"
+        example: "****"
+        description: "An Admin API token. A newly-created token is visible as the\
+          \ result of the POST operation which\ncreated it. An existing token is visible\
+          \ when `expose_api_token` is `true` and it is being\nrequested by the user\
+          \ to whom it belongs. In all other cases, the token will be masked.\n"
         readOnly: true
     description: "API token"
   PublicKeyUseGetResponse:
@@ -19797,10 +19795,9 @@ parameters:
   Total_only:
     name: "total_only"
     in: "query"
-    description: "If set to `true`, returns the aggregate value of all items after\
-      \ filtering.\nWhere it makes more sense, the average value is displayed instead.\n\
-      The values are displayed for each name where meaningful.\nIf `total_only=true`,\
-      \ the `items` list will be empty.\n"
+    description: "Only return the total record for the specified items.\nThe total\
+      \ record will be the total of all items after filtering.\nThe `items` list will\
+      \ be empty.\n"
     required: false
     type: "boolean"
   Source_ids:
@@ -19856,10 +19853,10 @@ parameters:
   Certificate_group_names:
     name: "certificate_group_names"
     in: "query"
-    description: "A comma-separated list of certificate group names.\nIf no resource\
-      \ matches each of the elements of `certificate_group_names`,\nthen an error\
-      \ is returned.\nThis cannot be provided in conjunction with the `certificate_group_ids`\
-      \ parameter.\n"
+    description: "A comma-separated list of certificate group names.\nIf there is\
+      \ not at least one resource that matches each of the\nelements of `certificate_group_names`,\
+      \ then an error is returned.\nThis cannot be provided in conjunction with the\
+      \ `certificate_group_ids` parameter.\n"
     required: false
     type: "array"
     items:
@@ -20158,10 +20155,9 @@ parameters:
   Remote_names:
     name: "remote_names"
     in: "query"
-    description: "A comma-separated list of remote array names. If, after filtering,\
-      \ there is not at least one\nresource that matches each of the elements, then\
-      \ an error is returned. This cannot be provided\ntogether with the `remote_ids`\
-      \ query parameter.\n"
+    description: "A comma-separated list of remote array names. If there is not at\
+      \ least one\nresource that matches each of the elements, then an error is returned.\
+      \ This\ncannot be provided together with `remote_ids` query parameter.\n"
     required: false
     type: "array"
     items:
@@ -20744,8 +20740,8 @@ parameters:
   Ids_single:
     name: "ids"
     in: "query"
-    description: "Performs the operation on the unique resource IDs specified.\nOnly\
-      \ one value is supported.\n"
+    description: "Performs the operation on the unique resource IDs specified. Supports\
+      \ exactly one value.\n"
     required: false
     type: "array"
     items:
@@ -20766,21 +20762,18 @@ parameters:
   Continuation_token:
     name: "continuation_token"
     in: "query"
-    description: "A token used to retrieve the next page of data\nwith some consistency\
-      \ guaranteed.\nThe token is a Base64 encoded value.\nSet `continuation_token`\
-      \ to the system-generated token taken from the `x-next-token`\nheader field\
-      \ of the response.\nA query has reached its last page when the response does\
-      \ not include a token.\nPagination requires the `limit` and `continuation_token`\n\
-      query parameters.\n"
+    description: "An opaque token used to iterate over a collection.\nThe token to\
+      \ use on the next request is returned in the\n`continuation_token` field of\
+      \ the result.\n"
     required: false
     type: "string"
   Remote_ids:
     name: "remote_ids"
     in: "query"
-    description: "A comma-separated list of remote array IDs. If, after filtering,\
-      \ there is not at least one\nresource that matches each of the elements, then\
-      \ an error is returned. This cannot be provided\ntogether with the `remote_names`\
-      \ query parameter.\n"
+    description: "A comma-separated list of remote array IDs. If after filtering,\
+      \ there is not\nat least one resource that matches each of the elements, then\
+      \ an error is\nreturned. This cannot be provided together with the `remote_names`\
+      \ query\nparameter.\n"
     required: false
     type: "array"
     items:
@@ -20789,8 +20782,8 @@ parameters:
   Test_type:
     name: "test_type"
     in: "query"
-    description: "Specifies the type of test. Valid values are `all`, `phonehome`,\
-      \ and `remote-assist`.\nIf not specified, defaults to `all`.\n"
+    description: "Specify the type of test. Valid values are `all`, `phonehome` and\
+      \ `remote-assist`.\nIf not specified, defaults to `all`.\n"
     required: false
     type: "string"
   Admin_names:
@@ -20958,8 +20951,8 @@ parameters:
   Names_single:
     name: "names"
     in: "query"
-    description: "Performs the operation on the unique resource names specified.\n\
-      Only one value is supported.\n"
+    description: "Performs the operation on the unique resource names specified. Supports\
+      \ exactly one value.\n"
     required: false
     type: "array"
     items:
@@ -21033,8 +21026,7 @@ parameters:
   Filter:
     name: "filter"
     in: "query"
-    description: "Narrows down the results to only the response objects\nthat satisfy\
-      \ the filter criteria.\n"
+    description: "Exclude resources that don't match the specified criteria.\n"
     required: false
     type: "string"
   Legal_holds_recursive:
@@ -21068,11 +21060,12 @@ parameters:
   Limit:
     name: "limit"
     in: "query"
-    description: "Limits the size of the response to the specified number of objects\
-      \ on each page.\nTo return the total number of resources, set `limit=0`.\nThe\
-      \ total number of resources is returned as a `total_item_count` value.\nIf the\
-      \ page size requested is larger than the system maximum limit,\nthe server returns\
-      \ the maximum limit, disregarding the requested page size.\n"
+    description: "Limit the size of the response to the specified number of resources.\n\
+      A `limit` of `0` can be used to get the number of resources without getting\n\
+      all of the resources. It will be returned in the `total_item_count` field.\n\
+      If a client asks for a page size larger than the available number, the request\n\
+      is still valid. In that case the server just returns the available number of\n\
+      items, disregarding the client's page size request.\n"
     required: false
     type: "integer"
     minimum: 0
