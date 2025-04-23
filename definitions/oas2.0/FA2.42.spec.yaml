@@ -246,7 +246,6 @@ tags:
     \ configuration and\npolicy objects into logical groupings. Workloads can be deployed\
     \ from workload presets.\n"
 consumes:
-- "application/x-www-form-urlencoded"
 - "application/json"
 produces:
 - "application/json"
@@ -282,6 +281,7 @@ paths:
       - "Protection Groups"
       summary: "Delete tags"
       description: "Deletes specified tags."
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -301,9 +301,9 @@ paths:
       description: "Displays a list of vchost-connections between the protocol endpoint\
         \ and vchost.\n\n"
       parameters:
-      - $ref: "#/parameters/All_vchosts"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
+      - $ref: "#/parameters/All_vchosts"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Limit"
@@ -332,12 +332,12 @@ paths:
         \ But if `all_vchosts` is\nset to `true`, `vchost_names` and `vchost_ids`\
         \ should not be specified.\n"
       parameters:
+      - $ref: "#/parameters/Authorization"
+      - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/All_vchosts"
       - $ref: "#/parameters/Allow_stretched_multi_vchost"
-      - $ref: "#/parameters/Authorization"
-      - $ref: "#/parameters/Protocol_endpoint_names_for_vchost_connections"
       - $ref: "#/parameters/Protocol_endpoint_ids_for_vchost_connections"
-      - $ref: "#/parameters/XRequestId"
+      - $ref: "#/parameters/Protocol_endpoint_names_for_vchost_connections"
       - $ref: "#/parameters/Vchost_ids_for_vchost_connections"
       - $ref: "#/parameters/Vchost_names_for_vchost_connections"
       responses:
@@ -356,12 +356,13 @@ paths:
         and one of the `vchost_names` or `vchost_ids` query parameters are required.\n\
         But if `all_vchosts` is set to `true`, `vchost_names` and `vchost_ids`\nshould\
         \ not be specified.\n\n"
+      produces: []
       parameters:
-      - $ref: "#/parameters/All_vchosts"
       - $ref: "#/parameters/Authorization"
+      - $ref: "#/parameters/XRequestId"
+      - $ref: "#/parameters/All_vchosts"
       - $ref: "#/parameters/Protocol_endpoint_ids_for_vchost_connections"
       - $ref: "#/parameters/Protocol_endpoint_names_for_vchost_connections"
-      - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Vchost_ids_for_vchost_connections"
       - $ref: "#/parameters/Vchost_names_for_vchost_connections"
       responses:
@@ -403,8 +404,8 @@ paths:
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Names_single_required"
-      - $ref: "#/parameters/Preset_names"
       - $ref: "#/parameters/Preset_ids"
+      - $ref: "#/parameters/Preset_names"
       responses:
         "200":
           description: "OK"
@@ -418,6 +419,7 @@ paths:
         Eradicated workloads cannot be recovered.\nWorkloads are destroyed using the\
         \ `PATCH` method.\nThe `ids` or `names` parameter is required, but they cannot\
         \ be set together.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -513,9 +515,9 @@ paths:
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Member_types"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -555,6 +557,7 @@ paths:
         The `policy_ids` or `policy_names` parameter is required, but they cannot\
         \ be set together.\nThe `member_ids` or `member_names` parameter is required,\
         \ but they cannot be set together.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -621,6 +624,7 @@ paths:
       summary: "Delete SMB client policy rules."
       description: "Deletes one or more SMB client policy rules.\nThe `policy_ids`\
         \ or `policy_names` parameter is required, but they cannot be set together.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -645,14 +649,15 @@ paths:
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Destroyed"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
+      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       - $ref: "#/parameters/Total_only"
       responses:
@@ -660,8 +665,6 @@ paths:
           description: "OK"
           schema:
             $ref: "#/definitions/ResourcePodSpaceGetResponse"
-    parameters:
-    - $ref: "#/parameters/Names"
   /api/2.42/pods/members:
     get:
       tags:
@@ -677,12 +680,12 @@ paths:
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Filter"
-      - $ref: "#/parameters/Pod_names"
-      - $ref: "#/parameters/Pod_ids"
       - $ref: "#/parameters/Limit"
-      - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Member_ids"
+      - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/Pod_ids"
+      - $ref: "#/parameters/Pod_names"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -703,10 +706,10 @@ paths:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Context_names"
-      - $ref: "#/parameters/Pod_names"
-      - $ref: "#/parameters/Pod_ids"
-      - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Member_ids"
+      - $ref: "#/parameters/Member_names"
+      - $ref: "#/parameters/Pod_ids"
+      - $ref: "#/parameters/Pod_names"
       responses:
         "200":
           description: "OK"
@@ -728,14 +731,15 @@ paths:
         \ be cloned or destroyed, but it cannot be explicitly recovered.\nThe `member_names`\
         \ parameter represents the name of the array from which the pod is\nto be\
         \ unstretched.\nBoth pod and member must be specified by name or ID.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Context_names"
-      - $ref: "#/parameters/Pod_names"
-      - $ref: "#/parameters/Pod_ids"
-      - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Member_ids"
+      - $ref: "#/parameters/Member_names"
+      - $ref: "#/parameters/Pod_ids"
+      - $ref: "#/parameters/Pod_names"
       - $ref: "#/parameters/With_unknown"
       responses:
         "200":
@@ -746,14 +750,15 @@ paths:
       - "Authorization"
       summary: "POST logout (placeholder)"
       description: "Invalidate a session token.\n"
+      produces: []
       parameters:
-      - $ref: "#/parameters/XRequestId"
       - name: "x-auth-token"
         in: "header"
         description: "Session token for a user."
         required: false
         type: "string"
         x-example: "3be3d489-55c6-4643-90ac-a476dbc98812"
+      - $ref: "#/parameters/XRequestId"
       responses:
         "200":
           description: "OK"
@@ -771,13 +776,13 @@ paths:
       - $ref: "#/parameters/Allow_errors"
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       responses:
         "200":
@@ -799,12 +804,12 @@ paths:
       - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Pgroup_group_ids"
       - $ref: "#/parameters/Group_names"
+      - $ref: "#/parameters/Include_remote"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Member_destroyed"
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Offset"
-      - $ref: "#/parameters/Include_remote"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -829,8 +834,8 @@ paths:
       - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Group_ids"
       - $ref: "#/parameters/Group_names"
-      - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Member_ids"
+      - $ref: "#/parameters/Member_names"
       responses:
         "200":
           description: "OK"
@@ -850,14 +855,15 @@ paths:
         \ names or IDs of the volume.\nThe `group_names` parameter, and either the\
         \ `member_names` or `member_ids`\nparameters are required and must be set\
         \ together.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Group_ids"
       - $ref: "#/parameters/Group_names"
-      - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Member_ids"
+      - $ref: "#/parameters/Member_names"
       responses:
         "200":
           description: "OK"
@@ -893,11 +899,11 @@ paths:
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Certificate_group_ids"
       - $ref: "#/parameters/Certificate_group_names"
       - $ref: "#/parameters/Certificate_ids"
       - $ref: "#/parameters/Certificate_names"
+      - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Offset"
@@ -931,6 +937,7 @@ paths:
       - "Certificate Groups"
       summary: "Delete certificate-groups or certificates"
       description: "Deletes one or more certificate groups.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -959,9 +966,9 @@ paths:
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -1002,6 +1009,7 @@ paths:
         \ managed directory policies.\nThe `policy_ids` or `policy_names` parameter\
         \ is required, but they cannot be set together.\nThe `member_ids` or `member_names`\
         \ parameter is required, but they cannot be set together.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -1098,6 +1106,7 @@ paths:
       - "Alert Watchers"
       summary: "Delete alert watcher"
       description: "Delete alert watcher email address from the list of alert watchers."
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -1150,6 +1159,7 @@ paths:
       - "Arrays"
       summary: "Delete user tags from the cloud."
       description: "Deletes user tags from deployed cloud resources of a CBS array."
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -1207,6 +1217,7 @@ paths:
       summary: "Delete SNMP manager"
       description: "Deletes the SNMP manager object and stops communication with specified\
         \ managers.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -1275,6 +1286,7 @@ paths:
       - "Administrators"
       summary: "Delete cache entries"
       description: "Deletes all entries from the administrator cache.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -1313,6 +1325,7 @@ paths:
       - "Volume Groups"
       summary: "Delete tags"
       description: "Deletes specified tags."
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -1437,6 +1450,7 @@ paths:
         \ group, and\nthe `member_names` parameter represents the name of the host\
         \ group.\nThe `group_names` and `member_names` parameters are required and\
         \ must be set together.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -1465,9 +1479,9 @@ paths:
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Member_types"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -1506,6 +1520,7 @@ paths:
         \ or `policy_names` parameter is required, but cannot be set together.\nThe\
         \ `member_ids` or `member_names` parameter is required, but cannot be set\
         \ together.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -1526,6 +1541,7 @@ paths:
       description: "Lists how certificate groups are being used and by what.\n"
       parameters:
       - $ref: "#/parameters/Authorization"
+      - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Ids"
@@ -1534,7 +1550,6 @@ paths:
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
-      - $ref: "#/parameters/XRequestId"
       responses:
         "200":
           description: "OK"
@@ -1601,6 +1616,7 @@ paths:
       description: "Deletes one or more directory exports.\nIf any of the `export_names`\
         \ is not unique across the system,\n`policy_ids` or `policy_names` must be\
         \ specified to determine the exports.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -1690,15 +1706,15 @@ paths:
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Destroyed"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       - $ref: "#/parameters/Total_only"
       responses:
@@ -1716,21 +1732,21 @@ paths:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Allow_errors"
+      - $ref: "#/parameters/Base_id"
+      - $ref: "#/parameters/Base_name"
+      - $ref: "#/parameters/Block_size"
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Filter"
+      - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
+      - $ref: "#/parameters/Names"
+      - $ref: "#/parameters/Next_allocated_block_hint"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/Segment_length"
+      - $ref: "#/parameters/Segment_offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
-      - $ref: "#/parameters/Names"
-      - $ref: "#/parameters/Ids"
-      - $ref: "#/parameters/Base_name"
-      - $ref: "#/parameters/Base_id"
-      - $ref: "#/parameters/Segment_offset"
-      - $ref: "#/parameters/Segment_length"
-      - $ref: "#/parameters/Block_size"
-      - $ref: "#/parameters/Next_allocated_block_hint"
       responses:
         "200":
           description: "OK"
@@ -1845,8 +1861,8 @@ paths:
       - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Group_ids"
       - $ref: "#/parameters/Group_names"
-      - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Member_ids"
+      - $ref: "#/parameters/Member_names"
       responses:
         "200":
           description: "OK"
@@ -1865,14 +1881,15 @@ paths:
         \ group, and\nthe `member_names` and `member_ids` parameters represent the\
         \ names or IDs of the volume.\nThe `group_names` and only one of `member_names`\
         \ or `member_ids`\nparameters are required and must be set together.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Group_ids"
       - $ref: "#/parameters/Group_names"
-      - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Member_ids"
+      - $ref: "#/parameters/Member_names"
       responses:
         "200":
           description: "OK"
@@ -1893,9 +1910,9 @@ paths:
       - $ref: "#/parameters/Member_idsUnrestricted"
       - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Member_types"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_idsUnrestricted"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -1934,6 +1951,7 @@ paths:
         \ and attached object.\nOne of `policy_ids` or `policy_names` is required,\
         \ as well as one of `member_ids`\nor `member_names`. `member_types` is required.\n\
         \n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -1960,6 +1978,7 @@ paths:
         in `source_path` under the target directory.\nThe `source_path` value refers\
         \ to the path of the source file relative to the source directory.\nTo overwrite\
         \ an existing file, set the `overwrite` flag to `true`.\n"
+      produces: []
       parameters:
       - in: "body"
         name: "source-file"
@@ -1970,8 +1989,8 @@ paths:
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Directory_ids"
       - $ref: "#/parameters/Directory_names"
-      - $ref: "#/parameters/Paths"
       - $ref: "#/parameters/Overwrite"
+      - $ref: "#/parameters/Paths"
       responses:
         "200":
           description: "OK"
@@ -2006,6 +2025,7 @@ paths:
       - "Realms"
       summary: "Delete tags"
       description: "Deletes specified tags.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -2032,8 +2052,8 @@ paths:
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Destroyed"
       - $ref: "#/parameters/Filter"
-      - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Ids"
+      - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
@@ -2054,14 +2074,14 @@ paths:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Continuation_token"
+      - $ref: "#/parameters/Filter"
+      - $ref: "#/parameters/Group_gids"
       - $ref: "#/parameters/Local_group_names"
       - $ref: "#/parameters/Group_sids"
-      - $ref: "#/parameters/Group_gids"
+      - $ref: "#/parameters/Limit"
+      - $ref: "#/parameters/Local_member_ids"
       - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Member_sids"
-      - $ref: "#/parameters/Local_member_ids"
-      - $ref: "#/parameters/Filter"
-      - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
@@ -2087,9 +2107,9 @@ paths:
           $ref: "#/definitions/LocalUserMembershipPost"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
+      - $ref: "#/parameters/Local_member_ids"
       - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Member_sids"
-      - $ref: "#/parameters/Local_member_ids"
       responses:
         "200":
           description: "OK"
@@ -2102,15 +2122,16 @@ paths:
       description: "Deletes one or more local user memberships.\nThe `member_names`,\
         \ `member_sids`, or `member_ids` parameter is required, but cannot be set\n\
         together.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
+      - $ref: "#/parameters/Group_gids"
       - $ref: "#/parameters/Local_group_names"
       - $ref: "#/parameters/Group_sids"
-      - $ref: "#/parameters/Group_gids"
+      - $ref: "#/parameters/Local_member_ids"
       - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Member_sids"
-      - $ref: "#/parameters/Local_member_ids"
       - $ref: "#/parameters/Member_types"
       responses:
         "200":
@@ -2152,15 +2173,15 @@ paths:
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Destroyed"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Ids"
-      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Limit"
+      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       responses:
         "200":
@@ -2181,14 +2202,15 @@ paths:
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Destroyed"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
+      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       - $ref: "#/parameters/Total_only"
       responses:
@@ -2196,8 +2218,6 @@ paths:
           description: "OK"
           schema:
             $ref: "#/definitions/VolumeSpaceGetResponse"
-    parameters:
-    - $ref: "#/parameters/Names"
   /api/2.42/api-clients:
     get:
       tags:
@@ -2247,6 +2267,7 @@ paths:
       summary: "Delete an API client"
       description: "Deletes an API client.\nThe `ids` or `names` parameter is required,\
         \ but they cannot be set together.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -2316,9 +2337,9 @@ paths:
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Namespaces"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/Resource_destroyed"
       - $ref: "#/parameters/Resource_ids"
       - $ref: "#/parameters/Resource_names"
-      - $ref: "#/parameters/Resource_destroyed"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -2331,6 +2352,7 @@ paths:
       - "Hosts"
       summary: "Delete tags"
       description: "Deletes specified tags on host objects.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -2401,6 +2423,7 @@ paths:
         The `member_names` parameter represents the name of the array, pod, or offload\
         \ target\nthat is being removed from the protection group.\nThe `group_names`\
         \ and `member_names` parameters are required and must be set together.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -2501,6 +2524,7 @@ paths:
         \ group, and\nthe `member_names` parameter represents the name of the host\
         \ group.\nThe `group_names` and `member_names` parameters are required and\
         \ must be set together.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -2524,8 +2548,8 @@ paths:
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Filter"
-      - $ref: "#/parameters/Group_mapping_names"
       - $ref: "#/parameters/Limit"
+      - $ref: "#/parameters/Group_mapping_names"
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Role_names"
       - $ref: "#/parameters/Sort"
@@ -2560,6 +2584,7 @@ paths:
       - "Directory Services"
       summary: "Delete group to management access policy mappings"
       description: "Deletes one or more group to management access policy mappings.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -2584,8 +2609,8 @@ paths:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Context_names"
-      - $ref: "#/parameters/Role_names"
       - $ref: "#/parameters/Group_mapping_names_required"
+      - $ref: "#/parameters/Role_names"
       responses:
         "200":
           description: "OK"
@@ -2638,6 +2663,7 @@ paths:
       description: "Deletes a file system that has been destroyed and is pending eradication.\n\
         Eradicated file systems cannot be recovered. File systems are destroyed using\
         \ the PATCH method.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -2687,15 +2713,15 @@ paths:
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Destroyed"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Ids"
-      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Limit"
+      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       responses:
         "200":
@@ -2713,10 +2739,10 @@ paths:
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Filter"
+      - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
-      - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Total_item_count"
       responses:
         "200":
@@ -2765,8 +2791,8 @@ paths:
       - $ref: "#/parameters/Protocol_endpoint_names"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
-      - $ref: "#/parameters/Volume_names"
       - $ref: "#/parameters/Volume_ids"
+      - $ref: "#/parameters/Volume_names"
       responses:
         "200":
           description: "OK"
@@ -2790,8 +2816,8 @@ paths:
       - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Host_group_names"
       - $ref: "#/parameters/Host_names"
-      - $ref: "#/parameters/Volume_names"
       - $ref: "#/parameters/Volume_ids"
+      - $ref: "#/parameters/Volume_names"
       responses:
         "200":
           description: "OK"
@@ -2804,14 +2830,15 @@ paths:
       description: "Deletes the connection between a volume and its associated host\
         \ or host group.\nOne of `volume_names` or `volume_ids` and one of `host_names`\n\
         or `host_group_names` query parameters are required.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Host_group_names"
       - $ref: "#/parameters/Host_names"
-      - $ref: "#/parameters/Volume_names"
       - $ref: "#/parameters/Volume_ids"
+      - $ref: "#/parameters/Volume_names"
       responses:
         "200":
           description: "OK"
@@ -2862,6 +2889,7 @@ paths:
       - "SAML2 SSO"
       summary: "Delete SAML2 SSO configurations"
       description: "Deletes SAML2 SSO configurations.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -2907,6 +2935,7 @@ paths:
       - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
+      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Source_ids"
@@ -2918,8 +2947,6 @@ paths:
           description: "OK"
           schema:
             $ref: "#/definitions/VolumeSnapshotTransferGetResponse"
-    parameters:
-    - $ref: "#/parameters/Names"
   /api/2.42/volumes/performance/by-array:
     get:
       tags:
@@ -2937,15 +2964,15 @@ paths:
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Destroyed"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       - $ref: "#/parameters/Total_only"
       responses:
@@ -3006,6 +3033,7 @@ paths:
       - "Offloads"
       summary: "Delete offload target"
       description: "Deletes an offload target.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -3024,10 +3052,8 @@ paths:
       - $ref: "#/parameters/Allow_errors"
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Local_pod_ids"
@@ -3037,7 +3063,9 @@ paths:
       - $ref: "#/parameters/Remote_names"
       - $ref: "#/parameters/Remote_pod_ids"
       - $ref: "#/parameters/Remote_pod_names"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       - $ref: "#/parameters/Historical_total_only"
       responses:
@@ -3080,14 +3108,15 @@ paths:
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Destroyed"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
+      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       - $ref: "#/parameters/Total_only"
       responses:
@@ -3095,8 +3124,6 @@ paths:
           description: "OK"
           schema:
             $ref: "#/definitions/ResourceSpaceGetResponse"
-    parameters:
-    - $ref: "#/parameters/Names"
   /api/2.42/host-groups/performance/by-array:
     get:
       tags:
@@ -3115,14 +3142,14 @@ paths:
       - $ref: "#/parameters/Allow_errors"
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       - $ref: "#/parameters/Total_only"
       responses:
@@ -3229,12 +3256,12 @@ paths:
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Filter"
-      - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Ids"
+      - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Names"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Remote_ids"
       - $ref: "#/parameters/Remote_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -3266,6 +3293,7 @@ paths:
       - "Array Connections"
       summary: "Delete an array connection"
       description: "Deletes the connection between this array and the specified array.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -3313,17 +3341,17 @@ paths:
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Destroyed"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Perf_protocol_type"
       - $ref: "#/parameters/Perf_protocol_group"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       - $ref: "#/parameters/Total_only"
       responses:
@@ -3347,15 +3375,15 @@ paths:
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Destroyed"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       - $ref: "#/parameters/Historical_total_only"
       responses:
@@ -3372,8 +3400,8 @@ paths:
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/App_names"
+      - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Offset"
@@ -3394,15 +3422,15 @@ paths:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Continuation_token"
-      - $ref: "#/parameters/Ids"
-      - $ref: "#/parameters/Uids"
-      - $ref: "#/parameters/Sids"
-      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Filter"
+      - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
+      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/Sids"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
+      - $ref: "#/parameters/Uids"
       responses:
         "200":
           description: "OK"
@@ -3433,6 +3461,7 @@ paths:
       summary: "Delete local users"
       description: "Deletes one or more local users.\nThe `uids`, `names`, or `sids`\
         \ parameter is required, but cannot be set together.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -3455,8 +3484,8 @@ paths:
           $ref: "#/definitions/LocalUserPatch"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/KeepSessionsOpen"
+      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Sids"
       - $ref: "#/parameters/Uids"
       responses:
@@ -3482,9 +3511,9 @@ paths:
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Member_types"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -3523,6 +3552,7 @@ paths:
         \ and attached object. The `policy_ids` or `policy_names` parameter is required,\
         \ but cannot be set together. The `member_ids` or `member_names` parameter\
         \ is required, but cannot be set together."
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -3545,6 +3575,7 @@ paths:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Allow_errors"
+      - $ref: "#/parameters/Alert_rules_code_list"
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Filter"
@@ -3552,7 +3583,6 @@ paths:
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
-      - $ref: "#/parameters/Alert_rules_code_list"
       responses:
         "200":
           description: "OK"
@@ -3583,6 +3613,7 @@ paths:
       - "Alerts"
       summary: "Delete a custom alert rule"
       description: "Deletes a custom alert rule.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -3659,6 +3690,7 @@ paths:
       - "Workloads"
       summary: "Delete tags"
       description: "Deletes specified tags."
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -3681,15 +3713,15 @@ paths:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Continuation_token"
+      - $ref: "#/parameters/Endpoints"
       - $ref: "#/parameters/Filter"
+      - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
-      - $ref: "#/parameters/Ids"
-      - $ref: "#/parameters/Vchost_names"
-      - $ref: "#/parameters/Vchost_ids"
-      - $ref: "#/parameters/Endpoints"
       - $ref: "#/parameters/Total_item_count"
+      - $ref: "#/parameters/Vchost_ids"
+      - $ref: "#/parameters/Vchost_names"
       responses:
         "200":
           description: "OK"
@@ -3709,8 +3741,8 @@ paths:
           $ref: "#/definitions/VchostEndpointPost"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Vchost_names"
       - $ref: "#/parameters/Vchost_ids"
+      - $ref: "#/parameters/Vchost_names"
       responses:
         "200":
           description: "OK"
@@ -3723,13 +3755,14 @@ paths:
       description: "Deletes an existing vchost endpoint\nThe `ids` query parameter\
         \ alone, or the `endpoints` query parameter together with\none of `vchost_names`\
         \ or `vchost_ids`, is required.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Ids"
-      - $ref: "#/parameters/Vchost_names"
-      - $ref: "#/parameters/Vchost_ids"
       - $ref: "#/parameters/Endpoints"
+      - $ref: "#/parameters/Ids"
+      - $ref: "#/parameters/Vchost_ids"
+      - $ref: "#/parameters/Vchost_names"
       responses:
         "200":
           description: "OK"
@@ -3748,10 +3781,10 @@ paths:
           $ref: "#/definitions/VchostEndpointPatch"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Ids"
-      - $ref: "#/parameters/Vchost_names"
-      - $ref: "#/parameters/Vchost_ids"
       - $ref: "#/parameters/Endpoints"
+      - $ref: "#/parameters/Ids"
+      - $ref: "#/parameters/Vchost_ids"
+      - $ref: "#/parameters/Vchost_names"
       responses:
         "200":
           description: "OK"
@@ -3777,11 +3810,6 @@ paths:
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
-      - name: "vm_type"
-        in: "query"
-        description: "The type of virtual machine.\nThe only valid value is `vvol`.\n"
-        required: false
-        type: "string"
       - name: "vm_ids"
         in: "query"
         description: "Performs the operation on the unique virtual machine IDs specified.\n\
@@ -3791,6 +3819,11 @@ paths:
         items:
           type: "string"
         collectionFormat: "csv"
+      - name: "vm_type"
+        in: "query"
+        description: "The type of virtual machine.\nThe only valid value is `vvol`.\n"
+        required: false
+        type: "string"
       responses:
         "200":
           description: "OK"
@@ -3955,8 +3988,8 @@ paths:
           $ref: "#/definitions/ActiveDirectoryPost"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Names_required"
       - $ref: "#/parameters/Join_existing_acct_ad"
+      - $ref: "#/parameters/Names_required"
       responses:
         "200":
           description: "OK"
@@ -3967,6 +4000,7 @@ paths:
       - "Active Directory"
       summary: "Delete Active Directory account"
       description: "Deletes one or more specified Active Directory accounts.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -4008,15 +4042,15 @@ paths:
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Destroyed"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       - $ref: "#/parameters/Total_only"
       responses:
@@ -4096,9 +4130,9 @@ paths:
           $ref: "#/definitions/VolumeSnapshotPost"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
+      - $ref: "#/parameters/Allow_throttle_snapshot"
       - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/OnSingle"
-      - $ref: "#/parameters/Allow_throttle_snapshot"
       - $ref: "#/parameters/Source_ids"
       - $ref: "#/parameters/Source_names"
       responses:
@@ -4114,6 +4148,7 @@ paths:
         \ eradication.\nEradicated volume snapshots cannot be recovered.\nVolume snapshots\
         \ are destroyed by using the `PATCH` method.\nThe `ids` or `names` parameter\
         \ is required, but they cannot be set together.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -4204,6 +4239,7 @@ paths:
       summary: "Delete NFS client policy rules."
       description: "Deletes one or more NFS client policy rules.\nThe `policy_ids`\
         \ or `policy_names` parameter is required, but cannot be set together.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -4360,6 +4396,7 @@ paths:
       summary: "Delete snapshot policies"
       description: "Deletes one or more snapshot policies.\nThe `ids` or `names` parameter\
         \ is required, but they cannot be set together.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -4451,6 +4488,7 @@ paths:
       - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
+      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/On_"
       - $ref: "#/parameters/Sort"
@@ -4463,8 +4501,6 @@ paths:
           description: "OK"
           schema:
             $ref: "#/definitions/RemoteVolumeSnapshotTransferGetResponse"
-    parameters:
-    - $ref: "#/parameters/Names"
   /api/2.42/directories/policies/quota:
     get:
       tags:
@@ -4482,9 +4518,9 @@ paths:
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -4508,9 +4544,9 @@ paths:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Context_names"
+      - $ref: "#/parameters/Ignore_usage"
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
-      - $ref: "#/parameters/Ignore_usage"
       responses:
         "200":
           description: "OK"
@@ -4524,6 +4560,7 @@ paths:
         \ policies.\nThe `policy_ids` or `policy_names` parameter is required, but\
         \ cannot be set together.\nThe `member_ids` or `member_names` parameter is\
         \ required, but cannot be set together.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -4591,6 +4628,7 @@ paths:
       summary: "Delete auto managed directory policies"
       description: "Deletes one or more auto managed directory policies.\nThe `ids`\
         \ or `names` parameter is required, but they cannot be set together.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -4667,9 +4705,9 @@ paths:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Context_names"
+      - $ref: "#/parameters/OnSingle"
       - $ref: "#/parameters/Source_ids"
       - $ref: "#/parameters/Source_names"
-      - $ref: "#/parameters/OnSingle"
       responses:
         "200":
           description: "OK"
@@ -4685,6 +4723,7 @@ paths:
         \ parameter represents the name of the volume snapshot.\nThe `on` parameter\
         \ represents the name of the offload target.\nThe `names` and `on` parameters\
         \ are required and must be used together.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -4735,10 +4774,10 @@ paths:
           $ref: "#/definitions/VolumePost"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Add_to_protection_group_ids"
       - $ref: "#/parameters/Add_to_protection_group_names"
       - $ref: "#/parameters/Allow_throttle_operation"
+      - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Overwrite"
       - $ref: "#/parameters/With_default_protection"
@@ -4825,6 +4864,7 @@ paths:
       summary: "Delete a host group"
       description: "Deletes a host group in which the `names` query parameter is required.\n\
         \n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -4848,12 +4888,12 @@ paths:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Context_names"
-      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/From_member_ids"
       - $ref: "#/parameters/From_member_names"
+      - $ref: "#/parameters/Modify_resource_access_on_move"
+      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/To_member_ids"
       - $ref: "#/parameters/To_member_names"
-      - $ref: "#/parameters/Modify_resource_access_on_move"
       responses:
         "200":
           description: "OK"
@@ -4915,6 +4955,7 @@ paths:
       summary: "Delete NFS policies"
       description: "Deletes one or more NFS policies.\nThe `ids` or `names` parameter\
         \ is required, but they cannot be set together.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -5003,6 +5044,7 @@ paths:
       summary: "Delete quota policies"
       description: "Deletes one or more quota policies.\nThe `ids` or `names` parameter\
         \ is required, but they cannot be set together.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -5030,8 +5072,8 @@ paths:
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Ids"
-      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Ignore_usage"
+      - $ref: "#/parameters/Names"
       responses:
         "200":
           description: "OK"
@@ -5082,6 +5124,7 @@ paths:
       - "KMIP"
       summary: "Delete KMIP server object"
       description: "Deletes KMIP server objects."
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -5126,9 +5169,9 @@ paths:
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -5167,6 +5210,7 @@ paths:
         \ policies.\nEither the `policy_ids` or `policy_names` parameter is required,\
         \ but they cannot be\nset together.\nEither the `member_ids` or `member_names`\
         \ parameter is required, but they cannot be\nset together.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -5244,6 +5288,7 @@ paths:
       summary: "Delete a workload preset"
       description: "Deletes a workload preset permanently.\nThe `ids` or `names` parameter\
         \ is required, but they cannot be set together.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -5311,9 +5356,9 @@ paths:
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Namespaces"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/Resource_destroyed"
       - $ref: "#/parameters/Resource_ids"
       - $ref: "#/parameters/Resource_names"
-      - $ref: "#/parameters/Resource_destroyed"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -5326,6 +5371,7 @@ paths:
       - "Host Groups"
       summary: "Delete tags"
       description: "Deletes specified tags on host group objects.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -5347,16 +5393,16 @@ paths:
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
+      - $ref: "#/parameters/Certificate_names"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Filter"
+      - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
-      - $ref: "#/parameters/Ids"
-      - $ref: "#/parameters/Vchost_names"
-      - $ref: "#/parameters/Vchost_ids"
-      - $ref: "#/parameters/Certificate_names"
       - $ref: "#/parameters/Total_item_count"
+      - $ref: "#/parameters/Vchost_ids"
+      - $ref: "#/parameters/Vchost_names"
       responses:
         "200":
           description: "OK"
@@ -5377,8 +5423,8 @@ paths:
           $ref: "#/definitions/VchostCertificatePost"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Vchost_names"
       - $ref: "#/parameters/Vchost_ids"
+      - $ref: "#/parameters/Vchost_names"
       responses:
         "200":
           description: "OK"
@@ -5391,13 +5437,14 @@ paths:
       description: "Deletes an existing vchost certificate.\nThe `ids` query parameter\
         \ alone, or the `certificate_names`\nquery parameter together with one of\
         \ `vchost_names` or `vchost_ids`, is required.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Ids"
-      - $ref: "#/parameters/Vchost_names"
-      - $ref: "#/parameters/Vchost_ids"
       - $ref: "#/parameters/Certificate_names"
+      - $ref: "#/parameters/Ids"
+      - $ref: "#/parameters/Vchost_ids"
+      - $ref: "#/parameters/Vchost_names"
       responses:
         "200":
           description: "OK"
@@ -5416,10 +5463,10 @@ paths:
           $ref: "#/definitions/VchostCertificatePatch"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Ids"
-      - $ref: "#/parameters/Vchost_names"
-      - $ref: "#/parameters/Vchost_ids"
       - $ref: "#/parameters/Certificate_names"
+      - $ref: "#/parameters/Ids"
+      - $ref: "#/parameters/Vchost_ids"
+      - $ref: "#/parameters/Vchost_names"
       responses:
         "200":
           description: "OK"
@@ -5436,11 +5483,11 @@ paths:
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Filter"
+      - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
+      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
-      - $ref: "#/parameters/Names"
-      - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Total_item_count"
       responses:
         "200":
@@ -5500,6 +5547,7 @@ paths:
         \ host,\neither through private or shared connections,\nmust be disconnected\
         \ from the host before the host can be deleted.\nThe `names` query parameter\
         \ is required.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -5524,12 +5572,12 @@ paths:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Context_names"
-      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/From_member_ids"
       - $ref: "#/parameters/From_member_names"
+      - $ref: "#/parameters/Modify_resource_access_on_move"
+      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/To_member_ids"
       - $ref: "#/parameters/To_member_names"
-      - $ref: "#/parameters/Modify_resource_access_on_move"
       responses:
         "200":
           description: "OK"
@@ -5592,17 +5640,17 @@ paths:
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - name: "name"
-        in: "query"
-        description: "Name of software patch to install"
-        required: true
-        type: "string"
       - name: "allow_ha_reduction"
         in: "query"
         description: "If Software Patch has ha_reduction_required set to true, `allow_ha_reduction`\
           \ must be\nset to `true` for Software Patch installation.\n\n"
         required: false
         type: "boolean"
+      - name: "name"
+        in: "query"
+        description: "Name of software patch to install"
+        required: true
+        type: "string"
       responses:
         "200":
           description: "The software patch download was initiated. The download and\
@@ -5646,15 +5694,15 @@ paths:
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
-      - $ref: "#/parameters/Perf_protocol_type"
-      - $ref: "#/parameters/Perf_protocol_group"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/Perf_protocol_type"
+      - $ref: "#/parameters/Perf_protocol_group"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       responses:
         "200":
@@ -5672,15 +5720,15 @@ paths:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Destroyed"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Ids"
-      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Limit"
+      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       - $ref: "#/parameters/Total_only"
       responses:
@@ -5745,6 +5793,7 @@ paths:
       description: "Deletes the specified array(s) from the fleet.\nNote that this\
         \ will only succeed if the array(s) to be removed are not making use of any\
         \ fleet\nresources.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -5772,9 +5821,9 @@ paths:
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -5813,6 +5862,7 @@ paths:
         The `policy_ids` or `policy_names` parameter is required, but cannot be set\
         \ together.\nThe `member_ids` or `member_names` parameter is required, but\
         \ cannot be set together.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -5920,6 +5970,7 @@ paths:
       summary: "Delete a fleet"
       description: "Deletes a fleet, permanently.\nA fleet can only be deleted if\
         \ the current array is the only array in the fleet.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -5967,9 +6018,9 @@ paths:
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -6009,6 +6060,7 @@ paths:
         \ policies.\nThe `policy_ids` or `policy_names` parameter is required, but\
         \ cannot be set together.\nThe `member_ids` or `member_names` parameter is\
         \ required, but cannot be set together.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -6076,6 +6128,7 @@ paths:
       - "Arrays"
       summary: "Delete tags"
       description: "Deletes specified tags on array objects.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -6138,6 +6191,7 @@ paths:
       - "Volumes"
       summary: "Delete tags"
       description: "Deletes specified tags."
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -6196,10 +6250,10 @@ paths:
           $ref: "#/definitions/VolumePost"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Add_to_protection_group_ids"
       - $ref: "#/parameters/Add_to_protection_group_names"
       - $ref: "#/parameters/Allow_throttle_operation"
+      - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Overwrite"
       - $ref: "#/parameters/With_default_protection"
@@ -6216,6 +6270,7 @@ paths:
         Eradicated volumes cannot be recovered.\nVolumes are destroyed using the `PATCH`\
         \ method.\nThe `ids` or `names` parameter is required, but they cannot be\
         \ set together.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -6245,9 +6300,9 @@ paths:
           $ref: "#/definitions/VolumePatch"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Add_to_protection_group_ids"
       - $ref: "#/parameters/Add_to_protection_group_names"
+      - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Remove_from_protection_group_ids"
@@ -6274,15 +6329,15 @@ paths:
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Destroyed"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       - $ref: "#/parameters/Total_only"
       responses:
@@ -6331,13 +6386,13 @@ paths:
       summary: "POST login (placeholder)"
       description: "Exchange an API token for a session token.\n"
       parameters:
-      - $ref: "#/parameters/XRequestId"
       - name: "api-token"
         in: "header"
         description: "API token for a user.\n"
         required: false
         type: "string"
         x-example: "0f2e2884-9486-c6c2-438c-f50418f2aac3"
+      - $ref: "#/parameters/XRequestId"
       responses:
         "200":
           description: "OK"
@@ -6428,13 +6483,14 @@ paths:
         \ eradication.\nEradicated volume groups cannot be recovered.\nVolume groups\
         \ are destroyed through the PATCH method.\nThe `ids` or `names` parameter\
         \ is required, but they cannot be set together.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Context_names"
+      - $ref: "#/parameters/Eradicate_contents"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Names"
-      - $ref: "#/parameters/Eradicate_contents"
       responses:
         "200":
           description: "OK"
@@ -6460,9 +6516,9 @@ paths:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Context_names"
+      - $ref: "#/parameters/Destroy_contents"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Names"
-      - $ref: "#/parameters/Destroy_contents"
       responses:
         "200":
           description: "OK"
@@ -6486,9 +6542,9 @@ paths:
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Member_types"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -6616,6 +6672,7 @@ paths:
         \ configuration, and logs. Prior to factory reset, an array must be manually\
         \ prepared\n(e.g., all volumes and snapshots must be eradicated) and a factory\
         \ reset token must be created.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -6673,15 +6730,15 @@ paths:
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Destroyed"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       - $ref: "#/parameters/Total_only"
       responses:
@@ -6706,9 +6763,9 @@ paths:
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -6764,6 +6821,7 @@ paths:
       - "Log Targets"
       summary: "Delete file log target"
       description: "Deletes a configured file log target."
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -6827,6 +6885,7 @@ paths:
         Remote protection groups are destroyed through the `PATCH` method.\nThe `on`\
         \ parameter represents the name of the offload target.\nThe `ids` or `names`\
         \ parameter and the `on` parameter are required and must be used together.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -6895,6 +6954,7 @@ paths:
       - "Pods"
       summary: "Delete tags"
       description: "Deletes specified tags."
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -6938,11 +6998,11 @@ paths:
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Filter"
+      - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
+      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
-      - $ref: "#/parameters/Names"
-      - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Total_item_count"
       responses:
         "200":
@@ -6974,11 +7034,12 @@ paths:
       summary: "Delete a vchost"
       description: "Deletes an existing vchost.\nThe `names` or `ids` query parameter\
         \ is required.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Ids"
+      - $ref: "#/parameters/Names"
       responses:
         "200":
           description: "OK"
@@ -6996,8 +7057,8 @@ paths:
           $ref: "#/definitions/VchostPatch"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Ids"
+      - $ref: "#/parameters/Names"
       responses:
         "200":
           description: "OK"
@@ -7057,6 +7118,7 @@ paths:
       summary: "Delete management access policies"
       description: "Deletes one or more management access policies.\nOne of `ids`\
         \ or `names` is required.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -7104,8 +7166,8 @@ paths:
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Destroyed"
       - $ref: "#/parameters/Filter"
-      - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Ids"
+      - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/On_"
@@ -7199,8 +7261,8 @@ paths:
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Destroyed"
       - $ref: "#/parameters/Filter"
-      - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Ids"
+      - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/On_"
@@ -7226,18 +7288,18 @@ paths:
           $ref: "#/definitions/RemoteProtectionGroupSnapshotPost"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
+      - $ref: "#/parameters/Allow_throttle_snapshot"
       - $ref: "#/parameters/Apply_retention"
       - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Convert_source_to_baseline"
       - $ref: "#/parameters/For_replication"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Names"
+      - $ref: "#/parameters/OnSingle"
       - $ref: "#/parameters/Replicate"
       - $ref: "#/parameters/Replicate_now"
-      - $ref: "#/parameters/Allow_throttle_snapshot"
-      - $ref: "#/parameters/Source_names"
       - $ref: "#/parameters/Source_ids"
-      - $ref: "#/parameters/OnSingle"
+      - $ref: "#/parameters/Source_names"
       responses:
         "200":
           description: "OK"
@@ -7253,12 +7315,13 @@ paths:
         \ the `PATCH` method.\nThe `names` parameter represents the name of the protection\
         \ group snapshot.\nThe `on` parameter represents the name of the offload target.\n\
         The `names` and `on` parameters are required and must be used together.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Context_names"
-      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Ids"
+      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/OnSingle"
       responses:
         "200":
@@ -7280,8 +7343,8 @@ paths:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Context_names"
-      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Ids"
+      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/OnSingle"
       responses:
         "200":
@@ -7299,12 +7362,12 @@ paths:
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Allow_errors"
       - $ref: "#/parameters/Context_names_get"
-      - $ref: "#/parameters/Container_ids"
-      - $ref: "#/parameters/Container_names"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Destroyed"
       - $ref: "#/parameters/Filter"
+      - $ref: "#/parameters/Container_ids"
       - $ref: "#/parameters/Limit"
+      - $ref: "#/parameters/Container_names"
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
@@ -7341,6 +7404,8 @@ paths:
       - "Authorization"
       summary: "Get access token"
       description: "Exchanges an ID Token for an OAuth 2.0 access token.\n"
+      consumes:
+      - "application/x-www-form-urlencoded"
       parameters:
       - $ref: "#/parameters/OauthSubjectTokenType"
       - $ref: "#/parameters/OauthGrantType"
@@ -7406,11 +7471,11 @@ paths:
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Certificate_group_ids"
       - $ref: "#/parameters/Certificate_group_names"
       - $ref: "#/parameters/Certificate_ids"
       - $ref: "#/parameters/Certificate_names"
+      - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Offset"
@@ -7444,6 +7509,7 @@ paths:
       summary: "Deletes certificates/certificate-groups"
       description: "Deletes one or more certificates from one or more certificate\
         \ groups.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -7499,6 +7565,7 @@ paths:
       - "Network Interfaces"
       summary: "Delete network interface"
       description: "Deletes a network interface on a controller."
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -7590,6 +7657,7 @@ paths:
       - "Certificate Groups"
       summary: "Delete certificate-groups"
       description: "Deletes one or more certificate groups from the array.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -7608,15 +7676,15 @@ paths:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Continuation_token"
+      - $ref: "#/parameters/Filter"
+      - $ref: "#/parameters/Group_gids"
       - $ref: "#/parameters/Local_group_names"
       - $ref: "#/parameters/Group_sids"
-      - $ref: "#/parameters/Group_gids"
+      - $ref: "#/parameters/Limit"
+      - $ref: "#/parameters/Local_member_ids"
       - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Member_sids"
-      - $ref: "#/parameters/Local_member_ids"
       - $ref: "#/parameters/Member_types"
-      - $ref: "#/parameters/Filter"
-      - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
@@ -7642,9 +7710,9 @@ paths:
           $ref: "#/definitions/LocalGroupMembershipPost"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
+      - $ref: "#/parameters/Group_gids"
       - $ref: "#/parameters/Local_group_names"
       - $ref: "#/parameters/Group_sids"
-      - $ref: "#/parameters/Group_gids"
       responses:
         "200":
           description: "OK"
@@ -7657,15 +7725,16 @@ paths:
       description: "Deletes one or more local group memberships.\nThe `group_names`,\
         \ `group_sids`, or `group_ids` parameter is required, but cannot be set\n\
         together.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
+      - $ref: "#/parameters/Group_gids"
       - $ref: "#/parameters/Local_group_names"
       - $ref: "#/parameters/Group_sids"
-      - $ref: "#/parameters/Group_gids"
+      - $ref: "#/parameters/Local_member_ids"
       - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Member_sids"
-      - $ref: "#/parameters/Local_member_ids"
       - $ref: "#/parameters/Member_types"
       responses:
         "200":
@@ -7714,6 +7783,7 @@ paths:
       summary: "Delete a factory reset token"
       description: "Deletes an existing token that could be used to perform a factory\
         \ reset on the array."
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -7814,9 +7884,9 @@ paths:
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Member_types"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -7855,6 +7925,7 @@ paths:
         \ or `policy_names` parameter is required, but cannot be set together. The\
         \ `member_ids` or `member_names` parameter is required, but cannot be set\
         \ together."
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -8009,9 +8080,9 @@ paths:
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Member_types"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -8050,6 +8121,7 @@ paths:
         \ or `policy_names` parameter is required, but cannot be set together.\nThe\
         \ `member_ids` or `member_names` parameter is required, but cannot be set\
         \ together.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -8122,6 +8194,7 @@ paths:
         \ protection group, and\nthe `member_names` parameter represents the name\
         \ of the host.\nThe `group_names` and `member_names` parameters are required\
         \ and must be set together.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -8150,9 +8223,9 @@ paths:
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -8193,6 +8266,7 @@ paths:
         \ mapping with one or more\nmanagement access policies. One of `policy_ids`\
         \ or `policy_names` is required, and one of\n`member_ids` or `member_names`\
         \ is required.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -8261,6 +8335,7 @@ paths:
       summary: "Delete SMB policies"
       description: "Deletes one or more SMB policies.\nThe `ids` or `names` parameter\
         \ is required, but they cannot be set together.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -8332,14 +8407,14 @@ paths:
       - $ref: "#/parameters/Allow_errors"
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       - $ref: "#/parameters/Total_only"
       responses:
@@ -8462,6 +8537,7 @@ paths:
         \ with the group.\nHosts can be removed from host groups at any time.\nThe\
         \ `group_names` and `member_names` parameters are required\nand must be set\
         \ together, and only one host group can be specified at a time.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -8562,6 +8638,7 @@ paths:
       summary: "Delete maintenance window"
       description: "Deletes an open maintenance window before its scheduled end (`expire`)\
         \ time.\nThe `names` parameter is required and must be set to `environment`.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -8584,17 +8661,17 @@ paths:
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Destroyed"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Perf_protocol_type"
       - $ref: "#/parameters/Perf_protocol_group"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       - $ref: "#/parameters/Total_only"
       responses:
@@ -8651,6 +8728,7 @@ paths:
       - "DNS"
       summary: "Delete DNS configuration"
       description: "Deletes DNS configuration identified by configuration name.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -8731,6 +8809,7 @@ paths:
       summary: "Delete syslog server"
       description: "Deletes a configured syslog server and stops forwarding syslog\
         \ messages.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -8810,6 +8889,7 @@ paths:
       - "Volume Snapshots"
       summary: "Delete tags"
       description: "Deletes specified tags."
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -8838,9 +8918,9 @@ paths:
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -8879,6 +8959,7 @@ paths:
         The `policy_ids` or `policy_names` parameter is required, but cannot be set\
         \ together.\nThe `member_ids` or `member_names` parameter is required, but\
         \ cannot be set together.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -8999,6 +9080,7 @@ paths:
         \ requests but the most recent changes to the source have not arrived on the\
         \ target. A status of `quiesced` indicates that the source pod has been demoted\
         \ and all changes have been replicated to the target pod."
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -9104,6 +9186,7 @@ paths:
       summary: "Delete snapshot policy rules"
       description: "Deletes one or more snapshot policy rules. The `policy_ids` or\
         \ `policy_names` parameter is required, but cannot be set together."
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -9157,8 +9240,8 @@ paths:
           $ref: "#/definitions/PodPost"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Allow_throttle_operation"
+      - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Names"
       responses:
         "200":
@@ -9172,13 +9255,14 @@ paths:
       description: "Deletes a pod that has been destroyed and is pending eradication.\n\
         Eradicated pods cannot be recovered. Pods are destroyed using the PATCH method.\n\
         The `ids` or `names` parameter is required, but they cannot be set together.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Context_names"
+      - $ref: "#/parameters/Eradicate_contents"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Names"
-      - $ref: "#/parameters/Eradicate_contents"
       responses:
         "200":
           description: "OK"
@@ -9195,20 +9279,20 @@ paths:
           $ref: "#/definitions/PodPatch"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Context_names"
-      - $ref: "#/parameters/Ids"
-      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Abort_quiesce"
-      - $ref: "#/parameters/Quiesce"
-      - $ref: "#/parameters/Skip_quiesce"
-      - $ref: "#/parameters/Promote_from"
+      - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Destroy_contents"
       - $ref: "#/parameters/From_member_ids"
       - $ref: "#/parameters/From_member_names"
+      - $ref: "#/parameters/Ids"
+      - $ref: "#/parameters/Move_with_host_group_names"
+      - $ref: "#/parameters/Move_with_host_names"
+      - $ref: "#/parameters/Names"
+      - $ref: "#/parameters/Promote_from"
+      - $ref: "#/parameters/Quiesce"
+      - $ref: "#/parameters/Skip_quiesce"
       - $ref: "#/parameters/To_member_ids"
       - $ref: "#/parameters/To_member_names"
-      - $ref: "#/parameters/Move_with_host_names"
-      - $ref: "#/parameters/Move_with_host_group_names"
       responses:
         "200":
           description: "OK"
@@ -9339,6 +9423,7 @@ paths:
         \ eradication.\nEradicated directory snapshots cannot be recovered.\nDirectory\
         \ snapshots are destroyed by using the PATCH method.\nThe `ids` or `names`\
         \ parameter is required, but they cannot be set together.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -9392,9 +9477,9 @@ paths:
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Member_types"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -9418,9 +9503,9 @@ paths:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Context_names"
+      - $ref: "#/parameters/Ignore_usage"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Ignore_usage"
       responses:
         "200":
           description: "OK"
@@ -9434,6 +9519,7 @@ paths:
         \ directories. The `policy_ids` or `policy_names` parameter is required, but\
         \ cannot be set together. The `member_ids` or `member_names` parameter is\
         \ required, but cannot be set together."
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -9501,6 +9587,7 @@ paths:
       summary: "Delete audit policies"
       description: "Deletes one or more audit policies.\nThe `ids` or `names` parameter\
         \ is required, but they cannot be set together.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -9549,15 +9636,15 @@ paths:
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Destroyed"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       - $ref: "#/parameters/Total_only"
       responses:
@@ -9647,6 +9734,7 @@ paths:
       - "Arrays"
       summary: "Delete factory reset"
       description: "Deletes the factory reset process when it is `failed`.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -9749,6 +9837,7 @@ paths:
       description: "Displays the usage and associations of certificates.\n"
       parameters:
       - $ref: "#/parameters/Authorization"
+      - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Ids"
@@ -9757,7 +9846,6 @@ paths:
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
-      - $ref: "#/parameters/XRequestId"
       responses:
         "200":
           description: "OK"
@@ -9781,8 +9869,8 @@ paths:
             $ref: "#/definitions/VolumeBatchPost"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Allow_throttle_operation"
+      - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Overwrite"
       - $ref: "#/parameters/With_default_protection"
       responses:
@@ -9804,8 +9892,8 @@ paths:
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
-      - $ref: "#/parameters/Software_versions"
       - $ref: "#/parameters/Software_names"
+      - $ref: "#/parameters/Software_versions"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -9824,8 +9912,8 @@ paths:
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Software_versions"
       - $ref: "#/parameters/Software_names"
+      - $ref: "#/parameters/Software_versions"
       responses:
         "200":
           description: "The software check record was created successfully.\n"
@@ -9838,11 +9926,12 @@ paths:
       description: "Deletes a software check task specified by software name and version.\n\
         The check task must be queued. If the check task is running or passed/failed\n\
         then the task cannot be deleted.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Software_versions"
       - $ref: "#/parameters/Software_names"
+      - $ref: "#/parameters/Software_versions"
       responses:
         "200":
           description: "OK"
@@ -9863,9 +9952,9 @@ paths:
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -9905,6 +9994,7 @@ paths:
       description: "Deletes a membership between an administrator with one or more\
         \ management access policies.\nOne of `policy_ids` or `policy_names` is required,\
         \ and one of `member_ids` or `member_names`\nis required.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -9930,8 +10020,10 @@ paths:
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Group_ids"
+      - $ref: "#/parameters/Group_names"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Member_ids"
+      - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
@@ -9940,9 +10032,6 @@ paths:
           description: "OK"
           schema:
             $ref: "#/definitions/MemberGetResponse"
-    parameters:
-    - $ref: "#/parameters/Group_names"
-    - $ref: "#/parameters/Member_names"
   /api/2.42/hosts/protection-groups:
     get:
       tags:
@@ -10004,6 +10093,7 @@ paths:
         \ group, and\nthe `member_names` parameter represents the name of the host.\n\
         The `group_names` and `member_names` parameters are required and must be set\
         \ together.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -10034,8 +10124,8 @@ paths:
             $ref: "#/definitions/VolumeBatchPost"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Allow_throttle_operation"
+      - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Overwrite"
       - $ref: "#/parameters/With_default_protection"
       responses:
@@ -10058,17 +10148,17 @@ paths:
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Destroyed"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Perf_protocol_type"
       - $ref: "#/parameters/Perf_protocol_group"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       - $ref: "#/parameters/Total_only"
       responses:
@@ -10106,6 +10196,12 @@ paths:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Continuation_token"
+      - name: "current_fleet_only"
+        in: "query"
+        description: "If current_fleet_only is specified, then results will only show\
+          \ arrays from the same fleet to\nwhich the current array is a member of.\n"
+        required: false
+        type: "boolean"
       - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
@@ -10113,12 +10209,6 @@ paths:
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
-      - name: "current_fleet_only"
-        in: "query"
-        description: "If current_fleet_only is specified, then results will only show\
-          \ arrays from the same fleet to\nwhich the current array is a member of.\n"
-        required: false
-        type: "boolean"
       responses:
         "200":
           description: "OK"
@@ -10134,13 +10224,13 @@ paths:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Continuation_token"
-      - $ref: "#/parameters/Ids"
-      - $ref: "#/parameters/Gids"
-      - $ref: "#/parameters/Sids"
-      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Filter"
+      - $ref: "#/parameters/Gids"
+      - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
+      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/Sids"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -10173,12 +10263,13 @@ paths:
       summary: "Delete local groups"
       description: "Deletes one or more local groups.\nThe `gids`, `names`, or `sids`\
         \ parameter is required, but cannot be set together.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
+      - $ref: "#/parameters/Gids"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Sids"
-      - $ref: "#/parameters/Gids"
       responses:
         "200":
           description: "OK"
@@ -10195,9 +10286,9 @@ paths:
           $ref: "#/definitions/LocalGroup"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
+      - $ref: "#/parameters/Gids"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Sids"
-      - $ref: "#/parameters/Gids"
       responses:
         "200":
           description: "OK"
@@ -10300,12 +10391,13 @@ paths:
       description: "Deletes realms that have been destroyed and are pending eradication.\n\
         Eradicated realms cannot be recovered. Realms are destroyed using the PATCH\
         \ method.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
+      - $ref: "#/parameters/Eradicate_contents"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Names"
-      - $ref: "#/parameters/Eradicate_contents"
       responses:
         "200":
           description: "OK"
@@ -10322,10 +10414,10 @@ paths:
           $ref: "#/definitions/RealmPatch"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Ids"
-      - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Destroy_contents"
+      - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Container_ignore_usage"
+      - $ref: "#/parameters/Names"
       responses:
         "200":
           description: "OK"
@@ -10377,11 +10469,6 @@ paths:
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
-      - name: "vm_type"
-        in: "query"
-        description: "The type of virtual machine.\nThe only valid value is `vvol`.\n"
-        required: false
-        type: "string"
       - name: "vm_ids"
         in: "query"
         description: "Performs the operation on the unique virtual machine IDs specified.\n\
@@ -10391,6 +10478,11 @@ paths:
         items:
           type: "string"
         collectionFormat: "csv"
+      - name: "vm_type"
+        in: "query"
+        description: "The type of virtual machine.\nThe only valid value is `vvol`.\n"
+        required: false
+        type: "string"
       responses:
         "200":
           description: "OK"
@@ -10406,6 +10498,7 @@ paths:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Allow_errors"
+      - $ref: "#/parameters/Alert_rules_code_list"
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Filter"
@@ -10413,7 +10506,6 @@ paths:
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
-      - $ref: "#/parameters/Alert_rules_code_list"
       responses:
         "200":
           description: "OK"
@@ -10468,6 +10560,7 @@ paths:
       summary: "Delete syslog server"
       description: "Deletes a configured syslog server and stop forwarding syslog\
         \ messages.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -10508,12 +10601,12 @@ paths:
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Filter"
-      - $ref: "#/parameters/Limit"
-      - $ref: "#/parameters/Remote_ids"
-      - $ref: "#/parameters/Remote_names"
       - $ref: "#/parameters/Ids"
+      - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/Remote_ids"
+      - $ref: "#/parameters/Remote_names"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -10569,6 +10662,7 @@ paths:
       - "Certificates"
       summary: "Delete certificate"
       description: "Deletes a specific certificate object.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -10592,9 +10686,9 @@ paths:
           $ref: "#/definitions/CertificatePost"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
+      - $ref: "#/parameters/Generate_new_key"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Names"
-      - $ref: "#/parameters/Generate_new_key"
       responses:
         "200":
           description: "Returns the newly updated certificate object."
@@ -10610,14 +10704,14 @@ paths:
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       - $ref: "#/parameters/Total_only"
       responses:
@@ -10684,18 +10778,18 @@ paths:
           $ref: "#/definitions/RemoteProtectionGroupSnapshotPost"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Context_names"
+      - $ref: "#/parameters/Allow_throttle_snapshot"
       - $ref: "#/parameters/Apply_retention"
+      - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Convert_source_to_baseline"
       - $ref: "#/parameters/For_replication"
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Names"
+      - $ref: "#/parameters/OnSingle"
       - $ref: "#/parameters/Replicate"
       - $ref: "#/parameters/Replicate_now"
-      - $ref: "#/parameters/Allow_throttle_snapshot"
       - $ref: "#/parameters/Source_ids"
       - $ref: "#/parameters/Source_names"
-      - $ref: "#/parameters/OnSingle"
       responses:
         "200":
           description: "OK"
@@ -10805,6 +10899,7 @@ paths:
       summary: "Delete alert-watcher policies"
       description: "Deletes one or more alert-watcher policies.\nThe `ids` or `names`\
         \ parameter is required, but they cannot be set together.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -10852,8 +10947,10 @@ paths:
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Group_ids"
+      - $ref: "#/parameters/Group_names"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Member_ids"
+      - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
@@ -10862,9 +10959,6 @@ paths:
           description: "OK"
           schema:
             $ref: "#/definitions/MemberGetResponse"
-    parameters:
-    - $ref: "#/parameters/Group_names"
-    - $ref: "#/parameters/Member_names"
   /api/2.42/realms/tags/batch:
     put:
       tags:
@@ -10989,9 +11083,9 @@ paths:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Context_names"
-      - $ref: "#/parameters/Names"
-      - $ref: "#/parameters/File_system_names"
       - $ref: "#/parameters/File_system_ids"
+      - $ref: "#/parameters/File_system_names"
+      - $ref: "#/parameters/Names"
       responses:
         "200":
           description: "OK"
@@ -11005,6 +11099,7 @@ paths:
         \ directory must be empty and not attached to any enabled export\npolicies.\
         \ Deleted managed directories cannot be recovered.\nThe `ids` or `names` parameter\
         \ is required, but cannot be set together.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -11055,14 +11150,14 @@ paths:
       - $ref: "#/parameters/Allow_errors"
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       - $ref: "#/parameters/Total_only"
       responses:
@@ -11085,13 +11180,13 @@ paths:
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Destroyed"
       - $ref: "#/parameters/Filter"
-      - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Ids"
+      - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
-      - $ref: "#/parameters/Source_names"
       - $ref: "#/parameters/Source_ids"
+      - $ref: "#/parameters/Source_names"
       - $ref: "#/parameters/Total_item_count"
       - $ref: "#/parameters/Total_only"
       responses:
@@ -11114,12 +11209,12 @@ paths:
           $ref: "#/definitions/ProtectionGroupSnapshotPost"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
+      - $ref: "#/parameters/Allow_throttle_snapshot"
       - $ref: "#/parameters/Apply_retention"
       - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/For_replication"
       - $ref: "#/parameters/Replicate"
       - $ref: "#/parameters/Replicate_now"
-      - $ref: "#/parameters/Allow_throttle_snapshot"
       - $ref: "#/parameters/Source_ids"
       - $ref: "#/parameters/Source_names"
       responses:
@@ -11136,6 +11231,7 @@ paths:
         \ all of its protection group snapshots\nand cannot be recovered.\nProtection\
         \ group snapshots are destroyed through the `PATCH` method.\nThe `names` or\
         \ `ids` parameter is required, but they cannot be set together.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -11207,12 +11303,12 @@ paths:
           $ref: "#/definitions/ProtectionGroupSnapshotPost"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
+      - $ref: "#/parameters/Allow_throttle_snapshot"
       - $ref: "#/parameters/Apply_retention"
       - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/For_replication"
       - $ref: "#/parameters/Replicate"
       - $ref: "#/parameters/Replicate_now"
-      - $ref: "#/parameters/Allow_throttle_snapshot"
       - $ref: "#/parameters/Source_ids"
       - $ref: "#/parameters/Source_names"
       responses:
@@ -11262,6 +11358,7 @@ paths:
       - "Administrators"
       summary: "Delete API tokens"
       description: "Deletes the API tokens of the specified administrators."
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -11325,6 +11422,7 @@ paths:
       description: "Deletes one or more alert-watcher policy rules. Either the 'policy_ids'\
         \ or 'policy_names' parameter is required, but both parameters cannot be set\
         \ together."
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -11372,9 +11470,9 @@ paths:
           $ref: "#/definitions/VolumeSnapshotPost"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
+      - $ref: "#/parameters/Allow_throttle_snapshot"
       - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/OnSingle"
-      - $ref: "#/parameters/Allow_throttle_snapshot"
       - $ref: "#/parameters/Source_ids"
       - $ref: "#/parameters/Source_names"
       responses:
@@ -11429,11 +11527,6 @@ paths:
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
-      - name: "vm_type"
-        in: "query"
-        description: "The type of virtual machine.\nThe only valid value is `vvol`.\n"
-        required: false
-        type: "string"
       - name: "vm_ids"
         in: "query"
         description: "Performs the operation on the unique virtual machine IDs specified.\n\
@@ -11443,6 +11536,11 @@ paths:
         items:
           type: "string"
         collectionFormat: "csv"
+      - name: "vm_type"
+        in: "query"
+        description: "The type of virtual machine.\nThe only valid value is `vvol`.\n"
+        required: false
+        type: "string"
       responses:
         "200":
           description: "OK"
@@ -11457,12 +11555,12 @@ paths:
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
+      - $ref: "#/parameters/Allow_errors"
+      - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Continuation_token"
+      - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Names"
-      - $ref: "#/parameters/Ids"
-      - $ref: "#/parameters/Context_names"
-      - $ref: "#/parameters/Allow_errors"
       responses:
         "200":
           description: "OK"
@@ -11482,22 +11580,22 @@ paths:
           $ref: "#/definitions/WorkloadPlacementRecommendation"
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Placement_names"
       - $ref: "#/parameters/Context_names"
-      - name: "preset_names"
+      - $ref: "#/parameters/Placement_names"
+      - name: "preset_ids"
         in: "query"
         description: "Creates the workload placement recommendations using the presets\n\
-          specified by names. Only one preset can be specified. One of the\n`preset_ids`\
+          specified by ids. Only one preset can be specified. One of the\n`preset_ids`\
           \ or `preset_names` parameters are required, but they\ncannot be set together.\n"
         required: false
         type: "array"
         items:
           type: "string"
         collectionFormat: "csv"
-      - name: "preset_ids"
+      - name: "preset_names"
         in: "query"
         description: "Creates the workload placement recommendations using the presets\n\
-          specified by ids. Only one preset can be specified. One of the\n`preset_ids`\
+          specified by names. Only one preset can be specified. One of the\n`preset_ids`\
           \ or `preset_names` parameters are required, but they\ncannot be set together.\n"
         required: false
         type: "array"
@@ -11521,8 +11619,8 @@ paths:
         \ applications are notified that they can reacquire their locks within a grace\
         \ period.\n"
       parameters:
-      - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/XRequestId"
+      - $ref: "#/parameters/Context_names"
       responses:
         "200":
           description: "OK"
@@ -11575,9 +11673,9 @@ paths:
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Context_names"
       - $ref: "#/parameters/Names"
+      - $ref: "#/parameters/Overwrite"
       - $ref: "#/parameters/Protection_group_source_ids"
       - $ref: "#/parameters/Protection_group_source_names"
-      - $ref: "#/parameters/Overwrite"
       responses:
         "200":
           description: "OK"
@@ -11591,6 +11689,7 @@ paths:
         \ eradication.\nEradicated protection groups cannot be recovered.\nProtection\
         \ groups are destroyed through the `PATCH` method.\nThe `names` parameter\
         \ is required.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -11637,13 +11736,13 @@ paths:
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       responses:
         "200":
@@ -11729,6 +11828,7 @@ paths:
         \ with the group.\nHosts can be deleted from host groups at any time.\nThe\
         \ `group_names` and `member_names` parameters are required\nand must be set\
         \ together, and only one host group can be specified at a time.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -11813,6 +11913,7 @@ paths:
         A software package being used for an installation can be deleted if the installation\
         \ is\n`downloading`, `downloaded`, `aborted`, or `finished`. If the software\
         \ package is currently\n`downloading`, the download will be cancelled.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -11838,14 +11939,14 @@ paths:
       - $ref: "#/parameters/Allow_errors"
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
-      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
+      - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       - $ref: "#/parameters/Total_only"
       responses:
@@ -11899,6 +12000,7 @@ paths:
       summary: "Delete subnet"
       description: "Deletes subnets. A subnet can only be deleted if it has no interfaces.\
         \ Interfaces must be\nremoved by using the `network-interfaces` endpoint.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -11939,11 +12041,9 @@ paths:
       - $ref: "#/parameters/Allow_errors"
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
+      - $ref: "#/parameters/History_end_time"
       - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Ids"
-      - $ref: "#/parameters/History_end_time"
-      - $ref: "#/parameters/History_resolution"
-      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Local_pod_ids"
       - $ref: "#/parameters/Local_pod_names"
@@ -11952,7 +12052,9 @@ paths:
       - $ref: "#/parameters/Remote_names"
       - $ref: "#/parameters/Remote_pod_ids"
       - $ref: "#/parameters/Remote_pod_names"
+      - $ref: "#/parameters/History_resolution"
       - $ref: "#/parameters/Sort"
+      - $ref: "#/parameters/History_start_time"
       - $ref: "#/parameters/Total_item_count"
       responses:
         "200":
@@ -12000,9 +12102,9 @@ paths:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Context_names"
+      - $ref: "#/parameters/Ignore_usage"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Ignore_usage"
       responses:
         "200":
           description: "OK"
@@ -12014,6 +12116,7 @@ paths:
       summary: "Delete quota policy rules"
       description: "Deletes one or more quota policy rules. The `policy_ids` or `policy_names`\
         \ parameter is required, but they cannot be set together."
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -12038,10 +12141,10 @@ paths:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Context_names"
+      - $ref: "#/parameters/Ignore_usage"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Ignore_usage"
       responses:
         "200":
           description: "OK"
@@ -12119,6 +12222,7 @@ paths:
       - "Resource Accesses"
       summary: "Delete a resource access configuration"
       description: "Deletes a resource access object.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -12201,6 +12305,7 @@ paths:
       - "Administrators"
       summary: "Delete an administrator"
       description: "Deletes the specified administrator.\n\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -12244,11 +12349,11 @@ paths:
       - $ref: "#/parameters/Context_names_get"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Filter"
-      - $ref: "#/parameters/Group_names"
       - $ref: "#/parameters/Group_ids"
+      - $ref: "#/parameters/Group_names"
       - $ref: "#/parameters/Limit"
-      - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Member_ids"
+      - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
@@ -12272,10 +12377,10 @@ paths:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Context_names"
-      - $ref: "#/parameters/Group_names"
       - $ref: "#/parameters/Group_ids"
-      - $ref: "#/parameters/Member_names"
+      - $ref: "#/parameters/Group_names"
       - $ref: "#/parameters/Member_ids"
+      - $ref: "#/parameters/Member_names"
       responses:
         "200":
           description: "OK"
@@ -12299,14 +12404,15 @@ paths:
         \ parameter represents the name of the array from which the pod is\nto be\
         \ unstretched.\nThe `group_names` and `member_names` parameters are required\
         \ and must be set together.\n(Deprecated) Use pods/members instead.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
       - $ref: "#/parameters/Context_names"
-      - $ref: "#/parameters/Group_names"
       - $ref: "#/parameters/Group_ids"
-      - $ref: "#/parameters/Member_names"
+      - $ref: "#/parameters/Group_names"
       - $ref: "#/parameters/Member_ids"
+      - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/With_unknown"
       responses:
         "200":
@@ -12329,9 +12435,9 @@ paths:
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
       - $ref: "#/parameters/Member_types"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Total_item_count"
       responses:
@@ -12370,6 +12476,7 @@ paths:
         \ directories. The `policy_ids` or `policy_names` parameter is required, but\
         \ cannot be set together. The `member_ids` or `member_names` parameter is\
         \ required, but cannot be set together."
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -27846,8 +27953,8 @@ parameters:
   Ids_single:
     name: "ids"
     in: "query"
-    description: "Performs the operation on the unique resource IDs specified. Supports\
-      \ exactly one value.\n"
+    description: "Performs the operation on the unique resource IDs specified.\nOnly\
+      \ one value is supported.\n"
     required: false
     type: "array"
     items:
@@ -28297,9 +28404,9 @@ parameters:
   Local_only_ad:
     name: "local_only"
     in: "query"
-    description: "If specified as `true`, only delete the Active Directory configuration\
-      \ on the local array, without\ndeleting the computer account created in the\
-      \ Active Directory domain. If not specified, defaults\nto `false`.\n"
+    description: "If specified as `true`, only delete the Active Directory\nconfiguration\
+      \ on the local array, without deleting the\ncomputer account created in the\
+      \ Active Directory domain.\nIf not specified, defaults to `false`.\n"
     required: false
     type: "boolean"
   Fleet_names:
