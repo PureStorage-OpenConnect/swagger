@@ -12006,7 +12006,7 @@ components:
               The API client's PEM formatted (Base64 encoded) RSA public key.
             type: string
             readOnly: true
-            example: >-
+            example: |
               -----BEGIN PUBLIC KEY-----
               MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEArSe6chh1JzME9svOKjU0
               eKTm8S23Ok3Vr2bWuPri/YHfLrlnRwWoCt+st0/BebKSJ+fQUWOaLlqpZQKpI8oR
@@ -13628,7 +13628,7 @@ components:
       type: object
       properties:
         agreement:
-          description: The End User Agreement text.
+          description: End User Agreement text.
           type: string
           readOnly: true
         signature:
@@ -14433,19 +14433,17 @@ components:
       type: object
       properties:
         created:
-          description: |
-            Creation time in milliseconds since UNIX epoch.
+          description: Creation time in milliseconds since UNIX epoch.
           type: integer
           format: int64
           readOnly: true
-          example: 1706850977
+          example: 1719868253357
         expires:
-          description: |
-            Expiration time in milliseconds since UNIX epoch.
+          description: Expiration time in milliseconds since UNIX epoch.
           type: integer
           format: int64
           readOnly: true
-          example: 1706854577
+          example: 1719868253357
         fleet_key:
           description: |
             Fleet key, used for fleet connections.
@@ -17039,7 +17037,7 @@ components:
             The API client's PEM formatted (Base64 encoded) RSA public key.
             It must include the `-----BEGIN PUBLIC KEY-----` and `-----END PUBLIC KEY-----` lines.
           type: string
-          example: >-
+          example: |
             -----BEGIN PUBLIC KEY-----
             MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEArSe6chh1JzME9svOKjU0
             eKTm8S23Ok3Vr2bWuPri/YHfLrlnRwWoCt+st0/BebKSJ+fQUWOaLlqpZQKpI8oR
@@ -18027,7 +18025,7 @@ components:
           type: boolean
     FileSystemPatch:
       allOf:
-      - $ref: '#/components/schemas/_builtIn'
+      - $ref: '#/components/schemas/_resource'
       - type: object
         properties:
           created:
@@ -18086,10 +18084,6 @@ components:
             title: MultiProtocol
             allOf:
             - $ref: '#/components/schemas/_multiProtocol'
-          name:
-            description: |
-              A name chosen by the user. Can be changed. Must be locally unique.
-            type: string
           nfs:
             description: NFS configuration.
             title: NfsPatch
@@ -19970,8 +19964,13 @@ components:
           format: int64
           readOnly: true
         token:
+          description: |
+            An Admin API token. A newly-created token is visible as the result of the POST operation which
+            created it. An existing token is visible when `expose_api_token` is `true` and it is being
+            requested by the user to whom it belongs. In all other cases, the token will be masked.
           type: string
           readOnly: true
+          example: '****'
       x-readOnly: true
     _reference:
       description: |
@@ -20274,25 +20273,22 @@ components:
           example: 1577880000000
         company:
           description: |
-            The company of the person who accepted the End User Agreement.
+            Company of the person who accepted the End User Agreement.
             This field is deprecated and the response will be `null`. Modification to this field
             will be ignored.
           type: string
-          example: Example Inc.
         name:
           description: |
-            The name of the person who accepted the End User Agreement.
+            Name of the person who accepted the End User Agreement.
             This field is deprecated and the response will be `null`. Modification to this field
             will be ignored.
           type: string
-          example: John Doe
         title:
           description: |
-            The title of the person who accepted the End User Agreement.
+            Title of the person who accepted the End User Agreement.
             This field is deprecated and the response will be `null`. Modification to this field
             will be ignored.
           type: string
-          example: Admin
     _fileLockRange:
       description: |
         The range in bytes (`offset`, `length`) the lock covers within a file.
@@ -22347,22 +22343,16 @@ components:
       name: continuation_token
       in: query
       description: |
-        A token used to retrieve the next page of data
-        with some consistency guaranteed.
-        The token is a Base64 encoded value.
-        Set `continuation_token` to the system-generated token taken from the `x-next-token`
-        header field of the response.
-        A query has reached its last page when the response does not include a token.
-        Pagination requires the `limit` and `continuation_token`
-        query parameters.
+        An opaque token used to iterate over a collection.
+        The token to use on the next request is returned in the
+        `continuation_token` field of the result.
       schema:
         type: string
     Filter:
       name: filter
       in: query
       description: |
-        Narrows down the results to only the response objects
-        that satisfy the filter criteria.
+        Exclude resources that don't match the specified criteria.
       schema:
         type: string
     Ids:
@@ -22383,11 +22373,12 @@ components:
       name: limit
       in: query
       description: |
-        Limits the size of the response to the specified number of objects on each page.
-        To return the total number of resources, set `limit=0`.
-        The total number of resources is returned as a `total_item_count` value.
-        If the page size requested is larger than the system maximum limit,
-        the server returns the maximum limit, disregarding the requested page size.
+        Limit the size of the response to the specified number of resources.
+        A `limit` of `0` can be used to get the number of resources without getting
+        all of the resources. It will be returned in the `total_item_count` field.
+        If a client asks for a page size larger than the available number, the request
+        is still valid. In that case the server just returns the available number of
+        items, disregarding the client's page size request.
       schema:
         type: integer
         format: int32
@@ -22599,19 +22590,19 @@ components:
       name: total_only
       in: query
       description: |
-        If set to `true`, returns the aggregate value of all items after filtering.
-        Where it makes more sense, the average value is displayed instead.
-        The values are displayed for each name where meaningful.
-        If `total_only=true`, the `items` list will be empty.
+        Only return the total record for the specified items.
+        The total record will be the total of all items after filtering.
+        The `items` list will be empty.
       schema:
         type: boolean
     Remote_ids:
       name: remote_ids
       in: query
       description: |
-        A comma-separated list of remote array IDs. If, after filtering, there is not at least one
-        resource that matches each of the elements, then an error is returned. This cannot be provided
-        together with the `remote_names` query parameter.
+        A comma-separated list of remote array IDs. If after filtering, there is not
+        at least one resource that matches each of the elements, then an error is
+        returned. This cannot be provided together with the `remote_names` query
+        parameter.
       style: form
       explode: false
       schema:
@@ -22622,9 +22613,9 @@ components:
       name: remote_names
       in: query
       description: |
-        A comma-separated list of remote array names. If, after filtering, there is not at least one
-        resource that matches each of the elements, then an error is returned. This cannot be provided
-        together with the `remote_ids` query parameter.
+        A comma-separated list of remote array names. If there is not at least one
+        resource that matches each of the elements, then an error is returned. This
+        cannot be provided together with `remote_ids` query parameter.
       style: form
       explode: false
       schema:
@@ -22909,8 +22900,8 @@ components:
       in: query
       description: |
         A comma-separated list of certificate group names.
-        If no resource matches each of the elements of `certificate_group_names`,
-        then an error is returned.
+        If there is not at least one resource that matches each of the
+        elements of `certificate_group_names`, then an error is returned.
         This cannot be provided in conjunction with the `certificate_group_ids` parameter.
       style: form
       explode: false
@@ -23461,8 +23452,7 @@ components:
       name: ids
       in: query
       description: |
-        Performs the operation on the unique resource IDs specified.
-        Only one value is supported.
+        Performs the operation on the unique resource IDs specified. Supports exactly one value.
       style: form
       explode: false
       schema:
@@ -23473,8 +23463,7 @@ components:
       name: names
       in: query
       description: |
-        Performs the operation on the unique resource names specified.
-        Only one value is supported.
+        Performs the operation on the unique resource names specified. Supports exactly one value.
       style: form
       explode: false
       schema:
@@ -23895,7 +23884,7 @@ components:
       name: test_type
       in: query
       description: |
-        Specifies the type of test. Valid values are `all`, `phonehome`, and `remote-assist`.
+        Specify the type of test. Valid values are `all`, `phonehome` and `remote-assist`.
         If not specified, defaults to `all`.
       schema:
         type: string
@@ -23999,4 +23988,3 @@ components:
       type: apiKey
       name: api-token
       in: header
-x-original-swagger-version: "2.0"
