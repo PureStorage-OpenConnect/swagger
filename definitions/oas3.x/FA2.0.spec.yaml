@@ -72,7 +72,7 @@ paths:
       description: |
         Exchanges an ID Token for an OAuth 2.0 access token.
       parameters:
-      - $ref: "#/components/parameters/XRequestId.TEx-v1"
+      - $ref: '#/components/parameters/XRequestId'
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -84,21 +84,20 @@ paths:
               type: object
               properties:
                 grant_type:
-                  $ref: "#/components/schemas/formData_OauthGrantType"
+                  $ref: '#/components/schemas/OauthGrantType'
                 subject_token:
-                  $ref: "#/components/schemas/formData_OauthSubjectToken"
+                  $ref: '#/components/schemas/OauthSubjectToken'
                 subject_token_type:
-                  $ref: "#/components/schemas/formData_OauthSubjectTokenType"
+                  $ref: '#/components/schemas/OauthSubjectTokenType'
         required: true
       responses:
         "200":
-          $ref: "#/components/responses/OauthToken200"
+          $ref: '#/components/responses/OauthToken200'
         "400":
-          $ref: "#/components/responses/OauthToken400"
+          $ref: '#/components/responses/OauthToken400'
         "401":
-          $ref: "#/components/responses/OauthToken401"
+          $ref: '#/components/responses/OauthToken401'
       security: []
-    x-sourced-from: paths/TEx-v2/oauth-token.path.yaml
   /api/api_version:
     get:
       tags:
@@ -107,16 +106,15 @@ paths:
       description: |
         Returns a list of available API versions. No authentication is required to access this endpoint.
       parameters:
-      - $ref: "#/components/parameters/XRequestId"
+      - $ref: '#/components/parameters/XRequestId'
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Api_versionResponse"
+                $ref: '#/components/schemas/Api_versionResponse'
       security: []
-    x-sourced-from: paths/FA2.0/api_version.path.yaml
   /api/2.0/connections:
     get:
       tags:
@@ -127,24 +125,24 @@ paths:
         and the LUNs used by the associated hosts to address these volumes.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Filter"
-      - $ref: "#/components/parameters/Host_group_names"
-      - $ref: "#/components/parameters/Host_names"
-      - $ref: "#/components/parameters/Limit"
-      - $ref: "#/components/parameters/Offset"
-      - $ref: "#/components/parameters/Protocol_endpoint_names"
-      - $ref: "#/components/parameters/Sort"
-      - $ref: "#/components/parameters/Total_item_count"
-      - $ref: "#/components/parameters/Volume_names"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Host_group_names'
+      - $ref: '#/components/parameters/Host_names'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Protocol_endpoint_names'
+      - $ref: '#/components/parameters/Sort'
+      - $ref: '#/components/parameters/Total_item_count'
+      - $ref: '#/components/parameters/Volume_names'
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ConnectionGetResponse"
+                $ref: '#/components/schemas/ConnectionGetResponse'
     post:
       tags:
       - Connections
@@ -154,16 +152,16 @@ paths:
         The `volume_names` and `host_names` or `host_group_names` query parameters are required.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Host_group_names"
-      - $ref: "#/components/parameters/Host_names"
-      - $ref: "#/components/parameters/Volume_names"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Host_group_names'
+      - $ref: '#/components/parameters/Host_names'
+      - $ref: '#/components/parameters/Volume_names'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ConnectionPost"
+              $ref: '#/components/schemas/ConnectionPost'
         required: false
         x-codegen-request-body-name: connection
       responses:
@@ -172,7 +170,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ConnectionResponse"
+                $ref: '#/components/schemas/ConnectionResponse'
       x-codegen-request-body-name: connection
     delete:
       tags:
@@ -183,16 +181,15 @@ paths:
         or host group.
         The `volume_names` and `host_names` or `host_group_names` query parameters are required.
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Host_group_names"
-      - $ref: "#/components/parameters/Host_names"
-      - $ref: "#/components/parameters/Volume_names"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Host_group_names'
+      - $ref: '#/components/parameters/Host_names'
+      - $ref: '#/components/parameters/Volume_names'
       responses:
         "200":
           description: OK
           content: {}
-    x-sourced-from: paths/FA2.0/connections.path.yaml
   /api/2.0/host-groups:
     get:
       tags:
@@ -202,21 +199,21 @@ paths:
         Return a list of host groups.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Filter"
-      - $ref: "#/components/parameters/Limit"
-      - $ref: "#/components/parameters/Names"
-      - $ref: "#/components/parameters/Offset"
-      - $ref: "#/components/parameters/Sort"
-      - $ref: "#/components/parameters/Total_item_count"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Names'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Sort'
+      - $ref: '#/components/parameters/Total_item_count'
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HostGroupGetResponse"
+                $ref: '#/components/schemas/HostGroupGetResponse'
     post:
       tags:
       - Host Groups
@@ -226,16 +223,16 @@ paths:
         The `names` query parameter is required.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Names"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Names'
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HostGroupResponse"
+                $ref: '#/components/schemas/HostGroupResponse'
     delete:
       tags:
       - Host Groups
@@ -245,9 +242,9 @@ paths:
         The `names` query parameter is required.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Names"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Names'
       responses:
         "200":
           description: OK
@@ -261,14 +258,14 @@ paths:
         The `names` query parameter is required.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Names"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Names'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/HostGroupPatch"
+              $ref: '#/components/schemas/HostGroupPatch'
         required: true
         x-codegen-request-body-name: host-group
       responses:
@@ -277,9 +274,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HostGroupResponse"
+                $ref: '#/components/schemas/HostGroupResponse'
       x-codegen-request-body-name: host-group
-    x-sourced-from: paths/FA2.0/host-groups.path.yaml
   /api/2.0/host-groups/hosts:
     get:
       tags:
@@ -290,23 +286,22 @@ paths:
 
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Filter"
-      - $ref: "#/components/parameters/Group_names"
-      - $ref: "#/components/parameters/Limit"
-      - $ref: "#/components/parameters/Member_names"
-      - $ref: "#/components/parameters/Offset"
-      - $ref: "#/components/parameters/Sort"
-      - $ref: "#/components/parameters/Total_item_count"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Group_names'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Member_names'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Sort'
+      - $ref: '#/components/parameters/Total_item_count'
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/MemberNoIdAllGetResponse"
-    x-sourced-from: paths/FA2.0/host-groups-hosts-members.path.yaml
+                $ref: '#/components/schemas/MemberNoIdAllGetResponse'
   /api/2.0/host-groups/performance:
     get:
       tags:
@@ -320,23 +315,22 @@ paths:
         and as a total across all host groups.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Filter"
-      - $ref: "#/components/parameters/Limit"
-      - $ref: "#/components/parameters/Names"
-      - $ref: "#/components/parameters/Offset"
-      - $ref: "#/components/parameters/Sort"
-      - $ref: "#/components/parameters/Total_item_count"
-      - $ref: "#/components/parameters/Total_only"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Names'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Sort'
+      - $ref: '#/components/parameters/Total_item_count'
+      - $ref: '#/components/parameters/Total_only'
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ResourcePerformanceNoIdGetResponse"
-    x-sourced-from: paths/FA2.0/host-groups-performance.path.yaml
+                $ref: '#/components/schemas/ResourcePerformanceNoIdGetResponse'
   /api/2.0/host-groups/performance/by-array:
     get:
       tags:
@@ -351,23 +345,22 @@ paths:
         The data is displayed as a total across all host groups on each array and
         by individual host group.
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Filter"
-      - $ref: "#/components/parameters/Limit"
-      - $ref: "#/components/parameters/Names"
-      - $ref: "#/components/parameters/Offset"
-      - $ref: "#/components/parameters/Sort"
-      - $ref: "#/components/parameters/Total_item_count"
-      - $ref: "#/components/parameters/Total_only"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Names'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Sort'
+      - $ref: '#/components/parameters/Total_item_count'
+      - $ref: '#/components/parameters/Total_only'
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ResourcePerformanceNoIdByArrayGetResponse"
-    x-sourced-from: paths/FA2.0/host-groups-performance-by-array.path.yaml
+                $ref: '#/components/schemas/ResourcePerformanceNoIdByArrayGetResponse'
   /api/2.0/hosts:
     get:
       tags:
@@ -377,21 +370,21 @@ paths:
         Returns a list of hosts.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Filter"
-      - $ref: "#/components/parameters/Limit"
-      - $ref: "#/components/parameters/Names"
-      - $ref: "#/components/parameters/Offset"
-      - $ref: "#/components/parameters/Sort"
-      - $ref: "#/components/parameters/Total_item_count"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Names'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Sort'
+      - $ref: '#/components/parameters/Total_item_count'
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HostGetResponse"
+                $ref: '#/components/schemas/HostGetResponse'
     post:
       tags:
       - Hosts
@@ -401,14 +394,14 @@ paths:
         The `names` query parameter is required.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Names"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Names'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/HostPost"
+              $ref: '#/components/schemas/HostPost'
         required: true
         x-codegen-request-body-name: host
       responses:
@@ -417,7 +410,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HostResponse"
+                $ref: '#/components/schemas/HostResponse'
       x-codegen-request-body-name: host
     delete:
       tags:
@@ -430,9 +423,9 @@ paths:
         The `names` query parameter is required.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Names"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Names'
       responses:
         "200":
           description: OK
@@ -447,14 +440,14 @@ paths:
         The `names` query parameter is required.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Names"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Names'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/HostPatch"
+              $ref: '#/components/schemas/HostPatch'
         required: true
         x-codegen-request-body-name: host
       responses:
@@ -463,9 +456,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HostResponse"
+                $ref: '#/components/schemas/HostResponse'
       x-codegen-request-body-name: host
-    x-sourced-from: paths/FA2.0/hosts.path.yaml
   /api/2.0/hosts/host-groups:
     get:
       tags:
@@ -475,23 +467,22 @@ paths:
         Returns a list of hosts that are associated with host groups.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Filter"
-      - $ref: "#/components/parameters/Group_names"
-      - $ref: "#/components/parameters/Limit"
-      - $ref: "#/components/parameters/Member_names"
-      - $ref: "#/components/parameters/Offset"
-      - $ref: "#/components/parameters/Sort"
-      - $ref: "#/components/parameters/Total_item_count"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Group_names'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Member_names'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Sort'
+      - $ref: '#/components/parameters/Total_item_count'
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/MemberNoIdAllGetResponse"
-    x-sourced-from: paths/FA2.0/hosts-host-groups-members.path.yaml
+                $ref: '#/components/schemas/MemberNoIdAllGetResponse'
   /api/2.0/hosts/performance:
     get:
       tags:
@@ -505,23 +496,22 @@ paths:
         and as a total across all hosts.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Filter"
-      - $ref: "#/components/parameters/Limit"
-      - $ref: "#/components/parameters/Names"
-      - $ref: "#/components/parameters/Offset"
-      - $ref: "#/components/parameters/Sort"
-      - $ref: "#/components/parameters/Total_item_count"
-      - $ref: "#/components/parameters/Total_only"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Names'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Sort'
+      - $ref: '#/components/parameters/Total_item_count'
+      - $ref: '#/components/parameters/Total_only'
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ResourcePerformanceNoIdGetResponse"
-    x-sourced-from: paths/FA2.0/hosts-performance.path.yaml
+                $ref: '#/components/schemas/ResourcePerformanceNoIdGetResponse'
   /api/2.0/hosts/performance/by-array:
     get:
       tags:
@@ -536,23 +526,22 @@ paths:
         The data is displayed as a total across all hosts on each array and by individual host.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Filter"
-      - $ref: "#/components/parameters/Limit"
-      - $ref: "#/components/parameters/Names"
-      - $ref: "#/components/parameters/Offset"
-      - $ref: "#/components/parameters/Sort"
-      - $ref: "#/components/parameters/Total_item_count"
-      - $ref: "#/components/parameters/Total_only"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Names'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Sort'
+      - $ref: '#/components/parameters/Total_item_count'
+      - $ref: '#/components/parameters/Total_only'
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ResourcePerformanceNoIdByArrayGetResponse"
-    x-sourced-from: paths/FA2.0/hosts-performance-by-array.path.yaml
+                $ref: '#/components/schemas/ResourcePerformanceNoIdByArrayGetResponse'
   /api/2.0/login:
     post:
       tags:
@@ -561,7 +550,6 @@ paths:
       description: |
         Exchange an API token for a session token.
       parameters:
-      - $ref: "#/components/parameters/XRequestId"
       - name: api-token
         in: header
         description: |
@@ -569,6 +557,7 @@ paths:
         schema:
           type: string
         example: 0f2e2884-9486-c6c2-438c-f50418f2aac3
+      - $ref: '#/components/parameters/XRequestId'
       responses:
         "200":
           description: OK
@@ -581,8 +570,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UsernameResponse"
-    x-sourced-from: paths/FA2.0/login.path.yaml
+                $ref: '#/components/schemas/UsernameResponse'
   /api/2.0/logout:
     post:
       tags:
@@ -591,18 +579,17 @@ paths:
       description: |
         Invalidate a session token.
       parameters:
-      - $ref: "#/components/parameters/XRequestId"
       - name: x-auth-token
         in: header
         description: Session token for a user.
         schema:
           type: string
         example: 3be3d489-55c6-4643-90ac-a476dbc98812
+      - $ref: '#/components/parameters/XRequestId'
       responses:
         "200":
           description: OK
           content: {}
-    x-sourced-from: paths/FA2.0/logout.path.yaml
   /api/2.0/volumes:
     get:
       tags:
@@ -612,24 +599,24 @@ paths:
         Return a list of volumes, including those pending eradication.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Destroyed"
-      - $ref: "#/components/parameters/Filter"
-      - $ref: "#/components/parameters/Ids"
-      - $ref: "#/components/parameters/Limit"
-      - $ref: "#/components/parameters/Names"
-      - $ref: "#/components/parameters/Offset"
-      - $ref: "#/components/parameters/Sort"
-      - $ref: "#/components/parameters/Total_item_count"
-      - $ref: "#/components/parameters/Total_only"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Destroyed'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Names'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Sort'
+      - $ref: '#/components/parameters/Total_item_count'
+      - $ref: '#/components/parameters/Total_only'
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/VolumeGetResponse"
+                $ref: '#/components/schemas/VolumeGetResponse'
     post:
       tags:
       - Volumes
@@ -640,15 +627,15 @@ paths:
         The `names` query parameter is required.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Names"
-      - $ref: "#/components/parameters/Overwrite"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Names'
+      - $ref: '#/components/parameters/Overwrite'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/VolumePost"
+              $ref: '#/components/schemas/VolumePost'
         required: true
         x-codegen-request-body-name: volume
       responses:
@@ -657,7 +644,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/VolumeResponse"
+                $ref: '#/components/schemas/VolumeResponse'
       x-codegen-request-body-name: volume
     delete:
       tags:
@@ -670,10 +657,10 @@ paths:
         The `ids` or `names` parameter is required, but they cannot be set together.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Ids"
-      - $ref: "#/components/parameters/Names"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Names'
       responses:
         "200":
           description: OK
@@ -693,16 +680,16 @@ paths:
         The `ids` or `names` parameter is required, but they cannot be set together.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Ids"
-      - $ref: "#/components/parameters/Names"
-      - $ref: "#/components/parameters/Truncate"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Names'
+      - $ref: '#/components/parameters/Truncate'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/VolumePatch"
+              $ref: '#/components/schemas/VolumePatch'
         required: true
         x-codegen-request-body-name: volume
       responses:
@@ -711,9 +698,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/VolumeResponse"
+                $ref: '#/components/schemas/VolumeResponse'
       x-codegen-request-body-name: volume
-    x-sourced-from: paths/FA2.0/volumes.path.yaml
   /api/2.0/volumes/performance:
     get:
       tags:
@@ -726,28 +712,27 @@ paths:
         and as a total of all volumes across the entire array.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Destroyed"
-      - $ref: "#/components/parameters/Filter"
-      - $ref: "#/components/parameters/History_end_time"
-      - $ref: "#/components/parameters/History_resolution"
-      - $ref: "#/components/parameters/History_start_time"
-      - $ref: "#/components/parameters/Ids"
-      - $ref: "#/components/parameters/Limit"
-      - $ref: "#/components/parameters/Names"
-      - $ref: "#/components/parameters/Offset"
-      - $ref: "#/components/parameters/Sort"
-      - $ref: "#/components/parameters/Total_item_count"
-      - $ref: "#/components/parameters/Total_only"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Destroyed'
+      - $ref: '#/components/parameters/History_end_time'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Names'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/History_resolution'
+      - $ref: '#/components/parameters/Sort'
+      - $ref: '#/components/parameters/History_start_time'
+      - $ref: '#/components/parameters/Total_item_count'
+      - $ref: '#/components/parameters/Total_only'
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ResourcePerformanceGetResponse"
-    x-sourced-from: paths/FA2.0/volumes-performance.path.yaml
+                $ref: '#/components/schemas/ResourcePerformanceGetResponse'
   /api/2.0/volumes/performance/by-array:
     get:
       tags:
@@ -762,28 +747,27 @@ paths:
         and as a total across all volumes on each array.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Destroyed"
-      - $ref: "#/components/parameters/Filter"
-      - $ref: "#/components/parameters/History_end_time"
-      - $ref: "#/components/parameters/History_resolution"
-      - $ref: "#/components/parameters/History_start_time"
-      - $ref: "#/components/parameters/Ids"
-      - $ref: "#/components/parameters/Limit"
-      - $ref: "#/components/parameters/Names"
-      - $ref: "#/components/parameters/Offset"
-      - $ref: "#/components/parameters/Sort"
-      - $ref: "#/components/parameters/Total_item_count"
-      - $ref: "#/components/parameters/Total_only"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Destroyed'
+      - $ref: '#/components/parameters/History_end_time'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Names'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/History_resolution'
+      - $ref: '#/components/parameters/Sort'
+      - $ref: '#/components/parameters/History_start_time'
+      - $ref: '#/components/parameters/Total_item_count'
+      - $ref: '#/components/parameters/Total_only'
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ResourcePerformanceByArrayGetResponse"
-    x-sourced-from: paths/FA2.0/volumes-performance-by-array.path.yaml
+                $ref: '#/components/schemas/ResourcePerformanceByArrayGetResponse'
   /api/2.0/volumes/space:
     get:
       tags:
@@ -794,29 +778,27 @@ paths:
         for each volume.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Destroyed"
-      - $ref: "#/components/parameters/Filter"
-      - $ref: "#/components/parameters/History_end_time"
-      - $ref: "#/components/parameters/History_resolution"
-      - $ref: "#/components/parameters/History_start_time"
-      - $ref: "#/components/parameters/Ids"
-      - $ref: "#/components/parameters/Limit"
-      - $ref: "#/components/parameters/Offset"
-      - $ref: "#/components/parameters/Sort"
-      - $ref: "#/components/parameters/Total_item_count"
-      - $ref: "#/components/parameters/Total_only"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Destroyed'
+      - $ref: '#/components/parameters/History_end_time'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Names'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/History_resolution'
+      - $ref: '#/components/parameters/Sort'
+      - $ref: '#/components/parameters/History_start_time'
+      - $ref: '#/components/parameters/Total_item_count'
+      - $ref: '#/components/parameters/Total_only'
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ResourceSpaceGetResponse"
-    parameters:
-    - $ref: "#/components/parameters/Names"
-    x-sourced-from: paths/FA2.0/volumes-space.path.yaml
+                $ref: '#/components/schemas/ResourceSpaceGetResponse'
   /api/2.0/volume-snapshots:
     get:
       tags:
@@ -826,26 +808,26 @@ paths:
         Return a list of volume snapshots, including those pending eradication.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Destroyed"
-      - $ref: "#/components/parameters/Filter"
-      - $ref: "#/components/parameters/Ids"
-      - $ref: "#/components/parameters/Limit"
-      - $ref: "#/components/parameters/Names"
-      - $ref: "#/components/parameters/Offset"
-      - $ref: "#/components/parameters/Sort"
-      - $ref: "#/components/parameters/Source_ids"
-      - $ref: "#/components/parameters/Source_names"
-      - $ref: "#/components/parameters/Total_item_count"
-      - $ref: "#/components/parameters/Total_only"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Destroyed'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Names'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Sort'
+      - $ref: '#/components/parameters/Source_ids'
+      - $ref: '#/components/parameters/Source_names'
+      - $ref: '#/components/parameters/Total_item_count'
+      - $ref: '#/components/parameters/Total_only'
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/VolumeSnapshotGetResponse"
+                $ref: '#/components/schemas/VolumeSnapshotGetResponse'
     post:
       tags:
       - Volume Snapshots
@@ -855,16 +837,16 @@ paths:
         The `source_ids` or `source_names` parameter is required, but they cannot be set together.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/OnSingle"
-      - $ref: "#/components/parameters/Source_ids"
-      - $ref: "#/components/parameters/Source_names"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/OnSingle'
+      - $ref: '#/components/parameters/Source_ids'
+      - $ref: '#/components/parameters/Source_names'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/VolumeSnapshotPost"
+              $ref: '#/components/schemas/VolumeSnapshotPost'
         required: true
         x-codegen-request-body-name: volume-snapshot
       responses:
@@ -873,7 +855,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/VolumeSnapshotResponse"
+                $ref: '#/components/schemas/VolumeSnapshotResponse'
       x-codegen-request-body-name: volume-snapshot
     delete:
       tags:
@@ -886,10 +868,10 @@ paths:
         The `ids` or `names` parameter is required, but they cannot be set together.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Ids"
-      - $ref: "#/components/parameters/Names"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Names'
       responses:
         "200":
           description: OK
@@ -906,15 +888,15 @@ paths:
         The `ids` or `names` parameter is required, but they cannot be set together.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Ids"
-      - $ref: "#/components/parameters/Names"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Names'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/VolumeSnapshotPatch"
+              $ref: '#/components/schemas/VolumeSnapshotPatch'
         required: true
         x-codegen-request-body-name: volume-snapshot
       responses:
@@ -923,9 +905,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/VolumeSnapshotResponse"
+                $ref: '#/components/schemas/VolumeSnapshotResponse'
       x-codegen-request-body-name: volume-snapshot
-    x-sourced-from: paths/FA2.0/volume-snapshots.path.yaml
   /api/2.0/volume-snapshots/transfer:
     get:
       tags:
@@ -935,31 +916,29 @@ paths:
         Returns a list of volume snapshots and their transfer statistics.
 
       parameters:
-      - $ref: "#/components/parameters/Authorization"
-      - $ref: "#/components/parameters/XRequestId"
-      - $ref: "#/components/parameters/Destroyed"
-      - $ref: "#/components/parameters/Filter"
-      - $ref: "#/components/parameters/Ids"
-      - $ref: "#/components/parameters/Limit"
-      - $ref: "#/components/parameters/Offset"
-      - $ref: "#/components/parameters/Sort"
-      - $ref: "#/components/parameters/Source_ids"
-      - $ref: "#/components/parameters/Source_names"
-      - $ref: "#/components/parameters/Total_item_count"
-      - $ref: "#/components/parameters/Total_only"
+      - $ref: '#/components/parameters/Authorization'
+      - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Destroyed'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Names'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Sort'
+      - $ref: '#/components/parameters/Source_ids'
+      - $ref: '#/components/parameters/Source_names'
+      - $ref: '#/components/parameters/Total_item_count'
+      - $ref: '#/components/parameters/Total_only'
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/VolumeSnapshotTransferGetResponse"
-    parameters:
-    - $ref: "#/components/parameters/Names"
-    x-sourced-from: paths/FA2.0/volume-snapshots-transfer.path.yaml
+                $ref: '#/components/schemas/VolumeSnapshotTransferGetResponse'
 components:
   schemas:
-    formData_OauthGrantType:
+    OauthGrantType:
       type: string
       description: |
         The method by which the access token will be obtained.
@@ -967,8 +946,7 @@ components:
         which indicates that a token exchange is being performed.
         Set `grant_type` to `urn:ietf:params:oauth:grant-type:token-exchange`.
       default: urn:ietf:params:oauth:grant-type:token-exchange
-      x-sourced-from: queries/TEx-v1/oauth-grant-type.query.yaml
-    formData_OauthSubjectToken:
+    OauthSubjectToken:
       type: string
       description: |+
         An encoded security ID Token representing the identity of the party on behalf of
@@ -1003,8 +981,7 @@ components:
         Each token must also be signed with the private key that is paired with the
         API client's public key.
 
-      x-sourced-from: queries/TEx-v1/oauth-subject-token.query.yaml
-    formData_OauthSubjectTokenType:
+    OauthSubjectTokenType:
       type: string
       description: |
         An identifier that indicates the type of security token specifed in the `subject_token` parameter.
@@ -1012,23 +989,21 @@ components:
         as the means for requesting the access token.
         Set `subject_token_type` to `urn:ietf:params:oauth:token-type:jwt`.
       default: urn:ietf:params:oauth:token-type:jwt
-      x-sourced-from: queries/TEx-v1/oauth-subject-token-type.query.yaml
     Connection:
       type: object
       properties:
         host:
-          type: object
-          description: The host computer that sends and receives I/O requests to and
-            from volumes on the FlashArray array.
+          description: The host computer that sends and receives I/O requests to and from volumes on the
+            FlashArray array.
+          title: FixedReferenceNoId
           allOf:
-          - $ref: "#/components/schemas/_fixedReferenceNoId"
+          - $ref: '#/components/schemas/_fixedReferenceNoId'
         host_group:
-          type: object
           description: A virtual collection of hosts with common connectivity to volumes.
+          title: FixedReferenceNoId
           allOf:
-          - $ref: "#/components/schemas/_fixedReferenceNoId"
+          - $ref: '#/components/schemas/_fixedReferenceNoId'
         lun:
-          type: integer
           description: |
             The logical unit number (LUN) by which the specified hosts are to
             address the specified volume. LUN can be in one of two formats: a simple
@@ -1051,56 +1026,54 @@ components:
             taken, the system starts at LUN '255' and counts up to the maximum LUN
             '4095', assigning the first available LUN to the connection. The maximum
             int64 LUN:Sublun value is 17587891081215.
+          type: integer
           format: int64
           example: 7
         protocol_endpoint:
-          type: object
-          description: "A protocol endpoint (also known as a conglomerate volume)\
-            \ which acts as a proxy through which virtual volumes are created and\
-            \ then connected to VMware ESXi hosts or host groups. The protocol endpoint\
-            \ itself does not serve I/Os; instead, its job is to form connections\
-            \ between FlashArray volumes and ESXi hosts and host groups."
+          description: "A protocol endpoint (also known as a conglomerate volume) which acts as a proxy
+            through which virtual volumes are created and then connected to VMware ESXi hosts or host
+            groups. The protocol endpoint itself does not serve I/Os; instead, its job is to form connections
+            between FlashArray volumes and ESXi hosts and host groups."
+          title: Reference
           allOf:
-          - $ref: "#/components/schemas/_reference"
+          - $ref: '#/components/schemas/_reference'
         volume:
-          type: object
           description: A container that manages the storage space on the array.
+          title: FixedReference
           allOf:
-          - $ref: "#/components/schemas/_fixedReference"
-      x-sourced-from: models/FA2.0/connection.yaml
+          - $ref: '#/components/schemas/_fixedReference'
     Host:
       allOf:
-      - $ref: "#/components/schemas/_resourceNoId"
+      - $ref: '#/components/schemas/_resourceNoId'
       - type: object
         properties:
           chap:
-            $ref: "#/components/schemas/_chap"
+            $ref: '#/components/schemas/_chap'
           connection_count:
-            type: integer
             description: The number of volumes connected to the specified host.
+            type: integer
             format: int64
             readOnly: true
             example: 3
           host_group:
-            type: object
             description: The host group to which the host should be associated.
+            title: ReferenceNoId
             allOf:
-            - $ref: "#/components/schemas/_referenceNoId"
+            - $ref: '#/components/schemas/_referenceNoId'
           iqns:
-            type: array
             description: |
               The iSCSI qualified name (IQN) associated with the host.
+            type: array
             items:
               type: string
               example: iqn.2010-06.com.purestorage:linux.393d930077be2977
           nqns:
-            type: array
             description: The NVMe Qualified Name (NQN) associated with the host.
+            type: array
             items:
               type: string
               example: nqn.2010-06.com.purestorage:flasharray.512f7bb185978505
           personality:
-            type: string
             description: |
               Determines how the system tunes the array to ensure that it works optimally with the host.
               Set `personality` to the name of the host operating system or virtual memory system.
@@ -1108,17 +1081,10 @@ components:
               `oracle-vm-server`, `solaris`, and `vms`.
               If your system is not listed as one of the valid host personalities, do not set the option.
               By default, the personality is not set.
+            type: string
           port_connectivity:
-            $ref: "#/components/schemas/_host_port_connectivity"
-          space:
-            type: object
-            description: |
-              Displays provisioned size and physical storage consumption
-              information for the sum of all volumes connected to the specified host.
-            allOf:
-            - $ref: "#/components/schemas/_space"
+            $ref: '#/components/schemas/_host_port_connectivity'
           preferred_arrays:
-            type: array
             description: |
               For synchronous replication configurations, sets a host's preferred array to specify which
               array exposes active/optimized paths to that host.
@@ -1130,187 +1096,182 @@ components:
               On a preferred array of a certain host, all the paths on all the ports
               (for both the primary and secondary controllers) are set up as A/O (active/optimized) paths,
               while on a non-preferred array, all the paths are A/N (Active/Non-optimized) paths.
-            items:
-              $ref: "#/components/schemas/_reference"
-          wwns:
             type: array
-            description: The Fibre Channel World Wide Name (WWN) associated with the
-              host.
+            items:
+              $ref: '#/components/schemas/_reference'
+          space:
+            description: |
+              Displays provisioned size and physical storage consumption
+              information for the sum of all volumes connected to the specified host.
+            title: Space
+            allOf:
+            - $ref: '#/components/schemas/_space'
+          wwns:
+            description: The Fibre Channel World Wide Name (WWN) associated with the host.
+            type: array
             items:
               type: string
               example: 52:4A:93:70:4E:E5:68:00
-      x-sourced-from: models/FA2.0/host.yaml
     ResourcePerformance:
       allOf:
-      - $ref: "#/components/schemas/_resource"
-      - $ref: "#/components/schemas/_performance"
-      x-sourced-from: models/FA2.0/resource-performance.yaml
+      - $ref: '#/components/schemas/_resource'
+      - $ref: '#/components/schemas/_performance'
     ResourcePerformanceByArray:
       allOf:
-      - $ref: "#/components/schemas/ResourcePerformance"
+      - $ref: '#/components/schemas/ResourcePerformance'
       - type: object
         properties:
           array:
-            type: object
             description: |
               The array on which the performance metrics were recorded.
+            title: Resource
             allOf:
-            - $ref: "#/components/schemas/_resource"
-      x-sourced-from: models/FA2.0/resource-performance-by-array.yaml
+            - $ref: '#/components/schemas/_resource'
     HostGroup:
       allOf:
-      - $ref: "#/components/schemas/_resourceNoId"
+      - $ref: '#/components/schemas/_resourceNoId'
       - type: object
         properties:
           connection_count:
-            type: integer
             description: The number of volumes connected to the host group.
+            type: integer
             format: int64
             readOnly: true
             example: 3
           host_count:
-            type: integer
             description: The number of hosts in the host group.
+            type: integer
             format: int64
             readOnly: true
             example: 3
           is_local:
+            description: Returns a value of `true` if the host or host group belongs to the current array.
+              Returns a value of `false` if the host or host group belongs to a remote array.
             type: boolean
-            description: Returns a value of `true` if the host or host group belongs
-              to the current array. Returns a value of `false` if the host or host
-              group belongs to a remote array.
             readOnly: true
           space:
-            type: object
             description: |
               Displays size and space consumption information.
+            title: Space
             allOf:
-            - $ref: "#/components/schemas/_space"
-      x-sourced-from: models/FA2.0/host-group.yaml
+            - $ref: '#/components/schemas/_space'
     Member:
       type: object
       properties:
         group:
-          $ref: "#/components/schemas/_reference"
+          $ref: '#/components/schemas/_reference'
         member:
-          $ref: "#/components/schemas/_reference"
-      x-sourced-from: models/FA2.0/member.yaml
+          $ref: '#/components/schemas/_reference'
     MemberNoIdAll:
       type: object
       properties:
         group:
-          type: object
-          description: "The resource in which the host, volume, or other item in the\
-            \ environment is a member."
+          description: "The resource in which the host, volume, or other item in the environment is a
+            member."
+          title: ReferenceNoId
           allOf:
-          - $ref: "#/components/schemas/_referenceNoId"
+          - $ref: '#/components/schemas/_referenceNoId'
         member:
-          type: object
           description: The member of the resource.
+          title: ReferenceNoId
           allOf:
-          - $ref: "#/components/schemas/_referenceNoId"
-      x-sourced-from: models/FA2.0/member-no-id-all.yaml
+          - $ref: '#/components/schemas/_referenceNoId'
     Username:
       type: object
       properties:
         username:
-          type: string
           description: The username of the user.
+          type: string
           example: pureuser
-      x-sourced-from: models/FA2.0/username.yaml
     Volume:
       allOf:
-      - $ref: "#/components/schemas/_volumeCommon"
+      - $ref: '#/components/schemas/_volumeCommon'
       - type: object
         properties:
           pod:
-            type: object
             description: A reference to the pod.
+            title: Reference
             allOf:
-            - $ref: "#/components/schemas/_reference"
+            - $ref: '#/components/schemas/_reference'
           source:
-            type: object
-            description: A reference to the originating volume as a result of a volume
-              copy.
+            description: A reference to the originating volume as a result of a volume copy.
+            title: FixedReference
             allOf:
-            - $ref: "#/components/schemas/_fixedReference"
+            - $ref: '#/components/schemas/_fixedReference'
           subtype:
-            type: string
             description: |
               The type of volume.
               Valid values are `protocol_endpoint` and `regular`.
+            type: string
             readOnly: true
           volume_group:
-            type: object
             description: A reference to the volume group.
+            title: Reference
             allOf:
-            - $ref: "#/components/schemas/_reference"
-      x-sourced-from: models/FA2.0/volume.yaml
+            - $ref: '#/components/schemas/_reference'
     VolumePerformance:
       allOf:
-      - $ref: "#/components/schemas/_resource"
-      - $ref: "#/components/schemas/_performance"
-      x-sourced-from: models/FA2.0/volume-performance.yaml
+      - $ref: '#/components/schemas/_resource'
+      - $ref: '#/components/schemas/_performance'
     VolumeSnapshot:
       allOf:
-      - $ref: "#/components/schemas/_resource"
-      - $ref: "#/components/schemas/_snapshot"
-      - type: object
+      - $ref: '#/components/schemas/_resource'
+      - $ref: '#/components/schemas/_snapshot'
+      - description: A point-in-time image of the contents of the volume.
+        type: object
         properties:
           serial:
-            type: string
             description: |
               A serial number generated by the system when the snapshot is created.
               The serial number is unique across all arrays.
+            type: string
             readOnly: true
           space:
-            type: object
             description: |
               Displays size and space consumption information.
+            title: Space
             allOf:
-            - $ref: "#/components/schemas/_space"
+            - $ref: '#/components/schemas/_space'
           volume_group:
-            type: object
             description: |
               The volume group to which the volume that is the source of this volume snapshot belongs.
+            title: FixedReference
             allOf:
-            - $ref: "#/components/schemas/_fixedReference"
-        description: A point-in-time image of the contents of the volume.
-      x-sourced-from: models/FA2.0/volume-snapshot.yaml
+            - $ref: '#/components/schemas/_fixedReference'
     VolumeSnapshotTransfer:
       allOf:
-      - $ref: "#/components/schemas/_resource"
-      - $ref: "#/components/schemas/_transfer"
-      - type: object
-        description: |
+      - $ref: '#/components/schemas/_resource'
+      - $ref: '#/components/schemas/_transfer'
+      - description: |
           Transfer statistics for snapshot replication.
-      x-sourced-from: models/FA2.0/volume-snapshot-transfer.yaml
+        type: object
     ResourceSpace:
       allOf:
-      - $ref: "#/components/schemas/_builtIn"
+      - $ref: '#/components/schemas/_builtIn'
       - type: object
         properties:
           space:
-            type: object
             description: |
               Displays size and space consumption information.
+            title: Space
             allOf:
-            - $ref: "#/components/schemas/_space"
+            - $ref: '#/components/schemas/_space'
           time:
-            type: integer
             description: |
               The timestamp of when the data was taken.
               Measured in milliseconds since the UNIX epoch.
+            type: integer
             format: int64
             readOnly: true
         x-readOnly: true
-      x-sourced-from: models/FA2.0/resource-space.yaml
     Api_versionResponse:
       type: object
       properties:
         version:
-          type: array
           description: A list of supported API versions.
+          type: array
+          items:
+            type: string
           example:
           - "1.0"
           - "1.1"
@@ -1331,16 +1292,10 @@ components:
           - "1.16"
           - "1.17"
           - "2.0"
-          items:
-            type: string
-      x-sourced-from: responses/FA2.0/api_version-response.yaml
     ConnectionPost:
       type: object
       properties:
         lun:
-          maximum: 4095
-          minimum: 1
-          type: integer
           description: |
             The logical unit number (LUN) by which the specified hosts
             are to address the specified volume. If the LUN is not specified,
@@ -1353,122 +1308,115 @@ components:
             to the connection. If all LUNs in the `[1...254]` range are taken,
             the system starts at LUN `255` and counts up to the maximum LUN `4095`,
             assigning the first available LUN to the connection.
+          type: integer
           format: int32
+          minimum: 1
+          maximum: 4095
           example: 7
         protocol_endpoint:
-          type: object
           description: |
             A protocol endpoint (also known as a conglomerate volume) which acts as a proxy through which
             virtual volumes are created and then connected to VMware ESXi hosts or host groups.
             The protocol endpoint itself does not serve I/Os; instead,
             its job is to form connections between FlashArray volumes and ESXi hosts and host groups.
+          title: Reference
           allOf:
-          - $ref: "#/components/schemas/_reference"
-      x-sourced-from: models/FA2.0/connection-post.yaml
+          - $ref: '#/components/schemas/_reference'
     ConnectionGetResponse:
       allOf:
-      - $ref: "#/components/schemas/PageInfo"
-      - $ref: "#/components/schemas/ConnectionResponse"
-      x-sourced-from: responses/FA2.0/connection-get-response.yaml
+      - $ref: '#/components/schemas/PageInfo'
+      - $ref: '#/components/schemas/ConnectionResponse'
     ConnectionResponse:
       type: object
       properties:
         items:
-          type: array
           description: |
             Returns a list of all items after filtering.
             The values are displayed for each name where meaningful.
             If `total_only=true`, the `items` list will be empty.
+          type: array
           items:
-            $ref: "#/components/schemas/Connection"
-      x-sourced-from: responses/FA2.0/connection-response.yaml
+            $ref: '#/components/schemas/Connection'
     HostGroupPatch:
       allOf:
-      - $ref: "#/components/schemas/_newName"
-      x-sourced-from: models/FA2.0/host-group-patch.yaml
+      - $ref: '#/components/schemas/_newName'
     HostGroupGetResponse:
       allOf:
-      - $ref: "#/components/schemas/PageInfo"
-      - $ref: "#/components/schemas/HostGroupResponse"
-      x-sourced-from: responses/FA2.0/host-group-get-response.yaml
+      - $ref: '#/components/schemas/PageInfo'
+      - $ref: '#/components/schemas/HostGroupResponse'
     HostGroupResponse:
       type: object
       properties:
         items:
-          type: array
           description: |
             Returns a list of all items after filtering.
             The values are displayed for each name where meaningful.
+          type: array
           items:
-            $ref: "#/components/schemas/HostGroup"
-      x-sourced-from: responses/FA2.0/host-group-response.yaml
+            $ref: '#/components/schemas/HostGroup'
     MemberNoIdAllGetResponse:
       allOf:
-      - $ref: "#/components/schemas/PageInfo"
-      - $ref: "#/components/schemas/MemberNoIdAllResponse"
-      x-sourced-from: responses/FA2.0/member-no-id-all-get-response.yaml
+      - $ref: '#/components/schemas/PageInfo'
+      - $ref: '#/components/schemas/MemberNoIdAllResponse'
     ResourcePerformanceNoIdGetResponse:
       allOf:
-      - $ref: "#/components/schemas/PageInfo"
+      - $ref: '#/components/schemas/PageInfo'
       - type: object
         properties:
           items:
-            type: array
             description: |
               Performance data.
               If `total_only=true`, the `items` list will be empty.
-            items:
-              $ref: "#/components/schemas/ResourcePerformanceNoId"
-          total:
             type: array
+            items:
+              $ref: '#/components/schemas/ResourcePerformanceNoId'
+          total:
             description: |
               The aggregate value of all items after filtering.
               Where it makes more sense, the average value is displayed instead.
               The values are displayed for each field where meaningful.
+            type: array
             items:
-              $ref: "#/components/schemas/ResourcePerformanceNoId"
-      x-sourced-from: responses/FA2.0/resource-performance-no-id-get-response.yaml
+              $ref: '#/components/schemas/ResourcePerformanceNoId'
     ResourcePerformanceNoIdByArrayGetResponse:
       allOf:
-      - $ref: "#/components/schemas/PageInfo"
+      - $ref: '#/components/schemas/PageInfo'
       - type: object
         properties:
           items:
-            type: array
             description: |
               Performance data, broken down by array.
               If `total_only=true`, the `items` list will be empty.
-            items:
-              $ref: "#/components/schemas/ResourcePerformanceNoIdByArray"
-          total:
             type: array
+            items:
+              $ref: '#/components/schemas/ResourcePerformanceNoIdByArray'
+          total:
             description: |
               The aggregate value of all items after filtering.
               Where it makes more sense, the average value is displayed instead.
               The values are displayed for each field where meaningful.
+            type: array
             items:
-              $ref: "#/components/schemas/ResourcePerformanceNoIdByArray"
-      x-sourced-from: responses/FA2.0/resource-performance-no-id-by-array-get-response.yaml
+              $ref: '#/components/schemas/ResourcePerformanceNoIdByArray'
     HostPost:
       type: object
       properties:
         chap:
-          $ref: "#/components/schemas/_chap"
+          $ref: '#/components/schemas/_chap'
         iqns:
-          type: array
           description: |
             The iSCSI qualified name (IQN) associated with the host.
+          type: array
           items:
             type: string
             example: iqn.2010-06.com.purestorage:linux.393d930077be2977
         nqns:
-          type: array
           description: The NVMe Qualified Name (NQN) associated with the host.
+          type: array
           items:
             type: string
             example: nqn.2010-06.com.purestorage:flasharray.512f7bb185978505
         personality:
-          type: string
           description: |
             Determines how the system tunes the array to ensure that it works optimally with the host.
             Set `personality` to the name of the host operating system or virtual memory system.
@@ -1476,8 +1424,8 @@ components:
             `oracle-vm-server`, `solaris`, and `vms`.
             If your system is not listed as one of the valid host personalities, do not set the option.
             By default, the personality is not set.
+          type: string
         preferred_arrays:
-          type: array
           description: |
             For synchronous replication configurations, sets a host's preferred array to specify which
             array exposes active/optimized paths to that host.
@@ -1489,70 +1437,68 @@ components:
             On a preferred array of a certain host, all the paths on all the ports
             (for both the primary and secondary controllers) are set up as A/O (active/optimized) paths,
             while on a non-preferred array, all the paths are A/N (Active/Non-optimized) paths.
-          items:
-            $ref: "#/components/schemas/_reference"
-        wwns:
           type: array
-          description: The Fibre Channel World Wide Name (WWN) associated with the
-            host.
+          items:
+            $ref: '#/components/schemas/_reference'
+        wwns:
+          description: The Fibre Channel World Wide Name (WWN) associated with the host.
+          type: array
           items:
             type: string
             example: 52:4A:93:70:4E:E5:68:00
-      x-sourced-from: models/FA2.0/host-post.yaml
     HostPatch:
       allOf:
-      - $ref: "#/components/schemas/_newName"
+      - $ref: '#/components/schemas/_newName'
       - type: object
         properties:
           add_iqns:
-            type: array
             description: |
               Adds the specified iSCSI Qualified Names (IQNs)
               to those already associated with the specified host.
+            type: array
             items:
               type: string
               description: IQNs to add.
               example: iqn.2010-06.com.purestorage:linux.393d930077be2977
           add_nqns:
-            type: array
             description: |
               Adds the specified NVMe Qualified Names (NQNs)
               to those already associated with the specified host.
+            type: array
             items:
               type: string
               description: NQNs to add.
               example: nqn.2010-06.com.purestorage:flasharray.512f7bb185978505
           add_wwns:
-            type: array
             description: |
               Adds the specified Fibre Channel World Wide Names (WWNs)
               to those already associated with the specified host.
+            type: array
             items:
               type: string
               description: WWNs to add.
               example: 52:4A:93:70:4E:E5:68:00
           chap:
-            $ref: "#/components/schemas/_chap"
+            $ref: '#/components/schemas/_chap'
           host_group:
-            type: object
             description: The host group to which the host should be associated.
+            title: ReferenceNoId
             allOf:
-            - $ref: "#/components/schemas/_referenceNoId"
+            - $ref: '#/components/schemas/_referenceNoId'
           iqns:
-            type: array
             description: |
               The iSCSI qualified name (IQN) associated with the host.
+            type: array
             items:
               type: string
               example: iqn.2010-06.com.purestorage:linux.393d930077be2977
           nqns:
-            type: array
             description: The NVMe Qualified Name (NQN) associated with the host.
+            type: array
             items:
               type: string
               example: nqn.2010-06.com.purestorage:flasharray.512f7bb185978505
           personality:
-            type: string
             description: |
               Determines how the system tunes the array to ensure that it works optimally with the host.
               Set `personality` to the name of the host operating system or virtual memory system.
@@ -1560,8 +1506,8 @@ components:
               `oracle-vm-server`, `solaris`, and `vms`.
               If your system is not listed as one of the valid host personalities, do not set the option.
               By default, the personality is not set.
+            type: string
           preferred_arrays:
-            type: array
             description: |
               For synchronous replication configurations, sets a host's preferred array to specify which
               array exposes active/optimized paths to that host.
@@ -1573,457 +1519,433 @@ components:
               On a preferred array of a certain host, all the paths on all the ports
               (for both the primary and secondary controllers) are set up as A/O (active/optimized) paths,
               while on a non-preferred array, all the paths are A/N (Active/Non-optimized) paths.
-            items:
-              $ref: "#/components/schemas/_reference"
-          remove_iqns:
             type: array
+            items:
+              $ref: '#/components/schemas/_reference'
+          remove_iqns:
             description: |
               Disassociates the specified iSCSI Qualified Names (IQNs) from the specified host.
+            type: array
             items:
               type: string
               description: IQNs to remove.
               example: iqn.2010-06.com.purestorage:linux.393d930077be2977
           remove_nqns:
-            type: array
             description: |
               Disassociates the specified NVMe Qualified Names (NQNs) from the specified host.
+            type: array
             items:
               type: string
               description: NQNs to remove.
               example: nqn.2010-06.com.purestorage:flasharray.512f7bb185978505
           remove_wwns:
-            type: array
             description: |
               Disassociates the specified Fibre Channel World Wide Names (WWNs) from the specified host.
+            type: array
             items:
               type: string
               description: WWNs to remove.
               example: 52:4A:93:70:4E:E5:68:00
           wwns:
+            description: The Fibre Channel World Wide Name (WWN) associated with the host.
             type: array
-            description: The Fibre Channel World Wide Name (WWN) associated with the
-              host.
             items:
               type: string
               example: 52:4A:93:70:4E:E5:68:00
-      x-sourced-from: models/FA2.0/host-patch.yaml
     HostGetResponse:
       allOf:
-      - $ref: "#/components/schemas/PageInfo"
-      - $ref: "#/components/schemas/HostResponse"
-      x-sourced-from: responses/FA2.0/host-get-response.yaml
+      - $ref: '#/components/schemas/PageInfo'
+      - $ref: '#/components/schemas/HostResponse'
     HostResponse:
       type: object
       properties:
         items:
-          type: array
           description: |
             Returns a list of all items after filtering.
             The values are displayed for each name where meaningful.
             If `total_only=true`, the `items` list will be empty.
+          type: array
           items:
-            $ref: "#/components/schemas/Host"
-      x-sourced-from: responses/FA2.0/host-response.yaml
+            $ref: '#/components/schemas/Host'
     UsernameResponse:
       type: object
       properties:
         items:
           type: array
           items:
-            $ref: "#/components/schemas/Username"
-      x-sourced-from: responses/FA2.0/username-response.yaml
+            $ref: '#/components/schemas/Username'
     VolumePost:
       allOf:
-      - $ref: "#/components/schemas/_destroyedPatchPost"
+      - $ref: '#/components/schemas/_destroyedPatchPost'
       - type: object
         properties:
           provisioned:
-            maximum: 4503599627370496
-            type: integer
             description: |
               Sets the virtual size of the volume. Measured in bytes.
+            type: integer
             format: int64
+            maximum: 4503599627370496
           qos:
-            type: object
             description: |
               Sets QoS limits.
+            title: Qos
             allOf:
-            - $ref: "#/components/schemas/_qos"
+            - $ref: '#/components/schemas/_qos'
           source:
-            type: object
             description: The source volume of a volume copy.
+            title: Reference
             allOf:
-            - $ref: "#/components/schemas/_reference"
+            - $ref: '#/components/schemas/_reference'
           subtype:
-            type: string
             description: |
               The type of volume.
               Valid values are `protocol_endpoint` and `regular`.
-      x-sourced-from: models/FA2.0/volume-post.yaml
+            type: string
     VolumePatch:
       allOf:
-      - $ref: "#/components/schemas/_destroyedPatchPost"
-      - $ref: "#/components/schemas/_newName"
+      - $ref: '#/components/schemas/_destroyedPatchPost'
+      - $ref: '#/components/schemas/_newName'
       - type: object
         properties:
           pod:
-            type: object
             description: Moves the volume into the specified pod.
+            title: Reference
             allOf:
-            - $ref: "#/components/schemas/_reference"
+            - $ref: '#/components/schemas/_reference'
           provisioned:
-            maximum: 4503599627370496
-            type: integer
             description: |
               Updates the virtual size of the volume. Measured in bytes.
+            type: integer
             format: int64
+            maximum: 4503599627370496
           qos:
-            type: object
             description: |
               Sets QoS limits.
+            title: Qos
             allOf:
-            - $ref: "#/components/schemas/_qos"
+            - $ref: '#/components/schemas/_qos'
           volume_group:
-            type: object
             description: Adds the volume to the specified volume group.
+            title: Reference
             allOf:
-            - $ref: "#/components/schemas/_reference"
-      x-sourced-from: models/FA2.0/volume-patch.yaml
+            - $ref: '#/components/schemas/_reference'
     VolumeGetResponse:
       allOf:
-      - $ref: "#/components/schemas/PageInfo"
-      - $ref: "#/components/schemas/VolumeResponse"
+      - $ref: '#/components/schemas/PageInfo'
+      - $ref: '#/components/schemas/VolumeResponse'
       - type: object
         properties:
           total:
-            type: array
             description: |
               The aggregate value of all items after filtering.
               Where it makes more sense, the average value is displayed instead.
               The values are displayed for each field where meaningful.
+            type: array
             items:
-              $ref: "#/components/schemas/Volume"
-      x-sourced-from: responses/FA2.0/volume-get-response.yaml
+              $ref: '#/components/schemas/Volume'
     VolumeResponse:
       type: object
       properties:
         items:
-          type: array
           description: |
             Returns a list of all items after filtering.
             The values are displayed for each name where meaningful.
             If `total_only=true`, the `items` list will be empty.
+          type: array
           items:
-            $ref: "#/components/schemas/Volume"
-      x-sourced-from: responses/FA2.0/volume-response.yaml
+            $ref: '#/components/schemas/Volume'
     ResourcePerformanceGetResponse:
       allOf:
-      - $ref: "#/components/schemas/PageInfo"
+      - $ref: '#/components/schemas/PageInfo'
       - type: object
         properties:
           items:
-            type: array
             description: |
               Performance data.
               If `total_only=true`, the `items` list will be empty.
-            items:
-              $ref: "#/components/schemas/ResourcePerformance"
-          total:
             type: array
+            items:
+              $ref: '#/components/schemas/ResourcePerformance'
+          total:
             description: |
               The aggregate value of all items after filtering.
               Where it makes more sense, the average value is displayed instead.
               The values are displayed for each field where meaningful.
+            type: array
             items:
-              $ref: "#/components/schemas/ResourcePerformance"
-      x-sourced-from: responses/FA2.0/resource-performance-get-response.yaml
+              $ref: '#/components/schemas/ResourcePerformance'
     ResourcePerformanceByArrayGetResponse:
       allOf:
-      - $ref: "#/components/schemas/PageInfo"
+      - $ref: '#/components/schemas/PageInfo'
       - type: object
         properties:
           items:
-            type: array
             description: |
               Performance data, broken down by array.
               If `total_only=true`, the `items` list will be empty.
-            items:
-              $ref: "#/components/schemas/ResourcePerformanceByArray"
-          total:
             type: array
+            items:
+              $ref: '#/components/schemas/ResourcePerformanceByArray'
+          total:
             description: |
               The aggregate value of all items after filtering.
               Where it makes more sense, the average value is displayed instead.
               The values are displayed for each field where meaningful.
+            type: array
             items:
-              $ref: "#/components/schemas/ResourcePerformanceByArray"
-      x-sourced-from: responses/FA2.0/resource-performance-by-array-get-response.yaml
+              $ref: '#/components/schemas/ResourcePerformanceByArray'
     ResourceSpaceGetResponse:
       allOf:
-      - $ref: "#/components/schemas/PageInfo"
+      - $ref: '#/components/schemas/PageInfo'
       - type: object
         properties:
           items:
-            type: array
             description: |
               Returns a list of all items after filtering.
               The values are displayed for each name where meaningful.
               If `total_only=true`, the `items` list will be empty.
-            items:
-              $ref: "#/components/schemas/ResourceSpace"
-          total:
             type: array
+            items:
+              $ref: '#/components/schemas/ResourceSpace'
+          total:
             description: |
               The aggregate value of all items after filtering.
               Where it makes more sense, the average value is displayed instead.
               The values are displayed for each field where meaningful.
+            type: array
             items:
-              $ref: "#/components/schemas/ResourceSpace"
-      x-sourced-from: responses/FA2.0/resource-space-get-response.yaml
+              $ref: '#/components/schemas/ResourceSpace'
     VolumeSnapshotPost:
       allOf:
-      - $ref: "#/components/schemas/_destroyedPatchPost"
+      - $ref: '#/components/schemas/_destroyedPatchPost'
       - type: object
         properties:
           suffix:
-            type: string
             description: |
               The suffix that is appended to the `source_name` value to generate the
               full volume snapshot name in the form `VOL.SUFFIX`.
               If the suffix is not specified, the system constructs the snapshot name
               in the form `VOL.NNN`, where `VOL` is the volume name, and `NNN` is a
               monotonically increasing number.
-      x-sourced-from: models/FA2.0/volume-snapshot-post.yaml
+            type: string
     VolumeSnapshotPatch:
       allOf:
-      - $ref: "#/components/schemas/_destroyedPatchPost"
-      - $ref: "#/components/schemas/_newName"
-      x-sourced-from: models/FA2.0/volume-snapshot-patch.yaml
+      - $ref: '#/components/schemas/_destroyedPatchPost'
+      - $ref: '#/components/schemas/_newName'
     VolumeSnapshotGetResponse:
       allOf:
-      - $ref: "#/components/schemas/PageInfo"
-      - $ref: "#/components/schemas/VolumeSnapshotResponse"
+      - $ref: '#/components/schemas/PageInfo'
+      - $ref: '#/components/schemas/VolumeSnapshotResponse'
       - type: object
         properties:
           total:
-            type: array
             description: |
               The aggregate value of all items after filtering.
               Where it makes more sense, the average value is displayed instead.
               The values are displayed for each field where meaningful.
+            type: array
             items:
-              $ref: "#/components/schemas/VolumeSnapshot"
-      x-sourced-from: responses/FA2.0/volume-snapshot-get-response.yaml
+              $ref: '#/components/schemas/VolumeSnapshot'
     VolumeSnapshotResponse:
       type: object
       properties:
         items:
-          type: array
           description: |
             Returns a list of all items after filtering.
             The values are displayed for each name where meaningful.
             If `total_only=true`, the `items` list will be empty.
+          type: array
           items:
-            $ref: "#/components/schemas/VolumeSnapshot"
-      x-sourced-from: responses/FA2.0/volume-snapshot-response.yaml
+            $ref: '#/components/schemas/VolumeSnapshot'
     VolumeSnapshotTransferGetResponse:
       allOf:
-      - $ref: "#/components/schemas/PageInfo"
-      - $ref: "#/components/schemas/VolumeSnapshotTransferResponse"
+      - $ref: '#/components/schemas/PageInfo'
+      - $ref: '#/components/schemas/VolumeSnapshotTransferResponse'
       - type: object
         properties:
           total:
-            type: array
             description: |
               The aggregate value of all items after filtering.
               Where it makes more sense, the average value is displayed instead.
               The values are displayed for each field where meaningful.
+            type: array
             items:
-              $ref: "#/components/schemas/VolumeSnapshotTransfer"
-      x-sourced-from: responses/FA2.0/volume-snapshot-transfer-get-response.yaml
+              $ref: '#/components/schemas/VolumeSnapshotTransfer'
     _fixedReferenceNoId:
       type: object
       properties:
         name:
-          type: string
           description: |
             The resource name,
             such as volume name, pod name, snapshot name, and so on.
+          type: string
           readOnly: true
       x-readOnly: true
-      x-sourced-from: models/FA2.0/_fixed-reference-no-id.yaml
     _reference:
       type: object
       properties:
         id:
-          type: string
           description: |
             A globally unique, system-generated ID.
             The ID cannot be modified.
-        name:
           type: string
+        name:
           description: |
             The resource name,
             such as volume name, pod name, snapshot name, and so on.
-      x-sourced-from: models/FA2.0/_reference.yaml
+          type: string
     _fixedReference:
       type: object
       properties:
         id:
-          type: string
           description: |
             A globally unique, system-generated ID.
             The ID cannot be modified.
+          type: string
           readOnly: true
         name:
-          type: string
           description: |
             The resource name,
             such as volume name, pod name, snapshot name, and so on.
+          type: string
           readOnly: true
       x-readOnly: true
-      x-sourced-from: models/FA2.0/_fixed-reference.yaml
     _resourceNoId:
-      type: object
-      properties:
-        name:
-          type: string
-          description: |
-            A user-specified name.
-            The name must be locally unique and can be changed.
       description: |
         An ordinary (as opposed to built-in) resource that can be created, named,
         renamed or deleted by the user. This might be a virtual resource (e.g., a
         volume), or correspond to something in the environment, like a host or a
         server.
-      x-sourced-from: models/FA2.0/_resource-no-id.yaml
+      type: object
+      properties:
+        name:
+          description: |
+            A user-specified name.
+            The name must be locally unique and can be changed.
+          type: string
     _chap:
+      description: Challenge-Handshake Authentication Protocol (CHAP).
       type: object
       properties:
         host_password:
-          type: string
           description: |
             The host password for CHAP authentication.
             The password must be between 12 and 255 characters (inclusive)
             and cannot be the same as the target password.
+          type: string
         host_user:
-          type: string
           description: The host username for CHAP authentication.
-        target_password:
           type: string
+        target_password:
           description: |
             The target password for CHAP authentication.
             The password must be between 12 and 255 characters (inclusive)
             and cannot be the same as the host password.
-        target_user:
           type: string
+        target_user:
           description: The target username for CHAP authentication.
-      description: Challenge-Handshake Authentication Protocol (CHAP).
-      x-sourced-from: models/FA2.0/_chap.yaml
+          type: string
     _host_port_connectivity:
+      description: |
+        The connectivity status between the host and the ports on each controller.
       type: object
       properties:
         details:
-          type: string
           description: |
             The host connection status.
             Values include `Redundant`, `N/A`,
             `Redundant-Failover`, `Uneven`, `Unused Port`,
             `Single Controller`, `Single Controller-Failover`, and `None`.
+          type: string
           readOnly: true
           example: Redundant
         status:
-          type: string
           description: |
             The host connection health status.
             Values include `healthy`, `unhealthy`, and `critical`.
+          type: string
           readOnly: true
           example: healthy
-      description: |
-        The connectivity status between the host and the ports on each controller.
       x-readOnly: true
-      x-sourced-from: models/FA2.0/_host_port_connectivity.yaml
     _referenceNoId:
       type: object
       properties:
         name:
-          type: string
           description: |
             The resource name, such as volume name, pod name, snapshot name, and so on.
-      x-sourced-from: models/FA2.0/_reference-no-id.yaml
+          type: string
     _space:
       type: object
       properties:
         data_reduction:
-          type: number
           description: |
             The ratio of mapped sectors within a volume versus
             the amount of physical space the data occupies after data compression and deduplication.
             The data reduction ratio does not include thin provisioning savings.
             For example, a data reduction ratio of 5&#58;1 means that
             for every 5 MB the host writes to the array, 1 MB is stored on the array's flash modules.
+          type: number
           format: float
           readOnly: true
         shared:
-          minimum: 0
-          type: integer
           description: |
             The physical space occupied by deduplicated data, meaning that the space is shared with other
             volumes and snapshots as a result of data deduplication.
             Measured in bytes.
             On Evergreen//One arrays, this is the effective space contributed by data that is not unique
             to a specific volume, managed directory, or snapshot, measured in bytes.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
           example: 111863360624
         snapshots:
-          minimum: 0
-          type: integer
           description: |
             The physical space occupied by data unique to one or more snapshots.
             Measured in bytes.
             On Evergreen//One arrays, this is the effective space contributed by data unique to one or
             more snapshots, measured in bytes.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         system:
-          minimum: 0
-          type: integer
           description: |
             The physical space occupied by internal array metadata. Measured in bytes.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         thin_provisioning:
-          maximum: 1
-          minimum: 0
-          type: number
           description: |
             The percentage of volume sectors that do not contain host-written data
             because the hosts have not written data to them or the sectors have been explicitly trimmed.
+          type: number
           format: float
+          minimum: 0
+          maximum: 1
           readOnly: true
         total_physical:
-          minimum: 0
-          type: integer
           description: |
             The total physical space occupied by system, shared space, volume, and snapshot data.
             Measured in bytes.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         total_provisioned:
-          minimum: 0
-          type: integer
           description: |
             For a single volume, the provisioned size of the volume.
             For all other resources, the total provisioned size of all volumes
             that are connected to or are inside the resource.
             Represents storage capacity reported to hosts.
             Measured in bytes.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
           example: 19937690345472
         total_reduction:
-          type: number
           description: |+
             The ratio of provisioned sectors within a volume versus
             the amount of physical space the data occupies
@@ -2034,11 +1956,10 @@ components:
             for every 10 MB of provisioned space,
             1 MB is stored on the array's flash modules.
 
+          type: number
           format: float
           readOnly: true
         unique:
-          minimum: 0
-          type: integer
           description: |
             The unique physical space occupied by customer data.
             Unique physical space does not include shared space, snapshots, and internal array metadata.
@@ -2046,201 +1967,199 @@ components:
             On Evergreen//One arrays, this is the effective space contributed by unique customer data,
             measured in bytes.
             Unique data does not include shared space, snapshots, and internal array metadata.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         virtual:
-          minimum: 0
-          type: integer
           description: |
             The amount of logically written data that a volume or a snapshot references.
             Measured in bytes.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
-      x-sourced-from: models/FA2.0/_space.yaml
     _resource:
-      type: object
-      properties:
-        id:
-          type: string
-          description: |
-            A globally unique, system-generated ID.
-            The ID cannot be modified and cannot refer to another resource.
-          readOnly: true
-        name:
-          type: string
-          description: |
-            A user-specified name.
-            The name must be locally unique and can be changed.
       description: |
         An ordinary (as opposed to built-in) resource that can be created, named,
         renamed or deleted by the user. This might be a virtual resource (e.g., a
         volume), or correspond to something in the environment, like a host or a
         server.
-      x-sourced-from: models/FA2.0/_resource.yaml
+      type: object
+      properties:
+        id:
+          description: |
+            A globally unique, system-generated ID.
+            The ID cannot be modified and cannot refer to another resource.
+          type: string
+          readOnly: true
+        name:
+          description: |
+            A user-specified name.
+            The name must be locally unique and can be changed.
+          type: string
     _performance:
       type: object
       properties:
         bytes_per_mirrored_write:
-          minimum: 0
-          type: integer
           description: |
             The average I/O size per mirrored write, measured in bytes.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         bytes_per_op:
-          minimum: 0
-          type: integer
           description: |
             The average I/O size for both read and write (all) operations.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         bytes_per_read:
-          minimum: 0
-          type: integer
           description: "The average I/O size per read, measured in bytes."
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         bytes_per_write:
-          minimum: 0
-          type: integer
           description: "The average I/O size per write, measured in bytes."
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         mirrored_write_bytes_per_sec:
-          minimum: 0
-          type: integer
           description: |
             The number of mirrored bytes written per second.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         mirrored_writes_per_sec:
-          minimum: 0
-          type: integer
           description: |
             The number of mirrored writes per second.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         qos_rate_limit_usec_per_mirrored_write_op:
-          minimum: 0
-          type: integer
           description: |
             The average time it takes the array to process a mirrored I/O write request,
             measured in microseconds.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         qos_rate_limit_usec_per_read_op:
-          minimum: 0
-          type: integer
           description: |
             The average time spent waiting due to QoS rate limiting for a read request,
             measured in microseconds.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         qos_rate_limit_usec_per_write_op:
-          minimum: 0
-          type: integer
           description: |
             The average time that a write I/O request spends waiting
             as a result of the volume reaching its QoS bandwidth limit,
             measured in microseconds.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         queue_usec_per_mirrored_write_op:
-          minimum: 0
-          type: integer
           description: |
             The average time that a mirrored write I/O request spends in the array waiting to be served,
             measured in microseconds.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         queue_usec_per_read_op:
-          minimum: 0
-          type: integer
           description: |
             The average time that a read I/O request spends in the array waiting to be served,
             measured in microseconds.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         queue_usec_per_write_op:
-          minimum: 0
-          type: integer
           description: |
             The average time that a write I/O request spends in the array waiting to be served,
             measured in microseconds.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         read_bytes_per_sec:
-          minimum: 0
-          type: integer
           description: The number of bytes read per second.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         reads_per_sec:
-          minimum: 0
-          type: integer
           description: The number of read requests processed per second.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         san_usec_per_mirrored_write_op:
-          minimum: 0
-          type: integer
           description: |
             The average time required to transfer data
             from the initiator to the array for a mirrored write request,
             measured in microseconds.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         san_usec_per_read_op:
-          minimum: 0
-          type: integer
           description: |
             The average time required to transfer data from the array to the initiator for a read request,
             measured in microseconds.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         san_usec_per_write_op:
-          minimum: 0
-          type: integer
           description: |
             The average time required to transfer data
             from the initiator to the array for a write request,
             measured in microseconds.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         service_usec_per_mirrored_write_op:
-          minimum: 0
-          type: integer
           description: |
             The average time required for the array to service a mirrored write request,
             measured in microseconds.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         service_usec_per_read_op:
-          minimum: 0
-          type: integer
           description: |
             The average time required for the array to service a read request,
             measured in microseconds.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         service_usec_per_write_op:
-          minimum: 0
-          type: integer
           description: |
             The average time required for the array to service a write request,
             measured in microseconds.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         time:
-          type: integer
           description: |
             The time when the sample performance data was taken,
             measured in milliseconds since the UNIX epoch.
+          type: integer
           format: int64
           readOnly: true
         usec_per_mirrored_write_op:
-          minimum: 0
-          type: integer
           description: |
             The average time it takes the array to process a mirrored I/O write request,
             measured in microseconds.
@@ -2248,11 +2167,11 @@ components:
             including later major versions (6.5.x, 6.6.x and beyond),
             queue time is included.
             The average time does not include SAN time or QoS rate limit time.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         usec_per_read_op:
-          minimum: 0
-          type: integer
           description: |
             The average time it takes the array to process an I/O read request,
             measured in microseconds.
@@ -2260,11 +2179,11 @@ components:
             including later major versions (6.5.x, 6.6.x and beyond),
             queue time is included.
             The average time does not include SAN time or QoS rate limit time.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         usec_per_write_op:
-          minimum: 0
-          type: integer
           description: |
             The average time it takes the array to process an I/O write request,
             measured in microseconds.
@@ -2272,41 +2191,45 @@ components:
             including later major versions (6.5.x, 6.6.x and beyond),
             queue time is included.
             The average time does not include SAN time or QoS rate limit time.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         write_bytes_per_sec:
-          minimum: 0
-          type: integer
           description: The number of bytes written per second.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
         writes_per_sec:
-          minimum: 0
-          type: integer
           description: The number of write requests processed per second.
+          type: integer
           format: int64
+          minimum: 0
           readOnly: true
       x-readOnly: true
-      x-sourced-from: models/FA2.0/_performance.yaml
     _volumeCommon:
       allOf:
-      - $ref: "#/components/schemas/_resource"
-      - type: object
+      - $ref: '#/components/schemas/_resource'
+      - description: |
+          A disk-like random access virtual storage device that a FlashArray
+          system exports to hosts via a logical unit number (LUN). To a host,
+          a volume contains a number of 512-byte sectors in which data can be
+          written and from which it can be read.
+        type: object
         properties:
           connection_count:
-            type: integer
             description: |
               The total number of hosts and host groups connected to the volume.
+            type: integer
             format: int64
             readOnly: true
           created:
+            description: The volume creation time. Measured in milliseconds since the UNIX epoch.
             type: integer
-            description: The volume creation time. Measured in milliseconds since
-              the UNIX epoch.
             format: int64
             readOnly: true
           destroyed:
-            type: boolean
             description: |
               Returns a value of `true` if the volume has been destroyed and is pending eradication.
               The `time_remaining` value displays the amount of time left
@@ -2315,63 +2238,57 @@ components:
               by setting `destroyed=false`.
               Once the `time_remaining` period has elapsed,
               the volume is permanently eradicated and can no longer be recovered.
+            type: boolean
           host_encryption_key_status:
-            type: string
             description: |
               The host encryption key status for this volume.
               Possible values include `none`, `detected`, and `fetched`.
+            type: string
             readOnly: true
             example: detected
           provisioned:
-            type: integer
             description: |
               The virtual size of the volume. Measured in bytes
               and must be a multiple of 512. The maximum size is
               4503599627370496 (4PB)
+            type: integer
             format: int64
           qos:
-            type: object
             description: |
               Displays QoS limit information.
+            title: Qos
             allOf:
-            - $ref: "#/components/schemas/_qos"
+            - $ref: '#/components/schemas/_qos'
           serial:
-            type: string
             description: |
               A globally unique serial number generated by the system when the volume is created.
+            type: string
             readOnly: true
           space:
-            type: object
             description: |
               Displays size and space consumption information.
+            title: Space
             allOf:
-            - $ref: "#/components/schemas/_space"
+            - $ref: '#/components/schemas/_space'
           time_remaining:
-            type: integer
             description: |
               The amount of time left until the destroyed volume is permanently eradicated.
               Measured in milliseconds.
               Before the `time_remaining` period has elapsed, the destroyed volume can be recovered
               by setting `destroyed=false`.
+            type: integer
             format: int64
             readOnly: true
-        description: |
-          A disk-like random access virtual storage device that a FlashArray
-          system exports to hosts via a logical unit number (LUN). To a host,
-          a volume contains a number of 512-byte sectors in which data can be
-          written and from which it can be read.
-      x-sourced-from: models/FA2.0/_volume-common.yaml
     _snapshot:
       type: object
       properties:
         created:
-          type: integer
           description: |
             The snapshot creation time. Measured in milliseconds since the UNIX epoch.
+          type: integer
           format: int64
           readOnly: true
         destroyed:
-          type: boolean
           description: |
             Returns a value of `true` if the snapshot has been destroyed and is pending eradication.
             The `time_remaining` value displays the amount of time left
@@ -2380,100 +2297,86 @@ components:
             by setting `destroyed=false`.
             Once the `time_remaining` period has elapsed,
             the volume snapshot is permanently eradicated and can no longer be recovered.
+          type: boolean
         pod:
-          type: object
           description: |
             A reference to the pod.
+          title: FixedReference
           allOf:
-          - $ref: "#/components/schemas/_fixedReference"
+          - $ref: '#/components/schemas/_fixedReference'
         provisioned:
-          type: integer
           description: |
             The provisioned space of the snapshot. Measured in bytes. The minimum size is 1048576 (1MB),
             the maximum size is 4503599627370496 (4PB)
+          type: integer
           format: int64
           readOnly: true
         source:
-          type: object
           description: |
             The volume from which this snapshot was taken.
             For a replicated snapshot being viewed on the target side, the
             `source` is the replica volume.
+          title: FixedReference
           allOf:
-          - $ref: "#/components/schemas/_fixedReference"
+          - $ref: '#/components/schemas/_fixedReference'
         suffix:
-          type: string
           description: |
             The suffix that is appended to the `source_name` value to generate the full
             volume snapshot name in the form `VOL.SUFFIX`.
             If the suffix is not specified, the system constructs the snapshot name in the form `VOL.NNN`,
             where `VOL` is the volume name, and `NNN` is a monotonically increasing number.
+          type: string
         time_remaining:
-          type: integer
           description: |
             The amount of time left until the destroyed snapshot is permanently eradicated.
             Measured in milliseconds.
             Before the `time_remaining` period has elapsed, the destroyed snapshot can be recovered
             by setting `destroyed=false`.
+          type: integer
           format: int64
           readOnly: true
-      x-sourced-from: models/FA2.0/_snapshot.yaml
     _transfer:
       type: object
       properties:
-        started:
-          type: integer
-          description: |
-            The timestamp of when the snapshot replication process started.
-            Measured in milliseconds since the UNIX epoch.
-          format: int64
-          readOnly: true
-        progress:
-          type: number
-          description: |
-            The percentage progress of the snapshot transfer from the source array to the target.
-            Displayed in decimal format.
-          format: float
-          readOnly: true
-          example: 0.66
         completed:
-          type: integer
           description: |
             The timestamp of when the snapshot replication process completed.
             Measured in milliseconds since since the UNIX epoch.
+          type: integer
           format: int64
           readOnly: true
         data_transferred:
-          type: integer
           description: |
             The number of bytes transferred from the source array to the target as part of
             the replication process.
             The data transferred amount is calculated as the size difference between the
             current and previous snapshots after data reduction.
             Measured in bytes.
+          type: integer
           format: int64
           readOnly: true
         physical_bytes_written:
-          type: integer
           description: |
             The amount of data persisted on the target due to replication. Measured in bytes.
+          type: integer
           format: int64
           readOnly: true
-      x-sourced-from: models/FA2.0/_transfer.yaml
+        progress:
+          description: |
+            The percentage progress of the snapshot transfer from the source array to the target.
+            Displayed in decimal format.
+          type: number
+          format: float
+          readOnly: true
+          example: 0.66
+        started:
+          description: |
+            The timestamp of when the snapshot replication process started.
+            Measured in milliseconds since the UNIX epoch.
+          type: integer
+          format: int64
+          readOnly: true
     _builtIn:
-      type: object
-      properties:
-        id:
-          type: string
-          description: |
-            A globally unique, system-generated ID.
-            The ID cannot be modified and cannot refer to another resource.
-          readOnly: true
-        name:
-          type: string
-          description: |
-            A locally unique, system-generated name. The name cannot be modified.
-          readOnly: true
       description: |
         A built-in resource. Many are singletons predefined by Purity (e.g., support
         settings). Some correspond to a piece of software, like an app, or hardware,
@@ -2483,64 +2386,70 @@ components:
         Typically, a user can't create, delete or rename a built-in resource. A few
         can be created or deleted, but not renamed because the names are meaningful
         to Purity (e.g., VIFs).
-      x-sourced-from: models/FA2.0/_built-in.yaml
+      type: object
+      properties:
+        id:
+          description: |
+            A globally unique, system-generated ID.
+            The ID cannot be modified and cannot refer to another resource.
+          type: string
+          readOnly: true
+        name:
+          description: |
+            A locally unique, system-generated name. The name cannot be modified.
+          type: string
+          readOnly: true
     PageInfo:
       type: object
       properties:
         more_items_remaining:
-          type: boolean
           description: |
             Returns a value of `true` if subsequent items can be retrieved.
+          type: boolean
           example: false
         total_item_count:
-          type: integer
           description: |
             The total number of records after applying all filter query parameters.
             The `total_item_count` will be calculated if and only if the corresponding
             query parameter `total_item_count` is set to `true`. If this query parameter
             is not set or set to `false`, a value of `null` will be returned.
+          type: integer
           format: int32
-      x-sourced-from: responses/FA2.0/page-info.yaml
     _newName:
       type: object
       properties:
         name:
-          type: string
           description: The new name for the resource.
-      x-sourced-from: models/FA2.0/_new-name.yaml
+          type: string
     MemberNoIdAllResponse:
       type: object
       properties:
         items:
-          type: array
           description: |
             Returns a list of all items after filtering.
             The values are displayed for each name where meaningful.
+          type: array
           items:
-            $ref: "#/components/schemas/MemberNoIdAll"
-      x-sourced-from: responses/FA2.0/member-no-id-all-response.yaml
+            $ref: '#/components/schemas/MemberNoIdAll'
     ResourcePerformanceNoId:
       allOf:
-      - $ref: "#/components/schemas/_resourceNoId"
-      - $ref: "#/components/schemas/_performance"
-      x-sourced-from: models/FA2.0/resource-performance-no-id.yaml
+      - $ref: '#/components/schemas/_resourceNoId'
+      - $ref: '#/components/schemas/_performance'
     ResourcePerformanceNoIdByArray:
       allOf:
-      - $ref: "#/components/schemas/ResourcePerformanceNoId"
+      - $ref: '#/components/schemas/ResourcePerformanceNoId'
       - type: object
         properties:
           array:
-            type: object
             description: |
               The array on which the performance metrics were recorded.
+            title: Resource
             allOf:
-            - $ref: "#/components/schemas/_resource"
-      x-sourced-from: models/FA2.0/resource-performance-no-id-by-array.yaml
+            - $ref: '#/components/schemas/_resource'
     _destroyedPatchPost:
       type: object
       properties:
         destroyed:
-          type: boolean
           description: |
             If set to `true`, destroys a resource. Once set to `true`,
             the `time_remaining` value will display the amount of time left
@@ -2549,39 +2458,37 @@ components:
             can be recovered by setting `destroyed=false`.
             Once the `time_remaining` period has elapsed,
             the resource is permanently eradicated and can no longer be recovered.
-      x-sourced-from: models/FA2.0/_destroyed-patch-post.yaml
+          type: boolean
     _qos:
       type: object
       properties:
         bandwidth_limit:
-          maximum: 549755813888
-          minimum: 1048576
-          type: integer
           description: |
             The maximum QoS bandwidth limit for the volume.
             Whenever throughput exceeds the bandwidth limit, throttling occurs.
             Measured in bytes per second. Maximum limit is 512 GB/s.
-          format: int64
-        iops_limit:
-          maximum: 100000000
-          minimum: 100
           type: integer
+          format: int64
+          minimum: 1048576
+          maximum: 549755813888
+        iops_limit:
           description: |
             The QoS IOPs limit for the volume.
+          type: integer
           format: int64
-      x-sourced-from: models/FA2.0/_qos.yaml
+          minimum: 100
+          maximum: 100000000
     VolumeSnapshotTransferResponse:
       type: object
       properties:
         items:
-          type: array
           description: |
             Returns a list of all items after filtering.
             The values are displayed for each name where meaningful.
             If `total_only=true`, the `items` list will be empty.
+          type: array
           items:
-            $ref: "#/components/schemas/VolumeSnapshotTransfer"
-      x-sourced-from: responses/FA2.0/volume-snapshot-transfer-response.yaml
+            $ref: '#/components/schemas/VolumeSnapshotTransfer'
   responses:
     OauthToken200:
       description: OK
@@ -2592,32 +2499,31 @@ components:
             type: object
             properties:
               access_token:
-                type: string
                 description: |
                   The serialized OAuth 2.0 Bearer token used to perform authenticated requests.
                   The access token must be added to the Authorization header of all API calls.
-                example: eyJraWQiOiJqTlBzL1Ria2c4U2Vua3F3ZmkvbnI4bWxxQ3NPIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiI5NDcyMTkwOC1mNzkyLTcxMmUtYTYzOS0wODM5ZmE4MzA5MjIiLCJzdWIiOiJqb2UiLCJyb2xlIjoic3RvcmFnZV9hZG1pbiIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6OTAwMCIsImlhdCI6MTU0NDAzNjA1MiwiZXhwIjoxNTQ0MDcyMDUyLCJqdGkiOiJjOTg0MjgyNS1mNGM3LTRiNGUtODdkNy03OWFiZmIxYTUzNDgifQ.pnuYAx0CkmkIG0LDrMAQGRr5Ci4-t5yMto3A7BkmyKnAVHBXG5ZIWwvNkWDLhqbA4YjmG7LZmWHrCVehLy2zy2vRLahFURsd3GTnOaWSyWFIyrwpoO81jQRtOQATtseweuMT_-C8o3oa4MgBNBsuKrhwKQS3oDDpeRPaCRTGev1_xRDxh_K6CWJBTAeOP2pcR4LW6zIJkCLzzkMuyL4aTJWWUjSbl04mcFbyw8r8W1GURrmaDVOvvpT634Hk9-GGh9OMIRlS6OOq7cJKc-RRWn18IK2Gs53V_KYshXTBbnRr990Y_qOX8MaTWOJTqgzsojY02MSVuJ9XDJWoIU3TQytr4K1vM2EvwDZDgl7LuUYUn7vWhbKktFzpeZyyhOjq3eX-ViugYKpIjBcG2f_-fcTPceEWGV82rd6TyVNB5A-v9u2kxCdW198t_kesgVQfuupDeS02cZe0ABLCzEHPiVF17JfiVr6sjkciioxN7Wj_j18ga4U0mdSukauT8yhbgCW1ijTVTFu1VwWebW0s8z3BWMtXdTtZ3BhcZVAdKRF8bOq7nfEbUQGhTn9g7dK-yF050winjtp-VTL2oUtkF5j1v_N8vPNiN9ZdkGJZr7VVZ-qeOJZcjdaRbxL6YB__yT1wkTcKPh8RHz6GUq7Jbyw8VIlcBE2nvJ63d0tH9C4
-              issued_token_type:
                 type: string
-                description: |
-                  The type of token that is issued.
-                  The Pure Storage REST API supports OAuth 2.0 access tokens.
-                example: urn:ietf:params:oauth:token-type:access_token
-              token_type:
-                type: string
-                description: |
-                  Indicates how the API client can use the access token issued.
-                  The Pure Storage REST API supports the `Bearer` token.
-                example: Bearer
+                example: "eyJraWQiOiJqTlBzL1Ria2c4U2Vua3F3ZmkvbnI4bWxxQ3NPIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiI5NDcyMTkwOC1mNzkyLTcxMmUtYTYzOS0wODM5ZmE4MzA5MjIiLCJzdWIiOiJqb2UiLCJyb2xlIjoic3RvcmFnZV9hZG1pbiIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6OTAwMCIsImlhdCI6MTU0NDAzNjA1MiwiZXhwIjoxNTQ0MDcyMDUyLCJqdGkiOiJjOTg0MjgyNS1mNGM3LTRiNGUtODdkNy03OWFiZmIxYTUzNDgifQ.pnuYAx0CkmkIG0LDrMAQGRr5Ci4-t5yMto3A7BkmyKnAVHBXG5ZIWwvNkWDLhqbA4YjmG7LZmWHrCVehLy2zy2vRLahFURsd3GTnOaWSyWFIyrwpoO81jQRtOQATtseweuMT_-C8o3oa4MgBNBsuKrhwKQS3oDDpeRPaCRTGev1_xRDxh_K6CWJBTAeOP2pcR4LW6zIJkCLzzkMuyL4aTJWWUjSbl04mcFbyw8r8W1GURrmaDVOvvpT634Hk9-GGh9OMIRlS6OOq7cJKc-RRWn18IK2Gs53V_KYshXTBbnRr990Y_qOX8MaTWOJTqgzsojY02MSVuJ9XDJWoIU3TQytr4K1vM2EvwDZDgl7LuUYUn7vWhbKktFzpeZyyhOjq3eX-ViugYKpIjBcG2f_-fcTPceEWGV82rd6TyVNB5A-v9u2kxCdW198t_kesgVQfuupDeS02cZe0ABLCzEHPiVF17JfiVr6sjkciioxN7Wj_j18ga4U0mdSukauT8yhbgCW1ijTVTFu1VwWebW0s8z3BWMtXdTtZ3BhcZVAdKRF8bOq7nfEbUQGhTn9g7dK-yF050winjtp-VTL2oUtkF5j1v_N8vPNiN9ZdkGJZr7VVZ-qeOJZcjdaRbxL6YB__yT1wkTcKPh8RHz6GUq7Jbyw8VIlcBE2nvJ63d0tH9C4"
               expires_in:
-                type: integer
                 description: |
                   The duration after which the access token will expire.
                   Measured in seconds. This differs from other duration
                   fields that are expressed in milliseconds.
+                type: integer
                 format: uint32
                 example: 35999
-      x-sourced-from: responses/TEx-v1/oauth-token-200.response.yaml
+              issued_token_type:
+                description: |
+                  The type of token that is issued.
+                  The Pure Storage REST API supports OAuth 2.0 access tokens.
+                type: string
+                example: urn:ietf:params:oauth:token-type:access_token
+              token_type:
+                description: |
+                  Indicates how the API client can use the access token issued.
+                  The Pure Storage REST API supports the `Bearer` token.
+                type: string
+                example: Bearer
     OauthToken400:
       description: BAD REQUEST
       content:
@@ -2631,7 +2537,6 @@ components:
               error_description:
                 type: string
                 example: "Unsupported subject_token_type: urn:ietf:params:oauth:token-"
-      x-sourced-from: responses/TEx-v2/oauth-token-400.response.yaml
     OauthToken401:
       description: UNAUTHORIZED
       content:
@@ -2645,17 +2550,7 @@ components:
               error_description:
                 type: string
                 example: "Invalid identity: JWT validation failed."
-      x-sourced-from: responses/TEx-v1/oauth-token-401.response.yaml
   parameters:
-    XRequestId.TEx-v1:
-      name: X-Request-ID
-      in: header
-      description: |
-        Supplied by client during request or generated by server.
-      schema:
-        type: string
-        x-sourced-from: queries/TEx-v1/x-request-id.header.yaml
-      x-sourced-from: queries/TEx-v1/x-request-id.header.yaml
     XRequestId:
       name: X-Request-ID
       in: header
@@ -2663,8 +2558,6 @@ components:
         Supplied by client during request or generated by server.
       schema:
         type: string
-        x-sourced-from: queries/FA2.0/x-request-id.header.yaml
-      x-sourced-from: queries/FA2.0/x-request-id.header.yaml
     Authorization:
       name: Authorization
       in: header
@@ -2673,8 +2566,6 @@ components:
         endpoint (except `/oauth2`, `/login`, and `/logout`)
       schema:
         type: string
-        x-sourced-from: queries/FA2.0/authorization.header.yaml
-      x-sourced-from: queries/FA2.0/authorization.header.yaml
     Filter:
       name: filter
       in: query
@@ -2683,8 +2574,6 @@ components:
         that satisfy the filter criteria.
       schema:
         type: string
-        x-sourced-from: queries/FA2.0/filter.query.yaml
-      x-sourced-from: queries/FA2.0/filter.query.yaml
     Host_group_names:
       name: host_group_names
       in: query
@@ -2701,8 +2590,6 @@ components:
         type: array
         items:
           type: string
-        x-sourced-from: queries/FA2.0/host_group_names.query.yaml
-      x-sourced-from: queries/FA2.0/host_group_names.query.yaml
     Host_names:
       name: host_names
       in: query
@@ -2720,8 +2607,6 @@ components:
         type: array
         items:
           type: string
-        x-sourced-from: queries/FA2.0/host_names.query.yaml
-      x-sourced-from: queries/FA2.0/host_names.query.yaml
     Limit:
       name: limit
       in: query
@@ -2732,12 +2617,10 @@ components:
         If the page size requested is larger than the system maximum limit,
         the server returns the maximum limit, disregarding the requested page size.
       schema:
-        minimum: 0
         type: integer
         format: int32
-        x-sourced-from: queries/FA2.0/limit.query.yaml
+        minimum: 0
       example: 10
-      x-sourced-from: queries/FA2.0/limit.query.yaml
     Offset:
       name: offset
       in: query
@@ -2745,12 +2628,10 @@ components:
         The starting position based on the results of the query
         in relation to the full set of response objects returned.
       schema:
-        minimum: 0
         type: integer
         format: int32
-        x-sourced-from: queries/FA2.0/offset.query.yaml
+        minimum: 0
       example: 10
-      x-sourced-from: queries/FA2.0/offset.query.yaml
     Protocol_endpoint_names:
       name: protocol_endpoint_names
       in: query
@@ -2768,8 +2649,6 @@ components:
         type: array
         items:
           type: string
-        x-sourced-from: queries/FA2.0/protocol_endpoint_names.query.yaml
-      x-sourced-from: queries/FA2.0/protocol_endpoint_names.query.yaml
     Sort:
       name: sort
       in: query
@@ -2791,8 +2670,6 @@ components:
         items:
           pattern: "^[a-z]+(_[a-z]+)*-?"
           type: string
-        x-sourced-from: queries/FA2.0/sort.query.yaml
-      x-sourced-from: queries/FA2.0/sort.query.yaml
     Total_item_count:
       name: total_item_count
       in: query
@@ -2805,8 +2682,6 @@ components:
         defaults to `false`.
       schema:
         type: boolean
-        x-sourced-from: queries/FA2.0/total_item_count.query.yaml
-      x-sourced-from: queries/FA2.0/total_item_count.query.yaml
     Volume_names:
       name: volume_names
       in: query
@@ -2824,8 +2699,6 @@ components:
         type: array
         items:
           type: string
-        x-sourced-from: queries/FA2.0/volume_names.query.yaml
-      x-sourced-from: queries/FA2.0/volume_names.query.yaml
     Names:
       name: names
       in: query
@@ -2839,8 +2712,6 @@ components:
         type: array
         items:
           type: string
-        x-sourced-from: queries/FA2.0/names.query.yaml
-      x-sourced-from: queries/FA2.0/names.query.yaml
     Group_names:
       name: group_names
       in: query
@@ -2855,8 +2726,6 @@ components:
         type: array
         items:
           type: string
-        x-sourced-from: queries/FA2.0/group_names.query.yaml
-      x-sourced-from: queries/FA2.0/group_names.query.yaml
     Member_names:
       name: member_names
       in: query
@@ -2870,8 +2739,6 @@ components:
         type: array
         items:
           type: string
-        x-sourced-from: queries/FA2.0/member_names.query.yaml
-      x-sourced-from: queries/FA2.0/member_names.query.yaml
     Total_only:
       name: total_only
       in: query
@@ -2882,8 +2749,6 @@ components:
         If `total_only=true`, the `items` list will be empty.
       schema:
         type: boolean
-        x-sourced-from: queries/FA2.0/total_only.query.yaml
-      x-sourced-from: queries/FA2.0/total_only.query.yaml
     Destroyed:
       name: destroyed
       in: query
@@ -2894,8 +2759,6 @@ components:
         For destroyed objects, the time remaining is displayed in milliseconds.
       schema:
         type: boolean
-        x-sourced-from: queries/FA2.0/destroyed.query.yaml
-      x-sourced-from: queries/FA2.0/destroyed.query.yaml
     Ids:
       name: ids
       in: query
@@ -2909,8 +2772,6 @@ components:
         type: array
         items:
           type: string
-        x-sourced-from: queries/FA2.0/ids.query.yaml
-      x-sourced-from: queries/FA2.0/ids.query.yaml
     Overwrite:
       name: overwrite
       in: query
@@ -2923,8 +2784,6 @@ components:
         and the source overwrites an existing object during the copy operation.
       schema:
         type: boolean
-        x-sourced-from: queries/FA2.0/overwrite.query.yaml
-      x-sourced-from: queries/FA2.0/overwrite.query.yaml
     Truncate:
       name: truncate
       in: query
@@ -2942,8 +2801,6 @@ components:
         that is smaller than the original size.
       schema:
         type: boolean
-        x-sourced-from: queries/FA2.0/truncate.query.yaml
-      x-sourced-from: queries/FA2.0/truncate.query.yaml
     History_end_time:
       name: end_time
       in: query
@@ -2963,8 +2820,6 @@ components:
       schema:
         type: integer
         format: int64
-        x-sourced-from: queries/FA2.0/history_end_time.query.yaml
-      x-sourced-from: queries/FA2.0/history_end_time.query.yaml
     History_resolution:
       name: resolution
       in: query
@@ -2991,12 +2846,10 @@ components:
         but either the `start_time` or `end_time` parameter is,
         then `resolution` will default to the lowest valid resolution.
       schema:
-        minimum: 0
         type: integer
         format: int64
-        x-sourced-from: queries/FA2.0/history_resolution.query.yaml
+        minimum: 0
       example: 30000
-      x-sourced-from: queries/FA2.0/history_resolution.query.yaml
     History_start_time:
       name: start_time
       in: query
@@ -3016,8 +2869,6 @@ components:
       schema:
         type: integer
         format: int64
-        x-sourced-from: queries/FA2.0/history_start_time.query.yaml
-      x-sourced-from: queries/FA2.0/history_start_time.query.yaml
     Source_ids:
       name: source_ids
       in: query
@@ -3030,8 +2881,6 @@ components:
         type: array
         items:
           type: string
-        x-sourced-from: queries/FA2.0/source_ids.query.yaml
-      x-sourced-from: queries/FA2.0/source_ids.query.yaml
     Source_names:
       name: source_names
       in: query
@@ -3044,8 +2893,6 @@ components:
         type: array
         items:
           type: string
-        x-sourced-from: queries/FA2.0/source_names.query.yaml
-      x-sourced-from: queries/FA2.0/source_names.query.yaml
     OnSingle:
       name: "on"
       in: query
@@ -3054,7 +2901,4 @@ components:
         For example, `targetName01`.
       schema:
         type: string
-        x-sourced-from: queries/FA2.0/on-single.query.yaml
-      x-sourced-from: queries/FA2.0/on-single.query.yaml
 x-original-swagger-version: "2.0"
-
