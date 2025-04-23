@@ -82,7 +82,6 @@ tags:
 schemes:
 - "https"
 consumes:
-- "application/x-www-form-urlencoded"
 - "application/json"
 produces:
 - "application/json"
@@ -103,9 +102,9 @@ paths:
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       responses:
         "200":
@@ -289,9 +288,9 @@ paths:
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       responses:
         "200":
@@ -561,6 +560,7 @@ paths:
       - "Arrays"
       summary: "Delete array tags"
       description: "Deletes array tags from Pure1.\n"
+      produces: []
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
@@ -662,9 +662,9 @@ paths:
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       responses:
         "200":
@@ -802,9 +802,9 @@ paths:
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       responses:
         "200":
@@ -951,9 +951,9 @@ paths:
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       responses:
         "200":
@@ -1096,8 +1096,8 @@ paths:
       - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Offset"
-      - $ref: "#/parameters/Resource_ids"
       - $ref: "#/parameters/Resource_fqdns"
+      - $ref: "#/parameters/Resource_ids"
       - $ref: "#/parameters/Resource_names"
       - $ref: "#/parameters/Sort"
       responses:
@@ -1136,11 +1136,13 @@ paths:
       - "Authorization"
       summary: "Get access token"
       description: "Exchanges an ID Token for an OAuth 2.0 access token.\n"
+      consumes:
+      - "application/x-www-form-urlencoded"
       parameters:
       - $ref: "#/parameters/OauthSubjectTokenType"
       - $ref: "#/parameters/OauthGrantType"
       - $ref: "#/parameters/OauthSubjectToken"
-      - $ref: "#/parameters/XRequestId"
+      - $ref: "#/parameters/XRequestId.common-v1_0"
       responses:
         "200":
           $ref: "#/responses/OauthToken200"
@@ -1678,9 +1680,9 @@ paths:
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       responses:
         "200":
@@ -1819,9 +1821,9 @@ paths:
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Member_ids"
       - $ref: "#/parameters/Member_names"
+      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Policy_ids"
       - $ref: "#/parameters/Policy_names"
-      - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
       responses:
         "200":
@@ -1910,18 +1912,18 @@ paths:
       parameters:
       - $ref: "#/parameters/Authorization"
       - $ref: "#/parameters/XRequestId"
+      - $ref: "#/parameters/Advanced_space"
       - $ref: "#/parameters/Continuation_token"
       - $ref: "#/parameters/Filter"
       - $ref: "#/parameters/Ids"
+      - $ref: "#/parameters/License_ids"
+      - $ref: "#/parameters/License_names"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Names"
       - $ref: "#/parameters/Offset"
       - $ref: "#/parameters/Sort"
-      - $ref: "#/parameters/Advanced_space"
       - $ref: "#/parameters/Subscription_ids"
       - $ref: "#/parameters/Subscription_names"
-      - $ref: "#/parameters/License_ids"
-      - $ref: "#/parameters/License_names"
       responses:
         "200":
           description: "OK"
@@ -2065,8 +2067,8 @@ paths:
       - $ref: "#/parameters/Ids"
       - $ref: "#/parameters/Limit"
       - $ref: "#/parameters/Offset"
-      - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Partner_purchase_orders"
+      - $ref: "#/parameters/Sort"
       - $ref: "#/parameters/Subscription_ids"
       - $ref: "#/parameters/Subscription_names"
       responses:
@@ -4566,11 +4568,22 @@ definitions:
         items:
           $ref: "#/definitions/FileSystemReplicaLink"
 parameters:
-  Resource_ids:
-    name: "resource_ids"
+  Namespaces:
+    name: "namespaces"
     in: "query"
-    description: "A comma-separated list of resource IDs.\nIf there is not at least\
-      \ one resource that matches each `resource_id` element,\nan error is returned.\n\
+    description: "A comma-separated list of namespaces.\nSingle quotes are required\
+      \ around all strings.\n"
+    required: false
+    type: "array"
+    items:
+      type: "string"
+    collectionFormat: "csv"
+    x-quoted: true
+  Resource_names:
+    name: "resource_names"
+    in: "query"
+    description: "A comma-separated list of resource names.\nIf there is not at least\
+      \ one resource that matches each `resource_name`\nelement, an error is returned.\n\
       Single quotes are required around all strings.\n"
     required: false
     type: "array"
@@ -4578,11 +4591,244 @@ parameters:
       type: "string"
     collectionFormat: "csv"
     x-quoted: true
-  Namespaces:
-    name: "namespaces"
+  Ids:
+    name: "ids"
     in: "query"
-    description: "A comma-separated list of namespaces.\nSingle quotes are required\
+    description: "A comma-separated list of resource IDs.\nIf there is not at least\
+      \ one resource that matches each `id` element,\nan error is returned.\nSingle\
+      \ quotes are required around all strings.\n"
+    required: false
+    type: "array"
+    items:
+      type: "string"
+    collectionFormat: "csv"
+    x-quoted: true
+  Sort:
+    name: "sort"
+    in: "query"
+    description: "Sort the response by the specified fields (in descending order if\
+      \ '-'\nis appended to the field name).\nIf you provide a sort you will not get\
+      \ a continuation token in\nthe response.\n"
+    required: false
+    type: "array"
+    items:
+      type: "string"
+      pattern: "^[a-z]+(_[a-z]+)*-?"
+    collectionFormat: "csv"
+  Policy_ids:
+    name: "policy_ids"
+    in: "query"
+    description: "A comma-separated list of policy IDs.\nIf there is not at least\
+      \ one resource that matches each `policy_id` element,\nan error is returned.\n\
+      Single quotes are required around all strings.\n"
+    required: false
+    type: "array"
+    items:
+      type: "string"
+    collectionFormat: "csv"
+    x-quoted: true
+  XRequestId:
+    name: "X-Request-ID"
+    in: "header"
+    description: "Supplied by client during request or generated by server.\n"
+    required: false
+    type: "string"
+  Target_names_plus:
+    name: "target_names"
+    in: "query"
+    description: "A list of target names. Target names separated by a `+` indicate\
+      \ that both\ntargets must be present in each element. Target names separated\
+      \ by a `,`\nindicate that at least one target must be present in each element.\n\
+      If there is not at least one resource that matches each `target_name` element,\n\
+      an error is returned.\nSingle quotes are required around all strings.\nWhen\
+      \ using Try it Out in Swagger, a list of target names separated by a `+`\nmust\
+      \ be entered in the same item cell.\n"
+    required: false
+    type: "array"
+    items:
+      type: "string"
+    collectionFormat: "csv"
+    x-quoted: true
+  License_ids:
+    name: "license_ids"
+    in: "query"
+    description: "A comma-separated list of subscriptionLicense IDs.\nIf there is\
+      \ not at least one resource that matches each `license.id`\nelement, an error\
+      \ is returned.\nSingle quotes are required around all strings.\n"
+    required: false
+    type: "array"
+    items:
+      type: "string"
+    collectionFormat: "csv"
+    x-quoted: true
+  File_system_ids:
+    name: "file_system_ids"
+    in: "query"
+    description: "Performs the operation on the file system ID specified.\nEnter multiple\
+      \ file system IDs in comma-separated format.\nThe `file_system_ids` and `file_system_names`\
+      \ parameters cannot be provided together.\nSingle quotes are required around\
+      \ all strings.\n"
+    required: false
+    type: "array"
+    items:
+      type: "string"
+    collectionFormat: "csv"
+  Source_ids:
+    name: "source_ids"
+    in: "query"
+    description: "A comma-separated list of ids for the source of the object.\nIf\
+      \ there is not at least one resource that matches each `source_id` element,\n\
+      an error is returned.\nSingle quotes are required around all strings.\n"
+    required: false
+    type: "array"
+    items:
+      type: "string"
+    collectionFormat: "csv"
+    x-quoted: true
+  AggregationRequired:
+    name: "aggregation"
+    in: "query"
+    description: "Aggregation needed on the metric data.\nValid values are `avg` and\
+      \ `max`.\nSingle quotes are required around all strings.\nLatency metrics averages\
+      \ are weighted by the IOPS.\n"
+    required: true
+    type: "string"
+    x-quoted: true
+  OauthSubjectToken:
+    name: "subject_token"
+    in: "formData"
+    description: "An encoded security ID Token representing the identity of the party\
+      \ on behalf of\nwhom the request is being made. The token must be issued by\
+      \ a trusted\nidentity provider which must be either a registered application\
+      \ in Pure1\nor an enabled API client on the array. The token must be a JSON\
+      \ Web Token\nand must contain the following claims:\n\n> | JWT claim | Location\
+      \ | API Client Field | Description | Required By |\n\n> |-|-|-|-|-|\n\n> | kid\
+      \ | Header | key_id | Key ID of the API client that issues the identity token.\
+      \ | FlashArray\nand FlashBlade only. |\n\n> | aud | Payload | id | Client ID\
+      \ of the API client that issues the identity token. | FlashArray\nand FlashBlade\
+      \ only. |\n\n> | sub | Payload | | Login name of the array user for whom the\
+      \ token should be issued.\nThis must be a valid user in the system. | FlashArray\
+      \ and FlashBlade only. |\n\n> | iss | Payload | issuer | Application ID for\
+      \ the Pure1 or API client's trusted identity\nissuer on the array. | All products.\
+      \ |\n\n> | iat | Payload | | Timestamp of when the identity token was issued.\n\
+      Measured in milliseconds since the UNIX epoch. | All products. |\n\n> | exp\
+      \ | Payload | | Timestamp of when the identity token will expire.\nMeasured\
+      \ in milliseconds since the UNIX epoch. | All products. |\n\n\nEach token must\
+      \ also be signed with the private key that is paired with the\nAPI client's\
+      \ public key.\n\n"
+    required: true
+    type: "string"
+  Offset:
+    name: "offset"
+    in: "query"
+    description: "The offset of the first resource to return from a collection.\n"
+    required: false
+    type: "integer"
+    minimum: 0
+    format: "int32"
+  Advanced_space:
+    name: "advanced_space"
+    in: "query"
+    description: "If `true`, returns the `advanced_space` field containing physical\
+      \ and effective space information.\n"
+    required: false
+    type: "boolean"
+  Member_ids_plus:
+    name: "member_ids"
+    in: "query"
+    description: "A list of member IDs. Member IDs separated by a `+` indicate that\
+      \ both\nmembers must be present in each element. Member IDs separated by a `,`\n\
+      indicate that at least one member must be present in each element.\nIf there\
+      \ is not at least one resource that matches each `member_id` element,\nan error\
+      \ is returned.\nSingle quotes are required around all strings.\nWhen using Try\
+      \ it Out in Swagger, a list of member IDs separated by a `+`\nmust be entered\
+      \ in the same item cell.\n"
+    required: false
+    type: "array"
+    items:
+      type: "string"
+    collectionFormat: "csv"
+    x-quoted: true
+  Start_timeRequired:
+    name: "start_time"
+    in: "query"
+    description: "Timestamp of when the time window starts. Measured in milliseconds\
+      \ since the UNIX epoch.\n"
+    required: true
+    type: "integer"
+    format: "int64"
+  XRequestId.common-v1_0:
+    name: "X-Request-ID"
+    in: "header"
+    description: "Supplied by client during request or generated by server.\n"
+    required: false
+    type: "string"
+  Continuation_token:
+    name: "continuation_token"
+    in: "query"
+    description: "An opaque token used to iterate over a collection.\nThe token to\
+      \ use on the next request is returned in the\n`continuation_token` field of\
+      \ the result.\nSingle quotes are required around all strings.\n"
+    required: false
+    type: "string"
+    x-quoted: true
+  Keys:
+    name: "keys"
+    in: "query"
+    description: "A comma-separated list of tag keys.\nSingle quotes are required\
       \ around all strings.\n"
+    required: false
+    type: "array"
+    items:
+      type: "string"
+    collectionFormat: "csv"
+    x-quoted: true
+  Target_ids_plus:
+    name: "target_ids"
+    in: "query"
+    description: "A list of target IDs. Target IDs separated by a `+` indicate that\
+      \ both\ntargets must be present in each element. Target IDs separated by a `,`\n\
+      indicate that at least one target must be present in each element.\nIf there\
+      \ is not at least one resource that matches each `target_id` element,\nan error\
+      \ is returned.\nSingle quotes are required around all strings.\nWhen using Try\
+      \ it Out in Swagger, a list of target IDs separated by a `+`\nmust be entered\
+      \ in the same item cell.\n"
+    required: false
+    type: "array"
+    items:
+      type: "string"
+    collectionFormat: "csv"
+    x-quoted: true
+  Resource_fqdns:
+    name: "resource_fqdns"
+    in: "query"
+    description: "A comma-separated list of resource FQDNs.\nIf there is not at least\
+      \ one resource that matches each `resource_fqdn`\nelement, an error is returned.\n\
+      Single quotes are required around all strings.\n"
+    required: false
+    type: "array"
+    items:
+      type: "string"
+    collectionFormat: "csv"
+    x-quoted: true
+  Subscription_ids:
+    name: "subscription_ids"
+    in: "query"
+    description: "A comma-separated list of subscription IDs.\nIf there is not at\
+      \ least one resource that matches each `subscription.id`\nelement, an error\
+      \ is returned.\nSingle quotes are required around all strings.\n"
+    required: false
+    type: "array"
+    items:
+      type: "string"
+    collectionFormat: "csv"
+    x-quoted: true
+  Resource_ids:
+    name: "resource_ids"
+    in: "query"
+    description: "A comma-separated list of resource IDs.\nIf there is not at least\
+      \ one resource that matches each `resource_id` element,\nan error is returned.\n\
+      Single quotes are required around all strings.\n"
     required: false
     type: "array"
     items:
@@ -4624,18 +4870,6 @@ parameters:
     description: "REQUIRED: either `ids` or `names`.\nA comma-separated list of object\
       \ IDs.\nIf there is not at least one resource that matches each `id` element,\n\
       an error is returned.\nSingle quotes are required around all strings.\n"
-    required: false
-    type: "array"
-    items:
-      type: "string"
-    collectionFormat: "csv"
-    x-quoted: true
-  Resource_names:
-    name: "resource_names"
-    in: "query"
-    description: "A comma-separated list of resource names.\nIf there is not at least\
-      \ one resource that matches each `resource_name`\nelement, an error is returned.\n\
-      Single quotes are required around all strings.\n"
     required: false
     type: "array"
     items:
@@ -4786,42 +5020,6 @@ parameters:
     required: true
     type: "integer"
     format: "int64"
-  Ids:
-    name: "ids"
-    in: "query"
-    description: "A comma-separated list of resource IDs.\nIf there is not at least\
-      \ one resource that matches each `id` element,\nan error is returned.\nSingle\
-      \ quotes are required around all strings.\n"
-    required: false
-    type: "array"
-    items:
-      type: "string"
-    collectionFormat: "csv"
-    x-quoted: true
-  Sort:
-    name: "sort"
-    in: "query"
-    description: "Sort the response by the specified fields (in descending order if\
-      \ '-'\nis appended to the field name).\nIf you provide a sort you will not get\
-      \ a continuation token in\nthe response.\n"
-    required: false
-    type: "array"
-    items:
-      type: "string"
-      pattern: "^[a-z]+(_[a-z]+)*-?"
-    collectionFormat: "csv"
-  Policy_ids:
-    name: "policy_ids"
-    in: "query"
-    description: "A comma-separated list of policy IDs.\nIf there is not at least\
-      \ one resource that matches each `policy_id` element,\nan error is returned.\n\
-      Single quotes are required around all strings.\n"
-    required: false
-    type: "array"
-    items:
-      type: "string"
-    collectionFormat: "csv"
-    x-quoted: true
   NamesRequired:
     name: "names"
     in: "query"
@@ -4834,70 +5032,12 @@ parameters:
       type: "string"
     collectionFormat: "csv"
     x-quoted: true
-  XRequestId:
-    name: "X-Request-ID"
-    in: "header"
-    description: "Supplied by client during request or generated by server.\n"
-    required: false
-    type: "string"
-  Target_names_plus:
-    name: "target_names"
-    in: "query"
-    description: "A list of target names. Target names separated by a `+` indicate\
-      \ that both\ntargets must be present in each element. Target names separated\
-      \ by a `,`\nindicate that at least one target must be present in each element.\n\
-      If there is not at least one resource that matches each `target_name` element,\n\
-      an error is returned.\nSingle quotes are required around all strings.\nWhen\
-      \ using Try it Out in Swagger, a list of target names separated by a `+`\nmust\
-      \ be entered in the same item cell.\n"
-    required: false
-    type: "array"
-    items:
-      type: "string"
-    collectionFormat: "csv"
-    x-quoted: true
   Policy_names:
     name: "policy_names"
     in: "query"
     description: "A comma-separated list of policy names.\nIf there is not at least\
       \ one resource that matches each `policy_name` element,\nan error is returned.\n\
       Single quotes are required around all strings.\n"
-    required: false
-    type: "array"
-    items:
-      type: "string"
-    collectionFormat: "csv"
-    x-quoted: true
-  License_ids:
-    name: "license_ids"
-    in: "query"
-    description: "A comma-separated list of subscriptionLicense IDs.\nIf there is\
-      \ not at least one resource that matches each `license.id`\nelement, an error\
-      \ is returned.\nSingle quotes are required around all strings.\n"
-    required: false
-    type: "array"
-    items:
-      type: "string"
-    collectionFormat: "csv"
-    x-quoted: true
-  File_system_ids:
-    name: "file_system_ids"
-    in: "query"
-    description: "Performs the operation on the file system ID specified.\nEnter multiple\
-      \ file system IDs in comma-separated format.\nThe `file_system_ids` and `file_system_names`\
-      \ parameters cannot be provided together.\nSingle quotes are required around\
-      \ all strings.\n"
-    required: false
-    type: "array"
-    items:
-      type: "string"
-    collectionFormat: "csv"
-  Source_ids:
-    name: "source_ids"
-    in: "query"
-    description: "A comma-separated list of ids for the source of the object.\nIf\
-      \ there is not at least one resource that matches each `source_id` element,\n\
-      an error is returned.\nSingle quotes are required around all strings.\n"
     required: false
     type: "array"
     items:
@@ -4944,78 +5084,6 @@ parameters:
       type: "string"
     collectionFormat: "csv"
     x-quoted: true
-  AggregationRequired:
-    name: "aggregation"
-    in: "query"
-    description: "Aggregation needed on the metric data.\nValid values are `avg` and\
-      \ `max`.\nSingle quotes are required around all strings.\nLatency metrics averages\
-      \ are weighted by the IOPS.\n"
-    required: true
-    type: "string"
-    x-quoted: true
-  OauthSubjectToken:
-    name: "subject_token"
-    in: "formData"
-    description: "An encoded security ID Token representing the identity of the party\
-      \ on behalf of\nwhom the request is being made. The token must be issued by\
-      \ a trusted\nidentity provider which must be either a registered application\
-      \ in Pure1\nor an enabled API client on the array. The token must be a JSON\
-      \ Web Token\nand must contain the following claims:\n\n> | JWT claim | Location\
-      \ | API Client Field | Description | Required By |\n\n> |-|-|-|-|-|\n\n> | kid\
-      \ | Header | key_id | Key ID of the API client that issues the identity token.\
-      \ | FlashArray\nand FlashBlade only. |\n\n> | aud | Payload | id | Client ID\
-      \ of the API client that issues the identity token. | FlashArray\nand FlashBlade\
-      \ only. |\n\n> | sub | Payload | | Login name of the array user for whom the\
-      \ token should be issued.\nThis must be a valid user in the system. | FlashArray\
-      \ and FlashBlade only. |\n\n> | iss | Payload | issuer | Application ID for\
-      \ the Pure1 or API client's trusted identity\nissuer on the array. | All products.\
-      \ |\n\n> | iat | Payload | | Timestamp of when the identity token was issued.\n\
-      Measured in milliseconds since the UNIX epoch. | All products. |\n\n> | exp\
-      \ | Payload | | Timestamp of when the identity token will expire.\nMeasured\
-      \ in milliseconds since the UNIX epoch. | All products. |\n\n\nEach token must\
-      \ also be signed with the private key that is paired with the\nAPI client's\
-      \ public key.\n\n"
-    required: true
-    type: "string"
-  Offset:
-    name: "offset"
-    in: "query"
-    description: "The offset of the first resource to return from a collection.\n"
-    required: false
-    type: "integer"
-    minimum: 0
-    format: "int32"
-  Advanced_space:
-    name: "advanced_space"
-    in: "query"
-    description: "If `true`, returns the `advanced_space` field containing physical\
-      \ and effective space information.\n"
-    required: false
-    type: "boolean"
-  Member_ids_plus:
-    name: "member_ids"
-    in: "query"
-    description: "A list of member IDs. Member IDs separated by a `+` indicate that\
-      \ both\nmembers must be present in each element. Member IDs separated by a `,`\n\
-      indicate that at least one member must be present in each element.\nIf there\
-      \ is not at least one resource that matches each `member_id` element,\nan error\
-      \ is returned.\nSingle quotes are required around all strings.\nWhen using Try\
-      \ it Out in Swagger, a list of member IDs separated by a `+`\nmust be entered\
-      \ in the same item cell.\n"
-    required: false
-    type: "array"
-    items:
-      type: "string"
-    collectionFormat: "csv"
-    x-quoted: true
-  Start_timeRequired:
-    name: "start_time"
-    in: "query"
-    description: "Timestamp of when the time window starts. Measured in milliseconds\
-      \ since the UNIX epoch.\n"
-    required: true
-    type: "integer"
-    format: "int64"
   Filter:
     name: "filter"
     in: "query"
@@ -5033,15 +5101,6 @@ parameters:
     required: true
     type: "string"
     default: "urn:ietf:params:oauth:token-type:jwt"
-  Continuation_token:
-    name: "continuation_token"
-    in: "query"
-    description: "An opaque token used to iterate over a collection.\nThe token to\
-      \ use on the next request is returned in the\n`continuation_token` field of\
-      \ the result.\nSingle quotes are required around all strings.\n"
-    required: false
-    type: "string"
-    x-quoted: true
   Resource_types:
     name: "resource_types"
     in: "query"
@@ -5049,45 +5108,6 @@ parameters:
       \ are `arrays`, `buckets`, `directories`,\n`file-systems`, `pods`, `subscription-licenses`\
       \ and\n`volumes`.\nA metric can belong to a combination of resources,\ne.g.,\
       \ write-iops from array to pod. In that case, query by\n['arrays', 'pods'].\n\
-      Single quotes are required around all strings.\n"
-    required: false
-    type: "array"
-    items:
-      type: "string"
-    collectionFormat: "csv"
-    x-quoted: true
-  Keys:
-    name: "keys"
-    in: "query"
-    description: "A comma-separated list of tag keys.\nSingle quotes are required\
-      \ around all strings.\n"
-    required: false
-    type: "array"
-    items:
-      type: "string"
-    collectionFormat: "csv"
-    x-quoted: true
-  Target_ids_plus:
-    name: "target_ids"
-    in: "query"
-    description: "A list of target IDs. Target IDs separated by a `+` indicate that\
-      \ both\ntargets must be present in each element. Target IDs separated by a `,`\n\
-      indicate that at least one target must be present in each element.\nIf there\
-      \ is not at least one resource that matches each `target_id` element,\nan error\
-      \ is returned.\nSingle quotes are required around all strings.\nWhen using Try\
-      \ it Out in Swagger, a list of target IDs separated by a `+`\nmust be entered\
-      \ in the same item cell.\n"
-    required: false
-    type: "array"
-    items:
-      type: "string"
-    collectionFormat: "csv"
-    x-quoted: true
-  Resource_fqdns:
-    name: "resource_fqdns"
-    in: "query"
-    description: "A comma-separated list of resource FQDNs.\nIf there is not at least\
-      \ one resource that matches each `resource_fqdn`\nelement, an error is returned.\n\
       Single quotes are required around all strings.\n"
     required: false
     type: "array"
@@ -5114,18 +5134,6 @@ parameters:
     description: "A comma-separated list of partner purchase order numbers.\nIf there\
       \ is not at least one resource that matches each `partner_purchase_order` element,\n\
       an error is returned.\nSingle quotes are required around all strings.\n"
-    required: false
-    type: "array"
-    items:
-      type: "string"
-    collectionFormat: "csv"
-    x-quoted: true
-  Subscription_ids:
-    name: "subscription_ids"
-    in: "query"
-    description: "A comma-separated list of subscription IDs.\nIf there is not at\
-      \ least one resource that matches each `subscription.id`\nelement, an error\
-      \ is returned.\nSingle quotes are required around all strings.\n"
     required: false
     type: "array"
     items:
