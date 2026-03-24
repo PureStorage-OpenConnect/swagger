@@ -526,6 +526,12 @@
   url: specs/FB2.24.spec.yaml
   version: '2.24'
   version_sort: 2224
+- filename: FB2.25.spec.yaml
+  model: FlashBlade
+  name: FlashBlade v2.25
+  url: specs/FB2.25.spec.yaml
+  version: '2.25'
+  version_sort: 2225
 - filename: Pure1-1.0.spec.yaml
   model: Pure1
   name: Pure1 v1.0
