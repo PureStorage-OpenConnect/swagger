@@ -221,7 +221,8 @@ tags:
     Manages the Pure Storage Storage Management Initiative Specification (SMI-S).
 - name: SMTP
   description: |
-    Manages connections to Simple Network Management Protocol (SMTP) managers.
+    Manages Simple Mail Transfer Protocol (SMTP) settings.
+    SMTP allows the array to send email notifications and alerts to recipients.
 - name: SNMP Agents
   description: |
     Manages connections to Simple Network Management Protocol (SNMP) agents.
@@ -327,6 +328,7 @@ paths:
       security: []
   /api/api_version:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Authorization
       summary: List available API versions
@@ -344,6 +346,7 @@ paths:
       security: []
   /api/2.49/login:
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Authorization
       summary: Create a user session
@@ -388,6 +391,7 @@ paths:
       x-codegen-request-body-name: login
   /api/2.49/logout:
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Authorization
       summary: POST logout (placeholder)
@@ -407,6 +411,7 @@ paths:
           content: {}
   /api/2.49/active-directory:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Active Directory
       summary: List Active Directory accounts
@@ -430,6 +435,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ActiveDirectoryGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Active Directory
       summary: Create Active Directory account
@@ -458,6 +464,7 @@ paths:
                 $ref: '#/components/schemas/ActiveDirectoryResponse'
       x-codegen-request-body-name: active-directory
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Active Directory
       summary: Delete Active Directory account
@@ -473,6 +480,7 @@ paths:
           description: OK
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Active Directory
       summary: Modify Active Directory account
@@ -499,6 +507,7 @@ paths:
       x-codegen-request-body-name: active-directory
   /api/2.49/admins:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Administrators
       summary: List administrators
@@ -525,6 +534,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AdminGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Administrators
       summary: Create an administrator
@@ -551,6 +561,7 @@ paths:
                 $ref: '#/components/schemas/AdminResponse'
       x-codegen-request-body-name: admin
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Administrators
       summary: Delete an administrator
@@ -566,6 +577,7 @@ paths:
           description: OK
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Administrators
       summary: Modify an administrator
@@ -593,6 +605,8 @@ paths:
       x-codegen-request-body-name: admin
   /api/2.49/admins/policies/management-access:
     get:
+      x-pure-block-remote-execution: true
+      x-pure-incomplete-gre: true
       tags:
       - Administrators
       summary: List management access policies attached to administrators
@@ -631,6 +645,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberCleanGetResponse'
     post:
+      x-pure-block-remote-execution: true
+      x-pure-incomplete-gre: true
       tags:
       - Administrators
       summary: Create a membership between an administrator with one or more management access policies.
@@ -660,6 +676,8 @@ paths:
                 $ref: '#/components/schemas/PolicyMemberCleanResponse'
       x-codegen-request-body-name: policies
     delete:
+      x-pure-block-remote-execution: true
+      x-pure-incomplete-gre: true
       tags:
       - Administrators
       summary: Delete a membership between an administrator and one or more management access policies
@@ -682,6 +700,7 @@ paths:
           content: {}
   /api/2.49/admins/api-tokens:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Administrators
       summary: List API tokens
@@ -705,6 +724,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AdminApiTokenGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Administrators
       summary: Create API tokens
@@ -722,6 +742,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AdminApiTokenResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Administrators
       summary: Delete API tokens
@@ -736,6 +757,7 @@ paths:
           content: {}
   /api/2.49/admins/cache:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Administrators
       summary: List administrator cache entries
@@ -760,6 +782,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AdminCacheGetResponse'
     put:
+      x-pure-block-remote-execution: true
       tags:
       - Administrators
       summary: Update or refresh entries in the administrator cache
@@ -779,6 +802,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AdminCacheResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Administrators
       summary: Delete cache entries
@@ -795,6 +819,7 @@ paths:
           content: {}
   /api/2.49/admins/settings:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Administrators
       summary: List administrator settings
@@ -817,6 +842,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AdminSettingsGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Administrators
       summary: Modify administrator settings
@@ -878,6 +904,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/AlertGetResponse'
     patch:
+      x-pure-block-remote-execution: true
+      x-pure-incomplete-gre: true
       tags:
       - Alerts
       summary: Modify flagged state
@@ -974,6 +1002,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/AlertRulesGetResponse'
     post:
+      x-pure-block-remote-execution: true
+      x-pure-incomplete-gre: true
       tags:
       - Alerts
       summary: Create a custom alert rule
@@ -1000,6 +1030,7 @@ paths:
                 $ref: '#/components/schemas/AlertRulesResponse'
       x-codegen-request-body-name: alert-rule
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Alerts
       summary: Delete a custom alert rule
@@ -1015,6 +1046,8 @@ paths:
           description: OK
           content: {}
     patch:
+      x-pure-block-remote-execution: true
+      x-pure-incomplete-gre: true
       tags:
       - Alerts
       summary: Modify a custom alert rule
@@ -1077,6 +1110,7 @@ paths:
                 $ref: '#/components/schemas/AlertRulesCatalogGetResponse'
   /api/2.49/alert-watchers:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Alert Watchers
       summary: List alert watchers
@@ -1099,6 +1133,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AlertWatcherGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Alert Watchers
       summary: Create alert watcher
@@ -1124,6 +1159,7 @@ paths:
                 $ref: '#/components/schemas/AlertWatcherResponse'
       x-codegen-request-body-name: alert-watcher
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Alert Watchers
       summary: Delete alert watcher
@@ -1137,6 +1173,7 @@ paths:
           description: OK
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Alert Watchers
       summary: Modify alert watcher
@@ -1162,6 +1199,8 @@ paths:
       x-codegen-request-body-name: alert-watcher
   /api/2.49/alert-watchers/test:
     get:
+      x-pure-block-remote-execution: true
+      x-pure-incomplete-gre: true
       tags:
       - Alert Watchers
       summary: List alert watcher test
@@ -1196,6 +1235,7 @@ paths:
                 $ref: '#/components/schemas/TestResultWithResourceGetResponse'
   /api/2.49/api-clients:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - API Clients
       summary: List API clients
@@ -1220,6 +1260,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiClientGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - API Clients
       summary: Create an API client
@@ -1248,6 +1289,7 @@ paths:
                 $ref: '#/components/schemas/ApiClientResponse'
       x-codegen-request-body-name: API clients
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - API Clients
       summary: Delete an API client
@@ -1265,6 +1307,7 @@ paths:
           description: OK
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - API Clients
       summary: Manage an API client
@@ -1293,6 +1336,7 @@ paths:
       x-codegen-request-body-name: API clients
   /api/2.49/apps:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Apps
       summary: List apps
@@ -1315,6 +1359,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AppGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Apps
       summary: Modify app
@@ -1342,6 +1387,7 @@ paths:
       x-codegen-request-body-name: app
   /api/2.49/apps/nodes:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Apps
       summary: List app nodes
@@ -1399,6 +1445,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ArrayGetResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: Delete an array
@@ -1448,6 +1495,7 @@ paths:
       x-codegen-request-body-name: array
   /api/2.49/arrays/cloud-config:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: List CBS array configuration status
@@ -1470,6 +1518,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CloudConfigGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: Modify CBS array configuration
@@ -1501,6 +1550,7 @@ paths:
       x-codegen-request-body-name: config
   /api/2.49/arrays/cloud-config/supported-configs:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: List CBS array supported upgrade target configs
@@ -1525,6 +1575,7 @@ paths:
                 $ref: '#/components/schemas/CloudConfigSupportedConfigsGetResponse'
   /api/2.49/arrays/cloud-capacity:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: List CBS array capacity status
@@ -1547,6 +1598,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CloudCapacityGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: Modify CBS array capacity
@@ -1578,6 +1630,7 @@ paths:
       x-codegen-request-body-name: capacity
   /api/2.49/arrays/cloud-capacity/supported-steps:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: List CBS array capacity steps
@@ -1602,6 +1655,7 @@ paths:
                 $ref: '#/components/schemas/CloudCapacityStepsGetResponse'
   /api/2.49/arrays/cloud-provider-tags:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: List user tags on the cloud.
@@ -1623,6 +1677,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CloudProviderTagGetResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: Delete user tags from the cloud.
@@ -1637,6 +1692,7 @@ paths:
           content: {}
   /api/2.49/arrays/cloud-provider-tags/batch:
     put:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: Update user tags on the cloud.
@@ -1667,6 +1723,7 @@ paths:
       x-codegen-request-body-name: tag
   /api/2.49/arrays/erasures:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: List factory reset details
@@ -1688,6 +1745,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ArrayErasureGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: Create a process for factory reset
@@ -1708,6 +1766,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ArrayErasureResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: Delete factory reset
@@ -1722,6 +1781,7 @@ paths:
           description: OK
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: Update factory reset
@@ -1752,6 +1812,7 @@ paths:
       x-codegen-request-body-name: erasure_patch
   /api/2.49/arrays/eula:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: List End User Agreement and signature
@@ -1772,6 +1833,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EulaGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: Modify signature on the End User Agreement
@@ -1796,6 +1858,7 @@ paths:
       x-codegen-request-body-name: eula
   /api/2.49/arrays/factory-reset-token:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: List factory reset tokens
@@ -1816,6 +1879,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ArrayFactoryResetTokenGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: Create a factory reset token
@@ -1838,6 +1902,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ArrayFactoryResetTokenResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: Delete a factory reset token
@@ -1851,6 +1916,7 @@ paths:
           content: {}
   /api/2.49/arrays/ntp-test:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: List NTP test results
@@ -1867,6 +1933,7 @@ paths:
                 $ref: '#/components/schemas/TestResultGetResponse'
   /api/2.49/arrays/performance:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: List array front-end performance data
@@ -1896,6 +1963,7 @@ paths:
                 $ref: '#/components/schemas/ArrayPerformanceGetResponse'
   /api/2.49/arrays/performance/by-link:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: List array front-end IO performance data by link
@@ -2158,6 +2226,7 @@ paths:
       x-codegen-request-body-name: array-connection
   /api/2.49/array-connections/connection-key:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Array Connections
       summary: List connection key
@@ -2175,6 +2244,7 @@ paths:
                 $ref: '#/components/schemas/ArrayConnectionKeyGetResponse'
   /api/2.49/array-connections/path:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Array Connections
       summary: List connection path
@@ -2237,6 +2307,7 @@ paths:
                 $ref: '#/components/schemas/AuditGetResponse'
   /api/2.49/certificates:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: List certificate attributes
@@ -2261,6 +2332,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CertificateGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: Create certificate
@@ -2287,6 +2359,7 @@ paths:
                 $ref: '#/components/schemas/CertificateResponse'
       x-codegen-request-body-name: certificate
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: Delete certificate
@@ -2302,6 +2375,7 @@ paths:
           description: OK
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: Modify certificates
@@ -2332,6 +2406,7 @@ paths:
       x-codegen-request-body-name: certificate
   /api/2.49/certificates/certificate-groups:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: List certificates and certificate-groups
@@ -2358,6 +2433,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CertificateCertificateGroupGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: Create certificates orcertificate-groups
@@ -2378,6 +2454,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CertificateCertificateGroupResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: Deletes certificates/certificate-groups
@@ -2396,6 +2473,7 @@ paths:
           content: {}
   /api/2.49/certificates/uses:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: List certificates uses
@@ -2421,6 +2499,7 @@ paths:
                 $ref: '#/components/schemas/CertificateUseGetResponse'
   /api/2.49/certificate-groups:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Certificate Groups
       summary: List certificate-groups
@@ -2445,6 +2524,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CertificateGroupGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Certificate Groups
       summary: Create certificate-groups
@@ -2462,6 +2542,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CertificateGroupResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Certificate Groups
       summary: Delete certificate-groups
@@ -2478,6 +2559,7 @@ paths:
           content: {}
   /api/2.49/certificate-groups/certificates:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Certificate Groups
       summary: List  certificate-groups and certificates
@@ -2504,6 +2586,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CertificateGroupCertificateGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Certificate Groups
       summary: Create certificate-groups/certificates
@@ -2524,6 +2607,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CertificateGroupCertificateResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Certificate Groups
       summary: Delete certificate-groups or certificates
@@ -2542,6 +2626,7 @@ paths:
           content: {}
   /api/2.49/certificate-groups/uses:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Certificate Groups
       summary: List  certificate-groups/uses
@@ -2567,6 +2652,7 @@ paths:
                 $ref: '#/components/schemas/CertificateGroupUseGetResponse'
   /api/2.49/certificates/certificate-signing-requests:
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: Create certificate-signing-requests
@@ -2752,6 +2838,7 @@ paths:
       x-codegen-request-body-name: container-default-protection
   /api/2.49/controllers:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Controllers
       summary: List controller information and status
@@ -4077,6 +4164,7 @@ paths:
       parameters:
       - $ref: '#/components/parameters/Authorization'
       - $ref: '#/components/parameters/XRequestId'
+      - $ref: '#/components/parameters/Context_names'
       - $ref: '#/components/parameters/Ids'
       - $ref: '#/components/parameters/Fqnames'
       responses:
@@ -4310,6 +4398,7 @@ paths:
           content: {}
   /api/2.49/directory-services/test:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Directory Services
       summary: List directory services test results
@@ -4347,6 +4436,7 @@ paths:
                 $ref: '#/components/schemas/TestResultWithResourceResponse'
   /api/2.49/directory-services/local/directory-services:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Directory Services
       summary: List local directory services
@@ -4371,6 +4461,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/LocalDirectoryServiceGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Directory Services
       summary: Create local directory service
@@ -4396,6 +4487,7 @@ paths:
                 $ref: '#/components/schemas/LocalDirectoryServiceResponse'
       x-codegen-request-body-name: local-directory
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Directory Services
       summary: Delete local directory services
@@ -4413,6 +4505,7 @@ paths:
           description: OK
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Directory Services
       summary: Modify local directory service
@@ -5154,6 +5247,7 @@ paths:
       x-codegen-request-body-name: dns
   /api/2.49/drives:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Drives
       summary: "List flash, NVRAM, and cache modules"
@@ -5177,6 +5271,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/DriveGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Drives
       summary: Modify flash and NVRAM modules
@@ -5307,6 +5402,7 @@ paths:
       x-codegen-request-body-name: file-system
   /api/2.49/files:
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Files
       summary: Create a file copy
@@ -5341,6 +5437,7 @@ paths:
       x-codegen-request-body-name: source-file
   /api/2.49/fleets:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: List fleets
@@ -5366,6 +5463,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FleetGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: Create a fleet
@@ -5385,6 +5483,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FleetResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: Delete a fleet
@@ -5402,6 +5501,7 @@ paths:
           description: OK
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: Modify a fleet
@@ -5431,6 +5531,7 @@ paths:
       x-codegen-request-body-name: fleet
   /api/2.49/fleets/fleet-key:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: Get fleet key information
@@ -5456,6 +5557,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FleetKeyGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: Create a fleet key
@@ -5476,6 +5578,7 @@ paths:
                 $ref: '#/components/schemas/FleetKeyResponse'
   /api/2.49/fleets/members:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: List fleet members
@@ -5503,6 +5606,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FleetMemberGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: Add members to a fleet
@@ -5538,6 +5642,7 @@ paths:
                 $ref: '#/components/schemas/FleetMemberResponse'
       x-codegen-request-body-name: members
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: Delete fleet members
@@ -5558,6 +5663,7 @@ paths:
           content: {}
   /api/2.49/hardware:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Hardware
       summary: List hardware component information
@@ -5579,6 +5685,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/HardwareGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Hardware
       summary: Modify visual identification
@@ -6630,6 +6737,7 @@ paths:
       x-codegen-request-body-name: tag
   /api/2.49/kmip:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - KMIP
       summary: List KMIP server objects
@@ -6653,6 +6761,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/KmipGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - KMIP
       summary: Create KMIP server object
@@ -6678,6 +6787,7 @@ paths:
                 $ref: '#/components/schemas/KmipResponse'
       x-codegen-request-body-name: kmip
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - KMIP
       summary: Delete KMIP server object
@@ -6691,6 +6801,7 @@ paths:
           description: OK
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - KMIP
       summary: Modify KMIP attributes
@@ -6717,6 +6828,7 @@ paths:
       x-codegen-request-body-name: kmip
   /api/2.49/kmip/test:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - KMIP
       summary: Lists KMIP connection tests
@@ -7064,6 +7176,7 @@ paths:
                 $ref: '#/components/schemas/TestResultWithResourceGetResponse'
   /api/2.49/maintenance-windows:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Maintenance Windows
       summary: List maintenance window details
@@ -7087,6 +7200,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/MaintenanceWindowsGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Maintenance Windows
       summary: Create a maintenance window
@@ -7114,6 +7228,7 @@ paths:
                 $ref: '#/components/schemas/MaintenanceWindowsResponse'
       x-codegen-request-body-name: maintenance-window
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Maintenance Windows
       summary: Delete maintenance window
@@ -7228,6 +7343,7 @@ paths:
       x-codegen-request-body-name: network
   /api/2.49/network-interfaces/neighbors:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: List network interface neighbors
@@ -7249,6 +7365,7 @@ paths:
                 $ref: '#/components/schemas/NetworkInterfaceNeighborGetResponse'
   /api/2.49/network-interfaces/performance:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: List network performance statistics
@@ -7277,6 +7394,7 @@ paths:
                 $ref: '#/components/schemas/NetworkInterfacePerformanceGetResponse'
   /api/2.49/network-interfaces/port-details:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: List SFP port details
@@ -11105,6 +11223,11 @@ paths:
                 $ref: '#/components/schemas/PortInitiatorsGetResponse'
   /api/2.49/presets/workload:
     get:
+      x-pure-block-remote-execution: true
+      x-pure-incomplete-gre: true
+      x-pure-remote-execution-context-domains-override:
+      - ARRAY
+      - FLEET
       tags:
       - Presets
       summary: List workload presets
@@ -11124,6 +11247,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/PresetWorkloadGetResponse'
     put:
+      x-pure-block-remote-execution: true
+      x-pure-incomplete-gre: true
+      x-pure-remote-execution-context-domains-override:
+      - FLEET
       tags:
       - Presets
       summary: Update a workload preset
@@ -11152,6 +11279,10 @@ paths:
                 $ref: '#/components/schemas/PresetWorkloadResponse'
       x-codegen-request-body-name: preset
     post:
+      x-pure-block-remote-execution: true
+      x-pure-incomplete-gre: true
+      x-pure-remote-execution-context-domains-override:
+      - FLEET
       tags:
       - Presets
       summary: Create a workload preset
@@ -11178,6 +11309,10 @@ paths:
                 $ref: '#/components/schemas/PresetWorkloadResponse'
       x-codegen-request-body-name: preset
     delete:
+      x-pure-block-remote-execution: true
+      x-pure-incomplete-gre: true
+      x-pure-remote-execution-context-domains-override:
+      - FLEET
       tags:
       - Presets
       summary: Delete a workload preset
@@ -11195,6 +11330,10 @@ paths:
           description: OK
           content: {}
     patch:
+      x-pure-block-remote-execution: true
+      x-pure-incomplete-gre: true
+      x-pure-remote-execution-context-domains-override:
+      - FLEET
       tags:
       - Presets
       summary: Modify a workload preset
@@ -12257,6 +12396,7 @@ paths:
                 $ref: '#/components/schemas/ProtectionGroupSnapshotTransferGetResponse'
   /api/2.49/realms:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Realms
       summary: List realms
@@ -12283,6 +12423,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/RealmGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Realms
       summary: Create realms
@@ -12309,6 +12450,7 @@ paths:
                 $ref: '#/components/schemas/RealmResponse'
       x-codegen-request-body-name: realm
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Realms
       summary: Delete realms
@@ -12326,6 +12468,7 @@ paths:
           description: OK
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Realms
       summary: Modify realms
@@ -12398,6 +12541,8 @@ paths:
                 $ref: '#/components/schemas/ContainerPerformanceGetResponse'
   /api/2.49/realms/qos:
     get:
+      x-pure-incomplete-gre: true
+      x-pure-block-remote-execution: true
       tags:
       - Realms
       summary: List realm QoS config
@@ -12438,6 +12583,7 @@ paths:
                 $ref: '#/components/schemas/RealmQosGetResponse'
   /api/2.49/realms/space:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Realms
       summary: List realm space information
@@ -12558,6 +12704,7 @@ paths:
       x-codegen-request-body-name: tag
   /api/2.49/remote-arrays:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Remote Arrays
       summary: List remote arrays
@@ -13127,6 +13274,7 @@ paths:
                 $ref: '#/components/schemas/RemoteVolumeSnapshotTransferGetResponse'
   /api/2.49/resource-accesses:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Resource Accesses
       summary: List resource access configurations
@@ -13151,6 +13299,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResourceAccessesGetResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Resource Accesses
       summary: Delete a resource access configuration
@@ -13167,6 +13316,7 @@ paths:
           content: {}
   /api/2.49/resource-accesses/batch:
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Resource Accesses
       summary: Create a resource access configuration
@@ -13194,6 +13344,7 @@ paths:
       x-codegen-request-body-name: items
   /api/2.49/resource-accesses/status:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Resource Accesses
       summary: List status of resource accesses as specified by resource access configuration
@@ -13218,6 +13369,7 @@ paths:
                 $ref: '#/components/schemas/ResourceAccessesStatusGetResponse'
   /api/2.49/servers:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Servers
       summary: List servers
@@ -13244,6 +13396,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/ServerGetResponse'
     post:
+      x-pure-incomplete-gre: true
+      x-pure-block-remote-execution: true
       tags:
       - Servers
       summary: Create server
@@ -13271,6 +13425,7 @@ paths:
                 $ref: '#/components/schemas/ServerResponse'
       x-codegen-request-body-name: server
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Servers
       summary: Delete server
@@ -13287,6 +13442,8 @@ paths:
           description: OK
           content: {}
     patch:
+      x-pure-incomplete-gre: true
+      x-pure-block-remote-execution: true
       tags:
       - Servers
       summary: Modify server
@@ -13314,6 +13471,7 @@ paths:
       x-codegen-request-body-name: server
   /api/2.49/sessions:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Sessions
       summary: List session data
@@ -13339,6 +13497,7 @@ paths:
                 $ref: '#/components/schemas/SessionGetResponse'
   /api/2.49/smi-s:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - SMI-S
       summary: List SMI-S settings
@@ -13360,6 +13519,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SmisGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - SMI-S
       summary: Modify SLP and SMI-S
@@ -13386,6 +13546,7 @@ paths:
       x-codegen-request-body-name: smi-s
   /api/2.49/smtp-servers:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - SMTP
       summary: List SMTP server attributes
@@ -13407,6 +13568,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SmtpServerGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - SMTP
       summary: Modify SMTP server attributes
@@ -13432,6 +13594,7 @@ paths:
       x-codegen-request-body-name: smtp
   /api/2.49/snmp-agents:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - SNMP Agents
       summary: List SNMP agent
@@ -13452,6 +13615,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SnmpAgentGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - SNMP Agents
       summary: Modify SNMP agent
@@ -13476,6 +13640,7 @@ paths:
       x-codegen-request-body-name: snmp-agent
   /api/2.49/snmp-agents/mib:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - SNMP Agents
       summary: List SNMP agent MIB text
@@ -13497,6 +13662,7 @@ paths:
                 $ref: '#/components/schemas/SnmpAgentMibGetResponse'
   /api/2.49/snmp-managers:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - SNMP Managers
       summary: List SNMP managers
@@ -13519,6 +13685,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SnmpManagerGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - SNMP Managers
       summary: Create SNMP manager
@@ -13546,6 +13713,7 @@ paths:
                 $ref: '#/components/schemas/SnmpManagerResponse'
       x-codegen-request-body-name: snmp-manager
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - SNMP Managers
       summary: Delete SNMP manager
@@ -13560,6 +13728,7 @@ paths:
           description: OK
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - SNMP Managers
       summary: Modify SNMP manager
@@ -13585,6 +13754,8 @@ paths:
       x-codegen-request-body-name: snmp-manager
   /api/2.49/snmp-managers/test:
     get:
+      x-pure-block-remote-execution: true
+      x-pure-incomplete-gre: true
       tags:
       - SNMP Managers
       summary: List SNMP manager test results
@@ -13619,6 +13790,7 @@ paths:
                 $ref: '#/components/schemas/TestResultWithResourceGetResponse'
   /api/2.49/software:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Software
       summary: List software packages
@@ -13643,6 +13815,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SoftwareGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Software
       summary: Create a software package
@@ -13668,6 +13841,7 @@ paths:
                 $ref: '#/components/schemas/SoftwareResponse'
       x-codegen-request-body-name: software
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Software
       summary: Delete a software package
@@ -13687,6 +13861,7 @@ paths:
           content: {}
   /api/2.49/software-bundle:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Software
       summary: List software-bundle
@@ -13708,6 +13883,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SoftwareBundleGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Software
       summary: Create software-bundle
@@ -13733,6 +13909,7 @@ paths:
       x-codegen-request-body-name: source
   /api/2.49/software-check:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Software
       summary: List software check tasks
@@ -13757,6 +13934,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SoftwareChecksGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Software
       summary: Create a software check task
@@ -13779,6 +13957,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SoftwareChecksResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Software
       summary: Delete a software check task
@@ -13797,6 +13976,7 @@ paths:
           content: {}
   /api/2.49/software-installations:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Software
       summary: List software upgrades
@@ -13824,6 +14004,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SoftwareInstallationsGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Software
       summary: Create a software upgrade
@@ -13850,6 +14031,7 @@ paths:
                 $ref: '#/components/schemas/SoftwareInstallationsResponse'
       x-codegen-request-body-name: software-installations
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Software
       summary: Modify software upgrade
@@ -13882,6 +14064,7 @@ paths:
       x-codegen-request-body-name: software-installations
   /api/2.49/software-installation-steps:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Software
       summary: List software upgrade steps
@@ -13907,6 +14090,7 @@ paths:
                 $ref: '#/components/schemas/SoftwareInstallationStepsGetResponse'
   /api/2.49/software-patches:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Software
       summary: List software patches
@@ -13930,6 +14114,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SoftwarePatchesGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Software
       summary: Create a software patch
@@ -13962,6 +14147,7 @@ paths:
                 $ref: '#/components/schemas/SoftwarePatchesResponse'
   /api/2.49/software-patches/catalog:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Software
       summary: List available software patches
@@ -13984,6 +14170,7 @@ paths:
                 $ref: '#/components/schemas/SoftwarePatchesGetResponse'
   /api/2.49/software-versions:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Software
       summary: List software versions
@@ -14007,6 +14194,7 @@ paths:
                 $ref: '#/components/schemas/SoftwareVersionsGetResponse'
   /api/2.49/sso/saml2/idps:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - SAML2 SSO
       summary: List SAML2 SSO configurations
@@ -14032,6 +14220,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Saml2SsoGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - SAML2 SSO
       summary: Create SAML2 SSO configurations
@@ -14057,6 +14246,7 @@ paths:
                 $ref: '#/components/schemas/Saml2SsoResponse'
       x-codegen-request-body-name: idp
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - SAML2 SSO
       summary: Delete SAML2 SSO configurations
@@ -14072,6 +14262,7 @@ paths:
           description: OK
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - SAML2 SSO
       summary: Modify SAML2 SSO configurations
@@ -14099,6 +14290,8 @@ paths:
       x-codegen-request-body-name: idp
   /api/2.49/sso/saml2/idps/test:
     get:
+      x-pure-block-remote-execution: true
+      x-pure-incomplete-gre: true
       tags:
       - SAML2 SSO
       summary: List existing SAML2 SSO configurations
@@ -14125,6 +14318,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/TestResultWithResourceResponse'
     patch:
+      x-pure-block-remote-execution: true
+      x-pure-incomplete-gre: true
       tags:
       - SAML2 SSO
       summary: Modify provided SAML2 SSO configurations
@@ -14155,6 +14350,7 @@ paths:
       x-codegen-request-body-name: idp
   /api/2.49/subnets:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Subnets
       summary: List subnets
@@ -14177,6 +14373,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SubnetGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Subnets
       summary: Create subnet
@@ -14201,6 +14398,7 @@ paths:
                 $ref: '#/components/schemas/SubnetResponse'
       x-codegen-request-body-name: subnet
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Subnets
       summary: Delete subnet
@@ -14216,6 +14414,7 @@ paths:
           description: OK
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Subnets
       summary: Modify subnet
@@ -14241,6 +14440,7 @@ paths:
       x-codegen-request-body-name: subnet
   /api/2.49/subscriptions:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Subscriptions
       summary: List subscriptions
@@ -14266,6 +14466,7 @@ paths:
                 $ref: '#/components/schemas/SubscriptionGetResponse'
   /api/2.49/subscription-assets:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Subscription Assets
       summary: List subscription assets
@@ -14292,6 +14493,7 @@ paths:
                 $ref: '#/components/schemas/SubscriptionAssetGetResponse'
   /api/2.49/support:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Support
       summary: List connection paths
@@ -14314,6 +14516,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SupportGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Support
       summary: Create connection path
@@ -14339,6 +14542,7 @@ paths:
       x-codegen-request-body-name: support
   /api/2.49/support/remote-assist-sessions:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Support
       summary: List remote assist session
@@ -14361,6 +14565,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SupportRemoteAssistSessionsGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Support
       summary: Modify remote assist session
@@ -14386,6 +14591,7 @@ paths:
       x-codegen-request-body-name: support
   /api/2.49/support/remote-assist-sessions/settings:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Support
       summary: List remote assist session global settings
@@ -14408,6 +14614,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SupportRemoteAssistSessionsSettingsGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Support
       summary: Update remote assist session global settings
@@ -14433,6 +14640,7 @@ paths:
       x-codegen-request-body-name: support
   /api/2.49/support/test:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Support
       summary: List Pure Storage Support connection data
@@ -14456,6 +14664,7 @@ paths:
                 $ref: '#/components/schemas/TestResultGetResponse'
   /api/2.49/support-diagnostics/details:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Support
       summary: List diagnostics details
@@ -14479,6 +14688,7 @@ paths:
                 $ref: '#/components/schemas/SupportDiagnosticsDetailsGetResponse'
   /api/2.49/support-diagnostics/settings:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Support
       summary: List diagnostics tools version and last updated date
@@ -14501,6 +14711,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SupportDiagnosticsGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Support
       summary: Update diagnostics tools
@@ -14715,6 +14926,7 @@ paths:
                 $ref: '#/components/schemas/TestResultWithResourceGetResponse'
   /api/2.49/vchosts:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Vchosts
       summary: List vchosts
@@ -14740,6 +14952,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/VchostGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Vchosts
       summary: Create a vchost
@@ -14767,6 +14980,7 @@ paths:
                 $ref: '#/components/schemas/VchostResponse'
       x-codegen-request-body-name: vchost
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Vchosts
       summary: Delete a vchost
@@ -14784,6 +14998,7 @@ paths:
           description: OK
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Vchosts
       summary: Modify a vchost
@@ -14813,6 +15028,7 @@ paths:
       x-codegen-request-body-name: vchost
   /api/2.49/vchosts/certificates:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Vchosts
       summary: List vchost certificates
@@ -14840,6 +15056,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/VchostCertificateGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Vchosts
       summary: Create a vchost certificate
@@ -14868,6 +15085,7 @@ paths:
                 $ref: '#/components/schemas/VchostCertificateResponse'
       x-codegen-request-body-name: certificate
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Vchosts
       summary: Delete a vchost certificate
@@ -14888,6 +15106,7 @@ paths:
           description: OK
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Vchosts
       summary: Modify a vchost certificate
@@ -14920,6 +15139,7 @@ paths:
       x-codegen-request-body-name: certificate
   /api/2.49/vchosts/endpoints:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Vchosts
       summary: List vchost endpoints
@@ -14947,6 +15167,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/VchostEndpointGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Vchosts
       summary: Create a vchost endpoint
@@ -14975,6 +15196,7 @@ paths:
                 $ref: '#/components/schemas/VchostEndpointResponse'
       x-codegen-request-body-name: endpoint
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Vchosts
       summary: Delete a vchost endpoint
@@ -14995,6 +15217,7 @@ paths:
           description: OK
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Vchosts
       summary: Modify a vchost endpoint
@@ -15027,6 +15250,7 @@ paths:
       x-codegen-request-body-name: endpoint
   /api/2.49/vchost-connections:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Vchost Connections
       summary: List the vchost-connections between protocol endpoint and vchost.
@@ -15055,6 +15279,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/VchostConnectionGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Vchost Connections
       summary: Create a vchost-connection between protocol endpoint and vchost.
@@ -15084,6 +15309,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/VchostConnectionResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Vchost Connections
       summary: Delete the vchost-connection between a protocol endpoint and its vchost
@@ -15110,6 +15336,7 @@ paths:
           content: {}
   /api/2.49/virtual-machines:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Virtual Machines
       summary: List Virtual Machines
@@ -15155,6 +15382,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/VirtualMachineGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Virtual Machines
       summary: Create a virtual machine
@@ -15187,6 +15415,7 @@ paths:
                 $ref: '#/components/schemas/VirtualMachineResponse'
       x-codegen-request-body-name: virtual-machine
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Virtual Machines
       summary: Update a virtual machine
@@ -15217,6 +15446,7 @@ paths:
       x-codegen-request-body-name: virtual-machine
   /api/2.49/virtual-machine-volume-snapshots:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Virtual Machines
       summary: List Virtual Machine Volume Snapshots
@@ -15263,6 +15493,7 @@ paths:
                 $ref: '#/components/schemas/VirtualMachineVolumeSnapshotResponse'
   /api/2.49/virtual-machine-snapshots:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Virtual Machines
       summary: List Virtual Machine Snapshots
@@ -16643,6 +16874,7 @@ paths:
       x-codegen-request-body-name: volume-snapshot
   /api/2.49/workloads/placement-recommendations:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Workloads
       summary: List workload placement recommendations
@@ -19934,10 +20166,9 @@ components:
           quota_limit:
             description: |
               The logical quota limit of the pod, measured in bytes. Must be a multiple of 512.
-            type: integer
-            format: int64
-            minimum: 1048576
-            maximum: 4503599627370496
+            title: Quota_limit_type
+            allOf:
+            - $ref: '#/components/schemas/_quota_limit_type'
           source:
             description: The source pod from where data is cloned to create the new pod.
             title: Reference
@@ -19996,13 +20227,6 @@ components:
               By default, the Pure1 Cloud Mediator (`purestorage`) serves as the mediator.
             type: string
             example: https://mediator.cloud-support.purestorage.com
-          quota_limit:
-            description: |
-              The logical quota limit of the pod, measured in bytes. Must be a multiple of 512.
-            type: integer
-            format: int64
-            minimum: 1048576
-            maximum: 4503599627370496
           requested_promotion_state:
             description: |
               Patch `requested_promotion_state` to `demoted` to demote the pod so that it can be used as
@@ -20019,6 +20243,7 @@ components:
               The space consumed by the unique replicated data is tracked by the `space.journal` field
               of the pod.
             type: string
+      - $ref: '#/components/schemas/_quota_limit_patch'
     PodGetResponse:
       allOf:
       - $ref: '#/components/schemas/PageInfo'
@@ -21226,10 +21451,9 @@ components:
         quota_limit:
           description: |
             The logical quota limit of the realm, measured in bytes. Must be a multiple of 512.
-          type: integer
-          format: int64
-          minimum: 1048576
-          maximum: 4503599627370496
+          title: Quota_limit_type
+          allOf:
+          - $ref: '#/components/schemas/_quota_limit_type'
         tags:
           description: |
             The list of tags to be upserted with the object.
@@ -21255,16 +21479,10 @@ components:
           qos:
             description: |
               Sets QoS limits.
-            title: ContainerQos
+            title: ContainerQos_patch
             allOf:
-            - $ref: '#/components/schemas/_containerQos'
-          quota_limit:
-            description: |
-              The logical quota limit of the realm, measured in bytes.
-            type: integer
-            format: int64
-            minimum: 1048576
-            maximum: 4503599627370496
+            - $ref: '#/components/schemas/_containerQos_patch'
+      - $ref: '#/components/schemas/_quota_limit_patch'
     RealmGetResponse:
       allOf:
       - $ref: '#/components/schemas/PageInfo'
@@ -22364,9 +22582,9 @@ components:
             maximum: 4503599627370496
           qos:
             description: Sets QoS limits.
-            title: Qos
+            title: Qos_patch
             allOf:
-            - $ref: '#/components/schemas/_qos'
+            - $ref: '#/components/schemas/_qos_patch'
           requested_promotion_state:
             description: |
               Valid values are `promoted` and `demoted`.
@@ -22580,7 +22798,7 @@ components:
           priority_adjustment:
             $ref: '#/components/schemas/_priorityAdjustment'
           qos:
-            $ref: '#/components/schemas/_qos'
+            $ref: '#/components/schemas/_qos_patch'
           space:
             title: Space
             allOf:
@@ -25842,6 +26060,22 @@ components:
               but share the same `target_id`.
             type: string
             readOnly: true
+    _quota_limit_type:
+      type: integer
+      format: int64
+      minimum: 1048576
+      maximum: 4503599627370496
+    _quota_limit_patch:
+      type: object
+      properties:
+        quota_limit:
+          title: QuotaLimitPatch
+          description: |
+            The logical quota limit of the object, measured in bytes.
+            In order to unset use "".
+          oneOf:
+          - $ref: '#/components/schemas/_quota_limit_type'
+          - $ref: '#/components/schemas/_limit_unset_value'
     Pod:
       allOf:
       - $ref: '#/components/schemas/_resource'
@@ -25947,10 +26181,10 @@ components:
           quota_limit:
             description: |
               The logical quota limit of the pod, measured in bytes.
-            type: integer
-            format: int64
-            maximum: 4503599627370496
             readOnly: true
+            title: Quota_limit_type
+            allOf:
+            - $ref: '#/components/schemas/_quota_limit_type'
           requested_promotion_state:
             description: |
               Values include `promoted` and `demoted`.
@@ -26767,30 +27001,27 @@ components:
           description: |
             Logical space limit of the quota (in bytes) assigned by the rule.
             This value cannot be set to 0.
-          type: integer
-          format: int64
+          title: Policy_rule_user_group_quota_limit_type
+          allOf:
+          - $ref: '#/components/schemas/_policy_rule_user_group_quota_limit_type'
     _policyrulequotapatchRules:
-      type: object
-      properties:
-        enforced:
-          description: |
-            If set to `true`, this rule describes an enforced quota. An out-of-space warning is issued if
-            logical space usage exceeds the limit value described in this rule.
-            If set to `false`, this rule describes an unenforced quota. Alerts and/or notifications are
-            issued when logical space usage exceeds the limit value described in this rule.
-          type: boolean
-        notifications:
-          description: |
-            Targets to notify when usage approaches the quota limit.
-            The list of notification targets is a comma-separated string.
-            Valid values are one or more of `user` and `group`. To notify no targets, use `none`.
-          type: string
-        quota_limit:
-          description: |
-            Logical space limit of the quota (in bytes) assigned by the rule.
-            This value cannot be set to 0.
-          type: integer
-          format: int64
+      allOf:
+      - type: object
+        properties:
+          enforced:
+            description: |
+              If set to `true`, this rule describes an enforced quota. An out-of-space warning is issued if
+              logical space usage exceeds the limit value described in this rule.
+              If set to `false`, this rule describes an unenforced quota. Alerts and/or notifications are
+              issued when logical space usage exceeds the limit value described in this rule.
+            type: boolean
+          notifications:
+            description: |
+              Targets to notify when usage approaches the quota limit.
+              The list of notification targets is a comma-separated string.
+              Valid values are one or more of `user` and `group`. To notify no targets, use `none`.
+            type: string
+      - $ref: '#/components/schemas/_policy_rule_user_group_quota_limit_patch'
     PolicyRuleQuota:
       allOf:
       - $ref: '#/components/schemas/_context'
@@ -27155,8 +27386,9 @@ components:
           description: |
             Logical space limit of the quota (in bytes) assigned by the rule.
             This value cannot be negative.
-          type: integer
-          format: int64
+          title: Policy_rule_user_group_quota_limit_type
+          allOf:
+          - $ref: '#/components/schemas/_policy_rule_user_group_quota_limit_type'
         quota_type:
           description: |
             Specifies the type of quota rule. Valid values are `user-default`, `user`,
@@ -27173,33 +27405,29 @@ components:
           allOf:
           - $ref: '#/components/schemas/_policyruleusergroupquotaSubject'
     _policyruleusergroupquotapatchRules:
-      type: object
-      properties:
-        enforced:
-          description: |
-            If set to `true`, the quota is enforced and an out-of-space warning
-            is issued if logical space usage exceeds the specified limit.
-            If set to `false`, the quota is not enforced and alerts and/or
-            notifications are issued when logical space usage exceeds
-            the limit value.
-            If not specified, defaults to `false`.
-          type: boolean
-        notifications:
-          description: |
-            Targets to notify when usage approaches or exceeds the quota limit.
-            Valid non-empty values are `account` or `none`.
-            The `account` value specifies that the user or group owning the usage
-            will be notified, `none` specifies that notifications are not sent.
-            If not specified, we assume `none`.
-          type: array
-          items:
-            type: string
-        quota_limit:
-          description: |
-            Logical space limit of the quota (in bytes) assigned by the rule.
-            This value cannot be negative.
-          type: integer
-          format: int64
+      allOf:
+      - type: object
+        properties:
+          enforced:
+            description: |
+              If set to `true`, the quota is enforced and an out-of-space warning
+              is issued if logical space usage exceeds the specified limit.
+              If set to `false`, the quota is not enforced and alerts and/or
+              notifications are issued when logical space usage exceeds
+              the limit value.
+              If not specified, defaults to `false`.
+            type: boolean
+          notifications:
+            description: |
+              Targets to notify when usage approaches or exceeds the quota limit.
+              Valid non-empty values are `account` or `none`.
+              The `account` value specifies that the user or group owning the usage
+              will be notified, `none` specifies that notifications are not sent.
+              If not specified, we assume `none`.
+            type: array
+            items:
+              type: string
+      - $ref: '#/components/schemas/_policy_rule_user_group_quota_limit_patch'
     PolicyRuleUserGroupQuota:
       allOf:
       - $ref: '#/components/schemas/_context'
@@ -27854,19 +28082,41 @@ components:
               The QoS bandwidth floor for the container.
               Traffic is granted priority until this floor is reached.
               Measured in bytes per second. Maximum floor is 512 GB/s.
-            type: integer
-            format: int64
-            minimum: 1048576
-            maximum: 549755813888
+            title: Qos_bw_limit_type
+            allOf:
+            - $ref: '#/components/schemas/_qos_bw_limit_type'
           iops_floor:
             description: |
               The QoS IOPs floor for the container.
               Traffic is granted priority until this floor is reached.
               Maximum floor is 100,000,000 IOs per second.
-            type: integer
-            format: int64
-            minimum: 100
-            maximum: 100000000
+            title: Qos_iops_limit_type
+            allOf:
+            - $ref: '#/components/schemas/_qos_iops_limit_type'
+    _containerQos_patch:
+      allOf:
+      - $ref: '#/components/schemas/_containerQosCeilings_patch'
+      - properties:
+          bandwidth_floor:
+            description: |
+              The QoS bandwidth floor for the container.
+              Traffic is granted priority until this floor is reached.
+              Measured in bytes per second. Maximum floor is 512 GB/s.
+              In order to unset use "".
+            title: ContainerQosBandwidthLimitPatch
+            oneOf:
+            - $ref: '#/components/schemas/_qos_bw_limit_type'
+            - $ref: '#/components/schemas/_limit_unset_value'
+          iops_floor:
+            description: |
+              The QoS IOPs floor for the container.
+              Traffic is granted priority until this floor is reached.
+              Maximum floor is 100,000,000 IOs per second.
+              In order to unset use "".
+            title: ContainerQosIopsLimitPatch
+            oneOf:
+            - $ref: '#/components/schemas/_qos_iops_limit_type'
+            - $ref: '#/components/schemas/_limit_unset_value'
     Realm:
       allOf:
       - $ref: '#/components/schemas/_resource'
@@ -29245,7 +29495,7 @@ components:
             The default `container_version` is `1`.
           type: string
           example: "1"
-    _qos:
+    _qos_patch:
       type: object
       properties:
         bandwidth_limit:
@@ -29253,17 +29503,19 @@ components:
             The maximum QoS bandwidth limit for the volume.
             Whenever throughput exceeds the bandwidth limit, throttling occurs.
             Measured in bytes per second. Maximum limit is 512 GB/s.
-          type: integer
-          format: int64
-          minimum: 1048576
-          maximum: 549755813888
+            In order to unset use "".
+          title: QosBandwidthLimitPatch
+          oneOf:
+          - $ref: '#/components/schemas/_qos_bw_limit_type'
+          - $ref: '#/components/schemas/_limit_unset_value'
         iops_limit:
           description: |
             The QoS IOPs limit for the volume.
-          type: integer
-          format: int64
-          minimum: 100
-          maximum: 100000000
+            In order to unset use "".
+          title: QosIopsLimitPatch
+          oneOf:
+          - $ref: '#/components/schemas/_qos_iops_limit_type'
+          - $ref: '#/components/schemas/_limit_unset_value'
     _referenceWithFixedType:
       type: object
       properties:
@@ -29409,6 +29661,23 @@ components:
             format: int64
             readOnly: true
         x-readOnly: true
+    _qos:
+      type: object
+      properties:
+        bandwidth_limit:
+          description: |
+            The maximum QoS bandwidth limit for the volume.
+            Whenever throughput exceeds the bandwidth limit, throttling occurs.
+            Measured in bytes per second. Maximum limit is 512 GB/s.
+          title: Qos_bw_limit_type
+          allOf:
+          - $ref: '#/components/schemas/_qos_bw_limit_type'
+        iops_limit:
+          description: |
+            The QoS IOPs limit for the volume.
+          title: Qos_iops_limit_type
+          allOf:
+          - $ref: '#/components/schemas/_qos_iops_limit_type'
     VolumeGroup:
       allOf:
       - $ref: '#/components/schemas/_context'
@@ -31119,6 +31388,10 @@ components:
             items:
               $ref: '#/components/schemas/_networkInterfacePortDetailsVoltage'
         x-readOnly: true
+    _limit_unset_value:
+      type: string
+      minLength: 0
+      maxLength: 0
     _pod_array_status:
       allOf:
       - $ref: '#/components/schemas/_reference'
@@ -31379,6 +31652,21 @@ components:
           description: |
             The policy on the remote pod of the pod replica link for this policy mapping.
           type: string
+    _policy_rule_user_group_quota_limit_type:
+      type: integer
+      format: int64
+    _policy_rule_user_group_quota_limit_patch:
+      type: object
+      properties:
+        quota_limit:
+          title: PolicyRuleUserGroupQuotaLimitPatch
+          description: |
+            Logical space limit of the quota (in bytes) assigned by the rule.
+            This value cannot be negative.
+            In order to unset use "".
+          oneOf:
+          - $ref: '#/components/schemas/_policy_rule_user_group_quota_limit_type'
+          - $ref: '#/components/schemas/_limit_unset_value'
     PolicyLockableEradicationConfig:
       description: The configuration of the eradication feature.
       type: object
@@ -31755,17 +32043,46 @@ components:
             The maximum QoS bandwidth limit for the container.
             Whenever throughput exceeds the bandwidth limit, throttling occurs.
             Measured in bytes per second. Maximum limit is 512 GB/s.
-          type: integer
-          format: int64
-          minimum: 1048576
-          maximum: 549755813888
+          title: Qos_bw_limit_type
+          allOf:
+          - $ref: '#/components/schemas/_qos_bw_limit_type'
         iops_limit:
           description: |
             The QoS IOPs limit for the container.
-          type: integer
-          format: int64
-          minimum: 100
-          maximum: 100000000
+          title: Qos_iops_limit_type
+          allOf:
+          - $ref: '#/components/schemas/_qos_iops_limit_type'
+    _qos_bw_limit_type:
+      type: integer
+      format: int64
+      minimum: 1048576
+      maximum: 549755813888
+    _qos_iops_limit_type:
+      type: integer
+      format: int64
+      minimum: 100
+      maximum: 100000000
+    _containerQosCeilings_patch:
+      type: object
+      properties:
+        bandwidth_limit:
+          description: |
+            The maximum QoS bandwidth limit for the container.
+            Whenever throughput exceeds the bandwidth limit, throttling occurs.
+            Measured in bytes per second. Maximum limit is 512 GB/s.
+            In order to unset use "".
+          title: ContainerQosCeilingsBandwidthLimitPatch
+          oneOf:
+          - $ref: '#/components/schemas/_qos_bw_limit_type'
+          - $ref: '#/components/schemas/_limit_unset_value'
+        iops_limit:
+          description: |
+            The QoS IOPs limit for the container.
+            In order to unset use "".
+          title: ContainerQosCeilingsIopsLimitPatch
+          oneOf:
+          - $ref: '#/components/schemas/_qos_iops_limit_type'
+          - $ref: '#/components/schemas/_limit_unset_value'
     _spaceNoDeprecatedPhysicalOrEffective:
       type: object
       properties:
