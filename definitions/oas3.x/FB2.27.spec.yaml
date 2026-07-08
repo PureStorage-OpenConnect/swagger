@@ -455,6 +455,7 @@ paths:
           content: {}
   /api/login-banner:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Authorization
       summary: GET login_banner
@@ -479,6 +480,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/active-directory"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Active Directory
       summary: GET active-directory
@@ -507,6 +509,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/active-directory'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Active Directory
       summary: POST active-directory
@@ -540,6 +543,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/active-directory'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Active Directory
       summary: DELETE active-directory
@@ -561,6 +565,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/active-directory'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Active Directory
       summary: PATCH active-directory
@@ -1140,6 +1145,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/admins/settings"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Administrators
       summary: List global admin settings
@@ -1166,6 +1172,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/admins/settings'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Administrators
       summary: Update global admin settings
@@ -1296,6 +1303,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/alerts"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Alerts
       summary: GET alerts
@@ -1326,6 +1334,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/alerts'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Alerts
       summary: PATCH alerts
@@ -1362,6 +1371,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/alert-watchers"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Alert Watchers
       summary: GET alert-watchers
@@ -1390,6 +1400,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/alert-watchers'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Alert Watchers
       summary: POST alert-watchers
@@ -1420,6 +1431,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/alert-watchers'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Alert Watchers
       summary: DELETE alert-watchers
@@ -1440,6 +1452,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/alert-watchers'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Alert Watchers
       summary: PATCH alert-watchers
@@ -1476,6 +1489,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/alert-watchers/test"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Alert Watchers
       summary: GET alert-watchers/test
@@ -1504,6 +1518,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/api-clients"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - API Clients
       summary: GET api-clients
@@ -1533,6 +1548,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/api-clients'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - API Clients
       summary: POST api-clients
@@ -1569,6 +1585,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/api-clients'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - API Clients
       summary: DELETE api-clients
@@ -1590,6 +1607,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/api-clients'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - API Clients
       summary: PATCH api-clients
@@ -1667,6 +1685,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/arrays'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: PATCH arrays
@@ -1700,6 +1719,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/arrays/clients/performance"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Clients
       summary: GET clients-performance
@@ -1744,6 +1764,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/arrays/clients/s3-specific-performance"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Clients
       summary: GET clients-performance
@@ -1773,6 +1794,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/arrays/eula"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: GET arrays/eula
@@ -1799,6 +1821,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/arrays/eula'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: PATCH arrays/eula
@@ -1831,6 +1854,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/arrays/factory-reset-token"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: List factory reset tokens
@@ -1857,6 +1881,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/arrays/factory-reset-token'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: Create a factory reset token
@@ -1884,6 +1909,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/arrays/factory-reset-token'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: Delete a factory reset token
@@ -1990,6 +2016,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/policies/ssh-certificate-authority/members"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
       summary: GET admins/settings/ssh-certificate-authority-policies
@@ -2022,6 +2049,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/ssh-certificate-authority/members'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
       summary: POST admins/settings/ssh-certificate-authority-policies
@@ -2048,6 +2076,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/ssh-certificate-authority/members'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
       summary: DELETE admins/settings/ssh-certificate-authority-policies
@@ -2207,6 +2236,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/array-connections/connection-key"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Array Connections
       summary: GET array-connections/connection-key
@@ -2235,6 +2265,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/array-connections/connection-key'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Array Connections
       summary: POST array-connections/connection-key
@@ -2307,6 +2338,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/array-connections/performance/replication"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Array Connections
       summary: GET array-connections/performance/replication
@@ -2606,6 +2638,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/arrays/space/storage-classes"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: GET arrays/space/storage-classes
@@ -2640,6 +2673,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/arrays/supported-time-zones"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: GET arrays/supported-time-zones
@@ -2670,6 +2704,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/arrays/erasures"
     post:
+      x-pure-block-remote-execution: true
       summary: Create a process for factory reset
       description: |+
         Creates the initiation of the factory reset process.
@@ -2694,6 +2729,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/arrays/erasures'
     patch:
+      x-pure-block-remote-execution: true
       summary: Factory reset - finalize
       description: |+
         After the process has been completed, we need to finalize the factory reset process.
@@ -2719,6 +2755,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/arrays/erasures'
     get:
+      x-pure-block-remote-execution: true
       summary: Get factory reset status
       description: |
         Get the factory reset process status.
@@ -2740,6 +2777,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/arrays/erasures'
     delete:
+      x-pure-block-remote-execution: true
       summary: Stop factory reset
       description: |+
         Stops the factory reset process when it is `failed`.
@@ -3019,6 +3057,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/policies/audit-file/operations"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Audit for File Systems
       summary: GET audit-file-systems-policy-operations
@@ -3284,6 +3323,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/blades"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Blades
       summary: GET blades
@@ -3865,6 +3905,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/buckets/performance"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Buckets
       summary: GET buckets/performance
@@ -4120,6 +4161,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/buckets/s3-specific-performance"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Buckets
       summary: GET buckets/s3-specific-performance
@@ -4304,6 +4346,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/certificates"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: GET certificates
@@ -4332,6 +4375,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/certificates'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: POST certificates
@@ -4365,6 +4409,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/certificates'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: DELETE certificates
@@ -4385,6 +4430,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/certificates'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: PATCH certificates
@@ -4424,6 +4470,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/certificate-groups/certificates"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: GET certificates/certificate-groups
@@ -4454,6 +4501,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/certificate-groups/certificates'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: POST certificates/certificate-groups
@@ -4479,6 +4527,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/certificate-groups/certificates'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: DELETE certificates/certificate-groups
@@ -4504,6 +4553,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/certificates/certificate-signing-requests"
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: Create certificate-signing-requests
@@ -4537,6 +4587,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/certificates/uses"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: GET certificates/uses
@@ -4568,6 +4619,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/certificate-groups"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Certificate Groups
       summary: GET certificate-groups
@@ -4596,6 +4648,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/certificate-groups'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Certificate Groups
       summary: POST certificate-groups
@@ -4618,6 +4671,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/certificate-groups'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Certificate Groups
       summary: DELETE certificate-groups
@@ -4641,6 +4695,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/certificate-groups/certificates"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Certificate Groups
       summary: GET certificate-groups/certificates
@@ -4671,6 +4726,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/certificate-groups/certificates'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Certificate Groups
       summary: POST certificate-groups/certificates
@@ -4696,6 +4752,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/certificate-groups/certificates'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Certificate Groups
       summary: DELETE certificate-groups/certificates
@@ -4721,6 +4778,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/certificate-groups/uses"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Certificate Groups
       summary: GET certificate-groups/uses
@@ -5032,6 +5090,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/directory-services"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Directory Services
       summary: GET directory-services
@@ -5060,6 +5119,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/directory-services'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Directory Services
       summary: PATCH directory-services
@@ -5095,6 +5155,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/directory-services/roles"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Directory Services
       summary: GET directory-service/roles
@@ -5126,6 +5187,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/directory-services/roles'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Directory Services
       summary: POST directory-service/roles
@@ -5157,6 +5219,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/directory-services/roles'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Directory Services
       summary: DELETE directory-service/roles
@@ -5178,6 +5241,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/directory-services/roles'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Directory Services
       summary: PATCH directory-service/roles
@@ -5215,6 +5279,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/policies/management-access/members"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Management Access
       summary: GET directory-services/roles/management-access-policies
@@ -5246,6 +5311,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/management-access/members'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Management Access
       summary: POST directory-services/roles/management-access-policies
@@ -5271,6 +5337,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/management-access/members'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Management Access
       summary: DELETE directory-services/roles/management-access-policies
@@ -5507,6 +5574,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/drives"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Drives
       summary: GET drives
@@ -5788,6 +5856,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/file-systems/groups/performance"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - File Systems
       summary: GET file-systems/groups/performance
@@ -5821,6 +5890,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/file-systems/performance"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - File Systems
       summary: GET file-systems/performance
@@ -6109,6 +6179,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/file-systems/users/performance"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - File Systems
       summary: GET file-systems/users/performance
@@ -6681,6 +6752,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/policies/snapshot/members"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - File System Replica Links
       summary: GET file-system-replica-links/policies
@@ -6732,6 +6804,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/snapshot/members'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - File System Replica Links
       summary: POST file-system-replica-links/policies
@@ -6761,6 +6834,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/snapshot/members'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - File System Replica Links
       summary: DELETE file-system-replica-links/policies
@@ -7319,6 +7393,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/file-systems/space/storage-classes"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - File Systems
       summary: GET file-systems/space/storage-classes
@@ -7352,6 +7427,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/file-systems/open-files"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - File Systems
       summary: GET file-systems/open-files
@@ -7383,6 +7459,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/file-systems/open-files'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - File Systems
       summary: DELETE file-systems/open-files
@@ -7405,6 +7482,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/fleets"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: GET fleets
@@ -7434,6 +7512,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/fleets'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: POST fleets
@@ -7458,6 +7537,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/fleets'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: DELETE Fleets
@@ -7480,6 +7560,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/fleets'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: PATCH fleets
@@ -7511,6 +7592,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/fleets/fleet-key"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: GET fleet-key
@@ -7541,6 +7623,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/fleets/fleet-key'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: POST fleet-key
@@ -7568,6 +7651,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/fleets/members"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: GET fleet members
@@ -7599,6 +7683,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/fleets/members'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: POST fleets
@@ -7638,6 +7723,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/fleets/members'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: Remove fleet members
@@ -7700,6 +7786,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/hardware"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Hardware
       summary: GET hardware
@@ -7728,6 +7815,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/hardware'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Hardware
       summary: PATCH hardware
@@ -7763,6 +7851,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/hardware-connectors"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Hardware Connectors
       summary: GET hardware-connectors
@@ -7793,6 +7882,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/hardware-connectors'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Hardware Connectors
       summary: PATCH hardware-connectors
@@ -7829,6 +7919,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/hardware-connectors/performance"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Hardware Connectors
       summary: GET hardware-connectors/performance
@@ -7867,6 +7958,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/keytabs"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Keytabs
       summary: GET keytabs
@@ -7895,6 +7987,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/keytabs'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Keytabs
       summary: POST keytabs
@@ -7920,6 +8013,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/keytabs'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Keytabs
       summary: DELETE keytabs
@@ -7943,6 +8037,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/keytabs/download"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Keytabs
       summary: GET keytabs/download
@@ -7973,6 +8068,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/keytabs/upload"
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Keytabs
       summary: POST keytabs/upload
@@ -8014,6 +8110,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/kmip"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - KMIP
       summary: List KMIP server configurations
@@ -8043,6 +8140,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/kmip'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - KMIP
       summary: Create a KMIP server configuration
@@ -8073,6 +8171,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/kmip'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - KMIP
       summary: Delete a KMIP server configuration
@@ -8094,6 +8193,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/kmip'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - KMIP
       summary: Modify a KMIP server configuration
@@ -8129,6 +8229,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/kmip/test"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - KMIP
       summary: Displays KMIP server test results
@@ -8156,6 +8257,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/legal-holds"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Legal Holds
       summary: List legal holds
@@ -8184,6 +8286,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/legal-holds'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Legal Holds
       summary: Create a legal hold
@@ -8214,6 +8317,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/legal-holds'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Legal Holds
       summary: Delete a legal hold
@@ -8235,6 +8339,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/legal-holds'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Legal Holds
       summary: Update a legal hold
@@ -8269,6 +8374,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/legal-holds/held-entities"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Legal Holds
       summary: List held entities
@@ -8297,6 +8403,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/legal-holds/held-entities'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Legal Holds
       summary: Apply this legal hold to a new entity
@@ -8327,6 +8434,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/legal-holds/held-entities'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Legal Holds
       summary: Release this legal hold from the given entity
@@ -8518,6 +8626,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/link-aggregation-groups"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Link Aggregation Groups
       summary: GET link-aggregation-groups
@@ -8547,6 +8656,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/link-aggregation-groups'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Link Aggregation Groups
       summary: POST link-aggregation-groups
@@ -8577,6 +8687,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/link-aggregation-groups'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Link Aggregation Groups
       summary: DELETE link-aggregation-groups
@@ -8597,6 +8708,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/link-aggregation-groups'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Link Aggregation Groups
       summary: PATCH link-aggregation-groups
@@ -9196,6 +9308,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/logs"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Logs
       summary: GET logs
@@ -9232,6 +9345,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/logs-async"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Logs
       summary: GET logs-async
@@ -9261,6 +9375,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/logs-async'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Logs
       summary: PATCH logs-async
@@ -9294,6 +9409,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/logs-async/download"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Logs
       summary: GET logs-async/download
@@ -9577,6 +9693,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/maintenance-windows"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Maintenance Windows
       summary: List maintenance window details
@@ -9606,6 +9723,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/maintenance-windows'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Maintenance Windows
       summary: Create a maintenance window
@@ -9639,6 +9757,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/maintenance-windows'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Maintenance Windows
       summary: Delete maintenance window
@@ -9900,6 +10019,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/policies/management-access/members"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Management Access
       summary: GET management-access-policies/directory-services/roles
@@ -9931,6 +10051,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/management-access/members'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Management Access
       summary: POST management-access-policies/directory-services/roles
@@ -9956,6 +10077,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/management-access/members'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Management Access
       summary: DELETE management-access-policies/directory-services/roles
@@ -10645,6 +10767,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/policies/network-access"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Network Access
       summary: GET network-access-policies
@@ -10668,6 +10791,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/network-access'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Network Access
       summary: PATCH network-access-policies
@@ -10698,6 +10822,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/policies/network-access/members"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Network Access
       summary: GET network-access-policies/members
@@ -10727,6 +10852,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/policies/network-access/rules"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Network Access
       summary: GET network-access-policies/rules
@@ -10752,6 +10878,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/network-access/rules'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Network Access
       summary: POST network-access-policies/rules
@@ -10783,6 +10910,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/network-access/rules'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Network Access
       summary: DELETE network-access-policies/rules
@@ -10799,6 +10927,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/network-access/rules'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Network Access
       summary: PATCH network-access-policies/rules
@@ -10831,6 +10960,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/network-interfaces"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: GET network-interfaces
@@ -10859,6 +10989,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/network-interfaces'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: POST network-interfaces
@@ -10889,6 +11020,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/network-interfaces'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: DELETE network-interfaces
@@ -10910,6 +11042,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/network-interfaces'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: PATCH network-interfaces
@@ -10944,6 +11077,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/network-interfaces/ping"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: GET network-interfaces/ping
@@ -10976,6 +11110,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/network-interfaces/trace"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: GET network-interfaces/trace
@@ -11009,6 +11144,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/policies/tls/members"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - TLS
       summary: GET network-interfaces/tls-policies
@@ -11039,6 +11175,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/tls/members'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - TLS
       summary: POST network-interfaces/tls-policies
@@ -11065,6 +11202,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/tls/members'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - TLS
       summary: DELETE network-interfaces/tls-policies
@@ -11090,6 +11228,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/network-interfaces/connectors"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: GET network-interfaces/connectors
@@ -11118,6 +11257,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/network-interfaces/connectors'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: PATCH network-interfaces/connectors
@@ -11152,6 +11292,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/network-interfaces/connectors/performance"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: GET network connectors performance statistics
@@ -11188,6 +11329,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/network-interfaces/connectors/settings"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: GET global network settings for network connectors
@@ -11219,6 +11361,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/network-interfaces/network-connection-statistics"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: GET network-interfaces/network-connection-statistics
@@ -11253,6 +11396,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/network-interfaces/neighbors"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: List network interface neighbors
@@ -11574,6 +11718,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/nodes"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Nodes
       summary: GET nodes
@@ -11603,6 +11748,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/nodes'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Nodes
       summary: PATCH nodes
@@ -11637,6 +11783,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/nodes/batch"
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Nodes
       summary: POST nodes/batch
@@ -11672,6 +11819,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/node-groups"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Node Groups
       summary: GET node-groups
@@ -11700,6 +11848,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/node-groups'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Node Groups
       summary: POST node-groups
@@ -11722,6 +11871,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/node-groups'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Node Groups
       summary: PATCH node-groups
@@ -11752,6 +11902,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/node-groups'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Node Groups
       summary: DELETE node-groups
@@ -11775,6 +11926,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/node-groups/nodes"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Node Groups
       summary: GET node-groups/nodes
@@ -11805,6 +11957,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/node-groups/nodes'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Node Groups
       summary: POST node-groups/nodes
@@ -11830,6 +11983,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/node-groups/nodes'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Node Groups
       summary: DELETE node-groups/nodes
@@ -11855,6 +12009,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/node-groups/uses"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Node Groups
       summary: GET node-groups/uses
@@ -13192,6 +13347,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/object-store-roles/object-store-trust-policies/download"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Object Store Roles
       summary: GET object-store-roles/object-store-trust-policies/download
@@ -13715,6 +13871,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/policies/password"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Password
       summary: List password policies
@@ -13739,6 +13896,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/password'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Password
       summary: Modify password policies
@@ -14316,6 +14474,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/public-keys"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Public Keys
       summary: List public key configurations
@@ -14344,6 +14503,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/public-keys'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Public Keys
       summary: Create public key configurations
@@ -14374,6 +14534,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/public-keys'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Public Keys
       summary: Delete public key configurations
@@ -14397,6 +14558,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/public-keys/uses"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Public Keys
       summary: GET public-keys/uses
@@ -14905,6 +15067,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/quotas/settings"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Quotas
       summary: GET quotas-settings
@@ -14928,6 +15091,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/quotas/settings'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Quotas
       summary: PATCH quotas-settings
@@ -15307,6 +15471,10 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/presets/workload"
     get:
+      x-pure-block-remote-execution: true
+      x-pure-remote-execution-context-domains-override:
+      - ARRAY
+      - FLEET
       tags:
       - Presets
       summary: List workload presets
@@ -15327,6 +15495,9 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/presets/workload'
     put:
+      x-pure-block-remote-execution: true
+      x-pure-remote-execution-context-domains-override:
+      - FLEET
       tags:
       - Presets
       summary: Update a workload preset
@@ -15357,6 +15528,9 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/presets/workload'
     post:
+      x-pure-block-remote-execution: true
+      x-pure-remote-execution-context-domains-override:
+      - FLEET
       tags:
       - Presets
       summary: Create a workload preset
@@ -15385,6 +15559,9 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/presets/workload'
     delete:
+      x-pure-block-remote-execution: true
+      x-pure-remote-execution-context-domains-override:
+      - FLEET
       tags:
       - Presets
       summary: Delete a workload preset
@@ -15403,6 +15580,9 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/presets/workload'
     patch:
+      x-pure-block-remote-execution: true
+      x-pure-remote-execution-context-domains-override:
+      - FLEET
       tags:
       - Presets
       summary: Modify a workload preset
@@ -15435,6 +15615,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/rapid-data-locking"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - RDL
       summary: Get the status of the Rapid Data Locking feature.
@@ -15457,6 +15638,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/rapid-data-locking'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - RDL
       summary: Modifies the Rapid Data Locking feature.
@@ -15492,6 +15674,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/rapid-data-locking/test"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - RDL
       summary: Displays Rapid Data Locking test results.
@@ -15517,6 +15700,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/rapid-data-locking/rotate"
     post:
+      x-pure-block-remote-execution: true
       tags:
       - RDL
       summary: Rotates the external keys on the associated EKM appliance.
@@ -15539,6 +15723,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/realm-connections"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Realm Connections
       summary: GET realm-connections
@@ -15570,6 +15755,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/realm-connections'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Realm Connections
       summary: POST realm-connections
@@ -15601,6 +15787,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/realm-connections'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Realm Connections
       summary: DELETE realm-connections
@@ -15626,6 +15813,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/realm-connections/connection-key"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Realm Connections
       summary: GET realm-connections/connection-key
@@ -15654,6 +15842,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/realm-connections/connection-key'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Realm Connections
       summary: POST realm-connections/connection-key
@@ -15677,6 +15866,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/realm-connections/connection-key'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Realm Connections
       summary: DELETE realm-connections/connection-key
@@ -15732,6 +15922,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/realms'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Realms
       summary: POST realms
@@ -15755,6 +15946,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/realms'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Realms
       summary: DELETE Realms
@@ -15777,6 +15969,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/realms'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Realms
       summary: PATCH realms
@@ -15888,6 +16081,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/realms/space"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Realms
       summary: GET realms/space
@@ -15918,6 +16112,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/realms/space/storage-classes"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Realms
       summary: GET realms/space/storage-classes
@@ -15954,6 +16149,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/remote-arrays"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Remote Arrays
       summary: List remote arrays
@@ -15994,6 +16190,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/remote-arrays'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Remote Arrays
       summary: Modify remote arrays
@@ -16017,6 +16214,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/remote-realms"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Remote Realms
       summary: List remote realms
@@ -16053,6 +16251,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/resiliency-groups"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Resiliency Groups
       summary: GET resiliency-groups
@@ -16084,6 +16283,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/resiliency-groups/members"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Resiliency Groups
       summary: GET resiliency-groups/members
@@ -16117,6 +16317,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/resource-accesses"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Resource Accesses
       summary: GET resource-accesses
@@ -16145,6 +16346,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/resource-accesses'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Resource Accesses
       summary: DELETE resource-accesses
@@ -16168,6 +16370,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/resource-accesses/batch"
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Resource Accesses
       summary: POST resource-accesses/batch
@@ -16201,6 +16404,7 @@ paths:
       - name: 'Authorization Resource: purestorage.com/api/v2/resource-accesses/batch'
   /api/2.27/roles:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Roles
       summary: GET roles
@@ -16512,6 +16716,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/sso/oidc/idps"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - OIDC SSO
       summary: List OIDC SSO configurations
@@ -16535,6 +16740,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/sso/oidc/idps'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - OIDC SSO
       summary: Create OIDC SSO configuration
@@ -16560,6 +16766,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/sso/oidc/idps'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - OIDC SSO
       summary: Delete OIDC SSO configurations
@@ -16575,6 +16782,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/sso/oidc/idps'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - OIDC SSO
       summary: Modify OIDC SSO configuration
@@ -16604,6 +16812,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/sso/saml2/idps"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - SAML2 SSO
       summary: List SAML2 SSO configurations
@@ -16634,6 +16843,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/sso/saml2/idps'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - SAML2 SSO
       summary: Create SAML2 SSO configurations
@@ -16664,6 +16874,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/sso/saml2/idps'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - SAML2 SSO
       summary: Delete SAML2 SSO configurations
@@ -16684,6 +16895,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/sso/saml2/idps'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - SAML2 SSO
       summary: Modify SAML2 SSO configurations
@@ -16718,6 +16930,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/sso/saml2/idps/test"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - SAML2 SSO
       summary: GET sso/saml2/idps/test
@@ -16745,6 +16958,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/sso/saml2/idps/test'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - SAML2 SSO
       summary: PATCH sso/saml2/idps/test
@@ -16782,6 +16996,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/policies/storage-class-tiering"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Storage Class Tiering
       summary: GET storage-class-tiering-policies
@@ -16810,6 +17025,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/storage-class-tiering'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Storage Class Tiering
       summary: POST storage-class-tiering-policies
@@ -16840,6 +17056,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/storage-class-tiering'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Storage Class Tiering
       summary: DELETE storage-class-tiering-policies
@@ -16862,6 +17079,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/storage-class-tiering'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Storage Class Tiering
       summary: PATCH storage-class-tiering-policies
@@ -16896,6 +17114,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/policies/storage-class-tiering/members"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Storage Class Tiering
       summary: GET storage-class-tiering-policies/members
@@ -17022,6 +17241,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/servers'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Servers
       summary: POST servers
@@ -17054,6 +17274,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/servers'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Servers
       summary: DELETE servers
@@ -17075,6 +17296,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/servers'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Servers
       summary: PATCH servers
@@ -17109,6 +17331,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/sessions"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Sessions
       summary: List session data
@@ -17713,6 +17936,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/smtp-servers"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - SMTP
       summary: GET smtp-servers
@@ -17741,6 +17965,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/smtp-servers'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - SMTP
       summary: PATCH smtp-servers
@@ -17773,6 +17998,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/snmp-agents"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - SNMP Agents
       summary: GET snmp-agents
@@ -17801,6 +18027,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/snmp-agents'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - SNMP Agents
       summary: PATCH snmp-agents
@@ -17833,6 +18060,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/snmp-agents/mib"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - SNMP Agents
       summary: GET snmp-agents-mib
@@ -17858,6 +18086,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/snmp-managers"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - SNMP Managers
       summary: GET snmp-managers
@@ -17886,6 +18115,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/snmp-managers'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - SNMP Managers
       summary: POST snmp-managers
@@ -17916,6 +18146,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/snmp-managers'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - SNMP Managers
       summary: DELETE snmp-managers
@@ -17936,6 +18167,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/snmp-managers'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - SNMP Managers
       summary: PATCH snmp-managers
@@ -17970,6 +18202,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/snmp-managers/test"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - SNMP Managers
       summary: GET snmp-managers/test
@@ -18045,6 +18278,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/ssh-certificate-authority'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
       summary: Create SSH Certificate Authority configurations
@@ -18075,6 +18309,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/ssh-certificate-authority'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
       summary: Delete SSH Certificate Authority configurations
@@ -18095,6 +18330,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/ssh-certificate-authority'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
       summary: Modify SSH Certificate Authority configurations
@@ -18375,6 +18611,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/subnets"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Subnets
       summary: GET subnets
@@ -18403,6 +18640,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/subnets'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Subnets
       summary: POST subnets
@@ -18433,6 +18671,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/subnets'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Subnets
       summary: DELETE subnets
@@ -18453,6 +18692,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/subnets'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Subnets
       summary: PATCH subnets
@@ -18487,6 +18727,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/support"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Support
       summary: GET support
@@ -18510,6 +18751,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/support'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Support
       summary: PATCH support
@@ -18578,6 +18820,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/support/test"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Support
       summary: GET support-test
@@ -18605,6 +18848,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/support/verification-keys"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Verification Keys
       summary: GET verification-keys
@@ -18633,6 +18877,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/support/verification-keys'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Verification Keys
       summary: PATCH verification-keys
@@ -18667,6 +18912,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/support-diagnostics"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Support Diagnostics
       summary: GET diagnostics list
@@ -18691,6 +18937,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/support-diagnostics'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Support Diagnostics
       summary: Start a diagnostic task
@@ -18719,6 +18966,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/support-diagnostics/details"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Support Diagnostics
       summary: GET diagnostics details
@@ -18746,6 +18994,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/support-diagnostics/settings"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Support Diagnostics
       summary: List diagnostics tools version and last updated date
@@ -18769,6 +19018,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/support-diagnostics/settings'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Support Diagnostics
       summary: Update diagnostics tools
@@ -18862,6 +19112,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/software-check"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Software
       summary: List software check tasks
@@ -18886,6 +19137,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/software-check'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Software
       summary: Create a software check task
@@ -18914,6 +19166,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/software-patches"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Software
       summary: List software patches
@@ -18939,6 +19192,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/software-patches'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Software
       summary: Create a software patch
@@ -19017,6 +19271,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/log-targets/syslog'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Syslog
       summary: POST syslog-servers
@@ -19048,6 +19303,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/log-targets/syslog'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Syslog
       summary: DELETE syslog-servers
@@ -19069,6 +19325,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/log-targets/syslog'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Syslog
       summary: PATCH syslog-servers
@@ -19103,6 +19360,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/log-targets/syslog/settings"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Syslog
       summary: GET syslog-servers/settings
@@ -19131,6 +19389,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/log-targets/syslog/settings'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Syslog
       summary: PATCH syslog-servers/settings
@@ -19165,6 +19424,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/log-targets/syslog/test"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Syslog
       summary: GET syslog-servers/test
@@ -19234,6 +19494,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/targets'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Targets
       summary: POST targets
@@ -19264,6 +19525,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/targets'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Targets
       summary: DELETE targets
@@ -19284,6 +19546,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/targets'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Targets
       summary: PATCH targets
@@ -19318,6 +19581,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/targets/performance/replication"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Targets
       summary: GET targets/performance/replication
@@ -19353,6 +19617,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/policies/tls"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - TLS
       summary: List TLS policies
@@ -19383,6 +19648,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/tls'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - TLS
       summary: Create TLS policies
@@ -19413,6 +19679,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/tls'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - TLS
       summary: Delete TLS policies
@@ -19433,6 +19700,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/tls'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - TLS
       summary: Modify TLS policies
@@ -19467,6 +19735,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/policies/tls/members"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - TLS
       summary: GET tls-policies/members
@@ -19501,6 +19770,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/policies/tls/members"
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - TLS
       summary: GET tls-policies/network-interfaces
@@ -19531,6 +19801,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/tls/members'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - TLS
       summary: POST tls-policies/network-interfaces
@@ -19557,6 +19828,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/tls/members'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - TLS
       summary: DELETE tls-policies/network-interfaces

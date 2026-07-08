@@ -392,6 +392,7 @@ paths:
           content: {}
   /api/login-banner:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Authorization
       summary: GET login_banner
@@ -414,6 +415,7 @@ paths:
       security: []
   /api/2.22/active-directory:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Active Directory
       summary: GET active-directory
@@ -440,6 +442,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ActiveDirectoryGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Active Directory
       summary: POST active-directory
@@ -471,6 +474,7 @@ paths:
                 $ref: '#/components/schemas/ActiveDirectoryResponse'
       x-codegen-request-body-name: active-directory
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Active Directory
       summary: DELETE active-directory
@@ -490,6 +494,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Active Directory
       summary: PATCH active-directory
@@ -520,6 +525,7 @@ paths:
       x-codegen-request-body-name: active-directory
   /api/2.22/active-directory/test:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Active Directory
       summary: GET active-directory/test
@@ -574,6 +580,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AdminGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Administrators
       summary: POST admins
@@ -602,6 +609,7 @@ paths:
                 $ref: '#/components/schemas/AdminResponse'
       x-codegen-request-body-name: admin
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Administrators
       summary: DELETE admins
@@ -620,6 +628,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Administrators
       summary: PATCH admins
@@ -650,6 +659,7 @@ paths:
       x-codegen-request-body-name: admin
   /api/2.22/admins/api-tokens:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Administrators
       summary: GET admins/api-tokens
@@ -677,6 +687,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AdminApiTokenGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Administrators
       summary: POST admins/api-tokens
@@ -699,6 +710,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AdminApiTokenResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Administrators
       summary: DELETE admins/api-tokens
@@ -718,6 +730,7 @@ paths:
           content: {}
   /api/2.22/admins/cache:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Administrators
       summary: GET admins/cache
@@ -745,6 +758,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AdminCacheGetResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Administrators
       summary: DELETE admins/cache
@@ -764,6 +778,7 @@ paths:
           content: {}
   /api/2.22/admins/management-access-policies:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Management Access
       summary: GET admins/management-access-policies
@@ -793,6 +808,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Management Access
       summary: POST admins/management-access-policies
@@ -816,6 +832,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Management Access
       summary: DELETE admins/management-access-policies
@@ -913,6 +930,7 @@ paths:
           content: {}
   /api/2.22/admins/settings:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Administrators
       summary: List global admin settings
@@ -937,6 +955,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AdminSettingsGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Administrators
       summary: Update global admin settings
@@ -965,6 +984,7 @@ paths:
       x-codegen-request-body-name: admin-setting
   /api/2.22/admins/ssh-certificate-authority-policies:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
       summary: GET admins/ssh-certificate-authority-policies
@@ -993,6 +1013,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
       summary: POST admins/ssh-certificate-authority-policies
@@ -1016,6 +1037,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
       summary: DELETE admins/ssh-certificate-authority-policies
@@ -1037,6 +1059,7 @@ paths:
           content: {}
   /api/2.22/alerts:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Alerts
       summary: GET alerts
@@ -1065,6 +1088,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AlertGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Alerts
       summary: PATCH alerts
@@ -1097,6 +1121,7 @@ paths:
       x-codegen-request-body-name: alerts-settings
   /api/2.22/alert-watchers:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Alert Watchers
       summary: GET alert-watchers
@@ -1123,6 +1148,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AlertWatcherGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Alert Watchers
       summary: POST alert-watchers
@@ -1151,6 +1177,7 @@ paths:
                 $ref: '#/components/schemas/AlertWatcherResponse'
       x-codegen-request-body-name: alert-watcher
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Alert Watchers
       summary: DELETE alert-watchers
@@ -1169,6 +1196,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Alert Watchers
       summary: PATCH alert-watchers
@@ -1201,6 +1229,7 @@ paths:
       x-codegen-request-body-name: alert-watcher
   /api/2.22/alert-watchers/test:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Alert Watchers
       summary: GET alert-watchers/test
@@ -1225,6 +1254,7 @@ paths:
                 $ref: '#/components/schemas/TestResultResponse'
   /api/2.22/api-clients:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - API Clients
       summary: GET api-clients
@@ -1252,6 +1282,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiClientsResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - API Clients
       summary: POST api-clients
@@ -1286,6 +1317,7 @@ paths:
                 $ref: '#/components/schemas/ApiClientsResponse'
       x-codegen-request-body-name: api-client
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - API Clients
       summary: DELETE api-clients
@@ -1305,6 +1337,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - API Clients
       summary: PATCH api-clients
@@ -1362,6 +1395,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ArrayGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: PATCH arrays
@@ -1391,6 +1425,7 @@ paths:
       x-codegen-request-body-name: array
   /api/2.22/arrays/clients/performance:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Clients
       summary: GET clients-performance
@@ -1431,6 +1466,7 @@ paths:
                 $ref: '#/components/schemas/ClientsPerformanceGetResponse'
   /api/2.22/arrays/clients/s3-specific-performance:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Clients
       summary: GET clients-performance
@@ -1456,6 +1492,7 @@ paths:
                 $ref: '#/components/schemas/ClientsS3SpecificPerformanceGetResponse'
   /api/2.22/arrays/eula:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: GET arrays/eula
@@ -1480,6 +1517,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EulaGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: PATCH arrays/eula
@@ -1508,6 +1546,7 @@ paths:
       x-codegen-request-body-name: eula
   /api/2.22/arrays/factory-reset-token:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: List factory reset tokens
@@ -1532,6 +1571,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ArrayFactoryResetTokenGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: Create a factory reset token
@@ -1557,6 +1597,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ArrayFactoryResetTokenResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: Delete a factory reset token
@@ -1651,6 +1692,7 @@ paths:
           content: {}
   /api/2.22/arrays/ssh-certificate-authority-policies:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
       summary: GET admins/settings/ssh-certificate-authority-policies
@@ -1679,6 +1721,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
       summary: POST admins/settings/ssh-certificate-authority-policies
@@ -1702,6 +1745,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
       summary: DELETE admins/settings/ssh-certificate-authority-policies
@@ -1846,6 +1890,7 @@ paths:
       x-codegen-request-body-name: array-connection
   /api/2.22/array-connections/connection-key:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Array Connections
       summary: GET array-connections/connection-key
@@ -1872,6 +1917,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ArrayConnectionKeyGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Array Connections
       summary: POST array-connections/connection-key
@@ -1936,6 +1982,7 @@ paths:
                 $ref: '#/components/schemas/ArrayConnectionPathGetResponse'
   /api/2.22/array-connections/performance/replication:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Array Connections
       summary: GET array-connections/performance/replication
@@ -2207,6 +2254,7 @@ paths:
                 $ref: '#/components/schemas/ArraySpaceGetResponse'
   /api/2.22/arrays/space/storage-classes:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: GET arrays/space/storage-classes
@@ -2237,6 +2285,7 @@ paths:
                 $ref: '#/components/schemas/ArraySpaceStorageClassGetResponse'
   /api/2.22/arrays/supported-time-zones:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Arrays
       summary: GET arrays/supported-time-zones
@@ -2263,6 +2312,7 @@ paths:
                 $ref: '#/components/schemas/ArraysSupportedTimeZonesGetResponse'
   /api/2.22/arrays/erasures:
     post:
+      x-pure-block-remote-execution: true
       summary: Create a process for factory reset
       description: |+
         Creates the initiation of the factory reset process.
@@ -2285,6 +2335,7 @@ paths:
       - Arrays
 
     patch:
+      x-pure-block-remote-execution: true
       summary: Factory reset - finalize
       description: |+
         After the process has been completed, we need to finalize the factory reset process.
@@ -2308,6 +2359,7 @@ paths:
 
 
     get:
+      x-pure-block-remote-execution: true
       summary: Get factory reset status
       description: |
         Get the factory reset process status.
@@ -2327,6 +2379,7 @@ paths:
 
 
     delete:
+      x-pure-block-remote-execution: true
       summary: Stop factory reset
       description: |+
         Stops the factory reset process when it is `failed`.
@@ -2580,6 +2633,7 @@ paths:
           content: {}
   /api/2.22/audit-file-systems-policy-operations:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Audit for File Systems
       summary: GET audit-file-systems-policy-operations
@@ -2823,6 +2877,7 @@ paths:
           content: {}
   /api/2.22/blades:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Blades
       summary: GET blades
@@ -3360,6 +3415,7 @@ paths:
           content: {}
   /api/2.22/buckets/performance:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Buckets
       summary: GET buckets/performance
@@ -3595,6 +3651,7 @@ paths:
           content: {}
   /api/2.22/buckets/s3-specific-performance:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Buckets
       summary: GET buckets/s3-specific-performance
@@ -3765,6 +3822,7 @@ paths:
       x-codegen-request-body-name: bucket-replica-link
   /api/2.22/certificates:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: GET certificates
@@ -3791,6 +3849,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CertificateGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: POST certificates
@@ -3822,6 +3881,7 @@ paths:
                 $ref: '#/components/schemas/CertificateResponse'
       x-codegen-request-body-name: certificate
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: DELETE certificates
@@ -3840,6 +3900,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: PATCH certificates
@@ -3875,6 +3936,7 @@ paths:
       x-codegen-request-body-name: certificate
   /api/2.22/certificates/certificate-groups:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: GET certificates/certificate-groups
@@ -3903,6 +3965,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CertificateCertificateGroupGetResp'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: POST certificates/certificate-groups
@@ -3926,6 +3989,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CertificateCertificateGroupResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: DELETE certificates/certificate-groups
@@ -3947,6 +4011,7 @@ paths:
           content: {}
   /api/2.22/certificates/certificate-signing-requests:
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: Create certificate-signing-requests
@@ -3976,6 +4041,7 @@ paths:
       x-codegen-request-body-name: certificate
   /api/2.22/certificates/uses:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Certificates
       summary: GET certificates/uses
@@ -4003,6 +4069,7 @@ paths:
                 $ref: '#/components/schemas/CertificateUseGetResponse'
   /api/2.22/certificate-groups:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Certificate Groups
       summary: GET certificate-groups
@@ -4029,6 +4096,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CertificateGroupGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Certificate Groups
       summary: POST certificate-groups
@@ -4049,6 +4117,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CertificateGroupResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Certificate Groups
       summary: DELETE certificate-groups
@@ -4068,6 +4137,7 @@ paths:
           content: {}
   /api/2.22/certificate-groups/certificates:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Certificate Groups
       summary: GET certificate-groups/certificates
@@ -4096,6 +4166,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CertificateGroupCertificateGetResp'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Certificate Groups
       summary: POST certificate-groups/certificates
@@ -4119,6 +4190,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CertificateGroupCertificateResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Certificate Groups
       summary: DELETE certificate-groups/certificates
@@ -4140,6 +4212,7 @@ paths:
           content: {}
   /api/2.22/certificate-groups/uses:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Certificate Groups
       summary: GET certificate-groups/uses
@@ -4425,6 +4498,7 @@ paths:
                 $ref: '#/components/schemas/DataEvictionPoliciesMembersGetResponse'
   /api/2.22/directory-services:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Directory Services
       summary: GET directory-services
@@ -4451,6 +4525,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/DirectoryServiceGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Directory Services
       summary: PATCH directory-services
@@ -4482,6 +4557,7 @@ paths:
       x-codegen-request-body-name: directory-service
   /api/2.22/directory-services/roles:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Directory Services
       summary: GET directory-service/roles
@@ -4511,6 +4587,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/DirectoryServiceRolesGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Directory Services
       summary: POST directory-service/roles
@@ -4540,6 +4617,7 @@ paths:
                 $ref: '#/components/schemas/DirectoryServiceRolesResponse'
       x-codegen-request-body-name: directory-service-roles
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Directory Services
       summary: DELETE directory-service/roles
@@ -4559,6 +4637,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Directory Services
       summary: PATCH directory-service/roles
@@ -4592,6 +4671,7 @@ paths:
       x-codegen-request-body-name: directory-service-roles
   /api/2.22/directory-services/roles/management-access-policies:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Management Access
       summary: GET directory-services/roles/management-access-policies
@@ -4621,6 +4701,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Management Access
       summary: POST directory-services/roles/management-access-policies
@@ -4644,6 +4725,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Management Access
       summary: DELETE directory-services/roles/management-access-policies
@@ -4665,6 +4747,7 @@ paths:
           content: {}
   /api/2.22/directory-services/test:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Directory Services
       summary: GET directory-services/test
@@ -4684,6 +4767,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TestResultGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Directory Services
       summary: PATCH directory-service/test
@@ -4721,6 +4805,7 @@ paths:
       x-codegen-request-body-name: directory-service
   /api/2.22/dns:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - DNS
       summary: GET dns
@@ -4750,6 +4835,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/DnsGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - DNS
       summary: POST dns
@@ -4781,6 +4867,7 @@ paths:
                 $ref: '#/components/schemas/DnsResponse'
       x-codegen-request-body-name: dns
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - DNS
       summary: DELETE dns
@@ -4795,6 +4882,7 @@ paths:
           description: OK
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - DNS
       summary: PATCH dns
@@ -4825,6 +4913,7 @@ paths:
       x-codegen-request-body-name: dns
   /api/2.22/drives:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Drives
       summary: GET drives
@@ -5081,6 +5170,7 @@ paths:
       - File Systems
   /api/2.22/file-systems/groups/performance:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - File Systems
       summary: GET file-systems/groups/performance
@@ -5110,6 +5200,7 @@ paths:
                 $ref: '#/components/schemas/FileSystemGroupsPerformanceGetResponse'
   /api/2.22/file-systems/performance:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - File Systems
       summary: GET file-systems/performance
@@ -5374,6 +5465,7 @@ paths:
                 $ref: '#/components/schemas/PolicyMemberContextGetResponse'
   /api/2.22/file-systems/users/performance:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - File Systems
       summary: GET file-systems/users/performance
@@ -5705,6 +5797,7 @@ paths:
                 $ref: '#/components/schemas/FileSystemReplicaLinkResponse'
   /api/2.22/file-system-replica-links/policies:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - File System Replica Links
       summary: GET file-system-replica-links/policies
@@ -5754,6 +5847,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberWithRemoteGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - File System Replica Links
       summary: POST file-system-replica-links/policies
@@ -5781,6 +5875,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberWithRemoteResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - File System Replica Links
       summary: DELETE file-system-replica-links/policies
@@ -6289,6 +6384,7 @@ paths:
           content: {}
   /api/2.22/file-systems/space/storage-classes:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - File Systems
       summary: GET file-systems/space/storage-classes
@@ -6318,6 +6414,7 @@ paths:
                 $ref: '#/components/schemas/FileSystemSpaceStorageClassGetResponse'
   /api/2.22/file-systems/open-files:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - File Systems
       summary: GET file-systems/open-files
@@ -6347,6 +6444,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FileSystemOpenFilesGetResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - File Systems
       summary: DELETE file-systems/open-files
@@ -6365,6 +6463,7 @@ paths:
           content: {}
   /api/2.22/fleets:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: GET fleets
@@ -6392,6 +6491,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FleetGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: POST fleets
@@ -6414,6 +6514,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FleetResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: DELETE Fleets
@@ -6434,6 +6535,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: PATCH fleets
@@ -6461,6 +6563,7 @@ paths:
       x-codegen-request-body-name: fleet
   /api/2.22/fleets/fleet-key:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: GET fleet-key
@@ -6489,6 +6592,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FleetKeyGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: POST fleet-key
@@ -6512,6 +6616,7 @@ paths:
                 $ref: '#/components/schemas/FleetKeyResponse'
   /api/2.22/fleets/members:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: GET fleet members
@@ -6541,6 +6646,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FleetMemberGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: POST fleets
@@ -6578,6 +6684,7 @@ paths:
                 $ref: '#/components/schemas/FleetMemberResponse'
       x-codegen-request-body-name: members
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Fleets
       summary: Remove fleet members
@@ -6601,6 +6708,7 @@ paths:
           content: {}
   /api/2.22/hardware:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Hardware
       summary: GET hardware
@@ -6627,6 +6735,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/HardwareGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Hardware
       summary: PATCH hardware
@@ -6658,6 +6767,7 @@ paths:
       x-codegen-request-body-name: hardware
   /api/2.22/hardware-connectors:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Hardware Connectors
       summary: GET hardware-connectors
@@ -6686,6 +6796,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/HardwareConnectorGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Hardware Connectors
       summary: PATCH hardware-connectors
@@ -6718,6 +6829,7 @@ paths:
       x-codegen-request-body-name: hardware-connector
   /api/2.22/hardware-connectors/performance:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Hardware Connectors
       summary: GET hardware-connectors/performance
@@ -6752,6 +6864,7 @@ paths:
                 $ref: '#/components/schemas/HardwareConnectorPerformanceGetResponse'
   /api/2.22/keytabs:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Keytabs
       summary: GET keytabs
@@ -6778,6 +6891,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/KeytabGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Keytabs
       summary: POST keytabs
@@ -6801,6 +6915,7 @@ paths:
                 $ref: '#/components/schemas/KeytabResponse'
       x-codegen-request-body-name: keytab
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Keytabs
       summary: DELETE keytabs
@@ -6820,6 +6935,7 @@ paths:
           content: {}
   /api/2.22/keytabs/download:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Keytabs
       summary: GET keytabs/download
@@ -6846,6 +6962,7 @@ paths:
                 $ref: '#/components/schemas/KeytabFileResponse'
   /api/2.22/keytabs/upload:
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Keytabs
       summary: POST keytabs/upload
@@ -6883,6 +7000,7 @@ paths:
                 $ref: '#/components/schemas/KeytabFileResponse'
   /api/2.22/kmip:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - KMIP
       summary: List KMIP server configurations
@@ -6910,6 +7028,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/KmipServerResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - KMIP
       summary: Create a KMIP server configuration
@@ -6938,6 +7057,7 @@ paths:
                 $ref: '#/components/schemas/KmipServerResponse'
       x-codegen-request-body-name: kmip-server
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - KMIP
       summary: Delete a KMIP server configuration
@@ -6957,6 +7077,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - KMIP
       summary: Modify a KMIP server configuration
@@ -6988,6 +7109,7 @@ paths:
       x-codegen-request-body-name: kmip-server
   /api/2.22/kmip/test:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - KMIP
       summary: Displays KMIP server test results
@@ -7011,6 +7133,7 @@ paths:
                 $ref: '#/components/schemas/TestResultResponse'
   /api/2.22/legal-holds:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Legal Holds
       summary: List legal holds
@@ -7037,6 +7160,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/LegalHoldsGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Legal Holds
       summary: Create a legal hold
@@ -7065,6 +7189,7 @@ paths:
                 $ref: '#/components/schemas/LegalHoldsResponse'
       x-codegen-request-body-name: hold
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Legal Holds
       summary: Delete a legal hold
@@ -7084,6 +7209,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Legal Holds
       summary: Update a legal hold
@@ -7114,6 +7240,7 @@ paths:
       x-codegen-request-body-name: hold
   /api/2.22/legal-holds/held-entities:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Legal Holds
       summary: List held entities
@@ -7140,6 +7267,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/LegalHoldsHeldEntitiesGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Legal Holds
       summary: Apply this legal hold to a new entity
@@ -7168,6 +7296,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/LegalHoldsHeldEntitiesResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Legal Holds
       summary: Release this legal hold from the given entity
@@ -7345,6 +7474,7 @@ paths:
       x-codegen-request-body-name: lifecycle
   /api/2.22/link-aggregation-groups:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Link Aggregation Groups
       summary: GET link-aggregation-groups
@@ -7372,6 +7502,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/LinkAggregationGroupGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Link Aggregation Groups
       summary: POST link-aggregation-groups
@@ -7400,6 +7531,7 @@ paths:
                 $ref: '#/components/schemas/LinkAggregationGroupResponse'
       x-codegen-request-body-name: link-aggregation-group
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Link Aggregation Groups
       summary: DELETE link-aggregation-groups
@@ -7418,6 +7550,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Link Aggregation Groups
       summary: PATCH link-aggregation-groups
@@ -7448,6 +7581,7 @@ paths:
       x-codegen-request-body-name: link-aggregation-group
   /api/2.22/logs:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Logs
       summary: GET logs
@@ -7480,6 +7614,7 @@ paths:
                 format: binary
   /api/2.22/logs-async:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Logs
       summary: GET logs-async
@@ -7507,6 +7642,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/LogsAsyncGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Logs
       summary: PATCH logs-async
@@ -7536,6 +7672,7 @@ paths:
       x-codegen-request-body-name: logs-async
   /api/2.22/logs-async/download:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Logs
       summary: GET logs-async/download
@@ -7795,6 +7932,7 @@ paths:
       x-codegen-request-body-name: log-target-object-store
   /api/2.22/maintenance-windows:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Maintenance Windows
       summary: List maintenance window details
@@ -7822,6 +7960,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/MaintenanceWindowsGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Maintenance Windows
       summary: Create a maintenance window
@@ -7853,6 +7992,7 @@ paths:
                 $ref: '#/components/schemas/MaintenanceWindowsResponse'
       x-codegen-request-body-name: maintenance-window
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Maintenance Windows
       summary: Delete maintenance window
@@ -7874,6 +8014,7 @@ paths:
           content: {}
   /api/2.22/management-access-policies:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Management Access
       summary: GET management-access-policies
@@ -7982,6 +8123,7 @@ paths:
       x-codegen-request-body-name: policy
   /api/2.22/management-access-policies/admins:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Management Access
       summary: GET management-access-policies/admins
@@ -8011,6 +8153,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Management Access
       summary: POST management-access-policies/admins
@@ -8034,6 +8177,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Management Access
       summary: DELETE management-access-policies/admins
@@ -8055,6 +8199,7 @@ paths:
           content: {}
   /api/2.22/management-access-policies/directory-services/roles:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Management Access
       summary: GET management-access-policies/directory-services/roles
@@ -8084,6 +8229,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Management Access
       summary: POST management-access-policies/directory-services/roles
@@ -8107,6 +8253,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Management Access
       summary: DELETE management-access-policies/directory-services/roles
@@ -8128,6 +8275,7 @@ paths:
           content: {}
   /api/2.22/management-access-policies/members:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Management Access
       summary: GET management-access-policies/members
@@ -8346,6 +8494,7 @@ paths:
           content: {}
   /api/2.22/network-access-policies:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Network Access
       summary: GET network-access-policies
@@ -8367,6 +8516,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NetworkAccessPolicyGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Network Access
       summary: PATCH network-access-policies
@@ -8393,6 +8543,7 @@ paths:
       x-codegen-request-body-name: policy
   /api/2.22/network-access-policies/members:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Network Access
       summary: GET network-access-policies/members
@@ -8418,6 +8569,7 @@ paths:
                 $ref: '#/components/schemas/PolicyMemberGetResponse'
   /api/2.22/network-access-policies/rules:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Network Access
       summary: GET network-access-policies/rules
@@ -8441,6 +8593,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NetworkAccessPolicyRuleGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Network Access
       summary: POST network-access-policies/rules
@@ -8470,6 +8623,7 @@ paths:
                 $ref: '#/components/schemas/NetworkAccessPolicyRuleResponse'
       x-codegen-request-body-name: rule
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Network Access
       summary: DELETE network-access-policies/rules
@@ -8484,6 +8638,7 @@ paths:
           description: OK
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Network Access
       summary: PATCH network-access-policies/rules
@@ -8512,6 +8667,7 @@ paths:
       x-codegen-request-body-name: rule
   /api/2.22/network-interfaces:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: GET network-interfaces
@@ -8538,6 +8694,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NetworkInterfaceGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: POST network-interfaces
@@ -8566,6 +8723,7 @@ paths:
                 $ref: '#/components/schemas/NetworkInterfaceResponse'
       x-codegen-request-body-name: network-interface
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: DELETE network-interfaces
@@ -8585,6 +8743,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: PATCH network-interfaces
@@ -8615,6 +8774,7 @@ paths:
       x-codegen-request-body-name: network-interface
   /api/2.22/network-interfaces/ping:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: GET network-interfaces/ping
@@ -8643,6 +8803,7 @@ paths:
                 $ref: '#/components/schemas/NetworkInterfacePingGetResponse'
   /api/2.22/network-interfaces/trace:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: GET network-interfaces/trace
@@ -8672,6 +8833,7 @@ paths:
                 $ref: '#/components/schemas/NetworkInterfaceTraceGetResponse'
   /api/2.22/network-interfaces/tls-policies:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - TLS
       summary: GET network-interfaces/tls-policies
@@ -8700,6 +8862,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - TLS
       summary: POST network-interfaces/tls-policies
@@ -8724,6 +8887,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - TLS
       summary: DELETE network-interfaces/tls-policies
@@ -8745,6 +8909,7 @@ paths:
           content: {}
   /api/2.22/network-interfaces/connectors:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: GET network-interfaces/connectors
@@ -8771,6 +8936,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NetworkInterfacesConnectorsGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: PATCH network-interfaces/connectors
@@ -8801,6 +8967,7 @@ paths:
       x-codegen-request-body-name: network-connector
   /api/2.22/network-interfaces/connectors/performance:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: GET network connectors performance statistics
@@ -8833,6 +9000,7 @@ paths:
                 $ref: '#/components/schemas/NetworkInterfacesConnectorsPerformanceGetResponse'
   /api/2.22/network-interfaces/connectors/settings:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: GET global network settings for network connectors
@@ -8860,6 +9028,7 @@ paths:
                 $ref: '#/components/schemas/NetworkInterfacesConnectorsSettingsGetResponse'
   /api/2.22/network-interfaces/network-connection-statistics:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: GET network-interfaces/network-connection-statistics
@@ -8890,6 +9059,7 @@ paths:
                 $ref: '#/components/schemas/NetworkConnectionStatisticsGetResponse'
   /api/2.22/network-interfaces/neighbors:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Network Interfaces
       summary: List network interface neighbors
@@ -9185,6 +9355,7 @@ paths:
       x-codegen-request-body-name: rule
   /api/2.22/nodes:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Nodes
       summary: GET nodes
@@ -9212,6 +9383,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NodeGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Nodes
       summary: PATCH nodes
@@ -9242,6 +9414,7 @@ paths:
       x-codegen-request-body-name: node
   /api/2.22/nodes/batch:
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Nodes
       summary: POST nodes/batch
@@ -9272,6 +9445,7 @@ paths:
       x-codegen-request-body-name: items
   /api/2.22/node-groups:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Node Groups
       summary: GET node-groups
@@ -9298,6 +9472,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NodeGroupGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Node Groups
       summary: POST node-groups
@@ -9318,6 +9493,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NodeGroupResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Node Groups
       summary: PATCH node-groups
@@ -9346,6 +9522,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NodeGroupResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Node Groups
       summary: DELETE node-groups
@@ -9365,6 +9542,7 @@ paths:
           content: {}
   /api/2.22/node-groups/nodes:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Node Groups
       summary: GET node-groups/nodes
@@ -9393,6 +9571,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NodeGroupNodeGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Node Groups
       summary: POST node-groups/nodes
@@ -9416,6 +9595,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NodeGroupNodeResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Node Groups
       summary: DELETE node-groups/nodes
@@ -9437,6 +9617,7 @@ paths:
           content: {}
   /api/2.22/node-groups/uses:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Node Groups
       summary: GET node-groups/uses
@@ -10668,6 +10849,7 @@ paths:
                 $ref: '#/components/schemas/ObjectStoreTrustPolicyGetResponse'
   /api/2.22/object-store-roles/object-store-trust-policies/download:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Object Store Roles
       summary: GET object-store-roles/object-store-trust-policies/download
@@ -11147,6 +11329,7 @@ paths:
                 $ref: '#/components/schemas/ObjectStoreVirtualHostResponse'
   /api/2.22/password-policies:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Password
       summary: List password policies
@@ -11169,6 +11352,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PasswordPoliciesGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Password
       summary: Modify password policies
@@ -11696,6 +11880,7 @@ paths:
                 $ref: '#/components/schemas/PolicyMemberWithRemoteGetResponse'
   /api/2.22/public-keys:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Public Keys
       summary: List public key configurations
@@ -11722,6 +11907,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PublicKeyGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Public Keys
       summary: Create public key configurations
@@ -11750,6 +11936,7 @@ paths:
                 $ref: '#/components/schemas/PublicKeyResponse'
       x-codegen-request-body-name: public_key
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Public Keys
       summary: Delete public key configurations
@@ -11769,6 +11956,7 @@ paths:
           content: {}
   /api/2.22/public-keys/uses:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Public Keys
       summary: GET public-keys/uses
@@ -11796,6 +11984,7 @@ paths:
                 $ref: '#/components/schemas/PublicKeyUseGetResponse'
   /api/2.22/qos-policies:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - QoS
       summary: GET qos-policies
@@ -11822,6 +12011,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/QosPoliciesGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - QoS
       summary: POST qos-policies
@@ -11850,6 +12040,7 @@ paths:
                 $ref: '#/components/schemas/QosPoliciesResponse'
       x-codegen-request-body-name: policy
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - QoS
       summary: DELETE qos-policies
@@ -11868,6 +12059,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - QoS
       summary: PATCH qos-policies
@@ -11898,6 +12090,7 @@ paths:
       x-codegen-request-body-name: policy
   /api/2.22/qos-policies/file-systems:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - QoS
       summary: GET qos-policies/file-systems
@@ -11927,6 +12120,7 @@ paths:
                 $ref: '#/components/schemas/PolicyMemberGetResponse'
   /api/2.22/qos-policies/members:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - QoS
       summary: GET qos-policies/members
@@ -11957,6 +12151,7 @@ paths:
                 $ref: '#/components/schemas/PolicyMemberGetResponse'
 
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - QoS
       summary: POST qos-policies/members
@@ -11982,6 +12177,7 @@ paths:
                 $ref: '#/components/schemas/PolicyMemberResponse'
 
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - QoS
       summary: DELETE qos-policies/members
@@ -12004,6 +12200,7 @@ paths:
           content: {}
   /api/2.22/qos-policies/buckets:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - QoS
       summary: GET qos-policies/buckets
@@ -12168,6 +12365,7 @@ paths:
       x-codegen-request-body-name: quota
   /api/2.22/quotas/settings:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Quotas
       summary: GET quotas-settings
@@ -12189,6 +12387,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/QuotaSettingGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Quotas
       summary: PATCH quotas-settings
@@ -12352,6 +12551,7 @@ paths:
       x-codegen-request-body-name: quota
   /api/2.22/rapid-data-locking:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - RDL
       summary: Get the status of the Rapid Data Locking feature.
@@ -12372,6 +12572,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/RapidDataLockingResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - RDL
       summary: Modifies the Rapid Data Locking feature.
@@ -12403,6 +12604,7 @@ paths:
       x-codegen-request-body-name: rapid-data-locking
   /api/2.22/rapid-data-locking/test:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - RDL
       summary: Displays Rapid Data Locking test results.
@@ -12424,6 +12626,7 @@ paths:
                 $ref: '#/components/schemas/TestResultResponse'
   /api/2.22/rapid-data-locking/rotate:
     post:
+      x-pure-block-remote-execution: true
       tags:
       - RDL
       summary: Rotates the external keys on the associated EKM appliance.
@@ -12442,6 +12645,7 @@ paths:
           content: {}
   /api/2.22/realms:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Realms
       summary: GET realms
@@ -12470,6 +12674,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/RealmGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Realms
       summary: POST realms
@@ -12491,6 +12696,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/RealmResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Realms
       summary: DELETE Realms
@@ -12511,6 +12717,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Realms
       summary: PATCH realms
@@ -12612,6 +12819,7 @@ paths:
       x-codegen-request-body-name: default_realm_configuration
   /api/2.22/realms/space:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Realms
       summary: GET realms/space
@@ -12638,6 +12846,7 @@ paths:
                 $ref: '#/components/schemas/RealmSpaceGetResponse'
   /api/2.22/realms/space/storage-classes:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Realms
       summary: GET realms/space/storage-classes
@@ -12670,6 +12879,7 @@ paths:
                 $ref: '#/components/schemas/RealmSpaceStorageClassGetResponse'
   /api/2.22/remote-arrays:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Remote Arrays
       summary: List remote arrays
@@ -12708,6 +12918,7 @@ paths:
                 $ref: '#/components/schemas/RemoteArraysResponse'
   /api/2.22/resource-accesses:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Resource Accesses
       summary: GET resource-accesses
@@ -12734,6 +12945,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResourceAccessesGetResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Resource Accesses
       summary: DELETE resource-accesses
@@ -12753,6 +12965,7 @@ paths:
           content: {}
   /api/2.22/resource-accesses/batch:
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Resource Accesses
       summary: POST resource-accesses/batch
@@ -12784,6 +12997,7 @@ paths:
       x-codegen-request-body-name: items
   /api/2.22/roles:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Roles
       summary: GET roles
@@ -13073,6 +13287,7 @@ paths:
                 $ref: '#/components/schemas/S3ExportPolicyRuleResponse'
   /api/2.22/sso/oidc/idps:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - OIDC SSO
       summary: List OIDC SSO configurations
@@ -13094,6 +13309,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/OidcSsoGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - OIDC SSO
       summary: Create OIDC SSO configuration
@@ -13117,6 +13333,7 @@ paths:
                 $ref: '#/components/schemas/OidcSsoResponse'
       x-codegen-request-body-name: idp
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - OIDC SSO
       summary: Delete OIDC SSO configurations
@@ -13130,6 +13347,7 @@ paths:
           description: OK
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - OIDC SSO
       summary: Modify OIDC SSO configuration
@@ -13155,6 +13373,7 @@ paths:
       x-codegen-request-body-name: idp
   /api/2.22/sso/saml2/idps:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - SAML2 SSO
       summary: List SAML2 SSO configurations
@@ -13183,6 +13402,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Saml2SsoGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - SAML2 SSO
       summary: Create SAML2 SSO configurations
@@ -13211,6 +13431,7 @@ paths:
                 $ref: '#/components/schemas/Saml2SsoResponse'
       x-codegen-request-body-name: idp
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - SAML2 SSO
       summary: Delete SAML2 SSO configurations
@@ -13229,6 +13450,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - SAML2 SSO
       summary: Modify SAML2 SSO configurations
@@ -13259,6 +13481,7 @@ paths:
       x-codegen-request-body-name: idp
   /api/2.22/sso/saml2/idps/test:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - SAML2 SSO
       summary: GET sso/saml2/idps/test
@@ -13284,6 +13507,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TestResultResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - SAML2 SSO
       summary: PATCH sso/saml2/idps/test
@@ -13317,6 +13541,7 @@ paths:
       x-codegen-request-body-name: idp
   /api/2.22/storage-class-tiering-policies:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Storage Class Tiering
       summary: GET storage-class-tiering-policies
@@ -13343,6 +13568,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/StorageClassTieringPoliciesGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Storage Class Tiering
       summary: POST storage-class-tiering-policies
@@ -13371,6 +13597,7 @@ paths:
                 $ref: '#/components/schemas/StorageClassTieringPoliciesResponse'
       x-codegen-request-body-name: policy
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Storage Class Tiering
       summary: DELETE storage-class-tiering-policies
@@ -13391,6 +13618,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Storage Class Tiering
       summary: PATCH storage-class-tiering-policies
@@ -13421,6 +13649,7 @@ paths:
       x-codegen-request-body-name: policy
   /api/2.22/storage-class-tiering-policies/members:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - Storage Class Tiering
       summary: GET storage-class-tiering-policies/members
@@ -13508,6 +13737,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ServerGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Servers
       summary: POST servers
@@ -13537,6 +13767,7 @@ paths:
                 $ref: '#/components/schemas/ServerResponse'
       x-codegen-request-body-name: server
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Servers
       summary: DELETE servers
@@ -13556,6 +13787,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Servers
       summary: PATCH servers
@@ -13586,6 +13818,7 @@ paths:
       x-codegen-request-body-name: server
   /api/2.22/sessions:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Sessions
       summary: List session data
@@ -14142,6 +14375,7 @@ paths:
       x-codegen-request-body-name: rule
   /api/2.22/smtp-servers:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - SMTP
       summary: GET smtp-servers
@@ -14168,6 +14402,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SmtpServerGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - SMTP
       summary: PATCH smtp-servers
@@ -14196,6 +14431,7 @@ paths:
       x-codegen-request-body-name: smtp
   /api/2.22/snmp-agents:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - SNMP Agents
       summary: GET snmp-agents
@@ -14222,6 +14458,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SnmpAgentGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - SNMP Agents
       summary: PATCH snmp-agents
@@ -14250,6 +14487,7 @@ paths:
       x-codegen-request-body-name: snmp-agent
   /api/2.22/snmp-agents/mib:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - SNMP Agents
       summary: GET snmp-agents-mib
@@ -14271,6 +14509,7 @@ paths:
                 $ref: '#/components/schemas/SnmpAgentMibResponse'
   /api/2.22/snmp-managers:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - SNMP Managers
       summary: GET snmp-managers
@@ -14297,6 +14536,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SnmpManagerGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - SNMP Managers
       summary: POST snmp-managers
@@ -14325,6 +14565,7 @@ paths:
                 $ref: '#/components/schemas/SnmpManagerResponse'
       x-codegen-request-body-name: snmp-manager
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - SNMP Managers
       summary: DELETE snmp-managers
@@ -14343,6 +14584,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - SNMP Managers
       summary: PATCH snmp-managers
@@ -14373,6 +14615,7 @@ paths:
       x-codegen-request-body-name: snmp-manager
   /api/2.22/snmp-managers/test:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - SNMP Managers
       summary: GET snmp-managers/test
@@ -14400,6 +14643,7 @@ paths:
                 $ref: '#/components/schemas/TestResultGetResponse'
   /api/2.22/ssh-certificate-authority-policies:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
       summary: List SSH Certificate Authority configurations
@@ -14426,6 +14670,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SshCertificateAuthorityPolicyGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
       summary: Create SSH Certificate Authority configurations
@@ -14454,6 +14699,7 @@ paths:
                 $ref: '#/components/schemas/SshCertificateAuthorityPolicyResponse'
       x-codegen-request-body-name: policy
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
       summary: Delete SSH Certificate Authority configurations
@@ -14472,6 +14718,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
       summary: Modify SSH Certificate Authority configurations
@@ -14502,6 +14749,7 @@ paths:
       x-codegen-request-body-name: policy
   /api/2.22/ssh-certificate-authority-policies/admins:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
       summary: GET ssh-certificate-authority-policies/admins
@@ -14530,6 +14778,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
       summary: POST ssh-certificate-authority-policies/admins
@@ -14553,6 +14802,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
       summary: DELETE ssh-certificate-authority-policies/admins
@@ -14574,6 +14824,7 @@ paths:
           content: {}
   /api/2.22/ssh-certificate-authority-policies/arrays:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
       summary: GET ssh-certificate-authority-policies/arrays
@@ -14602,6 +14853,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
       summary: POST ssh-certificate-authority-policies/arrays
@@ -14625,6 +14877,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
       summary: DELETE ssh-certificate-authority-policies/arrays
@@ -14646,6 +14899,7 @@ paths:
           content: {}
   /api/2.22/ssh-certificate-authority-policies/members:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
       summary: GET ssh-certificate-authority-policies/members
@@ -14676,6 +14930,7 @@ paths:
                 $ref: '#/components/schemas/PolicyMemberGetResponse'
   /api/2.22/subnets:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Subnets
       summary: GET subnets
@@ -14702,6 +14957,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SubnetGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Subnets
       summary: POST subnets
@@ -14730,6 +14986,7 @@ paths:
                 $ref: '#/components/schemas/SubnetResponse'
       x-codegen-request-body-name: subnet
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Subnets
       summary: DELETE subnets
@@ -14748,6 +15005,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Subnets
       summary: PATCH subnets
@@ -14778,6 +15036,7 @@ paths:
       x-codegen-request-body-name: subnet
   /api/2.22/support:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Support
       summary: GET support
@@ -14799,6 +15058,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SupportGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Support
       summary: PATCH support
@@ -14827,6 +15087,7 @@ paths:
       x-codegen-request-body-name: support
   /api/2.22/support/test:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Support
       summary: GET support-test
@@ -14850,6 +15111,7 @@ paths:
                 $ref: '#/components/schemas/TestResultGetResponse'
   /api/2.22/support/verification-keys:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Verification Keys
       summary: GET verification-keys
@@ -14876,6 +15138,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/VerificationKeyGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Verification Keys
       summary: PATCH verification-keys
@@ -14906,6 +15169,7 @@ paths:
       x-codegen-request-body-name: key
   /api/2.22/support-diagnostics:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Support Diagnostics
       summary: GET diagnostics list
@@ -14928,6 +15192,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SupportDiagnosticsGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Support Diagnostics
       summary: Start a diagnostic task
@@ -14952,6 +15217,7 @@ paths:
           content: {}
   /api/2.22/support-diagnostics/details:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Support Diagnostics
       summary: GET diagnostics details
@@ -14975,6 +15241,7 @@ paths:
                 $ref: '#/components/schemas/SupportDiagnosticsDetailsGetResponse'
   /api/2.22/software-check:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Software
       summary: List software check tasks
@@ -14997,6 +15264,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SoftwareChecksGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Software
       summary: Create a software check task
@@ -15063,6 +15331,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SyslogServerGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Syslog
       summary: POST syslog-servers
@@ -15092,6 +15361,7 @@ paths:
                 $ref: '#/components/schemas/SyslogServerResponse'
       x-codegen-request-body-name: syslog-server
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Syslog
       summary: DELETE syslog-servers
@@ -15111,6 +15381,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Syslog
       summary: PATCH syslog-servers
@@ -15141,6 +15412,7 @@ paths:
       x-codegen-request-body-name: syslog-server
   /api/2.22/syslog-servers/settings:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Syslog
       summary: GET syslog-servers/settings
@@ -15167,6 +15439,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SyslogServerSettingsGetResponse'
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Syslog
       summary: PATCH syslog-servers/settings
@@ -15197,6 +15470,7 @@ paths:
       x-codegen-request-body-name: syslog-server-settings
   /api/2.22/syslog-servers/test:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Syslog
       summary: GET syslog-servers/test
@@ -15260,6 +15534,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TargetGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Targets
       summary: POST targets
@@ -15288,6 +15563,7 @@ paths:
                 $ref: '#/components/schemas/TargetResponse'
       x-codegen-request-body-name: target
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Targets
       summary: DELETE targets
@@ -15306,6 +15582,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Targets
       summary: PATCH targets
@@ -15336,6 +15613,7 @@ paths:
       x-codegen-request-body-name: target
   /api/2.22/targets/performance/replication:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Targets
       summary: GET targets/performance/replication
@@ -15367,6 +15645,7 @@ paths:
                 $ref: '#/components/schemas/ResourcePerformanceReplicationGetResponse'
   /api/2.22/tls-policies:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - TLS
       summary: List TLS policies
@@ -15395,6 +15674,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TlsPolicyGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - TLS
       summary: Create TLS policies
@@ -15423,6 +15703,7 @@ paths:
                 $ref: '#/components/schemas/TlsPolicyResponse'
       x-codegen-request-body-name: policy
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - TLS
       summary: Delete TLS policies
@@ -15441,6 +15722,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - TLS
       summary: Modify TLS policies
@@ -15471,6 +15753,7 @@ paths:
       x-codegen-request-body-name: policy
   /api/2.22/tls-policies/members:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - TLS
       summary: GET tls-policies/members
@@ -15501,6 +15784,7 @@ paths:
                 $ref: '#/components/schemas/PolicyMemberGetResponse'
   /api/2.22/tls-policies/network-interfaces:
     get:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - TLS
       summary: GET tls-policies/network-interfaces
@@ -15529,6 +15813,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberGetResponse'
     post:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - TLS
       summary: POST tls-policies/network-interfaces
@@ -15553,6 +15838,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberResponse'
     delete:
+      x-pure-block-remote-execution: true
       tags:
       - Policies - TLS
       summary: DELETE tls-policies/network-interfaces
@@ -16969,7 +17255,12 @@ components:
             items:
               $ref: '#/components/schemas/StorageClassSpace'
           total:
-            $ref: '#/components/schemas/StorageClassSpace'
+            description: |
+              Total of all records after filtering.
+              If `total_only` query param is `true`, then no items will be returned.
+            type: array
+            items:
+              $ref: '#/components/schemas/StorageClassSpace'
     ArraysSupportedTimeZonesGetResponse:
       allOf:
       - $ref: '#/components/schemas/PageInfo'
@@ -20705,7 +20996,12 @@ components:
               $ref: '#/components/schemas/RealmSpaceStorageClass'
             description: A list of realm space metrics objects for each storage class.
           total:
-            $ref: '#/components/schemas/RealmSpaceStorageClass'
+            description: |
+              Total of all records after filtering.
+              If `total_only` query param is `true`, then no items will be returned.
+            type: array
+            items:
+              $ref: '#/components/schemas/RealmSpaceStorageClass'
     RemoteArraysResponse:
       allOf:
       - $ref: '#/components/schemas/PageInfo'
