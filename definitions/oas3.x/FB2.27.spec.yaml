@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: FlashBlade REST API
   description: |
-    OpenAPI specification for FlashBlade REST API, developed by Pure Storage, Inc. (https://www.purestorage.com/).
+    OpenAPI specification for FlashBlade REST API, developed by Everpure, Inc. (https://www.everpuredata.com/).
   version: "2.27"
   x-pure-description-ref: ../custom_descriptions/FB-api-introduction.md
   x-logo:
@@ -15,10 +15,10 @@ security:
 - AuthorizationHeader: []
 tags:
 - name: Authorization
-  description: "Pure Storage uses the OAuth 2.0 Token Exchange authorization grant and JSON Web Tokens
-    (JWTs) to authenticate to the Pure Storage REST API. Before you can exchange the ID token for an access
-    token, create and enable the API client to generate the `key_id`, `id`, and `issuer` values. These
-    values will be used as JWT claims for the `subject_token` parameter."
+  description: "Everpure uses the OAuth 2.0 Token Exchange authorization grant and JSON Web Tokens (JWTs)
+    to authenticate to the Everpure REST API. Before you can exchange the ID token for an access token,
+    create and enable the API client to generate the `key_id`, `id`, and `issuer` values. These values
+    will be used as JWT claims for the `subject_token` parameter."
 - name: Active Directory
   description: Active Directory configuration joins a server to the domain and manages its computer account.
     Authentication for NFS or SMB is performed using Kerberos. This configuration is also used to authorize
@@ -367,6 +367,7 @@ paths:
       security: []
   /api/api_version:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Authorization
       summary: GET api_version
@@ -389,6 +390,7 @@ paths:
       security: []
   /api/login:
     post:
+      x-pure-incomplete-gre: true
       tags:
       - Authorization
       summary: Log in a user
@@ -437,6 +439,7 @@ paths:
       x-codegen-request-body-name: login
   /api/logout:
     post:
+      x-pure-incomplete-gre: true
       tags:
       - Authorization
       summary: POST logout
@@ -1061,6 +1064,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/policies/management-authentication/members"
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - Management Authentication
       summary: GET admins/management-authentication-policies
@@ -1685,6 +1689,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/arrays'
     patch:
+      x-pure-incomplete-gre: true
       x-pure-block-remote-execution: true
       tags:
       - Arrays
@@ -1719,6 +1724,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/arrays/clients/performance"
     get:
+      x-pure-incomplete-gre: true
       x-pure-block-remote-execution: true
       tags:
       - Clients
@@ -1932,6 +1938,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/policies/management-authentication/members"
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - Management Authentication
       summary: GET arrays/management-authentication-policies
@@ -2016,6 +2023,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/policies/ssh-certificate-authority/members"
     get:
+      x-pure-incomplete-gre: true
       x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
@@ -2049,6 +2057,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/ssh-certificate-authority/members'
     post:
+      x-pure-incomplete-gre: true
       x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
@@ -2076,6 +2085,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/ssh-certificate-authority/members'
     delete:
+      x-pure-incomplete-gre: true
       x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
@@ -2377,6 +2387,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/arrays/http-specific-performance"
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Arrays
       summary: GET arrays/http-specific-performance
@@ -2420,6 +2431,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/arrays/nfs-specific-performance"
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Arrays
       summary: GET arrays/nfs-specific-performance
@@ -2463,6 +2475,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/arrays/performance"
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Arrays
       summary: GET arrays/performance
@@ -2507,6 +2520,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/arrays/performance/replication"
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Arrays
       summary: GET arrays/performance/replication
@@ -2551,6 +2565,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/arrays/s3-specific-performance"
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Arrays
       summary: GET arrays/s3-specific-performance
@@ -2594,6 +2609,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/arrays/space"
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Arrays
       summary: GET arrays/space
@@ -2797,6 +2813,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/audits"
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Audits
       summary: GET audits
@@ -3057,6 +3074,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/policies/audit-file/operations"
     get:
+      x-pure-incomplete-gre: true
       x-pure-block-remote-execution: true
       tags:
       - Policies - Audit for File Systems
@@ -6752,6 +6770,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/policies/snapshot/members"
     get:
+      x-pure-incomplete-gre: true
       x-pure-block-remote-execution: true
       tags:
       - File System Replica Links
@@ -6804,6 +6823,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/snapshot/members'
     post:
+      x-pure-incomplete-gre: true
       x-pure-block-remote-execution: true
       tags:
       - File System Replica Links
@@ -6834,6 +6854,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/snapshot/members'
     delete:
+      x-pure-incomplete-gre: true
       x-pure-block-remote-execution: true
       tags:
       - File System Replica Links
@@ -7205,6 +7226,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/file-systems/locks"
     get:
+      x-pure-incomplete-gre: true
       tags:
       - File Systems
       summary: Get a list of active file locks
@@ -7268,6 +7290,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/file-systems/locks/clients"
     get:
+      x-pure-incomplete-gre: true
       tags:
       - File Systems
       summary: Get a list of clients that hold active file locks
@@ -7326,6 +7349,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/file-systems/sessions"
     get:
+      x-pure-incomplete-gre: true
       tags:
       - File Systems
       summary: Get a list of active sessions
@@ -9445,6 +9469,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/log-targets/file"
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Audit Log Target for File Systems
       summary: GET log-target-file-systems
@@ -9475,6 +9500,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/log-targets/file'
     post:
+      x-pure-incomplete-gre: true
       tags:
       - Audit Log Target for File Systems
       summary: POST log-target-file-systems
@@ -9527,6 +9553,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/log-targets/file'
     patch:
+      x-pure-incomplete-gre: true
       tags:
       - Audit Log Target for File Systems
       summary: PATCH log-target-file-systems
@@ -9862,6 +9889,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/management-access'
     delete:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - Management Access
       summary: DELETE management-access-policies
@@ -10561,6 +10589,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/policies/management-authentication"
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - Management Authentication
       summary: GET management-authentication-policies
@@ -10680,6 +10709,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/policies/management-authentication/members"
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - Management Authentication
       summary: GET management-authentication-policies/members
@@ -15471,6 +15501,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/presets/workload"
     get:
+      x-pure-incomplete-gre: true
       x-pure-block-remote-execution: true
       x-pure-remote-execution-context-domains-override:
       - ARRAY
@@ -15495,6 +15526,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/presets/workload'
     put:
+      x-pure-incomplete-gre: true
       x-pure-block-remote-execution: true
       x-pure-remote-execution-context-domains-override:
       - FLEET
@@ -15528,6 +15560,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/presets/workload'
     post:
+      x-pure-incomplete-gre: true
       x-pure-block-remote-execution: true
       x-pure-remote-execution-context-domains-override:
       - FLEET
@@ -15559,6 +15592,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/presets/workload'
     delete:
+      x-pure-incomplete-gre: true
       x-pure-block-remote-execution: true
       x-pure-remote-execution-context-domains-override:
       - FLEET
@@ -15580,6 +15614,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/presets/workload'
     patch:
+      x-pure-incomplete-gre: true
       x-pure-block-remote-execution: true
       x-pure-remote-execution-context-domains-override:
       - FLEET
@@ -15890,6 +15925,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/realms"
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Realms
       summary: GET realms
@@ -17114,6 +17150,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/policies/storage-class-tiering/members"
     get:
+      x-pure-incomplete-gre: true
       x-pure-block-remote-execution: true
       tags:
       - Policies - Storage Class Tiering
@@ -18278,6 +18315,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/ssh-certificate-authority'
     post:
+      x-pure-incomplete-gre: true
       x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
@@ -18330,6 +18368,7 @@ paths:
       x-badges:
       - name: 'Authorization Resource: purestorage.com/api/v2/policies/ssh-certificate-authority'
     patch:
+      x-pure-incomplete-gre: true
       x-pure-block-remote-execution: true
       tags:
       - Policies - SSH Certificate Authority
@@ -19854,6 +19893,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/topology-groups"
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Topology Groups
       summary: List topology groups
@@ -19953,6 +19993,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/topology-groups/members"
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Topology Groups
       summary: List topology group arrays
@@ -19985,6 +20026,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/topology-groups/members"
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Topology Groups
       summary: List topology group members
@@ -20804,6 +20846,7 @@ paths:
     x-pure-authorization-resource:
     - "purestorage.com/api/v2/workloads/tags"
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Workloads
       summary: List tags
@@ -21084,7 +21127,7 @@ components:
       type: string
       description: |
         The method by which the access token will be obtained.
-        The Pure Storage REST API supports the OAuth 2.0 "token exchange" grant type,
+        The Everpure REST API supports the OAuth 2.0 "token exchange" grant type,
         which indicates that a token exchange is being performed.
         Set `grant_type` to `urn:ietf:params:oauth:grant-type:token-exchange`.
       default: urn:ietf:params:oauth:grant-type:token-exchange
@@ -21127,7 +21170,7 @@ components:
       type: string
       description: |
         An identifier that indicates the type of security token specifed in the `subject_token` parameter.
-        The Pure Storage REST API supports the JSON Web Token (JWT)
+        The Everpure REST API supports the JSON Web Token (JWT)
         as the means for requesting the access token.
         Set `subject_token_type` to `urn:ietf:params:oauth:token-type:jwt`.
       default: urn:ietf:params:oauth:token-type:jwt
@@ -21875,7 +21918,7 @@ components:
               The current SMB mode of the array.
               This controls the type of authentication that is used by the array for SMB.
               Possible values include `ad-auto`, `ad-rfc2307`, `guest`, and `native`.
-              Modifying this value requires the assistance of Pure Storage Support.
+              Modifying this value requires the assistance of Everpure Support.
             type: string
             readOnly: true
           time_zone:
@@ -22833,7 +22876,7 @@ components:
         common_name:
           description: The common name field to be listed in the certificate.
           type: string
-          example: Pure Storage Inc.
+          example: Everpure, Inc.
         country:
           description: Two-letter country (ISO) code to be listed in the certificate.
           type: string
@@ -26980,7 +27023,7 @@ components:
             DNS hostname or IP address of a computer that hosts an SNMP manager
             to which Purity is to send trap messages when it generates alerts.
           type: string
-          example: snmp.purestorage.com
+          example: snmp.example.com
         notification:
           description: |
             The type of notification the agent will send.
@@ -27008,7 +27051,7 @@ components:
               DNS hostname or IP address of a computer that hosts an SNMP manager
               to which Purity is to send trap messages when it generates alerts.
             type: string
-            example: snmp.purestorage.com
+            example: snmp.example.com
           notification:
             description: |
               The type of notification the agent will send.
@@ -30175,7 +30218,7 @@ components:
             description: Who this certificate was issued to.
             type: string
             readOnly: true
-            example: Pure Storage, Inc.
+            example: Everpure, Inc.
           key_algorithm:
             description: |
               The key algorithm used to generate the certificate.
@@ -38155,7 +38198,7 @@ components:
       description: |
         A flag to skip phonehome connectivity check.
         Arrays that intentionally disable phonehome or do not permit connectivity
-        to Pure Storage's cloud servers must set this flag to `true` in order to start factory reset.
+        to Everpure's cloud servers must set this flag to `true` in order to start factory reset.
       schema:
         type: boolean
         default: false
@@ -40497,13 +40540,13 @@ components:
               issued_token_type:
                 description: |
                   The type of token that is issued.
-                  The Pure Storage REST API supports OAuth 2.0 access tokens.
+                  The Everpure REST API supports OAuth 2.0 access tokens.
                 type: string
                 example: urn:ietf:params:oauth:token-type:access_token
               token_type:
                 description: |
                   Indicates how the API client can use the access token issued.
-                  The Pure Storage REST API supports the `Bearer` token.
+                  The Everpure REST API supports the `Bearer` token.
                 type: string
                 example: Bearer
     OauthToken400:

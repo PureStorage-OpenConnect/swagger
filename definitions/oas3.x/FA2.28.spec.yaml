@@ -7,8 +7,8 @@ servers:
 tags:
 - name: Authorization
   description: |
-    Pure Storage uses the OAuth 2.0 Token Exchange authorization grant and JSON Web Tokens (JWTs)
-    to authenticate to the Pure Storage REST API.
+    Everpure uses the OAuth 2.0 Token Exchange authorization grant and JSON Web Tokens (JWTs)
+    to authenticate to the Everpure REST API.
     Before you can exchange the ID token for an access token, create and enable the API client
     to generate the `key_id`, `id`, and `issuer` values.
     These values will be used as JWT claims for the `subject_token` parameter.
@@ -199,7 +199,7 @@ tags:
     Manages Purity//FA login and user session data.
 - name: SMI-S
   description: |
-    Manages the Pure Storage Storage Management Initiative Specification (SMI-S).
+    Manages the Everpure Storage Management Initiative Specification (SMI-S).
 - name: SMTP
   description: |
     Manages Simple Mail Transfer Protocol (SMTP) settings.
@@ -8552,9 +8552,9 @@ paths:
     get:
       tags:
       - Support
-      summary: List Pure Storage Support connection data
-      description: Displays information about whether the array can connect to Pure Storage Support by
-        establishing a secure shell or secure HTTP connection and verifies that messages can be exchanged.
+      summary: List Everpure Support connection data
+      description: Displays information about whether the array can connect to Everpure Support by establishing
+        a secure shell or secure HTTP connection and verifies that messages can be exchanged.
       parameters:
       - $ref: '#/components/parameters/Authorization'
       - $ref: '#/components/parameters/XRequestId'
@@ -10069,7 +10069,7 @@ components:
       type: string
       description: |
         The method by which the access token will be obtained.
-        The Pure Storage REST API supports the OAuth 2.0 "token exchange" grant type,
+        The Everpure REST API supports the OAuth 2.0 "token exchange" grant type,
         which indicates that a token exchange is being performed.
         Set `grant_type` to `urn:ietf:params:oauth:grant-type:token-exchange`.
       default: urn:ietf:params:oauth:grant-type:token-exchange
@@ -10112,7 +10112,7 @@ components:
       type: string
       description: |
         An identifier that indicates the type of security token specifed in the `subject_token` parameter.
-        The Pure Storage REST API supports the JSON Web Token (JWT)
+        The Everpure REST API supports the JSON Web Token (JWT)
         as the means for requesting the access token.
         Set `subject_token_type` to `urn:ietf:params:oauth:token-type:jwt`.
       default: urn:ietf:params:oauth:token-type:jwt
@@ -11017,7 +11017,7 @@ components:
         common_name:
           description: The common name field listed in the certificate.
           type: string
-          example: Pure Storage Inc.
+          example: Everpure, Inc.
         country:
           description: Two-letter country (ISO) code listed in the certificate.
           type: string
@@ -12395,7 +12395,7 @@ components:
               Sets the URL of the mediator for this pod, replacing the URL of the current mediator.
               By default, the Pure1 Cloud Mediator (`purestorage`) serves as the mediator.
             type: string
-            example: https://mediator.cloud-support.purestorage.com
+            example: https://mediator.example.com
           requested_promotion_state:
             description: |
               Patch `requested_promotion_state` to `demoted` to demote the pod so that it can be used as
@@ -13366,7 +13366,7 @@ components:
             DNS hostname or IP address of a computer that hosts an SNMP manager
             to which Purity//FA is to send trap messages when it generates alerts.
           type: string
-          example: snmp.purestorage.com
+          example: snmp.example.com
         notification:
           description: |
             The type of notification the agent will send.
@@ -13393,7 +13393,7 @@ components:
               DNS hostname or IP address of a computer that hosts an SNMP manager
               to which Purity//FA is to send trap messages when it generates alerts.
             type: string
-            example: snmp.purestorage.com
+            example: snmp.example.com
           notification:
             description: |
               The type of notification the agent will send.
@@ -14921,7 +14921,7 @@ components:
           common_name:
             description: The common name field listed in the certificate.
             type: string
-            example: Pure Storage Inc.
+            example: Everpure, Inc.
           country:
             description: Two-letter country (ISO) code listed in the certificate.
             type: string
@@ -14942,7 +14942,7 @@ components:
             description: The party to whom the certificate is issued.
             type: string
             readOnly: true
-            example: "Pure Storage, Inc."
+            example: "Everpure, Inc."
           key_size:
             description: The size of the private key for the certificate in bits. Default is 2048 bits.
             type: integer
@@ -16046,7 +16046,7 @@ components:
         destination:
           description: The URI of the target server being tested.
           type: string
-          example: kmip-test-server.dev.purestorage.com
+          example: kmip.example.com
         enabled:
           description: Expresses whether the service is enabled or not.
           type: boolean
@@ -16498,7 +16498,7 @@ components:
               The URL of the mediator for the pod.
               By default, the Pure1 Cloud Mediator (`purestorage`) serves as the mediator.
             type: string
-            example: https://mediator.cloud-support.purestorage.com
+            example: https://mediator.example.com
           mediator_version:
             description: |
               The mediator version.
@@ -18014,7 +18014,7 @@ components:
               DNS hostname or IP address of a computer that hosts an SNMP manager
               to which Purity//FA is to send trap messages when it generates alerts.
             type: string
-            example: snmp.purestorage.com
+            example: snmp.example.com
           notification:
             description: |
               The type of notification the agent will send.
@@ -22880,13 +22880,13 @@ components:
               issued_token_type:
                 description: |
                   The type of token that is issued.
-                  The Pure Storage REST API supports OAuth 2.0 access tokens.
+                  The Everpure REST API supports OAuth 2.0 access tokens.
                 type: string
                 example: urn:ietf:params:oauth:token-type:access_token
               token_type:
                 description: |
                   Indicates how the API client can use the access token issued.
-                  The Pure Storage REST API supports the `Bearer` token.
+                  The Everpure REST API supports the `Bearer` token.
                 type: string
                 example: Bearer
     OauthToken400:
