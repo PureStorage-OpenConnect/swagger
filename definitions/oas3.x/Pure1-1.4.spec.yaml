@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
   title: Pure1 Public REST API
-  description: "Pure1 Public REST API, developed by [Pure Storage, Inc.](https://www.purestorage.com)\n
-    \nThe Pure1 REST API 2.0 offers one single form of authentication: OAuth 2.0 via the [Token Exchange
+  description: "Pure1 Public REST API, developed by [Everpure, Inc.](https://www.everpuredata.com)\n\n
+    The Pure1 REST API 2.0 offers one single form of authentication: OAuth 2.0 via the [Token Exchange
     protocol](https://datatracker.ietf.org/doc/draft-ietf-oauth-token-exchange).\n\nOAuth 2.0 is an open
     protocol to allow secure authorization in a simple and standard method from web, mobile, desktop and
     background applications.\n\nNote that the [Authentication](#section/Authentication) section below
@@ -14,7 +14,7 @@ info:
     url:
       $ref: ../redoc/PS-LogoBase64-P1.txt
     backgroundColor: "#fff"
-    altText: Pure Storage logo
+    altText: Everpure logo
 servers:
 - url: https://api-staging.pure1.purestorage.com/
 security:
@@ -2607,7 +2607,7 @@ components:
       type: string
       description: |
         The method by which the access token will be obtained.
-        The Pure Storage REST API supports the OAuth 2.0 "token exchange" grant type,
+        The Everpure REST API supports the OAuth 2.0 "token exchange" grant type,
         which indicates that a token exchange is being performed.
         Set `grant_type` to `urn:ietf:params:oauth:grant-type:token-exchange`.
       default: urn:ietf:params:oauth:grant-type:token-exchange
@@ -2650,7 +2650,7 @@ components:
       type: string
       description: |
         An identifier that indicates the type of security token specifed in the `subject_token` parameter.
-        The Pure Storage REST API supports the JSON Web Token (JWT)
+        The Everpure REST API supports the JSON Web Token (JWT)
         as the means for requesting the access token.
         Set `subject_token_type` to `urn:ietf:params:oauth:token-type:jwt`.
       default: urn:ietf:params:oauth:token-type:jwt
@@ -3843,7 +3843,7 @@ components:
         end_user_name:
           description: The end user customer name.
           type: string
-          example: Pure Storage
+          example: Everpure
         end_user_purchase_order:
           description: The end user customer purchase order number.
           type: string
@@ -4171,7 +4171,7 @@ components:
             description: The partner who invoices for the subscription.
             type: string
             readOnly: true
-            example: Pure Storage Partner
+            example: Everpure Partner
           service:
             description: |
               The service type of the subscription. Values include
@@ -5073,7 +5073,7 @@ components:
           description: The organization name for the asset.
           type: string
           readOnly: true
-          example: Pure Storage
+          example: Everpure
       x-readOnly: true
     AssetUpgradeDetails:
       type: object
@@ -5934,13 +5934,13 @@ components:
               issued_token_type:
                 description: |
                   The type of token that is issued.
-                  The Pure Storage REST API supports OAuth 2.0 access tokens.
+                  The Everpure REST API supports OAuth 2.0 access tokens.
                 type: string
                 example: urn:ietf:params:oauth:token-type:access_token
               token_type:
                 description: |
                   Indicates how the API client can use the access token issued.
-                  The Pure Storage REST API supports the `Bearer` token.
+                  The Everpure REST API supports the `Bearer` token.
                 type: string
                 example: Bearer
     OauthToken400:

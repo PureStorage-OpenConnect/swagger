@@ -6,14 +6,14 @@ info:
     url:
       $ref: ../redoc/PS-LogoBase64-FA.txt
     backgroundColor: "#ffffff"
-    altText: Pure Storage logo
+    altText: Everpure logo
 servers:
 - url: /
 tags:
 - name: Authorization
   description: |
-    Pure Storage uses the OAuth 2.0 Token Exchange authorization grant and JSON Web Tokens (JWTs)
-    to authenticate to the Pure Storage REST API.
+    Everpure uses the OAuth 2.0 Token Exchange authorization grant and JSON Web Tokens (JWTs)
+    to authenticate to the Everpure REST API.
     Before you can exchange the ID Token for an access token, create and enable the API client
     to generate the `key_id`, `id`, and `issuer` values.
     These values will be used as JWT claims for the `subject_token` parameter.
@@ -2924,7 +2924,7 @@ components:
       type: string
       description: |
         The method by which the access token will be obtained.
-        The Pure Storage REST API supports the OAuth 2.0 "token exchange" grant type,
+        The Everpure REST API supports the OAuth 2.0 "token exchange" grant type,
         which indicates that a token exchange is being performed.
         Set `grant_type` to `urn:ietf:params:oauth:grant-type:token-exchange`.
       default: urn:ietf:params:oauth:grant-type:token-exchange
@@ -2967,7 +2967,7 @@ components:
       type: string
       description: |
         An identifier that indicates the type of security token specifed in the `subject_token` parameter.
-        The Pure Storage REST API supports the JSON Web Token (JWT)
+        The Everpure REST API supports the JSON Web Token (JWT)
         as the means for requesting the access token.
         Set `subject_token_type` to `urn:ietf:params:oauth:token-type:jwt`.
       default: urn:ietf:params:oauth:token-type:jwt
@@ -3489,7 +3489,7 @@ components:
               Sets the URL of the mediator for this pod, replacing the URL of the current mediator.
               By default, the Pure1 Cloud Mediator (`purestorage`) serves as the mediator.
             type: string
-            example: https://mediator.cloud-support.purestorage.com
+            example: https://mediator.example.com
     PodGetResponse:
       allOf:
       - $ref: '#/components/schemas/PageInfo'
@@ -4652,9 +4652,9 @@ components:
                If set to `connecting`, the connection between the array and offload target is unhealthy,
                possibly due to network issues. Check the network connectivity between the interfaces,
                disconnect the array from the offload target, and then reconnect. If the issue persists,
-               contact Pure Storage Support.
+               contact Everpure Support.
                If set to `not connected`, the offload app is not running and data
-               cannot be replicated to the offload targets. Contact Pure Storage Support.
+               cannot be replicated to the offload targets. Contact Everpure Support.
                If set to `scanning`,
                a connection has been established between the array and offload target,
                and the system is determining the state of the offload target.
@@ -4762,7 +4762,7 @@ components:
               The URL of the mediator for the pod.
               By default, the Pure1 Cloud Mediator (`purestorage`) serves as the mediator.
             type: string
-            example: https://mediator.cloud-support.purestorage.com
+            example: https://mediator.example.com
           mediator_version:
             description: The mediator version.
             type: string
@@ -6423,13 +6423,13 @@ components:
               issued_token_type:
                 description: |
                   The type of token that is issued.
-                  The Pure Storage REST API supports OAuth 2.0 access tokens.
+                  The Everpure REST API supports OAuth 2.0 access tokens.
                 type: string
                 example: urn:ietf:params:oauth:token-type:access_token
               token_type:
                 description: |
                   Indicates how the API client can use the access token issued.
-                  The Pure Storage REST API supports the `Bearer` token.
+                  The Everpure REST API supports the `Bearer` token.
                 type: string
                 example: Bearer
     OauthToken400:

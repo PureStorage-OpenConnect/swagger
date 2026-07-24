@@ -2,8 +2,7 @@ openapi: 3.0.1
 info:
   title: FlashBlade REST API
   description: |
-    A lightweight client for FlashBlade REST API 2.20, developed by
-    Pure Storage, Inc. (http://www.purestorage.com/).
+    OpenAPI specification for FlashBlade REST API, developed by Everpure, Inc. (https://www.everpuredata.com/).
   version: "2.21"
   x-pure-description-ref: ../custom_descriptions/FB-api-introduction.md
   x-logo:
@@ -16,10 +15,10 @@ security:
 - AuthorizationHeader: []
 tags:
 - name: Authorization
-  description: "Pure Storage uses the OAuth 2.0 Token Exchange authorization grant and JSON Web Tokens
-    (JWTs) to authenticate to the Pure Storage REST API. Before you can exchange the ID token for an access
-    token, create and enable the API client to generate the `key_id`, `id`, and `issuer` values. These
-    values will be used as JWT claims for the `subject_token` parameter."
+  description: "Everpure uses the OAuth 2.0 Token Exchange authorization grant and JSON Web Tokens (JWTs)
+    to authenticate to the Everpure REST API. Before you can exchange the ID token for an access token,
+    create and enable the API client to generate the `key_id`, `id`, and `issuer` values. These values
+    will be used as JWT claims for the `subject_token` parameter."
 - name: Active Directory
   description: Active Directory configuration joins a server to the domain and manages its computer account.
     Authentication for NFS or SMB is performed using Kerberos. This configuration is also used to authorize
@@ -322,6 +321,7 @@ paths:
       security: []
   /api/api_version:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Authorization
       summary: GET api_version
@@ -344,6 +344,7 @@ paths:
       security: []
   /api/login:
     post:
+      x-pure-incomplete-gre: true
       tags:
       - Authorization
       summary: POST login
@@ -371,6 +372,7 @@ paths:
       - ApiToken: []
   /api/logout:
     post:
+      x-pure-incomplete-gre: true
       tags:
       - Authorization
       summary: POST logout
@@ -1344,6 +1346,7 @@ paths:
       x-codegen-request-body-name: array
   /api/2.21/arrays/clients/performance:
     get:
+      x-pure-incomplete-gre: true
       x-pure-block-remote-execution: true
       tags:
       - Clients
@@ -1596,6 +1599,7 @@ paths:
           content: {}
   /api/2.21/array-connections:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Array Connections
       summary: GET array-connections
@@ -1753,6 +1757,7 @@ paths:
                 $ref: '#/components/schemas/ArrayConnectionKeyResponse'
   /api/2.21/array-connections/path:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Array Connections
       summary: GET array-connections/path
@@ -1818,6 +1823,7 @@ paths:
                 $ref: '#/components/schemas/ConnectionRelationshipPerformanceReplicationGetResp'
   /api/2.21/arrays/http-specific-performance:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Arrays
       summary: GET arrays/http-specific-performance
@@ -1843,6 +1849,7 @@ paths:
                 $ref: '#/components/schemas/ArrayHttpSpecificPerformanceGet'
   /api/2.21/arrays/nfs-specific-performance:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Arrays
       summary: GET arrays/nfs-specific-performance
@@ -1868,6 +1875,7 @@ paths:
                 $ref: '#/components/schemas/ArrayNfsSpecificPerformanceGet'
   /api/2.21/arrays/performance:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Arrays
       summary: GET arrays/performance
@@ -1894,6 +1902,7 @@ paths:
                 $ref: '#/components/schemas/ArrayPerformanceGetResponse'
   /api/2.21/arrays/performance/replication:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Arrays
       summary: GET arrays/performance/replication
@@ -1920,6 +1929,7 @@ paths:
                 $ref: '#/components/schemas/ArrayPerformanceReplicationGetResp'
   /api/2.21/arrays/s3-specific-performance:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Arrays
       summary: GET arrays/s3-specific-performance
@@ -1945,6 +1955,7 @@ paths:
                 $ref: '#/components/schemas/ArrayS3SpecificPerformanceGetResp'
   /api/2.21/arrays/space:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Arrays
       summary: GET arrays/space
@@ -2112,6 +2123,7 @@ paths:
       - Arrays
   /api/2.21/audits:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Audits
       summary: GET audits
@@ -2139,6 +2151,7 @@ paths:
                 $ref: '#/components/schemas/AuditGetResponse'
   /api/2.21/audit-file-systems-policies:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - Audit for File Systems
       summary: GET audit-file-systems-policies
@@ -2246,6 +2259,7 @@ paths:
       x-codegen-request-body-name: policy
   /api/2.21/audit-file-systems-policies/members:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - Audit for File Systems
       summary: GET audit-file-systems-policies/members
@@ -2322,6 +2336,7 @@ paths:
           content: {}
   /api/2.21/audit-file-systems-policy-operations:
     get:
+      x-pure-incomplete-gre: true
       x-pure-block-remote-execution: true
       tags:
       - Policies - Audit for File Systems
@@ -2355,6 +2370,7 @@ paths:
                 $ref: '#/components/schemas/AuditFileSystemsPolicyOperationGetResponse'
   /api/2.21/audit-object-store-policies:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - Audit for Object Store
       summary: GET audit-object-store-policies
@@ -2462,6 +2478,7 @@ paths:
       x-codegen-request-body-name: policy
   /api/2.21/audit-object-store-policies/members:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - Audit for Object Store
       summary: GET audit-object-store-policies/members
@@ -2567,6 +2584,7 @@ paths:
                 $ref: '#/components/schemas/BladeGetResponse'
   /api/2.21/bucket-audit-filter-actions:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Buckets
       summary: GET bucket-audit-filter-actions
@@ -2600,6 +2618,7 @@ paths:
                 $ref: '#/components/schemas/BucketAuditFilterActionGetResponse'
   /api/2.21/buckets:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Buckets
       summary: GET buckets
@@ -2711,6 +2730,7 @@ paths:
       x-codegen-request-body-name: bucket
   /api/2.21/buckets/audit-filters:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Buckets
       summary: GET buckets/audit-filters
@@ -2830,6 +2850,7 @@ paths:
       x-codegen-request-body-name: audit filter
   /api/2.21/buckets/cross-origin-resource-sharing-policies:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Buckets
       summary: GET buckets/cross-origin-resource-sharing-policies
@@ -2916,6 +2937,7 @@ paths:
           content: {}
   /api/2.21/buckets/cross-origin-resource-sharing-policies/rules:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Buckets
       summary: GET buckets/cross-origin-resource-sharing-policies/rules
@@ -3038,6 +3060,7 @@ paths:
                 $ref: '#/components/schemas/BucketPerformanceGetResponse'
   /api/2.21/buckets/bucket-access-policies:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Buckets
       summary: GET buckets/bucket-access-policies
@@ -3124,6 +3147,7 @@ paths:
           content: {}
   /api/2.21/buckets/bucket-access-policies/rules:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Buckets
       summary: GET buckets/bucket-access-policies/rules
@@ -3246,6 +3270,7 @@ paths:
                 $ref: '#/components/schemas/BucketS3SpecificPerformanceGetResp'
   /api/2.21/bucket-replica-links:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Bucket Replica Links
       summary: GET bucket-replica-links
@@ -3789,6 +3814,7 @@ paths:
                 $ref: '#/components/schemas/CertificateGroupUseGetResponse'
   /api/2.21/data-eviction-policies:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - Data Eviction
       summary: GET data-eviction-policies
@@ -3896,6 +3922,7 @@ paths:
       x-codegen-request-body-name: policy
   /api/2.21/data-eviction-policies/file-systems:
     get:
+      x-pure-incomplete-gre: true
       summary: GET data-eviction-policies/file-systems
       description: Lists file systems mapped to a data eviction policy.
       parameters:
@@ -3974,6 +4001,7 @@ paths:
       - Policies - Data Eviction
   /api/2.21/data-eviction-policies/members:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - Data Eviction
       summary: GET data-eviction-policies/members
@@ -4449,6 +4477,7 @@ paths:
                 $ref: '#/components/schemas/DriveGetResponse'
   /api/2.21/file-systems:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - File Systems
       summary: GET file-systems
@@ -4569,6 +4598,7 @@ paths:
       x-codegen-request-body-name: file-system
   /api/2.21/file-systems/data-eviction-policies:
     get:
+      x-pure-incomplete-gre: true
       summary: GET file-systems/data-eviction-policies
       description: Lists file systems mapped to a data eviction policy.
       parameters:
@@ -4712,6 +4742,7 @@ paths:
                 $ref: '#/components/schemas/FileSystemPerformanceGetResponse'
   /api/2.21/file-systems/audit-policies:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - File Systems
       summary: GET file-systems/audit-policies
@@ -4788,6 +4819,7 @@ paths:
           content: {}
   /api/2.21/file-systems/policies:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - File Systems
       summary: GET file-systems/policies
@@ -4868,6 +4900,7 @@ paths:
           content: {}
   /api/2.21/file-systems/policies-all:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - File Systems
       summary: GET file-systems/policies-all
@@ -4932,6 +4965,7 @@ paths:
                 $ref: '#/components/schemas/FileSystemUsersPerformanceGetResponse'
   /api/2.21/file-systems/worm-data-policies:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - File Systems
       summary: GET file-systems/worm-data-policies
@@ -4963,6 +4997,7 @@ paths:
                 $ref: '#/components/schemas/WormDataPoliciesMembersGetResponse'
   /api/2.21/file-system-exports:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - File System Exports
       summary: GET file-system-exports
@@ -5073,6 +5108,7 @@ paths:
       x-codegen-request-body-name: file-system-export
   /api/2.21/file-system-replica-links:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - File System Replica Links
       summary: GET file-system-replica-links
@@ -5192,6 +5228,7 @@ paths:
                 $ref: '#/components/schemas/FileSystemReplicaLinkResponse'
   /api/2.21/file-system-replica-links/policies:
     get:
+      x-pure-incomplete-gre: true
       x-pure-block-remote-execution: true
       tags:
       - File System Replica Links
@@ -5228,6 +5265,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberWithRemoteGetResponse'
     post:
+      x-pure-incomplete-gre: true
       x-pure-block-remote-execution: true
       tags:
       - File System Replica Links
@@ -5256,6 +5294,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PolicyMemberWithRemoteResponse'
     delete:
+      x-pure-incomplete-gre: true
       x-pure-block-remote-execution: true
       tags:
       - File System Replica Links
@@ -5282,6 +5321,7 @@ paths:
           content: {}
   /api/2.21/file-system-replica-links/transfer:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - File System Replica Links
       summary: GET file-system-replica-links/transfer
@@ -5314,6 +5354,7 @@ paths:
                 $ref: '#/components/schemas/FileSystemSnapshotGetTransferResponse'
   /api/2.21/file-system-snapshots:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - File System Snapshots
       summary: GET file-system-snapshots
@@ -5432,6 +5473,7 @@ paths:
       x-codegen-request-body-name: file-system-snapshot
   /api/2.21/file-system-snapshots/policies:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - File System Snapshots
       summary: GET file-system-snapshots/policies
@@ -5487,6 +5529,7 @@ paths:
           content: {}
   /api/2.21/file-system-snapshots/transfer:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - File System Snapshots
       summary: GET file-system-snapshots/transfer
@@ -6649,6 +6692,7 @@ paths:
                 $ref: '#/components/schemas/LegalHoldsHeldEntitiesResponse'
   /api/2.21/lifecycle-rules:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Lifecycle Rules
       summary: GET lifecycle-rules
@@ -7012,6 +7056,7 @@ paths:
                 format: binary
   /api/2.21/log-targets/file-systems:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Audit Log Target for File Systems
       summary: GET log-target-file-systems
@@ -7040,6 +7085,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/LogTargetsFileSystemsGetResponse'
     post:
+      x-pure-incomplete-gre: true
       tags:
       - Audit Log Target for File Systems
       summary: POST log-target-file-systems
@@ -7088,6 +7134,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-incomplete-gre: true
       tags:
       - Audit Log Target for File Systems
       summary: PATCH log-target-file-systems
@@ -7119,6 +7166,7 @@ paths:
       x-codegen-request-body-name: log-target-file-system
   /api/2.21/log-targets/object-store:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Audit Log Target for Object Store
       summary: GET log-targets/object-store
@@ -7337,6 +7385,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ManagementAccessPoliciesGetResponse'
     post:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - Management Access
       summary: POST management-access-policies
@@ -7367,6 +7416,7 @@ paths:
                 $ref: '#/components/schemas/ManagementAccessPoliciesResponse'
       x-codegen-request-body-name: policy
     delete:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - Management Access
       summary: DELETE management-access-policies
@@ -7385,6 +7435,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - Management Access
       summary: PATCH management-access-policies
@@ -8193,6 +8244,7 @@ paths:
                 $ref: '#/components/schemas/NetworkInterfaceNeighborGetResponse'
   /api/2.21/nfs-export-policies:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - NFS
       summary: GET nfs-export-policies
@@ -8302,6 +8354,7 @@ paths:
       x-codegen-request-body-name: policy
   /api/2.21/nfs-export-policies/rules:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - NFS
       summary: GET nfs-export-policies/rules
@@ -8372,6 +8425,7 @@ paths:
                 $ref: '#/components/schemas/NfsExportPolicyRuleResponse'
       x-codegen-request-body-name: rule
     delete:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - NFS
       summary: DELETE nfs-export-policies/rules
@@ -8394,6 +8448,7 @@ paths:
                 type: string
           content: {}
     patch:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - NFS
       summary: PATCH nfs-export-policies/rules
@@ -8723,6 +8778,7 @@ paths:
                 $ref: '#/components/schemas/NodeGroupUseGetResponse'
   /api/2.21/object-store-access-keys:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Object Store Access Keys
       summary: GET object-store-access-keys
@@ -8833,6 +8889,7 @@ paths:
       x-codegen-request-body-name: object-store-access-key
   /api/2.21/object-store-access-policies:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - Object Store Access
       summary: GET object-store-access-policies
@@ -8943,6 +9000,7 @@ paths:
       x-codegen-request-body-name: policy
   /api/2.21/object-store-access-policies/object-store-roles:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - Object Store Access
       summary: GET object-store-access-policies/object-store-roles
@@ -9019,6 +9077,7 @@ paths:
           content: {}
   /api/2.21/object-store-access-policies/object-store-users:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - Object Store Access
       summary: GET object-store-access-policies/object-store-users
@@ -9095,6 +9154,7 @@ paths:
           content: {}
   /api/2.21/object-store-access-policies/rules:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - Object Store Access
       summary: GET object-store-access-policies-rules
@@ -9209,6 +9269,7 @@ paths:
       x-codegen-request-body-name: rule
   /api/2.21/object-store-access-policy-actions:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - Object Store Access
       summary: GET object-store-access-policy-actions
@@ -9242,6 +9303,7 @@ paths:
                 $ref: '#/components/schemas/ObjectStoreAccessPolicyActionGetResponse'
   /api/2.21/object-store-accounts:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Object Store Accounts
       summary: GET object-store-accounts
@@ -9352,6 +9414,7 @@ paths:
       x-codegen-request-body-name: object-store-account
   /api/2.21/object-store-account-exports:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Object Store Account Exports
       summary: GET object-store-account-exports
@@ -9462,6 +9525,7 @@ paths:
       x-codegen-request-body-name: object-store-account-export
   /api/2.21/object-store-remote-credentials:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Object Store Remote Credentials
       summary: GET object-store-remote-credentials
@@ -9571,6 +9635,7 @@ paths:
       x-codegen-request-body-name: remote-credentials
   /api/2.21/object-store-roles:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Object Store Roles
       summary: GET object-store-roles
@@ -9658,6 +9723,7 @@ paths:
       x-codegen-request-body-name: object-store-role
   /api/2.21/object-store-roles/object-store-access-policies:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Object Store Roles
       summary: GET object-store-roles/object-store-access-policies
@@ -9734,6 +9800,7 @@ paths:
           content: {}
   /api/2.21/object-store-roles/object-store-trust-policies:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Object Store Roles
       summary: GET object-store-roles/object-store-trust-policies
@@ -9788,6 +9855,7 @@ paths:
                 $ref: '#/components/schemas/ObjectStoreTrustPolicyIam'
   /api/2.21/object-store-roles/object-store-trust-policies/upload:
     patch:
+      x-pure-incomplete-gre: true
       tags:
       - Object Store Roles
       summary: PATCH object-store-roles/object-store-trust-policies/upload
@@ -9821,6 +9889,7 @@ paths:
       x-codegen-request-body-name: policy_document
   /api/2.21/object-store-roles/object-store-trust-policies/rules:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Object Store Roles
       summary: GET object-store-roles/object-store-trust-policies/rules
@@ -9920,6 +9989,7 @@ paths:
       x-codegen-request-body-name: rule
   /api/2.21/object-store-users:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Object Store Users
       summary: GET object-store-users
@@ -9990,6 +10060,7 @@ paths:
           content: {}
   /api/2.21/object-store-users/object-store-access-policies:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Object Store Users
       summary: GET object-store-users/object-store-access-policies
@@ -10066,6 +10137,7 @@ paths:
           content: {}
   /api/2.21/object-store-virtual-hosts:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Object Store Virtual Hosts
       summary: GET object-store-virtual-hosts
@@ -10244,6 +10316,7 @@ paths:
       x-codegen-request-body-name: policy
   /api/2.21/policies:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - Snapshot
       summary: GET policies
@@ -10355,6 +10428,7 @@ paths:
       x-codegen-request-body-name: policy
   /api/2.21/policies/file-systems:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - Snapshot
       summary: GET policies/file-systems
@@ -10434,6 +10508,7 @@ paths:
           content: {}
   /api/2.21/policies/file-system-snapshots:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - Snapshot
       summary: GET policies/file-system-snapshots
@@ -10479,6 +10554,7 @@ paths:
           content: {}
   /api/2.21/policies/members:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - Snapshot
       summary: GET policies/members
@@ -10520,6 +10596,7 @@ paths:
                 $ref: '#/components/schemas/PolicyMemberWithRemoteGetResponse'
   /api/2.21/policies/file-system-replica-links:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - Snapshot
       summary: GET policies/file-system-replica-links
@@ -10595,6 +10672,7 @@ paths:
           content: {}
   /api/2.21/policies-all:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies (All)
       summary: GET policies-all
@@ -10624,6 +10702,7 @@ paths:
                 $ref: '#/components/schemas/PolicyBaseGetResponse'
   /api/2.21/policies-all/members:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies (All)
       summary: GET policies-all/members
@@ -11011,6 +11090,7 @@ paths:
                 $ref: '#/components/schemas/PolicyMemberGetResponse'
   /api/2.21/quotas/groups:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Quotas
       summary: GET quotas/groups
@@ -11183,6 +11263,7 @@ paths:
       x-codegen-request-body-name: quota-setting
   /api/2.21/quotas/users:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Quotas
       summary: GET quotas/users
@@ -11496,6 +11577,7 @@ paths:
       x-codegen-request-body-name: realm
   /api/2.21/realms/defaults:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Realms
       summary: GET realms/defaults
@@ -11764,6 +11846,7 @@ paths:
                 $ref: '#/components/schemas/RoleGetResponse'
   /api/2.21/s3-export-policies:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - S3 Export
       summary: GET s3-export-policies
@@ -11879,6 +11962,7 @@ paths:
       x-codegen-request-body-name: policy
   /api/2.21/s3-export-policies/rules:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - S3 Export
       summary: GET s3-export-policies/rules
@@ -12360,6 +12444,7 @@ paths:
       x-codegen-request-body-name: policy
   /api/2.21/storage-class-tiering-policies/members:
     get:
+      x-pure-incomplete-gre: true
       x-pure-block-remote-execution: true
       tags:
       - Policies - Storage Class Tiering
@@ -12392,6 +12477,7 @@ paths:
                 $ref: '#/components/schemas/StorageClassTieringPoliciesMembersGetResponse'
   /api/2.21/servers:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Servers
       summary: GET servers
@@ -12530,6 +12616,7 @@ paths:
                 $ref: '#/components/schemas/SessionGetResponse'
   /api/2.21/smb-client-policies:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - SMB Client
       summary: GET smb-client-policies
@@ -12637,6 +12724,7 @@ paths:
       x-codegen-request-body-name: policy
   /api/2.21/smb-client-policies/rules:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - SMB Client
       summary: GET smb-client-policies/rules
@@ -12771,6 +12859,7 @@ paths:
       x-codegen-request-body-name: rule
   /api/2.21/smb-share-policies:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - SMB Share
       summary: GET smb-share-policies
@@ -12878,6 +12967,7 @@ paths:
       x-codegen-request-body-name: policy
   /api/2.21/smb-share-policies/rules:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - SMB Share
       summary: GET smb-share-policies/rules
@@ -13916,6 +14006,7 @@ paths:
           content: {}
   /api/2.21/syslog-servers:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Syslog
       summary: GET syslog-servers
@@ -14105,6 +14196,7 @@ paths:
                 $ref: '#/components/schemas/TestResultGetResponse'
   /api/2.21/targets:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Targets
       summary: GET targets
@@ -14459,6 +14551,7 @@ paths:
           content: {}
   /api/2.21/usage/groups:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Usage
       summary: GET usage/groups
@@ -14490,6 +14583,7 @@ paths:
                 $ref: '#/components/schemas/GroupQuotaGetResponse'
   /api/2.21/usage/users:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Usage
       summary: GET usage/users
@@ -14521,6 +14615,7 @@ paths:
                 $ref: '#/components/schemas/UserQuotaGetResponse'
   /api/2.21/worm-data-policies:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - WORM Data
       summary: GET worm-data-policies
@@ -14630,6 +14725,7 @@ paths:
       x-codegen-request-body-name: policy
   /api/2.21/worm-data-policies/members:
     get:
+      x-pure-incomplete-gre: true
       tags:
       - Policies - WORM Data
       summary: GET worm-data-policies/members
@@ -14674,7 +14770,7 @@ components:
       type: string
       description: |
         The method by which the access token will be obtained.
-        The Pure Storage REST API supports the OAuth 2.0 "token exchange" grant type,
+        The Everpure REST API supports the OAuth 2.0 "token exchange" grant type,
         which indicates that a token exchange is being performed.
         Set `grant_type` to `urn:ietf:params:oauth:grant-type:token-exchange`.
       default: urn:ietf:params:oauth:grant-type:token-exchange
@@ -14717,7 +14813,7 @@ components:
       type: string
       description: |
         An identifier that indicates the type of security token specifed in the `subject_token` parameter.
-        The Pure Storage REST API supports the JSON Web Token (JWT)
+        The Everpure REST API supports the JSON Web Token (JWT)
         as the means for requesting the access token.
         Set `subject_token_type` to `urn:ietf:params:oauth:token-type:jwt`.
       default: urn:ietf:params:oauth:token-type:jwt
@@ -15473,7 +15569,7 @@ components:
               The current SMB mode of the array.
               This controls the type of authentication that is used by the array for SMB.
               Possible values include `ad-auto`, `ad-rfc2307`, `guest`, and `native`.
-              Modifying this value requires the assistance of Pure Storage Support.
+              Modifying this value requires the assistance of Everpure Support.
             type: string
             readOnly: true
           time_zone:
@@ -16430,7 +16526,7 @@ components:
         common_name:
           description: The common name field to be listed in the certificate.
           type: string
-          example: Pure Storage Inc.
+          example: Everpure, Inc.
         country:
           description: Two-letter country (ISO) code to be listed in the certificate.
           type: string
@@ -20121,7 +20217,7 @@ components:
             DNS hostname or IP address of a computer that hosts an SNMP manager
             to which Purity is to send trap messages when it generates alerts.
           type: string
-          example: snmp.purestorage.com
+          example: snmp.example.com
         notification:
           description: |
             The type of notification the agent will send.
@@ -20149,7 +20245,7 @@ components:
               DNS hostname or IP address of a computer that hosts an SNMP manager
               to which Purity is to send trap messages when it generates alerts.
             type: string
-            example: snmp.purestorage.com
+            example: snmp.example.com
           notification:
             description: |
               The type of notification the agent will send.
@@ -22894,7 +22990,7 @@ components:
             description: Who this certificate was issued to.
             type: string
             readOnly: true
-            example: Pure Storage, Inc.
+            example: Everpure, Inc.
           key_algorithm:
             description: |
               The key algorithm used to generate the certificate.
@@ -27809,7 +27905,7 @@ components:
       description: |
         A flag to skip phonehome connectivity check.
         Arrays that intentionally disable phonehome or do not permit connectivity
-        to Pure Storage's cloud servers must set this flag to `true` in order to start factory reset.
+        to Everpure's cloud servers must set this flag to `true` in order to start factory reset.
       schema:
         type: boolean
         default: false
@@ -29329,13 +29425,13 @@ components:
               issued_token_type:
                 description: |
                   The type of token that is issued.
-                  The Pure Storage REST API supports OAuth 2.0 access tokens.
+                  The Everpure REST API supports OAuth 2.0 access tokens.
                 type: string
                 example: urn:ietf:params:oauth:token-type:access_token
               token_type:
                 description: |
                   Indicates how the API client can use the access token issued.
-                  The Pure Storage REST API supports the `Bearer` token.
+                  The Everpure REST API supports the `Bearer` token.
                 type: string
                 example: Bearer
     OauthToken400:
