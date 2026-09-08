@@ -301,7 +301,7 @@ paths:
       security: []
   /api/api_version:
     get:
-      x-pure-incomplete-gre: true
+      x-pure-block-remote-execution: true
       tags:
       - Authorization
       summary: GET api_version
@@ -324,7 +324,7 @@ paths:
       security: []
   /api/login:
     post:
-      x-pure-incomplete-gre: true
+      x-pure-block-remote-execution: true
       tags:
       - Authorization
       summary: POST login
@@ -352,7 +352,7 @@ paths:
       - ApiToken: []
   /api/logout:
     post:
-      x-pure-incomplete-gre: true
+      x-pure-block-remote-execution: true
       tags:
       - Authorization
       summary: POST logout

@@ -17614,6 +17614,8 @@ paths:
     get:
       x-pure-block-remote-execution: true
       x-pure-incomplete-gre: true
+      x-pure-remote-execution-context-domains-override:
+      - FLEET
       tags:
       - Topology Groups
       summary: List topology groups
@@ -17641,6 +17643,8 @@ paths:
     post:
       x-pure-block-remote-execution: true
       x-pure-incomplete-gre: true
+      x-pure-remote-execution-context-domains-override:
+      - FLEET
       tags:
       - Topology Groups
       summary: Create topology groups
@@ -17666,6 +17670,8 @@ paths:
     patch:
       x-pure-block-remote-execution: true
       x-pure-incomplete-gre: true
+      x-pure-remote-execution-context-domains-override:
+      - FLEET
       tags:
       - Topology Groups
       summary: Modify topology groups
@@ -17701,6 +17707,8 @@ paths:
     delete:
       x-pure-block-remote-execution: true
       x-pure-incomplete-gre: true
+      x-pure-remote-execution-context-domains-override:
+      - FLEET
       tags:
       - Topology Groups
       summary: Delete topology groups
@@ -17719,6 +17727,8 @@ paths:
     get:
       x-pure-block-remote-execution: true
       x-pure-incomplete-gre: true
+      x-pure-remote-execution-context-domains-override:
+      - FLEET
       tags:
       - Topology Groups
       summary: List topology group arrays
@@ -17751,6 +17761,8 @@ paths:
     get:
       x-pure-block-remote-execution: true
       x-pure-incomplete-gre: true
+      x-pure-remote-execution-context-domains-override:
+      - FLEET
       tags:
       - Topology Groups
       summary: List topology group members
@@ -17780,6 +17792,8 @@ paths:
     post:
       x-pure-block-remote-execution: true
       x-pure-incomplete-gre: true
+      x-pure-remote-execution-context-domains-override:
+      - FLEET
       tags:
       - Topology Groups
       summary: Add topology group members
@@ -17811,6 +17825,8 @@ paths:
     delete:
       x-pure-block-remote-execution: true
       x-pure-incomplete-gre: true
+      x-pure-remote-execution-context-domains-override:
+      - FLEET
       tags:
       - Topology Groups
       summary: Remove topology group members
@@ -29072,9 +29088,11 @@ components:
           allOf:
           - $ref: '#/components/schemas/_qos_iops_limit_type'
     _containerQosCeilings_patch:
+      x-pure-py-compat-coerce: true
       type: object
       properties:
         bandwidth_limit:
+          x-pure-py-compat-coerce: true
           description: |
             The maximum QoS bandwidth limit for the container, measured
             in bytes per second. Throttling occurs when throughput exceeds
@@ -29085,6 +29103,7 @@ components:
           - $ref: '#/components/schemas/_qos_bw_limit_type'
           - $ref: '#/components/schemas/_limit_unset_value'
         iops_limit:
+          x-pure-py-compat-coerce: true
           description: |
             The QoS IOPS limit for the container. Specifying an empty
             string `""` unsets the limit.
@@ -30058,6 +30077,7 @@ components:
       type: object
       properties:
         quota_limit:
+          x-pure-py-compat-coerce: true
           title: QuotaLimitPatch
           description: |
             The logical quota limit of the object, measured in `bytes`. Specifying
@@ -32500,10 +32520,12 @@ components:
             allOf:
             - $ref: '#/components/schemas/_qos_iops_limit_type'
     _containerQos_patch:
+      x-pure-py-compat-coerce: true
       allOf:
       - $ref: '#/components/schemas/_containerQosCeilings_patch'
       - properties:
           bandwidth_floor:
+            x-pure-py-compat-coerce: true
             description: |
               The QoS bandwidth floor for the container, measured in `bytes per second`.
               Priority is granted to traffic until this floor is reached. The maximum
@@ -32514,6 +32536,7 @@ components:
             - $ref: '#/components/schemas/_qos_bw_limit_type'
             - $ref: '#/components/schemas/_limit_unset_value'
           iops_floor:
+            x-pure-py-compat-coerce: true
             description: |
               The QoS `IOPS` floor for the container. Priority is granted to traffic until this
               floor is reached. The maximum supported floor is `100,000,000` `IOs per second`.
@@ -34138,9 +34161,11 @@ components:
           type: string
           example: "1"
     _qos_patch:
+      x-pure-py-compat-coerce: true
       type: object
       properties:
         bandwidth_limit:
+          x-pure-py-compat-coerce: true
           description: |
             The maximum QoS bandwidth limit for the volume, measured in `bytes per second`.
             Throttling occurs when throughput exceeds this limit. The maximum supported
@@ -34150,6 +34175,7 @@ components:
           - $ref: '#/components/schemas/_qos_bw_limit_type'
           - $ref: '#/components/schemas/_limit_unset_value'
         iops_limit:
+          x-pure-py-compat-coerce: true
           description: |
             The QoS `IOPS` limit for the volume. Specifying an empty string `""`
             unsets the limit.
@@ -35863,6 +35889,7 @@ components:
       type: string
       minLength: 0
       maxLength: 0
+      x-quoted: true
     _host_port_connectivity:
       description: |
         The connectivity status between the host and the ports on each controller.
@@ -36683,6 +36710,7 @@ components:
       type: object
       properties:
         quota_limit:
+          x-pure-py-compat-coerce: true
           title: PolicyRuleUserGroupQuotaLimitPatch
           description: |
             The logical space limit of the quota, measured in `bytes`, assigned by the rule.
