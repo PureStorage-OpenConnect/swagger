@@ -17992,6 +17992,7 @@ paths:
       x-pure-block-remote-execution: true
       x-pure-incomplete-gre: true
       x-pure-remote-execution-context-domains-override:
+      - ARRAY
       - FLEET
       tags:
       - Topology Groups
@@ -18105,6 +18106,7 @@ paths:
       x-pure-block-remote-execution: true
       x-pure-incomplete-gre: true
       x-pure-remote-execution-context-domains-override:
+      - ARRAY
       - FLEET
       tags:
       - Topology Groups
@@ -18139,6 +18141,7 @@ paths:
       x-pure-block-remote-execution: true
       x-pure-incomplete-gre: true
       x-pure-remote-execution-context-domains-override:
+      - ARRAY
       - FLEET
       tags:
       - Topology Groups
@@ -21027,7 +21030,7 @@ components:
             $ref: '#/components/schemas/AlertWatcher'
     TestResultWithResourceGetResponse:
       allOf:
-      - $ref: '#/components/schemas/TotalItemCountResponse'
+      - $ref: '#/components/schemas/PageInfo'
       - $ref: '#/components/schemas/_errorContextResponse'
       - type: object
         properties:
@@ -27638,17 +27641,6 @@ components:
               If set to `true`, email notifications will be sent to this watcher for alerts.
               If set to `false`, email notification is disabled.
             type: boolean
-    TotalItemCountResponse:
-      type: object
-      properties:
-        total_item_count:
-          description: |
-            The total number of records after applying all filter query parameters.
-            The `total_item_count` will be calculated if and only if the corresponding
-            query parameter `total_item_count` is set to `true`. If this query parameter
-            is not set or set to `false`, a value of `null` will be returned.
-          type: integer
-          format: int32
     ApiClient:
       type: object
       properties:

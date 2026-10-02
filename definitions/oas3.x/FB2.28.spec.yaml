@@ -20003,6 +20003,7 @@ paths:
       x-pure-block-remote-execution: true
       x-pure-incomplete-gre: true
       x-pure-remote-execution-context-domains-override:
+      - ARRAY
       - FLEET
       tags:
       - Topology Groups
@@ -20118,6 +20119,7 @@ paths:
       x-pure-block-remote-execution: true
       x-pure-incomplete-gre: true
       x-pure-remote-execution-context-domains-override:
+      - ARRAY
       - FLEET
       tags:
       - Topology Groups
@@ -20154,6 +20156,7 @@ paths:
       x-pure-block-remote-execution: true
       x-pure-incomplete-gre: true
       x-pure-remote-execution-context-domains-override:
+      - ARRAY
       - FLEET
       tags:
       - Topology Groups

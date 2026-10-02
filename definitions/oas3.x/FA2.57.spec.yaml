@@ -18123,6 +18123,7 @@ paths:
   /api/2.57/topology-groups:
     get:
       x-pure-remote-execution-context-domains-override:
+      - ARRAY
       - FLEET
       tags:
       - Topology Groups
@@ -18237,6 +18238,7 @@ paths:
   /api/2.57/topology-groups/arrays:
     get:
       x-pure-remote-execution-context-domains-override:
+      - ARRAY
       - FLEET
       tags:
       - Topology Groups
@@ -18278,6 +18280,7 @@ paths:
   /api/2.57/topology-groups/members:
     get:
       x-pure-remote-execution-context-domains-override:
+      - ARRAY
       - FLEET
       tags:
       - Topology Groups
@@ -21174,7 +21177,7 @@ components:
             $ref: '#/components/schemas/AlertWatcher'
     TestResultWithResourceGetResponse:
       allOf:
-      - $ref: '#/components/schemas/TotalItemCountResponse'
+      - $ref: '#/components/schemas/PageInfo'
       - $ref: '#/components/schemas/_errorContextResponse'
       - type: object
         properties:
@@ -27857,17 +27860,6 @@ components:
               If set to `true`, email notifications will be sent to this watcher for alerts.
               If set to `false`, email notification is disabled.
             type: boolean
-    TotalItemCountResponse:
-      type: object
-      properties:
-        total_item_count:
-          description: |
-            The total number of records after applying all filter query parameters.
-            The `total_item_count` will be calculated if and only if the corresponding
-            query parameter `total_item_count` is set to `true`. If this query parameter
-            is not set or set to `false`, a value of `null` will be returned.
-          type: integer
-          format: int32
     ApiClient:
       type: object
       properties:
@@ -30087,9 +30079,11 @@ components:
           allOf:
           - $ref: '#/components/schemas/_qos_iops_limit_type'
     _containerQosCeilings_patch:
+      x-pure-py-compat-coerce: true
       type: object
       properties:
         bandwidth_limit:
+          x-pure-py-compat-coerce: true
           description: |
             The maximum QoS bandwidth limit for the container, measured
             in bytes per second. Throttling occurs when throughput exceeds
@@ -30100,6 +30094,7 @@ components:
           - $ref: '#/components/schemas/_qos_bw_limit_type'
           - $ref: '#/components/schemas/_limit_unset_value'
         iops_limit:
+          x-pure-py-compat-coerce: true
           description: |
             The QoS IOPS limit for the container. Specifying an empty
             string `""` unsets the limit.
@@ -31120,6 +31115,7 @@ components:
       type: object
       properties:
         quota_limit:
+          x-pure-py-compat-coerce: true
           title: QuotaLimitPatch
           description: |
             The logical quota limit of the object, measured in `bytes`. Specifying
@@ -33555,10 +33551,12 @@ components:
             allOf:
             - $ref: '#/components/schemas/_qos_iops_limit_type'
     _containerQos_patch:
+      x-pure-py-compat-coerce: true
       allOf:
       - $ref: '#/components/schemas/_containerQosCeilings_patch'
       - properties:
           bandwidth_floor:
+            x-pure-py-compat-coerce: true
             description: |
               The QoS bandwidth floor for the container, measured in `bytes per second`.
               Priority is granted to traffic until this floor is reached. The maximum
@@ -33569,6 +33567,7 @@ components:
             - $ref: '#/components/schemas/_qos_bw_limit_type'
             - $ref: '#/components/schemas/_limit_unset_value'
           iops_floor:
+            x-pure-py-compat-coerce: true
             description: |
               The QoS `IOPS` floor for the container. Priority is granted to traffic until this
               floor is reached. The maximum supported floor is `100,000,000` `IOs per second`.
@@ -35310,9 +35309,11 @@ components:
           type: string
           example: "1"
     _qos_patch:
+      x-pure-py-compat-coerce: true
       type: object
       properties:
         bandwidth_limit:
+          x-pure-py-compat-coerce: true
           description: |
             The maximum QoS bandwidth limit for the volume, measured in `bytes per second`.
             Throttling occurs when throughput exceeds this limit. The maximum supported
@@ -35322,6 +35323,7 @@ components:
           - $ref: '#/components/schemas/_qos_bw_limit_type'
           - $ref: '#/components/schemas/_limit_unset_value'
         iops_limit:
+          x-pure-py-compat-coerce: true
           description: |
             The QoS `IOPS` limit for the volume. Specifying an empty string `""`
             unsets the limit.
@@ -37058,6 +37060,7 @@ components:
       type: string
       minLength: 0
       maxLength: 0
+      x-quoted: true
     _host_port_connectivity:
       description: |
         The connectivity status between the host and the ports on each controller.
@@ -37899,6 +37902,7 @@ components:
       type: object
       properties:
         quota_limit:
+          x-pure-py-compat-coerce: true
           title: PolicyRuleUserGroupQuotaLimitPatch
           description: |
             The logical space limit of the quota, measured in `bytes`, assigned by the rule.
