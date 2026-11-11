@@ -652,6 +652,12 @@
   url: specs/Pure1-1.6.spec.yaml
   version: '1.6'
   version_sort: 3106
+- filename: Pure1-1.7.spec.yaml
+  model: Pure1
+  name: Pure1 v1.7
+  url: specs/Pure1-1.7.spec.yaml
+  version: '1.7'
+  version_sort: 3107
 - filename: FlashArray REST v1.7.yaml
   model: FlashArray
   name: FlashArray v1.7
